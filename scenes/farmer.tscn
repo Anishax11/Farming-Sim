@@ -1,0 +1,131 @@
+[gd_scene load_steps=17 format=3 uid="uid://bulruc5in76aq"]
+
+[ext_resource type="Script" path="res://scripts/farmer.gd" id="1_kssk7"]
+[ext_resource type="Texture2D" uid="uid://1umud5d62klw" path="res://16x16/Sprites/$farmer.png" id="1_t7xtv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh2sd"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(0, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppit1"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(16, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yd8f"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(32, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhea6"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mjfg"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqthb"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd4jv"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en651"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7s32"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rqqy"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(0, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7akc"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(16, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw1e1"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(32, 64, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yhg64"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh2sd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppit1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yd8f")
+}],
+"loop": false,
+"name": &"backward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhea6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mjfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqthb")
+}],
+"loop": false,
+"name": &"forward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd4jv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en651")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7s32")
+}],
+"loop": false,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rqqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7akc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw1e1")
+}],
+"loop": false,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ip8u5"]
+radius = 5.25
+height = 16.5
+
+[node name="Farmer" type="CharacterBody2D"]
+collision_mask = 7
+script = ExtResource("1_kssk7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_yhg64")
+animation = &"forward"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_ip8u5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)

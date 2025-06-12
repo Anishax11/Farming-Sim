@@ -1,0 +1,126 @@
+[gd_scene load_steps=15 format=3 uid="uid://bulruc5in76aq"]
+
+[ext_resource type="Script" path="res://scripts/farmer.gd" id="1_kssk7"]
+[ext_resource type="Texture2D" uid="uid://1umud5d62klw" path="res://16x16/Sprites/$farmer.png" id="1_t7xtv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh2sd"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(0, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppit1"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(16, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yd8f"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(32, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhea6"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mjfg"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqthb"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rqqy"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(0, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7akc"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(16, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw1e1"]
+atlas = ExtResource("1_t7xtv")
+region = Rect2(32, 64, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yhg64"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh2sd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppit1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yd8f")
+}],
+"loop": true,
+"name": &"backward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhea6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mjfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqthb")
+}],
+"loop": true,
+"name": &"forward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rqqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7akc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw1e1")
+}],
+"loop": false,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ip8u5"]
+radius = 5.25
+height = 16.5
+
+[sub_resource type="GDScript" id="GDScript_co0lt"]
+script/source = "extends CollisionSBody2D
+
+
+var speed=70
+var direction: Vector2
+func _physics_process(delta: float) -> void:
+	
+	position+=speed*direction*delta
+	
+func _input(event: InputEvent) -> void:
+	
+	if Input.is_action_pressed(\"Up\"):
+		direction=Vector2.UP
+	if Input.is_action_pressed(\"Down\"):
+		direction=Vector2.DOWN
+	if Input.is_action_pressed(\"Right\"):
+		direction=Vector2.RIGHT
+	if Input.is_action_pressed(\"Left\"):
+		direction=Vector2.LEFT
+	
+"
+
+[node name="Farmer" type="CharacterBody2D"]
+script = ExtResource("1_kssk7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yhg64")
+animation = &"forward"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, 7.75)
+shape = SubResource("CapsuleShape2D_ip8u5")
+script = SubResource("GDScript_co0lt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
