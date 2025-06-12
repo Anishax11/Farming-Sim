@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnyh64xhqcef4"]
+[gd_scene load_steps=10 format=3 uid="uid://bnyh64xhqcef4"]
 
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_l374g"]
 [ext_resource type="PackedScene" uid="uid://bqf55ab0jubbx" path="res://scenes/grass.tscn" id="2_8rimr"]
 [ext_resource type="Texture2D" uid="uid://c6uxwvtm7ih4h" path="res://16x16/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Walls_Tilset.png" id="3_r0c6b"]
 [ext_resource type="Texture2D" uid="uid://ux5mcim0ws5d" path="res://16x16/Sprites/vectoraith_tileset_farmingsims_buildings.png" id="4_hyouo"]
 [ext_resource type="PackedScene" uid="uid://fw0la85vqc7p" path="res://scenes/door.tscn" id="5_g8qt1"]
+[ext_resource type="PackedScene" uid="uid://clf70pvfbgb7r" path="res://scenes/tree.tscn" id="6_scnxq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbveu"]
 texture = ExtResource("3_r0c6b")
@@ -143,6 +144,9 @@ position = Vector2(131, -44)
 [node name="Grass15" parent="Grass" instance=ExtResource("2_8rimr")]
 position = Vector2(175, -44)
 
+[node name="Grass16" parent="Grass" instance=ExtResource("2_8rimr")]
+position = Vector2(-130, -43)
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, -8)
 tile_set = SubResource("TileSet_8d5iv")
@@ -151,3 +155,11 @@ layer_0/tile_data = PackedInt32Array(-458748, 65537, 1, -524283, 131073, 0, -458
 
 [node name="Door" parent="." instance=ExtResource("5_g8qt1")]
 position = Vector2(73, -56)
+
+[node name="Trees" type="Node" parent="."]
+
+[node name="Tree1" parent="Trees" instance=ExtResource("6_scnxq")]
+position = Vector2(-136, -48)
+
+[node name="Tree" parent="Trees" instance=ExtResource("6_scnxq")]
+position = Vector2(25, -33)

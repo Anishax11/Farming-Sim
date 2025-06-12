@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://clf70pvfbgb7r"]
+
+[ext_resource type="Texture2D" uid="uid://d33g7y13jydfa" path="res://16x16/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="1_m7so7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlmlg"]
+atlas = ExtResource("1_m7so7")
+region = Rect2(0, 0, 17, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3672"]
+atlas = ExtResource("1_m7so7")
+region = Rect2(0, 64, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n5a4"]
+atlas = ExtResource("1_m7so7")
+region = Rect2(0, 0, 17, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orsbi"]
+atlas = ExtResource("1_m7so7")
+region = Rect2(22, 0, 22, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5o1w1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlmlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3672")
+}],
+"loop": false,
+"name": &"fallen tree",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n5a4")
+}],
+"loop": false,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orsbi")
+}],
+"loop": true,
+"name": &"thick tree",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k4483"]
+radius = 8.0
+height = 32.0
+
+[node name="Tree" type="Area2D"]
+z_index = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5o1w1")
+animation = &"thick tree"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 0.8)
+shape = SubResource("CapsuleShape2D_k4483")
