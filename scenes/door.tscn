@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://fw0la85vqc7p"]
+[gd_scene load_steps=6 format=3 uid="uid://fw0la85vqc7p"]
 
 [ext_resource type="Texture2D" uid="uid://ux5mcim0ws5d" path="res://16x16/Sprites/vectoraith_tileset_farmingsims_buildings.png" id="1_cftq4"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_wmooi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yne8"]
 size = Vector2(16, 25)
@@ -22,6 +23,7 @@ animations = [{
 
 [node name="Door" type="Area2D"]
 collision_layer = 4
+script = ExtResource("1_wmooi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.5)

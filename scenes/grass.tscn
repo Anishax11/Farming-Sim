@@ -1,21 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqf55ab0jubbx"]
+[gd_scene load_steps=8 format=3 uid="uid://bqf55ab0jubbx"]
 
+[ext_resource type="Script" path="res://scripts/grass.gd" id="1_38byu"]
 [ext_resource type="Texture2D" uid="uid://dnw6vh52nlrlb" path="res://16x16/Sprites/Grass.png" id="1_rnq2u"]
 [ext_resource type="Texture2D" uid="uid://c8o57bwd2vtpo" path="res://16x16/Sprites/Tilled_Dirt.png" id="2_26bhs"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2h5fs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsrdq"]
 atlas = ExtResource("1_rnq2u")
-region = Rect2(0, 0, 48, 48)
+region = Rect2(0, 80, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pjn34"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_17aly"]
 atlas = ExtResource("2_26bhs")
-region = Rect2(0, 0, 49, 48)
+region = Rect2(0, 80, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_maq8k"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2h5fs")
+"texture": SubResource("AtlasTexture_wsrdq")
 }],
 "loop": true,
 "name": &"Green grass",
@@ -23,7 +24,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pjn34")
+"texture": SubResource("AtlasTexture_17aly")
 }],
 "loop": true,
 "name": &"Soil",
@@ -31,14 +32,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvy8g"]
-size = Vector2(42, 42)
+size = Vector2(16, 16)
 
 [node name="Grass" type="Area2D"]
 z_index = -1
+script = ExtResource("1_38byu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_maq8k")
-animation = &"Green grass"
+animation = &"Soil"
+autoplay = "Green grass"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dvy8g")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

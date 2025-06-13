@@ -76,5 +76,6 @@ func _input(event: InputEvent) -> void:
 		direction.x-=1
 	
 	
-	
+func play_animation():
+	animated_sprite_2d.play("hoe")
 	
