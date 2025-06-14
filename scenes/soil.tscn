@@ -52,8 +52,8 @@ script = ExtResource("1_jrfko")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_ir0pw")
-animation = &"tilled"
-autoplay = "tilled"
+animation = &"untilled"
+autoplay = "untilled"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ryoc2")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnnuq6f68u4ja"]
+
+[ext_resource type="Texture2D" uid="uid://btsidvwqvur7r" path="res://openart-image_bFxviOJM_1749923461516_raw (1).jpg" id="1_kt6nh"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="Cliff" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1184, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Cliff"]
+texture = ExtResource("1_kt6nh")
