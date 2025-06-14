@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://c6xokp1noba6f"]
+
+[ext_resource type="Texture2D" uid="uid://da4gaksqh4jto" path="res://16x16/Sprites/ChatGPT Image Jun 14, 2025, 05_14_44 PM.png" id="1_2prn8"]
+[ext_resource type="Script" path="res://scripts/soil.gd" id="1_jrfko"]
+[ext_resource type="Texture2D" uid="uid://cs81kalmfcfnu" path="res://MV/tilesets/_srw_farming_A2.png" id="2_uo1fu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rec1l"]
+atlas = ExtResource("2_uo1fu")
+region = Rect2(0, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj7fq"]
+atlas = ExtResource("1_2prn8")
+region = Rect2(88, 935, 88, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb7r7"]
+atlas = ExtResource("1_2prn8")
+region = Rect2(352, 935, 88, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ir0pw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rec1l")
+}],
+"loop": true,
+"name": &"tilled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj7fq")
+}],
+"loop": true,
+"name": &"untilled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb7r7")
+}],
+"loop": true,
+"name": &"untilled_rock",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryoc2"]
+size = Vector2(16, 16)
+
+[node name="Soil" type="Area2D"]
+script = ExtResource("1_jrfko")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_ir0pw")
+animation = &"tilled"
+autoplay = "tilled"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ryoc2")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bnyh64xhqcef4"]
+[gd_scene load_steps=17 format=3 uid="uid://bnyh64xhqcef4"]
 
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_l374g"]
 [ext_resource type="PackedScene" uid="uid://bqf55ab0jubbx" path="res://scenes/grass.tscn" id="2_8rimr"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b1j57ui0fkksc" path="res://16x16/Sprout Lands - Sprites - Basic pack/Tilesets/Tilled_Dirt_v2.png" id="5_rf5xj"]
 [ext_resource type="PackedScene" uid="uid://clf70pvfbgb7r" path="res://scenes/tree.tscn" id="6_scnxq"]
 [ext_resource type="Texture2D" uid="uid://cs81kalmfcfnu" path="res://MV/tilesets/_srw_farming_A2.png" id="6_ybppu"]
+[ext_resource type="PackedScene" uid="uid://s84nx63byva3" path="res://scenes/soil_manager.tscn" id="10_vl0ky"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugn7j"]
 texture = ExtResource("2_j4gt8")
@@ -3608,7 +3609,7 @@ z_index = -2
 position = Vector2(21, -162)
 tile_set = SubResource("TileSet_8d5iv")
 format = 2
-layer_0/tile_data = PackedInt32Array(-65532, 2, 0, 4, 2, 1, 65540, 2, 1, 131076, 2, 3, -65531, 327682, 0, 5, 327682, 1, 65541, 65538, 1, 131077, 589826, 4, -65530, 393218, 0, 6, 393218, 1, 65542, 393218, 2, 131078, 655362, 4, -65529, 131074, 0, 7, 131074, 1, 65543, 131074, 1, 131079, 131074, 3, -65528, 2, 0, 8, 2, 1, 65544, 262146, 2, 131080, 262146, 3, 196616, 262146, 5, -65527, 65538, 0, 9, 327682, 1, 65545, 327682, 2, 131081, 327682, 3, 196617, 2, 5, 262153, 196610, 5, 65546, 393218, 2, 131082, 393218, 3, 196618, 2, 5, 262154, 2, 5, 327690, 2, 5, -65534, 65538, 0, 2, 65538, 1, -65533, 131074, 0, 3, 131074, 1, -65535, 2, 0, 1, 2, 1, 65538, 65538, 2, 65539, 131074, 2, 131075, 327682, 5, 262149, 589826, 5, 262150, 655362, 5, 196615, 327682, 5, 262151, 262146, 5, 327685, 589826, 6, 327686, 655362, 6, 327687, 262146, 6, 262152, 327682, 5, 327688, 327682, 6, -458747, 65537, 0, -393211, 65537, 1, -327675, 65537, 2, -262139, 65537, 3, -458746, 131073, 0, -393210, 131073, 1, -327674, 131073, 2, -262138, 131073, 3, -196602, 131073, 4, -393212, 1, 1, -327676, 1, 2, -262140, 1, 3, -196604, 1, 4, -131068, 1, 5, -393209, 196609, 1, -327673, 196609, 2, -262137, 196609, 3, -196601, 196609, 4, -131065, 196609, 5, -393208, 262145, 1, -327672, 262145, 2, -262136, 262145, 3, -196600, 262145, 4, -131064, 262145, 5, -131066, 131073, 5, -458745, 196609, 0, 196613, 589826, 5, 196614, 655362, 5, 393204, 4, 5, 458740, 983046, 15, 524276, 917510, 15, 589812, 4, 5, 655348, 4, 5, 720884, 4, 5, 786420, 4, 5, 393205, 4, 5, 458741, 1048582, 15, 524277, 983046, 15, 589813, 4, 5, 655349, 4, 5, 720885, 4, 5, 786421, 4, 5, 393206, 4, 5, 458742, 917510, 15, 524278, 851974, 15, 589814, 4, 5, 655350, 4, 5, 720886, 4, 5, 786422, 4, 5, 393207, 4, 5, 458743, 983046, 15, 524279, 917510, 15, 589815, 4, 5, 655351, 4, 5, 720887, 4, 5, 786423, 4, 5, 393208, 4, 5, 458744, 1048582, 15, 524280, 983046, 15, 589816, 4, 5, 655352, 4, 5, 720888, 4, 5, 786424, 4, 5, 393209, 4, 5, 458745, 983046, 15, 524281, 851974, 15, 589817, 4, 5, 655353, 4, 5, 720889, 4, 5, 786425, 4, 5, 393210, 4, 5, 458746, 1048582, 15, 524282, 917510, 15, 589818, 4, 5, 655354, 4, 5, 720890, 4, 5, 786426, 4, 5, 393211, 4, 5, 458747, 917510, 15, 524283, 983046, 15, 589819, 4, 5, 655355, 4, 5, 720891, 4, 5, 786427, 4, 5, 458748, 983046, 15, 524284, 851974, 15, 589820, 4, 5, 655356, 4, 5, 720892, 4, 5, 786428, 4, 5, 524285, 917510, 15, 589821, 4, 5, 655357, 4, 5, 720893, 4, 5, 786429, 4, 5, 524286, 851974, 15, 589822, 4, 5, 655358, 4, 5, 720894, 4, 5, 786430, 4, 5, 851966, 4, 5, 524287, 917510, 15, 589823, 4, 5, 655359, 4, 5, 720895, 4, 5, 786431, 4, 5, 851967, 4, 5, 458752, 983046, 15, 524288, 4, 5, 589824, 4, 5, 655360, 4, 5, 720896, 4, 5, 786432, 4, 5, 458753, 1048582, 15, 524289, 4, 5, 589825, 4, 5, 655361, 4, 5, 720897, 4, 5, 786433, 4, 5, 458754, 917510, 15, 524290, 4, 5, 589826, 4, 5, 655362, 4, 5, 720898, 4, 5, 786434, 4, 5, 393219, 983046, 15, 458755, 983046, 15, 524291, 4, 5, 589827, 4, 5, 655363, 4, 5, 720899, 4, 5, 786435, 4, 5, 393220, 1048582, 15, 458756, 1048582, 15, 524292, 4, 5, 589828, 4, 5, 655364, 4, 5, 720900, 4, 5, 786436, 4, 5, 393221, 917510, 15, 458757, 917510, 15, 524293, 4, 5, 589829, 4, 5, 655365, 4, 5, 720901, 4, 5, 786437, 4, 5, 393222, 983046, 15, 458758, 983046, 15, 524294, 4, 5, 589830, 4, 5, 655366, 4, 5, 720902, 4, 5, 786438, 4, 5, 393223, 1048582, 15, 458759, 1048582, 15, 524295, 4, 5, 589831, 4, 5, 655367, 4, 5, 720903, 4, 5, 786439, 4, 5, 393224, 851974, 15, 458760, 851974, 15, 524296, 4, 5, 589832, 4, 5, 655368, 4, 5, 720904, 4, 5, 786440, 4, 5, 393225, 851974, 15, 458761, 851974, 14, 524297, 4, 5, 589833, 4, 5, 655369, 4, 5, 720905, 4, 5, 786441, 4, 5, 524298, 4, 5, 589834, 4, 5, 655370, 4, 5, 720906, 4, 5, 786442, 4, 5, 10, 393218, 1, -65526, 65538, 1, 11, 131074, 1, 65547, 131074, 1, -65525, 131074, 0, 131083, 458754, 3, 196619, 2, 5, 262155, 65538, 6, 327691, 65538, 6, 851965, 4, 5, 851964, 4, 5, 851963, 4, 5, 851962, 4, 5, 851961, 4, 5, 851960, 4, 5, 851959, 4, 5, 851958, 4, 5, 851957, 4, 5, 851956, 4, 5, 851955, 4, 5, 851954, 4, 5, 786419, 4, 5, 720883, 4, 5, 655347, 4, 5, 589811, 4, 5, 524275, 851974, 15, 458739, 917510, 15, 393203, 4, 5, 65535, 2, 5, 0, 65538, 5, 65533, 2, 5, 65534, 65538, 5, -196606, 327682, 5, -131070, 327682, 6, -196605, 65538, 5, -131069, 65538, 6, -327678, 2, 5, -262142, 2, 6, -327677, 65538, 5, -262141, 65538, 6, -196599, 196610, 5, -131063, 196610, 6, -196598, 262146, 5, -131062, 262146, 6, -327671, 2, 5, -262135, 2, 6, -327670, 65538, 5, -262134, 65538, 6, -196608, 196610, 5, -131072, 196610, 6, -196607, 262146, 5, -131071, 262146, 6, -196597, 327682, 5, -131061, 327682, 6, -393214, 917504, 8, -393213, 983040, 8, -393207, 917504, 14, -393206, 983040, 14, 262144, 4, 5, 327679, 4, 5, 393212, 4, 5, 458749, 1048582, 15, 393218, 917510, 15, 262147, 327682, 5, 262148, 65538, 5, 327684, 65538, 6, 327683, 327682, 6, 196611, 65538, 5, 196612, 65538, 5, 393213, 4, 5, 393214, 4, 5, 393215, 4, 5, 458751, 983046, 15, 393216, 1048582, 15, 393217, 851974, 15, 327682, 4, 5, 327681, 4, 5, 327680, 4, 5, 458750, 917510, 15, 327678, 4, 5, -720895, 851968, 3, -655359, 851968, 4, -589823, 851968, 5, -524287, 851968, 6, -458751, 851968, 7, -393215, 2, 5, -720894, 917504, 3, -655358, 917504, 4, -589822, 917504, 5, -524286, 917504, 6, -458750, 917504, 7, -720893, 983040, 3, -655357, 983040, 4, -589821, 983040, 5, -524285, 983040, 6, -458749, 983040, 7, -720892, 1048576, 3, -655356, 1048576, 4, -589820, 1048576, 5, -524284, 1048576, 6, -458748, 1048576, 7, -393217, 786432, 7, -589824, 786432, 5, -524288, 786432, 6, -458752, 786432, 7, -655360, 786432, 4, -655355, 1114112, 4, -589819, 1114112, 5, -524283, 1114112, 6, -393216, 2, 5, -327680, 2, 5, -327679, 2, 5, -524281, 786432, 12, -524280, 851968, 12, -458744, 851968, 13, -524279, 917504, 12, -458743, 917504, 13, -524278, 983040, 12, -458742, 983040, 13, -524277, 1048576, 12, -458741, 1048576, 13, -393205, 1048576, 14, -262144, 2, 5, -262143, 2, 5, -327681, 327682, 5, -262145, 327682, 5, -196609, 327682, 5, -131073, 327682, 5, -65537, 327682, 5, -1, 327682, 5, -2, 327682, 5, -65538, 327682, 5, -65539, 327682, 5, -131075, 327682, 5, -196611, 327682, 5, -262147, 327682, 5, -327683, 327682, 5, -327682, 327682, 5, -393218, 327682, 5, -262146, 327682, 5, -196610, 327682, 5, -131074, 327682, 5, 458738, 1048582, 15, 524274, 917510, 15, 1245189, 851974, 15, 1310725, 851974, 15, 1245190, 917510, 15, 1310726, 917510, 15, 1245191, 983046, 15, 1310727, 983046, 15, 1245192, 1048582, 15, 1310728, 1048582, 15, 1245193, 851974, 15, 1310729, 851974, 15, 458736, 983046, 13, 524272, 983046, 14, 589808, 983046, 15, 655344, 983046, 16, 720880, 983046, 14, 458737, 983046, 13, 524273, 983046, 14, 589809, 983046, 15, 655345, 983046, 16, 720881, 983046, 14, 786416, 983046, 15, 851952, 983046, 16, 917488, 983046, 13, 786417, 983046, 15, 851953, 983046, 16, 917489, 983046, 13, 983024, 983046, 14, 1048560, 983046, 15, 1114096, 983046, 16, 983025, 983046, 14, 1048561, 983046, 15, 1114097, 983046, 16, 1310704, 983046, 15, 1376240, 983046, 15, 1310705, 1048582, 15, 1376241, 1048582, 15, 524299, 917510, 15, 589835, 917510, 16, 524300, 983046, 15, 589836, 983046, 16, 655371, 917510, 15, 720907, 917510, 16, 786443, 917510, 15, 851979, 917510, 16, 655372, 983046, 15, 720908, 983046, 16, 786444, 983046, 15, 851980, 983046, 16, 917515, 917510, 15, 983051, 917510, 16, 1048587, 917510, 13, 1114123, 917510, 15, 917516, 917510, 15, 983052, 917510, 16, 1048588, 917510, 13, 1114124, 983046, 15, 1179659, 917510, 16, 1245195, 983046, 15, 1310731, 983046, 15, 1179660, 983046, 16, 1245196, 1048582, 15, 1310732, 1048582, 15, 1179627, 917510, 13, 1245163, 917510, 14, 1310699, 851974, 15, 1376235, 851974, 15, 1179628, 983046, 13, 1245164, 983046, 14, 1310700, 917510, 15, 1376236, 917510, 15, 1310701, 983046, 15, 1376237, 983046, 15, 1310702, 851974, 15, 1376238, 851974, 15, 1310703, 917510, 15, 1376239, 917510, 15, 1376242, 851974, 15, 1376243, 917510, 15, 1310706, 851974, 15, 1310707, 917510, 15, 1310708, 983046, 15, 1376244, 983046, 15, 1310709, 851974, 15, 1376245, 851974, 15, 1310710, 917510, 15, 1376246, 917510, 15, 1310711, 983046, 15, 1376247, 983046, 15, 1310712, 1048582, 15, 1376248, 1048582, 15, 1310713, 851974, 15, 1376249, 851974, 15, 1310714, 917510, 15, 1376250, 917510, 15, 1310715, 983046, 15, 1376251, 983046, 15, 1310716, 1048582, 15, 1376252, 1048582, 15, 1310717, 851974, 15, 1376253, 851974, 15, 1310718, 917510, 15, 1376254, 917510, 15, 1310719, 983046, 15, 1376255, 983046, 15, 1245184, 1048582, 15, 1310720, 1048582, 15, 1245185, 851974, 15, 1310721, 851974, 15, 1245186, 917510, 15, 1310722, 917510, 15, 1245187, 983046, 15, 1310723, 983046, 15, 1245188, 1048582, 15, 1310724, 1048582, 15, 1245194, 917510, 15, 1310730, 917510, 15, 1048555, 851974, 10, 1114091, 851974, 11, 1048556, 917510, 10, 1114092, 917510, 11, 1048557, 983046, 10, 1114093, 983046, 11, 1048558, 1048582, 10, 1114094, 1048582, 11, 1048559, 983046, 10, 1114095, 983046, 11, -65536, 2, 5, -3, 2, 5, 65537, 2, 2, 1179629, 4, 5, 1179630, 4, 5, 1245166, 4, 5, 1245167, 4, 5, 1245165, 4, 5, 917490, 4, 5, 983026, 4, 5, 1048562, 4, 5, 1114098, 4, 5, 1179634, 4, 5, 1245170, 4, 5, 917491, 4, 5, 983027, 4, 5, 1048563, 4, 5, 1114099, 4, 5, 1179635, 4, 5, 1245171, 4, 5, 917492, 4, 5, 983028, 4, 5, 1048564, 4, 5, 1114100, 4, 5, 1179636, 4, 5, 1245172, 4, 5, 917493, 4, 5, 983029, 4, 5, 1048565, 4, 5, 1114101, 4, 5, 1179637, 4, 5, 1245173, 4, 5, 917494, 4, 5, 983030, 4, 5, 1048566, 4, 5, 1114102, 4, 5, 1179638, 4, 5, 1245174, 4, 5, 917495, 4, 5, 983031, 4, 5, 1048567, 4, 5, 1114103, 4, 5, 1179639, 4, 5, 1245175, 4, 5, 917496, 4, 5, 983032, 4, 5, 1048568, 4, 5, 1114104, 4, 5, 1179640, 4, 5, 1245176, 4, 5, 917497, 4, 5, 983033, 4, 5, 1048569, 4, 5, 1114105, 4, 5, 1179641, 4, 5, 1245177, 4, 5, 917498, 4, 5, 983034, 4, 5, 1048570, 4, 5, 1114106, 4, 5, 1179642, 4, 5, 1245178, 4, 5, 917499, 4, 5, 983035, 4, 5, 1048571, 4, 5, 1114107, 4, 5, 1179643, 4, 5, 1245179, 4, 5, 917500, 4, 5, 983036, 4, 5, 1048572, 4, 5, 1114108, 4, 5, 1179644, 4, 5, 1245180, 4, 5, 917501, 4, 5, 983037, 4, 5, 1048573, 4, 5, 1114109, 4, 5, 1179645, 4, 5, 1245181, 4, 5, 917502, 4, 5, 983038, 4, 5, 1048574, 4, 5, 1114110, 4, 5, 1179646, 4, 5, 1245182, 4, 5, 917503, 4, 5, 983039, 4, 5, 1048575, 4, 5, 1114111, 4, 5, 1179647, 4, 5, 1245183, 4, 5, 851968, 4, 5, 917504, 4, 5, 983040, 4, 5, 1048576, 4, 5, 1114112, 4, 5, 1179648, 4, 5, 851969, 4, 5, 917505, 4, 5, 983041, 4, 5, 1048577, 4, 5, 1114113, 4, 5, 1179649, 4, 5, 851970, 4, 5, 917506, 4, 5, 983042, 4, 5, 1048578, 4, 5, 1114114, 4, 5, 1179650, 4, 5, 851971, 4, 5, 917507, 4, 5, 983043, 4, 5, 1048579, 4, 5, 1114115, 4, 5, 1179651, 4, 5, 851972, 4, 5, 917508, 4, 5, 983044, 4, 5, 1048580, 4, 5, 1114116, 4, 5, 1179652, 4, 5, 851973, 4, 5, 917509, 4, 5, 983045, 4, 5, 1048581, 4, 5, 1114117, 4, 5, 1179653, 4, 5, 851974, 4, 5, 917510, 4, 5, 983046, 4, 5, 1048582, 4, 5, 1114118, 4, 5, 1179654, 4, 5, 851975, 4, 5, 917511, 4, 5, 983047, 4, 5, 1048583, 4, 5, 1114119, 4, 5, 1179655, 4, 5, 851976, 4, 5, 917512, 4, 5, 983048, 4, 5, 1048584, 4, 5, 1114120, 4, 5, 1179656, 4, 5, 851977, 4, 5, 917513, 4, 5, 983049, 4, 5, 1048585, 4, 5, 1114121, 4, 5, 1179657, 4, 5, 851978, 4, 5, 917514, 4, 5, 983050, 4, 5, 1048586, 4, 5, 1114122, 4, 5, 1179658, 4, 5, 1179631, 4, 5, 1179632, 4, 5, 1179633, 4, 5, 1245169, 4, 5, 1245168, 4, 5, 589810, 4, 5, 655346, 4, 5, 720882, 4, 5, 786418, 4, 5, 458735, 851974, 15, 524271, 851974, 15, 327689, 196610, 6, 393226, 917510, 15, 393227, 983046, 15, 393228, 1048582, 14, 458762, 851974, 15, 458763, 917510, 15, 458764, 983046, 15)
+layer_0/tile_data = PackedInt32Array(-65532, 2, 0, 4, 2, 1, 65540, 2, 1, 131076, 2, 3, -65531, 327682, 0, 5, 327682, 1, 65541, 65538, 1, 131077, 589826, 4, -65530, 393218, 0, 6, 393218, 1, 65542, 393218, 2, 131078, 655362, 4, -65529, 131074, 0, 7, 131074, 1, 65543, 131074, 1, 131079, 131074, 3, -65528, 2, 0, 8, 2, 1, 65544, 262146, 2, 131080, 262146, 3, 196616, 262146, 5, -65527, 65538, 0, 9, 327682, 1, 65545, 327682, 2, 131081, 327682, 3, 196617, 2, 5, 262153, 196610, 5, 65546, 393218, 2, 131082, 393218, 3, 196618, 2, 5, 262154, 2, 5, 327690, 2, 5, -65534, 65538, 0, 2, 65538, 1, -65533, 131074, 0, 3, 131074, 1, -65535, 2, 0, 1, 2, 1, 65538, 65538, 2, 65539, 131074, 2, 131075, 327682, 5, 262149, 589826, 5, 262150, 655362, 5, 196615, 327682, 5, 262151, 262146, 5, 327685, 589826, 6, 327686, 655362, 6, 327687, 262146, 6, 262152, 327682, 5, 327688, 327682, 6, -458747, 65537, 0, -393211, 65537, 1, -327675, 65537, 2, -262139, 65537, 3, -458746, 131073, 0, -393210, 131073, 1, -327674, 131073, 2, -262138, 131073, 3, -196602, 131073, 4, -393212, 1, 1, -327676, 1, 2, -262140, 1, 3, -196604, 1, 4, -131068, 1, 5, -393209, 196609, 1, -327673, 196609, 2, -262137, 196609, 3, -196601, 196609, 4, -131065, 196609, 5, -393208, 262145, 1, -327672, 262145, 2, -262136, 262145, 3, -196600, 262145, 4, -131064, 262145, 5, -131066, 131073, 5, -458745, 196609, 0, 196613, 589826, 5, 196614, 655362, 5, 10, 393218, 1, -65526, 65538, 1, 11, 131074, 1, 65547, 131074, 1, -65525, 131074, 0, 131083, 458754, 3, 196619, 2, 5, 262155, 65538, 6, 327691, 65538, 6, 65535, 2, 5, 0, 65538, 5, 65533, 2, 5, 65534, 65538, 5, -196606, 327682, 5, -131070, 327682, 6, -196605, 65538, 5, -131069, 65538, 6, -327678, 2, 5, -262142, 2, 6, -327677, 65538, 5, -262141, 65538, 6, -196599, 196610, 5, -131063, 196610, 6, -196598, 262146, 5, -131062, 262146, 6, -327671, 2, 5, -262135, 2, 6, -327670, 65538, 5, -262134, 65538, 6, -196608, 196610, 5, -131072, 196610, 6, -196607, 262146, 5, -131071, 262146, 6, -196597, 327682, 5, -131061, 327682, 6, -393214, 917504, 8, -393213, 983040, 8, -393207, 917504, 14, -393206, 983040, 14, 262147, 327682, 5, 262148, 65538, 5, 196611, 65538, 5, 196612, 65538, 5, -720895, 851968, 3, -655359, 851968, 4, -589823, 851968, 5, -524287, 851968, 6, -458751, 851968, 7, -393215, 2, 5, -720894, 917504, 3, -655358, 917504, 4, -589822, 917504, 5, -524286, 917504, 6, -458750, 917504, 7, -720893, 983040, 3, -655357, 983040, 4, -589821, 983040, 5, -524285, 983040, 6, -458749, 983040, 7, -720892, 1048576, 3, -655356, 1048576, 4, -589820, 1048576, 5, -524284, 1048576, 6, -458748, 1048576, 7, -393217, 786432, 7, -589824, 786432, 5, -524288, 786432, 6, -458752, 786432, 7, -655360, 786432, 4, -655355, 1114112, 4, -589819, 1114112, 5, -524283, 1114112, 6, -393216, 2, 5, -327680, 2, 5, -327679, 2, 5, -524281, 786432, 12, -524280, 851968, 12, -458744, 851968, 13, -524279, 917504, 12, -458743, 917504, 13, -524278, 983040, 12, -458742, 983040, 13, -524277, 1048576, 12, -458741, 1048576, 13, -393205, 1048576, 14, -262144, 2, 5, -262143, 2, 5, -327681, 327682, 5, -262145, 327682, 5, -196609, 327682, 5, -131073, 327682, 5, -65537, 327682, 5, -1, 327682, 5, -2, 327682, 5, -65538, 327682, 5, -65539, 327682, 5, -131075, 327682, 5, -196611, 327682, 5, -262147, 327682, 5, -327683, 327682, 5, -327682, 327682, 5, -393218, 327682, 5, -262146, 327682, 5, -196610, 327682, 5, -131074, 327682, 5, -65536, 2, 5, -3, 2, 5, 65537, 2, 2, 327689, 196610, 6, 327683, 327682, 6, 327684, 65538, 6)
 
 [node name="Door" parent="." instance=ExtResource("5_g8qt1")]
 position = Vector2(109, -194)
@@ -3630,445 +3631,447 @@ position = Vector2(73, -105)
 position = Vector2(0, 24)
 
 [node name="Grass1" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(156, -18)
+position = Vector2(-327, -87)
 
 [node name="Grass2" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(156, -34)
+position = Vector2(-327, -103)
 
 [node name="Grass3" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(140, -34)
+position = Vector2(-343, -103)
 
 [node name="Grass4" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(172, -34)
+position = Vector2(-311, -103)
 
 [node name="Grass5" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(124, -34)
+position = Vector2(-359, -103)
 
 [node name="Grass6" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(124, -18)
+position = Vector2(-359, -87)
 
 [node name="Grass7" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(188, -18)
+position = Vector2(-295, -87)
 
 [node name="Grass8" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(188, -34)
+position = Vector2(-295, -103)
 
 [node name="Grass9" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(124, -50)
+position = Vector2(-359, -119)
 
 [node name="Grass10" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(140, -18)
+position = Vector2(-343, -87)
 
 [node name="Grass11" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(140, -50)
+position = Vector2(-343, -119)
 
 [node name="Grass12" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(156, -50)
+position = Vector2(-327, -119)
 
 [node name="Grass13" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(172, -18)
+position = Vector2(-311, -87)
 
 [node name="Grass14" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(172, -50)
+position = Vector2(-311, -119)
 
 [node name="Grass15" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(188, -50)
+position = Vector2(-295, -119)
 
 [node name="Grass16" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(108, -50)
+position = Vector2(-375, -119)
 
 [node name="Grass17" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(108, -18)
+position = Vector2(-375, -87)
 
 [node name="Grass18" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(92, -50)
+position = Vector2(-391, -119)
 
 [node name="Grass19" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(92, -34)
+position = Vector2(-391, -103)
 
 [node name="Grass20" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(92, -18)
+position = Vector2(-397.437, -92.6433)
 
 [node name="Grass21" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(76, -50)
+position = Vector2(-397.437, -92.6433)
 
 [node name="Grass22" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(76, -34)
+position = Vector2(-397.437, -92.6433)
 
 [node name="Grass23" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(76, -18)
+position = Vector2(-397.437, -92.6433)
 
 [node name="Grass24" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(76, -2)
+position = Vector2(-397.437, -92.6433)
 
 [node name="Grass25" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(92, -2)
+position = Vector2(-397.437, -92.6433)
 
 [node name="Grass26" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(108, -2)
+position = Vector2(-397.437, -92.6433)
 
 [node name="Grass27" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(124, -2)
+position = Vector2(-397.437, -92.6433)
 
 [node name="Grass28" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(140, -2)
+position = Vector2(-343, -71)
 
 [node name="Grass29" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(156, -2)
+position = Vector2(-693, -47)
 
 [node name="Grass30" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(172, -2)
+position = Vector2(-311, -71)
 
 [node name="Grass31" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(188, -2)
+position = Vector2(-295, -71)
 
 [node name="Grass32" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(76, 14)
+position = Vector2(-407, -55)
 
 [node name="Grass33" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(76, 30)
+position = Vector2(-407, -39)
 
 [node name="Grass34" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(76, 46)
+position = Vector2(-407, -23)
 
 [node name="Grass35" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(76, 62)
+position = Vector2(-407, -7)
 
 [node name="Grass36" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(76, 78)
+position = Vector2(-407, 9)
 
 [node name="Grass37" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(76, 94)
+position = Vector2(-407, 25)
 
 [node name="Grass38" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(76, 110)
+position = Vector2(-407, 41)
 
 [node name="Grass39" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(92, 110)
+position = Vector2(-391, 41)
 
 [node name="Grass40" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(108, 110)
+position = Vector2(-375, 41)
 
 [node name="Grass41" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(124, 110)
+position = Vector2(-359, 41)
 
 [node name="Grass42" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(140, 110)
+position = Vector2(-343, 41)
 
 [node name="Grass43" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(156, 110)
+position = Vector2(-327, 41)
 
 [node name="Grass44" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(172, 110)
+position = Vector2(-311, 41)
 
 [node name="Grass45" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(188, 110)
+position = Vector2(-295, 41)
 
 [node name="Grass46" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(188, 14)
+position = Vector2(-295, -55)
 
 [node name="Grass47" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(188, 30)
+position = Vector2(-295, -39)
 
 [node name="Grass48" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(188, 46)
+position = Vector2(-295, -23)
 
 [node name="Grass49" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(188, 62)
+position = Vector2(-295, -7)
 
 [node name="Grass50" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(188, 78)
+position = Vector2(-295, 9)
 
 [node name="Grass51" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(188, 94)
+position = Vector2(-295, 25)
 
 [node name="Grass52" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(92, 14)
+position = Vector2(-391, -55)
 
 [node name="Grass53" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(92, 30)
+position = Vector2(-391, -39)
 
 [node name="Grass54" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(92, 46)
+position = Vector2(-391, -23)
 
 [node name="Grass55" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(92, 62)
+position = Vector2(-391, -7)
 
 [node name="Grass56" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(92, 78)
+position = Vector2(-391, 9)
 
 [node name="Grass57" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(92, 94)
+position = Vector2(-391, 25)
 
 [node name="Grass58" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(108, 14)
+position = Vector2(-375, -55)
 
 [node name="Grass59" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(108, 30)
+position = Vector2(-375, -39)
 
 [node name="Grass60" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(140, 78)
+position = Vector2(-343, 9)
 
 [node name="Grass61" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(140, 94)
+position = Vector2(-343, 25)
 
 [node name="Grass62" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(156, 78)
+position = Vector2(-327, 9)
 
 [node name="Grass63" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(156, 94)
+position = Vector2(-327, 25)
 
 [node name="Grass64" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(172, 78)
+position = Vector2(-311, 9)
 
 [node name="Grass65" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(172, 94)
+position = Vector2(-311, 25)
 
 [node name="Grass66" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(60, -50)
+position = Vector2(-423, -119)
 
 [node name="Grass67" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(60, -34)
+position = Vector2(-423, -103)
 
 [node name="Grass68" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(60, -18)
+position = Vector2(-423, -87)
 
 [node name="Grass69" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(60, -2)
+position = Vector2(-423, -71)
 
 [node name="Grass70" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(60, 14)
+position = Vector2(-423, -55)
 
 [node name="Grass71" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(60, 30)
+position = Vector2(-423, -39)
 
 [node name="Grass72" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(60, 46)
+position = Vector2(-423, -23)
 
 [node name="Grass73" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(60, 62)
+position = Vector2(-423, -7)
 
 [node name="Grass74" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(60, 78)
+position = Vector2(-423, 9)
 
 [node name="Grass75" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(60, 94)
+position = Vector2(-423, 25)
 
 [node name="Grass76" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(60, 110)
+position = Vector2(-423, 41)
 
 [node name="Grass77" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(44, 110)
+position = Vector2(-439, 41)
 
 [node name="Grass78" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(28, 110)
+position = Vector2(-455, 41)
 
 [node name="Grass79" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(12, 110)
+position = Vector2(-471, 41)
 
 [node name="Grass80" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(12, 94)
+position = Vector2(-471, 25)
 
 [node name="Grass81" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(28, 94)
+position = Vector2(-455, 25)
 
 [node name="Grass82" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(44, 94)
+position = Vector2(-439, 25)
 
 [node name="Grass83" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(12, 78)
+position = Vector2(-471, 9)
 
 [node name="Grass84" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(28, 78)
+position = Vector2(-455, 9)
 
 [node name="Grass85" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(44, 78)
+position = Vector2(-439, 9)
 
 [node name="Grass86" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(12, 62)
+position = Vector2(-471, -7)
 
 [node name="Grass87" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(28, 62)
+position = Vector2(-455, -7)
 
 [node name="Grass88" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(44, 62)
+position = Vector2(-439, -7)
 
 [node name="Grass89" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(12, 46)
+position = Vector2(-471, -23)
 
 [node name="Grass90" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(28, 46)
+position = Vector2(-455, -23)
 
 [node name="Grass91" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(44, 46)
+position = Vector2(-439, -23)
 
 [node name="Grass92" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(12, 30)
+position = Vector2(-471, -39)
 
 [node name="Grass93" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(28, 30)
+position = Vector2(-455, -39)
 
 [node name="Grass94" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(44, 30)
+position = Vector2(-439, -39)
 
 [node name="Grass95" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(12, 14)
+position = Vector2(-471, -55)
 
 [node name="Grass96" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(28, 14)
+position = Vector2(-455, -55)
 
 [node name="Grass97" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(44, 14)
+position = Vector2(-439, -55)
 
 [node name="Grass98" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(12, -2)
+position = Vector2(-471, -71)
 
 [node name="Grass99" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(28, -2)
+position = Vector2(-455, -71)
 
 [node name="Grass100" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(44, -2)
+position = Vector2(-439, -71)
 
 [node name="Grass101" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(12, -18)
+position = Vector2(-471, -87)
 
 [node name="Grass102" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(28, -18)
+position = Vector2(-455, -87)
 
 [node name="Grass103" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(44, -18)
+position = Vector2(-439, -87)
 
 [node name="Grass104" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(44, -34)
+position = Vector2(-439, -103)
 
 [node name="Grass105" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(44, -50)
+position = Vector2(-439, -119)
 
 [node name="Grass106" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(28, -34)
+position = Vector2(-455, -103)
 
 [node name="Grass107" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(12, -34)
+position = Vector2(-471, -103)
 
 [node name="Grass108" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(12, -50)
+position = Vector2(-471, -119)
 
 [node name="Grass109" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(28, -50)
+position = Vector2(-455, -119)
 
 [node name="Grass" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(108, -34)
+position = Vector2(-375, -103)
 
 [node name="Grass110" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-4, 110)
+position = Vector2(-487, 41)
 
 [node name="Grass111" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-4, 94)
+position = Vector2(-487, 25)
 
 [node name="Grass112" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-4, 78)
+position = Vector2(-487, 9)
 
 [node name="Grass113" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-4, -50)
+position = Vector2(-487, -119)
 
 [node name="Grass114" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-4, 14)
+position = Vector2(-487, -55)
 
 [node name="Grass115" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-20, -18)
+position = Vector2(-583, -46)
 
 [node name="Grass116" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-4, -34)
+position = Vector2(-487, -103)
 
 [node name="Grass117" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-4, 46)
+position = Vector2(-487, -23)
 
 [node name="Grass118" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-20, -34)
+position = Vector2(-551, -48)
 
 [node name="Grass119" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-20, -50)
+position = Vector2(-521, -94)
 
 [node name="Grass120" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-4, 30)
+position = Vector2(-514, 33)
 
 [node name="Grass121" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-4, -18)
+position = Vector2(-641, -7)
 
 [node name="Grass122" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-4, 62)
+position = Vector2(-487, -7)
 
 [node name="Grass123" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-20, -2)
+position = Vector2(-581, -15)
 
 [node name="Grass124" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-4, -2)
+position = Vector2(-550, -16)
 
 [node name="Grass125" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(-122, -43)
+position = Vector2(-605, -112)
 
 [node name="Grass126" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(109, 46)
+position = Vector2(-374, -23)
 
 [node name="Grass127" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(109, 62)
+position = Vector2(-374, -7)
 
 [node name="Grass128" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(109, 78)
+position = Vector2(-374, 9)
 
 [node name="Grass129" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(108, 94)
+position = Vector2(-375, 25)
 
 [node name="Grass130" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(125, 14)
+position = Vector2(-358, -55)
 
 [node name="Grass131" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(125, 30)
+position = Vector2(-358, -39)
 
 [node name="Grass132" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(141, 14)
+position = Vector2(-342, -55)
 
 [node name="Grass133" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(157, 14)
+position = Vector2(-326, -55)
 
 [node name="Grass134" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(173, 14)
+position = Vector2(-310, -55)
 
 [node name="Grass135" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(141, 30)
+position = Vector2(-342, -39)
 
 [node name="Grass136" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(157, 30)
+position = Vector2(-326, -39)
 
 [node name="Grass137" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(173, 30)
+position = Vector2(-310, -39)
 
 [node name="Grass138" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(125, 46)
+position = Vector2(-358, -23)
 
 [node name="Grass139" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(125, 62)
+position = Vector2(-358, -7)
 
 [node name="Grass140" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(125, 78)
+position = Vector2(-358, 9)
 
 [node name="Grass141" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(125, 94)
+position = Vector2(-358, 25)
 
 [node name="Grass142" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(141, 46)
+position = Vector2(-342, -23)
 
 [node name="Grass143" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(157, 46)
+position = Vector2(-326, -23)
 
 [node name="Grass144" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(173, 46)
+position = Vector2(-310, -23)
 
 [node name="Grass145" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(141, 62)
+position = Vector2(-342, -7)
 
 [node name="Grass146" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(157, 62)
+position = Vector2(-326, -7)
 
 [node name="Grass147" parent="Grass" instance=ExtResource("2_8rimr")]
-position = Vector2(173, 62)
+position = Vector2(-310, -7)
+
+[node name="SoilManager" parent="." instance=ExtResource("10_vl0ky")]
