@@ -68,14 +68,22 @@ func _input(event: InputEvent) -> void:
 	direction=Vector2.ZERO
 	if Input.is_action_pressed("Up"):
 		direction.y-=1
+		Global.get_direction(direction)
 	if Input.is_action_pressed("Down"):
 		direction.y+=1
+		Global.get_direction(direction)
 	if Input.is_action_pressed("Right"):
 		direction.x+=1
+		Global.get_direction(direction)
 	if Input.is_action_pressed("Left"):
 		direction.x-=1
-	
+		Global.get_direction(direction)
+	#if Input.is_action_just_pressed("Right click"):
+		#till_soil(self.position)
 	
 func play_animation():
-	animated_sprite_2d.play("hoe")
+	animated_sprite_2d.play("hoe_right")
 	
+func get_direction() ->Vector2:
+	print("PL:",direction)
+	return direction

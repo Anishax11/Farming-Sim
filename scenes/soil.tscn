@@ -1,12 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6xokp1noba6f"]
+[gd_scene load_steps=11 format=3 uid="uid://c6xokp1noba6f"]
 
 [ext_resource type="Texture2D" uid="uid://da4gaksqh4jto" path="res://16x16/Sprites/ChatGPT Image Jun 14, 2025, 05_14_44 PM.png" id="1_2prn8"]
 [ext_resource type="Script" path="res://scripts/soil.gd" id="1_jrfko"]
-[ext_resource type="Texture2D" uid="uid://cs81kalmfcfnu" path="res://MV/tilesets/_srw_farming_A2.png" id="2_uo1fu"]
+[ext_resource type="Texture2D" uid="uid://db545vu8ly3b5" path="res://16x16/Sprites/tilled_soil_88x88.png" id="2_0b072"]
+[ext_resource type="Texture2D" uid="uid://dskad7fdjppnp" path="res://16x16/Sprites/resized_88x88.png" id="2_36voe"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rec1l"]
-atlas = ExtResource("2_uo1fu")
-region = Rect2(0, 480, 96, 96)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryoc2"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy4ui"]
+atlas = ExtResource("2_36voe")
+region = Rect2(0, 0, 69, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckt2l"]
+atlas = ExtResource("2_0b072")
+region = Rect2(0, 0, 88, 81)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qj7fq"]
 atlas = ExtResource("1_2prn8")
@@ -20,7 +28,15 @@ region = Rect2(352, 935, 88, 85)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rec1l")
+"texture": SubResource("AtlasTexture_cy4ui")
+}],
+"loop": true,
+"name": &"rect_tilled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckt2l")
 }],
 "loop": true,
 "name": &"tilled",
@@ -43,17 +59,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryoc2"]
-size = Vector2(16, 16)
-
 [node name="Soil" type="Area2D"]
 script = ExtResource("1_jrfko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ryoc2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_ir0pw")
-animation = &"untilled"
+animation = &"rect_tilled"
 autoplay = "untilled"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ryoc2")
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

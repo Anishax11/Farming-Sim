@@ -49,9 +49,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k4483"]
-radius = 8.0
-height = 32.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbpes"]
+size = Vector2(9, 9)
 
 [node name="Tree" type="Area2D"]
 z_index = 2
@@ -64,5 +63,6 @@ animation = &"standing"
 autoplay = "standing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.97364e-07, 10.6667)
 scale = Vector2(1, 0.8)
-shape = SubResource("CapsuleShape2D_k4483")
+shape = SubResource("RectangleShape2D_bbpes")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bulruc5in76aq"]
+[gd_scene load_steps=27 format=3 uid="uid://bulruc5in76aq"]
 
 [ext_resource type="Script" path="res://scripts/farmer.gd" id="1_kssk7"]
 [ext_resource type="Texture2D" uid="uid://ct8kkbqy7hk43" path="res://MV/characters/_srw_free_farm_character_shovel.png" id="3_cdl31"]
@@ -27,6 +27,30 @@ region = Rect2(48, 0, 48, 60)
 [sub_resource type="AtlasTexture" id="AtlasTexture_irgp3"]
 atlas = ExtResource("3_i0v8y")
 region = Rect2(96, 0, 48, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k62h"]
+atlas = ExtResource("3_cdl31")
+region = Rect2(190, 0, 95, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5cba"]
+atlas = ExtResource("3_cdl31")
+region = Rect2(95, 0, 95, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt0n3"]
+atlas = ExtResource("3_cdl31")
+region = Rect2(0, 0, 95, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ayr8"]
+atlas = ExtResource("3_cdl31")
+region = Rect2(0, 96, 93, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or4gs"]
+atlas = ExtResource("3_cdl31")
+region = Rect2(93, 96, 93, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0pbs"]
+atlas = ExtResource("3_cdl31")
+region = Rect2(186, 96, 93, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hetdg"]
 atlas = ExtResource("3_cdl31")
@@ -94,6 +118,39 @@ animations = [{
 "name": &"forward",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": false,
+"name": &"hoe_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k62h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5cba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt0n3")
+}],
+"loop": false,
+"name": &"hoe_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ayr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or4gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0pbs")
+}],
+"loop": true,
+"name": &"hoe_left",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hetdg")
@@ -105,7 +162,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_pck32")
 }],
 "loop": false,
-"name": &"hoe",
+"name": &"hoe_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -149,11 +206,11 @@ script = ExtResource("1_kssk7")
 position = Vector2(0, -9)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_yhg64")
-animation = &"forward"
+animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_ip8u5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
