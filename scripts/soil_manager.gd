@@ -10,7 +10,7 @@ func _ready() -> void:
 	for y in range(448,768,+15):
 		for x in range(-192, 380, +15):
 			
-			if (y<600 and x>224) or (y<600 and x<-24) or (y>=600):
+			if (y<630 and x>224) or (y<630 and x<-24) or (y>=628):
 				
 				
 				var soil=SOIL.instantiate()
