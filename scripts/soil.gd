@@ -46,7 +46,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					player.get_node("AnimatedSprite2D").play("hoe_front")
 				
 				Global.soil_clicked=true
-				animated_sprite_2d.play("tilled")
+				if adjusted!=true:
+					animated_sprite_2d.play("tilled")
 				var text = self.name
 				var regex = RegEx.new()
 				regex.compile(r"\d+")  # Matches one or more digits
@@ -54,33 +55,34 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 				if result:
 					var number = int(result.get_string(0))
-					if Global.player_direction==Vector2(1,0) and adjusted!=true: 
+					if Global.player_direction==Vector2(1,0) and get_node("/root/Game/SoilManager/soil"+str(number-1)).adjusted!=true: 
 						if get_node("/root/Game/SoilManager/soil"+str(number-1)).tilled==true:
 							print("Prev tilled")
 							get_node("/root/Game/SoilManager/soil"+str(number-1)).get_node("AnimatedSprite2D").scale.y=0.21
 							get_node("/root/Game/SoilManager/soil"+str(number-1)).get_node("AnimatedSprite2D").play("rect_tilled")
-							adjusted=true
+							get_node("/root/Game/SoilManager/soil"+str(number-1)).adjusted=true
 							
-					if Global.player_direction==Vector2(-1,0) and adjusted!=true:
+					if Global.player_direction==Vector2(-1,0) and get_node("/root/Game/SoilManager/soil"+str(number+1)).adjusted!=true:
 						if get_node("/root/Game/SoilManager/soil"+str(number+1)).tilled==true:
 							print("Prev tilled")
 							get_node("/root/Game/SoilManager/soil"+str(number+1)).get_node("AnimatedSprite2D").scale.y=0.21
 							get_node("/root/Game/SoilManager/soil"+str(number+1)).get_node("AnimatedSprite2D").play("rect_tilled")
-							adjusted=true
-					if Global.player_direction==Vector2(0,1)  and adjusted!=true:
+							get_node("/root/Game/SoilManager/soil"+str(number+1)).adjusted=true
+							
+					if Global.player_direction==Vector2(0,1)  and get_node("/root/Game/SoilManager/soil"+str(number-39)).adjusted!=true:
 						if get_node("/root/Game/SoilManager/soil"+str(number-39)).tilled==true:
 							print("Prev tilled")
 							get_node("/root/Game/SoilManager/soil"+str(number-39)).get_node("AnimatedSprite2D").scale.y=0.21
 							get_node("/root/Game/SoilManager/soil"+str(number-39)).get_node("AnimatedSprite2D").play("rect_tilled")
-							adjusted=true
+							get_node("/root/Game/SoilManager/soil"+str(number-39)).adjusted=true
 					
-					if Global.player_direction==Vector2(0,-1) and adjusted!=true:
+					if Global.player_direction==Vector2(0,-1) and get_node("/root/Game/SoilManager/soil"+str(number+39)).adjusted!=true :
 						
 						if get_node("/root/Game/SoilManager/soil"+str(number+39)).tilled==true:
 							print("Prev tilled")
 							get_node("/root/Game/SoilManager/soil"+str(number+39)).get_node("AnimatedSprite2D").scale.y=0.21
 							get_node("/root/Game/SoilManager/soil"+str(number+39)).get_node("AnimatedSprite2D").play("rect_tilled")
-							adjusted=true
+							get_node("/root/Game/SoilManager/soil"+str(number+39)).adjusted=true
 					tilled=true
 					
 		else:
