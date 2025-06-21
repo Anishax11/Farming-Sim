@@ -32,7 +32,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			#print("Player pos:",player_pos)
 			var distance=soil_pos.distance_to(player_pos)
 			print(distance)
-			if distance<=24:
+			if distance<=20:
 				print(self.name)
 				if Global.player_direction==Vector2(1,0):
 					rotation_degrees=90
