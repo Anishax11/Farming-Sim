@@ -6,8 +6,9 @@ class_name Soil
 var tilled=false
 var adjusted=false
 func _ready() -> void:
-	if self.position==Vector2(-128,448):
-		print("YESS")
+	if randi_range(0,7)==3:
+		animated_sprite_2d.play("untilled_rock")
+
 
 #func _on_area_entered(area: Area2D) -> void:
 	#
@@ -31,7 +32,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			#print("Player pos:",player_pos)
 			var distance=soil_pos.distance_to(player_pos)
 			print(distance)
-			if distance<=16:
+			if distance<=24:
 				print(self.name)
 				if Global.player_direction==Vector2(1,0):
 					rotation_degrees=90

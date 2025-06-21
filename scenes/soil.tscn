@@ -3,14 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://da4gaksqh4jto" path="res://16x16/Sprites/ChatGPT Image Jun 14, 2025, 05_14_44 PM.png" id="1_2prn8"]
 [ext_resource type="Script" path="res://scripts/soil.gd" id="1_jrfko"]
 [ext_resource type="Texture2D" uid="uid://db545vu8ly3b5" path="res://16x16/Sprites/tilled_soil_88x88.png" id="2_0b072"]
-[ext_resource type="Texture2D" uid="uid://dskad7fdjppnp" path="res://16x16/Sprites/resized_88x88.png" id="2_36voe"]
+[ext_resource type="Texture2D" uid="uid://defsuirub57ay" path="res://16x16/Sprites/resized_88x88 (2).png" id="2_44kp5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryoc2"]
 size = Vector2(16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cy4ui"]
-atlas = ExtResource("2_36voe")
-region = Rect2(0, 0, 69, 74)
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2748"]
+atlas = ExtResource("2_44kp5")
+region = Rect2(0, 0, 88, 88)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ckt2l"]
 atlas = ExtResource("2_0b072")
@@ -28,7 +28,7 @@ region = Rect2(352, 935, 88, 85)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cy4ui")
+"texture": SubResource("AtlasTexture_t2748")
 }],
 "loop": true,
 "name": &"rect_tilled",
