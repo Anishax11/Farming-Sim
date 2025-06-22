@@ -10,9 +10,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryoc2"]
 size = Vector2(16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_raddf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fa8j"]
 atlas = ExtResource("2_bjo0d")
-region = Rect2(0, 0, 88, 88)
+region = Rect2(0, 0, 88, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2748"]
 atlas = ExtResource("2_44kp5")
@@ -38,7 +38,7 @@ region = Rect2(352, 935, 88, 85)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_raddf")
+"texture": SubResource("AtlasTexture_2fa8j")
 }],
 "loop": true,
 "name": &"circle_seeds",
@@ -94,7 +94,7 @@ shape = SubResource("RectangleShape2D_ryoc2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_ir0pw")
-animation = &"seeds"
+animation = &"circle_seeds"
 autoplay = "untilled"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

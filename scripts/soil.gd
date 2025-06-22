@@ -34,7 +34,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			#CODE FOR PLANTATION
 			
-			if distance<20 and tilled==true:
+			if distance<18 and tilled==true:
 				print("Plant")	
 				planted=true
 				player.get_node("AnimatedSprite2D").play("seeds")
@@ -46,7 +46,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				
 			#CODE FOR TILLING
 				
-			if distance<=20 and !tilled:
+			if distance<=18 and !tilled:
 				print(self.name)
 				if Global.player_direction==Vector2(1,0):
 					rotation_degrees=90 #rotates animation of tilled soil towards right 
@@ -62,6 +62,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 				Global.soil_clicked=true
 				if adjusted!=true:
+					animated_sprite_2d.scale.y=0.2
 					animated_sprite_2d.play("tilled")
 				var text = self.name
 				var regex = RegEx.new()
