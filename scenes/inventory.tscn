@@ -50,11 +50,21 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
 script = ExtResource("3_bunsj")
 
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/GridContainer/Panel2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Panel3" type="Panel" parent="NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
 script = ExtResource("3_bunsj")
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/GridContainer/Panel3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Panel4" type="Panel" parent="NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(16, 16)
