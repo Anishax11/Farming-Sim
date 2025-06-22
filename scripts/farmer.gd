@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var inventory = $Inventory
 
 var speed=70
 var direction: Vector2
@@ -78,8 +79,8 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("Left"):
 		direction.x-=1
 		Global.get_direction(direction)
-	#if Input.is_action_just_pressed("Right click"):
-		#till_soil(self.position)
+	if Input.is_action_just_pressed("Inventory"):
+		inventory.visible = not inventory.visible
 	
 func play_animation():
 	animated_sprite_2d.play("hoe_right")
