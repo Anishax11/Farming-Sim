@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/farmer.gd" id="1_kssk7"]
 [ext_resource type="Texture2D" uid="uid://ct8kkbqy7hk43" path="res://MV/characters/_srw_free_farm_character_shovel.png" id="3_cdl31"]
 [ext_resource type="Texture2D" uid="uid://0mndo2oyseyb" path="res://MV/characters/_srw_free_farm_character_walk_frame16x20.png" id="3_i0v8y"]
-[ext_resource type="Texture2D" uid="uid://br2kswnni1ctn" path="res://16x16/Sprites/resized_16x16.png" id="4_57txh"]
+[ext_resource type="Texture2D" uid="uid://ch4a8huxe0kkq" path="res://16x16/Sprites/resized_49x64.png" id="4_o00i3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uauli"]
 atlas = ExtResource("3_i0v8y")
@@ -89,9 +89,9 @@ region = Rect2(48, 120, 48, 60)
 atlas = ExtResource("3_i0v8y")
 region = Rect2(96, 120, 48, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_plw8p"]
-atlas = ExtResource("4_57txh")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo5ne"]
+atlas = ExtResource("4_o00i3")
+region = Rect2(0, 0, 28, 46)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yhg64"]
 animations = [{
@@ -200,9 +200,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_plw8p")
+"texture": SubResource("AtlasTexture_eo5ne")
 }],
-"loop": true,
+"loop": false,
 "name": &"seeds",
 "speed": 5.0
 }]
@@ -219,7 +219,7 @@ script = ExtResource("1_kssk7")
 position = Vector2(0, -9)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_yhg64")
-animation = &"hoe_right"
+animation = &"forward"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
