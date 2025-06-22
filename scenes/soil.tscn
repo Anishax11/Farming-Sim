@@ -1,15 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6xokp1noba6f"]
+[gd_scene load_steps=15 format=3 uid="uid://c6xokp1noba6f"]
 
 [ext_resource type="Texture2D" uid="uid://da4gaksqh4jto" path="res://16x16/Sprites/ChatGPT Image Jun 14, 2025, 05_14_44 PM.png" id="1_2prn8"]
 [ext_resource type="Script" path="res://scripts/soil.gd" id="1_jrfko"]
 [ext_resource type="Texture2D" uid="uid://db545vu8ly3b5" path="res://16x16/Sprites/tilled_soil_88x88.png" id="2_0b072"]
 [ext_resource type="Texture2D" uid="uid://defsuirub57ay" path="res://16x16/Sprites/resized_88x88 (2).png" id="2_44kp5"]
+[ext_resource type="Texture2D" uid="uid://xyqehf4oaavy" path="res://16x16/Sprites/resized_88x88.jpg" id="2_bjo0d"]
+[ext_resource type="Texture2D" uid="uid://dilha2oc7ya3l" path="res://16x16/Sprites/seeds_resized_88x88.png" id="3_tajkv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryoc2"]
 size = Vector2(16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_raddf"]
+atlas = ExtResource("2_bjo0d")
+region = Rect2(0, 0, 88, 88)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2748"]
 atlas = ExtResource("2_44kp5")
+region = Rect2(0, 0, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hclbl"]
+atlas = ExtResource("3_tajkv")
 region = Rect2(0, 0, 88, 88)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ckt2l"]
@@ -28,10 +38,26 @@ region = Rect2(352, 935, 88, 85)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_raddf")
+}],
+"loop": true,
+"name": &"circle_seeds",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_t2748")
 }],
 "loop": true,
 "name": &"rect_tilled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hclbl")
+}],
+"loop": true,
+"name": &"seeds",
 "speed": 5.0
 }, {
 "frames": [{
@@ -68,7 +94,7 @@ shape = SubResource("RectangleShape2D_ryoc2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_ir0pw")
-animation = &"rect_tilled"
+animation = &"seeds"
 autoplay = "untilled"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

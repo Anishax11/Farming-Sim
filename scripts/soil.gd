@@ -5,6 +5,8 @@ class_name Soil
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var tilled=false
 var adjusted=false
+var planted=false
+var distance
 func _ready() -> void:
 	if randi_range(0,7)==3:
 		animated_sprite_2d.play("untilled_rock")
@@ -25,17 +27,29 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			
 			var soil_pos=Vector2( int(position.x / 8) * 8,int(position.y / 8) * 8 )
-			
-			#print("Soil pos:",soil_pos)
 			var player=get_node("/root/Game/Farmer")
 			var player_pos=Vector2( int(player.position.x / 8) * 8,int(player.position.y / 8) * 8 )
-			#print("Player pos:",player_pos)
-			var distance=soil_pos.distance_to(player_pos)
+			distance=soil_pos.distance_to(player_pos)
 			print(distance)
-			if distance<=20:
+			
+			#CODE FOR PLANTATION
+			
+			if distance<20 and tilled==true:
+				print("Plant")	
+				planted=true
+				player.get_node("AnimatedSprite2D").play("seeds")
+				if animated_sprite_2d.animation=="tilled":
+					animated_sprite_2d.play("circle_seeds")
+				elif animated_sprite_2d.animation=="rect_tilled":
+					animated_sprite_2d.play("seeds")
+				print(animated_sprite_2d.animation)
+				
+			#CODE FOR TILLING
+				
+			if distance<=20 and !tilled:
 				print(self.name)
 				if Global.player_direction==Vector2(1,0):
-					rotation_degrees=90
+					rotation_degrees=90 #rotates animation of tilled soil towards right 
 					player.get_node("AnimatedSprite2D").play("hoe_right")
 				if Global.player_direction==Vector2(-1,0):
 					rotation_degrees=-90
@@ -45,7 +59,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				if Global.player_direction==Vector2(0,1):
 					rotation_degrees=180
 					player.get_node("AnimatedSprite2D").play("hoe_front")
-				
+			
 				Global.soil_clicked=true
 				if adjusted!=true:
 					animated_sprite_2d.play("tilled")
@@ -56,33 +70,56 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 				if result:
 					var number = int(result.get_string(0))
-					if Global.player_direction==Vector2(1,0) and get_node("/root/Game/SoilManager/soil"+str(number-1)).adjusted!=true: 
+					if Global.player_direction==Vector2(1,0): 
 						if get_node("/root/Game/SoilManager/soil"+str(number-1)).tilled==true:
 							print("Prev tilled")
 							get_node("/root/Game/SoilManager/soil"+str(number-1)).get_node("AnimatedSprite2D").scale.y=0.21
-							get_node("/root/Game/SoilManager/soil"+str(number-1)).get_node("AnimatedSprite2D").play("rect_tilled")
+							
+							if get_node("/root/Game/SoilManager/soil"+str(number-1)).planted==true:
+								get_node("/root/Game/SoilManager/soil"+str(number-1)).get_node("AnimatedSprite2D").play("seeds")
+							elif get_node("/root/Game/SoilManager/soil"+str(number-1)).adjusted!=true:
+								get_node("/root/Game/SoilManager/soil"+str(number-1)).get_node("AnimatedSprite2D").play("rect_tilled")
+								print("RECT")
 							get_node("/root/Game/SoilManager/soil"+str(number-1)).adjusted=true
 							
-					if Global.player_direction==Vector2(-1,0) and get_node("/root/Game/SoilManager/soil"+str(number+1)).adjusted!=true:
+					if Global.player_direction==Vector2(-1,0):
 						if get_node("/root/Game/SoilManager/soil"+str(number+1)).tilled==true:
 							print("Prev tilled")
 							get_node("/root/Game/SoilManager/soil"+str(number+1)).get_node("AnimatedSprite2D").scale.y=0.21
-							get_node("/root/Game/SoilManager/soil"+str(number+1)).get_node("AnimatedSprite2D").play("rect_tilled")
+							
+							if get_node("/root/Game/SoilManager/soil"+str(number+1)).planted==true:
+								get_node("/root/Game/SoilManager/soil"+str(number+1)).get_node("AnimatedSprite2D").play("seeds")
+								print("SEEDS")
+							elif get_node("/root/Game/SoilManager/soil"+str(number+1)).adjusted!=true:
+								
+								get_node("/root/Game/SoilManager/soil"+str(number+1)).get_node("AnimatedSprite2D").play("rect_tilled")
+								print("RECT")
 							get_node("/root/Game/SoilManager/soil"+str(number+1)).adjusted=true
 							
-					if Global.player_direction==Vector2(0,1)  and get_node("/root/Game/SoilManager/soil"+str(number-39)).adjusted!=true:
+					if Global.player_direction==Vector2(0,1):
 						if get_node("/root/Game/SoilManager/soil"+str(number-39)).tilled==true:
 							print("Prev tilled")
 							get_node("/root/Game/SoilManager/soil"+str(number-39)).get_node("AnimatedSprite2D").scale.y=0.21
-							get_node("/root/Game/SoilManager/soil"+str(number-39)).get_node("AnimatedSprite2D").play("rect_tilled")
+							
+							if get_node("/root/Game/SoilManager/soil"+str(number-39)).planted==true:
+								get_node("/root/Game/SoilManager/soil"+str(number-39)).get_node("AnimatedSprite2D").play("seeds")
+							elif get_node("/root/Game/SoilManager/soil"+str(number-39)).adjusted!=true:
+								get_node("/root/Game/SoilManager/soil"+str(number-39)).get_node("AnimatedSprite2D").play("rect_tilled")
+								print("RECT")
 							get_node("/root/Game/SoilManager/soil"+str(number-39)).adjusted=true
 					
-					if Global.player_direction==Vector2(0,-1) and get_node("/root/Game/SoilManager/soil"+str(number+39)).adjusted!=true :
+					if Global.player_direction==Vector2(0,-1):
 						
 						if get_node("/root/Game/SoilManager/soil"+str(number+39)).tilled==true:
 							print("Prev tilled")
 							get_node("/root/Game/SoilManager/soil"+str(number+39)).get_node("AnimatedSprite2D").scale.y=0.21
-							get_node("/root/Game/SoilManager/soil"+str(number+39)).get_node("AnimatedSprite2D").play("rect_tilled")
+							
+							if get_node("/root/Game/SoilManager/soil"+str(number+39)).planted==true:
+								get_node("/root/Game/SoilManager/soil"+str(number+39)).get_node("AnimatedSprite2D").play("seeds")
+								print("SEEDS")
+							elif get_node("/root/Game/SoilManager/soil"+str(number+39)).adjusted!=true :
+								get_node("/root/Game/SoilManager/soil"+str(number+39)).get_node("AnimatedSprite2D").play("rect_tilled")
+								print("RECT")
 							get_node("/root/Game/SoilManager/soil"+str(number+39)).adjusted=true
 					tilled=true
 					
@@ -94,3 +131,5 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if Global.soil_clicked==true:
 				animated_sprite_2d.play("tilled")
 				tilled==true
+		
+		
