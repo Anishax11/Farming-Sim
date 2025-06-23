@@ -4,7 +4,7 @@ extends Panel
 var button_held=false	
 var panel_number
 func _ready():
-	self.connect("gui_input", Callable(self, "_on_gui_input"))
+	self.connect("gui_input", Callable(self, "_on_gui_input")) #Attach signal to node
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
@@ -32,6 +32,10 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and button_held==true:
 		print("Dragging")
 		if $TextureRect!=null:
-			Global.panel_clicked=!Global.panel_clicked
+			if $TextureRect.global_position.x<0 or $TextureRect.global_position.x>190 or $TextureRect.global_position.y<600 or $TextureRect.global_position.y>700:
+				
+				Global.item_out_of_inv=true
+				
+			Global.panel_clicked=!Global.panel_clicked #Panel clicked shouldnt become true while dragging item
 			$TextureRect.position=get_local_mouse_position()
 			print($TextureRect.global_position)

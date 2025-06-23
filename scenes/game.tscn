@@ -4345,7 +4345,6 @@ z_index = 1
 position = Vector2(0, 592)
 
 [node name="Inventory" parent="Farmer" instance=ExtResource("15_wd8j7")]
-visible = false
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -2
