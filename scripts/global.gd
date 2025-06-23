@@ -18,9 +18,12 @@ func get_direction(direction) :
 	#print("player_direction",player_direction)
 
 func move_item(panel_number):
+	#Gets texture node from initial panel
 	var texture_rect=get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/TextureRect")
-	print("INI:","/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/TextureRect")
+	#print("INI:","/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/TextureRect")
+	#removes texture child from initial panel
 	get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)).remove_child(texture_rect)
+	print(get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/TextureRect"))
 	#print("panels moved x:", round(texture_rect.position.x / 40))
 	var final_panel=round(texture_rect.position.y / 40)*5+round(texture_rect.position.x / 40)+panel_number
 	print("Finale panel:",final_panel)
