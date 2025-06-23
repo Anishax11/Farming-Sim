@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqsiasjsqopbn"]
+[gd_scene load_steps=7 format=3 uid="uid://bqsiasjsqopbn"]
 
 [ext_resource type="Texture2D" uid="uid://dutlnbhbihar8" path="res://16x16/Sprites/InventoryRect.png" id="1_isptr"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="1_nqscb"]
 [ext_resource type="Texture2D" uid="uid://dbwutxib63p8q" path="res://16x16/Sprites/inventorySlot.png" id="2_qymee"]
 [ext_resource type="Script" path="res://scripts/panel.gd" id="3_bunsj"]
 [ext_resource type="Texture2D" uid="uid://bqhpytauejph1" path="res://16x16/Sprites/ChatGPT Image Jun 22, 2025, 01_37_12 AM.png" id="4_tscqb"]
@@ -9,6 +10,7 @@
 texture = ExtResource("2_qymee")
 
 [node name="Inventory" type="Node2D"]
+script = ExtResource("1_nqscb")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 offset_right = 195.0
