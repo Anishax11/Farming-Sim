@@ -11,8 +11,8 @@ texture = ExtResource("2_qymee")
 [node name="Inventory" type="Node2D"]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-offset_right = 218.0
-offset_bottom = 135.0
+offset_right = 195.0
+offset_bottom = 116.0
 texture = ExtResource("1_isptr")
 patch_margin_left = 6
 patch_margin_top = 6
@@ -23,26 +23,17 @@ patch_margin_bottom = 6
 layout_mode = 1
 offset_left = 9.0
 offset_top = 9.0
-offset_right = 209.0
-offset_bottom = 128.0
-theme_override_constants/h_separation = 30
-theme_override_constants/v_separation = 4
+offset_right = 199.0
+offset_bottom = 114.0
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
 columns = 5
 
-[node name="Panel" type="Panel" parent="NinePatchRect/GridContainer"]
+[node name="Panel1" type="Panel" parent="NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
 script = ExtResource("3_bunsj")
-
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/GridContainer/Panel"]
-z_index = 5
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_tscqb")
-expand_mode = 1
 
 [node name="Panel2" type="Panel" parent="NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(16, 16)
@@ -51,20 +42,19 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
 script = ExtResource("3_bunsj")
 
 [node name="TextureRect" type="TextureRect" parent="NinePatchRect/GridContainer/Panel2"]
+z_index = 5
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_tscqb")
+expand_mode = 1
 
 [node name="Panel3" type="Panel" parent="NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
 script = ExtResource("3_bunsj")
-
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/GridContainer/Panel3"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Panel4" type="Panel" parent="NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(16, 16)
@@ -138,94 +128,4 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
 script = ExtResource("3_bunsj")
 
-[node name="Panel16" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel17" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel18" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel19" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel20" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel21" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel22" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel23" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel24" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel25" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel26" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel27" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel28" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel29" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[node name="Panel30" type="Panel" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
-script = ExtResource("3_bunsj")
-
-[connection signal="gui_input" from="NinePatchRect/GridContainer/Panel" to="NinePatchRect/GridContainer/Panel" method="_on_gui_input"]
+[connection signal="gui_input" from="NinePatchRect/GridContainer/Panel1" to="NinePatchRect/GridContainer/Panel1" method="_on_gui_input"]
