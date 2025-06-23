@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://brwxmtagn5m17"]
+
+[ext_resource type="Script" path="res://scripts/seeds.gd" id="1_q1ha3"]
+[ext_resource type="Texture2D" uid="uid://bqhpytauejph1" path="res://16x16/Sprites/ChatGPT Image Jun 22, 2025, 01_37_12 AM.png" id="1_vvim8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmrh4"]
+size = Vector2(29, 28)
+
+[node name="seeds" type="Area2D"]
+script = ExtResource("1_q1ha3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_vvim8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15.5, 16)
+shape = SubResource("RectangleShape2D_fmrh4")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

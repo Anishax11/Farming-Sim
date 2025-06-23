@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bnyh64xhqcef4"]
+[gd_scene load_steps=27 format=3 uid="uid://bnyh64xhqcef4"]
 
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_l374g"]
 [ext_resource type="PackedScene" uid="uid://bqf55ab0jubbx" path="res://scenes/grass.tscn" id="2_8rimr"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://s84nx63byva3" path="res://scenes/soil_manager.tscn" id="10_vl0ky"]
 [ext_resource type="PackedScene" uid="uid://dnnuq6f68u4ja" path="res://scenes/parallax_background.tscn" id="12_t5ypf"]
 [ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="15_wd8j7"]
+[ext_resource type="PackedScene" uid="uid://brwxmtagn5m17" path="res://scenes/seeds.tscn" id="16_rgxy3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugn7j"]
 texture = ExtResource("2_j4gt8")
@@ -4345,6 +4346,7 @@ z_index = 1
 position = Vector2(0, 592)
 
 [node name="Inventory" parent="Farmer" instance=ExtResource("15_wd8j7")]
+visible = false
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -2
@@ -4806,3 +4808,6 @@ position = Vector2(-310, -7)
 [node name="ParallaxBackground" parent="." instance=ExtResource("12_t5ypf")]
 
 [node name="SoilManager" parent="." instance=ExtResource("10_vl0ky")]
+
+[node name="seeds" parent="." instance=ExtResource("16_rgxy3")]
+position = Vector2(-15, 495)

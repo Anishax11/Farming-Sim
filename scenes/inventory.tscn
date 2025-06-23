@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqsiasjsqopbn"]
+[gd_scene load_steps=6 format=3 uid="uid://bqsiasjsqopbn"]
 
 [ext_resource type="Texture2D" uid="uid://dutlnbhbihar8" path="res://16x16/Sprites/InventoryRect.png" id="1_isptr"]
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="1_nqscb"]
 [ext_resource type="Texture2D" uid="uid://dbwutxib63p8q" path="res://16x16/Sprites/inventorySlot.png" id="2_qymee"]
 [ext_resource type="Script" path="res://scripts/panel.gd" id="3_bunsj"]
-[ext_resource type="Texture2D" uid="uid://bqhpytauejph1" path="res://16x16/Sprites/ChatGPT Image Jun 22, 2025, 01_37_12 AM.png" id="4_tscqb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q16w5"]
 texture = ExtResource("2_qymee")
@@ -42,15 +41,6 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
 script = ExtResource("3_bunsj")
-
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/GridContainer/Panel2"]
-z_index = 5
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_tscqb")
-expand_mode = 1
 
 [node name="Panel3" type="Panel" parent="NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(16, 16)
