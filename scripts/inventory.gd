@@ -31,13 +31,14 @@ func add_to_inventory(string):
 				inventory_items[i][j]=string
 				var texture=TextureRect.new()
 				texture.texture=seeds
-				
+				texture.name="texture"
 				texture.scale.x=0.016
 				texture.scale.y=0.016
 				print("Slot passed:",slots_passed)
 				print("ADJ:",slot_adjust)
 				print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 				get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust)).add_child(texture)
+				texture.z_index=1
 				slot_found=true
 				print("slot_found:",slot_found)
 				

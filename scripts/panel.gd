@@ -1,8 +1,9 @@
 extends Panel
 
-#@onready var texture_rect: TextureRect = $TextureRect
+
 var button_held=false	
 var panel_number
+@onready var texture_rect=get_node("texture")
 func _ready():
 	self.connect("gui_input", Callable(self, "_on_gui_input")) #Attach signal to node
 
@@ -14,7 +15,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			#print("ini pos:",texture_rect.position)
 			#print("self:",self.position)
 			#print(texture_rect.get_path())
-			if $TextureRect!=null:
+			if get_node("texture")!=null:
 				print("HAs texture")
 				Global.panel_clicked=!Global.panel_clicked
 			
@@ -26,16 +27,16 @@ func _on_gui_input(event: InputEvent) -> void:
 			var result = regex.search(text)
 			panel_number=int(result.get_string(0))
 			print(panel_number)
-			if $TextureRect!=null:
+			if get_node("texture")!=null:
 				Global.move_item(panel_number)#Passes panel no. to move_item func
 			
 	if event is InputEventMouseMotion and button_held==true:
 		print("Dragging")
-		if $TextureRect!=null:
-			if $TextureRect.global_position.x<0 or $TextureRect.global_position.x>190 or $TextureRect.global_position.y<600 or $TextureRect.global_position.y>700:
+		if get_node("texture")!=null:
+			if get_node("texture").global_position.x<0 or get_node("texture").global_position.x>190 or get_node("texture").global_position.y<600 or get_node("texture").global_position.y>700 :
 				
 				Global.item_out_of_inv=true
 				
 			Global.panel_clicked=!Global.panel_clicked #Panel clicked shouldnt become true while dragging item
-			$TextureRect.position=get_local_mouse_position()
-			print($TextureRect.global_position)
+			get_node("texture").position=get_local_mouse_position()
+			print(get_node("texture").global_position)

@@ -22,7 +22,7 @@ func move_item(panel_number):
 	
 		
 	#Gets texture node from initial panel
-	var texture_rect=get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/TextureRect")
+	var texture_rect=get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/texture")
 	#print("INI:","/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/TextureRect")
 	#removes texture child from initial panel
 	if item_out_of_inv==true:
