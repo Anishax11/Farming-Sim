@@ -15,14 +15,19 @@ func get_direction(direction) :
 	#print("player_direction",player_direction)
 
 func move_item(panel_number):
-	
+	print("FUNC CAlled")
 	var inv=get_node("/root/Game/Farmer/Inventory")
 	print(inv.inventory_items)
 	#Gets texture node from initial panel
+	#if get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/texture")!=null:
+		#print("can find text in inial panel")
+	
 	var texture_rect=get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/texture")
+	
 	#print("INI:","/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/TextureRect")
 	#removes texture child from initial panel
 	if item_out_of_inv==true:
+		
 		texture_rect.position=Vector2(0,0)
 		item_out_of_inv=false
 		return
@@ -34,13 +39,18 @@ func move_item(panel_number):
 	
 	print(get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/texture"))
 	#print("panels moved x:", round(texture_rect.position.x / 40))
+	
 	var final_panel=round(texture_rect.position.y / 40)*5+round(texture_rect.position.x / 40)+panel_number
+	print("X:",texture_rect.position.x)
+	print("Y:",texture_rect.position.y)
+	print("y increment:",round(texture_rect.position.y / 40)*5)
 	print("Finale panel:",final_panel)
 	if get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)+"/texture")==null:
 		print("NOT OCCUPIED")
 		get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).add_child(texture_rect)
 		#ADD ITEM TO ARRAY
 		inv.inventory_items[int((final_panel-1)/5)][int(final_panel-1)%5]="seeds"
+		
 		texture_rect.global_position=get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).global_position
 	else:
 		print("OCCUPIED")
