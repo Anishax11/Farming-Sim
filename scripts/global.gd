@@ -8,10 +8,6 @@ var panel_number
 var item_out_of_inv=false
 
 
-#func till_soil(player):
-	
-	#if abs(position-location)<=16:
-		#queue_free()
 
 	
 func get_direction(direction) :
@@ -20,7 +16,8 @@ func get_direction(direction) :
 
 func move_item(panel_number):
 	
-		
+	var inv=get_node("/root/Game/Farmer/Inventory")
+	print(inv.inventory_items)
 	#Gets texture node from initial panel
 	var texture_rect=get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/texture")
 	#print("INI:","/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/TextureRect")
@@ -30,11 +27,31 @@ func move_item(panel_number):
 		item_out_of_inv=false
 		return
 	get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)).remove_child(texture_rect)
-	print(get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/TextureRect"))
+	
+	#REMOVE ITEM FROM ARRAY
+	
+	inv.inventory_items[int((panel_number-1)/5)][(panel_number-1)%5]=""
+	
+	print(get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/texture"))
 	#print("panels moved x:", round(texture_rect.position.x / 40))
 	var final_panel=round(texture_rect.position.y / 40)*5+round(texture_rect.position.x / 40)+panel_number
 	print("Finale panel:",final_panel)
-	get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).add_child(texture_rect)
-	print(texture_rect.get_path())
-	texture_rect.global_position=get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).global_position
+	if get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)+"/texture")==null:
+		print("NOT OCCUPIED")
+		get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).add_child(texture_rect)
+		#ADD ITEM TO ARRAY
+		inv.inventory_items[int((final_panel-1)/5)][int(final_panel-1)%5]="seeds"
+		texture_rect.global_position=get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).global_position
+	else:
+		print("OCCUPIED")
+		get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(panel_number)).add_child(texture_rect)
+		texture_rect.global_position=get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(panel_number)).global_position
+		inv.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]="seeds"
+	
+	
+	
+	
+	print("Text final path:",texture_rect.get_path())
+	
 	print(get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).position)
+	

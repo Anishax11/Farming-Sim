@@ -44,6 +44,7 @@ func add_to_inventory(string):
 				
 				slots_passed=0
 				slot_adjust=1
+				print(inventory_items)
 				return
 			elif i==2 and j==4:
 				print("Inventory is full")	
