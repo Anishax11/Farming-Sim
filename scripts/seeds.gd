@@ -6,7 +6,7 @@ var distance
 func _ready() -> void:
 	
 	var img= (texture_rect.texture as CompressedTexture2D).get_image()
-	Global.seeds_texture=img
+	Global.seeds_texture=img.save_png_to_buffer()
 	
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

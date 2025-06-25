@@ -25,7 +25,7 @@ func _ready() -> void:
 				#if id%45==0:
 					var grass=GRASS.instantiate()	
 					get_node(soil.get_path()).add_child(grass)
-					print(grass.get_path())		
+					#print(grass.get_path())		
 				id+=1
 	
 	

@@ -8,10 +8,11 @@ var panel_number
 @onready var texture_rect=get_node("texture")
 static var seeds_equipped=false
 static var water_equipped=false
+var image
+var item_name
 func _ready():
 	self.connect("gui_input", Callable(self, "_on_gui_input")) #Attach signal to node
-	#
-
+	
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
@@ -23,40 +24,54 @@ func _on_gui_input(event: InputEvent) -> void:
 			#print("ini pos:",texture_rect.position)
 			#print("self:",self.position)
 			#print(texture_rect.get_path())$TextureRect
-			if get_node("texture")==null:
-				print("NULL")
-			var image=get_node("texture").texture.get_image().save_png_to_buffer()
 			
-			if get_node("texture")!=null and image== Global.seeds_texture.save_png_to_buffer():
-				print("Seeds equipped")
+			if image!= Global.seeds_texture:
+				print("NULL",self.name)
+			
+			
+			if get_node("texture")!=null and image== Global.seeds_texture:
+				#print("Seeds equipped")
 				water_equipped=!water_equipped
 				seeds_equipped=!seeds_equipped
+				item_name="seeds"
+				print("ITEM:",item_name)
 				
 			if get_node("texture")!=null and image== Global.watercan_texture.save_png_to_buffer():
-				print("water equipped")
-				
+				#print("water equipped")
+				item_name="watercan"
 				water_equipped=!water_equipped
 				seeds_equipped=!seeds_equipped
 				
 		elif ! event.pressed:
+			#print("Button left")
 			button_held=false
 			var text = self.name
 			var regex = RegEx.new()
 			regex.compile(r"\d+")  # Matches one or more digits
 			var result = regex.search(text)
 			panel_number=int(result.get_string(0))
-			print(panel_number)
-			if texture_rect!=null:
-				Global.move_item(panel_number)#Passes panel no. to move_item func
-			
+			#print(panel_number)
+			if get_node("texture")!=null:
+				
+				Global.move_item(panel_number,item_name)#Passes panel no. to move_item func
+			else:
+				print("TEXT not found")
+				
 	if event is InputEventMouseMotion and button_held==true:
-		var relative_pos = get_node("texture").global_position - grandparent.global_position
-		print("DIst from inv:",relative_pos)#-get_parent().get_parent().position.x)
+		
+		
+		#print("DIst from inv:",relative_pos)#-get_parent().get_parent().position.x)
 		if get_node("texture")!=null:
+			var relative_pos = get_node("texture").global_position - grandparent.global_position
 			if relative_pos.x<0 or relative_pos.x>190 or relative_pos.y<0 or relative_pos.y>190 :
 				print("item out of inv")
-				print("POs:",relative_pos)
+				#print("POs:",relative_pos)
 				Global.item_out_of_inv=true
 				
 			Global.panel_clicked=!Global.panel_clicked #Panel clicked shouldnt become true while dragging item
-			get_node("texture").position=get_local_mouse_position()
+			get_node("texture").position=event.position 
+			
+		
+
+func assign_texture():
+	image=get_node("texture").texture.get_image().save_png_to_buffer()

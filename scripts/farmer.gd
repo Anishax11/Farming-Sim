@@ -87,7 +87,7 @@ func play_animation():
 	animated_sprite_2d.play("hoe_right")
 	
 func get_direction() ->Vector2:
-	print("PL:",direction)
+	#print("PL:",direction)
 	return direction
 
 func stop():

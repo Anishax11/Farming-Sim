@@ -15,10 +15,10 @@ func get_direction(direction) :
 	player_direction=direction
 	#print("player_direction",player_direction)
 
-func move_item(panel_number):
-	print("FUNC CAlled")
+func move_item(panel_number,item_name):
+	print("FUNC Item",item_name,panel_number)
 	var inv=get_node("/root/Game/Farmer/Inventory")
-	print(inv.inventory_items)
+	#print(inv.inventory_items)
 	#Gets texture node from initial panel
 	#if get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/texture")!=null:
 		#print("can find text in inial panel")
@@ -42,22 +42,24 @@ func move_item(panel_number):
 	#print("panels moved x:", round(texture_rect.position.x / 40))
 	
 	var final_panel=round(texture_rect.position.y / 40)*5+round(texture_rect.position.x / 40)+panel_number
-	print("X:",texture_rect.position.x)
-	print("Y:",texture_rect.position.y)
-	print("y increment:",round(texture_rect.position.y / 40)*5)
-	print("Finale panel:",final_panel)
+	#print("X:",texture_rect.position.x)
+	#print("Y:",texture_rect.position.y)
+	#print("y increment:",round(texture_rect.position.y / 40)*5)
+	#print("Finale panel:",final_panel)
 	if get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)+"/texture")==null and final_panel>0 and final_panel<16:
-		print("NOT OCCUPIED")
+		#print("NOT OCCUPIED")
 		get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).add_child(texture_rect)
 		#ADD ITEM TO ARRAY
-		inv.inventory_items[int((final_panel-1)/5)][int(final_panel-1)%5]="seeds"
+		inv.inventory_items[int((final_panel-1)/5)][int(final_panel-1)%5]=item_name
 		
 		texture_rect.global_position=get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).global_position
+		get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).assign_texture()
+		
 	else:
-		print("OCCUPIED")
+		#print("OCCUPIED")
 		get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(panel_number)).add_child(texture_rect)
 		texture_rect.global_position=get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(panel_number)).global_position
-		inv.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]="seeds"
+		inv.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]=item_name
 	
 	
 	

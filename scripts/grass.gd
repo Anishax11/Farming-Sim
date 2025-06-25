@@ -13,13 +13,13 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
 		
 		if event.pressed:
-			print("grass pressed")
+			#print("grass pressed")
 		
 			Global.grass_clicked=true
 			#Global.grass_held=true
 			
 		if !event.pressed:
-			print("Left grass button")
+			#print("Left grass button")
 			Global.grass_clicked=false
 			#Global.grass_held=false
 			queue_free()

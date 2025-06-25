@@ -9,6 +9,7 @@
 texture = ExtResource("2_qymee")
 
 [node name="Inventory" type="Node2D"]
+z_index = 5
 script = ExtResource("1_nqscb")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
