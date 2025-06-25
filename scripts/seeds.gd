@@ -1,8 +1,12 @@
 extends Area2D
 var player
 var distance
+@onready var texture_rect: TextureRect = $TextureRect
 
-
+func _ready() -> void:
+	
+	var img= (texture_rect.texture as CompressedTexture2D).get_image()
+	Global.seeds_texture=img
 	
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

@@ -33,8 +33,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			print(distance)
 			
 			#CODE FOR PLANTATION
-			
-			if distance<18 and tilled==true and Global.panel_clicked==true:
+			print(panel.seeds_equipped)
+			if distance<18 and tilled==true and panel.seeds_equipped==true:
 				print("Plant")	
 				planted=true
 				player.get_node("AnimatedSprite2D").play("seeds")

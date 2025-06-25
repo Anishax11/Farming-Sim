@@ -7,8 +7,8 @@ var panel_clicked=false
 var player_direction
 var panel_number
 var item_out_of_inv=false
-
-
+var seeds_texture
+var watercan_texture
 
 	
 func get_direction(direction) :
@@ -46,7 +46,7 @@ func move_item(panel_number):
 	print("Y:",texture_rect.position.y)
 	print("y increment:",round(texture_rect.position.y / 40)*5)
 	print("Finale panel:",final_panel)
-	if get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)+"/texture")==null:
+	if get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)+"/texture")==null and final_panel>0 and final_panel<16:
 		print("NOT OCCUPIED")
 		get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).add_child(texture_rect)
 		#ADD ITEM TO ARRAY
@@ -62,7 +62,7 @@ func move_item(panel_number):
 	
 	
 	
-	print("Text final path:",texture_rect.get_path())
-	
-	print(get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).position)
+	#print("Text final path:",texture_rect.get_path())
+	#
+	#print(get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).position)
 	
