@@ -3,9 +3,9 @@ extends Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var clicked=false
 #
-func _ready() -> void:
-	
-	print(get_path())
+#func _ready() -> void:
+	#
+	#print(get_path())
 #func _process(delta: float) -> void:
 	#pass
 	

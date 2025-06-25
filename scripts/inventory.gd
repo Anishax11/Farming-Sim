@@ -20,7 +20,7 @@ func _ready() -> void:
 	#add_to_inventory("seeds")
 	#print(inventory_items)
 
-func add_to_inventory(string):
+func add_to_inventory(string,item_texture):
 	
 	for i in range(3):
 			
@@ -30,7 +30,7 @@ func add_to_inventory(string):
 				print("slot availabke")
 				inventory_items[i][j]=string
 				var texture=TextureRect.new()
-				texture.texture=seeds
+				texture.texture=item_texture
 				texture.name="texture"
 				texture.scale.x=0.016
 				texture.scale.y=0.016

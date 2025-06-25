@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp4ttdxatca18"]
+
+[ext_resource type="Texture2D" uid="uid://clcgc0x7v0rwj" path="res://16x16/Sprites/water can icon.png" id="1_dnx37"]
+[ext_resource type="Script" path="res://scripts/seeds.gd" id="2_hsg56"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6g0y"]
+size = Vector2(1029, 1029)
+
+[node name="watercan" type="Area2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_dnx37")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(504.5, 504.5)
+shape = SubResource("RectangleShape2D_a6g0y")
+script = ExtResource("2_hsg56")
