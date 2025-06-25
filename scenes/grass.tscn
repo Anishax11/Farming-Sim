@@ -48,7 +48,7 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="Grass" type="Area2D"]
-z_index = -1
+z_index = 1
 script = ExtResource("1_38byu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

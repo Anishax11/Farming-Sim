@@ -89,3 +89,6 @@ func play_animation():
 func get_direction() ->Vector2:
 	print("PL:",direction)
 	return direction
+
+func stop():
+	direction=Vector2(0,0)

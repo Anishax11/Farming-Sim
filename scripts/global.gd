@@ -1,6 +1,7 @@
 extends Node
 
 var grass_clicked=false
+var grass_held=false
 var soil_clicked=false
 var panel_clicked=false
 var player_direction

@@ -10,7 +10,7 @@ var distance
 func _ready() -> void:
 	if randi_range(0,7)==3:
 		animated_sprite_2d.play("untilled_rock")
-
+		#print(get_path())
 
 #func _on_area_entered(area: Area2D) -> void:
 	#
@@ -23,7 +23,7 @@ func _ready() -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		
-		if event.pressed:
+		if event.pressed and get_node("Grass")==null:
 			
 			
 			var soil_pos=Vector2( int(position.x / 8) * 8,int(position.y / 8) * 8 )
