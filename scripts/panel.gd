@@ -8,7 +8,7 @@ var panel_number
 @onready var texture_rect=get_node("texture")
 static var seeds_equipped=false
 static var water_equipped=false
-var image
+
 var item_name
 
 func _ready():
@@ -27,22 +27,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			#print("self:",self.position)
 			#print(texture_rect.get_path())$TextureRect
 			
-			#if image!= Global.seeds_texture:
-				#print("NULL",self.name)
-			#
 			
-			#if get_node("texture")!=null and image== Global.seeds_texture:
-				##print("Seeds equipped")
-				#water_equipped=!water_equipped
-				#seeds_equipped=!seeds_equipped
-				#item_name="seeds"
-				#print("ITEM:",item_name)
-				#
-			#if get_node("texture")!=null and image== Global.watercan_texture:
-				##print("water equipped")
-				#item_name="watercan"
-				#water_equipped=!water_equipped
-				#seeds_equipped=!seeds_equipped
 			if item_name=="seeds":
 				print("Item is seeds")
 				water_equipped=!water_equipped
@@ -99,8 +84,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				#print("LOC:",get_node("texture").position)
 		
 
-#func assign_texture():
-	#image=get_node("texture").texture.get_image().save_png_to_buffer()
+
 
 
 

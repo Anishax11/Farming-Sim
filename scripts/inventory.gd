@@ -36,9 +36,9 @@ func add_to_inventory(string,item_texture) :
 				#print("Slot passed:",slots_passed)
 				#print("ADJ:",slot_adjust)
 				#print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
-				#get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust)).add_child(texture)
+				
 				Global.empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
-				#get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust)).assign_texture()
+				
 				
 				#texture.position=Vector2(0,0)
 				texture.z_index=1

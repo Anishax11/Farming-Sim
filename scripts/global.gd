@@ -54,7 +54,7 @@ func move_item(panel_number,item_name):
 		inv.inventory_items[int((final_panel-1)/5)][int(final_panel-1)%5]=item_name
 		
 		texture_rect.global_position=get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).global_position
-		#get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).assign_texture()
+		
 		
 	else:
 		#print("OCCUPIED")
