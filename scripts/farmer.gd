@@ -82,7 +82,8 @@ func _input(event: InputEvent) -> void:
 		Global.get_direction(direction)
 	if Input.is_action_just_pressed("Inventory"):
 		inventory.visible = not inventory.visible
-	
+		inventory.set_process_input(not inventory.visible)
+		
 func play_animation():
 	animated_sprite_2d.play("hoe_right")
 	

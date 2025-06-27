@@ -32,10 +32,18 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			distance=soil_pos.distance_to(player_pos)
 			print(distance)
 			
+			# CODE FOR GROWING PLANT
+			if distance<18 and planted==true and panel.water_equipped==true:
+				Global.grow_plant(self,rotation_degrees)
+			if panel.seeds_equipped==true:
+				print("seeds EQUIPPED")
+			else:
+				print("seeds NOT EQUIPPED")
+			
 			#CODE FOR PLANTATION
 			print(panel.seeds_equipped)
 			if distance<18 and tilled==true and panel.seeds_equipped==true:
-				print("Plant")	
+				print("Plant ")	
 				planted=true
 				player.get_node("AnimatedSprite2D").play("seeds")
 				if animated_sprite_2d.animation=="tilled":

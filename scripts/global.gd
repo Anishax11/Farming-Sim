@@ -10,6 +10,7 @@ var item_out_of_inv=false
 var seeds_texture
 var watercan_texture
 var empty_panel
+const PLANT = preload("res://scenes/plant.tscn")
 	
 func get_direction(direction) :
 	player_direction=direction
@@ -71,3 +72,14 @@ func move_item(panel_number,item_name):
 	
 func get_empty_panel():
 	return empty_panel
+
+func grow_plant(soil,rotation_degrees):
+	print("grow plant Func called")
+	var plant=PLANT.instantiate()
+	plant.scale=Vector2(0.1,0.1)
+	
+	#soil.remove_child.soil.get_node("AnimatedSprite2D")
+	get_node("/root/Game").add_child(plant)
+	
+	plant.global_position.y=soil.global_position.y-18
+	plant.global_position.x=soil.global_position.x-8

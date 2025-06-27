@@ -30,7 +30,8 @@ func _on_gui_input(event: InputEvent) -> void:
 			
 			if item_name=="seeds":
 				print("Item is seeds")
-				water_equipped=!water_equipped
+				if water_equipped==true:
+					water_equipped=false
 				seeds_equipped=!seeds_equipped
 				print("seeds_equipped",seeds_equipped)
 			
@@ -38,9 +39,11 @@ func _on_gui_input(event: InputEvent) -> void:
 				print("Item is not seeds")	
 				
 			if item_name=="watercan":
+				if seeds_equipped==true:
+					seeds_equipped=false
 				print("Item is water")
 				water_equipped=!water_equipped
-				seeds_equipped=!seeds_equipped
+			
 				print("water_equipped",water_equipped)
 			
 			else:
@@ -89,7 +92,7 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
-	print("CHILd entered:",node.name)
+	
 	if node is TextureRect and node.name=="seeds":
 		
 		item_name="seeds"

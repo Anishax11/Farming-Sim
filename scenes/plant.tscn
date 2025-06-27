@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://2d8wujcsyrya"]
+
+[ext_resource type="Texture2D" uid="uid://d3uctv4ldd2ss" path="res://16x16/Sprites/ChatGPT Image Jun 27, 2025, 09_51_19 PM (1).png" id="1_d1yyk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dyuw"]
+size = Vector2(240, 261)
+
+[node name="Plant" type="Area2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
+y_sort_enabled = true
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_d1yyk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(118, 130.5)
+shape = SubResource("RectangleShape2D_0dyuw")
