@@ -10,8 +10,10 @@ static var seeds_equipped=false
 static var water_equipped=false
 var image
 var item_name
+
 func _ready():
 	self.connect("gui_input", Callable(self, "_on_gui_input")) #Attach signal to node
+	self.connect("child_entered_tree", Callable(self, "_on_panel_1_child_entered_tree"))
 	
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
@@ -25,24 +27,42 @@ func _on_gui_input(event: InputEvent) -> void:
 			#print("self:",self.position)
 			#print(texture_rect.get_path())$TextureRect
 			
-			if image!= Global.seeds_texture:
-				print("NULL",self.name)
+			#if image!= Global.seeds_texture:
+				#print("NULL",self.name)
+			#
 			
-			
-			if get_node("texture")!=null and image== Global.seeds_texture:
-				#print("Seeds equipped")
+			#if get_node("texture")!=null and image== Global.seeds_texture:
+				##print("Seeds equipped")
+				#water_equipped=!water_equipped
+				#seeds_equipped=!seeds_equipped
+				#item_name="seeds"
+				#print("ITEM:",item_name)
+				#
+			#if get_node("texture")!=null and image== Global.watercan_texture:
+				##print("water equipped")
+				#item_name="watercan"
+				#water_equipped=!water_equipped
+				#seeds_equipped=!seeds_equipped
+			if item_name=="seeds":
+				print("Item is seeds")
 				water_equipped=!water_equipped
 				seeds_equipped=!seeds_equipped
-				item_name="seeds"
-				print("ITEM:",item_name)
+				print("seeds_equipped",seeds_equipped)
+			
+			else:
+				print("Item is not seeds")	
 				
-			if get_node("texture")!=null and image== Global.watercan_texture.save_png_to_buffer():
-				#print("water equipped")
-				item_name="watercan"
+			if item_name=="watercan":
+				print("Item is water")
 				water_equipped=!water_equipped
 				seeds_equipped=!seeds_equipped
+				print("water_equipped",water_equipped)
+			
+			else:
+				print("Item is not water")		
 				
 		elif ! event.pressed:
+			
 			#print("Button left")
 			button_held=false
 			var text = self.name
@@ -51,27 +71,44 @@ func _on_gui_input(event: InputEvent) -> void:
 			var result = regex.search(text)
 			panel_number=int(result.get_string(0))
 			#print(panel_number)
-			if get_node("texture")!=null:
+			if get_node(item_name)!=null:
 				
 				Global.move_item(panel_number,item_name)#Passes panel no. to move_item func
+				
 			else:
 				print("TEXT not found")
 				
 	if event is InputEventMouseMotion and button_held==true:
 		
 		
+		
 		#print("DIst from inv:",relative_pos)#-get_parent().get_parent().position.x)
-		if get_node("texture")!=null:
-			var relative_pos = get_node("texture").global_position - grandparent.global_position
+		if get_node(item_name)!=null:
+			var relative_pos = get_node(item_name).global_position - grandparent.global_position
 			if relative_pos.x<0 or relative_pos.x>190 or relative_pos.y<0 or relative_pos.y>190 :
 				print("item out of inv")
 				#print("POs:",relative_pos)
 				Global.item_out_of_inv=true
 				
 			Global.panel_clicked=!Global.panel_clicked #Panel clicked shouldnt become true while dragging item
-			get_node("texture").position=event.position 
+			get_node(item_name).position=event.position 
 			
+			#if get_node("texture")!=null:
+				#get_node("texture").position.x=round(get_node("texture").position.x/40)*40
+				#get_node("texture").position.y=round(get_node("texture").position.y/40)*40
+				#print("LOC:",get_node("texture").position)
 		
 
-func assign_texture():
-	image=get_node("texture").texture.get_image().save_png_to_buffer()
+#func assign_texture():
+	#image=get_node("texture").texture.get_image().save_png_to_buffer()
+
+
+
+func _on_panel_1_child_entered_tree(node: Node) -> void:
+	print("CHILd entered:",node.name)
+	if node is TextureRect and node.name=="seeds":
+		
+		item_name="seeds"
+	if node is TextureRect and node.name=="watercan":
+		
+		item_name="watercan"

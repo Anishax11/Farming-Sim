@@ -20,7 +20,7 @@ func _ready() -> void:
 	#add_to_inventory("seeds")
 	#print(inventory_items)
 
-func add_to_inventory(string,item_texture):
+func add_to_inventory(string,item_texture) :
 	
 	for i in range(3):
 			
@@ -32,13 +32,13 @@ func add_to_inventory(string,item_texture):
 				var texture=TextureRect.new()
 				texture.texture=item_texture
 				texture.name="texture"
-				texture.scale.x=0.016
-				texture.scale.y=0.016
+				
 				#print("Slot passed:",slots_passed)
 				#print("ADJ:",slot_adjust)
 				#print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
-				get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust)).add_child(texture)
-				get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust)).assign_texture()
+				#get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust)).add_child(texture)
+				Global.empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
+				#get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust)).assign_texture()
 				
 				#texture.position=Vector2(0,0)
 				texture.z_index=1

@@ -1,6 +1,7 @@
 extends Area2D
 var player
 var distance
+var empty_panel
 @onready var texture_rect: TextureRect = $TextureRect
 
 func _ready() -> void:
@@ -17,4 +18,13 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if event.pressed and distance<45:
 			print("Picked")
 			get_node("/root/Game/Farmer/Inventory").add_to_inventory(self.name,$TextureRect.texture)
-			queue_free()
+			empty_panel=Global.get_empty_panel()
+			texture_rect.name="seeds"
+			
+			self.remove_child(texture_rect)
+			texture_rect.scale.x=0.016
+			texture_rect.scale.y=0.016
+			empty_panel.add_child(texture_rect)
+			print(empty_panel.get_path())
+			print(texture_rect.get_path())
+			#queue_free()
