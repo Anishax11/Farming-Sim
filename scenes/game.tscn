@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bnyh64xhqcef4"]
+[gd_scene load_steps=28 format=3 uid="uid://bnyh64xhqcef4"]
 
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_l374g"]
 [ext_resource type="Texture2D" uid="uid://bpbn2trmc2git" path="res://MV/tilesets/_srw_tileset_0.png" id="2_j4gt8"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="15_wd8j7"]
 [ext_resource type="PackedScene" uid="uid://potiq7c4dk36" path="res://scenes/watercan.tscn" id="16_k633r"]
 [ext_resource type="PackedScene" uid="uid://brwxmtagn5m17" path="res://scenes/seeds.tscn" id="16_rgxy3"]
+[ext_resource type="Script" path="res://scripts/color_rect.gd" id="17_2wv2r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugn7j"]
 texture = ExtResource("2_j4gt8")
@@ -4367,3 +4368,15 @@ position = Vector2(-15, 495)
 
 [node name="watercan" parent="." instance=ExtResource("16_k633r")]
 position = Vector2(148, 568)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.784, 0.941, 1, 0.077)
+script = ExtResource("17_2wv2r")

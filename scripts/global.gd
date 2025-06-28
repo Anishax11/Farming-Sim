@@ -74,12 +74,12 @@ func get_empty_panel():
 	return empty_panel
 
 func grow_plant(soil,rotation_degrees):
-	print("grow plant Func called")
+	#print("grow plant Func called")
 	var plant=PLANT.instantiate()
 	plant.scale=Vector2(0.1,0.1)
 	
 	#soil.remove_child.soil.get_node("AnimatedSprite2D")
 	get_node("/root/Game").add_child(plant)
-	
+	soil.get_node("AnimatedSprite2D").play("tilled")
 	plant.global_position.y=soil.global_position.y-18
 	plant.global_position.x=soil.global_position.x-8
