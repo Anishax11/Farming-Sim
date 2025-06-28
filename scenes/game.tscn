@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bnyh64xhqcef4"]
+[gd_scene load_steps=29 format=3 uid="uid://bnyh64xhqcef4"]
 
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_l374g"]
 [ext_resource type="Texture2D" uid="uid://bpbn2trmc2git" path="res://MV/tilesets/_srw_tileset_0.png" id="2_j4gt8"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://potiq7c4dk36" path="res://scenes/watercan.tscn" id="16_k633r"]
 [ext_resource type="PackedScene" uid="uid://brwxmtagn5m17" path="res://scenes/seeds.tscn" id="16_rgxy3"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="17_2wv2r"]
+[ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="18_02o4f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugn7j"]
 texture = ExtResource("2_j4gt8")
@@ -4380,3 +4381,6 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.784, 0.941, 1, 0.077)
 script = ExtResource("17_2wv2r")
+
+[node name="TimeManager" parent="." instance=ExtResource("18_02o4f")]
+position = Vector2(201, 504)

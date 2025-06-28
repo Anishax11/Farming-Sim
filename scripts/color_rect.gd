@@ -15,12 +15,14 @@ var color_array:Array=[
 		  
 
 
-var opacity:Array=[0.1,0.05,0.0,0.03,0.1,0.2,0.3,0.4,0.5,0.6,0.75]
+var opacity:Array=[0.1,0.05,0.0,0.03,0.1,0.2,0.3,0.4,0.5,0.6,0.8]
 
-func _ready() -> void:
-	adjust_tint()
+#func _ready() -> void:
+	#adjust_tint()
 
 func adjust_tint():
-	color=Color(color_array[i])
-	color.a=opacity[i]
-	i+=1
+	if i<11:
+		color=Color(color_array[i])
+		color.a=opacity[i]
+		
+		i+=1	

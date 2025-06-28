@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpe35aaomljef"]
+
+[ext_resource type="Script" path="res://scripts/time_manager.gd" id="1_4qn8o"]
+
+[node name="TimeManager" type="Node2D"]
+position = Vector2(-5, 0)
+script = ExtResource("1_4qn8o")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

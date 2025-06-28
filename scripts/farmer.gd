@@ -5,11 +5,13 @@ class_name Player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory = $Inventory
 
+
 var speed=70
 var direction: Vector2
 
 func _physics_process(delta: float) -> void:
 	
+		
 	if direction==Vector2(0,1):
 		#rotation_degrees=0
 		animated_sprite_2d.play("forward")
@@ -77,6 +79,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("Right"):
 		direction.x+=1
 		Global.get_direction(direction)
+		get_node("/root/Game/CanvasLayer/ColorRect").adjust_tint()
 	if Input.is_action_pressed("Left"):
 		direction.x-=1
 		Global.get_direction(direction)

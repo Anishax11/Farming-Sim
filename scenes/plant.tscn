@@ -8,6 +8,7 @@ size = Vector2(153, 63)
 
 [node name="Plant" type="Area2D"]
 y_sort_enabled = true
+position = Vector2(1, 0)
 script = ExtResource("1_0ykwo")
 
 [node name="TextureRect" type="TextureRect" parent="."]
