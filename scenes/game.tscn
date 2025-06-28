@@ -4383,4 +4383,4 @@ color = Color(0.784, 0.941, 1, 0.077)
 script = ExtResource("17_2wv2r")
 
 [node name="TimeManager" parent="." instance=ExtResource("18_02o4f")]
-position = Vector2(201, 504)
+position = Vector2(68, 585)
