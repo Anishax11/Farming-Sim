@@ -79,7 +79,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("Right"):
 		direction.x+=1
 		Global.get_direction(direction)
-		get_node("/root/Game/CanvasLayer/ColorRect").adjust_tint()
+		
 	if Input.is_action_pressed("Left"):
 		direction.x-=1
 		Global.get_direction(direction)
