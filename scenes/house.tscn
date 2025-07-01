@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://fw0la85vqc7p"]
+
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_wmooi"]
+[ext_resource type="Texture2D" uid="uid://dsisi27komgrl" path="res://16x16/Sprites/house sprite.png" id="2_xgvps"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51do4"]
+atlas = ExtResource("2_xgvps")
+region = Rect2(0, 0, 76, 89)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1x8gw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51do4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yne8"]
+size = Vector2(23, 22.5)
+
+[node name="House" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_wmooi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1x8gw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16.5, 31.75)
+shape = SubResource("RectangleShape2D_2yne8")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

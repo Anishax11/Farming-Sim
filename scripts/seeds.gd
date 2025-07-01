@@ -12,12 +12,12 @@ func _ready() -> void:
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT:
-		player=get_node("/root/Game/Farmer")
+		player=get_node("/root/Game/farm_scene/Farmer")
 		distance=position.distance_to(player.position)
 		print(distance)
 		if event.pressed and distance<45:
 			print("Picked")
-			get_node("/root/Game/Farmer/Inventory").add_to_inventory(self.name,$TextureRect.texture)
+			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(self.name,$TextureRect.texture)
 			empty_panel=Global.get_empty_panel()
 			texture_rect.name="seeds"
 			

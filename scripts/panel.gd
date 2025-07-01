@@ -19,7 +19,7 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
 			#print("Dist from parent:",)
-			var inv=get_node("/root/Game/Farmer/Inventory")
+			var inv=get_node("/root/Game/farm_scene/Farmer/Inventory")
 			print(inv.inventory_items)
 			#print("Clicked panel")
 			button_held=true
