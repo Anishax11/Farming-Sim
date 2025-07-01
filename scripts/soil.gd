@@ -51,7 +51,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				elif animated_sprite_2d.animation=="rect_tilled":
 					animated_sprite_2d.play("seeds")
 				print(animated_sprite_2d.animation)
-				
+				Global.save_tilled_soil(self,animated_sprite_2d.animation)
 			#CODE FOR TILLING
 				
 			if distance<=18 and !tilled:
@@ -72,7 +72,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				if adjusted!=true:
 					animated_sprite_2d.scale.y=0.2
 					animated_sprite_2d.play("tilled")
+					
 					Global.save_tilled_soil(self,animated_sprite_2d.animation)
+					
 				var text = self.name
 				var regex = RegEx.new()
 				regex.compile(r"\d+")  # Matches one or more digits
@@ -142,4 +144,5 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				animated_sprite_2d.play("tilled")
 				tilled==true
 		
-		
+
+			

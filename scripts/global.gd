@@ -12,12 +12,13 @@ var item_out_of_inv=false
 var seeds_texture
 var watercan_texture
 var empty_panel
-var tilled_soil:Array
-var tilled_soil_animation:Array
-var sown_soil:Array
-var sown_soil_animation:Array
-var planted_soil:Array
+var tilled_soil:Array=[]
+var tilled_soil_animation:Array=[]
+var sown_soil:Array=[]
+var sown_soil_animation:Array=[]
+var planted_soil:Array=[]
 var tilled_soil_index=0
+var load_farm=false
 const PLANT = preload("res://scenes/plant.tscn")
 
 	
@@ -95,11 +96,12 @@ func grow_plant(soil,rotation_degrees):
 
 func save_tilled_soil(soil,animation):
 	if soil.tilled!=true and soil.planted!=true:
-		tilled_soil[tilled_soil_index]=soil
-		tilled_soil_animation[tilled_soil_index]=animation
-	elif soil.planted!=true:
-		sown_soil[tilled_soil_index]=soil
-		sown_soil_animation[tilled_soil_index]=animation
+		tilled_soil.append(soil.name)
+		tilled_soil_animation.append(animation)
+		tilled_soil_index+=1
+	elif soil.planted==true:
+		sown_soil.append(soil.name)
+		sown_soil_animation.append(animation)
 		
 		
 #func load_previous_scene():
