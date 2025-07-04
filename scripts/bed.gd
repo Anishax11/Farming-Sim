@@ -20,10 +20,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 
 func _on_button_button_down() -> void:
-	print("EXIT")
-	print("before load:",Global.tilled_soil)
+	
 	await get_tree().change_scene_to_packed(game)
 	Global.load_farm=true
-	print("After load:",Global.tilled_soil)
- 	
-	print("EXIT")

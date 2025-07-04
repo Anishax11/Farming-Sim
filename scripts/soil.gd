@@ -34,11 +34,14 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			# CODE FOR GROWING PLANT
 			if distance<18 and planted==true and panel.water_equipped==true:
-				Global.grow_plant(self,rotation_degrees)
-			if panel.seeds_equipped==true:
-				print("seeds EQUIPPED")
-			else:
-				print("seeds NOT EQUIPPED")
+				
+				Global.grow_plant(self.name)
+				Global.planted_soil.append(self.name)
+				#print(Global.planted_soil)
+			#if panel.seeds_equipped==true:
+				#print("seeds EQUIPPED")
+			#else:
+				#print("seeds NOT EQUIPPED")
 			
 			#CODE FOR PLANTATION
 			print(panel.seeds_equipped)

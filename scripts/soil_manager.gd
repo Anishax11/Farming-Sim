@@ -30,12 +30,16 @@ func _ready() -> void:
 				
 	if get_node("soil290")!=null and Global.load_farm==true:
 		till_soil(Global.tilled_soil,Global.tilled_soil_animation)
+		for i in range (0,Global.planted_soil.size()):
+			
+			print("GRO@W AT:",Global.planted_soil[0])
+			Global.grow_plant(Global.planted_soil[0])
 	
 func till_soil(soil,soil_animation):
 	for i in range(0,Global.tilled_soil.size()):
 		if Global.tilled_soil[i]!=null :
-			print(soil[0])
-			print("soil m ",Global.tilled_soil[i])
+			#print(soil[0])
+			#print("soil m ",Global.tilled_soil[i])
 			get_node(NodePath(soil[i])).get_node("AnimatedSprite2D").play(soil_animation[i])
 			
 	for i in range(0,Global.sown_soil.size()):

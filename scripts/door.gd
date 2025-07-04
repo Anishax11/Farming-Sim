@@ -7,8 +7,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if event.pressed:
 			print("Door clicked")
 			get_tree().change_scene_to_packed(interior)
-			print("After loading int:",Global.tilled_soil)
-			print("LOADED")
+			
 		 	
 		 
 			

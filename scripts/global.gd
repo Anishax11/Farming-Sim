@@ -83,17 +83,35 @@ func move_item(panel_number,item_name):
 func get_empty_panel():
 	return empty_panel
 
-func grow_plant(soil,rotation_degrees):
+func grow_plant(soil_name):
 	#print("grow plant Func called")
 	var plant=PLANT.instantiate()
 	plant.scale=Vector2(0.1,0.1)
 	
+	var soil =get_node("/root/Game/farm_scene/SoilManager/"+soil_name)
 	#soil.remove_child.soil.get_node("AnimatedSprite2D")
-	get_node("/root/Game/farm_scene/").add_child(plant)
-	soil.get_node("AnimatedSprite2D").play("tilled")
-	plant.global_position.y=soil.global_position.y-18
-	plant.global_position.x=soil.global_position.x-8
-
+	#get_node("/root/Game/farm_scene/").add_child(plant)
+	if get_node("/root/Game/farm_scene/"):
+		#get_node("/root/Game/farm_scene/").add_child(plant)
+		
+		soil.add_child(plant)
+		print("Plant added to farm_scene")
+		soil.get_node("AnimatedSprite2D").play("tilled")
+		plant.global_position.y=soil.global_position.y-18
+		plant.global_position.x=soil.global_position.x-8
+		plant.global_rotation=0
+	else:
+		print("farm_scene not found!")
+		
+	
+	#if PLANT!=null:
+		#print("PLANT ADDED:",plant.get_path())
+	#print("grown plant:",planted_soil)
+	#if  is_instance_valid(plant):
+		#print("Plant instance became valid:",plant.get_path())
+		
+	print("plant.is_inside_tree():", plant.is_inside_tree())
+	
 func save_tilled_soil(soil,animation):
 	if soil.tilled!=true and soil.planted!=true:
 		tilled_soil.append(soil.name)
@@ -101,6 +119,7 @@ func save_tilled_soil(soil,animation):
 		tilled_soil_index+=1
 	elif soil.planted==true:
 		sown_soil.append(soil.name)
+		print("Added to array")
 		sown_soil_animation.append(animation)
 		
 		
