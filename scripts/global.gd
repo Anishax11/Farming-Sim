@@ -84,7 +84,7 @@ func get_empty_panel():
 	return empty_panel
 
 func grow_plant(soil_name):
-	#print("grow plant Func called")
+	
 	var plant=PLANT.instantiate()
 	plant.scale=Vector2(0.1,0.1)
 	
@@ -104,13 +104,6 @@ func grow_plant(soil_name):
 		print("farm_scene not found!")
 		
 	
-	#if PLANT!=null:
-		#print("PLANT ADDED:",plant.get_path())
-	#print("grown plant:",planted_soil)
-	#if  is_instance_valid(plant):
-		#print("Plant instance became valid:",plant.get_path())
-		
-	print("plant.is_inside_tree():", plant.is_inside_tree())
 	
 func save_tilled_soil(soil,animation):
 	if soil.tilled!=true and soil.planted!=true:
