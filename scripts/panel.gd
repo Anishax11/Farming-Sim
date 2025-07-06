@@ -20,7 +20,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		if event.pressed:
 			#print("Dist from parent:",)
 			var inv=get_node("/root/Game/farm_scene/Farmer/Inventory")
-			print(inv.inventory_items)
+			print(Global.inventory_items)
 			#print("Clicked panel")
 			button_held=true
 			#print("ini pos:",texture_rect.position)
@@ -92,10 +92,11 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
-	
+	print("Item added to panel")
 	if node is TextureRect and node.name=="seeds":
 		
 		item_name="seeds"
+		print("SEEDS added")
 	if node is TextureRect and node.name=="watercan":
 		
 		item_name="watercan"

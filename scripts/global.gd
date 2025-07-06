@@ -1,7 +1,8 @@
 extends Node
 
 
-
+var inventory_items=[]
+var seeds_image=preload("res://16x16/Sprites/ChatGPT Image Jun 22, 2025, 01_37_12 AM.png")
 var grass_clicked=false
 var grass_held=false
 var soil_clicked=false
@@ -19,6 +20,7 @@ var sown_soil_animation:Array=[]
 var planted_soil:Array=[]
 var tilled_soil_index=0
 var load_farm=false
+var seeds_initialised=false
 const PLANT = preload("res://scenes/plant.tscn")
 
 	
@@ -47,7 +49,7 @@ func move_item(panel_number,item_name):
 	
 	#REMOVE ITEM FROM ARRAY
 	
-	inv.inventory_items[int((panel_number-1)/5)][(panel_number-1)%5]=""
+	Global.inventory_items[int((panel_number-1)/5)][(panel_number-1)%5]=""
 	
 	#print(get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/texture"))
 	#print("panels moved x:", round(texture_rect.position.x / 40))
@@ -62,7 +64,7 @@ func move_item(panel_number,item_name):
 		get_node("/root/Game/farm_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).add_child(texture_rect)
 		
 		#ADD ITEM TO ARRAY
-		inv.inventory_items[int((final_panel-1)/5)][int(final_panel-1)%5]=item_name
+		Global.inventory_items[int((final_panel-1)/5)][int(final_panel-1)%5]=item_name
 		
 		texture_rect.global_position=get_node("/root/Game/farm_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).global_position
 		
@@ -71,7 +73,7 @@ func move_item(panel_number,item_name):
 		#print("OCCUPIED")
 		get_node("/root/Game/farm_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(panel_number)).add_child(texture_rect)
 		texture_rect.global_position=get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(panel_number)).global_position
-		inv.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]=item_name
+		Global.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]=item_name
 	
 	
 	

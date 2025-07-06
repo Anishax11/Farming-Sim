@@ -9,6 +9,8 @@ var y
 var id=1
 func _ready() -> void:
 	
+	var seeds=get_node("/root/Game/farm_scene/seeds")
+	var inventory=get_node("/root/Game/farm_scene/Farmer/Inventory")
 	for y in range(448,768,+15):
 		for x in range(-192, 380, +15):
 			
@@ -35,8 +37,24 @@ func _ready() -> void:
 			
 			print("GRO@W AT:",Global.planted_soil[i])
 			Global.grow_plant(Global.planted_soil[i])
-	
+			
+		for i in range (3):
+			for j in range (5):
+				var string=Global.inventory_items[i][j]
+				#print("str8ng:",string)
+				#
+				#if inventory.inv_initialised==true and Global.seeds_initialised and Global.inventory_items[i][j]!="":
+					#Global.inventory_items.remove_at([i][j])
+					#seeds.call_inv_func()
+					#inventory.inv_initialised=false
+					#Global.seeds_initialised=false
+				if string=="seeds":
+					Global.inventory_items[i][j]=""
+					print("SEEDS")
+					seeds.fake_input()
+					
 func till_soil(soil,soil_animation):
+	
 	for i in range(0,Global.tilled_soil.size()):
 		if Global.tilled_soil[i]!=null :
 			#print(soil[0])
@@ -46,4 +64,4 @@ func till_soil(soil,soil_animation):
 	for i in range(0,Global.sown_soil.size()):
 		if Global.sown_soil!=null:
 			get_node(NodePath( Global.sown_soil[i])).get_node("AnimatedSprite2D").play(Global.sown_soil_animation[i])
-		
+			
