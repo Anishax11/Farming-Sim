@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dba1gtffrvamm"]
+[gd_scene load_steps=6 format=3 uid="uid://dba1gtffrvamm"]
 
 [ext_resource type="Script" path="res://scripts/bed.gd" id="1_5hssx"]
 [ext_resource type="Texture2D" uid="uid://cl5xt4ed0bnlt" path="res://16x16/Sprites/ChatGPT Image Jun 29, 2025, 09_05_40 PM.png" id="1_55p5c"]
+[ext_resource type="Script" path="res://scripts/sleep.gd" id="3_3w2cd"]
 [ext_resource type="Script" path="res://scripts/button.gd" id="3_or7t4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ij2w6"]
@@ -22,16 +23,35 @@ position = Vector2(492, 491.5)
 shape = SubResource("RectangleShape2D_ij2w6")
 
 [node name="Label" type="Label" parent="bed"]
-offset_left = 86.0
-offset_top = 194.0
-offset_right = 904.0
-offset_bottom = 592.0
+offset_left = 230.0
+offset_top = 370.0
+offset_right = 524.0
+offset_bottom = 410.0
+scale = Vector2(2, 2)
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
 [node name="Camera2D" type="Camera2D" parent="bed"]
 position = Vector2(566, 373)
+
+[node name="Sleep" type="Button" parent="bed"]
+visible = false
+offset_left = 595.0
+offset_top = 480.0
+offset_right = 786.0
+offset_bottom = 553.0
+text = "Yes"
+script = ExtResource("3_3w2cd")
+
+[node name="Don\'t_Sleep" type="Button" parent="bed"]
+visible = false
+offset_left = 261.0
+offset_top = 481.0
+offset_right = 483.0
+offset_bottom = 554.0
+text = "No
+"
 
 [node name="Button" type="Button" parent="."]
 offset_left = 261.0
@@ -42,4 +62,5 @@ text = "EXIT"
 script = ExtResource("3_or7t4")
 
 [connection signal="input_event" from="bed" to="bed" method="_on_input_event"]
+[connection signal="button_down" from="bed/Sleep" to="bed" method="_on_sleep_button_down"]
 [connection signal="button_down" from="Button" to="bed" method="_on_button_button_down"]

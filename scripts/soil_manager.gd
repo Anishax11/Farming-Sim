@@ -41,18 +41,23 @@ func _ready() -> void:
 		for i in range (3):
 			for j in range (5):
 				var string=Global.inventory_items[i][j]
-				#print("str8ng:",string)
-				#
-				#if inventory.inv_initialised==true and Global.seeds_initialised and Global.inventory_items[i][j]!="":
-					#Global.inventory_items.remove_at([i][j])
-					#seeds.call_inv_func()
-					#inventory.inv_initialised=false
-					#Global.seeds_initialised=false
+				
 				if string!="":
 					var node=get_node("/root/Game/farm_scene/"+string)
 					Global.inventory_items[i][j]=""
 					print("SEEDS")
 					node.fake_input()
+		
+		for i in range((Global.watered_plants).size()):
+			print("runnihng loop")
+			if Global.watered_plants[i]!=null:
+				print("Growing plant")
+				
+				Global.day_passed=false
+				Global.grow_plant(Global.watered_plants[i])
+				Global.planted_soil.append(Global.watered_plants[i])			
+			else:
+				break
 					
 func till_soil(soil,soil_animation):
 	

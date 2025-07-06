@@ -1,6 +1,7 @@
 extends Node
 
-
+var day_count=1
+var day_passed=false
 var inventory_items=[]
 var seeds_image=preload("res://16x16/Sprites/ChatGPT Image Jun 22, 2025, 01_37_12 AM.png")
 var grass_clicked=false
@@ -21,6 +22,7 @@ var planted_soil:Array=[]
 var tilled_soil_index=0
 var load_farm=false
 var seeds_initialised=false
+var watered_plants=[]
 const PLANT = preload("res://scenes/plant.tscn")
 
 	
@@ -118,5 +120,12 @@ func save_tilled_soil(soil,animation):
 		sown_soil_animation.append(animation)
 		
 		
-#func load_previous_scene():
-	
+func update_day_count():
+	print("Updated day")
+	day_count+=1
+	day_passed=true
+
+func plant_watered(node):
+	watered_plants.append(node.name)
+	print(watered_plants)
+		

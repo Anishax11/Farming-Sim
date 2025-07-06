@@ -94,7 +94,8 @@ func _on_gui_input(event: InputEvent) -> void:
 func _on_panel_1_child_entered_tree(node: Node) -> void:
 	print("Item added to panel")
 	if node is TextureRect and node.name=="seeds":
-		node.scale=0.016
+		node.scale.x=0.016
+		node.scale.y=0.016
 		item_name="seeds"
 		print("SEEDS added")
 	if node is TextureRect and node.name=="watercan":

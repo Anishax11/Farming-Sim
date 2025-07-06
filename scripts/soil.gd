@@ -7,7 +7,11 @@ var tilled=false
 var adjusted=false
 var planted=false
 var distance
+
+var watered=false
 func _ready() -> void:
+	print("Waterwed:",Global.watered_plants)
+	print("Watered:",watered)
 	if randi_range(0,7)==3:
 		animated_sprite_2d.play("untilled_rock")
 		#print(get_path())
@@ -34,9 +38,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			# CODE FOR GROWING PLANT
 			if distance<18 and planted==true and panel.water_equipped==true:
+				Global.plant_watered(self)
+				print("Plant watered")
 				
-				Global.grow_plant(self.name)
-				Global.planted_soil.append(self.name)
+		
 				#print(Global.planted_soil)
 			#if panel.seeds_equipped==true:
 				#print("seeds EQUIPPED")
