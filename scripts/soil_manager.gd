@@ -9,7 +9,7 @@ var y
 var id=1
 func _ready() -> void:
 	
-	var seeds=get_node("/root/Game/farm_scene/seeds")
+	
 	var inventory=get_node("/root/Game/farm_scene/Farmer/Inventory")
 	for y in range(448,768,+15):
 		for x in range(-192, 380, +15):
@@ -48,10 +48,11 @@ func _ready() -> void:
 					#seeds.call_inv_func()
 					#inventory.inv_initialised=false
 					#Global.seeds_initialised=false
-				if string=="seeds":
+				if string!="":
+					var node=get_node("/root/Game/farm_scene/"+string)
 					Global.inventory_items[i][j]=""
 					print("SEEDS")
-					seeds.fake_input()
+					node.fake_input()
 					
 func till_soil(soil,soil_animation):
 	
