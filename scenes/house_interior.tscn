@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dba1gtffrvamm"]
+[gd_scene load_steps=8 format=3 uid="uid://dba1gtffrvamm"]
 
 [ext_resource type="Script" path="res://scripts/bed.gd" id="1_5hssx"]
 [ext_resource type="Texture2D" uid="uid://cl5xt4ed0bnlt" path="res://16x16/Sprites/ChatGPT Image Jun 29, 2025, 09_05_40 PM.png" id="1_55p5c"]
+[ext_resource type="Script" path="res://scripts/house_interior.gd" id="1_mmlya"]
 [ext_resource type="Script" path="res://scripts/sleep.gd" id="3_3w2cd"]
 [ext_resource type="Script" path="res://scripts/button.gd" id="3_or7t4"]
+[ext_resource type="Script" path="res://scripts/house_time_manager.gd" id="6_bhm71"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ij2w6"]
 size = Vector2(826, 851)
 
 [node name="house_interior" type="Node2D"]
+script = ExtResource("1_mmlya")
 
 [node name="bed" type="Area2D" parent="."]
 script = ExtResource("1_5hssx")
@@ -60,6 +63,15 @@ offset_right = 398.0
 offset_bottom = 356.0
 text = "EXIT"
 script = ExtResource("3_or7t4")
+
+[node name="TimeManager" type="Node2D" parent="."]
+script = ExtResource("6_bhm71")
+
+[node name="Label" type="Label" parent="TimeManager"]
+offset_left = 322.0
+offset_top = 354.0
+offset_right = 705.0
+offset_bottom = 426.0
 
 [connection signal="input_event" from="bed" to="bed" method="_on_input_event"]
 [connection signal="button_down" from="bed/Sleep" to="bed" method="_on_sleep_button_down"]

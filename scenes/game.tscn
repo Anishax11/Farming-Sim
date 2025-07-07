@@ -4384,8 +4384,8 @@ color = Color(0.784, 0.941, 1, 0.077)
 script = ExtResource("17_2wv2r")
 metadata/_edit_use_anchors_ = true
 
-[node name="TimeManager" parent="farm_scene" instance=ExtResource("18_02o4f")]
-position = Vector2(68, 585)
-
 [node name="House" parent="farm_scene" instance=ExtResource("18_awg5f")]
 position = Vector2(125, 457)
+
+[node name="TimeManager" parent="farm_scene" instance=ExtResource("18_02o4f")]
+position = Vector2(68, 585)

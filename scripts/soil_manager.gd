@@ -31,7 +31,7 @@ func _ready() -> void:
 				id+=1
 				
 	if get_node("soil290")!=null and Global.load_farm==true:
-		Global.load_farm=false
+		
 		till_soil(Global.tilled_soil,Global.tilled_soil_animation)
 		for i in range (0,Global.planted_soil.size()):
 			

@@ -21,6 +21,7 @@ var sown_soil_animation:Array=[]
 var planted_soil:Array=[]
 var tilled_soil_index=0
 var load_farm=false
+var load_house=false
 var seeds_initialised=false
 var watered_plants=[]
 const PLANT = preload("res://scenes/plant.tscn")
@@ -128,4 +129,13 @@ func update_day_count():
 func plant_watered(node):
 	watered_plants.append(node.name)
 	print(watered_plants)
-		
+	
+var current_time
+var time_to_change_tint
+var tint_index	
+func track_time(time,change_time,index):
+	print("saved time")
+	current_time=time
+	time_to_change_tint=change_time
+	tint_index=index
+	

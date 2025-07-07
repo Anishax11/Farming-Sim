@@ -10,8 +10,8 @@ var distance
 
 var watered=false
 func _ready() -> void:
-	print("Waterwed:",Global.watered_plants)
-	print("Watered:",watered)
+	#print("Waterwed:",Global.watered_plants)
+	#print("Watered:",watered)
 	if randi_range(0,7)==3:
 		animated_sprite_2d.play("untilled_rock")
 		#print(get_path())
