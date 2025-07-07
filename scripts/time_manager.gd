@@ -14,6 +14,8 @@ func _ready() -> void:
 		current_time=Global.current_time
 		time_to_change_tint=Global.time_to_change_tint
 		color_rect.i=Global.tint_index
+		color_rect.adjust_tint()
+		print("color_rect.i",color_rect.i)
 		Global.load_farm=false
 	
 func _physics_process(delta: float) -> void:
@@ -22,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		
 	if current_time<24:
 		time_passed+=delta
-		if time_passed-initial_time > 0.5:
+		if time_passed-initial_time > 0.3:
 			initial_time=time_passed
 			#print("Initial Time :",initial_time)	
 			#print("Time passed:",time_passed)

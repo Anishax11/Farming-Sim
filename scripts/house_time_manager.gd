@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 			#print("fmod:",minutes)
 			get_node("Label").text=("Time : "+str(int(current_time))+":"+str(minutes))
 			if current_time==time_to_change_tint:
+				color_rect_i+=1
 				print("Change tint")
 				time_to_change_tint+=2
 				
