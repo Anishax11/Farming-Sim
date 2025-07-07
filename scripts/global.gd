@@ -133,6 +133,7 @@ func plant_watered(node):
 var current_time
 var time_to_change_tint
 var tint_index	
+
 func track_time(time,change_time,index):
 	print("saved time")
 	current_time=time
