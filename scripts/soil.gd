@@ -7,11 +7,11 @@ var tilled=false
 var adjusted=false
 var planted=false
 var distance
+var inventory
 
 var watered=false
 func _ready() -> void:
-	#print("Waterwed:",Global.watered_plants)
-	#print("Watered:",watered)
+	inventory=get_node("/root/Game/farm_scene/Farmer/Inventory")
 	if randi_range(0,7)==3:
 		animated_sprite_2d.play("untilled_rock")
 		#print(get_path())
@@ -42,17 +42,15 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				print("Plant watered")
 				
 		
-				#print(Global.planted_soil)
-			#if panel.seeds_equipped==true:
-				#print("seeds EQUIPPED")
-			#else:
-				#print("seeds NOT EQUIPPED")
 			
 			#CODE FOR PLANTATION
 			print(panel.seeds_equipped)
-			if distance<18 and tilled==true and panel.seeds_equipped==true:
+			if distance<18 and tilled==true and panel.seeds_equipped==true and inventory.seeds_count>0:
 				print("Plant ")	
 				planted=true
+				print("Seeds count before:",inventory.seeds_count)
+				inventory.seeds_count-=1
+				print("Seeds count:",inventory.seeds_count)
 				player.get_node("AnimatedSprite2D").play("seeds")
 				if animated_sprite_2d.animation=="tilled":
 					animated_sprite_2d.play("circle_seeds")

@@ -19,7 +19,9 @@ func _ready():
 		inventory_node=get_node("/root/Game/farm_scene/Farmer/Inventory")
 	else:
 		inventory_node=get_node("/root/house_interior/Farmer/Inventory")
+		
 func _on_gui_input(event: InputEvent) -> void:
+	
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
 			print("Pressed")
@@ -39,8 +41,8 @@ func _on_gui_input(event: InputEvent) -> void:
 				seeds_equipped=!seeds_equipped
 				print("seeds_equipped",seeds_equipped)
 			
-			else:
-				print("Item is not seeds")	
+			#else:
+				#print("Item is not seeds")	
 				
 			if item_name=="watercan":
 				if seeds_equipped==true:
@@ -50,8 +52,8 @@ func _on_gui_input(event: InputEvent) -> void:
 			
 				print("water_equipped",water_equipped)
 			
-			else:
-				print("Item is not water")		
+			#else:
+				#print("Item is not water")		
 				
 		elif ! event.pressed:
 			
