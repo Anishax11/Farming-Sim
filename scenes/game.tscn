@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_icycs"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_l374g"]
 [ext_resource type="Texture2D" uid="uid://bpbn2trmc2git" path="res://MV/tilesets/_srw_tileset_0.png" id="2_j4gt8"]
-[ext_resource type="Script" path="res://scripts/date_label.gd" id="4_7yuwc"]
 [ext_resource type="Texture2D" uid="uid://ca7ww0p65vvgk" path="res://16x16/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="4_dqgmc"]
 [ext_resource type="Texture2D" uid="uid://ux5mcim0ws5d" path="res://16x16/Sprites/vectoraith_tileset_farmingsims_buildings.png" id="4_hyouo"]
+[ext_resource type="PackedScene" uid="uid://cxgldqae4p20u" path="res://scenes/date_label.tscn" id="4_tqiam"]
 [ext_resource type="Texture2D" uid="uid://ccnm4h7i0wrh4" path="res://16x16/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="5_4pp44"]
 [ext_resource type="Texture2D" uid="uid://b1j57ui0fkksc" path="res://16x16/Sprout Lands - Sprites - Basic pack/Tilesets/Tilled_Dirt_v2.png" id="5_rf5xj"]
 [ext_resource type="Texture2D" uid="uid://deudeks0205tm" path="res://16x16/Sprites/Tileset freepng.png" id="6_3840t"]
@@ -4355,13 +4355,7 @@ position = Vector2(0, 592)
 [node name="Inventory" parent="farm_scene/Farmer" instance=ExtResource("15_wd8j7")]
 visible = false
 
-[node name="DateLabel" type="Label" parent="farm_scene/Farmer"]
-offset_left = 223.0
-offset_top = -159.0
-offset_right = 266.0
-offset_bottom = -136.0
-text = "Day : "
-script = ExtResource("4_7yuwc")
+[node name="DateLabel" parent="farm_scene/Farmer" instance=ExtResource("4_tqiam")]
 
 [node name="TimeManager" parent="farm_scene/Farmer" instance=ExtResource("18_02o4f")]
 position = Vector2(208, -134)

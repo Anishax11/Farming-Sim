@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxgldqae4p20u"]
+
+[ext_resource type="Script" path="res://scripts/date_label.gd" id="1_m2bn4"]
+
+[node name="DateLabel" type="Label"]
+offset_left = 223.0
+offset_top = -159.0
+offset_right = 266.0
+offset_bottom = -136.0
+text = "Day : "
+script = ExtResource("1_m2bn4")

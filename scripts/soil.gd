@@ -58,6 +58,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					animated_sprite_2d.play("seeds")
 				print(animated_sprite_2d.animation)
 				Global.save_tilled_soil(self,animated_sprite_2d.animation)
+				
 			#CODE FOR TILLING
 				
 			if distance<=18 and !tilled:
