@@ -8,9 +8,9 @@ var minutes=0
 var color_rect_i
 func _ready() -> void:
 	get_node("Label").text=("Time passed:"+str(current_time))
-	
+	print("HOUSE")
 	current_time=Global.current_time
-	print(current_time)
+	print("color_rect_i:",color_rect_i)
 	time_to_change_tint=Global.time_to_change_tint
 	color_rect_i=Global.tint_index
 	

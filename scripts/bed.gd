@@ -29,6 +29,10 @@ func _on_button_button_down() -> void:
 #SLEEP BUTTON
 func _on_sleep_button_down() -> void:
 	Global.update_day_count()
+	Global.current_time=6.0
+	Global.time_to_change_tint=8.0
+	Global.tint_index=0
+	Global.update_day_count()
 	time_manager.current_time=6.0
 	time_manager.time_to_change_tint=8.0
 	time_manager.color_rect_i=0

@@ -59,8 +59,9 @@ func _on_gui_input(event: InputEvent) -> void:
 			var result = regex.search(text)
 			panel_number=int(result.get_string(0))
 			#print(panel_number)
-			if get_node(item_name)!=null:
-				
+			var child=get_child(0)
+			if child is TextureRect:
+				print("TEXTURE:",child.name)
 				Global.move_item(panel_number,item_name)#Passes panel no. to move_item func
 				
 			else:
@@ -71,7 +72,8 @@ func _on_gui_input(event: InputEvent) -> void:
 		
 		
 		#print("DIst from inv:",relative_pos)#-get_parent().get_parent().position.x)
-		if get_node(item_name)!=null:
+		var child=get_child(0)
+		if child is TextureRect:
 			var relative_pos = get_node(item_name).global_position - grandparent.global_position
 			if relative_pos.x<0 or relative_pos.x>190 or relative_pos.y<0 or relative_pos.y>190 :
 				print("item out of inv")
@@ -97,7 +99,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		node.scale.x=0.016
 		node.scale.y=0.016
 		item_name="seeds"
-		print("SEEDS added")
+		print("SEEDS added:",node)
 	if node is TextureRect and node.name=="watercan":
 		node.scale.x=0.016
 		node.scale.y=0.016
