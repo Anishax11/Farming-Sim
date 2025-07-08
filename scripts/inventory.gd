@@ -59,3 +59,13 @@ func add_to_inventory(string,item_texture) :
 		slots_passed+=5
 		slot_adjust-=1		
 				
+func remove_item(item_name):
+	print("REMOVING ITEM")
+	for i in range(3):
+		print(i,",",j)	
+		for j in range(5):
+			print(i,",",j)
+			if Global.inventory_items[i][j]==item_name:
+				Global.inventory_items[i][j]=""
+				return
+			

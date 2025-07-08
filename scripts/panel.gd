@@ -8,13 +8,17 @@ var panel_number
 @onready var texture_rect=get_node("texture")
 static var seeds_equipped=false
 static var water_equipped=false
-
+var inventory_node
 var item_name
 
 func _ready():
 	self.connect("gui_input", Callable(self, "_on_gui_input")) #Attach signal to node
 	self.connect("child_entered_tree", Callable(self, "_on_panel_1_child_entered_tree"))
-	
+	var inventory
+	if get_tree().current_scene==get_node("/root/Game"):
+		inventory_node=get_node("/root/Game/farm_scene/Farmer/Inventory")
+	else:
+		inventory_node=get_node("/root/house_interior/Farmer/Inventory")
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
@@ -66,7 +70,14 @@ func _on_gui_input(event: InputEvent) -> void:
 				
 			else:
 				print("TEXT not found")
-				
+	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT :   
+		if event.pressed:	
+			print("rIGHT Pressed",self.name)	
+			if item_name!=null:
+				print("REMOVVE ITEM")	
+				self.remove_child(get_node(item_name))
+				print(inventory_node.get_path())
+				inventory_node.remove_item(item_name)
 	if event is InputEventMouseMotion and button_held==true:
 		
 		

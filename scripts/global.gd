@@ -4,6 +4,7 @@ var day_count=1
 var day_passed=false
 var inventory_items=[]
 var seeds_image=preload("res://16x16/Sprites/ChatGPT Image Jun 22, 2025, 01_37_12 AM.png")
+var watercan_image=preload("res://16x16/Sprites/water can icon.png")
 var grass_clicked=false
 var grass_held=false
 var soil_clicked=false

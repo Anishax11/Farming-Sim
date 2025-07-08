@@ -28,11 +28,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(self.name,$TextureRect.texture)
 			$TextureRect.name="watercan"
 			empty_panel=Global.get_empty_panel()
-			#texture_rect.scale.x=0.016
-			#texture_rect.scale.y=0.016
+			texture_rect.scale.x=0.016
+			texture_rect.scale.y=0.016
 			self.remove_child(texture_rect)
 			
-			empty_panel.add_child(texture_rect)
+			
 			queue_free()
 
 
