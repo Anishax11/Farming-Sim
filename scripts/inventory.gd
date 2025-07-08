@@ -6,7 +6,7 @@ var slot_found=false
 var slots_passed=0
 var slot_adjust=1
 var inv_initialised=false
-
+var seeds_count=0
 
 
 func _ready() -> void:
@@ -21,7 +21,7 @@ func _ready() -> void:
 	#print(inventory_items)
 
 func add_to_inventory(string,item_texture) :
-	
+	print("Adding to inv")
 	for i in range(3):
 			
 		for j in range(5):
@@ -29,16 +29,19 @@ func add_to_inventory(string,item_texture) :
 			if Global.inventory_items[i][j]=="":
 				print("slot available")
 				Global.inventory_items[i][j]=string
-				#var texture=TextureRect.new()
-				#texture.texture=item_texture
-				#texture.name="texture"
+				var texture_rect=TextureRect.new()
+				texture_rect.texture=Global.get(string+"_image")
+				texture_rect.scale.x=0.016
+				texture_rect.scale.y=0.016
+				texture_rect.name=string
 				
 				#print("Slot passed:",slots_passed)
 				#print("ADJ:",slot_adjust)
 				#print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 				
 				Global.empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
-				print("Empty panel:",Global.empty_panel)
+				Global.empty_panel.add_child(texture_rect)
+				print("Empty panel:",Global.empty_panel.get_child(0))
 				
 				
 				#texture.position=Vector2(0,0)

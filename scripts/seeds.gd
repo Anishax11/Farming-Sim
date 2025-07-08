@@ -33,7 +33,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			#$TextureRect.scale.y=0.016
 			self.remove_child(texture_rect)
 			
-			empty_panel.add_child(texture_rect)
+			#empty_panel.add_child(texture_rect)
 			print(empty_panel.get_path())
 			print("running")
 			#print($TextureRect.get_path())

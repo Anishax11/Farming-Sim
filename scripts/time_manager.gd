@@ -17,7 +17,7 @@ func _ready() -> void:
 		
 		color_rect.adjust_tint()
 		
-		Global.load_farm=false
+		#
 	
 func _physics_process(delta: float) -> void:
 	

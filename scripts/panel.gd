@@ -18,7 +18,7 @@ func _ready():
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
-			#print("Dist from parent:",)
+			print("Pressed")
 			var inv=get_node("/root/Game/farm_scene/Farmer/Inventory")
 			print(Global.inventory_items)
 			#print("Clicked panel")
@@ -58,7 +58,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			regex.compile(r"\d+")  # Matches one or more digits
 			var result = regex.search(text)
 			panel_number=int(result.get_string(0))
-			#print(panel_number)
+			
 			var child=get_child(0)
 			if child is TextureRect:
 				print("TEXTURE:",child.name)

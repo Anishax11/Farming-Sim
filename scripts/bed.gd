@@ -7,7 +7,7 @@ var time_manager
 
 func _ready() -> void:
 	time_manager=get_node("/root/house_interior/TimeManager")
-	print("int just loaded:",Global.tilled_soil)
+	#print("int just loaded:",Global.tilled_soil)
 	sleep_button=get_node("Sleep")
 	dont_sleep_button=get_node("Don't_Sleep")
 

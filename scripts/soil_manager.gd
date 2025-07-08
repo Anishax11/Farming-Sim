@@ -31,7 +31,7 @@ func _ready() -> void:
 				id+=1
 				
 	if get_node("soil290")!=null and Global.load_farm==true:
-		
+		print("FARM loaded")
 		till_soil(Global.tilled_soil,Global.tilled_soil_animation)
 		for i in range (0,Global.planted_soil.size()):
 			
@@ -39,10 +39,12 @@ func _ready() -> void:
 			Global.grow_plant(Global.planted_soil[i])
 			
 		for i in range (3):
+			
 			for j in range (5):
 				var string=Global.inventory_items[i][j]
 				
 				if string!="":
+					
 					var node=get_node("/root/Game/farm_scene/"+string)
 					Global.inventory_items[i][j]=""
 					print("SEEDS")
@@ -58,7 +60,8 @@ func _ready() -> void:
 				Global.planted_soil.append(Global.watered_plants[i])			
 			else:
 				break
-					
+				
+		Global.load_farm=false			
 func till_soil(soil,soil_animation):
 	
 	for i in range(0,Global.tilled_soil.size()):
