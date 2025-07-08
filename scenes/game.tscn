@@ -4363,6 +4363,9 @@ offset_bottom = -136.0
 text = "Day : "
 script = ExtResource("4_7yuwc")
 
+[node name="TimeManager" parent="farm_scene/Farmer" instance=ExtResource("18_02o4f")]
+position = Vector2(208, -134)
+
 [node name="TileMap" type="TileMap" parent="farm_scene"]
 z_index = -2
 position = Vector2(29.9607, 516.309)
@@ -4395,6 +4398,3 @@ metadata/_edit_use_anchors_ = true
 
 [node name="House" parent="farm_scene" instance=ExtResource("18_awg5f")]
 position = Vector2(125, 457)
-
-[node name="TimeManager" parent="farm_scene" instance=ExtResource("18_02o4f")]
-position = Vector2(68, 585)
