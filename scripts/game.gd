@@ -1,7 +1,10 @@
 extends Node2D
-
-#const SOIL_MANAGER = preload("res://scenes/soil_manager.tscn")
 #
 #func _ready() -> void:
-	#var soil_manager=SOIL_MANAGER.instantiate()
-	#soil_manager.till_soil(Global.tilled_soil,Global.tilled_soil_animation)
+	#var label=Label.new()
+	#label.position=Vector2(0,500)
+	#label.text="Day : "+str(Global.day_count)
+	#
+	#get_parent().add_child(label)
+	#print("RUNNING")
+	#print(label.get_path())
