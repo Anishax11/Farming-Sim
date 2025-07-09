@@ -7,12 +7,15 @@ var time_to_change_tint=8.0
 var minutes=0
 var color_rect
 var date_label
+var game
 func _ready() -> void:
+	
+	game=get_node("/root/Game")
 	date_label=get_node("/root/Game/farm_scene/Farmer/DateLabel")
 	get_node("Label").text=("Time passed:"+str(current_time))
 	color_rect=get_node("/root/Game/farm_scene/CanvasLayer/ColorRect") 
 	if Global.load_farm==true:
-		print("LOad farm")
+		
 		current_time=Global.current_time
 		time_to_change_tint=Global.time_to_change_tint
 		color_rect.i=Global.tint_index
@@ -25,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 		
-	if current_time<24:
+	if current_time!=null and current_time<24:
 		time_passed+=delta
 		if time_passed-initial_time > 0.1:
 			initial_time=time_passed
@@ -39,14 +42,18 @@ func _physics_process(delta: float) -> void:
 			#print("fmod:",minutes)
 			get_node("Label").text=("Time : "+str(int(current_time))+":"+str(minutes))
 			if current_time==time_to_change_tint:
-				print("Change tint")
+			
 				time_to_change_tint+=2
 				color_rect.adjust_tint()
-	else:
+	elif current_time!=null:
 		Global.day_count+=1
+		Global.day_passed=true
 		date_label.update_day_count()
-		time_to_change_tint=8.0
-		color_rect.i=0
-		current_time=6.0
+		Global.time_to_change_tint=8.0
+		Global.tint_index=0
+		Global.current_time=6.0
 		time_passed=0.0
 		initial_time=0.0
+		
+		await get_tree().reload_current_scene()
+		Global.load_farm=true

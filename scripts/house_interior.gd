@@ -8,7 +8,7 @@ var date_label
 var farmer_added=false
 const DATE_LABEL = preload("res://scenes/date_label.tscn")
 func _ready() -> void:
-	print("house running")
+	#print("house running")
 	farmer=FARMER.instantiate()
 	inventory=INVENTORY.instantiate()
 	date_label=DATE_LABEL.instantiate()

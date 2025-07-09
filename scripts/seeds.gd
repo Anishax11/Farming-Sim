@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 	var img= (texture_rect.texture as CompressedTexture2D).get_image()
 	Global.seeds_texture=img.save_png_to_buffer()
-	print(texture_rect.get_path())
+	#print(texture_rect.get_path())
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT:
@@ -19,23 +19,23 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if fake_input_called==true:
 			distance=0
 			fake_input_called=false
-		print(distance)
+		#print(distance)
 		if event.pressed and distance<45:
 			
-			print("Picked")
+			#print("Picked")
 			while texture_rect == null:
 				await get_tree().process_frame
 	   			
 			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(self.name,texture_rect.texture)
 			empty_panel=Global.get_empty_panel()
-			$TextureRect.name="seeds"
+			texture_rect.name="seeds"
 			#$TextureRect.scale.x=0.016
 			#$TextureRect.scale.y=0.016
 			self.remove_child(texture_rect)
 			
 			#empty_panel.add_child(texture_rect)
-			print(empty_panel.get_path())
-			print("running")
+			#print(empty_panel.get_path())
+			#print("running")
 			#print($TextureRect.get_path())
 			#queue_free()
 
@@ -49,4 +49,4 @@ func fake_input():
 	
 	
 	_on_input_event(get_viewport(), fake_click, 0)
-	print("fake_input called")
+	#print("fake_input called")

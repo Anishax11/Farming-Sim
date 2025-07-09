@@ -21,15 +21,15 @@ func _ready() -> void:
 	#print(inventory_items)
 
 func add_to_inventory(string,item_texture) :
-	print("Adding to inv")
+	#print("Adding to inv")
 	if string=="seeds":
 		seeds_count+=6
 	for i in range(3):
 			
 		for j in range(5):
-			print(i,",",j)
+			#print(i,",",j)
 			if Global.inventory_items[i][j]=="":
-				print("slot available")
+				#print("slot available")
 				Global.inventory_items[i][j]=string
 				var texture_rect=TextureRect.new()
 				texture_rect.texture=Global.get(string+"_image")
@@ -43,7 +43,7 @@ func add_to_inventory(string,item_texture) :
 				
 				Global.empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 				Global.empty_panel.add_child(texture_rect)
-				print("Empty panel:",Global.empty_panel.get_child(0))
+				#print("Empty panel:",Global.empty_panel.get_child(0))
 				
 				
 				#texture.position=Vector2(0,0)
@@ -64,9 +64,9 @@ func add_to_inventory(string,item_texture) :
 func remove_item(item_name):
 	print("REMOVING ITEM")
 	for i in range(3):
-		print(i,",",j)	
+		#print(i,",",j)	
 		for j in range(5):
-			print(i,",",j)
+			#print(i,",",j)
 			if Global.inventory_items[i][j]==item_name:
 				Global.inventory_items[i][j]=""
 				return

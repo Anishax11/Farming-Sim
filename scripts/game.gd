@@ -1,6 +1,7 @@
 extends Node2D
-#
+
 #func _ready() -> void:
+	#print("FARMMMMMMMMM")
 	#var label=Label.new()
 	#label.position=Vector2(0,500)
 	#label.text="Day : "+str(Global.day_count)

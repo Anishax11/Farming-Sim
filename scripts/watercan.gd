@@ -46,4 +46,4 @@ func fake_input():
 	
 	
 	_on_input_event(get_viewport(), fake_click, 0)
-	print("fake_input called")
+#	print("fake_input called")

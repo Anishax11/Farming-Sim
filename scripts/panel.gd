@@ -24,9 +24,9 @@ func _on_gui_input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
-			print("Pressed")
+			#print("Pressed")
 			var inv=get_node("/root/Game/farm_scene/Farmer/Inventory")
-			print(Global.inventory_items)
+			#print(Global.inventory_items)
 			#print("Clicked panel")
 			button_held=true
 			#print("ini pos:",texture_rect.position)
@@ -35,7 +35,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			
 			
 			if item_name=="seeds":
-				print("Item is seeds")
+				#print("Item is seeds")
 				if water_equipped==true:
 					water_equipped=false
 				seeds_equipped=!seeds_equipped
@@ -47,7 +47,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			if item_name=="watercan":
 				if seeds_equipped==true:
 					seeds_equipped=false
-				print("Item is water")
+				#print("Item is water")
 				water_equipped=!water_equipped
 			
 				print("water_equipped",water_equipped)
@@ -67,18 +67,18 @@ func _on_gui_input(event: InputEvent) -> void:
 			
 			var child=get_child(0)
 			if child is TextureRect:
-				print("TEXTURE:",child.name)
+				#print("TEXTURE:",child.name)
 				Global.move_item(panel_number,item_name)#Passes panel no. to move_item func
 				
-			else:
-				print("TEXT not found")
+			#else:
+				#print("TEXT not found")
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT :   
 		if event.pressed:	
-			print("rIGHT Pressed",self.name)	
+		#	print("rIGHT Pressed",self.name)	
 			if item_name!=null:
-				print("REMOVVE ITEM")	
+			#	print("REMOVVE ITEM")	
 				self.remove_child(get_node(item_name))
-				print(inventory_node.get_path())
+				#print(inventory_node.get_path())
 				inventory_node.remove_item(item_name)
 	if event is InputEventMouseMotion and button_held==true:
 		
@@ -89,7 +89,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		if child is TextureRect:
 			var relative_pos = get_node(item_name).global_position - grandparent.global_position
 			if relative_pos.x<0 or relative_pos.x>190 or relative_pos.y<0 or relative_pos.y>190 :
-				print("item out of inv")
+				#print("item out of inv")
 				#print("POs:",relative_pos)
 				Global.item_out_of_inv=true
 				
@@ -107,12 +107,12 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
-	print("Item added to panel")
+	#print("Item added to panel")
 	if node is TextureRect and node.name=="seeds":
 		node.scale.x=0.016
 		node.scale.y=0.016
 		item_name="seeds"
-		print("SEEDS added:",node)
+		#print("SEEDS added:",node)
 	if node is TextureRect and node.name=="watercan":
 		node.scale.x=0.016
 		node.scale.y=0.016

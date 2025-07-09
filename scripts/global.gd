@@ -38,7 +38,7 @@ func move_item(panel_number,item_name):
 	var texture_rect
 	var prev_panel_path
 	var final_panel_path
-	print("FUNC Item",item_name,panel_number)
+	#print("FUNC Item",item_name,panel_number)
 	var inv=get_node("/root/Game/farm_scene/Farmer/Inventory")
 	#print(inv.inventory_items)
 	#Gets texture node from initial panel
@@ -105,18 +105,22 @@ func move_item(panel_number,item_name):
 	
 	
 	
-	print("Text final path:",texture_rect.get_path())
+	#print("Text final path:",texture_rect.get_path())
 	#
 	#print(get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).position)
 	
 func get_empty_panel():
 	return empty_panel
 
+var plant_number=1
+
 func grow_plant(soil_name):
 	
 	var plant=PLANT.instantiate()
-	plant.scale=Vector2(0.1,0.1)
+	plant.scale=Vector2(0.2,0.2)
 	
+	plant.name="Plant"+str(plant_number)
+	print("SOIL Global plant:",plant.name)
 	var soil =get_node("/root/Game/farm_scene/SoilManager/"+soil_name)
 	#soil.remove_child.soil.get_node("AnimatedSprite2D")
 	#get_node("/root/Game/farm_scene/").add_child(plant)
@@ -124,13 +128,17 @@ func grow_plant(soil_name):
 		#get_node("/root/Game/farm_scene/").add_child(plant)
 		
 		soil.add_child(plant)
-		print("Plant added to farm_scene")
-		soil.get_node("AnimatedSprite2D").play("tilled")
-		plant.global_position.y=soil.global_position.y-18
-		plant.global_position.x=soil.global_position.x-8
+		
+		
+		
+		#PlantTracker.add_to_plant_dictionary(plant.name)
+		#print("Plant added to farm_scene")
+		soil.get_node("AnimatedSprite2D").play("rect_tilled")
+		plant.global_position.y=soil.global_position.y-5
+		#plant.global_position.x=soil.global_position.x-8
 		plant.global_rotation=0
-	else:
-		print("farm_scene not found!")
+	#else:
+		#print("farm_scene not found!")
 		
 	
 	
@@ -141,25 +149,25 @@ func save_tilled_soil(soil,animation):
 		tilled_soil_index+=1
 	elif soil.planted==true:
 		sown_soil.append(soil.name)
-		print("Added to array")
+		#print("Added to array")
 		sown_soil_animation.append(animation)
 		
 		
 func update_day_count():
-	print("Updated day")
+	#print("Updated day")
 	day_count+=1
 	day_passed=true
 
 func plant_watered(node):
 	watered_plants.append(node.name)
-	print(watered_plants)
+	#print(watered_plants)
 	
 var current_time
 var time_to_change_tint
 var tint_index	
 
 func track_time(time,change_time,index):
-	print("saved time")
+	#print("saved time")
 	current_time=time
 	time_to_change_tint=change_time
 	tint_index=index

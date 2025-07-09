@@ -11,8 +11,8 @@ func _ready() -> void:
 	while get_parent().farmer_added==false:
 		await get_tree().process_frame
 	date_label=get_node("/root/house_interior/Farmer/DateLabel")
-	if date_label==null:
-		print("date label is null")
+	#if date_label==null:
+		#print("date label is null")
 	get_node("Label").text=("Time passed:"+str(current_time))
 	#print("HOUSE")
 	current_time=Global.current_time
@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		
 	if current_time<24:
 		time_passed+=delta
-		if time_passed-initial_time > 0.1:
+		if time_passed-initial_time > 0.5:
 			initial_time=time_passed
 			#print("Initial Time :",initial_time)	
 			#print("Time passed:",time_passed)
