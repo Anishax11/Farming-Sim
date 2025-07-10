@@ -25,6 +25,7 @@ var load_farm=false
 var load_house=false
 var seeds_initialised=false
 var watered_plants=[]
+var fully_grown_plant_soil=[]
 const PLANT = preload("res://scenes/plant.tscn")
 
 	

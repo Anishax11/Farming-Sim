@@ -28,6 +28,9 @@ func grow_plant():
 	stage+=1
 	#print("PLANT STAGE AFTER:",stage)
 	if stage>3:
+		stage=3
+		animated_sprite_2d.play("stage_"+str(stage))
+		Global.fully_grown_plant_soil.append(get_parent().name)
 		print("Returning from grow plant")
 		return
 	else:
