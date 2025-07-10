@@ -34,17 +34,11 @@ func _ready() -> void:
 		#print("FARM loaded")
 		#print("Dictionary:",PlantTracker.plant_stages)
 		till_soil(Global.tilled_soil,Global.tilled_soil_animation)
-		#print("Planted soil:")
-		
-		#CODE TO LOAD BACK GROWN PLANT UNLEWSS ITS FULLY GROWN(NOT WORKING)
+		#print("Planted soil:",Global.planted_soil)
+	
 		for i in range (0,Global.planted_soil.size()):
-			for j in range(Global.fully_grown_plant_soil.size()):
-				if Global.planted_soil[i]==Global.fully_grown_plant_soil[j]:
-					print("Plant has grown fully")
-					break
-				elif j==Global.fully_grown_plant_soil.size()-1:
-					print("GRO@W AT:",Global.planted_soil[i])
-					Global.grow_plant(Global.planted_soil[i])
+			print("GRO@W AT:",Global.planted_soil[i])
+			Global.grow_plant(Global.planted_soil[i])
 			
 		for i in range (3):
 			
@@ -54,35 +48,35 @@ func _ready() -> void:
 				if string!="":
 					
 					var node=get_node("/root/Game/farm_scene/"+string)
+					if string=="strawberry":
+						node=get_node(PlantTracker.harvested_plant_paths[0])
 					Global.inventory_items[i][j]=""
-					#print("SEEDS")
 					node.fake_input()
 		
 		for i in range((Global.watered_plants).size()):
 		#	print("runnihng loop")
 			if Global.watered_plants[i]!=null:
-				print("watered plnts not nuill")
+				#print("watered plnts not nuill")
 				var soil=get_node("/root/Game/farm_scene/SoilManager/"+Global.watered_plants[i])
 				for child in soil.get_children():
 				
-					if child!=soil.get_node("AnimatedSprite2D") and child!=soil.get_node("CollisionShape2D") and child.name!="Plant2":
-						print("child removed")
+					if child!=soil.get_node("AnimatedSprite2D") and child!=soil.get_node("CollisionShape2D"):
+				
 						soil.remove_child(child)
-					print("Child node:", child.name)
+					#print("Child node:", child.name)
 				var plant_found=false
 				
 				for j in range(0,PlantTracker.plant_stages.size()+2):
-					print("plant_stages:",PlantTracker.plant_stages)
-				
+					#print("plant_stages:",PlantTracker.plant_stages)
+					#print("J:",j)
 					if soil.get_node("Plant"+str(j))!=null:
-						print("PLANT FOUND")
+						#print("PLANT FOUND")
 						soil.get_node("Plant"+str(j)).grow_plant()	
 						plant_found=true
 						break
 					#else:
 						#print("Plant"+str(j)+" not found")
-					elif plant_found==false:# and j==PlantTracker.plant_stages.size()-1:
-						
+					elif plant_found==false and j==PlantTracker.plant_stages.size()-1:
 						print("PLANT NOT FOUND")
 						Global.grow_plant(Global.watered_plants[i])
 						Global.planted_soil.append(Global.watered_plants[i])		

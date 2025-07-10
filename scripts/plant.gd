@@ -39,3 +39,7 @@ func grow_plant():
 		animated_sprite_2d.play("stage_"+str(stage))
 		print("PLant animation:",animated_sprite_2d.animation)
 		PlantTracker.update_plant_dictionary("Plant"+str(index))
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	pass # Replace with function body.

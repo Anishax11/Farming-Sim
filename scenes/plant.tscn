@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bsku353laxbcj" path="res://16x16/Sprites/ChatGPT Image Jul 9, 2025, 08_41_42 PM (1).png" id="4_lauc8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dyuw"]
-size = Vector2(153, 63)
+size = Vector2(89, 47)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wc8t"]
 atlas = ExtResource("2_2lget")
@@ -53,13 +53,14 @@ position = Vector2(1, 0)
 script = ExtResource("1_0ykwo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-9, 89)
+position = Vector2(-1.5, 60.5)
 shape = SubResource("RectangleShape2D_0dyuw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dxjdq")
-animation = &"stage_1"
+animation = &"stage_3"
 autoplay = "stage_1"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
