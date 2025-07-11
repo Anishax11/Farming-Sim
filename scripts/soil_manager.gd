@@ -45,11 +45,10 @@ func _ready() -> void:
 			for j in range (5):
 				var string=Global.inventory_items[i][j]
 				
-			
-					
-						
 				if string!="":
-										
+					var node=get_node("/root/Game/farm_scene/"+string)		
+					if node!=null:
+						node.queue_free()			
 					Global.inventory_items[i][j]=""
 					inventory.add_to_inventory(string,Global.get(string+"_image"))
 		

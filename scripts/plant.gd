@@ -49,11 +49,7 @@ func grow_plant():
 		print("Harvested empty")
 		stage=3
 		animated_sprite_2d.play("stage_"+str(stage))
-				##
-		##Global.fully_grown_plant_soil.append(get_parent().name)
-				##animated_sprite_2d.queue_free()
-		#
-		#return
+	
 		
 	else:
 		self.scale.x=0.3
