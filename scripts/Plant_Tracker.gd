@@ -1,7 +1,7 @@
 extends Node
 
 var plant_stages = {}
-var harvested_plant_paths=[]
+var harvested_plants=[]
 func add_to_plant_dictionary(plant_name):
 	
 	

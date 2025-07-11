@@ -24,27 +24,37 @@ func grow_plant():
 	var index=int(last_char)-1
 	stage=PlantTracker.plant_stages["Plant"+str(index)]
 	print("GROWING")
-	#print("PLANT STAGE:",stage)
+	print("PLANT STAGE:",stage)
 	stage+=1
-	#print("PLANT STAGE AFTER:",stage)
+	print("PLANT STAGE AFTER:",stage)
 	#print("Plant grown:",$AnimatedSprite2D.animation)
 		
 	
 			
 			
-	if stage>3:
+	if !PlantTracker.harvested_plants.is_empty() and stage>3 and self.name!=PlantTracker.harvested_plants[0]:
 		print("Plant in stage greater than 3")
 		
-		
-		if !Global.fully_grown_plant_soil.is_empty() and get_parent().name!=Global.fully_grown_plant_soil[0]:
-			stage=3
-			animated_sprite_2d.play("stage_"+str(stage))
-		else:
-			
-			Global.fully_grown_plant_soil.append(get_parent().name)
-			#animated_sprite_2d.queue_free()
-			queue_free()
+		#for i in range (Global.fully_grown_plant_soil.size()):
+			#
+			#if !PlantTracker.harvested_plants.is_empty() and self.name!=PlantTracker.harvested_plants[i]:
+		stage=3
+		animated_sprite_2d.play("stage_"+str(stage))
 		return
+		
+	elif !PlantTracker.harvested_plants.is_empty() and stage>3 and self.name==PlantTracker.harvested_plants[0]:
+		queue_free()
+		
+	elif PlantTracker.harvested_plants.is_empty() and stage>3:
+		print("Harvested empty")
+		stage=3
+		animated_sprite_2d.play("stage_"+str(stage))
+				##
+		##Global.fully_grown_plant_soil.append(get_parent().name)
+				##animated_sprite_2d.queue_free()
+		#
+		#return
+		
 	else:
 		self.scale.x=0.3
 		self.scale.y=0.3
@@ -69,8 +79,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory("strawberry",texture)
 			
-			PlantTracker.harvested_plant_paths.append(self.get_path())
-			#$TextureRect.scale.x=0.016
-			#$TextureRect.scale.y=0.016
+			PlantTracker.harvested_plants.append(self.name)
+			
 			self.remove_child(animated_sprite_2d)
-			#queue_free()
+			queue_free()
