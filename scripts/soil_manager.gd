@@ -37,7 +37,7 @@ func _ready() -> void:
 		#print("Planted soil:",Global.planted_soil)
 	
 		for i in range (0,Global.planted_soil.size()):
-			print("GRO@W AT:",Global.planted_soil[i])
+			#print("GRO@W AT:",Global.planted_soil[i])
 			Global.grow_plant(Global.planted_soil[i])
 			
 		for i in range (3):
@@ -45,13 +45,13 @@ func _ready() -> void:
 			for j in range (5):
 				var string=Global.inventory_items[i][j]
 				
-				if string!="":
+			
 					
-					var node=get_node("/root/Game/farm_scene/"+string)
-					if string=="strawberry":
-						node=get_node(PlantTracker.harvested_plant_paths[0])
+						
+				if string!="":
+										
 					Global.inventory_items[i][j]=""
-					node.fake_input()
+					inventory.add_to_inventory(string,Global.get(string+"_image"))
 		
 		for i in range((Global.watered_plants).size()):
 		#	print("runnihng loop")
@@ -70,7 +70,7 @@ func _ready() -> void:
 					#print("plant_stages:",PlantTracker.plant_stages)
 					#print("J:",j)
 					if soil.get_node("Plant"+str(j))!=null:
-						#print("PLANT FOUND")
+						print("PLANT FOUND")
 						soil.get_node("Plant"+str(j)).grow_plant()	
 						plant_found=true
 						break

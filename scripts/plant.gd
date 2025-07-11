@@ -1,11 +1,11 @@
 extends Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-var stage
-#
-#func _ready() -> void:
-	#print("Plant scene called")
-	
 
+var stage
+var texture
+var empty_panel
+
+#func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and animated_sprite_2d.animation!="stage_1" :
@@ -27,19 +27,50 @@ func grow_plant():
 	#print("PLANT STAGE:",stage)
 	stage+=1
 	#print("PLANT STAGE AFTER:",stage)
+	#print("Plant grown:",$AnimatedSprite2D.animation)
+		
+	
+			
+			
 	if stage>3:
-		stage=3
-		animated_sprite_2d.play("stage_"+str(stage))
-		Global.fully_grown_plant_soil.append(get_parent().name)
-		print("Returning from grow plant")
+		print("Plant in stage greater than 3")
+		
+		
+		if !Global.fully_grown_plant_soil.is_empty() and get_parent().name!=Global.fully_grown_plant_soil[0]:
+			stage=3
+			animated_sprite_2d.play("stage_"+str(stage))
+		else:
+			
+			Global.fully_grown_plant_soil.append(get_parent().name)
+			#animated_sprite_2d.queue_free()
+			queue_free()
 		return
 	else:
 		self.scale.x=0.3
 		self.scale.y=0.3
 		animated_sprite_2d.play("stage_"+str(stage))
-		print("PLant animation:",animated_sprite_2d.animation)
+		#print("PLant animation:",animated_sprite_2d.animation)
 		PlantTracker.update_plant_dictionary("Plant"+str(index))
+		
+	if 	stage==3:
+		
+		var sprite_frames = $AnimatedSprite2D.sprite_frames  
+		texture = sprite_frames.get_frame_texture("stage_3", 0)	
+		
+		Global.strawberry_image=texture
+		
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	pass # Replace with function body.
+	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
+		
+		if event.pressed:
+			#print("PlNT harvested")
+			
+			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory("strawberry",texture)
+			
+			PlantTracker.harvested_plant_paths.append(self.get_path())
+			#$TextureRect.scale.x=0.016
+			#$TextureRect.scale.y=0.016
+			self.remove_child(animated_sprite_2d)
+			#queue_free()

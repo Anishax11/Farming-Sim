@@ -3,8 +3,9 @@ extends Node
 var day_count=1
 var day_passed=false
 var inventory_items=[]
-var seeds_image=preload("res://16x16/Sprites/ChatGPT Image Jun 22, 2025, 01_37_12 AM.png")
-var watercan_image=preload("res://16x16/Sprites/water can icon.png")
+var seeds_image
+var watercan_image
+var strawberry_image
 var grass_clicked=false
 var grass_held=false
 var soil_clicked=false
@@ -121,7 +122,7 @@ func grow_plant(soil_name):
 	plant.scale=Vector2(0.2,0.2)
 	
 	plant.name="Plant"+str(plant_number)
-	print("SOIL Global plant:",plant.name)
+	#print("SOIL Global plant:",plant.name)
 	var soil =get_node("/root/Game/farm_scene/SoilManager/"+soil_name)
 	#soil.remove_child.soil.get_node("AnimatedSprite2D")
 	#get_node("/root/Game/farm_scene/").add_child(plant)

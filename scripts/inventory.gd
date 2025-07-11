@@ -29,21 +29,21 @@ func add_to_inventory(string,item_texture) :
 		for j in range(5):
 			#print(i,",",j)
 			if Global.inventory_items[i][j]=="":
-				#print("slot available")
+			#	print("slot available")
 				Global.inventory_items[i][j]=string
 				var texture_rect=TextureRect.new()
 				texture_rect.texture=Global.get(string+"_image")
-				texture_rect.scale.x=0.016
-				texture_rect.scale.y=0.016
-				texture_rect.name=string
 				
+				texture_rect.name=string
+				if Global.get(string+"_image")==null:
+					print(string+" is null")
 				#print("Slot passed:",slots_passed)
 				#print("ADJ:",slot_adjust)
 				#print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 				
 				Global.empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 				Global.empty_panel.add_child(texture_rect)
-				#print("Empty panel:",Global.empty_panel.get_child(0))
+				#print("Empty panel:",Global.empty_panel.name,Global.empty_panel.get_child(0))
 				
 				
 				#texture.position=Vector2(0,0)

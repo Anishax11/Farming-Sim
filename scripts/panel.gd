@@ -26,7 +26,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		if event.pressed:
 			#print("Pressed")
 			var inv=get_node("/root/Game/farm_scene/Farmer/Inventory")
-			#print(Global.inventory_items)
+			print(Global.inventory_items)
 			#print("Clicked panel")
 			button_held=true
 			#print("ini pos:",texture_rect.position)
@@ -117,3 +117,11 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		node.scale.x=0.016
 		node.scale.y=0.016
 		item_name="watercan"
+		
+	if node is TextureRect and node.name=="strawberry":
+		print("STRAWBERRY texture:", node.texture)
+		node.position=Vector2(position.x-4,position.y-4)
+		node.scale.x=0.1
+		node.scale.y=0.1
+		item_name="strawberry"
+		#print("STr texturerect added to panel")

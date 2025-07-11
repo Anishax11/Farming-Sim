@@ -9,8 +9,8 @@ var fake_input_called=false
 func _ready() -> void:
 
 
-	var image=(texture_rect.texture as CompressedTexture2D).get_image()
-	Global.watercan_texture=image.save_png_to_buffer()
+	
+	Global.watercan_image=texture_rect.texture
 	
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
