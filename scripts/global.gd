@@ -121,15 +121,14 @@ func grow_plant(soil_name):
 	var soil =get_node("/root/Game/farm_scene/SoilManager/"+soil_name)
 	var plant=PLANT.instantiate()
 	plant.scale=Vector2(0.2,0.2)
-	print("Last plnt index in dic:",PlantTracker.plant_stages.size()-1)
+	#print("Last plnt index in dic:",PlantTracker.plant_stages.size()-1)
 
 	plant.name=PlantTracker.plant_names[soil_name]
 	
-	#plant.name=PlantTracker.plant_stages.keys()[PlantTracker.plant_stages.size()-1]
-	#plant_stages_index+=1
+	
 	print("Gobal plant name:",plant.name)
-	#plant_number+=1
-	#print("SOIL Global plant:",plant.name)
+
+	
 	
 	#soil.remove_child.soil.get_node("AnimatedSprite2D")
 	#get_node("/root/Game/farm_scene/").add_child(plant)

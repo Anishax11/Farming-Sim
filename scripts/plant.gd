@@ -7,7 +7,8 @@ var empty_panel
 
 func _ready() -> void:
 	
-	print("Plant:",self.name)
+	print("Plant ready:",self.name)
+	#print("Plant parent:",get_parent())
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and animated_sprite_2d.animation!="stage_1" :
@@ -22,7 +23,7 @@ func _on_body_exited(body: Node2D) -> void:
 		z_index=0
 
 func grow_plant():
-	#print("GROWING ",self.name)
+	print("GROWING ",self.name)
 	var last_char = self.name.substr(self.name.length() - 1, 1)
 	var index=int(last_char)
 	stage=PlantTracker.plant_stages["Plant"+str(index)]+1
@@ -32,9 +33,6 @@ func grow_plant():
 	#print("PLANT STAGE AFTER:",stage)
 	#print("Plant grown:",$AnimatedSprite2D.animation)
 		
-	
-			
-			
 	if stage>3:
 		print("Plant in stage greater than 3")
 		print("Harvested plants:",PlantTracker.harvested_plants)

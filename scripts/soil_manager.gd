@@ -34,10 +34,10 @@ func _ready() -> void:
 		print("FARM loaded, day:",Global.day_count)
 		#print("Dictionary:",PlantTracker.plant_stages)
 		till_soil(Global.tilled_soil,Global.tilled_soil_animation)
-		#print("Planted soil:",Global.planted_soil)
+		print("Planted soil:",Global.planted_soil)
 	
 		for i in range (0,Global.planted_soil.size()):
-			#print("GRO@W AT:",Global.planted_soil[i])
+			print("GRO@W AT:",Global.planted_soil[i])
 			Global.grow_plant(Global.planted_soil[i])
 			
 		for i in range (3):
@@ -83,7 +83,7 @@ func _ready() -> void:
 						break
 					#else:
 						#print("Plant"+str(j)+" not found")
-					elif plant_found==false:# and j==PlantTracker.plant_stages.size():
+					elif plant_found==false and j==PlantTracker.plant_stages.size():
 						#print("PLANT NOT FOUND: ","Plant"+str(j))
 						Global.grow_plant(Global.watered_plants[i])
 						Global.planted_soil.append(Global.watered_plants[i])		
