@@ -32,23 +32,30 @@ func grow_plant():
 	
 			
 			
-	if !PlantTracker.harvested_plants.is_empty() and stage>3 and self.name!=PlantTracker.harvested_plants[0]:
+	if stage>3:
 		print("Plant in stage greater than 3")
+		print("Harvested plants:",PlantTracker.harvested_plants)
+		print("slf.name:",self.name)
 		
-		#for i in range (Global.fully_grown_plant_soil.size()):
-			#
-			#if !PlantTracker.harvested_plants.is_empty() and self.name!=PlantTracker.harvested_plants[i]:
+		for i in range (PlantTracker.harvested_plants.size()):
+			
+			if self.name==PlantTracker.harvested_plants[i]:
+				print("Freed")
+				queue_free()
+				
 		stage=3
 		animated_sprite_2d.play("stage_"+str(stage))
 		return
+		#
+			#elif  self.name==PlantTracker.harvested_plants[i]:
+				#print(" harvested:",self.name)
+				#
+				#queue_free()
 		
-	elif !PlantTracker.harvested_plants.is_empty() and stage>3 and self.name==PlantTracker.harvested_plants[0]:
-		queue_free()
-		
-	elif PlantTracker.harvested_plants.is_empty() and stage>3:
-		print("Harvested empty")
-		stage=3
-		animated_sprite_2d.play("stage_"+str(stage))
+	#elif PlantTracker.harvested_plants.is_empty() and stage>3:
+		#print("Harvested empty")
+		#stage=3
+		#animated_sprite_2d.play("stage_"+str(stage))
 	
 		
 	else:
@@ -71,7 +78,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
 		
 		if event.pressed:
-			#print("PlNT harvested")
+			print("PlNT harvested")
 			
 			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory("strawberry",texture)
 			
