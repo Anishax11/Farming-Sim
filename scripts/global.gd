@@ -115,23 +115,28 @@ func get_empty_panel():
 	return empty_panel
 
 var plant_number=1
+var plant_stages_index=0
 
 func grow_plant(soil_name):
-	
+	var soil =get_node("/root/Game/farm_scene/SoilManager/"+soil_name)
 	var plant=PLANT.instantiate()
 	plant.scale=Vector2(0.2,0.2)
+	print("Last plnt index in dic:",PlantTracker.plant_stages.size()-1)
+
+	plant.name=PlantTracker.plant_names[soil_name]
 	
-	plant.name="Plant"+str(plant_number)
+	#plant.name=PlantTracker.plant_stages.keys()[PlantTracker.plant_stages.size()-1]
+	#plant_stages_index+=1
+	print("Gobal plant name:",plant.name)
+	#plant_number+=1
 	#print("SOIL Global plant:",plant.name)
-	var soil =get_node("/root/Game/farm_scene/SoilManager/"+soil_name)
+	
 	#soil.remove_child.soil.get_node("AnimatedSprite2D")
 	#get_node("/root/Game/farm_scene/").add_child(plant)
 	if get_node("/root/Game/farm_scene/"):
 		#get_node("/root/Game/farm_scene/").add_child(plant)
 		
 		soil.add_child(plant)
-		
-		
 		
 		#PlantTracker.add_to_plant_dictionary(plant.name)
 		#print("Plant added to farm_scene")

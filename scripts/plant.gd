@@ -1,12 +1,14 @@
 extends Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var stage
+var stage=0
 var texture
 var empty_panel
 
-#func _ready() -> void:
-
+func _ready() -> void:
+	
+	print("Plant:",self.name)
+	
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and animated_sprite_2d.animation!="stage_1" :
 		#print("FARMER Y pos",body.position.y)
@@ -20,13 +22,14 @@ func _on_body_exited(body: Node2D) -> void:
 		z_index=0
 
 func grow_plant():
+	#print("GROWING ",self.name)
 	var last_char = self.name.substr(self.name.length() - 1, 1)
-	var index=int(last_char)-1
-	stage=PlantTracker.plant_stages["Plant"+str(index)]
-	print("GROWING")
-	print("PLANT STAGE:",stage)
+	var index=int(last_char)
+	stage=PlantTracker.plant_stages["Plant"+str(index)]+1
+	
+	#print("PLANT STAGE:",stage)
 	stage+=1
-	print("PLANT STAGE AFTER:",stage)
+	#print("PLANT STAGE AFTER:",stage)
 	#print("Plant grown:",$AnimatedSprite2D.animation)
 		
 	
@@ -46,16 +49,6 @@ func grow_plant():
 		stage=3
 		animated_sprite_2d.play("stage_"+str(stage))
 		return
-		#
-			#elif  self.name==PlantTracker.harvested_plants[i]:
-				#print(" harvested:",self.name)
-				#
-				#queue_free()
-		
-	#elif PlantTracker.harvested_plants.is_empty() and stage>3:
-		#print("Harvested empty")
-		#stage=3
-		#animated_sprite_2d.play("stage_"+str(stage))
 	
 		
 	else:

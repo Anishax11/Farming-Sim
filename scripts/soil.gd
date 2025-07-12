@@ -41,7 +41,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				Global.plant_watered(self)
 				if not PlantTracker.plant_stages.has("Plant"+str(Global.plant_number)):
 					print("New plant:","Plant"+str(Global.plant_number))
+					PlantTracker.add_plant_names(self.name,"Plant"+str(Global.plant_number))
+					print("Plant name :",PlantTracker.plant_names[self.name])
 					PlantTracker.add_to_plant_dictionary("Plant"+str(Global.plant_number))
+					
 					Global.plant_number+=1
 				print("Plant watered")
 				
@@ -50,7 +53,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			#CODE FOR PLANTATION
 			print(panel.seeds_equipped)
 			if distance<18 and tilled==true and panel.seeds_equipped==true and inventory.seeds_count>0:
-				print("Plant ")	
+				#print("Plant ")	
 				planted=true
 				
 				print("Seeds count before:",inventory.seeds_count)

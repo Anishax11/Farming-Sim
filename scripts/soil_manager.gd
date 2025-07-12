@@ -31,7 +31,7 @@ func _ready() -> void:
 				id+=1
 				
 	if get_node("soil290")!=null and Global.load_farm==true:
-		#print("FARM loaded")
+		print("FARM loaded, day:",Global.day_count)
 		#print("Dictionary:",PlantTracker.plant_stages)
 		till_soil(Global.tilled_soil,Global.tilled_soil_animation)
 		#print("Planted soil:",Global.planted_soil)
@@ -57,26 +57,34 @@ func _ready() -> void:
 			if Global.watered_plants[i]!=null:
 				#print("watered plnts not nuill")
 				var soil=get_node("/root/Game/farm_scene/SoilManager/"+Global.watered_plants[i])
-				for child in soil.get_children():
 				
-					if child!=soil.get_node("AnimatedSprite2D") and child!=soil.get_node("CollisionShape2D"):
 				
-						soil.remove_child(child)
-					#print("Child node:", child.name)
+					
 				var plant_found=false
 				
-				for j in range(0,PlantTracker.plant_stages.size()+2):
+				#for child in soil.get_children():
+				#
+						#if child!=soil.get_node("AnimatedSprite2D") and child!=soil.get_node("CollisionShape2D"):
+					#
+							#soil.remove_child(child)
+						#print("Soil node:",soil.name)
+						#print("Child node:", child.name)
+				
+					
+				for j in range(1,PlantTracker.plant_stages.size()+1):
 					#print("plant_stages:",PlantTracker.plant_stages)
 					#print("J:",j)
-					if soil.get_node("Plant"+str(j))!=null:
-						print("PLANT FOUND")
+					#print("Soil :",soil)
+					#print("Soil child:",soil.get_child(1))
+					if soil.has_node("Plant"+str(j))!=false:
+						#print("PLANT FOUND:","Plant"+str(j))
 						soil.get_node("Plant"+str(j)).grow_plant()	
 						plant_found=true
 						break
 					#else:
 						#print("Plant"+str(j)+" not found")
-					elif plant_found==false and j==PlantTracker.plant_stages.size()-1:
-						print("PLANT NOT FOUND")
+					elif plant_found==false:# and j==PlantTracker.plant_stages.size():
+						#print("PLANT NOT FOUND: ","Plant"+str(j))
 						Global.grow_plant(Global.watered_plants[i])
 						Global.planted_soil.append(Global.watered_plants[i])		
 			else:
