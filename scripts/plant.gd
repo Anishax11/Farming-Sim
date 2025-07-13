@@ -69,7 +69,7 @@ func grow_plant():
 		var sprite_frames = $AnimatedSprite2D.sprite_frames  
 		texture = sprite_frames.get_frame_texture(string_part+"_stage_3", 0)	
 		
-		Global.strawberry_image=texture
+		Global.set(string_part + "_image", texture)
 		
 
 
@@ -79,7 +79,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if event.pressed:
 			#print("PlNT harvested")
 			
-			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory("strawberry",texture)
+			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(string_part,texture)
 			
 			PlantTracker.harvested_plants.append(self.name)
 			

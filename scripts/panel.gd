@@ -87,14 +87,14 @@ func _on_gui_input(event: InputEvent) -> void:
 		#print("DIst from inv:",relative_pos)#-get_parent().get_parent().position.x)
 		var child=get_child(0)
 		if child is TextureRect:
-			var relative_pos = get_node(item_name).global_position - grandparent.global_position
+			var relative_pos = get_node(child.get_path()).global_position - grandparent.global_position
 			if relative_pos.x<0 or relative_pos.x>190 or relative_pos.y<0 or relative_pos.y>190 :
 				#print("item out of inv")
 				#print("POs:",relative_pos)
 				Global.item_out_of_inv=true
 				
 			Global.panel_clicked=!Global.panel_clicked #Panel clicked shouldnt become true while dragging item
-			get_node(item_name).position=event.position 
+			get_node(child.get_path()).position=event.position 
 			
 			#if get_node("texture")!=null:
 				#get_node("texture").position.x=round(get_node("texture").position.x/40)*40
@@ -118,10 +118,10 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		node.scale.y=0.016
 		item_name="watercan"
 		
-	if node is TextureRect and node.name=="strawberry":
+	if node is TextureRect and node.name=="strawberry" or node.name=="potato":
 		print("STRAWBERRY texture:", node.texture)
 		node.position=Vector2(position.x-4,position.y-4)
 		node.scale.x=0.1
 		node.scale.y=0.1
-		item_name="strawberry"
+		item_name=node.name
 		#print("STr texturerect added to panel")

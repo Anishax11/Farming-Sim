@@ -6,6 +6,7 @@ var inventory_items=[]
 var seeds_image
 var watercan_image
 var strawberry_image
+var potato_image
 var grass_clicked=false
 var grass_held=false
 var soil_clicked=false
