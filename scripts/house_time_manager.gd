@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 				time_to_change_tint+=2
 				
 	else:
-		Global.day_count+=1
+		Global.update_day_count()
 		date_label.update_day_count()
 		time_to_change_tint=8.0
 		color_rect_i=0

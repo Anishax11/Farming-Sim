@@ -20,7 +20,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if fake_input_called==true:
 			distance=0
 			fake_input_called=false
-		print(distance)
+		#print(distance)
 		if event.pressed and distance<45:
 			while texture_rect == null:
 				await get_tree().process_frame

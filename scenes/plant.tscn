@@ -1,12 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://2d8wujcsyrya"]
+[gd_scene load_steps=12 format=3 uid="uid://2d8wujcsyrya"]
 
 [ext_resource type="Script" path="res://scripts/plant.gd" id="1_0ykwo"]
 [ext_resource type="Texture2D" uid="uid://jm5ih7cyj65l" path="res://16x16/Sprites/ChatGPT Image Jul 9, 2025, 05_47_14 PM (1).png" id="2_2lget"]
+[ext_resource type="Texture2D" uid="uid://dvetxmkifxbu3" path="res://16x16/Sprites/ChatGPT Image Jul 13, 2025, 11_20_49 AM.png" id="2_j5x4d"]
 [ext_resource type="Texture2D" uid="uid://w4p7p12i8dh7" path="res://16x16/Sprites/ChatGPT Image Jul 9, 2025, 06_32_34 PM.png" id="3_vep12"]
 [ext_resource type="Texture2D" uid="uid://bsku353laxbcj" path="res://16x16/Sprites/ChatGPT Image Jul 9, 2025, 08_41_42 PM (1).png" id="4_lauc8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dyuw"]
 size = Vector2(89, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7esyh"]
+atlas = ExtResource("2_j5x4d")
+region = Rect2(0, 0, 117, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wc8t"]
 atlas = ExtResource("2_2lget")
@@ -22,6 +27,14 @@ region = Rect2(0, 0, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dxjdq"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7esyh")
+}],
+"loop": true,
+"name": &"potato_stage_3",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0wc8t")
@@ -43,7 +56,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_t2ons")
 }],
 "loop": true,
-"name": &"stage_3",
+"name": &"strawberry_stage_3",
 "speed": 5.0
 }]
 
@@ -58,7 +71,7 @@ shape = SubResource("RectangleShape2D_0dyuw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dxjdq")
-animation = &"stage_3"
+animation = &"potato_stage_3"
 autoplay = "stage_1"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

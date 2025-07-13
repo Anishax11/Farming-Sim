@@ -76,19 +76,23 @@ func _ready() -> void:
 					#print("J:",j)
 					#print("Soil :",soil)
 					#print("Soil child:",soil.get_child(1))
-					if soil.has_node("Plant"+str(j))!=false:
+					if soil.has_node("strawberry"+str(j))!=false  :
 						#print("PLANT FOUND:","Plant"+str(j))
-						soil.get_node("Plant"+str(j)).grow_plant()	
+						soil.get_node("strawberry"+str(j)).grow_plant()	
 						plant_found=true
 						break
 					#else:
 						#print("Plant"+str(j)+" not found")
+					elif soil.has_node("potato"+str(j))!=false:
+						soil.get_node("potato"+str(j)).grow_plant()	
+						plant_found=true
+						break
 					elif plant_found==false and j==PlantTracker.plant_stages.size():
 						#print("PLANT NOT FOUND: ","Plant"+str(j))
 						Global.grow_plant(Global.watered_plants[i])
 						Global.planted_soil.append(Global.watered_plants[i])		
 			else:
-				#Global.watered_plants.clear()
+				Global.watered_plants.clear()
 				break
 		Global.day_passed=false		
 		Global.load_farm=false		

@@ -4,10 +4,13 @@ extends Area2D
 var stage=0
 var texture
 var empty_panel
-
+var string_part
 func _ready() -> void:
-	
-	print("Plant ready:",self.name)
+	var text=self.name
+	var regex=RegEx.new()
+	regex.compile(r"\d+")  # Compile pattern to match one or more digits
+	string_part=regex.sub(text,"",true)#store string parts by replacing no.s with ""
+	print("Plant type:",string_part)
 	#print("Plant parent:",get_parent())
 	
 func _on_body_entered(body: Node2D) -> void:
@@ -26,40 +29,45 @@ func grow_plant():
 	print("GROWING ",self.name)
 	var last_char = self.name.substr(self.name.length() - 1, 1)
 	var index=int(last_char)
-	stage=PlantTracker.plant_stages["Plant"+str(index)]+1
+	stage=PlantTracker.plant_stages[self.name]+1
 	
-	#print("PLANT STAGE:",stage)
+	print("PLANT STAGE:",stage)
 	stage+=1
-	#print("PLANT STAGE AFTER:",stage)
+	print("PLANT STAGE AFTER:",stage)
 	#print("Plant grown:",$AnimatedSprite2D.animation)
 		
 	if stage>3:
 		print("Plant in stage greater than 3")
-		print("Harvested plants:",PlantTracker.harvested_plants)
-		print("slf.name:",self.name)
+		#print("Harvested plants:",PlantTracker.harvested_plants)
+		#print("slf.name:",self.name)
 		
 		for i in range (PlantTracker.harvested_plants.size()):
 			
 			if self.name==PlantTracker.harvested_plants[i]:
-				print("Freed")
+				#print("Freed")
 				queue_free()
 				
 		stage=3
-		animated_sprite_2d.play("stage_"+str(stage))
+		animated_sprite_2d.play(string_part+"_stage_"+str(stage))
 		return
 	
 		
 	else:
 		self.scale.x=0.3
 		self.scale.y=0.3
-		animated_sprite_2d.play("stage_"+str(stage))
-		#print("PLant animation:",animated_sprite_2d.animation)
-		PlantTracker.update_plant_dictionary("Plant"+str(index))
+		if stage==3:
+			print("STage is 3")
+			print(string_part+"_stage_"+str(stage))
+			animated_sprite_2d.play(string_part+"_stage_"+str(stage))
+		else:
+			animated_sprite_2d.play("stage_"+str(stage))
+		print("PLant animation:",animated_sprite_2d.animation)
+		PlantTracker.update_plant_dictionary(self.name)
 		
 	if 	stage==3:
 		
 		var sprite_frames = $AnimatedSprite2D.sprite_frames  
-		texture = sprite_frames.get_frame_texture("stage_3", 0)	
+		texture = sprite_frames.get_frame_texture(string_part+"_stage_3", 0)	
 		
 		Global.strawberry_image=texture
 		
@@ -69,7 +77,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
 		
 		if event.pressed:
-			print("PlNT harvested")
+			#print("PlNT harvested")
 			
 			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory("strawberry",texture)
 			
