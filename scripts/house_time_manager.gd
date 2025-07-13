@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		
 	if current_time<24:
 		time_passed+=delta
-		if time_passed-initial_time > 0.5:
+		if time_passed-initial_time > 1:
 			initial_time=time_passed
 			#print("Initial Time :",initial_time)	
 			#print("Time passed:",time_passed)

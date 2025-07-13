@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6xokp1noba6f"]
+[gd_scene load_steps=19 format=3 uid="uid://c6xokp1noba6f"]
 
 [ext_resource type="Texture2D" uid="uid://da4gaksqh4jto" path="res://16x16/Sprites/ChatGPT Image Jun 14, 2025, 05_14_44 PM.png" id="1_2prn8"]
 [ext_resource type="Script" path="res://scripts/soil.gd" id="1_jrfko"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://xyqehf4oaavy" path="res://16x16/Sprites/resized_88x88.jpg" id="2_bjo0d"]
 [ext_resource type="Texture2D" uid="uid://dilha2oc7ya3l" path="res://16x16/Sprites/seeds_resized_88x88.png" id="3_tajkv"]
 [ext_resource type="Texture2D" uid="uid://bec3k17gji45q" path="res://16x16/Sprites/Screenshot 2025-06-15 195435.png" id="5_234te"]
+[ext_resource type="Texture2D" uid="uid://cm6xt3ahugjn4" path="res://16x16/Sprites/ChatGPT Image Jul 13, 2025, 05_32_10 PM.png" id="7_qm26e"]
+[ext_resource type="Texture2D" uid="uid://rbs25plr7rnu" path="res://16x16/Sprites/watered_seeds_soil.jpg" id="7_y5vwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryoc2"]
 size = Vector2(16, 16)
@@ -18,7 +20,7 @@ region = Rect2(0, 0, 88, 80)
 atlas = ExtResource("5_234te")
 region = Rect2(0, 0, 88, 79)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hclbl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lwhg"]
 atlas = ExtResource("3_tajkv")
 region = Rect2(0, 0, 88, 88)
 
@@ -33,6 +35,14 @@ region = Rect2(88, 935, 88, 85)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hb7r7"]
 atlas = ExtResource("1_2prn8")
 region = Rect2(352, 935, 88, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wrae"]
+atlas = ExtResource("7_y5vwg")
+region = Rect2(0, 0, 84, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo652"]
+atlas = ExtResource("7_qm26e")
+region = Rect2(0, 0, 88, 88)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir0pw"]
 animations = [{
@@ -54,7 +64,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hclbl")
+"texture": SubResource("AtlasTexture_5lwhg")
 }],
 "loop": true,
 "name": &"seeds",
@@ -83,6 +93,22 @@ animations = [{
 "loop": true,
 "name": &"untilled_rock",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wrae")
+}],
+"loop": true,
+"name": &"watered_circle_seeds",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo652")
+}],
+"loop": true,
+"name": &"watered_seeds",
+"speed": 5.0
 }]
 
 [node name="Soil" type="Area2D"]
@@ -94,7 +120,7 @@ shape = SubResource("RectangleShape2D_ryoc2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_ir0pw")
-animation = &"tilled"
+animation = &"watered_circle_seeds"
 autoplay = "untilled"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

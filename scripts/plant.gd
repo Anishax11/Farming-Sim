@@ -6,6 +6,7 @@ var texture
 var empty_panel
 var string_part
 func _ready() -> void:
+	
 	var text=self.name
 	var regex=RegEx.new()
 	regex.compile(r"\d+")  # Compile pattern to match one or more digits
@@ -29,7 +30,8 @@ func grow_plant():
 	print("GROWING ",self.name)
 	var last_char = self.name.substr(self.name.length() - 1, 1)
 	var index=int(last_char)
-	stage=PlantTracker.plant_stages[self.name]+1
+	if PlantTracker.plant_stages[self.name]!=null:
+		stage=PlantTracker.plant_stages[self.name]+1
 	
 	print("PLANT STAGE:",stage)
 	stage+=1
@@ -56,6 +58,8 @@ func grow_plant():
 		self.scale.x=0.3
 		self.scale.y=0.3
 		if stage==3:
+			scale.x=0.1
+			scale.y=0.1
 			print("STage is 3")
 			print(string_part+"_stage_"+str(stage))
 			animated_sprite_2d.play(string_part+"_stage_"+str(stage))
@@ -80,8 +84,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			#print("PlNT harvested")
 			
 			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(string_part,texture)
-			
+			get_parent().planted=false
+			print("get_parent().planted:",get_parent().planted)
 			PlantTracker.harvested_plants.append(self.name)
-			
+			PlantTracker.plant_stages.erase(self.name)
 			self.remove_child(animated_sprite_2d)
 			queue_free()
