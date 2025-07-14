@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnk6xh71dxfpo"
-path="res://.godot/imported/watered_soil.jpg-c986d7b22c7d4bb433566a4320a5ac52.ctex"
+uid="uid://1w7dby00xauo"
+path="res://.godot/imported/4890145e-ad48-4eae-9a71-f17fa410f99a.jpg-fdc63d604f925e51bbf77058485205e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16/Sprites/watered_soil.jpg"
-dest_files=["res://.godot/imported/watered_soil.jpg-c986d7b22c7d4bb433566a4320a5ac52.ctex"]
+source_file="res://16x16/Sprites/4890145e-ad48-4eae-9a71-f17fa410f99a.jpg"
+dest_files=["res://.godot/imported/4890145e-ad48-4eae-9a71-f17fa410f99a.jpg-fdc63d604f925e51bbf77058485205e3.ctex"]
 
 [params]
 

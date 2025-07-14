@@ -48,9 +48,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						Global.plant_watered(self)
 						if animated_sprite_2d.animation=="seeds":
 							animated_sprite_2d.play("watered_seeds")
-						elif animated_sprite_2d.animation=="circle_seeds":
-							animated_sprite_2d.play("watered_watered_seeds")
-						#planted=false
+							print("Playing watered")
+						if animated_sprite_2d.animation=="circle_seeds":
+							animated_sprite_2d.play("watered_circle_seeds")
+							print("Playing watered")
 						var determine_plant=randi_range(0,1)
 						var plant_name
 						if determine_plant==0:
@@ -66,12 +67,14 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
 							
 							Global.plant_number+=1
+							
 				if Global.watered_plants.is_empty():
 					Global.plant_watered(self)
 					if animated_sprite_2d.animation=="seeds":
 						animated_sprite_2d.play("watered_seeds")
 					elif animated_sprite_2d.animation=="circle_seeds":
-						animated_sprite_2d.play("watered_watered_seeds")
+						animated_sprite_2d.play("watered_circle_seeds")
+						print("Plying wateed:",animated_sprite_2d.animation)
 					#planted=false
 					var determine_plant=randi_range(0,1)
 					var plant_name

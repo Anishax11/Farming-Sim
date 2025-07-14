@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://xyqehf4oaavy" path="res://16x16/Sprites/resized_88x88.jpg" id="2_bjo0d"]
 [ext_resource type="Texture2D" uid="uid://dilha2oc7ya3l" path="res://16x16/Sprites/seeds_resized_88x88.png" id="3_tajkv"]
 [ext_resource type="Texture2D" uid="uid://bec3k17gji45q" path="res://16x16/Sprites/Screenshot 2025-06-15 195435.png" id="5_234te"]
+[ext_resource type="Texture2D" uid="uid://1w7dby00xauo" path="res://16x16/Sprites/4890145e-ad48-4eae-9a71-f17fa410f99a.jpg" id="7_01yh7"]
 [ext_resource type="Texture2D" uid="uid://cm6xt3ahugjn4" path="res://16x16/Sprites/ChatGPT Image Jul 13, 2025, 05_32_10 PM.png" id="7_qm26e"]
-[ext_resource type="Texture2D" uid="uid://rbs25plr7rnu" path="res://16x16/Sprites/watered_seeds_soil.jpg" id="7_y5vwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryoc2"]
 size = Vector2(16, 16)
@@ -36,8 +36,8 @@ region = Rect2(88, 935, 88, 85)
 atlas = ExtResource("1_2prn8")
 region = Rect2(352, 935, 88, 85)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7wrae"]
-atlas = ExtResource("7_y5vwg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6krc7"]
+atlas = ExtResource("7_01yh7")
 region = Rect2(0, 0, 84, 88)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bo652"]
@@ -96,7 +96,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7wrae")
+"texture": SubResource("AtlasTexture_6krc7")
 }],
 "loop": true,
 "name": &"watered_circle_seeds",
