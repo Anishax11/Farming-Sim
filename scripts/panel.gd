@@ -10,8 +10,16 @@ static var seeds_equipped=false
 static var water_equipped=false
 var inventory_node
 var item_name
-
+var stylebox
+var clicked=false
 func _ready():
+	anchor_left = 1
+	anchor_top = 1
+	anchor_right = 1
+	anchor_bottom = 1
+
+	stylebox = StyleBoxTexture.new()
+	
 	self.connect("gui_input", Callable(self, "_on_gui_input")) #Attach signal to node
 	self.connect("child_entered_tree", Callable(self, "_on_panel_1_child_entered_tree"))
 	var inventory
@@ -25,6 +33,14 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
 			#print("Pressed")
+			clicked=!clicked
+			if clicked==true:
+				stylebox.texture=Global.HIGHLIGHTED_PANEL
+				add_theme_stylebox_override("panel", stylebox)
+			else:
+				stylebox.texture=Global.INVENTORY_SLOT
+				add_theme_stylebox_override("panel", stylebox)
+				
 			var inv=get_node("/root/Game/farm_scene/Farmer/Inventory")
 			print(Global.inventory_items)
 			#print("Clicked panel")
@@ -32,7 +48,8 @@ func _on_gui_input(event: InputEvent) -> void:
 			#print("ini pos:",texture_rect.position)
 			#print("self:",self.position)
 			#print(texture_rect.get_path())$TextureRect
-			
+			if get_child(0)!=null:
+				get_child(0).position=Vector2(position.x+2,position.y+2)
 			
 			if item_name=="seeds":
 				#print("Item is seeds")
@@ -107,21 +124,29 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
+	node.position=Vector2(position.x+2,position.y+2)
+	#node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	#node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	#node.set_anchors_preset(Control.PRESET_CENTER)
 	#print("Item added to panel")
 	if node is TextureRect and node.name=="seeds":
-		node.scale.x=0.016
-		node.scale.y=0.016
+		node.scale.x=0.012
+		node.scale.y=0.012
+		#node.position=Vector2(position.x+2,position.y+2)
 		item_name="seeds"
 		#print("SEEDS added:",node)
 	if node is TextureRect and node.name=="watercan":
-		node.scale.x=0.016
-		node.scale.y=0.016
+		
+		node.scale.x=0.012
+		node.scale.y=0.012
+		#
 		item_name="watercan"
 		
 	if node is TextureRect and node.name=="strawberry" or node.name=="potato":
 		print("STRAWBERRY texture:", node.texture)
 		node.position=Vector2(position.x-4,position.y-4)
-		node.scale.x=0.1
-		node.scale.y=0.1
+		
+		#node.scale.x=0.1
+		#node.scale.y=0.1
 		item_name=node.name
 		#print("STr texturerect added to panel")

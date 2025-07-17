@@ -10,6 +10,7 @@ var distance
 var inventory
 
 var watered=false
+
 func _ready() -> void:
 	inventory=get_node("/root/Game/farm_scene/Farmer/Inventory")
 	if randi_range(0,7)==3:
