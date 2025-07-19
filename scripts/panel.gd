@@ -12,7 +12,7 @@ var inventory_node
 var item_name
 var stylebox
 var siblings 
-static var clicked=false
+var clicked=false
 
 func _ready():
 	siblings = get_parent().get_children()
@@ -42,6 +42,7 @@ func _on_gui_input(event: InputEvent) -> void:
 					for sibling in siblings:
 						if sibling!=self:
 							print(sibling.name)
+							sibling.clicked=false
 							sibling.stylebox.texture=Global.INVENTORY_SLOT
 							add_theme_stylebox_override("panel", sibling.stylebox)
 							sibling.stylebox.expand_margin_left = 0
