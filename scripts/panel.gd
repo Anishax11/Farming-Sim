@@ -11,7 +11,7 @@ static var water_equipped=false
 var inventory_node
 var item_name
 var stylebox
-var clicked=false
+static var clicked=false
 func _ready():
 	anchor_left = 1
 	anchor_top = 1
@@ -36,10 +36,19 @@ func _on_gui_input(event: InputEvent) -> void:
 			clicked=!clicked
 			if clicked==true:
 				stylebox.texture=Global.HIGHLIGHTED_PANEL
-				add_theme_stylebox_override("panel", stylebox)
+				add_theme_stylebox_override("panel", stylebox)   # resets image position
+				stylebox.expand_margin_left = 1.5
+				stylebox.expand_margin_right = 1.5
+				stylebox.expand_margin_top = 1.5
+				stylebox.expand_margin_bottom = 1.5
+				
 			else:
 				stylebox.texture=Global.INVENTORY_SLOT
 				add_theme_stylebox_override("panel", stylebox)
+				stylebox.expand_margin_left = 0
+				stylebox.expand_margin_right = 0
+				stylebox.expand_margin_top = 0
+				stylebox.expand_margin_bottom = 0
 				
 			var inv=get_node("/root/Game/farm_scene/Farmer/Inventory")
 			print(Global.inventory_items)
@@ -48,9 +57,10 @@ func _on_gui_input(event: InputEvent) -> void:
 			#print("ini pos:",texture_rect.position)
 			#print("self:",self.position)
 			#print(texture_rect.get_path())$TextureRect
-			if get_child(0)!=null:
-				get_child(0).position=Vector2(position.x+2,position.y+2)
-			
+			#if get_child(0)!=null:
+				#print("Not null")
+				#get_child(0).global_position=Vector2(global_position.x+2,global_position.y+2)
+			#print(get_child(0).position)
 			if item_name=="seeds":
 				#print("Item is seeds")
 				if water_equipped==true:
@@ -74,6 +84,11 @@ func _on_gui_input(event: InputEvent) -> void:
 				
 		elif ! event.pressed:
 			
+			#if get_child(0)!=null:
+				#print("Not null left")
+				#get_child(0).global_position=Vector2(global_position.x+2,global_position.y+2)
+			#
+			#print(get_child(0).position)
 			#print("Button left")
 			button_held=false
 			var text = self.name
@@ -99,7 +114,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				inventory_node.remove_item(item_name)
 	if event is InputEventMouseMotion and button_held==true:
 		
-		
+		#print(get_child(0).position)
 		
 		#print("DIst from inv:",relative_pos)#-get_parent().get_parent().position.x)
 		var child=get_child(0)
@@ -124,14 +139,19 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
-	node.position=Vector2(position.x+2,position.y+2)
 	#node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	#node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	#node.set_anchors_preset(Control.PRESET_CENTER)
+	
 	#print("Item added to panel")
+	#node.global_position=Vector2(global_position.x+2,global_position.y+2)
+	
 	if node is TextureRect and node.name=="seeds":
-		node.scale.x=0.012
-		node.scale.y=0.012
+		node.scale.x=0.015
+		node.scale.y=0.015
+		#node.set_anchors_preset(Control.PRESET_CENTER)
+		#node.pivot_offset = node.size / 2  # For perfect centering
+		
+		
 		#node.position=Vector2(position.x+2,position.y+2)
 		item_name="seeds"
 		#print("SEEDS added:",node)
@@ -139,7 +159,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		
 		node.scale.x=0.012
 		node.scale.y=0.012
-		#
+		#node.position=Vector2(position.x+2,position.y+2)
 		item_name="watercan"
 		
 	if node is TextureRect and node.name=="strawberry" or node.name=="potato":

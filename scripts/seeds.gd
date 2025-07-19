@@ -26,6 +26,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				await get_tree().process_frame
 	   			
 			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(self.name,texture_rect.texture)
+			
 			empty_panel=Global.get_empty_panel()
 			texture_rect.name="seeds"
 			#$TextureRect.scale.x=0.016
