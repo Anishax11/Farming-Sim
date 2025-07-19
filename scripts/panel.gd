@@ -11,8 +11,11 @@ static var water_equipped=false
 var inventory_node
 var item_name
 var stylebox
+var siblings 
 static var clicked=false
+
 func _ready():
+	siblings = get_parent().get_children()
 	anchor_left = 1
 	anchor_top = 1
 	anchor_right = 1
@@ -32,24 +35,35 @@ func _on_gui_input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
-			#print("Pressed")
-			clicked=!clicked
-			if clicked==true:
-				stylebox.texture=Global.HIGHLIGHTED_PANEL
-				add_theme_stylebox_override("panel", stylebox)   # resets image position
-				stylebox.expand_margin_left = 1.5
-				stylebox.expand_margin_right = 1.5
-				stylebox.expand_margin_top = 1.5
-				stylebox.expand_margin_bottom = 1.5
-				
-			else:
-				stylebox.texture=Global.INVENTORY_SLOT
-				add_theme_stylebox_override("panel", stylebox)
-				stylebox.expand_margin_left = 0
-				stylebox.expand_margin_right = 0
-				stylebox.expand_margin_top = 0
-				stylebox.expand_margin_bottom = 0
-				
+			if item_name!=null:
+				clicked=!clicked
+				if clicked==true:
+					
+					for sibling in siblings:
+						if sibling!=self:
+							print(sibling.name)
+							sibling.stylebox.texture=Global.INVENTORY_SLOT
+							add_theme_stylebox_override("panel", sibling.stylebox)
+							sibling.stylebox.expand_margin_left = 0
+							sibling.stylebox.expand_margin_right = 0
+							sibling.stylebox.expand_margin_top = 0
+							sibling.stylebox.expand_margin_bottom = 0
+					
+					stylebox.texture=Global.HIGHLIGHTED_PANEL
+					add_theme_stylebox_override("panel", stylebox)   # resets image position
+					stylebox.expand_margin_left = 1.5
+					stylebox.expand_margin_right = 1.5
+					stylebox.expand_margin_top = 1.5
+					stylebox.expand_margin_bottom = 1.5
+						
+				else:
+					stylebox.texture=Global.INVENTORY_SLOT
+					add_theme_stylebox_override("panel", stylebox)
+					stylebox.expand_margin_left = 0
+					stylebox.expand_margin_right = 0
+					stylebox.expand_margin_top = 0
+					stylebox.expand_margin_bottom = 0
+				print("clicked:",clicked)	
 			var inv=get_node("/root/Game/farm_scene/Farmer/Inventory")
 			print(Global.inventory_items)
 			#print("Clicked panel")
@@ -83,6 +97,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				#print("Item is not water")		
 				
 		elif ! event.pressed:
+			
 			
 			#if get_child(0)!=null:
 				#print("Not null left")
@@ -157,8 +172,8 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		#print("SEEDS added:",node)
 	if node is TextureRect and node.name=="watercan":
 		
-		node.scale.x=0.012
-		node.scale.y=0.012
+		node.scale.x=0.015
+		node.scale.y=0.015
 		#node.position=Vector2(position.x+2,position.y+2)
 		item_name="watercan"
 		
