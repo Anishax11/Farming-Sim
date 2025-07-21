@@ -52,6 +52,7 @@ func _on_gui_input(event: InputEvent) -> void:
 					
 					stylebox.texture=Global.HIGHLIGHTED_PANEL
 					add_theme_stylebox_override("panel", stylebox)   # resets image position
+					#get_child(0).position=Vector2(-4,-4)
 					stylebox.expand_margin_left = 1.5
 					stylebox.expand_margin_right = 1.5
 					stylebox.expand_margin_top = 1.5
@@ -158,7 +159,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 	#node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	#node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	
-	#print("Item added to panel")
+	print("Item added to panel:",node.name)
 	#node.global_position=Vector2(global_position.x+2,global_position.y+2)
 	
 	if node is TextureRect and node.name=="seeds":
@@ -179,10 +180,10 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		item_name="watercan"
 		
 	if node is TextureRect and node.name=="strawberry" or node.name=="potato":
-		print("STRAWBERRY texture:", node.texture)
-		node.position=Vector2(position.x-4,position.y-4)
+		print(node.name," ", node.texture)
+		node.position=Vector2(-2,-4)
 		
-		#node.scale.x=0.1
-		#node.scale.y=0.1
+		node.scale.x=0.11
+		node.scale.y=0.11
 		item_name=node.name
 		#print("STr texturerect added to panel")

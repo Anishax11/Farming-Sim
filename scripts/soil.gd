@@ -39,8 +39,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			# CODE FOR GROWING PLANT
 			if distance<18 and planted==true and panel.water_equipped==true:
+				
 				for soil in Global.watered_plants:
 					if soil ==self.name:
+						
 						print("Plant has been watered")
 						return
 					elif soil==Global.watered_plants[Global.watered_plants.size()-1]:
@@ -70,6 +72,26 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							Global.plant_number+=1
 							
 				if Global.watered_plants.is_empty():
+					if watered!=true:
+						var determine_plant=randi_range(0,1)
+						var plant_name
+						if determine_plant==0:
+							plant_name="strawberry"
+						elif determine_plant==1:
+							plant_name="potato"
+						print("PLanT Is : ",plant_name)	
+						
+						if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
+							#print("New plant:","Plant"+str(Global.plant_number))
+							PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
+							#print("Plant name :",PlantTracker.plant_names[self.name])
+							PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
+							
+							Global.plant_number+=1
+						
+					
+					print("Watered arr empty")
+					print(self.name," watered :",watered)
 					Global.plant_watered(self)
 					watered=true	
 					if animated_sprite_2d.animation=="seeds":
@@ -78,21 +100,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						animated_sprite_2d.play("watered_circle_seeds")
 						print("Plying wateed:",animated_sprite_2d.animation)
 					#planted=false
-					var determine_plant=randi_range(0,1)
-					var plant_name
-					if determine_plant==0:
-						plant_name="strawberry"
-					elif determine_plant==1:
-						plant_name="potato"
-					print("PLanT Is : ",plant_name)	
 					
-					if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
-						#print("New plant:","Plant"+str(Global.plant_number))
-						PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
-						#print("Plant name :",PlantTracker.plant_names[self.name])
-						PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
-						
-						Global.plant_number+=1
 				#print("Plant watered")
 				
 		

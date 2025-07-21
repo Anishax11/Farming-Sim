@@ -21,7 +21,7 @@ func _ready() -> void:
 	#print(inventory_items)
 
 func add_to_inventory(string,item_texture) :
-	#print("Adding to inv")
+	
 	if string=="seeds":
 		seeds_count+=6
 	for i in range(3):
@@ -43,6 +43,7 @@ func add_to_inventory(string,item_texture) :
 				
 				Global.empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 				Global.empty_panel.add_child(texture_rect)
+				print("Added to panel")
 				#texture_rect.global_position=Vector2(Global.empty_panel.global_position.x+2,Global.empty_panel.global_position.y+2)
 				#print("Empty panel:",Global.empty_panel.name,Global.empty_panel.get_child(0))
 				

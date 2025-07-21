@@ -57,9 +57,7 @@ func _ready() -> void:
 			if Global.watered_plants[i]!=null:
 				#print("watered plnts not nuill")
 				var soil=get_node("/root/Game/farm_scene/SoilManager/"+Global.watered_plants[i])
-				
-				
-					
+				soil.watered=true
 				var plant_found=false
 				
 				#for child in soil.get_children():
@@ -89,13 +87,18 @@ func _ready() -> void:
 						break
 					elif plant_found==false and j==PlantTracker.plant_stages.size():
 						#print("PLANT NOT FOUND: ","Plant"+str(j))
+						print("Growing plant")
 						Global.grow_plant(Global.watered_plants[i])
-						Global.planted_soil.append(Global.watered_plants[i])		
+						Global.planted_soil.append(Global.watered_plants[i])
+						
+						
 			else:
-				Global.watered_plants.clear()
+				
 				break
+				
 		Global.day_passed=false		
-		Global.load_farm=false		
+		Global.load_farm=false	
+		Global.watered_plants.clear()		
 			
 func till_soil(soil,soil_animation):
 	

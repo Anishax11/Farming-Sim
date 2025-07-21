@@ -29,7 +29,7 @@ var seeds_initialised=false
 var watered_plants=[]
 var fully_grown_plant_soil=[]
 const PLANT = preload("res://scenes/plant.tscn")
-const HIGHLIGHTED_PANEL =  preload( "res://16x16/Sprites/highlighted_panel.jpg")
+const HIGHLIGHTED_PANEL = preload("res://16x16/Sprites/highlighted_panel_image.jpg")
 const INVENTORY_SLOT = preload("res://16x16/Sprites/inventorySlot.png")
 	
 func get_direction(direction) :
