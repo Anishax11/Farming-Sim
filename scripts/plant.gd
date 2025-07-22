@@ -81,13 +81,14 @@ func grow_plant():
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
 		
-		if event.pressed and stage==3:
+		if event.pressed:
 			print("PlNT harvested")
-			
-			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(string_part,texture)
-			get_parent().planted=false
-			print("get_parent().planted:",get_parent().planted)
-			PlantTracker.harvested_plants.append(self.name)
-			PlantTracker.plant_stages.erase(self.name)
-			self.remove_child(animated_sprite_2d)
-			queue_free()
+			if stage==3:
+				
+				get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(string_part,texture)
+				get_parent().planted=false
+				print("get_parent().planted:",get_parent().planted)
+				PlantTracker.harvested_plants.append(self.name)
+				PlantTracker.plant_stages.erase(self.name)
+				self.remove_child(animated_sprite_2d)
+				queue_free()

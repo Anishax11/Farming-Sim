@@ -4,9 +4,9 @@ var day_count=1
 var day_passed=false
 var inventory_items=[]
 var seeds_image
-var watercan_image
-var strawberry_image
-var potato_image
+var watercan_image=preload("res://16x16/Sprites/water can icon.png")
+var strawberry_image=preload("res://16x16/Sprites/ChatGPT Image Jul 9, 2025, 08_41_42 PM (1).png")
+var potato_image=preload("res://16x16/Sprites/ChatGPT Image Jul 13, 2025, 11_20_49 AM.png")
 var grass_clicked=false
 var grass_held=false
 var soil_clicked=false
