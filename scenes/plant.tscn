@@ -71,7 +71,7 @@ shape = SubResource("RectangleShape2D_0dyuw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dxjdq")
-animation = &"potato_stage_3"
+animation = &"stage_2"
 autoplay = "stage_1"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -32,9 +32,10 @@ func grow_plant():
 	var index=int(last_char)
 	if PlantTracker.plant_stages[self.name]!=null:
 		stage=PlantTracker.plant_stages[self.name]+1
-	
+		
 	print("PLANT STAGE:",stage)
 	stage+=1
+	PlantTracker.update_plant_dictionary(self.name)
 	print("PLANT STAGE AFTER:",stage)
 	#print("Plant grown:",$AnimatedSprite2D.animation)
 		
@@ -80,8 +81,8 @@ func grow_plant():
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
 		
-		if event.pressed:
-			#print("PlNT harvested")
+		if event.pressed and stage==3:
+			print("PlNT harvested")
 			
 			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(string_part,texture)
 			get_parent().planted=false
