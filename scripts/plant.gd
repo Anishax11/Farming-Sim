@@ -84,7 +84,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if event.pressed:
 			print("PlNT harvested")
 			if stage==3:
-				
+				print("Stage is 3")
+				Global.planted_soil.erase(get_parent().name)
+				for i in range(Global.planted_soil.size()):
+					print(Global.planted_soil[i])
 				get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(string_part,texture)
 				get_parent().planted=false
 				print("get_parent().planted:",get_parent().planted)

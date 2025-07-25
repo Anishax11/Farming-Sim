@@ -31,7 +31,7 @@ func _ready() -> void:
 				id+=1
 				
 	if get_node("soil290")!=null and Global.load_farm==true:
-		print("FARM loaded, day:",Global.day_count)
+		#print("FARM loaded, day:",Global.day_count)
 		#print("Dictionary:",PlantTracker.plant_stages)
 		till_soil(Global.tilled_soil,Global.tilled_soil_animation)
 		print("Planted soil:",Global.planted_soil)
@@ -65,12 +65,12 @@ func _ready() -> void:
 					inventory.add_to_inventory(string,Global.get(string+"_image"))
 		
 		for i in range((Global.watered_plants).size()):
-			print("runnihng loop watered plants:"+Global.watered_plants[0])
+			#print("runnihng loop watered plants:"+Global.watered_plants[0])
 			if Global.watered_plants[i]!=null:
 				#print("watered plnts not nuill")
 				var soil=get_node("/root/Game/farm_scene/SoilManager/"+Global.watered_plants[i])
 				soil.watered=true
-				print(soil.name+" Watered")
+				#print(soil.name+" Watered")
 				var plant_found=false
 				
 				#for child in soil.get_children():
@@ -100,7 +100,7 @@ func _ready() -> void:
 						break
 					elif plant_found==false and j==PlantTracker.plant_stages.size():#used to grow plant for the first time
 						#print("PLANT NOT FOUND: ","Plant"+str(j))
-						print("Growing plant")
+						#print("Growing plant")
 						Global.grow_plant(Global.watered_plants[i])
 						Global.planted_soil.append(Global.watered_plants[i])#contains plants that have been grown once so they can be reloaded
 						
@@ -112,44 +112,44 @@ func _ready() -> void:
 		for i in range (0,Global.planted_soil.size()):#Used to load back already grown plant(current Stage ) into scene,after this plant is grown to higher stages if watered 
 			var soil=get_node("/root/Game/farm_scene/SoilManager/"+Global.planted_soil[i])	
 			for j in range(1,PlantTracker.plant_stages.size()+1):
-					print("plant_stages:",PlantTracker.plant_stages)
+					#print("plant_stages:",PlantTracker.plant_stages)
 					#print("J:",j)
 					#print("Soil :",soil)
 					#print("Soil child:",soil.get_child(1))
 					if soil.has_node("strawberry"+str(j))!=false  :
-						print("PLANT FOUND:","strawberry"+str(j))
-						if PlantTracker.plant_stages[soil.get_node("strawberry"+str(j)).name]!=null:
+						#print("PLANT FOUND:","strawberry"+str(j))
+						if PlantTracker.plant_stages.has(soil.get_node("strawberry"+str(j)).name):
 							var stage=PlantTracker.plant_stages[soil.get_node("strawberry"+str(j)).name]
-							print(stage)
+							#print(stage)
 							soil.watered=true
 							if stage!=0:
-								print("STge not zero")
-								print("stage_"+str(stage))
+								#print("STge not zero")
+								#print("stage_"+str(stage))
 								
 								if stage==3:
 									soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").play("strawberry_stage_"+str(stage))
 								else:
 									soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").play("stage_"+str(stage))
-								print(soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").animation)
+								#print(soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").animation)
 								break
 					#else:
 						#print("Plant"+str(j)+" not found")
 					elif soil.has_node("potato"+str(j))!=false:
 						print("PLANT FOUND:","potato"+str(j))
 						#print(soil.get_node("potato"+str(j)).stage)
-						if PlantTracker.plant_stages[soil.get_node("potato"+str(j)).name]!=null:
+						if PlantTracker.plant_stages.has(soil.get_node("potato"+str(j)).name):
 							var stage=PlantTracker.plant_stages[soil.get_node("potato"+str(j)).name]
-							print(stage)
+							#print(stage)
 							soil.watered=true
 							if stage!=0:
-								print("STge not zero")
-								print("stage_"+str(stage))
+								#print("STge not zero")
+								#print("stage_"+str(stage))
 								
 								if stage==3:
 									soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("potato_stage_"+str(stage))
 								else:
 									soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("stage_"+str(stage))
-								print(soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").animation)
+								#print(soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").animation)
 								break	
 							
 		Global.day_passed=false		

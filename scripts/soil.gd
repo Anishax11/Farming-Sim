@@ -39,7 +39,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			# CODE FOR GROWING PLANT
 			if distance<18 and planted==true and panel.water_equipped==true:
-				print("TRyna water")
+				#print("TRyna water")
 				for soil in Global.watered_plants:
 					if watered!=true:
 						var determine_plant=randi_range(0,1)
@@ -48,7 +48,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							plant_name="strawberry"
 						elif determine_plant==1:
 							plant_name="potato"
-						print("PLanT Is : ",plant_name)	
+						#print("PLanT Is : ",plant_name)	
 						
 						if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
 							#print("New plant:","Plant"+str(Global.plant_number))
@@ -62,15 +62,15 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						print("Plant has been watered")
 						return
 					elif soil==Global.watered_plants[Global.watered_plants.size()-1]:
-						print("Plant has not been watered")
+						#print("Plant has not been watered")
 						watered=true	
 						Global.plant_watered(self)
 						if animated_sprite_2d.animation=="seeds":
 							animated_sprite_2d.play("watered_seeds")
-							print("Playing watered")
+							#print("Playing watered")
 						if animated_sprite_2d.animation=="circle_seeds":
 							animated_sprite_2d.play("watered_circle_seeds")
-							print("Playing watered")
+							#print("Playing watered")
 						#var determine_plant=randi_range(0,1)
 						#var plant_name
 						#if determine_plant==0:
@@ -95,7 +95,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							plant_name="strawberry"
 						elif determine_plant==1:
 							plant_name="potato"
-						print("PLanT Is : ",plant_name)	
+						#print("PLanT Is : ",plant_name)	
 						
 						if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
 							#print("New plant:","Plant"+str(Global.plant_number))
@@ -106,15 +106,15 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							Global.plant_number+=1
 						
 					
-					print("Watered arr empty")
-					print(self.name," watered :",watered)
+					#print("Watered arr empty")
+					#print(self.name," watered :",watered)
 					Global.plant_watered(self)
 					watered=true	
 					if animated_sprite_2d.animation=="seeds":
 						animated_sprite_2d.play("watered_seeds")
 					elif animated_sprite_2d.animation=="circle_seeds":
 						animated_sprite_2d.play("watered_circle_seeds")
-						print("Plying wateed:",animated_sprite_2d.animation)
+						#print("Plying wateed:",animated_sprite_2d.animation)
 					#planted=false
 					
 				#print("Plant watered")
@@ -175,21 +175,16 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							#print("Prev tilled")
 							get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-1)).get_node("AnimatedSprite2D").scale.y=0.21
 							
-							#if get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-1)).planted==true:
-								#get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-1)).get_node("AnimatedSprite2D").play("seeds")
-								#print("SEEDS")
-							#if get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-1)).watered==true:
-								#get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-1)).get_node("AnimatedSprite2D").play("watered_seeds")
-								#print("watered_seeds")
+					
 						elif get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-1)).adjusted!=true :
 							get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-1)).get_node("AnimatedSprite2D").play("rect_tilled")
-							print("RECT")
+							#print("RECT")
 							if get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-1)).planted==true:
 								get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-1)).get_node("AnimatedSprite2D").play("seeds")
-								print("SEEDS")
+								#print("SEEDS")
 							if get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-1)).watered==true:
 								get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-1)).get_node("AnimatedSprite2D").play("watered_seeds")
-								print("watered_seeds")
+								#print("watered_seeds")
 							get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-1)).adjusted=true
 							
 					if Global.player_direction==Vector2(-1,0):
@@ -199,13 +194,13 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+1)).get_node("CollisionShape2D").scale.y=0.21
 						elif get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+1)).adjusted!=true :
 								get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+1)).get_node("AnimatedSprite2D").play("rect_tilled")
-								print("RECT")
+								#print("RECT")
 								if get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+1)).planted==true:
 									get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+1)).get_node("AnimatedSprite2D").play("seeds")
-									print("SEEDS")
+									#print("SEEDS")
 								if get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+1)).watered==true:
 									get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+1)).get_node("AnimatedSprite2D").play("watered_seeds")
-									print("watered_seeds")
+									#print("watered_seeds")
 								#print("RECT")
 								get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+1)).adjusted=true
 					
@@ -218,13 +213,13 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							
 						elif get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-39)).adjusted!=true :
 							get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-39)).get_node("AnimatedSprite2D").play("rect_tilled")
-							print("RECT")
+							#print("RECT")
 							if get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-39)).planted==true:
 								get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-39)).get_node("AnimatedSprite2D").play("seeds")
-								print("SEEDS")
+								#print("SEEDS")
 							if get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-39)).watered==true:
 								get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-39)).get_node("AnimatedSprite2D").play("watered_seeds")
-								print("watered_seeds")
+								#print("watered_seeds")
 							get_node("/root/Game/farm_scene/SoilManager/soil"+str(number-39)).adjusted=true
 							
 					if Global.player_direction==Vector2(0,-1):
@@ -236,13 +231,13 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							
 						elif get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+39)).adjusted!=true :
 							get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+39)).get_node("AnimatedSprite2D").play("rect_tilled")
-							print("RECT")
+							#print("RECT")
 							if get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+39)).planted==true:
 								get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+39)).get_node("AnimatedSprite2D").play("seeds")
-								print("SEEDS")
+								#print("SEEDS")
 							if get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+39)).watered==true:
 								get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+39)).get_node("AnimatedSprite2D").play("watered_seeds")
-								print("watered_seeds")
+								#print("watered_seeds")
 							get_node("/root/Game/farm_scene/SoilManager/soil"+str(number+39)).adjusted=true
 					tilled=true
 					
