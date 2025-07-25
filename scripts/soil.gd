@@ -143,16 +143,19 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if distance<=18 and !tilled:
 				#print(self.name)
 				if Global.player_direction==Vector2(1,0):
-					rotation_degrees=90 #rotates animation of tilled soil towards right 
+					if planted!=true:
+						rotation_degrees=90 #rotates animation of tilled soil towards right 
 					player.get_node("AnimatedSprite2D").play("hoe_right")
 					
 				if Global.player_direction==Vector2(-1,0):
-					rotation_degrees=-90
+					if planted!=true:
+						rotation_degrees=-90
 					
 					player.get_node("AnimatedSprite2D").play("hoe_left")
 					
 				if Global.player_direction==Vector2(0,1):
-					rotation_degrees=180
+					if planted!=true:
+						rotation_degrees=180
 					player.get_node("AnimatedSprite2D").play("hoe_front")
 			
 				Global.soil_clicked=true

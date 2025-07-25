@@ -86,6 +86,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if stage==3:
 				print("Stage is 3")
 				Global.planted_soil.erase(get_parent().name)
+				Global.sown_soil.erase(get_parent().name)
+				Global.tilled_soil.erase(get_parent().name)
 				for i in range(Global.planted_soil.size()):
 					print(Global.planted_soil[i])
 				get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(string_part,texture)

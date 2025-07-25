@@ -83,7 +83,7 @@ func _ready() -> void:
 				
 					
 				for j in range(1,PlantTracker.plant_stages.size()+1):
-					#print("plant_stages:",PlantTracker.plant_stages)
+					print("plant_stages:",PlantTracker.plant_stages)
 					#print("J:",j)
 					#print("Soil :",soil)
 					#print("Soil child:",soil.get_child(1))
@@ -117,14 +117,14 @@ func _ready() -> void:
 					#print("Soil :",soil)
 					#print("Soil child:",soil.get_child(1))
 					if soil.has_node("strawberry"+str(j))!=false  :
-						#print("PLANT FOUND:","strawberry"+str(j))
+						print("PLANT FOUND:","strawberry"+str(j))
 						if PlantTracker.plant_stages.has(soil.get_node("strawberry"+str(j)).name):
 							var stage=PlantTracker.plant_stages[soil.get_node("strawberry"+str(j)).name]
 							#print(stage)
 							soil.watered=true
 							if stage!=0:
-								#print("STge not zero")
-								#print("stage_"+str(stage))
+								print("STge not zero")
+								print("stage_"+str(stage))
 								
 								if stage==3:
 									soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").play("strawberry_stage_"+str(stage))
@@ -142,8 +142,8 @@ func _ready() -> void:
 							#print(stage)
 							soil.watered=true
 							if stage!=0:
-								#print("STge not zero")
-								#print("stage_"+str(stage))
+								print("STge not zero")
+								print("stage_"+str(stage))
 								
 								if stage==3:
 									soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("potato_stage_"+str(stage))
