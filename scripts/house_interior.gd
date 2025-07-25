@@ -14,16 +14,19 @@ func _ready() -> void:
 	date_label=DATE_LABEL.instantiate()
 	farmer.add_child(inventory)
 	add_child(date_label)
+	date_label.position=Vector2(1750,-1500)
+	date_label.scale.x=3
+	date_label.scale.y=3
 	#farmer.add_child(date_label)
-	farmer.scale.x=15
-	farmer.scale.y=15
+	farmer.scale.x=50
+	farmer.scale.y=50
 	farmer.get_node("AnimatedSprite2D").play("backward")
 
 	inventory.scale = Vector2(2.0 / farmer.scale.x, 2.0 / farmer.scale.y)
 	inventory.visible=false
 	inventory.position=Vector2(5,-8)
 	
-	farmer.position=Vector2(-250,400)
+	farmer.position=Vector2(-1000,1500)
 	for i in range (3):
 		for j in range (5):
 			var string=Global.inventory_items[i][j]
