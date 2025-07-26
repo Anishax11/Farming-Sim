@@ -7,6 +7,7 @@ var inventory
 var date_label
 var farmer_added=false
 const DATE_LABEL = preload("res://scenes/date_label.tscn")
+
 func _ready() -> void:
 	#print("house running")
 	farmer=FARMER.instantiate()
@@ -14,7 +15,7 @@ func _ready() -> void:
 	date_label=DATE_LABEL.instantiate()
 	farmer.add_child(inventory)
 	add_child(date_label)
-	date_label.position=Vector2(1750,-1500)
+	date_label.position=Vector2(1350,-1350)
 	date_label.scale.x=3
 	date_label.scale.y=3
 	#farmer.add_child(date_label)
@@ -36,3 +37,12 @@ func _ready() -> void:
 				inventory.add_to_inventory(string,Global.seeds_image)
 	add_child(farmer)
 	farmer_added=true
+
+
+func _on_bed_mouse_entered() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+	 
+
+
+func _on_bed_mouse_exited() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
