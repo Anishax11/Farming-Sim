@@ -11,6 +11,7 @@ func _ready() -> void:
 	var regex=RegEx.new()
 	regex.compile(r"\d+")  # Compile pattern to match one or more digits
 	string_part=regex.sub(text,"",true)#store string parts by replacing no.s with ""
+	print("Plant name:",text)
 	print("Plant type:",string_part)
 	#if string_part=="potato":
 		#animated_sprite_2d.scale.y=1.5
@@ -53,8 +54,8 @@ func grow_plant():
 				queue_free()
 				
 		stage=3
-		animated_sprite_2d.play(string_part+"_stage_"+str(stage))
-		if string_part=="potato":
+		animated_sprite_2d.play(string_part.to_lower()+"_stage_"+str(stage))
+		if string_part=="Potato":
 			animated_sprite_2d.scale.y=0.7
 			print("Scale adjusted")
 		return
@@ -67,7 +68,7 @@ func grow_plant():
 			scale.x=0.1
 			scale.y=0.1
 			print("STage is 3")
-			if string_part=="potato":
+			if string_part=="Potato":
 				animated_sprite_2d.scale.y=0.7
 				print("Scale adjusted")
 			print(string_part+"_stage_"+str(stage))
@@ -78,11 +79,11 @@ func grow_plant():
 		PlantTracker.update_plant_dictionary(self.name)
 		
 	if 	stage==3:
-		if string_part=="potato":
+		if string_part=="Potato":
 			animated_sprite_2d.scale.y=0.09
 			print("Scale adjusted")
 		var sprite_frames = $AnimatedSprite2D.sprite_frames  
-		texture = sprite_frames.get_frame_texture(string_part+"_stage_3", 0)	
+		texture = sprite_frames.get_frame_texture(string_part.to_lower()+"_stage_3", 0)	
 		
 		Global.set(string_part + "_image", texture)
 		

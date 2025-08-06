@@ -128,7 +128,7 @@ func grow_plant(soil_name):
 
 	plant.name=PlantTracker.plant_names[soil_name]
 	
-	#print("Gobal plant name:",plant.name)
+	print("Gobal plant name:",plant.name)
 
 	#soil.remove_child.soil.get_node("AnimatedSprite2D")
 	#get_node("/root/Game/farm_scene/").add_child(plant)

@@ -88,18 +88,19 @@ func _ready() -> void:
 					#print("Soil :",soil)
 					#print("Soil child:",soil.get_child(1))
 					if soil.has_node("strawberry"+str(j))!=false  :
-						#print("PLANT FOUND:","Plant"+str(j))
+						print("PLANT FOUND:","Plant"+str(j))
 						soil.get_node("strawberry"+str(j)).grow_plant()	
 						plant_found=true
 						break
 					#else:
 						#print("Plant"+str(j)+" not found")
-					elif soil.has_node("potato"+str(j))!=false:
-						soil.get_node("potato"+str(j)).grow_plant()	
+					elif soil.has_node("Potato"+str(j))!=false:
+						print("PLANT FOUND:","Potato"+str(j))
+						soil.get_node("Potato"+str(j)).grow_plant()	
 						plant_found=true
 						break
 					elif plant_found==false and j==PlantTracker.plant_stages.size():#used to grow plant for the first time
-						#print("PLANT NOT FOUND: ","Plant"+str(j))
+						print("PLANT NOT FOUND: ","Plant"+str(j))
 						#print("Growing plant")
 						Global.grow_plant(Global.watered_plants[i])
 						Global.planted_soil.append(Global.watered_plants[i])#contains plants that have been grown once so they can be reloaded

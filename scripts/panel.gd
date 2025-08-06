@@ -84,7 +84,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				seeds_equipped=!seeds_equipped
 				#print("seeds_equipped",seeds_equipped)
 				var seed_type=get_node("/root/Game/farm_scene/seeds").seed_type
-				get_node("/root/Game/farm_scene/seeds").queue_free()
+				
 				Global.equip_item(seed_type)
 			#else:
 				#print("Item is not seeds")	
@@ -161,7 +161,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 	#node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	#node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	
-	print("Item added to panel:",node.name)
+	#print("Item added to panel:",node.name)
 	#node.global_position=Vector2(global_position.x+2,global_position.y+2)
 	
 	if node is TextureRect and node.name=="seeds":

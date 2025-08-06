@@ -40,7 +40,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			# CODE FOR GROWING PLANT
 			if distance<18 and planted==true and panel.water_equipped==true:
-				print("TRyna water")
+				#print("TRyna water")
 				for soil in Global.watered_plants:
 					if watered!=true:
 						#var determine_plant=randi_range(0,1)
