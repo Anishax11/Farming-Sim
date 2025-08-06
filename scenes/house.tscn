@@ -22,6 +22,7 @@ animations = [{
 size = Vector2(23, 22.5)
 
 [node name="House" type="Area2D"]
+position = Vector2(-2, 0)
 collision_layer = 4
 script = ExtResource("1_wmooi")
 

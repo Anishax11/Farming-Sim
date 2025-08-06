@@ -13,6 +13,7 @@ script = ExtResource("1_27n3v")
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource("1_iljbd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -20,3 +21,5 @@ position = Vector2(504.5, 504.5)
 shape = SubResource("RectangleShape2D_a6g0y")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

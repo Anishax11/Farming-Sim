@@ -8,8 +8,9 @@ var adjusted=false
 var planted=false
 var distance
 var inventory
-
+var planted_seeds
 var watered=false
+var seed_type
 
 func _ready() -> void:
 	inventory=get_node("/root/Game/farm_scene/Farmer/Inventory")
@@ -39,16 +40,17 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			# CODE FOR GROWING PLANT
 			if distance<18 and planted==true and panel.water_equipped==true:
-				#print("TRyna water")
+				print("TRyna water")
 				for soil in Global.watered_plants:
 					if watered!=true:
-						var determine_plant=randi_range(0,1)
+						#var determine_plant=randi_range(0,1)
 						var plant_name
-						if determine_plant==0:
-							plant_name="strawberry"
-						elif determine_plant==1:
-							plant_name="potato"
-						#print("PLanT Is : ",plant_name)	
+						#if determine_plant==0:
+							#plant_name="strawberry"
+						#elif determine_plant==1:
+							#plant_name="potato"
+						plant_name=seed_type
+						print("watered soil has seeds: ",seed_type)	
 						
 						if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
 							#print("New plant:","Plant"+str(Global.plant_number))
@@ -89,14 +91,14 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							
 				if Global.watered_plants.is_empty():
 					if watered!=true:
-						var determine_plant=randi_range(0,1)
-						var plant_name
-						if determine_plant==0:
-							plant_name="strawberry"
-						elif determine_plant==1:
-							plant_name="potato"
+						#var determine_plant=randi_range(0,1)
+						var plant_name=seed_type
+						#if determine_plant==0:
+							#plant_name="strawberry"
+						#elif determine_plant==1:
+							#plant_name="potato"
 						#print("PLanT Is : ",plant_name)	
-						
+						print("watered soil has seeds: ",seed_type)	
 						if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
 							#print("New plant:","Plant"+str(Global.plant_number))
 							PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
@@ -126,7 +128,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if distance<18 and tilled==true and panel.seeds_equipped==true and inventory.seeds_count>0:
 				#print("Plant ")	
 				planted=true
-				
+				seed_type=Global.equipped_item
+				#planted_seeds=panel.seeds_name
 				#print("Seeds count before:",inventory.seeds_count)
 				inventory.seeds_count-=1
 				#print("Seeds count:",inventory.seeds_count)

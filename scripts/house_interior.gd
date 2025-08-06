@@ -46,3 +46,9 @@ func _on_bed_mouse_entered() -> void:
 
 func _on_bed_mouse_exited() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+
+func _on_dont_sleep_button_down() -> void:
+	get_node("/root/house_interior/bed/Label").visible=false
+	get_node("/root/house_interior/bed/Sleep").visible=false
+	get_node("/root/house_interior/bed/Don't_Sleep").visible=false

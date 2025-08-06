@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bnyh64xhqcef4"]
+[gd_scene load_steps=32 format=3 uid="uid://bnyh64xhqcef4"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_icycs"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_l374g"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="17_2wv2r"]
 [ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="18_02o4f"]
 [ext_resource type="PackedScene" uid="uid://fw0la85vqc7p" path="res://scenes/house.tscn" id="18_awg5f"]
+[ext_resource type="PackedScene" uid="uid://cormp4ej6i7fy" path="res://scenes/seed_button.tscn" id="19_q6pb4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugn7j"]
 texture = ExtResource("2_j4gt8")
@@ -4350,7 +4351,7 @@ script = ExtResource("1_icycs")
 
 [node name="Farmer" parent="farm_scene" instance=ExtResource("1_l374g")]
 z_index = 1
-position = Vector2(0, 592)
+position = Vector2(109, 509)
 
 [node name="Inventory" parent="farm_scene/Farmer" instance=ExtResource("15_wd8j7")]
 visible = false
@@ -4373,6 +4374,15 @@ layer_0/tile_data = PackedInt32Array(-65532, 2, 0, 4, 2, 1, 65540, 2, 1, 131076,
 
 [node name="seeds" parent="farm_scene" instance=ExtResource("16_rgxy3")]
 position = Vector2(-15, 495)
+
+[node name="Seed_Button" parent="farm_scene/seeds" instance=ExtResource("19_q6pb4")]
+visible = false
+text = "Strawberry"
+script = null
+
+[node name="Seed_Button2" parent="farm_scene/seeds" instance=ExtResource("19_q6pb4")]
+visible = false
+text = "Potato"
 
 [node name="watercan" parent="farm_scene" instance=ExtResource("16_k633r")]
 position = Vector2(148, 568)

@@ -31,7 +31,8 @@ var fully_grown_plant_soil=[]
 const PLANT = preload("res://scenes/plant.tscn")
 const HIGHLIGHTED_PANEL = preload("res://16x16/Sprites/highlighted_panel_image.jpg")
 const INVENTORY_SLOT = preload("res://16x16/Sprites/inventorySlot.png")
-	
+var equipped_item
+
 func get_direction(direction) :
 	
 	player_direction=direction
@@ -137,7 +138,7 @@ func grow_plant(soil_name):
 		soil.add_child(plant)
 		
 		#PlantTracker.add_to_plant_dictionary(plant.name)
-		#print("Plant added to farm_scene")
+		print("Plant added to farm_scene")
 		soil.get_node("AnimatedSprite2D").play("rect_tilled")
 		plant.global_position.y=soil.global_position.y-5
 		#plant.global_position.x=soil.global_position.x-8
@@ -174,6 +175,9 @@ var tint_index
 func track_time(time,change_time,index):
 	#print("saved time")
 	current_time=time
-	time_to_change_tint=change_time
+	time_to_change_tint=change_time 
 	tint_index=index
 	
+func equip_item(item_name):
+	print("EQUIPPED: "+item_name)
+	equipped_item=item_name

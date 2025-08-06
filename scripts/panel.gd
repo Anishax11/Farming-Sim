@@ -13,7 +13,7 @@ var item_name
 var stylebox
 var siblings 
 var clicked=false
-
+var seeds_name
 func _ready():
 	siblings = get_parent().get_children()
 	anchor_left = 1
@@ -82,8 +82,10 @@ func _on_gui_input(event: InputEvent) -> void:
 				if water_equipped==true:
 					water_equipped=false
 				seeds_equipped=!seeds_equipped
-				print("seeds_equipped",seeds_equipped)
-			
+				#print("seeds_equipped",seeds_equipped)
+				var seed_type=get_node("/root/Game/farm_scene/seeds").seed_type
+				get_node("/root/Game/farm_scene/seeds").queue_free()
+				Global.equip_item(seed_type)
 			#else:
 				#print("Item is not seeds")	
 				
@@ -92,8 +94,8 @@ func _on_gui_input(event: InputEvent) -> void:
 					seeds_equipped=false
 				#print("Item is water")
 				water_equipped=!water_equipped
-			
-				print("water_equipped",water_equipped)
+				#Global.equip_item("watercan")
+				#print("water_equipped",water_equipped)
 			
 			#else:
 				#print("Item is not water")		

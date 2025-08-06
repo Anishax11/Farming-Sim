@@ -4,19 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://bqhpytauejph1" path="res://16x16/Sprites/ChatGPT Image Jun 22, 2025, 01_37_12 AM.png" id="1_vvim8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmrh4"]
-size = Vector2(29, 28)
+size = Vector2(16, 16)
 
 [node name="seeds" type="Area2D"]
 script = ExtResource("1_q1ha3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(15.5, 16)
-shape = SubResource("RectangleShape2D_fmrh4")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.016, 0.016)
+mouse_filter = 2
 texture = ExtResource("1_vvim8")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_fmrh4")
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

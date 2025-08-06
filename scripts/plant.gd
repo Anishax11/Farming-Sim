@@ -12,19 +12,21 @@ func _ready() -> void:
 	regex.compile(r"\d+")  # Compile pattern to match one or more digits
 	string_part=regex.sub(text,"",true)#store string parts by replacing no.s with ""
 	print("Plant type:",string_part)
+	#if string_part=="potato":
+		#animated_sprite_2d.scale.y=1.5
 	#print("Plant parent:",get_parent())
-	
-func _on_body_entered(body: Node2D) -> void:
-	if body is Player and animated_sprite_2d.animation!="stage_1" :
-		#print("FARMER Y pos",body.position.y)
-		#print("PLANT:",position.y)
-		z_index=-1
-
-
-func _on_body_exited(body: Node2D) -> void:
-	if body is Player :
-		
-		z_index=0
+	#
+#func _on_body_entered(body: Node2D) -> void:
+	#if body is Player and animated_sprite_2d.animation!="stage_1" :
+		##print("FARMER Y pos",body.position.y)
+		##print("PLANT:",position.y)
+		#z_index=-1
+#
+#
+#func _on_body_exited(body: Node2D) -> void:
+	#if body is Player :
+		#
+		#z_index=0
 
 func grow_plant():
 	print("GROWING ",self.name)
@@ -52,6 +54,9 @@ func grow_plant():
 				
 		stage=3
 		animated_sprite_2d.play(string_part+"_stage_"+str(stage))
+		if string_part=="potato":
+			animated_sprite_2d.scale.y=0.7
+			print("Scale adjusted")
 		return
 	
 		
@@ -62,6 +67,9 @@ func grow_plant():
 			scale.x=0.1
 			scale.y=0.1
 			print("STage is 3")
+			if string_part=="potato":
+				animated_sprite_2d.scale.y=0.7
+				print("Scale adjusted")
 			print(string_part+"_stage_"+str(stage))
 			animated_sprite_2d.play(string_part+"_stage_"+str(stage))
 		else:
@@ -70,7 +78,9 @@ func grow_plant():
 		PlantTracker.update_plant_dictionary(self.name)
 		
 	if 	stage==3:
-		
+		if string_part=="potato":
+			animated_sprite_2d.scale.y=0.09
+			print("Scale adjusted")
 		var sprite_frames = $AnimatedSprite2D.sprite_frames  
 		texture = sprite_frames.get_frame_texture(string_part+"_stage_3", 0)	
 		

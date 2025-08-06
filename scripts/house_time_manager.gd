@@ -13,7 +13,7 @@ func _ready() -> void:
 	date_label=get_node("/root/house_interior/Farmer/DateLabel")
 	#if date_label==null:
 		#print("date label is null")
-	get_node("Label").text=("Time passed:"+str(current_time))
+	get_node("TimeLabel").text=("Time passed:"+str(current_time))
 	#print("HOUSE")
 	current_time=Global.current_time
 	#print("color_rect_i:",color_rect_i)
@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 				minutes=0
 				current_time=int(current_time+1)
 			#print("fmod:",minutes)
-			get_node("Label").text=("Time : "+str(int(current_time))+":"+str(minutes))
+			get_node("TimeLabel").text=("Time : "+str(int(current_time))+":"+str(minutes))
 			if current_time==time_to_change_tint:
 				color_rect_i+=1
 				#print("Change tint")

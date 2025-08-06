@@ -34,7 +34,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			
 			queue_free()
-
+			Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 func fake_input():
 	fake_input_called=true
@@ -47,3 +47,12 @@ func fake_input():
 	
 	_on_input_event(get_viewport(), fake_click, 0)
 #	print("fake_input called")
+
+
+func _on_mouse_entered() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+	
+
+
+func _on_mouse_exited() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
