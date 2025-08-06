@@ -181,7 +181,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		#node.position=Vector2(position.x+2,position.y+2)
 		item_name="watercan"
 		
-	if node is TextureRect and node.name=="strawberry" or node.name=="potato":
+	if node is TextureRect and node.name=="Strawberry" or node.name=="Potato":
 		print(node.name," ", node.texture)
 		node.position=Vector2(-2,-4)
 		

@@ -5,11 +5,14 @@ script/source = "extends Button
 
 
 func _on_button_down() -> void:
+	print(\"PRESSED\")
 	print(text+\" seeds added to inv!\")
 	get_parent().seed_type = text
 	print(\"Parent: \"+ get_parent().name)
 	visible=false
-	get_parent().get_node(\"Seed_Button\").visible=false
+	for sibling in get_parent().get_children():
+		if sibling != self and !sibling is TextureRect and !sibling is CollisionShape2D:
+			sibling.visible=false
 "
 
 [node name="Seed_Button" type="Button"]

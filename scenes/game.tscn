@@ -4377,12 +4377,15 @@ position = Vector2(-15, 495)
 
 [node name="Seed_Button" parent="farm_scene/seeds" instance=ExtResource("19_q6pb4")]
 visible = false
-text = "Strawberry"
-script = null
+text = "Potato"
 
 [node name="Seed_Button2" parent="farm_scene/seeds" instance=ExtResource("19_q6pb4")]
 visible = false
-text = "Potato"
+offset_left = -98.0
+offset_top = -3.0
+offset_right = -4.0
+offset_bottom = 28.0
+text = "Strawberry"
 
 [node name="watercan" parent="farm_scene" instance=ExtResource("16_k633r")]
 position = Vector2(148, 568)
