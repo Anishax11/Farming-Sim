@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://brwxmtagn5m17"]
+[gd_scene load_steps=5 format=3 uid="uid://brwxmtagn5m17"]
 
 [ext_resource type="Script" path="res://scripts/seeds.gd" id="1_q1ha3"]
 [ext_resource type="Texture2D" uid="uid://bqhpytauejph1" path="res://16x16/Sprites/ChatGPT Image Jun 22, 2025, 01_37_12 AM.png" id="1_vvim8"]
+[ext_resource type="PackedScene" uid="uid://cormp4ej6i7fy" path="res://scenes/seed_button.tscn" id="3_pcq2q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmrh4"]
 size = Vector2(16, 16)
@@ -20,6 +21,18 @@ texture = ExtResource("1_vvim8")
 z_index = 1
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_fmrh4")
+
+[node name="Seed_Button" parent="." instance=ExtResource("3_pcq2q")]
+visible = false
+text = "Potato"
+
+[node name="Seed_Button2" parent="." instance=ExtResource("3_pcq2q")]
+visible = false
+offset_left = -98.0
+offset_top = -3.0
+offset_right = -4.0
+offset_bottom = 28.0
+text = "Strawberry"
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -62,7 +62,7 @@ animations = [{
 
 [node name="Plant" type="Area2D"]
 y_sort_enabled = true
-position = Vector2(1, 0)
+position = Vector2(4, 0)
 script = ExtResource("1_0ykwo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

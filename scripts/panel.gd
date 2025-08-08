@@ -14,6 +14,7 @@ var stylebox
 var siblings 
 var clicked=false
 var seeds_name
+
 func _ready():
 	siblings = get_parent().get_children()
 	anchor_left = 1
@@ -83,7 +84,7 @@ func _on_gui_input(event: InputEvent) -> void:
 					water_equipped=false
 				seeds_equipped=!seeds_equipped
 				#print("seeds_equipped",seeds_equipped)
-				var seed_type=get_node("/root/Game/farm_scene/seeds").seed_type
+				var seed_type=get_node("/root/Game/farm_scene/Stall/seeds").seed_type
 				
 				Global.equip_item(seed_type)
 			#else:
@@ -152,9 +153,6 @@ func _on_gui_input(event: InputEvent) -> void:
 				#get_node("texture").position.y=round(get_node("texture").position.y/40)*40
 				#print("LOC:",get_node("texture").position)
 		
-
-
-
 
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:

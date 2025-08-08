@@ -16,8 +16,10 @@ func _on_button_down() -> void:
 "
 
 [node name="Seed_Button" type="Button"]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 98.0
+offset_bottom = 32.0
 text = "Strawberry
 "
 script = SubResource("GDScript_jtvbe")

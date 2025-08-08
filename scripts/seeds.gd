@@ -7,25 +7,27 @@ var seed_type
 @onready var texture_rect: TextureRect = $TextureRect
 
 func _ready() -> void:
-	print(get_path())
+	print("SEEDS NAME: ",self.name)
 	Global.seeds_image=texture_rect.texture
 	#print(texture_rect.get_path())
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT:
+	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed:
 		
 		get_node("Seed_Button").visible=true
 		get_node("Seed_Button2").visible=true
 		if seed_type!=null:
 			print("SEED TYPE not null")
 			player=get_node("/root/Game/farm_scene/Farmer")
-			distance=position.distance_to(player.position)
+			distance=global_position.distance_to(player.position)
 			if fake_input_called==true:
 				distance=0
 				fake_input_called=false
-			#print(distance)
+			#print("Player pos:",player.position)
+			#print("Seeds pos:",position)
+			print(distance)
 			if event.pressed and distance<45:
 				
-				#print("Picked")
+				print("Picked")
 				while texture_rect == null:
 					await get_tree().process_frame
 		   			

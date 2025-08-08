@@ -21,7 +21,7 @@ func _ready() -> void:
 	#print(inventory_items)
 
 func add_to_inventory(string,item_texture) :
-	
+	print("Item added to inv:",string)
 	if string=="seeds":
 		seeds_count+=6
 	for i in range(3):

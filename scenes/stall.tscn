@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf0mnr6sfm6vn"]
+
+[ext_resource type="Script" path="res://scripts/stall.gd" id="1_km2kn"]
+[ext_resource type="Texture2D" uid="uid://d1t0s0le6gffb" path="res://16x16/Sprites/Seeds_Shop.png" id="2_woo0c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ne82m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_woo0c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jdjn"]
+size = Vector2(1580, 1030)
+
+[node name="Stall" type="Area2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_km2kn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ne82m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 4.99999)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_6jdjn")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_icycs"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_l374g"]
+[ext_resource type="PackedScene" uid="uid://cf0mnr6sfm6vn" path="res://scenes/stall.tscn" id="2_5n1iv"]
 [ext_resource type="Texture2D" uid="uid://bpbn2trmc2git" path="res://MV/tilesets/_srw_tileset_0.png" id="2_j4gt8"]
 [ext_resource type="Texture2D" uid="uid://ca7ww0p65vvgk" path="res://16x16/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="4_dqgmc"]
 [ext_resource type="Texture2D" uid="uid://ux5mcim0ws5d" path="res://16x16/Sprites/vectoraith_tileset_farmingsims_buildings.png" id="4_hyouo"]
@@ -16,11 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://dnnuq6f68u4ja" path="res://scenes/parallax_background.tscn" id="12_t5ypf"]
 [ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="15_wd8j7"]
 [ext_resource type="PackedScene" uid="uid://potiq7c4dk36" path="res://scenes/watercan.tscn" id="16_k633r"]
-[ext_resource type="PackedScene" uid="uid://brwxmtagn5m17" path="res://scenes/seeds.tscn" id="16_rgxy3"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="17_2wv2r"]
 [ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="18_02o4f"]
 [ext_resource type="PackedScene" uid="uid://fw0la85vqc7p" path="res://scenes/house.tscn" id="18_awg5f"]
-[ext_resource type="PackedScene" uid="uid://cormp4ej6i7fy" path="res://scenes/seed_button.tscn" id="19_q6pb4"]
+[ext_resource type="PackedScene" uid="uid://dsgabfk5fykbw" path="res://scenes/seed_shop_interior.tscn" id="21_7jq4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugn7j"]
 texture = ExtResource("2_j4gt8")
@@ -4350,7 +4350,6 @@ script = ExtResource("1_icycs")
 [node name="farm_scene" type="Node2D" parent="."]
 
 [node name="Farmer" parent="farm_scene" instance=ExtResource("1_l374g")]
-z_index = 1
 position = Vector2(109, 509)
 
 [node name="Inventory" parent="farm_scene/Farmer" instance=ExtResource("15_wd8j7")]
@@ -4372,21 +4371,6 @@ layer_0/tile_data = PackedInt32Array(-65532, 2, 0, 4, 2, 1, 65540, 2, 1, 131076,
 
 [node name="SoilManager" parent="farm_scene" instance=ExtResource("10_vl0ky")]
 
-[node name="seeds" parent="farm_scene" instance=ExtResource("16_rgxy3")]
-position = Vector2(-15, 495)
-
-[node name="Seed_Button" parent="farm_scene/seeds" instance=ExtResource("19_q6pb4")]
-visible = false
-text = "Potato"
-
-[node name="Seed_Button2" parent="farm_scene/seeds" instance=ExtResource("19_q6pb4")]
-visible = false
-offset_left = -98.0
-offset_top = -3.0
-offset_right = -4.0
-offset_bottom = 28.0
-text = "Strawberry"
-
 [node name="watercan" parent="farm_scene" instance=ExtResource("16_k633r")]
 position = Vector2(148, 568)
 
@@ -4405,3 +4389,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="House" parent="farm_scene" instance=ExtResource("18_awg5f")]
 position = Vector2(125, 457)
+
+[node name="Stall" parent="farm_scene" instance=ExtResource("2_5n1iv")]
+z_index = 1
+position = Vector2(331, 478)
+
+[node name="SeedShopInterior" parent="." instance=ExtResource("21_7jq4m")]
+visible = false
+position = Vector2(-48, 335)
+
+[node name="Camera2D" type="Camera2D" parent="SeedShopInterior"]
+scale = Vector2(0.5, 0.5)
