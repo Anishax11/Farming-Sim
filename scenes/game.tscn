@@ -4348,6 +4348,7 @@ sources/9 = SubResource("TileSetAtlasSource_7ap33")
 script = ExtResource("1_icycs")
 
 [node name="farm_scene" type="Node2D" parent="."]
+visible = false
 
 [node name="Farmer" parent="farm_scene" instance=ExtResource("1_l374g")]
 position = Vector2(109, 509)
@@ -4395,8 +4396,8 @@ z_index = 1
 position = Vector2(331, 478)
 
 [node name="SeedShopInterior" parent="." instance=ExtResource("21_7jq4m")]
-visible = false
-position = Vector2(-48, 335)
+position = Vector2(-52, 371)
 
 [node name="Camera2D" type="Camera2D" parent="SeedShopInterior"]
-scale = Vector2(0.5, 0.5)
+position = Vector2(397, 262)
+zoom = Vector2(0.5, 0.5)

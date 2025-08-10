@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsgabfk5fykbw"]
+[gd_scene load_steps=5 format=3 uid="uid://dsgabfk5fykbw"]
 
 [ext_resource type="Texture2D" uid="uid://byduwaxwy08vg" path="res://16x16/Sprites/Seeds_Shop_Interior.png" id="1_6ml3i"]
+[ext_resource type="Texture2D" uid="uid://dr1hdvqxhvkj1" path="res://16x16/Sprites/SeedsVendorMenu.png" id="2_npwv0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1oly"]
+size = Vector2(390, 416)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7gsi3"]
 animations = [{
@@ -13,18 +17,107 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1oly"]
-size = Vector2(390, 416)
-
 [node name="SeedShopInterior" type="Area2D"]
 position = Vector2(-199, 13)
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(154, 166)
-scale = Vector2(0.943359, 0.753906)
-sprite_frames = SubResource("SpriteFrames_7gsi3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(254.5, 151)
 scale = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_c1oly")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(159, 169)
+scale = Vector2(0.943359, 0.753906)
+sprite_frames = SubResource("SpriteFrames_7gsi3")
+
+[node name="VendorMenu" type="CanvasLayer" parent="."]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VendorMenu"]
+offset_left = -58.0
+offset_top = 132.0
+offset_right = 968.0
+offset_bottom = 993.0
+texture = ExtResource("2_npwv0")
+patch_margin_left = 200
+patch_margin_top = 200
+patch_margin_right = 200
+patch_margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VendorMenu"]
+offset_left = 115.0
+offset_top = 423.0
+offset_right = 842.0
+offset_bottom = 941.0
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="VendorMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "🍓 Strawberry Seeds"
+
+[node name="Button2" type="Button" parent="VendorMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "🥔 Potato Seeds "
+
+[node name="Button3" type="Button" parent="VendorMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "🌽 Corn Seeds"
+
+[node name="Button4" type="Button" parent="VendorMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "🥕 Carrot Seeds"
+
+[node name="Button5" type="Button" parent="VendorMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "🌾 Wheat Seeds"
+
+[node name="Button6" type="Button" parent="VendorMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "🌻 Sunflower Seeds "
+
+[node name="Button7" type="Button" parent="VendorMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "💐 Mixed Flower Seeds"
+
+[node name="Button8" type="Button" parent="VendorMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "🌹 Rose Seeds "
+
+[node name="Button9" type="Button" parent="VendorMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "🌷 Tulip Bulbs"
+
+[node name="Button10" type="Button" parent="VendorMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "🍑 Peach Sapling"
+
+[node name="Button11" type="Button" parent="VendorMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "🍇 Grape Sapling "
+
+[node name="Button12" type="Button" parent="VendorMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "🍏 Apple Sapling"
