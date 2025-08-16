@@ -8,13 +8,12 @@ var seed_type
 
 func _ready() -> void:
 	print("SEEDS NAME: ",self.name)
-	Global.seeds_image=texture_rect.texture
 	#print(texture_rect.get_path())
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed:
 		
-		get_node("Seed_Button").visible=true
-		get_node("Seed_Button2").visible=true
+		#get_node("Seed_Button").visible=true
+		#get_node("Seed_Button2").visible=true
 		if seed_type!=null:
 			print("SEED TYPE not null")
 			player=get_node("/root/Game/farm_scene/Farmer")
@@ -45,7 +44,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				#print($TextureRect.get_path())
 				texture_rect.queue_free()
 				Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-		
+		else:
+			print("SEED TYPE  null")
 		
 func fake_input():
 	fake_input_called=true

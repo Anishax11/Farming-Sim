@@ -9,8 +9,8 @@ class_name Player
 var speed=70
 var direction: Vector2
 
-func _ready():
-	print("Z index :",z_index)
+#func _ready():
+	#print("Z index :",z_index)
 
 
 func _physics_process(delta: float) -> void:

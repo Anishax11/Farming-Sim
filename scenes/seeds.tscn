@@ -8,6 +8,8 @@
 size = Vector2(16, 16)
 
 [node name="seeds" type="Area2D"]
+z_index = 3
+scale = Vector2(5, 3)
 script = ExtResource("1_q1ha3")
 
 [node name="TextureRect" type="TextureRect" parent="."]
