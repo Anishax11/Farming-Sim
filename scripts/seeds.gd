@@ -7,7 +7,7 @@ var seed_type
 @onready var texture_rect: TextureRect = $TextureRect
 
 func _ready() -> void:
-	print("SEEDS NAME: ",self.name)
+	print(self.get_path())
 	#print(texture_rect.get_path())
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed:
@@ -15,16 +15,16 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		#get_node("Seed_Button").visible=true
 		#get_node("Seed_Button2").visible=true
 		if seed_type!=null:
-			print("SEED TYPE not null")
+			print("SEED TYPE :",seed_type)
 			player=get_node("/root/Game/farm_scene/Farmer")
-			distance=global_position.distance_to(player.position)
-			if fake_input_called==true:
-				distance=0
-				fake_input_called=false
+			#distance=global_position.distance_to(player.position)
+			#if fake_input_called==true:
+				#distance=0
+				#fake_input_called=false
 			#print("Player pos:",player.position)
 			#print("Seeds pos:",position)
-			print(distance)
-			if event.pressed and distance<45:
+			
+			if event.pressed :
 				
 				print("Picked")
 				while texture_rect == null:
@@ -36,13 +36,12 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				texture_rect.name="seeds"
 				#$TextureRect.scale.x=0.016
 				#$TextureRect.scale.y=0.016
-				self.remove_child(texture_rect)
+				
 				
 				#empty_panel.add_child(texture_rect)
 				#print(empty_panel.get_path())
 				#print("running")
 				#print($TextureRect.get_path())
-				texture_rect.queue_free()
 				Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		else:
 			print("SEED TYPE  null")

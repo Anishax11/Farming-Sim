@@ -33,6 +33,7 @@ animations = [{
 size = Vector2(1562, 494)
 
 [node name="house_interior" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_mmlya")
 
 [node name="Button" type="Button" parent="."]

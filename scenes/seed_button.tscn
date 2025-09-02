@@ -7,12 +7,13 @@ script/source = "extends Button
 func _on_button_down() -> void:
 	print(\"PRESSED\")
 	print(text+\" seeds added to inv!\")
-	get_parent().seed_type = text
+	
 	print(\"Parent: \"+ get_parent().name)
-	visible=false
+	#visible=false
 	for sibling in get_parent().get_children():
 		if sibling != self and !sibling is TextureRect and !sibling is CollisionShape2D:
-			sibling.visible=false
+			print(sibling.name)
+			get_parent().seed_type = sibling.text
 "
 
 [node name="Seed_Button" type="Button"]
@@ -20,6 +21,7 @@ offset_left = 4.0
 offset_top = 1.0
 offset_right = 98.0
 offset_bottom = 32.0
+scale = Vector2(0.5, 1)
 text = "Strawberry
 "
 script = SubResource("GDScript_jtvbe")

@@ -49,7 +49,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							#plant_name="strawberry"
 						#elif determine_plant==1:
 							#plant_name="potato"
-						plant_name=seed_type
+						var seed_node=get_node("/root/Game/SeedShopInterior/VendorMenu/seeds")
+						plant_name=seed_node.seed_type
 						print("watered soil has seeds: ",seed_type)	
 						
 						if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmf0mwt45030w"]
+
+[ext_resource type="Script" path="res://scripts/seed_shop_exit_button.gd" id="1_o02g0"]
+
+[node name="Button" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(2, 2)
+text = "EXIT"
+script = ExtResource("1_o02g0")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

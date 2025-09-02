@@ -4396,6 +4396,7 @@ z_index = 1
 position = Vector2(331, 478)
 
 [node name="SeedShopInterior" parent="." instance=ExtResource("21_7jq4m")]
+visible = false
 position = Vector2(-124, 383)
 script = ExtResource("22_2vkq5")
 

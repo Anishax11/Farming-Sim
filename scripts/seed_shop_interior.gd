@@ -11,10 +11,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
 
 
-func _on_strawberry_button_down() -> void:
-	print("BUYING")
-	get_node("seeds").seed_type="strawberry"
-	get_node("seeds").visible=false
+	#print("BUYING")
+	
+	
 	#var seeds=SEEDS.instantiate()
 	#seeds.position=Vector2(500,500)
 	#seeds.z_index=3
@@ -22,10 +21,10 @@ func _on_strawberry_button_down() -> void:
 	#seeds.seed_type="strawberry"
 	#add_child(seeds)
 
-
-func _on_potato_button_down() -> void:
-	print("BUYING")
-	var seeds=SEEDS.instantiate()
-	seeds.position=Vector2(1225,675)
-	seeds.seed_type="potato"
-	add_child(seeds)
+#
+#func _on_potato_button_down() -> void:
+	#print("BUYING")
+	#var seeds=SEEDS.instantiate()
+	#seeds.position=Vector2(1225,675)
+	#seeds.seed_type="potato"
+	#add_child(seeds)

@@ -80,11 +80,14 @@ func _on_gui_input(event: InputEvent) -> void:
 			#print(get_child(0).position)
 			if item_name=="seeds":
 				#print("Item is seeds")
+				print(get_child(0).name)
+				print(get_child(0).visible)
+				get_child(0).global_position=global_position
 				if water_equipped==true:
 					water_equipped=false
 				seeds_equipped=!seeds_equipped
 				#print("seeds_equipped",seeds_equipped)
-				var seed_type=get_node("/root/Game/farm_scene/Stall/seeds").seed_type
+				var seed_type=get_node("/root/Game/SeedShopInterior/VendorMenu/seeds").seed_type
 				
 				Global.equip_item(seed_type)
 			#else:
@@ -156,6 +159,7 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
+	
 	#node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	#node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	
@@ -163,6 +167,13 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 	#node.global_position=Vector2(global_position.x+2,global_position.y+2)
 	
 	if node is TextureRect and node.name=="seeds":
+		
+		print("Added to panel",self.name)
+		#node.position=Vector2(0,0)
+		print(node.global_position)
+		
+		node.z_index=50
+		
 		node.scale.x=0.015
 		node.scale.y=0.015
 		#node.set_anchors_preset(Control.PRESET_CENTER)

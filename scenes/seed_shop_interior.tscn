@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsgabfk5fykbw"]
+[gd_scene load_steps=10 format=3 uid="uid://dsgabfk5fykbw"]
 
 [ext_resource type="Texture2D" uid="uid://byduwaxwy08vg" path="res://16x16/Sprites/Seeds_Shop_Interior.png" id="1_6ml3i"]
 [ext_resource type="Script" path="res://scripts/seed_shop_interior.gd" id="1_j0vwb"]
 [ext_resource type="Texture2D" uid="uid://dr1hdvqxhvkj1" path="res://16x16/Sprites/SeedsVendorMenu.png" id="2_npwv0"]
 [ext_resource type="Texture2D" uid="uid://b57cgw7ov6gpr" path="res://16x16/Sprites/seeds_desc.jpg" id="4_and56"]
+[ext_resource type="Script" path="res://scenes/buy_strawberry.gd" id="4_u2sro"]
 [ext_resource type="PackedScene" uid="uid://brwxmtagn5m17" path="res://scenes/seeds.tscn" id="5_u2orb"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1oly"]
-size = Vector2(390, 416)
+[ext_resource type="PackedScene" uid="uid://bmf0mwt45030w" path="res://scenes/seed_shop_exit_button.tscn" id="7_yp6eb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7gsi3"]
 animations = [{
@@ -20,15 +19,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1oly"]
+size = Vector2(390, 416)
+
 [node name="SeedShopInterior" type="Area2D"]
 position = Vector2(-302, 15)
 scale = Vector2(1.4, 1)
 script = ExtResource("1_j0vwb")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(254.5, 151)
-scale = Vector2(0.5, 1)
-shape = SubResource("RectangleShape2D_c1oly")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(159, 169)
@@ -53,6 +50,7 @@ offset_left = 115.0
 offset_top = 423.0
 offset_right = 842.0
 offset_bottom = 941.0
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="strawberry" type="Button" parent="VendorMenu/VBoxContainer"]
@@ -60,6 +58,7 @@ custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🍓 Strawberry Seeds"
+script = ExtResource("4_u2sro")
 
 [node name="potato" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -142,12 +141,24 @@ patch_margin_bottom = 10
 position = Vector2(1246, 692)
 
 [node name="Label" type="Label" parent="VendorMenu/seeds"]
-offset_top = 9.33333
-offset_right = 32.0
-offset_bottom = 32.3333
+offset_left = -48.0
+offset_top = 29.0
+offset_right = -14.0
+offset_bottom = 63.0
 scale = Vector2(0.5, 0.5)
-text = "BUY"
+text = "strawberry"
+
+[node name="ExitButton" parent="VendorMenu" instance=ExtResource("7_yp6eb")]
+z_index = 5
+offset_left = 1117.0
+offset_top = 497.0
+offset_right = 1158.0
+offset_bottom = 528.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(254.5, 151)
+scale = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_c1oly")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
-[connection signal="button_down" from="VendorMenu/VBoxContainer/strawberry" to="." method="_on_strawberry_button_down"]
-[connection signal="button_down" from="VendorMenu/VBoxContainer/potato" to="." method="_on_potato_button_down"]
+[connection signal="button_down" from="VendorMenu/VBoxContainer/strawberry" to="VendorMenu/VBoxContainer/strawberry" method="_on_button_down"]
