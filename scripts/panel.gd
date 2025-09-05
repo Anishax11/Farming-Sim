@@ -82,7 +82,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				#print("Item is seeds")
 				print(get_child(0).name)
 				print(get_child(0).visible)
-				get_child(0).global_position=global_position
+				
 				if water_equipped==true:
 					water_equipped=false
 				seeds_equipped=!seeds_equipped
@@ -170,12 +170,12 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		
 		print("Added to panel",self.name)
 		#node.position=Vector2(0,0)
-		print(node.global_position)
 		
-		node.z_index=50
+		print("Seeds scale x : ",node.scale.x)
+		print("Seeds scale y : ",node.scale.y)
 		
-		node.scale.x=0.015
-		node.scale.y=0.015
+		
+		
 		#node.set_anchors_preset(Control.PRESET_CENTER)
 		#node.pivot_offset = node.size / 2  # For perfect centering
 		
@@ -190,7 +190,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		#node.position=Vector2(position.x+2,position.y+2)
 		item_name="watercan"
 		
-	if node is TextureRect and node.name=="Strawberry" or node.name=="Potato":
+	if node is TextureRect and node.name=="strawberry" or node.name=="potato":
 		print(node.name," ", node.texture)
 		node.position=Vector2(-2,-4)
 		

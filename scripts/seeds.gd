@@ -29,8 +29,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				print("Picked")
 				while texture_rect == null:
 					await get_tree().process_frame
-		   			
-				get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(self.name,texture_rect.texture)
+		   		
+				
+				get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(self.name,Global.strawberry_image)
 				
 				empty_panel=Global.get_empty_panel()
 				texture_rect.name="seeds"

@@ -44,7 +44,7 @@ func add_to_inventory(string,item_texture) :
 				Global.empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 				Global.empty_panel.add_child(texture_rect)
 				print("EMPTY PANEL :",Global.empty_panel)
-				print("EMPTY PANEL child :",Global.empty_panel.get_child(0))
+				print("Texture name :",texture_rect.name)
 				#texture_rect.global_position=Vector2(Global.empty_panel.global_position.x+2,Global.empty_panel.global_position.y+2)
 				#print("Empty panel:",Global.empty_panel.name,Global.empty_panel.get_child(0))
 				
