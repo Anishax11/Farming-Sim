@@ -170,9 +170,11 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		
 		print("Added to panel",self.name)
 		#node.position=Vector2(0,0)
+		#node.scale.x=2
+		#node.scale.y=2
 		
 		print("Seeds scale x : ",node.scale.x)
-		print("Seeds scale y : ",node.scale.y)
+		
 		
 		
 		
@@ -196,5 +198,6 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		
 		node.scale.x=0.11
 		node.scale.y=0.11
+		
 		item_name=node.name
 		#print("STr texturerect added to panel")

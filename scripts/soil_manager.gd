@@ -94,9 +94,9 @@ func _ready() -> void:
 						break
 					#else:
 						#print("Plant"+str(j)+" not found")
-					elif soil.has_node("Potato"+str(j))!=false:
-						print("PLANT FOUND:","Potato"+str(j))
-						soil.get_node("Potato"+str(j)).grow_plant()	
+					elif soil.has_node("potato"+str(j))!=false:
+						print("PLANT FOUND:","potato"+str(j))
+						soil.get_node("potato"+str(j)).grow_plant()	
 						plant_found=true
 						break
 					elif plant_found==false and j==PlantTracker.plant_stages.size():#used to grow plant for the first time
@@ -135,11 +135,11 @@ func _ready() -> void:
 								break
 					#else:
 						#print("Plant"+str(j)+" not found")
-					elif soil.has_node("Potato"+str(j))!=false:
+					elif soil.has_node("potato"+str(j))!=false:
 						print("PLANT FOUND:","potato"+str(j))
 						#print(soil.get_node("potato"+str(j)).stage)
-						if PlantTracker.plant_stages.has(soil.get_node("Potato"+str(j)).name):
-							var stage=PlantTracker.plant_stages[soil.get_node("Potato"+str(j)).name]
+						if PlantTracker.plant_stages.has(soil.get_node("potato"+str(j)).name):
+							var stage=PlantTracker.plant_stages[soil.get_node("potato"+str(j)).name]
 							#print(stage)
 							soil.watered=true
 							if stage!=0:
@@ -147,9 +147,9 @@ func _ready() -> void:
 								print("stage_"+str(stage))
 								
 								if stage==3:
-									soil.get_node("Potato"+str(j)).get_node("AnimatedSprite2D").play("potato_stage_"+str(stage))
+									soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("potato_stage_"+str(stage))
 								else:
-									soil.get_node("Potato"+str(j)).get_node("AnimatedSprite2D").play("stage_"+str(stage))
+									soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("stage_"+str(stage))
 								#print(soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").animation)
 								break	
 							

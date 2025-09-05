@@ -65,6 +65,7 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🥔 Potato Seeds "
+script = ExtResource("4_u2sro")
 
 [node name="Button3" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -138,6 +139,7 @@ patch_margin_right = 5
 patch_margin_bottom = 10
 
 [node name="seeds" parent="VendorMenu" instance=ExtResource("5_u2orb")]
+texture_filter = 1
 position = Vector2(1246, 692)
 
 [node name="Label" type="Label" parent="VendorMenu/seeds"]
