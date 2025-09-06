@@ -20,11 +20,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1oly"]
-size = Vector2(390, 416)
+size = Vector2(782.857, 494)
 
 [node name="SeedShopInterior" type="Area2D"]
-position = Vector2(-302, 15)
-scale = Vector2(1.4, 1)
+position = Vector2(-45, 325)
+scale = Vector2(1.1, 0.8)
 script = ExtResource("1_j0vwb")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
@@ -32,7 +32,13 @@ position = Vector2(159, 169)
 scale = Vector2(0.943359, 0.753906)
 sprite_frames = SubResource("SpriteFrames_7gsi3")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(268.571, 187)
+scale = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_c1oly")
+
 [node name="VendorMenu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VendorMenu"]
 offset_left = -58.0
@@ -156,11 +162,11 @@ offset_left = 1117.0
 offset_top = 497.0
 offset_right = 1158.0
 offset_bottom = 528.0
+mouse_filter = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(254.5, 151)
-scale = Vector2(0.5, 1)
-shape = SubResource("RectangleShape2D_c1oly")
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(148, 168)
+scale = Vector2(0.05, 0.05)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="button_down" from="VendorMenu/VBoxContainer/strawberry" to="VendorMenu/VBoxContainer/strawberry" method="_on_button_down"]

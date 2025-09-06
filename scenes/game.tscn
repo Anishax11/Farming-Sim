@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bnyh64xhqcef4"]
+[gd_scene load_steps=32 format=3 uid="uid://bnyh64xhqcef4"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_icycs"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_l374g"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="18_02o4f"]
 [ext_resource type="PackedScene" uid="uid://fw0la85vqc7p" path="res://scenes/house.tscn" id="18_awg5f"]
 [ext_resource type="PackedScene" uid="uid://dsgabfk5fykbw" path="res://scenes/seed_shop_interior.tscn" id="21_7jq4m"]
-[ext_resource type="Script" path="res://scripts/seeds.gd" id="22_2vkq5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugn7j"]
 texture = ExtResource("2_j4gt8")
@@ -4397,9 +4396,3 @@ position = Vector2(331, 478)
 
 [node name="SeedShopInterior" parent="." instance=ExtResource("21_7jq4m")]
 visible = false
-position = Vector2(-124, 383)
-script = ExtResource("22_2vkq5")
-
-[node name="Camera2D" type="Camera2D" parent="SeedShopInterior"]
-position = Vector2(397, 262)
-zoom = Vector2(0.5, 0.5)
