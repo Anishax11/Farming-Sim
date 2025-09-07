@@ -14,6 +14,8 @@ var stylebox
 var siblings 
 var clicked=false
 var seeds_name
+var seed_type
+var transferred=false
 
 func _ready():
 	siblings = get_parent().get_children()
@@ -42,7 +44,7 @@ func _on_gui_input(event: InputEvent) -> void:
 					
 					for sibling in siblings:
 						if sibling!=self:
-							print(sibling.name)
+							#print(sibling.name)
 							sibling.clicked=false
 							sibling.stylebox.texture=Global.INVENTORY_SLOT
 							add_theme_stylebox_override("panel", sibling.stylebox)
@@ -79,7 +81,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				#get_child(0).global_position=Vector2(global_position.x+2,global_position.y+2)
 			#print(get_child(0).position)
 			if item_name=="seeds":
-				#print("Item is seeds")
+				print("Item is seeds")
 				print(get_child(0).name)
 				print(get_child(0).visible)
 				
@@ -87,7 +89,6 @@ func _on_gui_input(event: InputEvent) -> void:
 					water_equipped=false
 				seeds_equipped=!seeds_equipped
 				#print("seeds_equipped",seeds_equipped)
-				var seed_type=get_node("/root/Game/SeedShopInterior/VendorMenu/seeds").seed_type
 				
 				Global.equip_item(seed_type)
 			#else:
@@ -129,12 +130,13 @@ func _on_gui_input(event: InputEvent) -> void:
 				#print("TEXT not found")
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT :   
 		if event.pressed:	
-		#	print("rIGHT Pressed",self.name)	
+			print("Removing itemfrom inv and panel",self.name)	
 			if item_name!=null:
 			#	print("REMOVVE ITEM")	
 				self.remove_child(get_node(item_name))
 				#print(inventory_node.get_path())
 				inventory_node.remove_item(item_name)
+				
 	if event is InputEventMouseMotion and button_held==true:
 		
 		#print(get_child(0).position)
@@ -159,20 +161,23 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
-	
+
 	#node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	#node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	
-	#print("Item added to panel:",node.name)
+	print("Item added to panel:",node.name)
 	#node.global_position=Vector2(global_position.x+2,global_position.y+2)
 	
 	if node is TextureRect and node.name=="seeds":
 		
 		print("Added to panel",self.name)
+		item_name="seeds"
 		#node.position=Vector2(0,0)
 		#node.scale.x=2
 		#node.scale.y=2
-		
+		if seed_type==null:
+			seed_type=get_node("/root/Game/SeedShopInterior/VendorMenu/seeds").seed_type
+			get_node("/root/Game/SeedShopInterior/VendorMenu/seeds").queue_free()
 		print("Seeds scale x : ",node.scale.x)
 		
 		
@@ -183,7 +188,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		
 		
 		#node.position=Vector2(position.x+2,position.y+2)
-		item_name="seeds"
+		
 		#print("SEEDS added:",node)
 	if node is TextureRect and node.name=="watercan":
 		

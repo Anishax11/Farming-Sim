@@ -40,6 +40,7 @@ func get_direction(direction) :
 	#print("player_direction",player_direction)
 
 func move_item(panel_number,item_name):
+	print("MOve item called")
 	var current_scene = get_tree().current_scene
 	var texture_rect
 	var prev_panel_path
@@ -55,6 +56,8 @@ func move_item(panel_number,item_name):
 	#
 	if current_scene==get_node("/root/Game"):
 		prev_panel_path="/root/Game/farm_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(panel_number)
+		if prev_panel_path==null:
+			print("prev_panel_path is null")
 		texture_rect=get_node(prev_panel_path+"/"+item_name)
 		
 	else:
@@ -74,15 +77,16 @@ func move_item(panel_number,item_name):
 		item_out_of_inv=false
 		return
 	
-	get_node(prev_panel_path).remove_child(texture_rect)
+	
 	
 	#if current_scene==get_node("/root/Game"):
 		#get_node(prev_panel_path).remove_child(texture_rect)
 	#else:
 		#get_node("/root/house_interior/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)).remove_child(texture_rect)
+	
 	#REMOVE ITEM FROM ARRAY
 	
-	Global.inventory_items[int((panel_number-1)/5)][(panel_number-1)%5]=""
+	#Global.inventory_items[int((panel_number-1)/5)][(panel_number-1)%5]=""
 	
 	#print(get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/texture"))
 	#print("panels moved x:", round(texture_rect.position.x / 40))
@@ -93,20 +97,33 @@ func move_item(panel_number,item_name):
 	#print("y increment:",round(texture_rect.position.y / 40)*5)
 	#print("Finale panel:",final_panel)
 	if get_node("/root/Game/farm_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)+item_name)==null and final_panel>0 and final_panel<16:
-		#print("NOT OCCUPIED")
-		get_node(final_panel_path).add_child(texture_rect)
+		print("NOT OCCUPIED")
+		if final_panel_path!=prev_panel_path:
+			print("prev panel seed type:",get_node(prev_panel_path).seed_type)
+			get_node(final_panel_path).seed_type=get_node(prev_panel_path).seed_type
+			get_node(prev_panel_path).item_name=null
+			
+			get_node(prev_panel_path).remove_child(texture_rect)
+			get_node(final_panel_path).add_child(texture_rect)
+			
+			#ADD ITEM TO ARRAY
+			Global.inventory_items[int((final_panel-1)/5)][int(final_panel-1)%5]=item_name
+			
+			texture_rect.global_position=get_node(final_panel_path).global_position
 		
-		#ADD ITEM TO ARRAY
-		Global.inventory_items[int((final_panel-1)/5)][int(final_panel-1)%5]=item_name
+			#REMOVE ITEM FROM ARRAY
 		
-		texture_rect.global_position=get_node(final_panel_path).global_position
-		
+			Global.inventory_items[int((panel_number-1)/5)][(panel_number-1)%5]=""
+			
+			
 		
 	else:
-		#print("OCCUPIED")
-		get_node(prev_panel_path).add_child(texture_rect)
-		texture_rect.global_position=get_node(prev_panel_path).global_position
-		Global.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]=item_name
+		print("OCCUPIED")
+		if final_panel_path!=prev_panel_path:
+			
+			get_node(prev_panel_path).add_child(texture_rect)
+			texture_rect.global_position=get_node(prev_panel_path).global_position
+			Global.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]=item_name
 	
 	
 	
