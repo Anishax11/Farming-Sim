@@ -4,7 +4,8 @@ var day_count=1
 var day_passed=false
 var inventory_items=[]
 var seeds_image=preload("res://16x16/Sprites/seeds_packet_16x16.png")
-
+var strawberry_seeds_image=preload("res://16x16/Sprites/strawberry_seeds_16x16.png")
+var potato_seeds_image=preload("res://16x16/Sprites/potato_seeds_16x16.png")
 var watercan_image=preload("res://16x16/Sprites/water can icon.png")
 var strawberry_image=preload("res://16x16/Sprites/ChatGPT Image Jul 9, 2025, 08_41_42 PM (1).png")
 var potato_image=preload("res://16x16/Sprites/ChatGPT Image Jul 13, 2025, 11_20_49 AM.png")

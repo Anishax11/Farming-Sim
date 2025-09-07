@@ -126,22 +126,28 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		
 			
 			#CODE FOR PLANTATION
-			#print(panel.seeds_equipped)
-			if distance<18 and tilled==true and panel.seeds_equipped==true and inventory.seeds_count>0:
-				print("Plant ")	
-				planted=true
-				seed_type=Global.equipped_item
-				#planted_seeds=panel.seeds_name
-				#print("Seeds count before:",inventory.seeds_count)
-				inventory.seeds_count-=1
-				#print("Seeds count:",inventory.seeds_count)
-				player.get_node("AnimatedSprite2D").play("seeds")
-				if animated_sprite_2d.animation=="tilled":
-					animated_sprite_2d.play("circle_seeds")
-				elif animated_sprite_2d.animation=="rect_tilled":
-					animated_sprite_2d.play("seeds")
-				#print(animated_sprite_2d.animation)
-				Global.save_tilled_soil(self,animated_sprite_2d.animation)
+			#print("panel.seeds_equipped :",panel.seeds_equipped)
+			#print("DIST:",distance)
+			#print("SEEDS COUNT:",inventory.seeds_count)
+			if distance<18 and tilled==true and panel.seeds_equipped==true :
+				var count=Global.equipped_item+"_seeds_count"
+				if inventory.get(count)>0:
+					print("Plant ")	
+					planted=true
+					seed_type=Global.equipped_item
+					
+					#planted_seeds=panel.seeds_name
+					#print("Seeds count before:",inventory.seeds_count)
+					var current = inventory.get(count)
+					inventory.set(count, current - 1)
+					#print("Seeds count:",inventory.seeds_count)
+					player.get_node("AnimatedSprite2D").play("seeds")
+					if animated_sprite_2d.animation=="tilled":
+						animated_sprite_2d.play("circle_seeds")
+					elif animated_sprite_2d.animation=="rect_tilled":
+						animated_sprite_2d.play("seeds")
+					#print(animated_sprite_2d.animation)
+					Global.save_tilled_soil(self,animated_sprite_2d.animation)
 				
 			#CODE FOR TILLING
 				

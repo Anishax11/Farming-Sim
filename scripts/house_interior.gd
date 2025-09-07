@@ -34,7 +34,8 @@ func _ready() -> void:
 				
 			if string!="":
 				Global.inventory_items[i][j]=""
-				inventory.add_to_inventory(string,Global.seeds_image)
+				inventory.add_to_inventory(string,null)
+				
 	add_child(farmer)
 	farmer_added=true
 

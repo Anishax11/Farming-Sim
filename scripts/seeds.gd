@@ -31,7 +31,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					await get_tree().process_frame
 		   		
 				
-				get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory("seeds",Global.strawberry_image)
+				get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(seed_type+"_seeds",Global.strawberry_image)
 				
 				empty_panel=Global.get_empty_panel()
 				texture_rect.name="seeds"
@@ -44,6 +44,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				#print("running")
 				#print($TextureRect.get_path())
 				Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+				queue_free()
 				
 		else:
 			print("SEED TYPE  null")

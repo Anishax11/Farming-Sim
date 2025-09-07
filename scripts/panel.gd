@@ -80,7 +80,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				#print("Not null")
 				#get_child(0).global_position=Vector2(global_position.x+2,global_position.y+2)
 			#print(get_child(0).position)
-			if item_name=="seeds":
+			if item_name=="strawberry_seeds" or item_name=="potato_seeds":
 				print("Item is seeds")
 				print(get_child(0).name)
 				print(get_child(0).visible)
@@ -168,16 +168,21 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 	print("Item added to panel:",node.name)
 	#node.global_position=Vector2(global_position.x+2,global_position.y+2)
 	
-	if node is TextureRect and node.name=="seeds":
+	if node is TextureRect and node.name=="strawberry_seeds" or node.name=="potato_seeds":
 		
 		print("Added to panel",self.name)
-		item_name="seeds"
+		item_name=node.name
 		#node.position=Vector2(0,0)
 		#node.scale.x=2
 		#node.scale.y=2
-		if seed_type==null:
-			seed_type=get_node("/root/Game/SeedShopInterior/VendorMenu/seeds").seed_type
-			get_node("/root/Game/SeedShopInterior/VendorMenu/seeds").queue_free()
+		#if seed_type==null:
+		#seed_type=get_node("/root/Game/SeedShopInterior/VendorMenu/seeds").seed_type
+		if node.name=="strawberry_seeds":
+			seed_type="strawberry"
+			
+		elif node.name=="potato_seeds":
+			seed_type="potato"
+			
 		print("Seeds scale x : ",node.scale.x)
 		
 		

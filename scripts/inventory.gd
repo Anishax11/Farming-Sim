@@ -6,7 +6,8 @@ var slot_found=false
 var slots_passed=0
 var slot_adjust=1
 var inv_initialised=false
-var seeds_count=0
+var strawberry_seeds_count=0
+var potato_seeds_count=0
 
 
 func _ready() -> void:
@@ -22,8 +23,11 @@ func _ready() -> void:
 
 func add_to_inventory(string,item_texture) :
 	print("Item added to inv:",string)
-	if string=="seeds":
-		seeds_count+=6
+	if string=="strawberry_seeds":
+		strawberry_seeds_count+=6
+	elif string=="potato_seeds":
+		potato_seeds_count+=6
+		
 	for i in range(3):
 			
 		for j in range(5):
@@ -42,6 +46,7 @@ func add_to_inventory(string,item_texture) :
 				#print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 				
 				Global.empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
+				
 				Global.empty_panel.add_child(texture_rect)
 				print("EMPTY PANEL :",Global.empty_panel)
 				print("Texture name :",texture_rect.name)
