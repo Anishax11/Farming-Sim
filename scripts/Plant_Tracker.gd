@@ -4,7 +4,7 @@ var plant_stages = {}
 var harvested_plants=[]
 var plant_names={}
 func add_to_plant_dictionary(plant_name):
-	
+	print("add_to_plant_dictionary called")
 	
 
 	plant_stages[plant_name] = 0
