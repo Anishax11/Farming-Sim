@@ -156,17 +156,7 @@ offset_bottom = 63.0
 scale = Vector2(0.5, 0.5)
 text = "strawberry"
 
-[node name="ExitButton" parent="VendorMenu" instance=ExtResource("7_yp6eb")]
-z_index = 5
-offset_left = 1117.0
-offset_top = 497.0
-offset_right = 1158.0
-offset_bottom = 528.0
-mouse_filter = 2
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(148, 168)
-scale = Vector2(0.05, 0.05)
+[node name="ExitButton" parent="." instance=ExtResource("7_yp6eb")]
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="button_down" from="VendorMenu/VBoxContainer/strawberry" to="VendorMenu/VBoxContainer/strawberry" method="_on_button_down"]

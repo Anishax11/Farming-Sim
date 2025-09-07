@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/seed_shop_exit_button.gd" id="1_o02g0"]
 
-[node name="Button" type="Button"]
+[node name="ExitButton" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 text = "EXIT"
 script = ExtResource("1_o02g0")
 
