@@ -1,0 +1,72 @@
+[gd_scene load_steps=13 format=3 uid="uid://bin5yuw7k5vj1"]
+
+[ext_resource type="Script" path="res://scenes/farm_scene.gd" id="1_consl"]
+[ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_pwhwc"]
+[ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="2_7rloj"]
+[ext_resource type="PackedScene" uid="uid://cxgldqae4p20u" path="res://scenes/date_label.tscn" id="3_5u3dx"]
+[ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="4_ke8xh"]
+[ext_resource type="PackedScene" uid="uid://s84nx63byva3" path="res://scenes/soil_manager.tscn" id="5_p20ei"]
+[ext_resource type="PackedScene" uid="uid://potiq7c4dk36" path="res://scenes/watercan.tscn" id="6_osxcg"]
+[ext_resource type="Script" path="res://scripts/color_rect.gd" id="7_lttku"]
+[ext_resource type="Texture2D" uid="uid://s5hv4d4mlv3h" path="res://16x16/Sprout Lands - Sprites - Basic pack/Objects/Egg_item.png" id="9_misd0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcv6a"]
+atlas = ExtResource("9_misd0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_exubg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcv6a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gypqm"]
+
+[node name="farm_scene" type="Node2D"]
+script = ExtResource("1_consl")
+
+[node name="Farmer" parent="." instance=ExtResource("1_pwhwc")]
+position = Vector2(109, 509)
+
+[node name="Inventory" parent="Farmer" instance=ExtResource("2_7rloj")]
+visible = false
+
+[node name="DateLabel" parent="Farmer" instance=ExtResource("3_5u3dx")]
+
+[node name="TimeManager" parent="Farmer" instance=ExtResource("4_ke8xh")]
+position = Vector2(208, -134)
+
+[node name="SoilManager" parent="." instance=ExtResource("5_p20ei")]
+
+[node name="watercan" parent="." instance=ExtResource("6_osxcg")]
+position = Vector2(148, 568)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.784, 0.941, 1, 0.077)
+script = ExtResource("7_lttku")
+metadata/_edit_use_anchors_ = true
+
+[node name="EXIT" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EXIT"]
+position = Vector2(67, 576)
+sprite_frames = SubResource("SpriteFrames_exubg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EXIT"]
+position = Vector2(67, 576)
+shape = SubResource("CircleShape2D_gypqm")
+
+[connection signal="input_event" from="EXIT" to="." method="_on_exit_input_event"]

@@ -105,7 +105,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				Global.tilled_soil.erase(get_parent().name)
 				for i in range(Global.planted_soil.size()):
 					print(Global.planted_soil[i])
-				get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(string_part,texture)
+				get_node("/root/farm_scene/Farmer/Inventory").add_to_inventory(string_part,texture)
 				get_parent().planted=false
 				print("get_parent().planted:",get_parent().planted)
 				PlantTracker.harvested_plants.append(self.name)

@@ -8,21 +8,25 @@ var minutes=0
 var color_rect
 var date_label
 var game
+
 func _ready() -> void:
-	
+	print("PArent:",get_parent().get_parent().name)
 	game=get_node("/root/Game")
-	date_label=get_node("/root/Game/farm_scene/Farmer/DateLabel")
+	date_label=get_node("/root/Game/frontyard_scene/Farmer/DateLabel")
 	get_node("Label").text=("Time passed:"+str(current_time))
-	color_rect=get_node("/root/Game/farm_scene/CanvasLayer/ColorRect") 
-	if Global.load_farm==true:
+	color_rect=get_parent().get_parent().get_node("CanvasLayer/ColorRect") 
+	if color_rect==null:
+		print("COLOR RECT IS NULL")
+	if Global.load_farm==true or Global.load_frontyard==true:
 		
 		current_time=Global.current_time
 		time_to_change_tint=Global.time_to_change_tint
 		color_rect.i=Global.tint_index
 		
 		color_rect.adjust_tint()
+	else:
+		print("Load farm is false")
 		
-		#
 	
 func _physics_process(delta: float) -> void:
 	

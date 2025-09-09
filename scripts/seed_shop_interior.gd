@@ -9,8 +9,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			get_node("VendorMenu").visible=!get_node("VendorMenu").visible
 
 
-#func _ready() -> void:
-	#print("READT")
+func _ready() -> void:
+	print(get_path())
 	
 #
 	##get_node("VendorMenu").mouse_filter = Control.MOUSE_FILTER_IGNORE

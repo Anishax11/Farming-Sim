@@ -8,9 +8,9 @@ var x
 var y
 var id=1
 func _ready() -> void:
+	print("SOIL MANAGeR")
 	
-	
-	var inventory=get_node("/root/Game/farm_scene/Farmer/Inventory")
+	var inventory=get_node("/root/farm_scene/Farmer/Inventory")
 	for y in range(448,768,+15):
 		for x in range(-192, 380, +15):
 			
@@ -58,7 +58,7 @@ func _ready() -> void:
 				var string=Global.inventory_items[i][j]
 				
 				if string!="":
-					var node=get_node("/root/Game/farm_scene/"+string)		
+					var node=get_node("/root/farm_scene/"+string)		
 					if node!=null:
 						node.queue_free()			
 					Global.inventory_items[i][j]=""
@@ -68,7 +68,7 @@ func _ready() -> void:
 			#print("runnihng loop watered plants:"+Global.watered_plants[0])
 			if Global.watered_plants[i]!=null:
 				#print("watered plnts not nuill")
-				var soil=get_node("/root/Game/farm_scene/SoilManager/"+Global.watered_plants[i])
+				var soil=get_node("/root/farm_scene/SoilManager/"+Global.watered_plants[i])
 				soil.watered=true
 				#print(soil.name+" Watered")
 				var plant_found=false
@@ -111,7 +111,7 @@ func _ready() -> void:
 				break
 				
 		for i in range (0,Global.planted_soil.size()):#Used to load back already grown plant(current Stage ) into scene,after this plant is grown to higher stages if watered 
-			var soil=get_node("/root/Game/farm_scene/SoilManager/"+Global.planted_soil[i])	
+			var soil=get_node("/root/farm_scene/SoilManager/"+Global.planted_soil[i])	
 			print("LAST plant :",Global.last_plant_number)
 			for j in range(1,Global.last_plant_number + 1):
 			
@@ -151,7 +151,7 @@ func _ready() -> void:
 								
 								if stage==3:
 									soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("potato_stage_"+str(stage))
-									soil.get_node("potato"+str(j)).syage=3
+									soil.get_node("potato"+str(j)).stage=3
 								else:
 									soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("stage_"+str(stage))
 								#print(soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").animation)

@@ -1,5 +1,5 @@
 extends Area2D
-
+var FARM_SCENE = load("res://scenes/farm_scene.tscn")
 var game = load("res://scenes/game.tscn")
 var sleep_button
 var dont_sleep_button
@@ -23,7 +23,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 #EXIT BUTTON
 func _on_button_button_down() -> void:
 	Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect_i)
-	await get_tree().change_scene_to_packed(game)
+	await get_tree().change_scene_to_packed(FARM_SCENE)
 	Global.load_farm=true
 
 #SLEEP BUTTON

@@ -15,7 +15,7 @@ func _ready() -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT:
-		player=get_node("/root/Game/farm_scene/Farmer")
+		player=get_node("/root/farm_scene/Farmer")
 		distance=position.distance_to(player.position)
 		if fake_input_called==true:
 			distance=0
@@ -25,7 +25,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			while texture_rect == null:
 				await get_tree().process_frame
 					
-			get_node("/root/Game/farm_scene/Farmer/Inventory").add_to_inventory(self.name,$TextureRect.texture)
+			get_node("/root/farm_scene/Farmer/Inventory").add_to_inventory(self.name,$TextureRect.texture)
 			$TextureRect.name="watercan"
 			empty_panel=Global.get_empty_panel()
 			texture_rect.scale.x=0.016

@@ -35,6 +35,7 @@ const HIGHLIGHTED_PANEL = preload("res://16x16/Sprites/highlighted_panel_image.j
 const INVENTORY_SLOT = preload("res://16x16/Sprites/inventorySlot.png")
 var equipped_item
 var last_plant_number
+var load_frontyard=false
 func get_direction(direction) :
 	
 	player_direction=direction
@@ -47,7 +48,7 @@ func move_item(panel_number,item_name):
 	var prev_panel_path
 	var final_panel_path
 	#print("FUNC Item",item_name,panel_number)
-	var inv=get_node("/root/Game/farm_scene/Farmer/Inventory")
+	var inv=get_node("/root/farm_scene/Farmer/Inventory")
 	#print(inv.inventory_items)
 	#Gets texture node from initial panel
 	#if get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)+"/texture")!=null:
@@ -55,22 +56,31 @@ func move_item(panel_number,item_name):
 	#print("panel_number",panel_number)
 	#print("item_name",item_name)
 	#
-	if current_scene==get_node("/root/Game"):
-		prev_panel_path="/root/Game/farm_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(panel_number)
+	if current_scene==get_node("/root/farm_scene"):
+		prev_panel_path="/root/farm_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(panel_number)
 		if prev_panel_path==null:
 			print("prev_panel_path is null")
 		texture_rect=get_node(prev_panel_path+"/"+item_name)
 		
-	else:
+	elif current_scene==get_node("/root/house_interior") :
 		prev_panel_path="/root/house_interior/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)
 		texture_rect=get_node(prev_panel_path+"/"+item_name)
 		
+	elif current_scene==get_node("/root/Game") :
+		prev_panel_path="/root/Game/frontyard_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)
+		texture_rect=get_node(prev_panel_path+"/"+item_name)
 		
 	var final_panel=round(texture_rect.position.y / 40)*5+round(texture_rect.position.x / 40)+panel_number
-	if current_scene==get_node("/root/Game"):
-		final_panel_path="/root/Game/farm_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)
-	else:
+	
+	if current_scene==get_node("/root/farm_scene"):
+		final_panel_path="/root/farm_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)
+	
+	elif current_scene==get_node("/root/house_interior") :
 		final_panel_path="/root/house_interior/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)
+	
+	elif current_scene==get_node("/root/Game") :
+		final_panel_path="/root/Game/frontyard_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)
+		
 	#removes texture child from initial panel
 	if item_out_of_inv==true:
 		
@@ -97,7 +107,7 @@ func move_item(panel_number,item_name):
 	#print("Y:",texture_rect.position.y)
 	#print("y increment:",round(texture_rect.position.y / 40)*5)
 	#print("Finale panel:",final_panel)
-	if get_node("/root/Game/farm_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)+item_name)==null and final_panel>0 and final_panel<16:
+	if get_node("/root/farm_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)+item_name)==null and final_panel>0 and final_panel<16:
 		print("NOT OCCUPIED")
 		if final_panel_path!=prev_panel_path:
 			print("prev panel seed type:",get_node(prev_panel_path).seed_type)
@@ -140,7 +150,7 @@ var plant_number=1
 var plant_stages_index=0
 
 func grow_plant(soil_name):
-	var soil =get_node("/root/Game/farm_scene/SoilManager/"+soil_name)
+	var soil =get_node("/root/farm_scene/SoilManager/"+soil_name)
 	var plant=PLANT.instantiate()
 	plant.scale=Vector2(0.2,0.2)
 	#print("Last plnt index in dic:",PlantTracker.plant_stages.size()-1)
@@ -151,7 +161,7 @@ func grow_plant(soil_name):
 
 	#soil.remove_child.soil.get_node("AnimatedSprite2D")
 	#get_node("/root/Game/farm_scene/").add_child(plant)
-	if get_node("/root/Game/farm_scene/"):
+	if get_node("/root/farm_scene/"):
 		#get_node("/root/Game/farm_scene/").add_child(plant)
 		
 		soil.add_child(plant)
