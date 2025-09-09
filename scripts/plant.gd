@@ -13,6 +13,10 @@ func _ready() -> void:
 	string_part=regex.sub(text,"",true)#store string parts by replacing no.s with ""
 	print("Plant name:",text)
 	print("Plant type:",string_part)
+	var match = regex.search(text)
+	Global.last_plant_number = int(match.get_string())
+	
+	
 	#if string_part=="potato":
 		#animated_sprite_2d.scale.y=1.5
 	#print("Plant parent:",get_parent())

@@ -34,7 +34,7 @@ const PLANT = preload("res://scenes/plant.tscn")
 const HIGHLIGHTED_PANEL = preload("res://16x16/Sprites/highlighted_panel_image.jpg")
 const INVENTORY_SLOT = preload("res://16x16/Sprites/inventorySlot.png")
 var equipped_item
-
+var last_plant_number
 func get_direction(direction) :
 	
 	player_direction=direction

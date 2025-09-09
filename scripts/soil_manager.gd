@@ -112,7 +112,9 @@ func _ready() -> void:
 				
 		for i in range (0,Global.planted_soil.size()):#Used to load back already grown plant(current Stage ) into scene,after this plant is grown to higher stages if watered 
 			var soil=get_node("/root/Game/farm_scene/SoilManager/"+Global.planted_soil[i])	
-			for j in range(1,PlantTracker.plant_stages.size()+1):
+			print("LAST plant :",Global.last_plant_number)
+			for j in range(1,Global.last_plant_number + 1):
+			
 					#print("plant_stages:",PlantTracker.plant_stages)
 					#print("J:",j)
 					#print("Soil :",soil)
@@ -129,6 +131,7 @@ func _ready() -> void:
 								
 								if stage==3:
 									soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").play("strawberry_stage_"+str(stage))
+									soil.get_node("strawberry"+str(j)).stage=3
 								else:
 									soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").play("stage_"+str(stage))
 								#print(soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").animation)
@@ -148,6 +151,7 @@ func _ready() -> void:
 								
 								if stage==3:
 									soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("potato_stage_"+str(stage))
+									soil.get_node("potato"+str(j)).syage=3
 								else:
 									soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("stage_"+str(stage))
 								#print(soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").animation)
