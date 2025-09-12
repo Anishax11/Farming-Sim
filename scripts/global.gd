@@ -189,8 +189,9 @@ func save_tilled_soil(soil,animation):
 		
 		
 func update_day_count():
-	#print("Updated day")
+			#print("Updated day")
 	day_count+=1
+
 	day_passed=true
 
 func plant_watered(node):

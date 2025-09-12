@@ -66,7 +66,7 @@ func _ready() -> void:
 		
 		for i in range((Global.watered_plants).size()):
 			#print("runnihng loop watered plants:"+Global.watered_plants[0])
-			if Global.watered_plants[i]!=null:
+			if Global.watered_plants[i]!=null and Global.day_passed==true:
 				#print("watered plnts not nuill")
 				var soil=get_node("/root/farm_scene/SoilManager/"+Global.watered_plants[i])
 				soil.watered=true
@@ -157,9 +157,11 @@ func _ready() -> void:
 								#print(soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").animation)
 								break	
 							
-		Global.day_passed=false		
+			
 		Global.load_farm=false	
-		Global.watered_plants.clear()		
+		if Global.day_passed==true:
+			Global.watered_plants.clear()
+			Global.day_passed=false			
 			
 func till_soil(soil,soil_animation):
 	

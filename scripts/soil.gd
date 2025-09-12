@@ -1,5 +1,6 @@
 extends Area2D
 
+# after loading farm scene seed type is set to null
 
 class_name Soil
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -129,6 +130,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		
 			
 			#CODE FOR PLANTATION
+			
 			#print("panel.seeds_equipped :",panel.seeds_equipped)
 			#print("DIST:",distance)
 			#print("SEEDS COUNT:",inventory.seeds_count)

@@ -2,8 +2,7 @@ extends Node2D
 var time_manager
 var FARM_SCENE = load("res://scenes/farm_scene.tscn")
 
-
-#ADD CODE TO LOAD INV ITEMS  
+  
 func _ready() -> void:
 	var inventory=get_node("Farmer/Inventory")
 	for i in range (3):
