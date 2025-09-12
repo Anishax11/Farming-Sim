@@ -4,7 +4,16 @@ var FARM_SCENE = load("res://scenes/farm_scene.tscn")
 
 
 #ADD CODE TO LOAD INV ITEMS  
-
+func _ready() -> void:
+	var inventory=get_node("Farmer/Inventory")
+	for i in range (3):
+		for j in range (5):
+			var string=Global.inventory_items[i][j]
+				
+			if string!="":
+				Global.inventory_items[i][j]=""
+				inventory.add_to_inventory(string,null)
+				
 func _on_farm_entrance_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
