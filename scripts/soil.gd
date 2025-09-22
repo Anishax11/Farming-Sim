@@ -146,7 +146,18 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					var current = inventory.get(count)
 					inventory.set(count, current - 1)
 					#print("Seeds count:",inventory.seeds_count)
-					player.get_node("AnimatedSprite2D").play("seeds")
+					if Global.player_direction==Vector2(1,0):
+						print("Facing right")
+						player.get_node("AnimatedSprite2D").play("seeds_right")
+					
+					elif Global.player_direction==Vector2(-1,0):
+							print("Facing left")
+							player.get_node("AnimatedSprite2D").play("seeds_left")
+						
+					elif Global.player_direction==Vector2(0,1):
+						
+						player.get_node("AnimatedSprite2D").play("seeds_front")
+					
 					if animated_sprite_2d.animation=="tilled":
 						animated_sprite_2d.play("circle_seeds")
 					elif animated_sprite_2d.animation=="rect_tilled":

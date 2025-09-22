@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://bulruc5in76aq"]
+[gd_scene load_steps=31 format=3 uid="uid://bulruc5in76aq"]
 
 [ext_resource type="Script" path="res://scripts/farmer.gd" id="1_kssk7"]
 [ext_resource type="Texture2D" uid="uid://ct8kkbqy7hk43" path="res://MV/characters/_srw_free_farm_character_shovel.png" id="3_cdl31"]
 [ext_resource type="Texture2D" uid="uid://0mndo2oyseyb" path="res://MV/characters/_srw_free_farm_character_walk_frame16x20.png" id="3_i0v8y"]
-[ext_resource type="Texture2D" uid="uid://ch4a8huxe0kkq" path="res://16x16/Sprites/resized_49x64.png" id="4_o00i3"]
+[ext_resource type="Texture2D" uid="uid://dxv0qioxwqtde" path="res://16x16/Sprites/farmer_seeds_front.png" id="4_wdbki"]
+[ext_resource type="Texture2D" uid="uid://dtst4d7iek83i" path="res://16x16/Sprites/farmer_seeds_left.png" id="5_anfnw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uauli"]
 atlas = ExtResource("3_i0v8y")
@@ -89,9 +90,13 @@ region = Rect2(48, 120, 48, 60)
 atlas = ExtResource("3_i0v8y")
 region = Rect2(96, 120, 48, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eo5ne"]
-atlas = ExtResource("4_o00i3")
-region = Rect2(0, 0, 28, 46)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wdvn"]
+atlas = ExtResource("4_wdbki")
+region = Rect2(0, 0, 38, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijghu"]
+atlas = ExtResource("5_anfnw")
+region = Rect2(0, 0, 38, 43)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yhg64"]
 animations = [{
@@ -123,7 +128,10 @@ animations = [{
 "name": &"forward",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0qng")
+}],
 "loop": false,
 "name": &"hoe_back",
 "speed": 5.0
@@ -198,12 +206,33 @@ animations = [{
 "name": &"right",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"seeds_back",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eo5ne")
+"texture": SubResource("AtlasTexture_3wdvn")
 }],
 "loop": false,
-"name": &"seeds",
+"name": &"seeds_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijghu")
+}],
+"loop": true,
+"name": &"seeds_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_anfnw")
+}],
+"loop": true,
+"name": &"seeds_right",
 "speed": 5.0
 }]
 
@@ -220,9 +249,7 @@ script = ExtResource("1_kssk7")
 position = Vector2(0, -9)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_yhg64")
-animation = &"right"
-frame = 2
-frame_progress = 1.0
+animation = &"seeds_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
