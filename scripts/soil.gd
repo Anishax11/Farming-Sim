@@ -31,7 +31,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		
 		if event.pressed and get_node("Grass")==null:
-			print("INPUT EVENT TRIGGERED")
+			
 			
 			var soil_pos=Vector2( int(position.x / 8) * 8,int(position.y / 8) * 8 )
 			var player=get_node("/root/farm_scene/Farmer")
