@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://fw0la85vqc7p"]
 
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_wmooi"]
-[ext_resource type="Texture2D" uid="uid://dsisi27komgrl" path="res://16x16/Sprites/house sprite.png" id="2_xgvps"]
+[ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="2_b8vmi"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_51do4"]
-atlas = ExtResource("2_xgvps")
-region = Rect2(0, 0, 76, 89)
+[sub_resource type="AtlasTexture" id="AtlasTexture_062st"]
+atlas = ExtResource("2_b8vmi")
+region = Rect2(882, 96, 98, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1x8gw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_51do4")
+"texture": SubResource("AtlasTexture_062st")
 }],
 "loop": true,
 "name": &"default",
@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yne8"]
-size = Vector2(23, 22.5)
+size = Vector2(15.25, 19.25)
 
 [node name="House" type="Area2D"]
 position = Vector2(-2, 0)
@@ -30,7 +30,7 @@ script = ExtResource("1_wmooi")
 sprite_frames = SubResource("SpriteFrames_1x8gw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-16.5, 31.75)
+position = Vector2(-12.375, 24.375)
 shape = SubResource("RectangleShape2D_2yne8")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
