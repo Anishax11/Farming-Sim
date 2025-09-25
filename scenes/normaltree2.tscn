@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg6sbm3jtalyf"]
+
+[ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="1_chtyj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx6h6"]
+atlas = ExtResource("1_chtyj")
+region = Rect2(0, 69, 81, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i21lu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx6h6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NormalTree2" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i21lu")
+autoplay = "default"

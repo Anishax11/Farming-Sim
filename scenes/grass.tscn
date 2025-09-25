@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://bqf55ab0jubbx"]
 
 [ext_resource type="Script" path="res://scripts/grass.gd" id="1_38byu"]
-[ext_resource type="Texture2D" uid="uid://drnyvaddvkv1f" path="res://16x16/Sprout Lands - Sprites - Basic pack/Objects/Simple_Milk_and_grass_item.png" id="2_dmjvy"]
+[ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="2_twytt"]
 [ext_resource type="Texture2D" uid="uid://omiiof77xhhd" path="res://16x16/Sprites/create soil tile.png" id="3_xbvfr"]
 [ext_resource type="Texture2D" uid="uid://da4gaksqh4jto" path="res://16x16/Sprites/ChatGPT Image Jun 14, 2025, 05_14_44 PM.png" id="4_8vbsn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e0fjn"]
-atlas = ExtResource("2_dmjvy")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct7le"]
+atlas = ExtResource("2_twytt")
+region = Rect2(76, 120, 38, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iked1"]
 atlas = ExtResource("3_xbvfr")
@@ -21,7 +21,7 @@ region = Rect2(304, 304, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e0fjn")
+"texture": SubResource("AtlasTexture_ct7le")
 }],
 "loop": false,
 "name": &"Green grass",
@@ -49,12 +49,13 @@ size = Vector2(16, 16)
 
 [node name="Grass" type="Area2D"]
 z_index = 1
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_38byu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_maq8k")
-animation = &"Green grass"
+animation = &"untilled soil"
 autoplay = "Green grass"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,60 +1,34 @@
-[gd_scene load_steps=9 format=3 uid="uid://clf70pvfbgb7r"]
+[gd_scene load_steps=6 format=3 uid="uid://clf70pvfbgb7r"]
 
 [ext_resource type="Script" path="res://scripts/tree.gd" id="1_3xowh"]
-[ext_resource type="Texture2D" uid="uid://d33g7y13jydfa" path="res://16x16/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="1_m7so7"]
+[ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="2_ij4k2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rlmlg"]
-atlas = ExtResource("1_m7so7")
-region = Rect2(0, 0, 17, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e3672"]
-atlas = ExtResource("1_m7so7")
-region = Rect2(0, 64, 32, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0n5a4"]
-atlas = ExtResource("1_m7so7")
-region = Rect2(0, 0, 17, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wrfr3"]
-atlas = ExtResource("1_m7so7")
-region = Rect2(52, 0, 26, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_32b80"]
+atlas = ExtResource("2_ij4k2")
+region = Rect2(65, 0, 65, 68)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5o1w1"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rlmlg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e3672")
-}],
+"frames": [],
 "loop": false,
 "name": &"fallen tree",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0n5a4")
+"texture": SubResource("AtlasTexture_32b80")
 }],
 "loop": false,
 "name": &"standing",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wrfr3")
-}],
-"loop": true,
-"name": &"thick tree",
-"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbpes"]
-size = Vector2(9, 9)
+size = Vector2(9, 17.8333)
 
 [node name="Tree" type="Area2D"]
 z_index = 2
-scale = Vector2(1.5, 1.5)
+y_sort_enabled = true
 script = ExtResource("1_3xowh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -63,6 +37,6 @@ animation = &"standing"
 autoplay = "standing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.97364e-07, 10.6667)
+position = Vector2(-2.84217e-14, 24.8667)
 scale = Vector2(1, 0.8)
 shape = SubResource("RectangleShape2D_bbpes")

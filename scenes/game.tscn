@@ -10,7 +10,7 @@ script = ExtResource("1_icycs")
 
 [node name="Stall" parent="." instance=ExtResource("2_5n1iv")]
 z_index = 1
-position = Vector2(331, 478)
+position = Vector2(379, 487)
 
 [node name="SeedShopInterior" parent="Stall" instance=ExtResource("21_7jq4m")]
 visible = false
