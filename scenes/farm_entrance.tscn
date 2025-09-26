@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://drxudcb0kqmyk"]
+
+[ext_resource type="Script" path="res://scenes/go_to_farm.gd" id="1_tmi2l"]
+[ext_resource type="Texture2D" uid="uid://d1fvc30fxsmrq" path="res://16x16/Sprites/Greenhouse.png" id="2_33uy1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxafg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaoib"]
+atlas = ExtResource("2_33uy1")
+region = Rect2(0, 0, 224, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8ko2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gaoib")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Farm_Entrance" type="Area2D"]
+position = Vector2(78, 600)
+script = ExtResource("1_tmi2l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uxafg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t8ko2")

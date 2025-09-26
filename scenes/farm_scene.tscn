@@ -8,17 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://s84nx63byva3" path="res://scenes/soil_manager.tscn" id="5_p20ei"]
 [ext_resource type="PackedScene" uid="uid://potiq7c4dk36" path="res://scenes/watercan.tscn" id="6_osxcg"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="7_lttku"]
-[ext_resource type="Texture2D" uid="uid://s5hv4d4mlv3h" path="res://16x16/Sprout Lands - Sprites - Basic pack/Objects/Egg_item.png" id="9_misd0"]
+[ext_resource type="Texture2D" uid="uid://d1fvc30fxsmrq" path="res://16x16/Sprites/Greenhouse.png" id="9_o4ijn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xcv6a"]
-atlas = ExtResource("9_misd0")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx3q2"]
+atlas = ExtResource("9_o4ijn")
+region = Rect2(0, 0, 224, 320)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_exubg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xcv6a")
+"texture": SubResource("AtlasTexture_bx3q2")
 }],
 "loop": true,
 "name": &"default",
