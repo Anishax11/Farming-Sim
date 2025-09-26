@@ -11,11 +11,11 @@ func _ready() -> void:
 	print("SOIL MANAGeR")
 	
 	var inventory=get_node("/root/farm_scene/Farmer/Inventory")
-	for y in range(448,768,+15):
-		for x in range(-192, 380, +15):
+	for y in range(480,950,+15):
+		for x in range(-222, 351, +15):
+			#if (y<630 and x>224) or (y<630 and x<-24) or (y>=628):
+			#if x>=225 and x<=350 :
 			
-			if (y<630 and x>224) or (y<630 and x<-24) or (y>=628):
-				
 				
 				var soil=SOIL.instantiate()
 				soil.position=Vector2(x,y)

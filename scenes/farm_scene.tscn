@@ -8,17 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://s84nx63byva3" path="res://scenes/soil_manager.tscn" id="5_p20ei"]
 [ext_resource type="PackedScene" uid="uid://potiq7c4dk36" path="res://scenes/watercan.tscn" id="6_osxcg"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="7_lttku"]
-[ext_resource type="Texture2D" uid="uid://d1fvc30fxsmrq" path="res://16x16/Sprites/Greenhouse.png" id="9_o4ijn"]
+[ext_resource type="Texture2D" uid="uid://sivsr2wlqb8c" path="res://16x16/Sprites/Empty_Greenhouse.png" id="9_ch212"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bx3q2"]
-atlas = ExtResource("9_o4ijn")
-region = Rect2(0, 0, 224, 320)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh6hu"]
+atlas = ExtResource("9_ch212")
+region = Rect2(0, 0, 911, 1130)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_exubg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bx3q2")
+"texture": SubResource("AtlasTexture_mh6hu")
 }],
 "loop": true,
 "name": &"default",
@@ -26,6 +26,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gypqm"]
+radius = 49.0102
 
 [node name="farm_scene" type="Node2D"]
 script = ExtResource("1_consl")
@@ -62,11 +63,12 @@ metadata/_edit_use_anchors_ = true
 [node name="EXIT" type="Area2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EXIT"]
+z_index = -2
 position = Vector2(67, 576)
 sprite_frames = SubResource("SpriteFrames_exubg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EXIT"]
-position = Vector2(67, 576)
+position = Vector2(92, 1100)
 shape = SubResource("CircleShape2D_gypqm")
 
 [connection signal="input_event" from="EXIT" to="." method="_on_exit_input_event"]

@@ -68,12 +68,16 @@ func _physics_process(delta: float) -> void:
 		#if direction.y==1:
 			#rotation_degrees=45
 			#print("MOving down right")
-			
+		
 	position+=speed*direction*delta
 	move_and_slide()
 	
 func _input(event: InputEvent) -> void:
 	direction=Vector2.ZERO
+	if Input.is_action_pressed("Shift"):
+		speed=120
+	else:
+		speed=70	
 	if Input.is_action_pressed("Up"):
 		direction.y-=1
 		Global.get_direction(direction)

@@ -40,7 +40,7 @@ var load_frontyard=false
 func get_direction(direction) :
 	
 	player_direction=direction
-	print("player_direction",player_direction)
+	#print("player_direction",player_direction)
 
 func move_item(panel_number,item_name):
 	print("MOve item called")
