@@ -1,16 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7qyr4ni3eb6q"]
+[gd_scene load_steps=5 format=3 uid="uid://b7qyr4ni3eb6q"]
 
 [ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="1_lwtl8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qx6h6"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xso26"]
+size = Vector2(12, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbbxa"]
 atlas = ExtResource("1_lwtl8")
-region = Rect2(0, 69, 81, 69)
+region = Rect2(1, 73, 79, 71)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i21lu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qx6h6")
+"texture": SubResource("AtlasTexture_mbbxa")
 }],
 "loop": true,
 "name": &"default",
@@ -18,8 +21,11 @@ animations = [{
 }]
 
 [node name="NormalTree2" type="Area2D"]
+y_sort_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 17.5)
+shape = SubResource("RectangleShape2D_xso26")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i21lu")

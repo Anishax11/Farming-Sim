@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn32g7o32l0ug"]
+
+[ext_resource type="Texture2D" uid="uid://b5220yrifmyij" path="res://16x16/Sprites/Church.png" id="1_vclqm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h755"]
+atlas = ExtResource("1_vclqm")
+region = Rect2(0, 0, 1024, 1536)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8d2jx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h755")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wqxr7"]
+radius = 109.0
+height = 218.0
+
+[node name="Church" type="Area2D"]
+z_index = -1
+y_sort_enabled = true
+scale = Vector2(0.2, 0.2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8d2jx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 266)
+shape = SubResource("CapsuleShape2D_wqxr7")
