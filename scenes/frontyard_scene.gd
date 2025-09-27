@@ -1,6 +1,6 @@
 extends Node2D
 var time_manager
-
+const MARKET_PLACE = preload("res://scenes/market_place.tscn")
   
 func _ready() -> void:
 	var inventory=get_node("Farmer/Inventory")
@@ -21,3 +21,11 @@ func _ready() -> void:
 			#Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i)
 			#await get_tree().change_scene_to_packed(FARM_SCENE)
 			#Global.load_farm=true
+
+
+
+
+
+func _on_market_entrance_body_entered(body: Node2D) -> void:
+	print("REAChed MArket Entrance")
+	await get_tree().change_scene_to_packed(MARKET_PLACE)

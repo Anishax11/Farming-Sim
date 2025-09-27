@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dj0hkgwoix4at"]
+[gd_scene load_steps=48 format=3 uid="uid://dj0hkgwoix4at"]
 
 [ext_resource type="Script" path="res://scenes/frontyard_scene.gd" id="1_3rtkc"]
 [ext_resource type="Texture2D" uid="uid://bpbn2trmc2git" path="res://MV/tilesets/_srw_tileset_0.png" id="1_ef1hy"]
@@ -10328,6 +10328,9 @@ sources/13 = SubResource("TileSetAtlasSource_d2ydi")
 sources/14 = SubResource("TileSetAtlasSource_kty03")
 sources/15 = SubResource("TileSetAtlasSource_28osh")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c6j04"]
+distance = -35.0
+
 [node name="frontyard_scene" type="Node2D"]
 script = ExtResource("1_3rtkc")
 
@@ -10426,3 +10429,12 @@ position = Vector2(-319, 526)
 
 [node name="Church" parent="." instance=ExtResource("29_exdj4")]
 position = Vector2(-260, 595)
+
+[node name="MarketEntrance" type="Area2D" parent="."]
+position = Vector2(133, -370)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarketEntrance"]
+position = Vector2(-130, 1189)
+shape = SubResource("WorldBoundaryShape2D_c6j04")
+
+[connection signal="body_entered" from="MarketEntrance" to="." method="_on_market_entrance_body_entered"]

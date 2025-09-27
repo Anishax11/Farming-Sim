@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://btkb0nllfmbk7"]
-
-[ext_resource type="PackedScene" uid="uid://cf0mnr6sfm6vn" path="res://scenes/stall.tscn" id="1_ir3ad"]
-
-[node name="MerketPlace" type="Node2D"]
-
-[node name="Stall" parent="." instance=ExtResource("1_ir3ad")]

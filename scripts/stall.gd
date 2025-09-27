@@ -7,7 +7,7 @@ func _ready():
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
-		get_parent().get_node("frontyard_scene").visible=false
+		#get_parent().get_node("frontyard_scene").visible=false
 		get_node("SeedShopInterior").visible=true
 		#var seeds=SEEDS.instantiate()
 		#seeds.scale=Vector2(5,5)
