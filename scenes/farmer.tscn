@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bulruc5in76aq"]
+[gd_scene load_steps=34 format=3 uid="uid://bulruc5in76aq"]
 
 [ext_resource type="Script" path="res://scripts/farmer.gd" id="1_kssk7"]
 [ext_resource type="Texture2D" uid="uid://ct8kkbqy7hk43" path="res://MV/characters/_srw_free_farm_character_shovel.png" id="3_cdl31"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dxv0qioxwqtde" path="res://16x16/Sprites/farmer_seeds_front.png" id="4_wdbki"]
 [ext_resource type="Texture2D" uid="uid://dtst4d7iek83i" path="res://16x16/Sprites/farmer_seeds_left.png" id="5_anfnw"]
 [ext_resource type="Texture2D" uid="uid://k8fl3cmcgjuv" path="res://16x16/Sprites/farmer_seeds_right.png" id="6_45prl"]
+[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="7_3irru"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uauli"]
 atlas = ExtResource("3_i0v8y")
@@ -261,4 +262,5 @@ position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_ip8u5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(4, 4)
+script = ExtResource("7_3irru")

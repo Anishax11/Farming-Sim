@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jdjn"]
 size = Vector2(220, 460)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vscvn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v75qq"]
 texture = ExtResource("2_xf5wp")
 0:0/0 = 0
 1:0/0 = 0
@@ -3316,7 +3316,7 @@ texture = ExtResource("2_xf5wp")
 57:56/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_4blmg"]
-sources/0 = SubResource("TileSetAtlasSource_vscvn")
+sources/0 = SubResource("TileSetAtlasSource_v75qq")
 
 [node name="Stall" type="Area2D"]
 scale = Vector2(0.1, 0.1)

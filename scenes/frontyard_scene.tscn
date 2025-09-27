@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dj0hkgwoix4at"]
+[gd_scene load_steps=47 format=3 uid="uid://dj0hkgwoix4at"]
 
 [ext_resource type="Script" path="res://scenes/frontyard_scene.gd" id="1_3rtkc"]
 [ext_resource type="Texture2D" uid="uid://bpbn2trmc2git" path="res://MV/tilesets/_srw_tileset_0.png" id="1_ef1hy"]
@@ -29,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://cg6sbm3jtalyf" path="res://scenes/normaltree2.tscn" id="23_2dyqx"]
 [ext_resource type="PackedScene" uid="uid://drxudcb0kqmyk" path="res://scenes/farm_entrance.tscn" id="24_2lieq"]
 [ext_resource type="PackedScene" uid="uid://bn32g7o32l0ug" path="res://scenes/church.tscn" id="29_exdj4"]
-[ext_resource type="PackedScene" uid="uid://cf0mnr6sfm6vn" path="res://scenes/stall.tscn" id="30_fh5rn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugn7j"]
 texture = ExtResource("1_ef1hy")
@@ -10427,6 +10426,3 @@ position = Vector2(-319, 526)
 
 [node name="Church" parent="." instance=ExtResource("29_exdj4")]
 position = Vector2(-260, 595)
-
-[node name="Stall" parent="." instance=ExtResource("30_fh5rn")]
-position = Vector2(586, 873)
