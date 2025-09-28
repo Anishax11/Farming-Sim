@@ -1,7 +1,7 @@
 extends Node2D
 var time_manager
 const MARKET_PLACE = preload("res://scenes/market_place.tscn")
-  
+
 func _ready() -> void:
 	var inventory=get_node("Farmer/Inventory")
 	for i in range (3):
@@ -27,5 +27,6 @@ func _ready() -> void:
 
 
 func _on_market_entrance_body_entered(body: Node2D) -> void:
-	print("REAChed MArket Entrance")
-	await get_tree().change_scene_to_packed(MARKET_PLACE)
+	if Global.player_direction.y==1:
+		print("REAChed MArket Entrance")
+		await get_tree().change_scene_to_packed(MARKET_PLACE)

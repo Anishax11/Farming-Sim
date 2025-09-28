@@ -12,7 +12,7 @@ script = ExtResource("1_icycs")
 z_index = 1
 position = Vector2(379, 487)
 
-[node name="SeedShopInterior" parent="Stall" instance=ExtResource("21_7jq4m")]
+[node name="SeedShopInterior2" parent="Stall" instance=ExtResource("21_7jq4m")]
 visible = false
 position = Vector2(-3760, -1530)
 scale = Vector2(11, 8)

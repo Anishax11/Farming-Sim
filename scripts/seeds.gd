@@ -16,7 +16,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		#get_node("Seed_Button2").visible=true
 		if seed_type!=null:
 			print("SEED TYPE :",seed_type)
-			player=get_node("/root/Game/farm_scene/Farmer")
+			player=get_node("/root/MarketPlace/Farmer")
 			#distance=global_position.distance_to(player.position)
 			#if fake_input_called==true:
 				#distance=0
@@ -31,7 +31,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					await get_tree().process_frame
 		   		
 				
-				get_node("/root/Game/frontyard_scene/Farmer/Inventory").add_to_inventory(seed_type+"_seeds",Global.strawberry_image)
+				get_node("/root/MarketPlace/Farmer/Inventory").add_to_inventory(seed_type+"_seeds",Global.strawberry_image)
 				
 				empty_panel=Global.get_empty_panel()
 				texture_rect.name="seeds"
