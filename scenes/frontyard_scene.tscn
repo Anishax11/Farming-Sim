@@ -10353,9 +10353,13 @@ position = Vector2(109, 509)
 visible = false
 
 [node name="DateLabel" parent="Farmer" instance=ExtResource("14_7w4h1")]
+offset_left = 159.0
+offset_top = -124.0
+offset_right = 202.0
+offset_bottom = -101.0
 
 [node name="TimeManager" parent="Farmer" instance=ExtResource("15_3dyv7")]
-position = Vector2(208, -134)
+position = Vector2(149, -94)
 
 [node name="Farm_Entrance" parent="." instance=ExtResource("24_2lieq")]
 position = Vector2(-465, 535)

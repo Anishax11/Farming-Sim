@@ -266,7 +266,25 @@ zoom = Vector2(4, 4)
 script = ExtResource("7_3irru")
 
 [node name="CoinLabel" type="Label" parent="."]
-offset_left = -41.0
-offset_top = -39.0
-offset_right = 51.0
-offset_bottom = -16.0
+offset_left = -235.0
+offset_top = -128.0
+offset_right = -143.0
+offset_bottom = -105.0
+scale = Vector2(0.5, 1)
+
+[node name="SaveButton" type="Button" parent="."]
+offset_left = -235.0
+offset_top = -105.0
+offset_right = -191.0
+offset_bottom = -74.0
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="."]
+offset_left = -233.0
+offset_top = -71.0
+offset_right = -190.0
+offset_bottom = -49.0
+text = "Load"
+
+[connection signal="button_down" from="SaveButton" to="." method="_on_save_button_button_down"]
+[connection signal="button_down" from="LoadButton" to="." method="_on_load_button_button_down"]

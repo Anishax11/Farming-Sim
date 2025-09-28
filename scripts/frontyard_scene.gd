@@ -3,6 +3,7 @@ var time_manager
 const MARKET_PLACE = preload("res://scenes/market_place.tscn")
 
 func _ready() -> void:
+	print("Frontyard:",self.get_path())
 	var inventory=get_node("Farmer/Inventory")
 	for i in range (3):
 		for j in range (5):

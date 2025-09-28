@@ -113,3 +113,11 @@ func update_coins(amount:int):
 	
 func display_coins():
 	get_node("CoinLabel").text= "Coins :"+str(Global.coins_count)	
+
+
+func _on_save_button_button_down() -> void:
+	SaveManager.save_game()
+
+
+func _on_load_button_button_down() -> void:
+	SaveManager.load_game()
