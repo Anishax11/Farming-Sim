@@ -9,9 +9,9 @@ class_name Player
 var speed=70
 var direction: Vector2
 
-#func _ready():
-	#print("Z index :",z_index)
-
+func _ready():
+	print("coin label position :",get_node("CoinLabel").global_position)
+	display_coins()
 
 func _physics_process(delta: float) -> void:
 	
@@ -104,3 +104,12 @@ func get_direction() ->Vector2:
 
 func stop():
 	direction=Vector2(0,0)
+	
+func update_coins(amount:int):
+	print("Updating coins...")
+	Global.coins_count+=amount	
+
+	get_node("CoinLabel").text= "Coins :"+str(Global.coins_count)
+	
+func display_coins():
+	get_node("CoinLabel").text= "Coins :"+str(Global.coins_count)	

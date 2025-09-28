@@ -36,6 +36,7 @@ const INVENTORY_SLOT = preload("res://16x16/Sprites/inventorySlot.png")
 var equipped_item
 var last_plant_number
 var load_frontyard=false
+var coins_count=1000
 
 func get_direction(direction) :
 	

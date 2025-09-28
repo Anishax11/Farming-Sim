@@ -264,3 +264,9 @@ shape = SubResource("CapsuleShape2D_ip8u5")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 script = ExtResource("7_3irru")
+
+[node name="CoinLabel" type="Label" parent="."]
+offset_left = -41.0
+offset_top = -39.0
+offset_right = 51.0
+offset_bottom = -16.0

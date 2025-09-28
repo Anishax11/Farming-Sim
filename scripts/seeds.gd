@@ -4,6 +4,7 @@ var distance
 var empty_panel
 var fake_input_called=false
 var seed_type
+var price
 @onready var texture_rect: TextureRect = $TextureRect
 
 func _ready() -> void:
@@ -15,6 +16,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		#get_node("Seed_Button").visible=true
 		#get_node("Seed_Button2").visible=true
 		if seed_type!=null:
+			if seed_type=="strawberry":
+				price=100
+			elif seed_type=="potato":
+				price=50
 			print("SEED TYPE :",seed_type)
 			player=get_node("/root/MarketPlace/Farmer")
 			#distance=global_position.distance_to(player.position)
@@ -26,11 +31,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			if event.pressed :
 				
-				print("Picked")
+				print("BUYING SEEDS....")
 				while texture_rect == null:
 					await get_tree().process_frame
 		   		
-				
+				player.update_coins(-price)
 				get_node("/root/MarketPlace/Farmer/Inventory").add_to_inventory(seed_type+"_seeds",Global.strawberry_image)
 				
 				empty_panel=Global.get_empty_panel()

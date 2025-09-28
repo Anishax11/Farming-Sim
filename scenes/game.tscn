@@ -1,20 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnyh64xhqcef4"]
+[gd_scene load_steps=3 format=3 uid="uid://bnyh64xhqcef4"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_icycs"]
-[ext_resource type="PackedScene" uid="uid://cf0mnr6sfm6vn" path="res://scenes/stall.tscn" id="2_5n1iv"]
 [ext_resource type="PackedScene" uid="uid://dj0hkgwoix4at" path="res://scenes/frontyard_scene.tscn" id="4_kapan"]
-[ext_resource type="PackedScene" uid="uid://dsgabfk5fykbw" path="res://scenes/seed_shop_interior.tscn" id="21_7jq4m"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_icycs")
-
-[node name="Stall" parent="." instance=ExtResource("2_5n1iv")]
-z_index = 1
-position = Vector2(379, 487)
-
-[node name="SeedShopInterior2" parent="Stall" instance=ExtResource("21_7jq4m")]
-visible = false
-position = Vector2(-3760, -1530)
-scale = Vector2(11, 8)
 
 [node name="frontyard_scene" parent="." instance=ExtResource("4_kapan")]
