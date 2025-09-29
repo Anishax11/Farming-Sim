@@ -74,6 +74,10 @@ func move_item(panel_number,item_name):
 	elif current_scene==get_node("/root/Game") :
 		prev_panel_path="/root/Game/frontyard_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)
 		texture_rect=get_node(prev_panel_path+"/"+item_name)
+	
+	elif current_scene==get_node("/root/MarketPlace") :
+		prev_panel_path="/root/MarketPlace/Farmer/Inventory/NinePatchRect/GridContainer/Panel" +str(panel_number)
+		texture_rect=get_node(prev_panel_path+"/"+item_name)
 		
 	var final_panel=round(texture_rect.position.y / 40)*5+round(texture_rect.position.x / 40)+panel_number
 	
@@ -85,7 +89,10 @@ func move_item(panel_number,item_name):
 	
 	elif current_scene==get_node("/root/Game") :
 		final_panel_path="/root/Game/frontyard_scene/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)
-		
+	
+	elif current_scene==get_node("/root/MarketPlace") :
+		final_panel_path="/root/MarketPlace/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)
+	print("FINAL PANEL PATH:",final_panel_path)
 	#removes texture child from initial panel
 	if item_out_of_inv==true:
 		

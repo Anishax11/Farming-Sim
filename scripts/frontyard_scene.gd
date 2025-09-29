@@ -1,18 +1,12 @@
 extends Node2D
 var time_manager
 const MARKET_PLACE = preload("res://scenes/market_place.tscn")
+var slots_passed=0
+var slot_adjust=1
 
 func _ready() -> void:
-	print("Frontyard:",self.get_path())
-	var inventory=get_node("Farmer/Inventory")
-	for i in range (3):
-		for j in range (5):
-			var string=Global.inventory_items[i][j]
-				
-			if string!="":
-				Global.inventory_items[i][j]=""
-				inventory.add_to_inventory(string,null)
-				
+	time_manager=get_node("Farmer/TimeManager")
+	
 #func _on_farm_entrance_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	#
 	#if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
@@ -30,4 +24,7 @@ func _ready() -> void:
 func _on_market_entrance_body_entered(body: Node2D) -> void:
 	if Global.player_direction.y==1:
 		print("REAChed MArket Entrance")
+		Global.current_time=time_manager.current_time
+		Global.time_to_change_tint=time_manager.time_to_change_tint
+		Global.tint_index=time_manager.color_rect.i
 		await get_tree().change_scene_to_packed(MARKET_PLACE)

@@ -3,14 +3,16 @@ var i
 var j
 
 var slot_found=false
-var slots_passed=0
-var slot_adjust=1
+#var slots_passed=0
+#var slot_adjust=1
 var inv_initialised=false
 var strawberry_seeds_count=0
 var potato_seeds_count=0
 
 
 func _ready() -> void:
+	var slots_passed=0
+	var slot_adjust=1
 	for i in range(3):
 		Global.inventory_items.append([])
 		for j in range(5):
@@ -20,8 +22,34 @@ func _ready() -> void:
 	#inventory_items[0][0]="seeds"
 	#add_to_inventory("seeds")
 	#print(inventory_items)
-
+		
+	if not Global.inventory_items.is_empty():
+		for i in range (3):
+			for j in range (5):
+				var string=Global.inventory_items[i][j]
+					
+				if string!="":
+					var texture_rect=TextureRect.new()
+					texture_rect.texture=Global.get(string+"_image")
+					texture_rect.name=string
+					if Global.get(string+"_image")==null:
+						print(string+" is null")
+					print("Slot passed:",slots_passed)
+					print("ADJ:",slot_adjust)
+					print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
+					
+					Global.empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
+					
+					Global.empty_panel.add_child(texture_rect)
+					slots_passed=0
+					slot_adjust=1
+					
+			slots_passed+=5
+			slot_adjust-=1	
+			
 func add_to_inventory(string,item_texture) :
+	var slots_passed=0
+	var slot_adjust=1
 	print("Item added to inv:",string)
 	if string=="strawberry_seeds":
 		strawberry_seeds_count+=6
@@ -33,7 +61,7 @@ func add_to_inventory(string,item_texture) :
 		for j in range(5):
 			#print(i,",",j)
 			if Global.inventory_items[i][j]=="":
-			#	print("slot available")
+				print("slot available",i," ",j)
 				Global.inventory_items[i][j]=string
 				var texture_rect=TextureRect.new()
 				texture_rect.texture=Global.get(string+"_image")
@@ -52,7 +80,6 @@ func add_to_inventory(string,item_texture) :
 				print("Texture name :",texture_rect.name)
 				#texture_rect.global_position=Vector2(Global.empty_panel.global_position.x+2,Global.empty_panel.global_position.y+2)
 				#print("Empty panel:",Global.empty_panel.name,Global.empty_panel.get_child(0))
-				
 				
 				#texture.position=Vector2(0,0)
 				#texture.z_index=1

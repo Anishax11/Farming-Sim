@@ -11,9 +11,7 @@ var farmer_added=false
 func _ready() -> void:
 	#print("house running")
 	farmer=get_node("Farmer")
-	inventory=INVENTORY.instantiate()
-	
-	farmer.add_child(inventory)
+	inventory=farmer.get_node("Inventory")
 
 	date_label=farmer.get_node("DateLabel")
 	date_label.position=Vector2(1350,-1350)

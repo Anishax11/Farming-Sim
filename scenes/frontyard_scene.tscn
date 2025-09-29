@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dj0hkgwoix4at"]
+[gd_scene load_steps=44 format=3 uid="uid://dj0hkgwoix4at"]
 
 [ext_resource type="Script" path="res://scripts/frontyard_scene.gd" id="1_3rtkc"]
 [ext_resource type="Texture2D" uid="uid://bpbn2trmc2git" path="res://MV/tilesets/_srw_tileset_0.png" id="1_ef1hy"]
@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://dsjxyq7y76wkp" path="res://16x16/Sprites/Floors_Tiles.png" id="10_re3j7"]
 [ext_resource type="PackedScene" uid="uid://fw0la85vqc7p" path="res://scenes/house.tscn" id="11_qo0ap"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="12_7uvrb"]
-[ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="13_3q5qs"]
 [ext_resource type="PackedScene" uid="uid://clf70pvfbgb7r" path="res://scenes/tree.tscn" id="20_7d7hj"]
 [ext_resource type="PackedScene" uid="uid://bqf55ab0jubbx" path="res://scenes/grass.tscn" id="22_f1ckv"]
 [ext_resource type="PackedScene" uid="uid://cg6sbm3jtalyf" path="res://scenes/normaltree2.tscn" id="23_2dyqx"]
@@ -10345,9 +10344,6 @@ position = Vector2(125, 457)
 
 [node name="Farmer" parent="." instance=ExtResource("12_7uvrb")]
 position = Vector2(111, 506)
-
-[node name="Inventory" parent="Farmer" instance=ExtResource("13_3q5qs")]
-visible = false
 
 [node name="Farm_Entrance" parent="." instance=ExtResource("24_2lieq")]
 position = Vector2(-465, 535)

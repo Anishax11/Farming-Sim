@@ -41,6 +41,7 @@ func save_data():
 	saved_data["sown_soil_animation"]=Global.sown_soil_animation
 	saved_data["current_time"]=Global.current_time
 	saved_data["soil_data"]=Global.soil_data
+	saved_data["player_direction"]=[Global.player_direction.x, Global.player_direction.y]
 	
 func save_game():
 	save_data()
@@ -84,6 +85,8 @@ func load_game():
 		Global.sown_soil_animation=data["sown_soil_animation"]
 		Global.current_time=data["current_time"]
 		Global.soil_data=data["soil_data"]
+		var dir_array = data["player_direction"]
+		Global.player_direction= Vector2( dir_array[0],dir_array[1] )
 		
 		if data["current_area"]=="res://scenes/farm_scene.tscn":
 			
