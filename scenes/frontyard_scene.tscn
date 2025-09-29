@@ -10347,7 +10347,7 @@ layer_0/tile_data = PackedInt32Array(-65532, 2686986, 0, 4, 2686986, 1, 65540, 2
 position = Vector2(125, 457)
 
 [node name="Farmer" parent="." instance=ExtResource("12_7uvrb")]
-position = Vector2(109, 509)
+position = Vector2(111, 506)
 
 [node name="Inventory" parent="Farmer" instance=ExtResource("13_3q5qs")]
 visible = false

@@ -1,4 +1,6 @@
 extends Node
+
+var game = load("res://scenes/game.tscn")
 var saved_data = {
 	"player_position": Vector2.ZERO,
 	"coins": 1000,
@@ -10,19 +12,20 @@ var save_path="user://savegame.json"
 var player
 
 func _ready():
-	
+	print(game)
 	get_tree().connect("current_scene_changed", Callable(self, "_on_scene_changed"))
-	player = get_tree().get_current_scene().get_node_or_null("frontyard_scene/Farmer")
-	print("current scene",get_tree().get_current_scene().name)
-	if player == null:
-		print("player null")
-		call_deferred("_find_player")
-
-func _on_scene_changed(new_scene):
+	#player = get_tree().current_scene.find_child("Farmer", true, false)
+	#print(player.get_path())
+	#print("current scene",get_tree().get_current_scene().name)
+	#if player == null:
+		#print("player null")
+		#call_deferred("_find_player")
+##
+func _on_scene_changed():
 	print("Scene chnaged")
-	print("Scene changed to:", new_scene.name)
-	#find player in the new scene
-	player = get_tree().current_scene.find_node("Farmer", true, false)
+	##print("Scene changed to:", new_scene.name)
+	##find player in the new scene
+	#player = get_tree().current_scene.find_child("Farmer", true, false)
 
 #func _find_player():
 	#player =get_node("/root/Game/frontyard_scene/Farmer")
@@ -60,34 +63,37 @@ func load_game():
 			#return
 			
 		var data = JSON.parse_string(text)
-		
-		
-		
-		
+		print("data:",data)
 		var scene_path = data["current_area"]  # string path
 		var packed_scene = load(scene_path) as PackedScene  # load as PackedScene
-
+		Global.coins_count=data["coins"]
+		Global.inventory_items=data["inventory"]
 		if packed_scene:
 			await get_tree().change_scene_to_packed(packed_scene)
-			
-			var current_scene = get_tree().current_scene
-			
+			var t = get_tree().create_timer(0.5)  # one-shot by default
+			await t.timeout
+			var current_scene = await get_tree().current_scene
+			#while(current_scene==null):
+			#
+				#current_scene = get_tree().current_scene
+				#
 			if current_scene:  # safety check
-				print("Current scene isnot null!")
+				print("Current scene is not null!")
 				
 			else:
 				print("Current scene is still null!")
+			if player:
+			
+				print(player)
+				var pos_array = data["player_position"]
+				player.position = Vector2(pos_array[0], pos_array[1])
+				print("POS:",player.global_position)
+			else:
+				print("Player node not found in current scene!")
 		else:
 			print("Failed to load scene:", scene_path)
 		
-		Global.coins_count=data["coins"]
-		Global.inventory_items=data["inventory"]
-		_on_scene_changed(get_tree().current_scene)
-		player = get_tree().current_scene.find_node("Farmer", true, false)
-		if player:
-			var pos_array = data["player_position"]
-			player.global_position = Vector2(pos_array[0], pos_array[1])
-			print("POS:",player.global_position)
-		else:
-			print("Player node not found in current scene!")
+		
+		#player = get_tree().current_scene.find_child("Farmer", true, false)
+
 	
