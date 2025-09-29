@@ -35,7 +35,8 @@ func _ready() -> void:
 		#print("Dictionary:",PlantTracker.plant_stages)
 		till_soil(Global.tilled_soil,Global.tilled_soil_animation)
 		print("Planted soil:",Global.planted_soil)
-		
+	#if 	Global.load_farm==false:
+		#print("SLOAD FALSE")
 		#for i in range((Global.watered_plants).size()):
 		##	print("runnihng loop")
 			#if Global.watered_plants[i]!=null:
@@ -65,7 +66,7 @@ func _ready() -> void:
 					inventory.add_to_inventory(string,Global.get(string+"_image"))
 		
 		for i in range((Global.watered_plants).size()):
-			#print("runnihng loop watered plants:"+Global.watered_plants[0])
+			print("runnihng loop watered plants:"+Global.watered_plants[0])
 			if Global.watered_plants[i]!=null and Global.day_passed==true:
 				#print("watered plnts not nuill")
 				var soil=get_node("/root/farm_scene/SoilManager/"+Global.watered_plants[i])
@@ -81,7 +82,8 @@ func _ready() -> void:
 						#print("Soil node:",soil.name)
 						#print("Child node:", child.name)
 				
-					
+				if 	PlantTracker.plant_stages==null or PlantTracker.plant_stages.is_empty():
+					print("............... not traversed")
 				for j in range(1,PlantTracker.plant_stages.size()+1):
 					print("plant_stages:",PlantTracker.plant_stages)
 					#print("J:",j)
@@ -99,6 +101,7 @@ func _ready() -> void:
 						soil.get_node("potato"+str(j)).grow_plant()	
 						plant_found=true
 						break
+						
 					elif plant_found==false and j==PlantTracker.plant_stages.size():#used to grow plant for the first time
 						print("PLANT NOT FOUND: ","Plant"+str(j))
 						#print("Growing plant")
@@ -164,7 +167,7 @@ func _ready() -> void:
 			Global.day_passed=false			
 			
 func till_soil(soil,soil_animation):
-	
+	print("Till func called")
 	for i in range(0,Global.tilled_soil.size()):
 		if Global.tilled_soil[i]!=null :
 			#print(soil[0])
@@ -172,8 +175,14 @@ func till_soil(soil,soil_animation):
 			get_node(NodePath(soil[i])).tilled=true
 			get_node(NodePath(soil[i])).get_node("AnimatedSprite2D").play(soil_animation[i])
 			
+		if Global.tilled_soil.is_empty() or Global.tilled_soil==null:
+			print("Global.tilled_soil ",i, "is null")
+		
+			
 	for i in range(0,Global.sown_soil.size()):
 		if Global.sown_soil!=null:
+			#print("SOwn soil:",Global.sown_soil)
+			#print(Global.sown_soil_animation[i])
 			get_node(NodePath( Global.sown_soil[i])).planted=true
 			get_node(NodePath( Global.sown_soil[i])).get_node("AnimatedSprite2D").play(Global.sown_soil_animation[i])
 			

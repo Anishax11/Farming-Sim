@@ -14,3 +14,4 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i)
 			await get_tree().change_scene_to_packed(FARM_SCENE)
 			Global.load_farm=true
+			

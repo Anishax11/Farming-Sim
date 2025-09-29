@@ -38,6 +38,9 @@ var last_plant_number
 var load_frontyard=false
 var coins_count=1000
 
+var soil_data={
+	
+}
 func get_direction(direction) :
 	
 	player_direction=direction

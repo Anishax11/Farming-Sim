@@ -18,7 +18,13 @@ func _ready() -> void:
 	if randi_range(0,7)==3:
 		animated_sprite_2d.play("untilled_rock")
 		#print(get_path())
-
+	#if Global.soil_data.has(self.name):
+		#print("Reloaded seed type")
+		#seed_type=Global.soil_data[self.name]
+		#
+	#for i in range(Global.watered_plants.size()):
+		#if Global.watered_plants[i]==self.name:
+			#watered=true
 #func _on_area_entered(area: Area2D) -> void:
 	#
 	#if !area is Soil: 
@@ -56,6 +62,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						plant_name=seed_type
 						print("watered soil has seeds: ",seed_type)	
 						watered=true
+						
 						if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
 							print("New plant:","Plant"+str(Global.plant_number))
 							PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
@@ -140,7 +147,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					print("Plant ",Global.equipped_item)	
 					planted=true
 					seed_type=Global.equipped_item
-					
+					Global.soil_data[self.name]=seed_type
 					#planted_seeds=panel.seeds_name
 					#print("Seeds count before:",inventory.seeds_count)
 					var current = inventory.get(count)
