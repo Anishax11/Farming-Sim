@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dj0hkgwoix4at"]
+[gd_scene load_steps=45 format=3 uid="uid://dj0hkgwoix4at"]
 
 [ext_resource type="Script" path="res://scripts/frontyard_scene.gd" id="1_3rtkc"]
 [ext_resource type="Texture2D" uid="uid://bpbn2trmc2git" path="res://MV/tilesets/_srw_tileset_0.png" id="1_ef1hy"]
@@ -21,9 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://fw0la85vqc7p" path="res://scenes/house.tscn" id="11_qo0ap"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="12_7uvrb"]
 [ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="13_3q5qs"]
-[ext_resource type="PackedScene" uid="uid://cxgldqae4p20u" path="res://scenes/date_label.tscn" id="14_7w4h1"]
-[ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="15_3dyv7"]
-[ext_resource type="Script" path="res://scripts/color_rect.gd" id="19_maq8j"]
 [ext_resource type="PackedScene" uid="uid://clf70pvfbgb7r" path="res://scenes/tree.tscn" id="20_7d7hj"]
 [ext_resource type="PackedScene" uid="uid://bqf55ab0jubbx" path="res://scenes/grass.tscn" id="22_f1ckv"]
 [ext_resource type="PackedScene" uid="uid://cg6sbm3jtalyf" path="res://scenes/normaltree2.tscn" id="23_2dyqx"]
@@ -10352,30 +10349,8 @@ position = Vector2(111, 506)
 [node name="Inventory" parent="Farmer" instance=ExtResource("13_3q5qs")]
 visible = false
 
-[node name="DateLabel" parent="Farmer" instance=ExtResource("14_7w4h1")]
-offset_left = 159.0
-offset_top = -124.0
-offset_right = 202.0
-offset_bottom = -101.0
-
-[node name="TimeManager" parent="Farmer" instance=ExtResource("15_3dyv7")]
-position = Vector2(149, -94)
-
 [node name="Farm_Entrance" parent="." instance=ExtResource("24_2lieq")]
 position = Vector2(-465, 535)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.784, 0.941, 1, 0.077)
-script = ExtResource("19_maq8j")
-metadata/_edit_use_anchors_ = true
 
 [node name="Node2D" type="Node2D" parent="."]
 y_sort_enabled = true

@@ -13,6 +13,8 @@ func _ready():
 	print("coin label position :",get_node("CoinLabel").global_position)
 	display_coins()
 	SaveManager.player=self
+	
+
 	#print("Pos save:",SaveManager.player.position)
 	#global_position=SaveManager.player.position
 	#

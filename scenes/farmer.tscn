@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bulruc5in76aq"]
+[gd_scene load_steps=37 format=3 uid="uid://bulruc5in76aq"]
 
 [ext_resource type="Script" path="res://scripts/farmer.gd" id="1_kssk7"]
 [ext_resource type="Texture2D" uid="uid://ct8kkbqy7hk43" path="res://MV/characters/_srw_free_farm_character_shovel.png" id="3_cdl31"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dtst4d7iek83i" path="res://16x16/Sprites/farmer_seeds_left.png" id="5_anfnw"]
 [ext_resource type="Texture2D" uid="uid://k8fl3cmcgjuv" path="res://16x16/Sprites/farmer_seeds_right.png" id="6_45prl"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="7_3irru"]
+[ext_resource type="PackedScene" uid="uid://cxgldqae4p20u" path="res://scenes/date_label.tscn" id="8_r8mox"]
+[ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="9_lco12"]
+[ext_resource type="Script" path="res://scripts/color_rect.gd" id="10_scngo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uauli"]
 atlas = ExtResource("3_i0v8y")
@@ -285,6 +288,28 @@ offset_top = -71.0
 offset_right = -190.0
 offset_bottom = -49.0
 text = "Load"
+
+[node name="DateLabel" parent="." instance=ExtResource("8_r8mox")]
+offset_left = -25.0
+offset_top = -53.0
+offset_right = 18.0
+offset_bottom = -30.0
+
+[node name="TimeManager" parent="." instance=ExtResource("9_lco12")]
+position = Vector2(-35, -23)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.784, 0.941, 1, 0.077)
+script = ExtResource("10_scngo")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="button_down" from="SaveButton" to="." method="_on_save_button_button_down"]
 [connection signal="button_down" from="LoadButton" to="." method="_on_load_button_button_down"]

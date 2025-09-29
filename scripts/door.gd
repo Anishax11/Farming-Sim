@@ -9,7 +9,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			var time_manager=get_node("/root/Game/frontyard_scene/Farmer/TimeManager")
 			if time_manager==null:
 				print("TIme manager is null")
-			Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i)
+			#Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i)
+			Global.current_time=time_manager.current_time
+			Global.time_to_change_tint=time_manager.time_to_change_tint
+			Global.tint_index=time_manager.color_rect.i
 			get_tree().change_scene_to_packed(interior)
 			
 		 	

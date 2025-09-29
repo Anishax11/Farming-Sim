@@ -1,20 +1,21 @@
 extends Node2D
 
-const FARMER = preload("res://scenes/farmer.tscn")
+
 const INVENTORY = preload("res://scenes/inventory.tscn")
 var farmer
 var inventory
 var date_label
 var farmer_added=false
-const DATE_LABEL = preload("res://scenes/date_label.tscn")
+
 
 func _ready() -> void:
 	#print("house running")
-	farmer=FARMER.instantiate()
+	farmer=get_node("Farmer")
 	inventory=INVENTORY.instantiate()
-	date_label=DATE_LABEL.instantiate()
+	
 	farmer.add_child(inventory)
-	add_child(date_label)
+
+	date_label=farmer.get_node("DateLabel")
 	date_label.position=Vector2(1350,-1350)
 	date_label.scale.x=3
 	date_label.scale.y=3
@@ -36,7 +37,7 @@ func _ready() -> void:
 				Global.inventory_items[i][j]=""
 				inventory.add_to_inventory(string,null)
 				
-	add_child(farmer)
+	
 	farmer_added=true
 
 
