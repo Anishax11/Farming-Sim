@@ -42,6 +42,8 @@ func save_data():
 	saved_data["current_time"]=Global.current_time
 	saved_data["soil_data"]=Global.soil_data
 	saved_data["player_direction"]=[Global.player_direction.x, Global.player_direction.y]
+	saved_data["color_rect_i"]=Global.color_rect_i
+	saved_data["current_time"]=Global.current_time
 	
 func save_game():
 	save_data()
@@ -87,7 +89,8 @@ func load_game():
 		Global.soil_data=data["soil_data"]
 		var dir_array = data["player_direction"]
 		Global.player_direction= Vector2( dir_array[0],dir_array[1] )
-		
+		Global.color_rect_i=data["color_rect_i"]
+		Global.current_time=data["current_time"]
 		if data["current_area"]=="res://scenes/farm_scene.tscn":
 			
 			Global.load_farm=true
@@ -113,6 +116,8 @@ func load_game():
 				var pos_array = data["player_position"]
 				player.position = Vector2(pos_array[0], pos_array[1])
 				print("POS:",player.global_position)
+				player.get_node("CanvasLayer/ColorRect").i=Global.color_rect_i
+				player.get_node("CanvasLayer/ColorRect").adjust_tint()
 			else:
 				print("Player node not found in current scene!")
 		else:

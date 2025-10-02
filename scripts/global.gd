@@ -37,7 +37,7 @@ var equipped_item
 var last_plant_number
 var load_frontyard=false
 var coins_count=1000
-
+var color_rect_i=0
 var soil_data={
 	
 }

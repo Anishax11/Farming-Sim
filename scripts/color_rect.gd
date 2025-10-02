@@ -21,12 +21,14 @@ var opacity:Array=[0.1,0.05,0.0,0.03,0.1,0.2,0.3,0.4,0.5,0.6,0.8]
 	#adjust_tint()
 
 func adjust_tint():
+	print("Color rect i:",i)
 	print("ADJUST TINT CALLED")
 	if i!=null and i<11:
 		color=Color(color_array[i])
 		color.a=opacity[i]
 		
-		i+=1	
+		i+=1
+		Global.color_rect_i=i	
 		
 func _ready():
 	print(get_path())
