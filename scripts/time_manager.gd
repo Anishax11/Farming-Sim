@@ -8,7 +8,7 @@ var minutes=0
 var color_rect
 var date_label
 var game
-
+var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
 func _ready() -> void:
 	
 	print("PArent:",get_parent().get_parent().name)
@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		
 	if current_time!=null and current_time<24:
 		time_passed+=delta
-		if time_passed-initial_time > 0.5:
+		if time_passed-initial_time > 0.05:
 			initial_time=time_passed
 			#print("Initial Time :",initial_time)	
 			#print("Time passed:",time_passed)
@@ -67,5 +67,5 @@ func _physics_process(delta: float) -> void:
 		time_passed=0.0
 		initial_time=0.0
 		
-		await get_tree().reload_current_scene()
-		Global.load_farm=true
+		await get_tree().change_scene_to_packed(HOUSE_INTERIOR)
+		#Global.load_farm=true

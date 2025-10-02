@@ -14,9 +14,9 @@ func _ready() -> void:
 	inventory=farmer.get_node("Inventory")
 
 	date_label=farmer.get_node("DateLabel")
-	date_label.position=Vector2(1350,-1350)
-	date_label.scale.x=3
-	date_label.scale.y=3
+	date_label.global_position=Vector2(1350,-1350)
+	date_label.scale.x=5
+	date_label.scale.y=5
 	#farmer.add_child(date_label)
 	farmer.scale.x=50
 	farmer.scale.y=50

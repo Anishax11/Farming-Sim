@@ -296,9 +296,6 @@ offset_top = -103.0
 offset_right = 192.0
 offset_bottom = -80.0
 
-[node name="TimeManager" parent="." instance=ExtResource("9_lco12")]
-position = Vector2(139, -73)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
@@ -314,6 +311,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" parent="." instance=ExtResource("11_n8gv4")]
 visible = false
+
+[node name="TimeManager" parent="." instance=ExtResource("9_lco12")]
+position = Vector2(139, -73)
 
 [connection signal="button_down" from="SaveButton" to="." method="_on_save_button_button_down"]
 [connection signal="button_down" from="LoadButton" to="." method="_on_load_button_button_down"]
