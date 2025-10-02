@@ -291,13 +291,13 @@ offset_bottom = -49.0
 text = "Load"
 
 [node name="DateLabel" parent="." instance=ExtResource("8_r8mox")]
-offset_left = -25.0
-offset_top = -53.0
-offset_right = 18.0
-offset_bottom = -30.0
+offset_left = 149.0
+offset_top = -103.0
+offset_right = 192.0
+offset_bottom = -80.0
 
 [node name="TimeManager" parent="." instance=ExtResource("9_lco12")]
-position = Vector2(-35, -23)
+position = Vector2(139, -73)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
