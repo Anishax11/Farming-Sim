@@ -259,7 +259,7 @@ script = ExtResource("1_kssk7")
 position = Vector2(0, -9)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_yhg64")
-animation = &"seeds_right"
+animation = &"forward"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
@@ -291,6 +291,7 @@ offset_bottom = -49.0
 text = "Load"
 
 [node name="DateLabel" parent="." instance=ExtResource("8_r8mox")]
+z_index = 5
 offset_left = 149.0
 offset_top = -103.0
 offset_right = 192.0
