@@ -11,8 +11,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 func _ready() -> void:
 	print(get_path())
-	
-#
+	get_node("Farmer/TimeManager").queue_free()
+	get_node("Farmer/DateLabel").queue_free()
+	#get_node("Farmer/Camera2D").queue_free()
+##
 	##get_node("VendorMenu").mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	

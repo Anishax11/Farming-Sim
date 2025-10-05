@@ -7,20 +7,21 @@ var inventory
 var date_label
 var farmer_added=false
 var camera
+var time_manager
 
 
 func _ready() -> void:
 	#print("house running")
 	farmer=get_node("Farmer")
-	
+	time_manager=farmer.get_node("TimeManager")
 	inventory=farmer.get_node("Inventory")
 	camera=farmer.get_node("Camera2D")
-	camera.position=Vector2(-15,-32)
-	camera.zoom=Vector2(4,3)
 	camera.queue_free()
 	date_label=farmer.get_node("DateLabel")
-	date_label.global_position=Vector2(1500,500)
-	#date_label.scale.x=50
+	date_label.global_position=Vector2(1400,-5)
+	time_manager.global_position=Vector2(0,50)
+	date_label.add_theme_font_size_override("font_size", 10)
+	time_manager.get_node("Label").add_theme_font_size_override("font_size", 12)
 	#date_label.scale.y=50
 	date_label.visible=true
 	#farmer.add_child(date_label)

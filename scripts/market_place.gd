@@ -6,9 +6,11 @@ var time_manager
 func _ready():
 	player=get_node("Farmer")
 	time_manager=get_node("Farmer/TimeManager")
-
 	
 
+	#
+#func _process(delta: float) -> void:
+	#print("ZOOM:",player.get_node("Camera2D").zoom)
 
 func _on_front_yard_entrance_body_entered(body: Node2D) -> void:
 	if Global.player_direction.y==-1:

@@ -37,7 +37,7 @@ func _ready() -> void:
 		
 	
 func _physics_process(delta: float) -> void:
-	
+
 	
 		
 	if current_time!=null and current_time<24:
@@ -69,3 +69,6 @@ func _physics_process(delta: float) -> void:
 		
 		await get_tree().change_scene_to_packed(HOUSE_INTERIOR)
 		#Global.load_farm=true
+
+
+	
