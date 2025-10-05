@@ -13,17 +13,19 @@ var time_manager
 func _ready() -> void:
 	#print("house running")
 	farmer=get_node("Farmer")
-	time_manager=farmer.get_node("TimeManager")
+	get_node("Farmer/TimeManager").queue_free()
+	get_node("Farmer/DateLabel").queue_free()
+	#time_manager=farmer.get_node("TimeManager")
 	inventory=farmer.get_node("Inventory")
 	camera=farmer.get_node("Camera2D")
 	camera.queue_free()
-	date_label=farmer.get_node("DateLabel")
-	date_label.global_position=Vector2(1400,-5)
-	time_manager.global_position=Vector2(0,50)
-	date_label.add_theme_font_size_override("font_size", 10)
-	time_manager.get_node("Label").add_theme_font_size_override("font_size", 12)
-	#date_label.scale.y=50
-	date_label.visible=true
+	#date_label=farmer.get_node("DateLabel")
+	#date_label.global_position=Vector2(1400,-5)
+	#time_manager.global_position=Vector2(0,50)
+	#date_label.add_theme_font_size_override("font_size", 10)
+	#time_manager.get_node("Label").add_theme_font_size_override("font_size", 12)
+	##date_label.scale.y=50
+	#date_label.visible=true
 	#farmer.add_child(date_label)
 	#farmer.scale.x=50
 	#farmer.scale.y=50

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dba1gtffrvamm"]
+[gd_scene load_steps=16 format=3 uid="uid://dba1gtffrvamm"]
 
 [ext_resource type="Script" path="res://scripts/bed.gd" id="1_5hssx"]
 [ext_resource type="Script" path="res://scripts/house_interior.gd" id="1_mmlya"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://scripts/sleep.gd" id="3_3w2cd"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="6_p8x7y"]
 [ext_resource type="Script" path="res://scripts/don't_sleep.gd" id="7_c23qe"]
+[ext_resource type="Script" path="res://scripts/date_label.gd" id="7_m2r8d"]
+[ext_resource type="Script" path="res://scripts/time_manager.gd" id="8_rs4uk"]
+[ext_resource type="Script" path="res://scripts/color_rect.gd" id="9_o6apw"]
 
 [sub_resource type="GDScript" id="GDScript_opsaf"]
 script/source = "extends Button
@@ -1183,6 +1186,34 @@ theme_override_font_sizes/font_size = 50
 text = "No
 "
 script = ExtResource("7_c23qe")
+
+[node name="DateLabel" type="Label" parent="."]
+offset_left = 186.071
+offset_top = -206.0
+offset_right = 314.071
+offset_bottom = -137.0
+theme_override_font_sizes/font_size = 35
+text = "sdff"
+script = ExtResource("7_m2r8d")
+
+[node name="TimeManager" type="Node2D" parent="."]
+position = Vector2(211.786, -124)
+script = ExtResource("8_rs4uk")
+
+[node name="Label" type="Label" parent="TimeManager"]
+offset_left = -61.4286
+offset_top = -55.2
+offset_right = 122.571
+offset_bottom = 13.8
+theme_override_font_sizes/font_size = 35
+text = "dawa"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_o6apw")
 
 [connection signal="button_down" from="Button" to="bed" method="_on_button_button_down"]
 [connection signal="input_event" from="bed" to="bed" method="_on_input_event"]
