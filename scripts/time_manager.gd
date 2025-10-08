@@ -11,7 +11,7 @@ var game
 var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
 func _ready() -> void:
 	
-	print("PArent:",get_parent().get_parent().name)
+	print("Path:",get_path())
 	game=get_node("/root/Game")
 	date_label=get_parent().get_node("DateLabel")
 	get_node("Label").text=("Time passed:"+str(current_time))
@@ -38,11 +38,9 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 
-	
-		
 	if current_time!=null and current_time<24:
 		time_passed+=delta
-		if time_passed-initial_time > 1:
+		if time_passed-initial_time > 0.5:
 			initial_time=time_passed
 			#print("Initial Time :",initial_time)	
 			#print("Time passed:",time_passed)

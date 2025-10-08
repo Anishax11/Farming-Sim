@@ -8,13 +8,14 @@ var date_label
 var farmer_added=false
 var camera
 var time_manager
-
+var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
 
 func _ready() -> void:
 	#print("house running")
 	farmer=get_node("Farmer")
 	get_node("Farmer/TimeManager").queue_free()
 	get_node("Farmer/DateLabel").queue_free()
+	time_manager=get_node("TimeManager")
 	#time_manager=farmer.get_node("TimeManager")
 	inventory=farmer.get_node("Inventory")
 	camera=farmer.get_node("Camera2D")
@@ -61,3 +62,14 @@ func _on_dont_sleep_button_down() -> void:
 	get_node("/root/house_interior/bed/Label").visible=false
 	get_node("/root/house_interior/bed/Sleep").visible=false
 	get_node("/root/house_interior/bed/Don't_Sleep").visible=false
+
+
+
+func _on_exit_body_entered(body: Node2D) -> void:
+	if Global.player_direction.y!=1:
+		return
+	print("Exit House")
+	Global.current_time=time_manager.current_time
+	Global.time_to_change_tint=time_manager.time_to_change_tint
+	Global.tint_index=time_manager.color_rect.i
+	await get_tree().change_scene_to_packed(FRONTYARD_SCENE)

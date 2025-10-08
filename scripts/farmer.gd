@@ -10,11 +10,11 @@ var speed=70
 var direction: Vector2
 
 func _ready():
-	print("coin label position :",get_node("CoinLabel").global_position)
+	#print("coin label position :",get_node("CoinLabel").global_position)
 	display_coins()
 	SaveManager.player=self
-	if get_node("Camera2D")==null:
-		print("NO CAMERA")
+	#if get_node("Camera2D")==null:
+		#print("NO CAMERA")
 		
 
 	#print("Pos save:",SaveManager.player.position)
@@ -102,6 +102,8 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Inventory"):
 		inventory.visible = not inventory.visible
 		inventory.set_process_input(not inventory.visible)
+	if Input.is_action_just_pressed("Escape"):
+		print("ESCAPE")
 		
 func play_animation():
 	animated_sprite_2d.play("hoe_right")

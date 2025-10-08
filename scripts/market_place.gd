@@ -4,6 +4,7 @@ var player
 var time_manager
 
 func _ready():
+	print("MARKET Place")
 	player=get_node("Farmer")
 	time_manager=get_node("Farmer/TimeManager")
 	
