@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dihnp5lr1yera"]
+[gd_scene load_steps=16 format=3 uid="uid://dihnp5lr1yera"]
 
 [ext_resource type="PackedScene" uid="uid://cf0mnr6sfm6vn" path="res://scenes/stall.tscn" id="1_ecvwp"]
 [ext_resource type="Script" path="res://scripts/market_place.gd" id="1_nwh1i"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bqf55ab0jubbx" path="res://scenes/grass.tscn" id="6_6g3qq"]
 [ext_resource type="PackedScene" uid="uid://clf70pvfbgb7r" path="res://scenes/tree.tscn" id="6_q0rpy"]
 [ext_resource type="PackedScene" uid="uid://cg6sbm3jtalyf" path="res://scenes/normaltree2.tscn" id="7_l15yd"]
+[ext_resource type="Script" path="res://scripts/dim_bg.gd" id="10_ql6kk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ts0fr"]
 texture = ExtResource("3_hqvgk")
@@ -1953,5 +1954,16 @@ position = Vector2(-24, 35)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FrontYardEntrance"]
 position = Vector2(-52.5, -104.5)
 shape = SubResource("RectangleShape2D_ums8q")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="DimBG" type="ColorRect" parent="CanvasLayer2"]
+offset_left = -2.0
+offset_top = -36.0
+offset_right = 2627.0
+offset_bottom = 1379.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("10_ql6kk")
 
 [connection signal="body_entered" from="FrontYardEntrance" to="." method="_on_front_yard_entrance_body_entered"]

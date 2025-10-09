@@ -15,10 +15,10 @@ func _ready():
 
 func _on_front_yard_entrance_body_entered(body: Node2D) -> void:
 	if Global.player_direction.y==-1:
-	
+		get_node("Farmer/CanvasLayer2/DimBG").dim_bg(game)
 		#print("PLayer dir:",Global.player_direction.y)	
 		print("PLayer here")
 		Global.current_time=time_manager.current_time
 		Global.time_to_change_tint=time_manager.time_to_change_tint
 		Global.tint_index=time_manager.color_rect.i
-		await get_tree().change_scene_to_packed(game)
+		

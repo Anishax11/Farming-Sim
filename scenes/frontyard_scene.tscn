@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dj0hkgwoix4at"]
+[gd_scene load_steps=45 format=3 uid="uid://dj0hkgwoix4at"]
 
 [ext_resource type="Script" path="res://scripts/frontyard_scene.gd" id="1_3rtkc"]
 [ext_resource type="Texture2D" uid="uid://bpbn2trmc2git" path="res://MV/tilesets/_srw_tileset_0.png" id="1_ef1hy"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bqf55ab0jubbx" path="res://scenes/grass.tscn" id="22_f1ckv"]
 [ext_resource type="PackedScene" uid="uid://cg6sbm3jtalyf" path="res://scenes/normaltree2.tscn" id="23_2dyqx"]
 [ext_resource type="PackedScene" uid="uid://drxudcb0kqmyk" path="res://scenes/farm_entrance.tscn" id="24_2lieq"]
+[ext_resource type="Script" path="res://scripts/dim_bg.gd" id="26_1prxw"]
 [ext_resource type="PackedScene" uid="uid://bn32g7o32l0ug" path="res://scenes/church.tscn" id="29_exdj4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugn7j"]
@@ -10344,6 +10345,17 @@ position = Vector2(125, 457)
 
 [node name="Farmer" parent="." instance=ExtResource("12_7uvrb")]
 position = Vector2(111, 506)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Farmer"]
+layer = 2
+
+[node name="DimBG" type="ColorRect" parent="Farmer/CanvasLayer2"]
+offset_left = -2.0
+offset_top = -36.0
+offset_right = 2627.0
+offset_bottom = 1379.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("26_1prxw")
 
 [node name="Farm_Entrance" parent="." instance=ExtResource("24_2lieq")]
 position = Vector2(-465, 535)

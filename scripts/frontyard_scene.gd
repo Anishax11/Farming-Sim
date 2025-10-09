@@ -23,9 +23,11 @@ func _ready() -> void:
 
 func _on_market_entrance_body_entered(body: Node2D) -> void:
 	if Global.player_direction.y==1:
+		get_node("Farmer/CanvasLayer2/DimBG").dim_bg(MARKET_PLACE)
 		print("REAChed MArket Entrance")
+		
 		Global.current_time=time_manager.current_time
 		Global.time_to_change_tint=time_manager.time_to_change_tint
 		Global.tint_index=time_manager.color_rect.i
 		
-		await get_tree().change_scene_to_packed(MARKET_PLACE)
+		
