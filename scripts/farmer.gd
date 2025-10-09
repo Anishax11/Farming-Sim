@@ -5,7 +5,7 @@ class_name Player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory = $Inventory
 
-
+var pause_menu
 var speed=70
 var direction: Vector2
 
@@ -13,6 +13,7 @@ func _ready():
 	#print("coin label position :",get_node("CoinLabel").global_position)
 	display_coins()
 	SaveManager.player=self
+	pause_menu=get_parent().get_parent().get_node("PauseMenu")
 	#if get_node("Camera2D")==null:
 		#print("NO CAMERA")
 		
@@ -104,10 +105,15 @@ func _input(event: InputEvent) -> void:
 		inventory.set_process_input(not inventory.visible)
 	if Input.is_action_just_pressed("Escape"):
 		print("ESCAPE")
+		get_tree().paused=!get_tree().paused
+		pause_menu.global_position=self.global_position
+		pause_menu.visible=!pause_menu.visible
 		
 func play_animation():
 	animated_sprite_2d.play("hoe_right")
-	
+	get_tree().paused = !get_tree().paused
+	get_node("PauseMenu").global_position=self.global_position
+	get_node("PauseMenu").visible = get_tree().paused
 func get_direction() ->Vector2:
 	#print("PL:",direction)
 	return direction

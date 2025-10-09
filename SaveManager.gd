@@ -46,6 +46,7 @@ func save_data():
 	saved_data["current_time"]=Global.current_time
 	
 func save_game():
+	print("SAVING....")
 	save_data()
 	var file=FileAccess.open(save_path,FileAccess.WRITE)
 	if file:
