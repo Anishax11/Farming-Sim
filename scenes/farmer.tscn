@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bulruc5in76aq"]
+[gd_scene load_steps=39 format=3 uid="uid://bulruc5in76aq"]
 
 [ext_resource type="Script" path="res://scripts/farmer.gd" id="1_kssk7"]
 [ext_resource type="Texture2D" uid="uid://ct8kkbqy7hk43" path="res://MV/characters/_srw_free_farm_character_shovel.png" id="3_cdl31"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="9_lco12"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="10_scngo"]
 [ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="11_n8gv4"]
+[ext_resource type="PackedScene" uid="uid://but8qwaakhn1n" path="res://scenes/pause_menu.tscn" id="12_idb42"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uauli"]
 atlas = ExtResource("3_i0v8y")
@@ -251,6 +252,7 @@ radius = 5.25
 height = 20.0
 
 [node name="Farmer" type="CharacterBody2D"]
+process_mode = 1
 z_index = 2
 collision_mask = 7
 script = ExtResource("1_kssk7")
@@ -301,3 +303,6 @@ visible = false
 
 [node name="TimeManager" parent="." instance=ExtResource("9_lco12")]
 position = Vector2(139, -73)
+
+[node name="PauseMenu" parent="." instance=ExtResource("12_idb42")]
+visible = false

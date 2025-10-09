@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://but8qwaakhn1n"]
+[gd_scene load_steps=4 format=3 uid="uid://but8qwaakhn1n"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_x32jy"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_gdxun"]
+
+[sub_resource type="SystemFont" id="SystemFont_65o64"]
+subpixel_positioning = 0
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -27,6 +30,7 @@ text = "Save"
 
 [node name="LoadButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_65o64")
 text = "Load"
 
 [node name="RESUME" type="Button" parent="PanelContainer/VBoxContainer"]
@@ -37,5 +41,7 @@ text = "RESUME"
 layout_mode = 2
 text = "GO TO MAIN MENU"
 
+[connection signal="button_down" from="PanelContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_button_down"]
+[connection signal="button_down" from="PanelContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_button_down"]
 [connection signal="button_down" from="PanelContainer/VBoxContainer/RESUME" to="." method="_on_resume_button_down"]
 [connection signal="button_down" from="PanelContainer/VBoxContainer/GO TO MAIN MENU" to="." method="_on_go_to_main_menu_button_down"]

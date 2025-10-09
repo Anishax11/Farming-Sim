@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnyh64xhqcef4"]
+[gd_scene load_steps=3 format=3 uid="uid://bnyh64xhqcef4"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_icycs"]
-[ext_resource type="PackedScene" uid="uid://but8qwaakhn1n" path="res://scenes/pause_menu.tscn" id="3_n77dn"]
 [ext_resource type="PackedScene" uid="uid://dj0hkgwoix4at" path="res://scenes/frontyard_scene.tscn" id="4_kapan"]
 
 [node name="Game" type="Node2D"]
@@ -9,6 +8,3 @@ script = ExtResource("1_icycs")
 
 [node name="frontyard_scene" parent="." instance=ExtResource("4_kapan")]
 process_mode = 1
-
-[node name="PauseMenu" parent="." instance=ExtResource("3_n77dn")]
-visible = false

@@ -16,7 +16,7 @@ var save_path="user://savegame.json"
 var player
 
 func _ready():
-	print(game)
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	#print("current scene",get_tree().get_current_scene().name)
 	#if player == null:
@@ -55,7 +55,7 @@ func save_game():
 		print("Saved Game")
 	
 func load_game():
-
+	print("LOADING....")
 	if not FileAccess.file_exists(save_path):
 		print("No save file found.")
 		return

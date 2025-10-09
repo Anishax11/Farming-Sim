@@ -5,7 +5,7 @@ class_name panel
 var button_held=false	
 var panel_number
 @onready var grandparent=get_parent().get_parent()
-@onready var texture_rect=get_node("texture")
+#@onready var texture_rect=get_node("texture")
 static var seeds_equipped=false
 static var water_equipped=false
 var inventory_node
@@ -28,11 +28,11 @@ func _ready():
 	
 	self.connect("gui_input", Callable(self, "_on_gui_input")) #Attach signal to node
 	self.connect("child_entered_tree", Callable(self, "_on_panel_1_child_entered_tree"))
-	var inventory
-	if get_tree().current_scene==get_node("/root/Game"):
-		inventory_node=get_node("/root/Game/farm_scene/Farmer/Inventory")
-	else:
-		inventory_node=get_node("/root/house_interior/Farmer/Inventory")
+	var inventory=get_parent().get_parent().get_parent()
+	#if get_tree().current_scene==get_node("/root/Game"):
+		#inventory_node=get_node("/root/Game/frontyard_scene/Farmer/Inventory")
+	#else:
+		#inventory_node=get_node("/root/house_interior/Farmer/Inventory")
 		
 func _on_gui_input(event: InputEvent) -> void:
 	
@@ -69,7 +69,6 @@ func _on_gui_input(event: InputEvent) -> void:
 					stylebox.expand_margin_top = 0
 					stylebox.expand_margin_bottom = 0
 				print("clicked:",clicked)	
-			var inv=get_node("/root/Game/farm_scene/Farmer/Inventory")
 			print(Global.inventory_items)
 			#print("Clicked panel")
 			button_held=true

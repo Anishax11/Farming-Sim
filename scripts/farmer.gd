@@ -13,7 +13,7 @@ func _ready():
 	#print("coin label position :",get_node("CoinLabel").global_position)
 	display_coins()
 	SaveManager.player=self
-	pause_menu=get_parent().get_parent().get_node("PauseMenu")
+	pause_menu=get_node("PauseMenu")
 	#if get_node("Camera2D")==null:
 		#print("NO CAMERA")
 		
@@ -106,7 +106,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Escape"):
 		print("ESCAPE")
 		get_tree().paused=!get_tree().paused
-		pause_menu.global_position=self.global_position
+		#pause_menu.global_position=self.global_position
 		pause_menu.visible=!pause_menu.visible
 		
 func play_animation():

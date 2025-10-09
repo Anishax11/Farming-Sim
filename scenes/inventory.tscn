@@ -131,6 +131,3 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_q16w5")
 script = ExtResource("3_bunsj")
-
-[connection signal="child_entered_tree" from="NinePatchRect/GridContainer/Panel1" to="NinePatchRect/GridContainer/Panel1" method="_on_panel_1_child_entered_tree"]
-[connection signal="gui_input" from="NinePatchRect/GridContainer/Panel1" to="NinePatchRect/GridContainer/Panel1" method="_on_gui_input"]
