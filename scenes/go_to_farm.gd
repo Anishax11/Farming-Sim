@@ -6,14 +6,18 @@ var FARM_SCENE = load("res://scenes/farm_scene.tscn")
 	#time_manager=get_parent().time_manager
 	
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
-		if event.pressed:
+
+			
+			
+
+
+func _on_body_entered(body: Node2D) -> void:
 			print("Open farm")
+			get_parent().get_node("Farmer/CanvasLayer2/DimBG").dim_bg(FARM_SCENE)
+			
 			time_manager=get_node("/root/Game/frontyard_scene/Farmer/TimeManager")
 			if time_manager==null:
 				time_manager=get_node("/root/frontyard_scene/Farmer/TimeManager")
 			Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i)
-			await get_tree().change_scene_to_packed(FARM_SCENE)
-			Global.load_farm=true
 			
+			Global.load_farm=true

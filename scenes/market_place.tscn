@@ -1928,6 +1928,17 @@ z_index = 1
 [node name="Farmer" parent="." instance=ExtResource("2_yu64v")]
 position = Vector2(-190, -97)
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="Farmer"]
+layer = 2
+
+[node name="DimBG" type="ColorRect" parent="Farmer/CanvasLayer2"]
+offset_left = -2.0
+offset_top = -36.0
+offset_right = 2627.0
+offset_bottom = 1379.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("10_ql6kk")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_cdrse")
 format = 2
@@ -1954,16 +1965,5 @@ position = Vector2(-24, 35)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FrontYardEntrance"]
 position = Vector2(-52.5, -104.5)
 shape = SubResource("RectangleShape2D_ums8q")
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = 2
-
-[node name="DimBG" type="ColorRect" parent="CanvasLayer2"]
-offset_left = -2.0
-offset_top = -36.0
-offset_right = 2627.0
-offset_bottom = 1379.0
-color = Color(0, 0, 0, 1)
-script = ExtResource("10_ql6kk")
 
 [connection signal="body_entered" from="FrontYardEntrance" to="." method="_on_front_yard_entrance_body_entered"]
