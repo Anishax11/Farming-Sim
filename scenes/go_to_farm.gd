@@ -5,12 +5,6 @@ var FARM_SCENE = load("res://scenes/farm_scene.tscn")
 #func _ready() -> void:
 	#time_manager=get_parent().time_manager
 	
-
-
-			
-			
-
-
 func _on_body_entered(body: Node2D) -> void:
 			print("Open farm")
 			get_parent().get_node("Farmer/CanvasLayer2/DimBG").dim_bg(FARM_SCENE)

@@ -105,9 +105,7 @@ var editor_list: Array = []
 var this_folder: String = get_script().resource_path.get_base_dir()
 
 ## Singal that notifies the visual editor block to update
-@warning_ignore("unused_signal")
 signal ui_update_needed
-@warning_ignore("unused_signal")
 signal ui_update_warning(text:String)
 
 
@@ -269,21 +267,6 @@ func _test_event_string(string:String) -> bool:
 	if '#id:' in string and can_be_translated():
 		return is_valid_event(string.get_slice('#id:', 0))
 	return is_valid_event(string.strip_edges())
-
-
-func get_dependencies() -> PackedStringArray:
-	var deps := PackedStringArray()
-	var params := get_shortcode_parameters()
-	for i in params:
-		if params[i].has("ext_file"):
-			var path: String = get(params[i].property)
-			if path.begins_with("res://") or path.begins_with("uid://"):
-				deps.append(path)
-			elif i == "character":
-				deps.append(DialogicResourceUtil.get_resource_path_from_identifier(path, "dch"))
-			elif i == "timeline":
-				deps.append(DialogicResourceUtil.get_resource_path_from_identifier(path, "dtl"))
-	return deps
 
 #endregion
 
@@ -458,9 +441,6 @@ func _get_icon() -> Resource:
 
 
 func set_default_color(value:Variant) -> void:
-	# Skip in running games
-	if not Engine.is_editor_hint():
-		return
 	dialogic_color_name = value
 	event_color = DialogicUtil.get_color(value)
 

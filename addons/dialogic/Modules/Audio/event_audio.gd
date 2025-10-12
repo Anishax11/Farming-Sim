@@ -18,7 +18,7 @@ var channel_name := "":
 	set(value):
 		if channel_name != channel_name_regex.sub(value, '', true):
 			channel_name = channel_name_regex.sub(value, '', true)
-			var defaults: Dictionary = DialogicUtil.get_audio_channel_defaults().get(channel_name, {})
+			var defaults := DialogicUtil.get_audio_channel_defaults().get(channel_name, {})
 			if defaults:
 				fade_length = defaults.fade_length
 				volume = defaults.volume
@@ -131,7 +131,7 @@ func from_text(string:String) -> void:
 func get_shortcode_parameters() -> Dictionary:
 	return {
 		#param_name : property_info
-		"path"		: {"property": "file_path", 	"default": "", "custom_stored":true, "ext_file":true},
+		"path"		: {"property": "file_path", 	"default": "", "custom_stored":true},
 		"channel"	: {"property": "channel_name", 	"default": "", "custom_stored":true},
 		"fade"		: {"property": "fade_length", 	"default": 0.0},
 		"volume"	: {"property": "volume", 		"default": 0.0},

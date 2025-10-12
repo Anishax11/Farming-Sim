@@ -26,9 +26,12 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"Aria": "res://Aria.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
-directories/dtl_directory={}
+directories/dtl_directory={
+"SeedShopOwner": "res://SeedShopOwner.dtl"
+}
 layout/style_directory={}
 
 [editor_plugins]

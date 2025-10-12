@@ -12,6 +12,7 @@ func _ready():
 	camera=get_parent().get_node("Farmer/Camera2D")
 	player=get_parent().get_node("Farmer")
 	time_manager=get_parent().get_node("Farmer/TimeManager")
+	
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
 		#get_parent().get_node("TileMap").visible=false

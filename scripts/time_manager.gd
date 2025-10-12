@@ -22,7 +22,7 @@ func _ready() -> void:
 		time_to_change_tint=Global.time_to_change_tint
 		color_rect.i=Global.tint_index
 		color_rect.adjust_tint()
-		
+		print("Time managed")
 	if color_rect==null:
 		print("COLOR RECT IS NULL")
 	#if Global.load_farm==true or Global.load_frontyard==true:

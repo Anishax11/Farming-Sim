@@ -155,7 +155,7 @@ func _execute() -> void:
 			return
 
 		if set_portrait:
-			await dialogic.Portraits.change_character_portrait(character, portrait, fade_animation, fade_length)
+			dialogic.Portraits.change_character_portrait(character, portrait, fade_animation, fade_length)
 
 		dialogic.Portraits.change_character_extradata(character, extra_data)
 
@@ -302,7 +302,7 @@ func get_shortcode_parameters() -> Dictionary:
 										{'value':Actions.JOIN},
 										'Leave':{'value':Actions.LEAVE},
 										'Update':{'value':Actions.UPDATE}}},
-		"character" 	: {"property": "character_identifier",	"default": "", "custom_stored":true, "ext_file":true},
+		"character" 	: {"property": "character_identifier",	"default": "", "custom_stored":true,},
 		"portrait" 		: {"property": "portrait", 				"default": "", "custom_stored":true,},
 		"transform" 	: {"property": "transform", 			"default": "center", "custom_stored":true,},
 
@@ -478,8 +478,8 @@ func get_fade_suggestions(search_text:String='') -> Dictionary:
 
 func _get_code_completion(CodeCompletionHelper:Node, TextNode:TextEdit, line:String, _word:String, symbol:String) -> void:
 	var line_until_caret: String = CodeCompletionHelper.get_line_untill_caret(line)
-	if symbol == ' ' and line_until_caret.count(" ") == 1:
-		CodeCompletionHelper.suggest_characters(TextNode, CodeEdit.KIND_MEMBER, self)
+	if symbol == ' ' and line_until_caret.split(" ", false).size() == 1:
+		CodeCompletionHelper.suggest_characters(TextNode, CodeEdit.KIND_MEMBER)
 		if line.begins_with('leave'):
 			TextNode.add_code_completion_option(CodeEdit.KIND_MEMBER, 'All', '--All-- ', event_color, TextNode.get_theme_icon("GuiEllipsis", "EditorIcons"))
 
@@ -489,9 +489,8 @@ func _get_code_completion(CodeCompletionHelper:Node, TextNode:TextEdit, line:Str
 
 	elif not '[' in line_until_caret and symbol == ' ' and line_until_caret.split(" ", false).size() > 1:
 		if not line.begins_with("leave"):
-			if not line_until_caret.split(" ", false)[-1] in get_position_suggestions():
-				for position in get_position_suggestions():
-					TextNode.add_code_completion_option(CodeEdit.KIND_MEMBER, position, position+' ', TextNode.syntax_highlighter.normal_color)
+			for position in get_position_suggestions():
+				TextNode.add_code_completion_option(CodeEdit.KIND_MEMBER, position, position+' ', TextNode.syntax_highlighter.normal_color)
 
 	# Shortcode Part
 	if '[' in line_until_caret:
@@ -505,10 +504,8 @@ func _get_code_completion(CodeCompletionHelper:Node, TextNode:TextEdit, line:Str
 				if line.begins_with('update'):
 					suggest_parameter("repeat", line, TextNode)
 			if line.begins_with("update"):
-				for param in ["move_time", "move_trans", "move_ease", "fade"]:
+				for param in ["move_time", "move_trans", "move_ease"]:
 					suggest_parameter(param, line, TextNode)
-				if "fade=" in line_until_caret:
-					suggest_parameter("fade_length", line, TextNode)
 			if not line.begins_with('leave'):
 				for param in ["mirrored", "z_index", "extra_data"]:
 					suggest_parameter(param, line, TextNode)

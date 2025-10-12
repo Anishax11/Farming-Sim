@@ -100,10 +100,11 @@ static func _update_autoload_subsystem_access() -> void:
 
 
 static func get_indexers(include_custom := true, force_reload := false) -> Array[DialogicIndexer]:
-	if Engine.get_main_loop().has_meta('dialogic_indexers') and not force_reload:
+	if Engine.get_main_loop().has_meta('dialogic_indexers') and !force_reload:
 		return Engine.get_main_loop().get_meta('dialogic_indexers')
 
 	var indexers: Array[DialogicIndexer] = []
+
 	for file in listdir(DialogicUtil.get_module_path(''), false):
 		var possible_script: String = DialogicUtil.get_module_path(file).path_join("index.gd")
 		if ResourceLoader.exists(possible_script):
@@ -296,6 +297,40 @@ static func _get_value_in_dictionary(path:String, dictionary:Dictionary, default
 #endregion
 
 
+
+#region STYLES
+################################################################################
+
+static func get_default_layout_base() -> PackedScene:
+	return load(DialogicUtil.get_module_path('DefaultLayoutParts').path_join("Base_Default/default_layout_base.tscn"))
+
+
+static func get_fallback_style() -> DialogicStyle:
+	return load(DialogicUtil.get_module_path('DefaultLayoutParts').path_join("Style_VN_Default/default_vn_style.tres"))
+
+
+static func get_default_style() -> DialogicStyle:
+	var default: String = ProjectSettings.get_setting('dialogic/layout/default_style', '')
+	if !ResourceLoader.exists(default):
+		return get_fallback_style()
+	return load(default)
+
+
+static func get_style_by_name(name:String) -> DialogicStyle:
+	if name.is_empty():
+		return get_default_style()
+
+	var styles: Array = ProjectSettings.get_setting('dialogic/layout/style_list', [])
+	for style in styles:
+		if not ResourceLoader.exists(style):
+			continue
+		if load(style).name == name:
+			return load(style)
+
+	return get_default_style()
+#endregion
+
+
 #region SCENE EXPORT OVERRIDES
 ################################################################################
 
@@ -433,53 +468,39 @@ static func setup_script_property_edit_node(property_info: Dictionary, value:Var
 					input.select(value)
 				input.item_selected.connect(DialogicUtil._on_export_int_enum_submitted.bind(property_info.name, property_changed))
 			else:
-				input = load("res://addons/dialogic/Editor/Events/Fields/field_number.tscn").instantiate()
-				input.property_name = property_info['name']
-				input.use_int_mode()
-
-				if ',' in property_info.hint_string:
+				input = SpinBox.new()
+				input.value_changed.connect(DialogicUtil._on_export_number_submitted.bind(property_info.name, property_changed))
+				if property_info.hint_string == 'int':
+					input.step = 1
+					input.allow_greater = true
+					input.allow_lesser = true
+				elif ',' in property_info.hint_string:
 					input.min_value = int(property_info.hint_string.get_slice(',', 0))
 					input.max_value = int(property_info.hint_string.get_slice(',', 1))
 					if property_info.hint_string.count(',') > 1:
 						input.step = int(property_info.hint_string.get_slice(',', 2))
-				else:
-					input.step = 1
-					input.max_value = INF
-					input.min_value = -INF
-
 				if value != null:
-					input.set_value(value)
-				input.value_changed.connect(DialogicUtil._on_export_number_submitted.bind(property_changed))
+					input.value = value
 		TYPE_FLOAT:
-			input = load("res://addons/dialogic/Editor/Events/Fields/field_number.tscn").instantiate()
-			input.property_name = property_info['name']
-			input.use_float_mode()
+			input = SpinBox.new()
 			input.step = 0.01
 			if ',' in property_info.hint_string:
 				input.min_value = float(property_info.hint_string.get_slice(',', 0))
 				input.max_value = float(property_info.hint_string.get_slice(',', 1))
 				if property_info.hint_string.count(',') > 1:
 					input.step = float(property_info.hint_string.get_slice(',', 2))
+			input.value_changed.connect(DialogicUtil._on_export_number_submitted.bind(property_info.name, property_changed))
 			if value != null:
-				input.set_value(value)
-			input.value_changed.connect(DialogicUtil._on_export_number_submitted.bind(property_changed))
+				input.value = value
 		TYPE_VECTOR2, TYPE_VECTOR3, TYPE_VECTOR4:
 			var vectorSize: String = type_string(typeof(value))[-1]
 			input = load("res://addons/dialogic/Editor/Events/Fields/field_vector" + vectorSize + ".tscn").instantiate()
 			input.property_name = property_info['name']
 			input.set_value(value)
 			input.value_changed.connect(DialogicUtil._on_export_vector_submitted.bind(property_changed))
-		TYPE_VECTOR2I, TYPE_VECTOR3I, TYPE_VECTOR4I:
-			var vectorSize: String = type_string(typeof(value))[-2]
-			input = load("res://addons/dialogic/Editor/Events/Fields/field_vector" + vectorSize + ".tscn").instantiate()
-			input.step = 1
-			input.property_name = property_info['name']
-			input.set_value(value)
-			input.value_changed.connect(DialogicUtil._on_export_vectori_submitted.bind(property_changed))
 		TYPE_STRING:
 			if property_info['hint'] & PROPERTY_HINT_FILE or property_info['hint'] & PROPERTY_HINT_DIR:
 				input = load("res://addons/dialogic/Editor/Events/Fields/field_file.tscn").instantiate()
-				input.show_editing_button = true
 				input.file_filter = property_info['hint_string']
 				input.file_mode = FileDialog.FILE_MODE_OPEN_FILE
 				if property_info['hint'] == PROPERTY_HINT_DIR:
@@ -533,7 +554,7 @@ static func _on_export_color_submitted(color:Color, property_name:String, callab
 static func _on_export_int_enum_submitted(item:int, property_name:String, callable: Callable) -> void:
 	callable.call(property_name, var_to_str(item))
 
-static func _on_export_number_submitted(property_name:String, value:float, callable: Callable) -> void:
+static func _on_export_number_submitted(value:float, property_name:String, callable: Callable) -> void:
 	callable.call(property_name, var_to_str(value))
 
 static func _on_export_file_submitted(property_name:String, value:String, callable: Callable) -> void:
@@ -543,13 +564,6 @@ static func _on_export_string_enum_submitted(value:int, property_name:String, li
 	callable.call(property_name, var_to_str(list[value]))
 
 static func _on_export_vector_submitted(property_name:String, value:Variant, callable: Callable) -> void:
-	callable.call(property_name, var_to_str(value))
-
-static func _on_export_vectori_submitted(property_name:String, value:Variant, callable: Callable) -> void:
-	match typeof(value):
-		TYPE_VECTOR2: value = Vector2i(value)
-		TYPE_VECTOR3: value = Vector3i(value)
-		TYPE_VECTOR4: value = Vector4i(value)
 	callable.call(property_name, var_to_str(value))
 
 static func _on_export_dict_submitted(property_name:String, value:Variant, callable: Callable) -> void:
@@ -678,9 +692,9 @@ static func get_autoload_suggestions(filter:String="") -> Dictionary:
 
 	for prop in ProjectSettings.get_property_list():
 		if prop.name.begins_with('autoload/'):
-			var some_autoload: String = prop.name.trim_prefix('autoload/')
-			suggestions[some_autoload] = {'value': some_autoload, 'tooltip':some_autoload, 'editor_icon': ["Node", "EditorIcons"]}
-			if filter.begins_with(some_autoload):
+			var autoload: String = prop.name.trim_prefix('autoload/')
+			suggestions[autoload] = {'value': autoload, 'tooltip':autoload, 'editor_icon': ["Node", "EditorIcons"]}
+			if filter.begins_with(autoload):
 				suggestions[filter] = {'value': filter, 'editor_icon':["GuiScrollArrowRight", "EditorIcons"]}
 	return suggestions
 
@@ -715,7 +729,7 @@ static func get_autoload_method_suggestions(filter:String, autoload_name:String)
 	return suggestions
 
 
-static func get_autoload_property_suggestions(_filter:String, autoload_name:String) -> Dictionary:
+static func get_autoload_property_suggestions(filter:String, autoload_name:String) -> Dictionary:
 	var suggestions := {}
 	var script := get_autoload_script_resource(autoload_name)
 	if script:
@@ -727,7 +741,7 @@ static func get_autoload_property_suggestions(_filter:String, autoload_name:Stri
 	return suggestions
 
 
-static func get_audio_bus_suggestions(_filter:= "") -> Dictionary:
+static func get_audio_bus_suggestions(filter:= "") -> Dictionary:
 	var bus_name_list := {}
 	for i in range(AudioServer.bus_count):
 		if i == 0:
@@ -737,7 +751,9 @@ static func get_audio_bus_suggestions(_filter:= "") -> Dictionary:
 	return bus_name_list
 
 
-static func get_audio_channel_suggestions(_search_text:String) -> Dictionary:
+static func get_audio_channel_suggestions(search_text:String) -> Dictionary:
+
+
 	var suggestions := {}
 	var channel_defaults := DialogicUtil.get_audio_channel_defaults()
 	var cached_names := DialogicResourceUtil.get_channel_list()

@@ -23,7 +23,6 @@ var resource_icon: Texture:
 var max_width := 200
 var current_value: String
 var hide_reset := false
-var show_editing_button := false
 
 #endregion
 
@@ -36,9 +35,6 @@ func _ready() -> void:
 
 	%OpenButton.icon = get_theme_icon("Folder", "EditorIcons")
 	%OpenButton.button_down.connect(_on_OpenButton_pressed)
-
-	%EditButton.icon = get_theme_icon("Edit", "EditorIcons")
-	%EditButton.button_down.connect(_on_EditButton_pressed)
 
 	%ClearButton.icon = get_theme_icon("Reload", "EditorIcons")
 	%ClearButton.button_up.connect(clear_path)
@@ -76,8 +72,6 @@ func _set_value(value: Variant) -> void:
 		%Field.custom_minimum_size.x = 0
 		%Field.expand_to_text_length = true
 
-	%EditButton.visible = show_editing_button and value
-
 	if not %Field.text == text:
 		value_changed.emit(property_name, current_value)
 		%Field.text = text
@@ -98,11 +92,6 @@ func _on_OpenButton_pressed() -> void:
 func _on_file_dialog_selected(path:String) -> void:
 	_set_value(path)
 	value_changed.emit(property_name, path)
-
-
-func _on_EditButton_pressed() -> void:
-	if ResourceLoader.exists(current_value):
-		EditorInterface.inspect_object(load(current_value), "", true)
 
 
 func clear_path() -> void:

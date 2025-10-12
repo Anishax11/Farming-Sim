@@ -6165,7 +6165,7 @@ texture = ExtResource("2_n1n15")
 sources/0 = SubResource("TileSetAtlasSource_2xpdl")
 
 [node name="SeedShopInterior" type="Area2D"]
-position = Vector2(-4341, -285)
+position = Vector2(-4301, -356)
 scale = Vector2(3.8, 2.764)
 script = ExtResource("1_j0vwb")
 
@@ -6320,7 +6320,7 @@ script = ExtResource("9_t2iye")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(814.737, 95.8755)
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(0.7, 0.7)
 
 [node name="Farmer" parent="." instance=ExtResource("7_4qsky")]
 position = Vector2(857.105, 513.025)

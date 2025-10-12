@@ -95,7 +95,7 @@ func get_shortcode_parameters() -> Dictionary:
 	return {
 		#param_name 	: property_info
 		"timeline"		: {"property": "timeline_identifier", 	"default": null,
-							"suggestions": get_timeline_suggestions, "ext_file":true},
+							"suggestions": get_timeline_suggestions},
 		"label"			: {"property": "label_name", 		"default": ""},
 	}
 
@@ -109,7 +109,7 @@ func build_event_editor() -> void:
 		'file_extension': '.dtl',
 		'mode'			: 2,
 		'suggestions_func': get_timeline_suggestions,
-		'icon'	: load("res://addons/dialogic/Editor/Images/Resources/timeline.svg"),
+		'editor_icon'	: ["TripleBar", "EditorIcons"],
 		'empty_text'	: '(this timeline)',
 		'autofocus'		: true,
 		})

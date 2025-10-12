@@ -91,11 +91,8 @@ signal timeline_ended
 signal event_handled(resource: DialogicEvent)
 
 ## Emitted when a [class SignalEvent] event was reached.
-@warning_ignore("unused_signal") # This is emitted by the signal event.
 signal signal_event(argument: Variant)
-
 ## Emitted when a signal event gets fired from a [class TextEvent] event.
-@warning_ignore("unused_signal") # This is emitted by the text subsystem.
 signal text_signal(argument: String)
 
 
@@ -165,8 +162,6 @@ func _ready() -> void:
 
 	clear()
 
-	DialogicResourceUtil.update_event_cache()
-
 	dialog_ending_timeline = DialogicTimeline.new()
 	dialog_ending_timeline.from_text("[clear]")
 
@@ -194,10 +189,8 @@ func start(timeline:Variant, label_or_idx:Variant="") -> Node:
 		scene.show()
 
 	if not scene.is_node_ready():
-		if not scene.ready.is_connected(clear.bind(ClearFlags.KEEP_VARIABLES)):
-			scene.ready.connect(clear.bind(ClearFlags.KEEP_VARIABLES))
-		if not scene.ready.is_connected(start_timeline.bind(timeline, label_or_idx)):
-			scene.ready.connect(start_timeline.bind(timeline, label_or_idx))
+		scene.ready.connect(clear.bind(ClearFlags.KEEP_VARIABLES))
+		scene.ready.connect(start_timeline.bind(timeline, label_or_idx))
 	else:
 		start_timeline(timeline, label_or_idx)
 
@@ -209,12 +202,12 @@ func start(timeline:Variant, label_or_idx:Variant="") -> Node:
 ## @label_or_idx can be a label (string) or index (int) to skip to immediatly.
 func start_timeline(timeline:Variant, label_or_idx:Variant = "") -> void:
 	# load the resource if only the path is given
-	if typeof(timeline) in [TYPE_STRING, TYPE_STRING_NAME]:
+	if typeof(timeline) == TYPE_STRING:
 		#check the lookup table if it's not a full file name
-		if "://" in timeline:
-			timeline = load(timeline)
+		if (timeline as String).contains("res://") or (timeline as String).contains("uid://"):
+			timeline = load((timeline as String))
 		else:
-			timeline = DialogicResourceUtil.get_timeline_resource(timeline)
+			timeline = DialogicResourceUtil.get_timeline_resource((timeline as String))
 
 	if timeline == null:
 		printerr("[Dialogic] There was an error loading this timeline. Check the filename, and the timeline for errors")
@@ -228,17 +221,17 @@ func start_timeline(timeline:Variant, label_or_idx:Variant = "") -> void:
 		event.dialogic = self
 	current_event_idx = -1
 
-	if typeof(label_or_idx) in [TYPE_STRING, TYPE_STRING_NAME]:
+	if typeof(label_or_idx) == TYPE_STRING:
 		if label_or_idx:
 			if has_subsystem('Jump'):
 				Jump.jump_to_label((label_or_idx as String))
 	elif typeof(label_or_idx) == TYPE_INT:
 		if label_or_idx >-1:
 			current_event_idx = label_or_idx -1
-
+	
 	if not current_timeline == dialog_ending_timeline:
 		timeline_started.emit()
-
+	
 	handle_next_event()
 
 
@@ -246,12 +239,8 @@ func start_timeline(timeline:Variant, label_or_idx:Variant = "") -> void:
 ## [param timeline_resource] can be either a path (string) or a loaded timeline (resource)
 func preload_timeline(timeline_resource:Variant) -> Variant:
 	# I think ideally this should be on a new thread, will test
-	if typeof(timeline_resource) in [TYPE_STRING, TYPE_STRING_NAME]:
-		if "://" in timeline_resource:
-			timeline_resource = load(timeline_resource)
-		else:
-			timeline_resource = DialogicResourceUtil.get_timeline_resource(timeline_resource)
-
+	if typeof(timeline_resource) == TYPE_STRING:
+		timeline_resource = load((timeline_resource as String))
 		if timeline_resource == null:
 			printerr("[Dialogic] There was an error preloading this timeline. Check the filename, and the timeline for errors")
 			return null
@@ -279,18 +268,6 @@ func end_timeline(skip_ending := false) -> void:
 				Styles.get_layout_node().hide()
 
 	timeline_ended.emit()
-
-
-## Method to check if timeline exists.
-## @timeline can be either a loaded timeline resource or a path to a timeline file.
-func timeline_exists(timeline:Variant) -> bool:
-	if typeof(timeline) in [TYPE_STRING, TYPE_STRING_NAME]:
-		if "://" in timeline and ResourceLoader.exists(timeline):
-			return load(timeline) is DialogicTimeline
-		else:
-			return DialogicResourceUtil.timeline_resource_exists(timeline)
-
-	return timeline is DialogicTimeline
 
 
 ## Handles the next event.

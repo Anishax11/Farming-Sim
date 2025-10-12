@@ -3,9 +3,10 @@ var tween
 var player
 
 func _ready() -> void:
+	
 	print("Scene loaded")
 	tween = create_tween()
-
+	
 	tween.tween_property(self, "color", Color(0, 0, 0, 0), 3.0)  # fade out
 
 

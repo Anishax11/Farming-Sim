@@ -17,6 +17,7 @@ func _ready() -> void:
 	get_node("Farmer/TimeManager").queue_free()
 	get_node("Farmer/DateLabel").queue_free()
 	time_manager=get_node("TimeManager")
+	Dialogic.start("SeedShopOwner")
 	#get_node("Farmer/Camera2D").queue_free()
 ##
 	##get_node("VendorMenu").mouse_filter = Control.MOUSE_FILTER_IGNORE

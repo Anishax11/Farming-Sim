@@ -6,7 +6,9 @@ var slot_adjust=1
 
 func _ready() -> void:
 	time_manager=get_node("Farmer/TimeManager")
-	
+	#time_manager.current_time=Global.current_time
+	#time_manager.time_to_change_tint=time_manager.time_to_change_tint
+	#time_manager.tint_index=time_manager.color_rect.i
 #func _on_farm_entrance_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	#
 	#if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:

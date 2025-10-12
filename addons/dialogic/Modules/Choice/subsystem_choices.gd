@@ -70,8 +70,8 @@ func post_install() -> void:
 func hide_all_choices() -> void:
 	for node in get_tree().get_nodes_in_group('dialogic_choice_button'):
 		node.hide()
-		if node.choice_selected.is_connected(_on_choice_selected):
-			node.choice_selected.disconnect(_on_choice_selected)
+		if node.pressed.is_connected(_on_choice_selected):
+			node.pressed.disconnect(_on_choice_selected)
 
 
 ## Collects information on all the choices of the current question.
@@ -120,7 +120,7 @@ func get_current_question_info() -> Dictionary:
 			if not hide:
 				button_idx += 1
 
-		choice_info.text = dialogic.Text.parse_text(choice_info.text, 1)
+		choice_info.text = dialogic.Text.parse_text(choice_info.text, true, true, false, true, false, false)
 
 		choice_info.merge(choice_event.extra_data)
 
@@ -182,9 +182,9 @@ func show_current_question(instant:=true) -> void:
 					shortcut.events.append(input_key)
 					node.shortcut = shortcut
 
-		if node.choice_selected.is_connected(_on_choice_selected):
-			node.choice_selected.disconnect(_on_choice_selected)
-		node.choice_selected.connect(_on_choice_selected.bind(choice))
+		if node.pressed.is_connected(_on_choice_selected):
+			node.pressed.disconnect(_on_choice_selected)
+		node.pressed.connect(_on_choice_selected.bind(choice))
 
 	_choice_blocker.start(block_delay)
 	question_shown.emit(question_info)
@@ -202,12 +202,12 @@ func focus_choice(button_index:int) -> void:
 func select_choice(button_index:int) -> void:
 	var node: DialogicNode_ChoiceButton = get_choice_button(button_index)
 	if node:
-		node.choice_selected.emit()
+		node.pressed.emit()
 
 
 func select_focused_choice() -> void:
 	if get_viewport().gui_get_focus_owner() is DialogicNode_ChoiceButton:
-		(get_viewport().gui_get_focus_owner() as DialogicNode_ChoiceButton).choice_selected.emit()
+		(get_viewport().gui_get_focus_owner() as DialogicNode_ChoiceButton).pressed.emit()
 
 
 func get_choice_button(button_index:int) -> DialogicNode_ChoiceButton:
