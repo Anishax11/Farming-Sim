@@ -44,6 +44,7 @@ func save_data():
 	saved_data["player_direction"]=[Global.player_direction.x, Global.player_direction.y]
 	saved_data["color_rect_i"]=Global.color_rect_i
 	saved_data["current_time"]=Global.current_time
+	saved_data["day_count"]=Global.day_count
 	
 func save_game():
 	print("SAVING....")
@@ -92,6 +93,7 @@ func load_game():
 		Global.player_direction= Vector2( dir_array[0],dir_array[1] )
 		Global.color_rect_i=data["color_rect_i"]
 		Global.current_time=data["current_time"]
+		Global.day_count=data["day_count"]
 		if data["current_area"]=="res://scenes/farm_scene.tscn":
 			
 			Global.load_farm=true

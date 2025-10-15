@@ -1174,12 +1174,13 @@ text = "No
 script = ExtResource("7_c23qe")
 
 [node name="DateLabel" type="Label" parent="."]
-offset_left = 186.071
-offset_top = -206.0
-offset_right = 314.071
-offset_bottom = -137.0
+offset_left = 240.357
+offset_top = -200.0
+offset_right = 368.357
+offset_bottom = -131.0
+scale = Vector2(0.6, 0.6)
 theme_override_font_sizes/font_size = 35
-text = "sdff"
+text = "Day : 1"
 script = ExtResource("7_m2r8d")
 
 [node name="TimeManager" type="Node2D" parent="."]
@@ -1187,12 +1188,13 @@ position = Vector2(211.786, -124)
 script = ExtResource("8_rs4uk")
 
 [node name="Label" type="Label" parent="TimeManager"]
-offset_left = -61.4286
-offset_top = -55.2
-offset_right = 122.571
-offset_bottom = 13.8
+offset_left = -4.6431
+offset_top = -54.0
+offset_right = 179.357
+offset_bottom = 15.0
+scale = Vector2(0.6, 0.6)
 theme_override_font_sizes/font_size = 35
-text = "dawa"
+text = "Time : 7:30"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
