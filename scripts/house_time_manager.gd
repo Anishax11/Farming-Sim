@@ -8,9 +8,8 @@ var minutes=0
 var color_rect_i
 var date_label
 func _ready() -> void:
-	while get_parent().farmer_added==false:
-		await get_tree().process_frame
-	date_label=get_node("/root/house_interior/Farmer/DateLabel")
+	
+	date_label=get_parent().get_node("DateLabel")
 	#if date_label==null:
 		#print("date label is null")
 	get_node("TimeLabel").text=("Time passed:"+str(current_time))

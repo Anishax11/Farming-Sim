@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://hrtowj5b5n2t" path="res://16x16/Sprites/Gemini_Generated_Image_65gbq265gbq265gb.png" id="3_bp10l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jdjn"]
-size = Vector2(220, 460)
+size = Vector2(113.333, 153.333)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v75qq"]
 texture = ExtResource("2_xf5wp")
@@ -9205,7 +9205,7 @@ scale = Vector2(0.3, 0.3)
 script = ExtResource("1_km2kn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-130, 0)
+position = Vector2(-23.3333, -70)
 shape = SubResource("RectangleShape2D_6jdjn")
 
 [node name="TileMap" type="TileMap" parent="."]

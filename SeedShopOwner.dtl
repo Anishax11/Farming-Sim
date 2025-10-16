@@ -1,3 +1,4 @@
-Aria: Welcome to the seed shop! whats  your name?
+Aria: Welcome to the seed shop!
+ Whats  your name?
 [text_input var="Charname"]
 Aria: Buy a potato {Charname}

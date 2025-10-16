@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dihnp5lr1yera"]
+[gd_scene load_steps=15 format=3 uid="uid://dihnp5lr1yera"]
 
 [ext_resource type="PackedScene" uid="uid://cf0mnr6sfm6vn" path="res://scenes/stall.tscn" id="1_ecvwp"]
 [ext_resource type="Script" path="res://scripts/market_place.gd" id="1_nwh1i"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dsjxyq7y76wkp" path="res://16x16/Sprites/Floors_Tiles.png" id="3_hqvgk"]
 [ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="4_iufx6"]
 [ext_resource type="Texture2D" uid="uid://ux5mcim0ws5d" path="res://16x16/Sprites/vectoraith_tileset_farmingsims_buildings.png" id="5_ny5a7"]
-[ext_resource type="PackedScene" uid="uid://bqf55ab0jubbx" path="res://scenes/grass.tscn" id="6_6g3qq"]
 [ext_resource type="PackedScene" uid="uid://clf70pvfbgb7r" path="res://scenes/tree.tscn" id="6_q0rpy"]
 [ext_resource type="PackedScene" uid="uid://cg6sbm3jtalyf" path="res://scenes/normaltree2.tscn" id="7_l15yd"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="10_ql6kk"]
@@ -1932,13 +1931,12 @@ position = Vector2(-190, -97)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Farmer"]
 layer = 2
-visible = false
 
 [node name="DimBG" type="ColorRect" parent="Farmer/CanvasLayer2"]
-offset_left = -2.0
-offset_top = -36.0
-offset_right = 2627.0
-offset_bottom = 1379.0
+offset_left = -496.0
+offset_top = -399.0
+offset_right = 2133.0
+offset_bottom = 1016.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("10_ql6kk")
@@ -1958,9 +1956,6 @@ position = Vector2(-101, -172)
 z_index = 2
 y_sort_enabled = true
 position = Vector2(-108, -165)
-
-[node name="Grass" parent="Node2D" instance=ExtResource("6_6g3qq")]
-position = Vector2(-24, 35)
 
 [node name="FrontYardEntrance" type="Area2D" parent="."]
 

@@ -17,7 +17,7 @@ func _ready() -> void:
 	get_node("Farmer/TimeManager").queue_free()
 	get_node("Farmer/DateLabel").queue_free()
 	get_node("Farmer/Camera2D").queue_free()
-	
+	get_node("Farmer/AnimatedSprite2D").play("backward")
 	time_manager=get_node("TimeManager")
 	Dialogic.start("SeedShopOwner")
 	#for child in get_children():
@@ -37,7 +37,14 @@ func _ready() -> void:
 func _on_exit_body_entered(body: Node2D) -> void:
 	if Global.player_direction.y==1:
 		print("LEAVING SHOP")
+		Dialogic.end_timeline()
 		Global.current_time = time_manager.current_time
 		Global.time_to_change_tint = time_manager.time_to_change_tint
-		Global.tint_index = time_manager.color_rect.i
+		Global.tint_index = time_manager.color_rect_i
 		get_node("CanvasLayer2/DimBG").dim_bg(MARKET_PLACE)
+
+
+
+func _on_close_menu_2_button_down() -> void:
+	print("Closing menu ",get_parent().name)
+	get_node("VendorMenu").visible=false

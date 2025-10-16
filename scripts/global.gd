@@ -210,9 +210,9 @@ func plant_watered(node):
 	watered_plants.append(node.name)
 	#print(watered_plants)
 	
-var current_time
-var time_to_change_tint
-var tint_index	
+var current_time=6.0
+var time_to_change_tint=8.0
+var tint_index=0	
 
 func track_time(time,change_time,index):
 	#print("saved time")
