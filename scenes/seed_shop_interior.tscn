@@ -7473,15 +7473,25 @@ texture = ExtResource("6_l3od6")
 25:20/0 = 0
 26:20/0 = 0
 27:20/0 = 0
+27:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 28:20/0 = 0
+28:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 29:20/0 = 0
+29:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 30:20/0 = 0
+30:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 31:20/0 = 0
+31:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 32:20/0 = 0
+32:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 33:20/0 = 0
+33:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 34:20/0 = 0
+34:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 35:20/0 = 0
+35:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 36:20/0 = 0
+36:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 37:20/0 = 0
 38:20/0 = 0
 39:20/0 = 0
@@ -7603,21 +7613,13 @@ texture = ExtResource("6_l3od6")
 27:22/0 = 0
 27:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 28:22/0 = 0
-28:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 29:22/0 = 0
-29:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 30:22/0 = 0
-30:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 31:22/0 = 0
-31:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 32:22/0 = 0
-32:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 33:22/0 = 0
-33:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 34:22/0 = 0
-34:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 35:22/0 = 0
-35:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 36:22/0 = 0
 36:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 37:22/0 = 0
@@ -7677,21 +7679,13 @@ texture = ExtResource("6_l3od6")
 27:23/0 = 0
 27:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 28:23/0 = 0
-28:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 29:23/0 = 0
-29:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 30:23/0 = 0
-30:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 31:23/0 = 0
-31:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 32:23/0 = 0
-32:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 33:23/0 = 0
-33:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 34:23/0 = 0
-34:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 35:23/0 = 0
-35:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 36:23/0 = 0
 36:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 37:23/0 = 0
@@ -10059,7 +10053,6 @@ scale = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_c1oly")
 
 [node name="VendorMenu" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VendorMenu"]
 offset_left = 1016.0
@@ -10075,18 +10068,20 @@ patch_margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VendorMenu"]
 offset_left = 1101.0
-offset_top = 214.0
-offset_right = 1828.0
-offset_bottom = 732.0
+offset_top = 215.0
+offset_right = 1563.0
+offset_bottom = 731.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
 theme_override_constants/separation = 0
+alignment = 1
 
 [node name="strawberry" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🍓 Strawberry Seeds"
+alignment = 0
 script = ExtResource("4_u2sro")
 
 [node name="potato" type="Button" parent="VendorMenu/VBoxContainer"]
@@ -10094,67 +10089,174 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🥔 Potato Seeds "
+alignment = 0
 script = ExtResource("4_u2sro")
 
-[node name="Button3" type="Button" parent="VendorMenu/VBoxContainer"]
+[node name="pumpkin" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "🌽 Corn Seeds"
+text = "🎃 Pumpkin Seeds"
+alignment = 0
 
 [node name="Button4" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🥕 Carrot Seeds"
+alignment = 0
 
 [node name="Button5" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🌾 Wheat Seeds"
+alignment = 0
 
 [node name="Button6" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🌻 Sunflower Seeds "
+alignment = 0
 
 [node name="Button7" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "💐 Mixed Flower Seeds"
+alignment = 0
 
 [node name="Button8" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🌹 Rose Seeds "
+alignment = 0
 
 [node name="Button9" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🌷 Tulip Bulbs"
+alignment = 0
 
 [node name="Button10" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🍑 Peach Sapling"
+alignment = 0
 
 [node name="Button11" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🍇 Grape Sapling "
+alignment = 0
 
 [node name="Button12" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🍏 Apple Sapling"
+alignment = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VendorMenu"]
+offset_left = 1331.0
+offset_top = 215.0
+offset_right = 1577.0
+offset_bottom = 731.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="strawberry" type="Button" parent="VendorMenu/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "$100
+"
+script = ExtResource("4_u2sro")
+
+[node name="potato" type="Button" parent="VendorMenu/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "$50
+"
+script = ExtResource("4_u2sro")
+
+[node name="pumpkin" type="Button" parent="VendorMenu/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "$80
+"
+
+[node name="Button4" type="Button" parent="VendorMenu/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "$50
+"
+
+[node name="Button5" type="Button" parent="VendorMenu/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "$50
+"
+
+[node name="Button6" type="Button" parent="VendorMenu/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "$100
+"
+
+[node name="Button7" type="Button" parent="VendorMenu/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "$50
+"
+
+[node name="Button8" type="Button" parent="VendorMenu/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "$70
+"
+
+[node name="Button9" type="Button" parent="VendorMenu/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "$50
+"
+
+[node name="Button10" type="Button" parent="VendorMenu/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "$150
+"
+
+[node name="Button11" type="Button" parent="VendorMenu/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "$150
+"
+
+[node name="Button12" type="Button" parent="VendorMenu/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "$100
+"
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="VendorMenu"]
 offset_left = 1513.0
@@ -10214,7 +10316,7 @@ theme_override_font_sizes/font_size = 50
 text = "Time : 7:30"
 
 [node name="Farmer" parent="." instance=ExtResource("7_4qsky")]
-position = Vector2(879.474, 518.75)
+position = Vector2(902.632, 525.893)
 scale = Vector2(6, 6)
 
 [node name="Exit" type="Area2D" parent="."]

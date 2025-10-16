@@ -8,8 +8,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	#print("DIsplay menu 1")
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.pressed:
-			
-			get_node("VendorMenu").visible=!get_node("VendorMenu").visible
+			Dialogic.signal_event.connect(_on_dialogic_signal)
+			Dialogic.start("SeedShopOwner")
 
 
 func _ready() -> void:
@@ -20,7 +20,7 @@ func _ready() -> void:
 	get_node("Farmer/AnimatedSprite2D").play("backward")
 	Global.player_direction=Vector2(0,0)
 	time_manager=get_node("TimeManager")
-	Dialogic.start("SeedShopOwner")
+	
 	#for child in get_children():
 		#print(child.name)
 
@@ -28,13 +28,8 @@ func _ready() -> void:
 ##
 	##get_node("VendorMenu").mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-
-
-	
 	#get_parent().get_parent().visible=false
 	
-
-
 func _on_exit_body_entered(body: Node2D) -> void:
 	if Global.player_direction.y==1:
 		print("LEAVING SHOP")
@@ -49,3 +44,8 @@ func _on_exit_body_entered(body: Node2D) -> void:
 func _on_close_menu_2_button_down() -> void:
 	print("Closing menu ",get_parent().name)
 	get_node("VendorMenu").visible=false
+	
+
+func _on_dialogic_signal(argument : String):
+	if argument=="OpenMenu":
+		get_node("VendorMenu").visible=true

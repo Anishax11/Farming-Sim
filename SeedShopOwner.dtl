@@ -1,4 +1,10 @@
 Aria: Welcome to the seed shop!
- Whats  your name?
+Aria: You must be the new neighbor everyone’s been talking about. What's  your name?
 [text_input var="Charname"]
-Aria: Buy a potato {Charname}
+Aria: Here, you can find all kinds of seeds and young saplings to start your farm.\
+Would you like me to show you what’s in stock, {Charname}?
+- No
+	Aria: Alright
+- Yes
+	Aria: Here, take a look
+	[signal arg="OpenMenu"]
