@@ -9,50 +9,50 @@ var price
 
 func _ready() -> void:
 	print(get_path())
-	#print(texture_rect.get_path())
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed:
+	##print(texture_rect.get_path())
+#func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	#if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed:
 		
 		#get_node("Seed_Button").visible=true
 		#get_node("Seed_Button2").visible=true
-		if seed_type!=null:
-			if seed_type=="strawberry":
-				price=100
-			elif seed_type=="potato":
-				price=50
-			print("SEED TYPE :",seed_type)
-			player=get_node("/root/SeedShopInterior/Farmer")
-			#distance=global_position.distance_to(player.position)
-			#if fake_input_called==true:
-				#distance=0
-				#fake_input_called=false
-			#print("Player pos:",player.position)
-			#print("Seeds pos:",position)
-			
-			if event.pressed :
-				
-				print("BUYING SEEDS....")
-				while texture_rect == null:
-					await get_tree().process_frame
-		   		
-				player.update_coins(-price)
-				get_node("/root/SeedShopInterior/Farmer/Inventory").add_to_inventory(seed_type+"_seeds",Global.strawberry_image)
-				
-				empty_panel=Global.get_empty_panel()
-				texture_rect.name="seeds"
-				#$TextureRect.scale.x=0.016
-				#$TextureRect.scale.y=0.016
-				
-				
-				#empty_panel.add_child(texture_rect)
-				#print(empty_panel.get_path())
-				#print("running")
-				#print($TextureRect.get_path())
-				Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-				queue_free()
-				
-		else:
-			print("SEED TYPE  null")
+		#if seed_type!=null:
+			#if seed_type=="strawberry":
+				#price=100
+			#elif seed_type=="potato":
+				#price=50
+			#print("SEED TYPE :",seed_type)
+			#player=get_node("/root/SeedShopInterior/Farmer")
+			##distance=global_position.distance_to(player.position)
+			##if fake_input_called==true:
+				##distance=0
+				##fake_input_called=false
+			##print("Player pos:",player.position)
+			##print("Seeds pos:",position)
+			#
+			#if event.pressed :
+				#
+				#print("BUYING SEEDS....")
+				#while texture_rect == null:
+					#await get_tree().process_frame
+		   		#
+				#player.update_coins(-price)
+				#get_node("/root/SeedShopInterior/Farmer/Inventory").add_to_inventory(seed_type+"_seeds",Global.strawberry_image)
+				#
+				#empty_panel=Global.get_empty_panel()
+				#texture_rect.name="seeds"
+				##$TextureRect.scale.x=0.016
+				##$TextureRect.scale.y=0.016
+				#
+				#
+				##empty_panel.add_child(texture_rect)
+				##print(empty_panel.get_path())
+				##print("running")
+				##print($TextureRect.get_path())
+				#Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+				#queue_free()
+				#
+		#else:
+			#print("SEED TYPE  null")
 		
 func fake_input():
 	fake_input_called=true
@@ -63,7 +63,7 @@ func fake_input():
 	fake_click.pressed = true
 	
 	
-	_on_input_event(get_viewport(), fake_click, 0)
+	#_on_input_event(get_viewport(), fake_click, 0)
 	#print("fake_input called")
 
 

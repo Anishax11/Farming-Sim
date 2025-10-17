@@ -3,8 +3,8 @@ Aria: You must be the new neighbor everyone’s been talking about. What's  your
 [text_input var="Charname"]
 Aria: Here, you can find all kinds of seeds and young saplings to start your farm.\
 Would you like me to show you what’s in stock, {Charname}?
-- No
+- No thanks
 	Aria: Alright
-- Yes
+- Yes please
 	Aria: Here, take a look
 	[signal arg="OpenMenu"]

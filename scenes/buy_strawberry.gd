@@ -12,7 +12,7 @@ func _on_button_down() -> void:
 		
 	print("BUYING")
 	print("self.name :",self.name)
-	print("PArent:",get_parent())
+	#print("PArent:",get_parent())
 	var seeds=SEEDS.instantiate()
 	seeds.name="seeds"
 	seeds.global_position=Vector2(1246, 692)
