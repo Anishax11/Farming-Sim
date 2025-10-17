@@ -10055,11 +10055,10 @@ shape = SubResource("RectangleShape2D_c1oly")
 [node name="VendorMenu" type="CanvasLayer" parent="."]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VendorMenu"]
-offset_left = 1016.0
-offset_top = 75.0
-offset_right = 2042.0
-offset_bottom = 936.0
-scale = Vector2(0.5, 0.5)
+offset_left = 105.0
+offset_top = 34.0
+offset_right = 1131.0
+offset_bottom = 895.0
 texture = ExtResource("2_npwv0")
 patch_margin_left = 200
 patch_margin_top = 200
@@ -10067,11 +10066,10 @@ patch_margin_right = 200
 patch_margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VendorMenu"]
-offset_left = 1101.0
-offset_top = 215.0
-offset_right = 1563.0
-offset_bottom = 731.0
-scale = Vector2(0.5, 0.5)
+offset_left = 275.0
+offset_top = 313.0
+offset_right = 737.0
+offset_bottom = 829.0
 mouse_filter = 2
 theme_override_constants/separation = 0
 alignment = 1
@@ -10163,11 +10161,10 @@ text = "🍏 Apple Sapling"
 alignment = 0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VendorMenu"]
-offset_left = 1331.0
-offset_top = 215.0
-offset_right = 1577.0
-offset_bottom = 731.0
-scale = Vector2(0.5, 0.5)
+offset_left = 737.0
+offset_top = 313.0
+offset_right = 983.0
+offset_bottom = 829.0
 mouse_filter = 2
 theme_override_constants/separation = 0
 alignment = 1
@@ -10259,23 +10256,33 @@ text = "$100
 "
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="VendorMenu"]
-offset_left = 1513.0
-offset_top = 288.0
-offset_right = 1988.0
-offset_bottom = 710.0
-scale = Vector2(0.5, 0.5)
+offset_left = 1103.0
+offset_top = 229.0
+offset_right = 1578.0
+offset_bottom = 651.0
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_and56")
 patch_margin_left = 5
 patch_margin_top = 10
 patch_margin_right = 5
 patch_margin_bottom = 10
 
+[node name="Label" type="Label" parent="VendorMenu/NinePatchRect2"]
+offset_left = 58.6667
+offset_top = 206.667
+offset_right = 1707.67
+offset_bottom = 413.667
+scale = Vector2(0.28, 0.76)
+theme_override_constants/line_spacing = -17
+theme_override_font_sizes/font_size = 40
+text_direction = 1
+
 [node name="CloseMenu" type="Button" parent="VendorMenu"]
-offset_left = 1079.0
-offset_top = 93.0
-offset_right = 1709.0
-offset_bottom = 573.0
-scale = Vector2(0.1, 0.1)
+offset_left = 241.0
+offset_top = 77.0
+offset_right = 871.0
+offset_bottom = 557.0
+scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 50
 script = ExtResource("5_x4uh4")
 

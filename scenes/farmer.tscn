@@ -306,3 +306,4 @@ position = Vector2(139, -73)
 
 [node name="PauseMenu" parent="." instance=ExtResource("12_idb42")]
 visible = false
+z_index = 6

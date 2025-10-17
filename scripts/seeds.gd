@@ -9,6 +9,22 @@ var price
 
 func _ready() -> void:
 	print(get_path())
+	var label=get_parent().get_node("NinePatchRect2/Label")
+	if seed_type=="strawberry":
+		label.text="Strawberry Seeds  : 
+Bright and sweet, these berries are a farm favorite!
+Takes 3 days to grow and yields multiple harvests once mature.
+Plant them in spring for the juiciest results — they love the 
+sun and a bit of daily care.
+ "
+	elif seed_type=="potato":
+		label.text = "Potato Seeds :
+A hearty root crop perfect for any new farmer.
+Grows in 3 days, and you might dig up extra potatoes at harvest!
+Best planted in cool weather, these dependable crops bring solid
+ profits and full bellies."
+				
+	
 	##print(texture_rect.get_path())
 #func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	#if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed:
