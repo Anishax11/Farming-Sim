@@ -15,6 +15,8 @@ func _ready() -> void:
 	farmer=get_node("Farmer")
 	get_node("Farmer/TimeManager").queue_free()
 	get_node("Farmer/DateLabel").queue_free()
+	get_node("Farmer/Inventory").position.y=-80
+	get_node("Farmer/Inventory").scale=Vector2(0.3,0.5)
 	time_manager=get_node("TimeManager")
 	#time_manager=farmer.get_node("TimeManager")
 	inventory=farmer.get_node("Inventory")

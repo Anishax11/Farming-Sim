@@ -17,6 +17,8 @@ func _ready() -> void:
 	get_node("Farmer/TimeManager").queue_free()
 	get_node("Farmer/DateLabel").queue_free()
 	get_node("Farmer/Camera2D").queue_free()
+	get_node("Farmer/Inventory").position.y=-80
+	get_node("Farmer/Inventory").scale=Vector2(0.3,0.5)
 	get_node("Farmer/AnimatedSprite2D").play("backward")
 	Global.player_direction=Vector2(0,0)
 	time_manager=get_node("TimeManager")
@@ -41,11 +43,14 @@ func _on_exit_body_entered(body: Node2D) -> void:
 
 
 
-func _on_close_menu_2_button_down() -> void:
-	print("Closing menu ",get_parent().name)
-	get_node("VendorMenu").visible=false
+	
 	
 
 func _on_dialogic_signal(argument : String):
 	if argument=="OpenMenu":
 		get_node("VendorMenu").visible=true
+
+
+func _on_close_menu_button_down() -> void:
+	print("Closing menu ",get_parent().name)
+	get_node("VendorMenu").visible=false

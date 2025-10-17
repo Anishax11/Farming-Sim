@@ -10340,10 +10340,6 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("10_lo2ag")
 
-[node name="CloseMenu" type="TextureButton" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="button_down" from="VendorMenu/CloseMenu" to="." method="_on_close_menu_button_down"]
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
