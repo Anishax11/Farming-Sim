@@ -52,5 +52,5 @@ func _on_dialogic_signal(argument : String):
 
 
 func _on_close_menu_button_down() -> void:
-	print("Closing menu ",get_parent().name)
+	print("Closing menu ")
 	get_node("VendorMenu").visible=false
