@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var inventory = $Inventory
+var inventory 
 
 var pause_menu
 var speed=70
@@ -14,8 +14,10 @@ func _ready():
 	display_coins()
 	SaveManager.player=self
 	pause_menu=get_node("PauseMenu")
-	#if get_node("Camera2D")==null:
-		#print("NO CAMERA")
+	inventory = get_node("Inventory")
+	print(inventory.get_path())
+	
+	
 		
 
 	#print("Pos save:",SaveManager.player.position)
@@ -101,10 +103,18 @@ func _input(event: InputEvent) -> void:
 		direction.x-=1
 		Global.get_direction(direction)
 	if Input.is_action_just_pressed("Inventory"):
+		print("Open INV ")
+		if inventory==null:
+			inventory = get_parent().get_node("Inventory")
+			
 		inventory.visible = not inventory.visible
-		inventory.set_process_input(not inventory.visible)
+		print("inventory.visible: ",inventory.visible)
+		#inventory.set_process_input(not inventory.visible)
 	if Input.is_action_just_pressed("Escape"):
 		print("ESCAPE")
+		if pause_menu==null:
+			pause_menu=get_parent().get_node("PauseMenu")
+			
 		get_tree().paused=!get_tree().paused
 		#pause_menu.global_position=self.global_position
 		pause_menu.visible=!pause_menu.visible

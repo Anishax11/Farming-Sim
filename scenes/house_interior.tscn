@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dba1gtffrvamm"]
+[gd_scene load_steps=18 format=3 uid="uid://dba1gtffrvamm"]
 
 [ext_resource type="Script" path="res://scripts/bed.gd" id="1_5hssx"]
 [ext_resource type="Script" path="res://scripts/house_interior.gd" id="1_mmlya"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://scripts/date_label.gd" id="7_m2r8d"]
 [ext_resource type="Script" path="res://scripts/time_manager.gd" id="8_rs4uk"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="9_o6apw"]
+[ext_resource type="PackedScene" uid="uid://but8qwaakhn1n" path="res://scenes/pause_menu.tscn" id="10_ih88g"]
+[ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="11_7fdhg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ufii"]
 atlas = ExtResource("2_m68lv")
@@ -1199,7 +1201,8 @@ text = "Time : 7:30"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 40.0
+offset_left = -195.0
+offset_right = -155.0
 offset_bottom = 40.0
 script = ExtResource("9_o6apw")
 
@@ -1209,6 +1212,19 @@ position = Vector2(55, 192)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 position = Vector2(42.8571, -8.79996)
 shape = SubResource("RectangleShape2D_p8n1x")
+
+[node name="PauseMenu" parent="." instance=ExtResource("10_ih88g")]
+visible = false
+z_index = 5
+offset_left = -166.429
+offset_top = -144.0
+offset_right = -8.42857
+offset_bottom = -4.0
+scale = Vector2(2, 2)
+
+[node name="Inventory" parent="." instance=ExtResource("11_7fdhg")]
+position = Vector2(-193.571, -109.2)
+scale = Vector2(2, 2)
 
 [connection signal="input_event" from="bed" to="bed" method="_on_input_event"]
 [connection signal="mouse_entered" from="bed" to="." method="_on_bed_mouse_entered"]

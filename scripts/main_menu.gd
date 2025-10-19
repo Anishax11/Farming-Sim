@@ -13,7 +13,4 @@ func _on_load_game_button_down() -> void:
 	SaveManager.load_game()
 
 func _on_exit_button_down() -> void:
-	call_deferred("_quit_game")
-
-func _quit_game():
 	get_tree().quit()

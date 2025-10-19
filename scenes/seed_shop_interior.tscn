@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dsgabfk5fykbw"]
+[gd_scene load_steps=20 format=3 uid="uid://dsgabfk5fykbw"]
 
 [ext_resource type="Script" path="res://scripts/seed_shop_interior.gd" id="1_j0vwb"]
 [ext_resource type="Texture2D" uid="uid://bw6y0wxowu3xs" path="res://16x16/Sprites/seed_shop_interior.png" id="2_n1n15"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://scripts/date_label.gd" id="7_ce6me"]
 [ext_resource type="Script" path="res://scripts/house_time_manager.gd" id="8_wdnbp"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="10_lo2ag"]
+[ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="13_kfead"]
+[ext_resource type="PackedScene" uid="uid://but8qwaakhn1n" path="res://scenes/pause_menu.tscn" id="14_euw4n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1oly"]
 size = Vector2(91.5789, 134.821)
@@ -10053,6 +10055,7 @@ scale = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_c1oly")
 
 [node name="VendorMenu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VendorMenu"]
 offset_left = 105.0
@@ -10346,6 +10349,21 @@ offset_bottom = 1408.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("10_lo2ag")
+
+[node name="Inventory" parent="." instance=ExtResource("13_kfead")]
+visible = true
+z_index = 4
+position = Vector2(686.842, 91.9643)
+scale = Vector2(2, 2)
+
+[node name="PauseMenu" parent="." instance=ExtResource("14_euw4n")]
+visible = false
+z_index = 5
+offset_left = 718.421
+offset_top = 123.214
+offset_right = 876.421
+offset_bottom = 263.214
+scale = Vector2(2, 2)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

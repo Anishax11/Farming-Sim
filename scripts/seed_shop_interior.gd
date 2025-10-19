@@ -17,7 +17,9 @@ func _ready() -> void:
 	get_node("Farmer/TimeManager").queue_free()
 	get_node("Farmer/DateLabel").queue_free()
 	get_node("Farmer/Camera2D").queue_free()
-	get_node("Farmer/Inventory").position.y=-80
+	get_node("Farmer/Inventory").queue_free()
+	get_node("Farmer/PauseMenu").queue_free()
+	get_node("Farmer/PauseMenu").position.y=-80
 	get_node("Farmer/Inventory").scale=Vector2(0.3,0.5)
 	get_node("Farmer/AnimatedSprite2D").play("backward")
 	Global.player_direction=Vector2(0,0)

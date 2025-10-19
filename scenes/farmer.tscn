@@ -299,7 +299,6 @@ script = ExtResource("10_scngo")
 metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" parent="." instance=ExtResource("11_n8gv4")]
-visible = false
 
 [node name="TimeManager" parent="." instance=ExtResource("9_lco12")]
 position = Vector2(139, -73)

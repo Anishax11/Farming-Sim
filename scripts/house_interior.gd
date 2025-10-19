@@ -1,13 +1,13 @@
 extends Node2D
 
 
-const INVENTORY = preload("res://scenes/inventory.tscn")
 var farmer
 var inventory
 var date_label
 var farmer_added=false
 var camera
 var time_manager
+var pause_menu
 var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
 
 func _ready() -> void:
@@ -15,11 +15,12 @@ func _ready() -> void:
 	farmer=get_node("Farmer")
 	get_node("Farmer/TimeManager").queue_free()
 	get_node("Farmer/DateLabel").queue_free()
-	get_node("Farmer/Inventory").position.y=-80
-	get_node("Farmer/Inventory").scale=Vector2(0.3,0.5)
+	pause_menu=get_node("Farmer/PauseMenu")
+	pause_menu.queue_free()
+	get_node("Farmer/Inventory").queue_free()
 	time_manager=get_node("TimeManager")
 	#time_manager=farmer.get_node("TimeManager")
-	inventory=farmer.get_node("Inventory")
+	#inventory=farmer.get_node("Inventory")
 	camera=farmer.get_node("Camera2D")
 	camera.queue_free()
 	#date_label=farmer.get_node("DateLabel")
@@ -33,10 +34,11 @@ func _ready() -> void:
 	#farmer.scale.x=50
 	#farmer.scale.y=50
 	farmer.get_node("AnimatedSprite2D").play("backward")
-
-	inventory.scale = Vector2(2.0 / farmer.scale.x, 2.0 / farmer.scale.y)
-	inventory.visible=false
-	inventory.position=Vector2(5,-8)
+	#pause_menu.position.y=-80
+	#inventory.scale = Vector2(0.3,0.3)
+	#pause_menu.scale = Vector2(0.1,0.1)
+	#inventory.visible=false
+	#inventory.position=Vector2(-5,-20)
 	
 	
 	for i in range (3):
