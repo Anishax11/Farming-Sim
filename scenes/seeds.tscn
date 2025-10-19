@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://cormp4ej6i7fy" path="res://scenes/seed_button.tscn" id="3_pcq2q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmrh4"]
-size = Vector2(14.2, 14.3333)
+size = Vector2(14.0391, 13.75)
 
 [node name="seeds" type="Area2D"]
 z_index = 3
-scale = Vector2(10, 6)
+scale = Vector2(9.2, 6)
 script = ExtResource("1_q1ha3")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -21,19 +21,15 @@ texture = ExtResource("1_vvim8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(7.1, 7.16667)
-scale = Vector2(1, 1)
+position = Vector2(7.21956, 7.29167)
 shape = SubResource("RectangleShape2D_fmrh4")
 
 [node name="Buy_Seed_Button" parent="." instance=ExtResource("3_pcq2q")]
-offset_left = -0.6
-offset_top = -12.3333
-offset_right = 93.4
-offset_bottom = 18.6667
+offset_left = -0.869565
+offset_top = -12.8333
+offset_right = 93.1304
+offset_bottom = 18.1667
 scale = Vector2(0.16, 0.356)
+mouse_filter = 1
 text = "BUY
 "
-
-[connection signal="input_event" from="." to="." method="_on_input_event"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

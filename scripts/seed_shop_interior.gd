@@ -54,3 +54,11 @@ func _on_dialogic_signal(argument : String):
 func _on_close_menu_button_down() -> void:
 	print("Closing menu ")
 	get_node("VendorMenu").visible=false
+
+
+#func _on_mouse_entered() -> void:
+	#print("Mouse entered")
+	#Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+#func _on_mouse_exited() -> void:
+	#Input.set_default_cursor_shape(Input.CURSOR_ARROW)

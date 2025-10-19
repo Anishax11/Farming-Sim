@@ -1,7 +1,7 @@
 extends Button
 const SEEDS = preload("res://scenes/seeds.tscn")
 func _ready() -> void:
-	
+		mouse_default_cursor_shape=Control.CursorShape.CURSOR_POINTING_HAND
 		self.connect("pressed", Callable(self, "_on_button_down"))
 
 func _on_button_down() -> void:

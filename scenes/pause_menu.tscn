@@ -15,6 +15,7 @@ offset_bottom = 140.0
 script = ExtResource("1_x32jy")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
 offset_right = 164.0
 offset_bottom = 141.0
 texture = ExtResource("2_lxpvc")
@@ -24,6 +25,7 @@ patch_margin_right = 6
 patch_margin_bottom = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 163.0

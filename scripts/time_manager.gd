@@ -12,7 +12,7 @@ var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
 func _ready() -> void:
 	
 	print("Path:",get_path())
-	game=get_node("/root/Game")
+	#game=get_node("/root/Game")
 	date_label=get_parent().get_node("DateLabel")
 	get_node("Label").text=("Time passed:"+str(current_time))
 	color_rect=get_parent().get_node("CanvasLayer/ColorRect") 
