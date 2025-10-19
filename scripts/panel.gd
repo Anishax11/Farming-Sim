@@ -18,6 +18,7 @@ var seed_type
 var transferred=false
 
 func _ready():
+	mouse_default_cursor_shape=Control.CursorShape.CURSOR_POINTING_HAND
 	siblings = get_parent().get_children()
 	anchor_left = 1
 	anchor_top = 1
@@ -28,6 +29,8 @@ func _ready():
 	
 	self.connect("gui_input", Callable(self, "_on_gui_input")) #Attach signal to node
 	self.connect("child_entered_tree", Callable(self, "_on_panel_1_child_entered_tree"))
+	self.connect("child_exiting_tree", Callable(self, "_on_panel_child_exiting_tree"))
+#	self.child_exiting_tree.connect(_on_child_removed)
 	var inventory=get_parent().get_parent().get_parent()
 	#if get_tree().current_scene==get_node("/root/Game"):
 		#inventory_node=get_node("/root/Game/frontyard_scene/Farmer/Inventory")
@@ -143,10 +146,12 @@ func _on_gui_input(event: InputEvent) -> void:
 		#print("DIst from inv:",relative_pos)#-get_parent().get_parent().position.x)
 		var child=get_child(0)
 		if child is TextureRect:
-			var relative_pos = child.global_position - grandparent.global_position
+			var relative_pos = child.global_position - get_parent().global_position
 			if relative_pos.x<0 or relative_pos.x>190 or relative_pos.y<0 or relative_pos.y>190 :
-				#print("item out of inv")
-				#print("POs:",relative_pos)
+				print("item out of inv")
+				print("Parent pos : ",get_parent().global_position)
+				print("Child pos : ",child.global_position )
+				print("Relative POs:",relative_pos)
 				Global.item_out_of_inv=true
 				
 			Global.panel_clicked=!Global.panel_clicked #Panel clicked shouldnt become true while dragging item
@@ -160,11 +165,12 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
-
+	
 	#node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	#node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	
 	print("Item added to panel:",node.name)
+	#print("PATH : "+ node.get_path())
 	#node.global_position=Vector2(global_position.x+2,global_position.y+2)
 	
 	if node is TextureRect and node.name=="strawberry_seeds" or node.name=="potato_seeds":
@@ -210,3 +216,14 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		
 		item_name=node.name
 		#print("STr texturerect added to panel")
+
+
+
+func _on_panel_child_exiting_tree(node : Node) :
+	print("Child removeddd")
+	stylebox.texture=Global.INVENTORY_SLOT
+	add_theme_stylebox_override("panel", stylebox)
+	stylebox.expand_margin_left = 0
+	stylebox.expand_margin_right = 0
+	stylebox.expand_margin_top = 0
+	stylebox.expand_margin_bottom = 0
