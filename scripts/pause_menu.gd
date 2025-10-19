@@ -3,7 +3,7 @@ extends Control
 #func _ready():
 	##process_mode = Node.PAUSE_MODE_PROCESS
 	#get_node("PanelContainer/VBoxContainer/RESUME").pressed.connect(_on_resume_button_down)
-	
+var MAIN_MENU = load("res://scenes/main_menu.tscn")	
 func _on_resume_button_down() -> void:
 	
 	print("ReSume")
@@ -13,7 +13,7 @@ func _on_resume_button_down() -> void:
 
 
 func _on_go_to_main_menu_button_down() -> void:
-	pass # Replace with function body.
+	await get_tree().change_scene_to_packed(MAIN_MENU)
 
 
 func _on_save_button_button_down() -> void:

@@ -12,6 +12,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 158.0
 offset_bottom = 140.0
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_x32jy")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
