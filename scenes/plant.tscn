@@ -72,7 +72,7 @@ shape = SubResource("RectangleShape2D_0dyuw")
 position = Vector2(1.5, -21)
 scale = Vector2(0.811966, 1.1)
 sprite_frames = SubResource("SpriteFrames_dxjdq")
-animation = &"potato_stage_3"
+animation = &"strawberry_stage_3"
 autoplay = "stage_1"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

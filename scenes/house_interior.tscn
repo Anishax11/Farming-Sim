@@ -1220,7 +1220,7 @@ offset_left = -166.429
 offset_top = -144.0
 offset_right = -8.42857
 offset_bottom = -4.0
-scale = Vector2(2, 2)
+scale = Vector2(1, 1)
 
 [node name="Inventory" parent="." instance=ExtResource("11_7fdhg")]
 position = Vector2(-193.571, -109.2)

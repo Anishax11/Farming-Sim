@@ -56,6 +56,8 @@ func move_item(panel_number,item_name):
 		print("Texture_rect nulll")
 		print("Prev panel path: "+prev_panel_path)
 		print(prev_panel_path+"/"+item_name)
+		prev_panel_path="/root/"+current_scene.name+"/Inventory/NinePatchRect/GridContainer/Panel"+str(panel_number)
+		texture_rect=get_node(prev_panel_path+"/"+item_name)
 		
 	var inv=get_tree().get_root().find_child("Inventory", true, false)
 	#print(inv.inventory_items)
@@ -64,7 +66,8 @@ func move_item(panel_number,item_name):
 	var final_panel_path ="/root/"+current_scene.name+"/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)
 	
 	print("FINAL PANEL PATH:",final_panel_path)
-	
+	if get_node(final_panel_path)==null:
+		final_panel_path ="/root/"+current_scene.name+"Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)
 	
 	
 	

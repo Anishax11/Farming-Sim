@@ -19,27 +19,13 @@ func _ready() -> void:
 	pause_menu.queue_free()
 	get_node("Farmer/Inventory").queue_free()
 	time_manager=get_node("TimeManager")
-	#time_manager=farmer.get_node("TimeManager")
-	#inventory=farmer.get_node("Inventory")
+
 	camera=farmer.get_node("Camera2D")
 	camera.queue_free()
-	#date_label=farmer.get_node("DateLabel")
-	#date_label.global_position=Vector2(1400,-5)
-	#time_manager.global_position=Vector2(0,50)
-	#date_label.add_theme_font_size_override("font_size", 10)
-	#time_manager.get_node("Label").add_theme_font_size_override("font_size", 12)
-	##date_label.scale.y=50
-	#date_label.visible=true
-	#farmer.add_child(date_label)
-	#farmer.scale.x=50
-	#farmer.scale.y=50
-	farmer.get_node("AnimatedSprite2D").play("backward")
-	#pause_menu.position.y=-80
-	#inventory.scale = Vector2(0.3,0.3)
-	#pause_menu.scale = Vector2(0.1,0.1)
-	#inventory.visible=false
-	#inventory.position=Vector2(-5,-20)
 	
+	farmer.get_node("AnimatedSprite2D").play("backward")
+
+	var inventory= get_tree().current_scene.find_child("Inventory")
 	
 	for i in range (3):
 		for j in range (5):

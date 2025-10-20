@@ -33,6 +33,7 @@ position = Vector2(109, 509)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Farmer"]
 layer = 2
+visible = false
 
 [node name="DimBG" type="ColorRect" parent="Farmer/CanvasLayer2"]
 offset_left = -2.0

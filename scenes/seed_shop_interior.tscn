@@ -10281,10 +10281,10 @@ theme_override_font_sizes/font_size = 40
 text_direction = 1
 
 [node name="CloseMenu" type="Button" parent="VendorMenu"]
-offset_left = 241.0
-offset_top = 77.0
-offset_right = 871.0
-offset_bottom = 557.0
+offset_left = 225.0
+offset_top = 71.0
+offset_right = 855.0
+offset_bottom = 551.0
 scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 50
 script = ExtResource("5_x4uh4")
@@ -10326,8 +10326,8 @@ theme_override_font_sizes/font_size = 50
 text = "Time : 7:30"
 
 [node name="Farmer" parent="." instance=ExtResource("7_4qsky")]
-position = Vector2(902.632, 525.893)
-scale = Vector2(6, 6)
+position = Vector2(879.474, 525.893)
+scale = Vector2(5, 5)
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(833.684, 613.393)
@@ -10351,18 +10351,17 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("10_lo2ag")
 
 [node name="Inventory" parent="." instance=ExtResource("13_kfead")]
-visible = true
 z_index = 4
-position = Vector2(686.842, 91.9643)
-scale = Vector2(2, 2)
+position = Vector2(626.316, 51.7857)
+scale = Vector2(2.5, 2.5)
 
 [node name="PauseMenu" parent="." instance=ExtResource("14_euw4n")]
 visible = false
 z_index = 5
-offset_left = 718.421
-offset_top = 123.214
-offset_right = 876.421
-offset_bottom = 263.214
+offset_left = 617.368
+offset_top = -126.786
+offset_right = 775.368
+offset_bottom = 13.2143
 scale = Vector2(2, 2)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

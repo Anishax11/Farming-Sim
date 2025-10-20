@@ -4146,6 +4146,7 @@ script = ExtResource("5_gxrd4")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 
 [node name="DimBG" type="ColorRect" parent="CanvasLayer2"]
 visibility_layer = 2
