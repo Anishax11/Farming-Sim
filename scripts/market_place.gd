@@ -7,7 +7,8 @@ func _ready():
 	print("MARKET Place")
 	player=get_node("Farmer")
 	time_manager=get_node("Farmer/TimeManager")
-	
+	if Global.player_pos!=null:
+		player.global_position = Global.player_pos
 
 	#
 #func _process(delta: float) -> void:

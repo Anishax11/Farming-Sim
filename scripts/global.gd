@@ -41,6 +41,7 @@ var color_rect_i=0
 var soil_data={
 	
 }
+var player_pos #used to set player location after instantiating new scene
 func get_direction(direction) :
 	
 	player_direction=direction
@@ -75,7 +76,7 @@ func move_item(panel_number,item_name):
 	if get_tree().get_root().get_node(final_panel_path+"/"+item_name)==null and final_panel>0 and final_panel<16:
 		print("NOT OCCUPIED")
 		if final_panel_path!=prev_panel_path:
-			print("prev panel seed type:",get_node(prev_panel_path).seed_type)
+			#print("prev panel seed type:",get_node(prev_panel_path).seed_type)
 			get_node(final_panel_path).seed_type=get_node(prev_panel_path).seed_type
 			get_node(prev_panel_path).item_name=null
 			
@@ -83,7 +84,7 @@ func move_item(panel_number,item_name):
 			get_node(final_panel_path).add_child(texture_rect)
 			
 				
-			print("NEW PARENT :"+texture_rect.get_parent().name)
+			#print("NEW PARENT :"+texture_rect.get_parent().name)
 			#ADD ITEM TO ARRAY
 			Global.inventory_items[int((final_panel-1)/5)][int(final_panel-1)%5]=item_name
 			
@@ -96,7 +97,7 @@ func move_item(panel_number,item_name):
 			
 		
 	else:
-		print("OCCUPIED")
+		#print("OCCUPIED")
 		if final_panel_path!=prev_panel_path:
 			
 			get_node(prev_panel_path).add_child(texture_rect)

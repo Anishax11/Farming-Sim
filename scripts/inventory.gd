@@ -34,6 +34,7 @@ func _ready() -> void:
 					texture_rect.name=string
 					if Global.get(string+"_image")==null:
 						print(string+" is null")
+					
 					print("Slot passed:",slots_passed)
 					print("ADJ:",slot_adjust)
 					print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))

@@ -6,6 +6,9 @@ var slot_adjust=1
 
 func _ready() -> void:
 	time_manager=get_node("Farmer/TimeManager")
+	var player =get_node("Farmer")
+	if Global.player_pos!=null:
+		player.global_position=Global.player_pos
 	#time_manager.current_time=Global.current_time
 	#time_manager.time_to_change_tint=time_manager.time_to_change_tint
 	#time_manager.tint_index=time_manager.color_rect.i

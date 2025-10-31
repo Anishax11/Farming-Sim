@@ -30,6 +30,7 @@ script = ExtResource("1_consl")
 
 [node name="Farmer" parent="." instance=ExtResource("1_pwhwc")]
 position = Vector2(109, 509)
+scale = Vector2(3, 3)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Farmer"]
 layer = 2

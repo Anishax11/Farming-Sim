@@ -64,7 +64,7 @@ func _ready() -> void:
 						node.queue_free()			
 					Global.inventory_items[i][j]=""
 					inventory.add_to_inventory(string,Global.get(string+"_image"))
-		
+					
 		for i in range((Global.watered_plants).size()):
 			print("runnihng loop watered plants:"+Global.watered_plants[0])
 			if Global.watered_plants[i]!=null and Global.day_passed==true:
