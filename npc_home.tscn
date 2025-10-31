@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ux5mcim0ws5d" path="res://16x16/Sprites/vectoraith_tileset_farmingsims_buildings.png" id="1_om2v0"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wj5p0"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xcku"]
 texture = ExtResource("1_om2v0")
 1:0/0 = 0
 2:0/0 = 0
@@ -245,7 +245,7 @@ texture = ExtResource("1_om2v0")
 15:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_0rrao"]
-sources/0 = SubResource("TileSetAtlasSource_wj5p0")
+sources/0 = SubResource("TileSetAtlasSource_5xcku")
 
 [node name="NPC_Home" type="Area2D"]
 
