@@ -1,16 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg6sbm3jtalyf"]
+[gd_scene load_steps=6 format=3 uid="uid://cg6sbm3jtalyf"]
 
-[ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="1_chtyj"]
+[ext_resource type="Texture2D" uid="uid://bppohjef2vx8d" path="res://16x16/Tilesets (Compact)/free_sample_tileset.png" id="1_m1cr2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_635ru"]
-atlas = ExtResource("1_chtyj")
-region = Rect2(0, 72, 79, 72)
+[sub_resource type="AtlasTexture" id="AtlasTexture_14llk"]
+atlas = ExtResource("1_m1cr2")
+region = Rect2(0, 68, 80, 68)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_i21lu"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgatp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_635ru")
+"texture": SubResource("AtlasTexture_14llk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xrdk"]
+atlas = ExtResource("1_m1cr2")
+region = Rect2(0, 120, 65, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0kk7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xrdk")
 }],
 "loop": true,
 "name": &"default",
@@ -19,9 +34,12 @@ animations = [{
 
 [node name="NormalTree2" type="Area2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
-sprite_frames = SubResource("SpriteFrames_i21lu")
-autoplay = "default"
+position = Vector2(-3, -1)
+sprite_frames = SubResource("SpriteFrames_lgatp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(-8, 36)
+sprite_frames = SubResource("SpriteFrames_m0kk7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
