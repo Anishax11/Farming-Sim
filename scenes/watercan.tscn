@@ -1,24 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://potiq7c4dk36"]
+[gd_scene load_steps=6 format=3 uid="uid://potiq7c4dk36"]
 
 [ext_resource type="Script" path="res://scripts/watercan.gd" id="1_27n3v"]
-[ext_resource type="Texture2D" uid="uid://clcgc0x7v0rwj" path="res://16x16/Sprites/water can icon.png" id="1_iljbd"]
+[ext_resource type="Texture2D" uid="uid://1sar8w1enrdy" path="res://16x16/Sprout Lands - Sprites - Basic pack/Objects/Basic_tools_and_meterials.png" id="3_fkige"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6g0y"]
 size = Vector2(1029, 1029)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kvst"]
+atlas = ExtResource("3_fkige")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7jlsm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kvst")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="watercan" type="Area2D"]
 scale = Vector2(0.03, 0.03)
 script = ExtResource("1_27n3v")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-texture = ExtResource("1_iljbd")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(504.5, 504.5)
 shape = SubResource("RectangleShape2D_a6g0y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(486.667, 486.667)
+scale = Vector2(64.1667, 64.1667)
+sprite_frames = SubResource("SpriteFrames_7jlsm")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

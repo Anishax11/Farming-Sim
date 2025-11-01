@@ -48,7 +48,7 @@ script = ExtResource("3_84hpi")
 [node name="SoilManager" parent="." instance=ExtResource("5_p20ei")]
 
 [node name="watercan" parent="." instance=ExtResource("6_osxcg")]
-position = Vector2(148, 568)
+position = Vector2(123, 334)
 
 [node name="EXIT" type="Area2D" parent="."]
 
