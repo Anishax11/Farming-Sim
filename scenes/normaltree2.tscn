@@ -39,6 +39,7 @@ position = Vector2(-3, -1)
 sprite_frames = SubResource("SpriteFrames_lgatp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+y_sort_enabled = true
 position = Vector2(-8, 36)
 sprite_frames = SubResource("SpriteFrames_m0kk7")
 
