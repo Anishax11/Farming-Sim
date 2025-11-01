@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx60jxvycan65"
-path="res://.godot/imported/PostOffice.jpeg-1fa68febf5d92208c532c4430f38e1fa.ctex"
+uid="uid://bv1pg6c5hevq5"
+path="res://.godot/imported/PostOffice.png-cda172c1e7f33eecb755ed53e600d898.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16/Sprites/PostOffice.jpeg"
-dest_files=["res://.godot/imported/PostOffice.jpeg-1fa68febf5d92208c532c4430f38e1fa.ctex"]
+source_file="res://16x16/Sprites/PostOffice.png"
+dest_files=["res://.godot/imported/PostOffice.png-cda172c1e7f33eecb755ed53e600d898.ctex"]
 
 [params]
 

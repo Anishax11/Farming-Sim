@@ -33190,6 +33190,7 @@ scale = Vector2(1.3, 1.3)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Farmer"]
 layer = 2
+visible = false
 
 [node name="DimBG" type="ColorRect" parent="Farmer/CanvasLayer2"]
 visibility_layer = 2
