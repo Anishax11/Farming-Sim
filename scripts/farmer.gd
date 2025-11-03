@@ -10,7 +10,8 @@ var speed=70
 var direction: Vector2
 
 func _ready():
-	#print("coin label position :",get_node("CoinLabel").global_position)
+	print("coin label position :",get_node("CoinLabel").global_position)
+	print(get_path())
 	display_coins()
 	SaveManager.player=self
 	pause_menu=get_node("PauseMenu")

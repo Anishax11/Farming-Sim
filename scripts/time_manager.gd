@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 
 	if current_time!=null and current_time<24:
 		time_passed+=delta
-		if time_passed-initial_time > 0.5:
+		if time_passed-initial_time > 0.25:
 			initial_time=time_passed
 			#print("Initial Time :",initial_time)	
 			#print("Time passed:",time_passed)
@@ -56,16 +56,9 @@ func _physics_process(delta: float) -> void:
 				time_to_change_tint+=2
 				color_rect.adjust_tint()
 	elif current_time!=null:
-		Global.day_count+=1
-		Global.day_passed=true
-		date_label.update_day_count()
-		Global.time_to_change_tint=8.0
-		Global.tint_index=0
-		Global.current_time=6.0
-		time_passed=0.0
-		initial_time=0.0
 		
-		await get_tree().change_scene_to_packed(HOUSE_INTERIOR)
+		
+		Global.update_day_count()
 		#Global.load_farm=true
 
 

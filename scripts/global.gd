@@ -1,5 +1,5 @@
 extends Node
-
+const HOUSE_INTERIOR = preload("res://scenes/house_interior.tscn")
 var day_count=1
 var day_passed=false
 var inventory_items=[]
@@ -160,11 +160,24 @@ func save_tilled_soil(soil,animation):
 		
 		
 func update_day_count():
-			#print("Updated day")
+	print("Update day")
 	day_count+=1
+#date_label.update_day_count()
+	Global.time_to_change_tint=8.0
+	Global.tint_index=0
+	Global.current_time=6.0
+	#time_passed=0.0
+	#initial_time=0.0
+		
+	await get_tree().change_scene_to_packed(HOUSE_INTERIOR)	
+	while(get_node("/root/house_interior/Farmer")==null):
+		await get_tree().process_frame  # wait for the scene to finish loading
+
 	day_passed=true
 	if trade_money>0:
+		print("Increment coins")
 		get_node("/root/house_interior/Farmer").update_coins(trade_money)
+		
 		trade_money=0
 
 func plant_watered(node):

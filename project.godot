@@ -22,6 +22,7 @@ Inventory="*res://scripts/inventory.gd"
 PlantTracker="*res://scripts/Plant_Tracker.gd"
 SaveManager="*res://scripts/SaveManager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Tutorials="*res://scripts/tutorials.gd"
 
 [dialogic]
 
@@ -30,7 +31,8 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"SeedShopOwner": "res://SeedShopOwner.dtl"
+"SeedShopOwner": "res://SeedShopOwner.dtl",
+"TradeBoxTutorial": "res://TradeBoxTutorial.dtl"
 }
 layout/style_directory={}
 layout/style_list=[]
@@ -38,6 +40,7 @@ layout/default_style="Default"
 variables={
 "Charname": ""
 }
+glossary/default_case_sensitive=true
 
 [editor_plugins]
 

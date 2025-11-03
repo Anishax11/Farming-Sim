@@ -18,7 +18,6 @@ var seed_type
 var transferred=false
 
 func _ready():
-	print(get_path())
 	mouse_default_cursor_shape=Control.CursorShape.CURSOR_POINTING_HAND
 	siblings = get_parent().get_children()
 	anchor_left = 1

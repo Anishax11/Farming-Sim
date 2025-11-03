@@ -48,3 +48,7 @@ func _on_dont_trade_button_down() -> void:
 func _on_trade_button_down() -> void:
 	panel.remove_item(panel.item_name)
 	Global.trade_money+=Global.ItemPriceList[str(panel.item_name)]
+	get_node("NinePatchRect2").visible=false
+
+func _on_close_inventory_button_down() -> void:
+	visible=false

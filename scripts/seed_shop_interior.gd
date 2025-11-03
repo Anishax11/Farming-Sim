@@ -10,7 +10,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if event.pressed:
 			Dialogic.signal_event.connect(_on_dialogic_signal)
 			Dialogic.start("SeedShopOwner")
-
+	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			get_node("VendorMenu").visible=true
 
 func _ready() -> void:
 	

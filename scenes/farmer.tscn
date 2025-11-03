@@ -272,10 +272,11 @@ zoom = Vector2(4, 4)
 script = ExtResource("7_3irru")
 
 [node name="CoinLabel" type="Label" parent="."]
+z_index = 5
 offset_left = -144.0
-offset_top = -81.0
+offset_top = -106.0
 offset_right = -52.0
-offset_bottom = -58.0
+offset_bottom = -83.0
 scale = Vector2(0.5, 1)
 
 [node name="DateLabel" parent="." instance=ExtResource("8_r8mox")]
@@ -301,6 +302,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Inventory" parent="." instance=ExtResource("11_n8gv4")]
 
 [node name="TimeManager" parent="." instance=ExtResource("9_lco12")]
+z_index = 5
 position = Vector2(77, -81)
 
 [node name="PauseMenu" parent="." instance=ExtResource("12_idb42")]
