@@ -3,6 +3,7 @@ var player
 var distance
 var empty_panel
 var fake_input_called=false
+var price=300
 @onready var texture_rect: TextureRect = $TextureRect
 
 

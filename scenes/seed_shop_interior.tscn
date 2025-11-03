@@ -10055,7 +10055,6 @@ scale = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_c1oly")
 
 [node name="VendorMenu" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VendorMenu"]
 offset_left = 105.0

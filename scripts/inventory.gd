@@ -11,8 +11,8 @@ var potato_seeds_count=0
 
 
 func _ready() -> void:
-	if get_node("DeleteItemConfirmation")==null:
-		print("NULLLL")
+	#if get_node("DeleteItemConfirmation")==null:
+		#print("NULLLL")
 	var slots_passed=0
 	var slot_adjust=1
 	for i in range(3):

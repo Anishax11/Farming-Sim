@@ -42,6 +42,18 @@ var soil_data={
 	
 }
 var player_pos #used to set player location after instantiating new scene
+var ItemPriceList={
+	"strawberry_seeds": 100,
+	"potato_seeds" : 50,
+	"watercan" : 100,
+	"strawberry" : 300,
+	"potato" : 150
+	
+}
+
+var trade_money=0
+
+
 func get_direction(direction) :
 	
 	player_direction=direction
@@ -89,23 +101,15 @@ func move_item(panel_number,item_name):
 			Global.inventory_items[int((final_panel-1)/5)][int(final_panel-1)%5]=item_name
 			
 			texture_rect.global_position=get_node(final_panel_path).global_position
-		
 			#REMOVE ITEM FROM ARRAY
-		
 			Global.inventory_items[int((panel_number-1)/5)][(panel_number-1)%5]=""
 			
-			
-		
 	else:
 		#print("OCCUPIED")
 		if final_panel_path!=prev_panel_path:
-			
 			get_node(prev_panel_path).add_child(texture_rect)
 			texture_rect.global_position=get_node(prev_panel_path).global_position
 			Global.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]=item_name
-	
-	
-	
 	
 	#print("Text final path:",texture_rect.get_path())
 	#
@@ -126,7 +130,6 @@ func grow_plant(soil_name):
 	plant.name=PlantTracker.plant_names[soil_name]
 	
 	print("Gobal plant name:",plant.name)
-
 	#soil.remove_child.soil.get_node("AnimatedSprite2D")
 	#get_node("/root/Game/farm_scene/").add_child(plant)
 	if get_node("/root/farm_scene/"):
@@ -159,8 +162,10 @@ func save_tilled_soil(soil,animation):
 func update_day_count():
 			#print("Updated day")
 	day_count+=1
-	
 	day_passed=true
+	if trade_money>0:
+		get_node("/root/house_interior/Farmer").update_coins(trade_money)
+		trade_money=0
 
 func plant_watered(node):
 	watered_plants.append(node.name)

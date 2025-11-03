@@ -18,6 +18,7 @@ var seed_type
 var transferred=false
 
 func _ready():
+	print(get_path())
 	mouse_default_cursor_shape=Control.CursorShape.CURSOR_POINTING_HAND
 	siblings = get_parent().get_children()
 	anchor_left = 1
@@ -75,13 +76,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			print(Global.inventory_items)
 			#print("Clicked panel")
 			button_held=true
-			#print("ini pos:",texture_rect.position)
-			#print("self:",self.position)
-			#print(texture_rect.get_path())$TextureRect
-			#if get_child(0)!=null:
-				#print("Not null")
-				#get_child(0).global_position=Vector2(global_position.x+2,global_position.y+2)
-			#print(get_child(0).position)
+			
 			if item_name=="strawberry_seeds" or item_name=="potato_seeds":
 				print("Item is seeds")
 				print(get_child(0).name)
@@ -129,11 +124,11 @@ func _on_gui_input(event: InputEvent) -> void:
 				Global.move_item(panel_number,item_name)#Passes panel no. to move_item func
 				
 			#else:
-				#print("TEXT not found")
-	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT :   
-		if event.pressed:	
-			inventory.get_node("DeleteItemConfirmation").visible=true
-			inventory.get_node("DeleteItemConfirmation").panel=self
+				##print("TEXT not found")
+	#if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT :   
+		#if event.pressed:	
+			#inventory.get_node("DeleteItemConfirmation").visible=true
+			#inventory.get_node("DeleteItemConfirmation").panel=self
 			
 			
 			
@@ -167,13 +162,13 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 	#node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	#node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	
-	print("Item added to panel:",node.name)
+	#print("Item added to panel:",node.name)
 	#print("PATH : "+ node.get_path())
 	#node.global_position=Vector2(global_position.x+2,global_position.y+2)
 	
 	if node is TextureRect and node.name=="strawberry_seeds" or node.name=="potato_seeds":
 		
-		print("Added to panel",self.name)
+		#print("Added to panel",self.name)
 		item_name=node.name
 		#node.position=Vector2(0,0)
 		#node.scale.x=2
@@ -186,7 +181,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		elif node.name=="potato_seeds":
 			seed_type="potato"
 			
-		print("Seeds scale x : ",node.scale.x)
+		#print("Seeds scale x : ",node.scale.x)
 		
 		
 		
@@ -206,7 +201,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		item_name="watercan"
 		
 	if node is TextureRect and node.name=="strawberry" or node.name=="potato":
-		print(node.name," ", node.texture)
+		#print(node.name," ", node.texture)
 		node.position=Vector2(-2,-4)
 		
 		node.scale.x=0.11
@@ -218,7 +213,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 
 
 func _on_panel_child_exiting_tree(node : Node) :
-	print("Child removeddd")
+	#print("Child removeddd")
 	stylebox.texture=Global.INVENTORY_SLOT
 	add_theme_stylebox_override("panel", stylebox)
 	stylebox.expand_margin_left = 0
@@ -227,8 +222,8 @@ func _on_panel_child_exiting_tree(node : Node) :
 	stylebox.expand_margin_bottom = 0
 
 func remove_item(item_name):
-	print("Inside")
-	print("Removing itemfrom inv and panel",self.name)	
+	#print("Inside")
+	#print("Removing itemfrom inv and panel",self.name)	
 	if item_name!=null:
 			#	print("REMOVVE ITEM")	
 				self.remove_child(get_node(item_name))
