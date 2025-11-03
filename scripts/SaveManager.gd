@@ -10,6 +10,9 @@ var saved_data = {
 	"planted_soil":null,
 	"watered_plants":null,
 	"last_plant_number":null,
+	"trade_box_tutorial" : null,
+	"seed_shop_events" : null,
+	"trade_money" : null
 }
 
 var save_path="user://savegame.json"
@@ -45,6 +48,9 @@ func save_data():
 	saved_data["color_rect_i"]=Global.color_rect_i
 	saved_data["current_time"]=Global.current_time
 	saved_data["day_count"]=Global.day_count
+	saved_data["trade_box_tutorial"]=Tutorials.trade_box_tutorial
+	saved_data["seed_shop_events"] = Tutorials.seed_shop
+	saved_data["trade_money"] = Global.trade_money
 	
 func save_game():
 	print("SAVING....")
@@ -95,9 +101,12 @@ func load_game():
 		Global.current_time=data["current_time"]
 		Global.day_count=data["day_count"]
 		if data["current_area"]=="res://scenes/farm_scene.tscn":
-			
 			Global.load_farm=true
-		
+		Tutorials.trade_box_tutorial=data["trade_box_tutorial"]	
+		Tutorials.seed_shop = data["seed_shop_events"] 
+		Global.trade_money = data["trade_money"]
+	
+	
 		
 		if packed_scene:
 			await get_tree().change_scene_to_packed(packed_scene)
