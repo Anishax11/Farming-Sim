@@ -7,6 +7,7 @@ func _ready():
 	print("MARKET Place")
 	player=get_node("Farmer")
 	time_manager=get_node("Farmer/TimeManager")
+	player.get_node("Camera2D").zoom=Vector2(2,2)
 	if Global.player_pos!=null:
 		player.global_position = Global.player_pos
 

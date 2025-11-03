@@ -8,7 +8,7 @@ var panel_number
 #@onready var texture_rect=get_node("texture")
 static var seeds_equipped=false
 static var water_equipped=false
-var inventory_node
+var inventory
 var item_name
 var stylebox
 var siblings 
@@ -31,7 +31,7 @@ func _ready():
 	self.connect("child_entered_tree", Callable(self, "_on_panel_1_child_entered_tree"))
 	self.connect("child_exiting_tree", Callable(self, "_on_panel_child_exiting_tree"))
 #	self.child_exiting_tree.connect(_on_child_removed)
-	var inventory=get_parent().get_parent().get_parent()
+	inventory=get_parent().get_parent().get_parent()
 	#if get_tree().current_scene==get_node("/root/Game"):
 		#inventory_node=get_node("/root/Game/frontyard_scene/Farmer/Inventory")
 	#else:
@@ -132,13 +132,11 @@ func _on_gui_input(event: InputEvent) -> void:
 				#print("TEXT not found")
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT :   
 		if event.pressed:	
-			print("Removing itemfrom inv and panel",self.name)	
-			if item_name!=null:
-			#	print("REMOVVE ITEM")	
-				self.remove_child(get_node(item_name))
-				#print(inventory_node.get_path())
-				inventory_node.remove_item(item_name)
-				
+			inventory.get_node("DeleteItemConfirmation").visible=true
+			inventory.get_node("DeleteItemConfirmation").panel=self
+			
+			
+			
 	if event is InputEventMouseMotion and button_held==true:
 		
 		#print(get_child(0).position)
@@ -227,3 +225,13 @@ func _on_panel_child_exiting_tree(node : Node) :
 	stylebox.expand_margin_right = 0
 	stylebox.expand_margin_top = 0
 	stylebox.expand_margin_bottom = 0
+
+func remove_item(item_name):
+	print("Inside")
+	print("Removing itemfrom inv and panel",self.name)	
+	if item_name!=null:
+			#	print("REMOVVE ITEM")	
+				self.remove_child(get_node(item_name))
+				#print(inventory_node.get_path())
+				inventory.remove_item(item_name)
+				
