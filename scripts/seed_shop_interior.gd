@@ -8,8 +8,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	#print("DIsplay menu 1")
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.pressed:
-			Dialogic.signal_event.connect(_on_dialogic_signal)
-			Dialogic.start("SeedShopOwner")
+			if !Tutorials.seed_shop["first_interaction"]:
+				Dialogic.signal_event.connect(_on_dialogic_signal)
+				Dialogic.start("SeedShopOwner")
+				Tutorials.seed_shop["first_interaction"]=true
+				
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			get_node("VendorMenu").visible=true
@@ -27,15 +30,11 @@ func _ready() -> void:
 	Global.player_direction=Vector2(0,0)
 	time_manager=get_node("TimeManager")
 	
-	#for child in get_children():
-		#print(child.name)
-
-	#get_node("Farmer/Camera2D").queue_free()
-##
-	##get_node("VendorMenu").mouse_filter = Control.MOUSE_FILTER_IGNORE
-
-	#get_parent().get_parent().visible=false
-	
+	if !Tutorials.seed_shop["tutorial"]:
+		Dialogic.start("SeedShopTutorial")
+		Tutorials.seed_shop["tutorial"]=true
+		
+		
 func _on_exit_body_entered(body: Node2D) -> void:
 	if Global.player_direction.y==1:
 		print("LEAVING SHOP")
