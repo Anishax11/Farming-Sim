@@ -6,7 +6,7 @@ var inventory_items=[]
 var seeds_image=preload("res://16x16/Sprites/seeds_packet_16x16.png")
 var strawberry_seeds_image=preload("res://16x16/Sprites/strawberry_seeds_16x16.png")
 var potato_seeds_image=preload("res://16x16/Sprites/potato_seeds_16x16.png")
-var watercan_image=preload("res://16x16/Sprites/water can icon.png")
+var watercan_image=preload("res://16x16/Sprites/Watercan.png")
 var strawberry_image=preload("res://16x16/Sprites/ChatGPT Image Jul 9, 2025, 08_41_42 PM (1).png")
 var potato_image=preload("res://16x16/Sprites/ChatGPT Image Jul 13, 2025, 11_20_49 AM.png")
 var grass_clicked=false
@@ -88,7 +88,7 @@ func move_item(panel_number,item_name):
 	if get_tree().get_root().get_node(final_panel_path+"/"+item_name)==null and final_panel>0 and final_panel<16:
 		print("NOT OCCUPIED")
 		if final_panel_path!=prev_panel_path:
-			#print("prev panel seed type:",get_node(prev_panel_path).seed_type)
+			print("prev panel path:",prev_panel_path)
 			get_node(final_panel_path).seed_type=get_node(prev_panel_path).seed_type
 			get_node(prev_panel_path).item_name=null
 			

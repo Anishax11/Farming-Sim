@@ -6,12 +6,10 @@ var fake_input_called=false
 var price=300
 @onready var texture_rect: TextureRect = $TextureRect
 
-
-func _ready() -> void:
+#func _ready() -> void:
 
 
 	
-	Global.watercan_image=texture_rect.texture
 	
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
@@ -21,11 +19,12 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if fake_input_called==true:
 			distance=0
 			fake_input_called=false
-		#print(distance)
+		print(distance)
 		if event.pressed and distance<45:
 			while texture_rect == null:
+				print("NULL")
 				await get_tree().process_frame
-					
+			print("CAll add to inv")		
 			get_node("/root/farm_scene/Farmer/Inventory").add_to_inventory(self.name,$TextureRect.texture)
 			$TextureRect.name="watercan"
 			empty_panel=Global.get_empty_panel()

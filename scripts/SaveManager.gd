@@ -12,7 +12,7 @@ var saved_data = {
 	"last_plant_number":null,
 	"trade_box_tutorial" : null,
 	"seed_shop_events" : null,
-	"trade_money" : null
+	"trade_money" : 0
 }
 
 var save_path="user://savegame.json"

@@ -8,7 +8,7 @@ func add_to_plant_dictionary(plant_name):
 	print("add_to_plant_dictionary called")
 	
 
-	plant_stages[plant_name] = 0
+	plant_stages[plant_name] = 1
 	#print("plant_stages:",plant_stages)
 
 

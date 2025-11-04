@@ -4128,3 +4128,4 @@ position = Vector2(-599, -310)
 scale = Vector2(5, 5)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bv1pg6c5hevq5" path="res://16x16/Sprites/PostOffice.png" id="1_oiggg"]
 [ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="2_e5v38"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1vr40"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20dl6"]
 texture = ExtResource("1_oiggg")
 0:0/0 = 0
 1:0/0 = 0
@@ -2511,7 +2511,7 @@ texture = ExtResource("1_oiggg")
 65:37/0 = 0
 66:37/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6oy45"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ey58i"]
 texture = ExtResource("2_e5v38")
 0:0/0 = 0
 1:0/0 = 0
@@ -3908,10 +3908,10 @@ texture = ExtResource("2_e5v38")
 16:29/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_v05w1"]
-sources/2 = SubResource("TileSetAtlasSource_1vr40")
-sources/3 = SubResource("TileSetAtlasSource_6oy45")
+sources/2 = SubResource("TileSetAtlasSource_20dl6")
+sources/3 = SubResource("TileSetAtlasSource_ey58i")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ga0x"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vttc"]
 texture = ExtResource("2_e5v38")
 0:0/0 = 0
 1:0/0 = 0
@@ -5325,7 +5325,7 @@ texture = ExtResource("2_e5v38")
 
 [sub_resource type="TileSet" id="TileSet_yjx50"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_4ga0x")
+sources/0 = SubResource("TileSetAtlasSource_8vttc")
 
 [node name="PostOffice" type="Area2D"]
 

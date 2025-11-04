@@ -194,8 +194,8 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		#print("SEEDS added:",node)
 	if node is TextureRect and node.name=="watercan":
 		
-		node.scale.x=0.015
-		node.scale.y=0.015
+		#node.scale.x=0.015
+		#node.scale.y=0.015
 		#node.position=Vector2(position.x+2,position.y+2)
 		item_name="watercan"
 		

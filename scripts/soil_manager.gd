@@ -50,28 +50,15 @@ func _ready() -> void:
 			
 			print("GRO@W AT:",Global.planted_soil[i])
 			Global.grow_plant(Global.planted_soil[i])
-			
-			
-						
-		for i in range (3):
-			
-			for j in range (5):
-				var string=Global.inventory_items[i][j]
-				
-				if string!="":
-					var node=get_node("/root/farm_scene/"+string)		
-					if node!=null:
-						node.queue_free()			
-					Global.inventory_items[i][j]=""
-					inventory.add_to_inventory(string,Global.get(string+"_image"))
+	
 					
 		for i in range((Global.watered_plants).size()):
-			print("runnihng loop watered plants:"+Global.watered_plants[0])
+			print("runnihng loop watered plants:"+str(Global.watered_plants[0]))
 			if Global.watered_plants[i]!=null and Global.day_passed==true:
-				#print("watered plnts not nuill")
-				var soil=get_node("/root/farm_scene/SoilManager/"+Global.watered_plants[i])
+				print("watered plnts not nuill")
+				var soil=get_node("/root/farm_scene/SoilManager/"+str(Global.watered_plants[i]))
 				soil.watered=true
-				#print(soil.name+" Watered")
+				print(soil.name+" Watered")
 				var plant_found=false
 				
 				#for child in soil.get_children():
@@ -91,14 +78,14 @@ func _ready() -> void:
 					#print("Soil child:",soil.get_child(1))
 					if soil.has_node("strawberry"+str(j))!=false  :
 						print("PLANT FOUND:","Plant"+str(j))
-						soil.get_node("strawberry"+str(j)).grow_plant()	
+						#soil.get_node("strawberry"+str(j)).grow_plant()	
 						plant_found=true
 						break
 					#else:
 						#print("Plant"+str(j)+" not found")
 					elif soil.has_node("potato"+str(j))!=false:
 						print("PLANT FOUND:","potato"+str(j))
-						soil.get_node("potato"+str(j)).grow_plant()	
+						#soil.get_node("potato"+str(j)).grow_plant()	
 						plant_found=true
 						break
 						
@@ -132,11 +119,11 @@ func _ready() -> void:
 								print("STge not zero")
 								print("stage_"+str(stage))
 								
-								if stage==3:
-									soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").play("strawberry_stage_"+str(stage))
-									soil.get_node("strawberry"+str(j)).stage=3
-								else:
-									soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").play("stage_"+str(stage))
+								#if stage==3:
+									#soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").play("strawberry_stage_"+str(stage))
+									#soil.get_node("strawberry"+str(j)).stage=3
+								#else:
+									#soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").play("stage_"+str(stage))
 								#print(soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").animation)
 								break
 					#else:
@@ -152,11 +139,11 @@ func _ready() -> void:
 								print("STge not zero")
 								print("stage_"+str(stage))
 								
-								if stage==3:
-									soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("potato_stage_"+str(stage))
-									soil.get_node("potato"+str(j)).stage=3
-								else:
-									soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("stage_"+str(stage))
+								#if stage==3:
+									#soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("potato_stage_"+str(stage))
+									#soil.get_node("potato"+str(j)).stage=3
+								#else:
+									#soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("stage_"+str(stage))
 								#print(soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").animation)
 								break	
 							
@@ -164,7 +151,7 @@ func _ready() -> void:
 		Global.load_farm=false	
 		if Global.day_passed==true:
 			Global.watered_plants.clear()
-			Global.day_passed=false			
+					
 			
 func till_soil(soil,soil_animation):
 	print("Till func called")

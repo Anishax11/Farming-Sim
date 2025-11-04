@@ -268,7 +268,7 @@ position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_ip8u5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 script = ExtResource("7_3irru")
 
 [node name="CoinLabel" type="Label" parent="."]
@@ -300,6 +300,8 @@ script = ExtResource("10_scngo")
 metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" parent="." instance=ExtResource("11_n8gv4")]
+visible = true
+scale = Vector2(0.8, 0.8)
 
 [node name="TimeManager" parent="." instance=ExtResource("9_lco12")]
 z_index = 5

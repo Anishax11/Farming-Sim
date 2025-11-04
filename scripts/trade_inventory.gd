@@ -27,9 +27,9 @@ func _ready() -> void:
 					if Global.get(string+"_image")==null:
 						print(string+" is null")
 					
-					print("Slot passed:",slots_passed)
-					print("ADJ:",slot_adjust)
-					print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
+					#print("Slot passed:",slots_passed)
+					#print("ADJ:",slot_adjust)
+					#print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 					
 					var empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 					

@@ -120,7 +120,7 @@ shape = SubResource("RectangleShape2D_ryoc2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_ir0pw")
-animation = &"watered_circle_seeds"
+animation = &"watered_seeds"
 autoplay = "untilled"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

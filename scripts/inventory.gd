@@ -6,8 +6,8 @@ var slot_found=false
 #var slots_passed=0
 #var slot_adjust=1
 var inv_initialised=false
-var strawberry_seeds_count=0
-var potato_seeds_count=0
+var strawberry_seeds_count=6
+var potato_seeds_count=6
 
 
 func _ready() -> void:
@@ -51,6 +51,7 @@ func _ready() -> void:
 			slot_adjust-=1	
 			
 func add_to_inventory(string,item_texture) :
+	print("Inside add to inv")
 	var slots_passed=0
 	var slot_adjust=1
 	print("Item added to inv:",string)

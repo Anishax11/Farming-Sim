@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://2d8wujcsyrya"]
+[gd_scene load_steps=16 format=3 uid="uid://2d8wujcsyrya"]
 
 [ext_resource type="Script" path="res://scripts/plant.gd" id="1_0ykwo"]
 [ext_resource type="Texture2D" uid="uid://jm5ih7cyj65l" path="res://16x16/Sprites/ChatGPT Image Jul 9, 2025, 05_47_14 PM (1).png" id="2_2lget"]
 [ext_resource type="Texture2D" uid="uid://dvetxmkifxbu3" path="res://16x16/Sprites/ChatGPT Image Jul 13, 2025, 11_20_49 AM.png" id="2_j5x4d"]
 [ext_resource type="Texture2D" uid="uid://w4p7p12i8dh7" path="res://16x16/Sprites/ChatGPT Image Jul 9, 2025, 06_32_34 PM.png" id="3_vep12"]
-[ext_resource type="Texture2D" uid="uid://bsku353laxbcj" path="res://16x16/Sprites/ChatGPT Image Jul 9, 2025, 08_41_42 PM (1).png" id="4_lauc8"]
+[ext_resource type="Texture2D" uid="uid://b4ijlvy8qpq0q" path="res://16x16/Sprites/StrawberryStage1.jpeg" id="5_ksb10"]
+[ext_resource type="Texture2D" uid="uid://cl32q8sp0xqag" path="res://16x16/Sprites/StrawberryStage2.jpeg" id="6_433m2"]
+[ext_resource type="Texture2D" uid="uid://dvivvq248lrfk" path="res://16x16/Sprites/StrawberryStage3.jpeg" id="7_mm88x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dyuw"]
 size = Vector2(89, 47)
@@ -21,9 +23,17 @@ region = Rect2(0, 0, 100, 100)
 atlas = ExtResource("3_vep12")
 region = Rect2(0, 0, 109, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t2ons"]
-atlas = ExtResource("4_lauc8")
-region = Rect2(0, 0, 200, 200)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bodul"]
+atlas = ExtResource("5_ksb10")
+region = Rect2(0, 0, 154, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og46y"]
+atlas = ExtResource("6_433m2")
+region = Rect2(0, 0, 185, 188)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcipx"]
+atlas = ExtResource("7_mm88x")
+region = Rect2(0, 0, 171, 158)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dxjdq"]
 animations = [{
@@ -53,7 +63,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t2ons")
+"texture": SubResource("AtlasTexture_bodul")
+}],
+"loop": true,
+"name": &"strawberry_stage_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og46y")
+}],
+"loop": true,
+"name": &"strawberry_stage_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcipx")
 }],
 "loop": true,
 "name": &"strawberry_stage_3",
@@ -65,12 +91,12 @@ y_sort_enabled = true
 script = ExtResource("1_0ykwo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 60.5)
+position = Vector2(0, 21)
 shape = SubResource("RectangleShape2D_0dyuw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.5, -21)
-scale = Vector2(0.811966, 1.1)
+scale = Vector2(0.812, 0.8)
 sprite_frames = SubResource("SpriteFrames_dxjdq")
 animation = &"strawberry_stage_3"
 autoplay = "stage_1"

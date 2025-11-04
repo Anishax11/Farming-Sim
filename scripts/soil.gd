@@ -13,7 +13,12 @@ var planted_seeds
 var watered=false
 var seed_type
 var soil_path="/root/farm_scene/SoilManager/soil"
+var lock_growth_mechanism=false
 func _ready() -> void:
+	if Global.soil_data.has(self.name):
+		
+		seed_type=Global.soil_data[self.name]
+		print(self.name , " has seed type :", seed_type)
 	inventory=get_node("/root/farm_scene/Farmer/Inventory")
 	if randi_range(0,7)==3:
 		animated_sprite_2d.play("untilled_rock")
@@ -43,56 +48,94 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			var player=get_node("/root/farm_scene/Farmer")
 			var player_pos=Vector2( int(player.position.x / 8) * 8,int(player.position.y / 8) * 8 )
 			distance=soil_pos.distance_to(player_pos)
-			#print(distance)
+			
+			#NEW CODE FOR GROWING PLANT
+			if distance<40 and planted!=true and panel.water_equipped==true: 
+				print("trying to wate,planted not true")
+			if distance<40 and planted==true and panel.water_equipped==true: #If plant doesn't exist yet
+				print("trying to water")
+				watered=true
+				Global.watered_plants.append(self.name)
+				if not PlantTracker.plant_names.has(self.name):
+					var plant_name=seed_type
+					PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
+					PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
+					print("Added new plant: :",plant_name+str(Global.plant_number) )
+					Global.plant_number+=1
+				elif Global.day_passed==true	: # update stage if it does 
+					print("Plant exists, updating stage ")
+					PlantTracker.update_plant_dictionary(PlantTracker.plant_names[self.name]) 
+					Global.day_passed=false	
 			
 			# CODE FOR GROWING PLANT
-			if distance<18 and planted==true and panel.water_equipped==true:
-				print("TRyna water")
-				for soil in Global.watered_plants:
-					if watered!=true:
-						print("Watered is false")
-						#var determine_plant=randi_range(0,1)
-						var plant_name
-						#if determine_plant==0:
-							#plant_name="strawberry"
-						#elif determine_plant==1:
-							#plant_name="potato"
-						#var seed_node=get_node("/root/Game/SeedShopInterior/VendorMenu/seeds")
-						#plant_name=seed_node.seed_type
-						plant_name=seed_type
-						print("watered soil has seeds: ",seed_type)	
-						watered=true
-						
-						if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
-							print("New plant:","Plant"+str(Global.plant_number))
-							PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
-							#print("Plant name :",PlantTracker.plant_names[self.name])
-							PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
-							
-							Global.plant_number+=1
-							
-					if soil ==self.name:
-						
-						print("Plant has been watered",self.name)
-						return
-					elif soil==Global.watered_plants[Global.watered_plants.size()-1]:
-						print("Plant has not been watered",self.name)
-						watered=true	
-						Global.plant_watered(self)
-						if animated_sprite_2d.animation=="seeds":
-							animated_sprite_2d.play("watered_seeds")
-							#print("Playing watered")
-						if animated_sprite_2d.animation=="circle_seeds":
-							animated_sprite_2d.play("watered_circle_seeds")
-							#print("Playing watered")
-						#var determine_plant=randi_range(0,1)
+			#if distance<40 and planted==true and panel.water_equipped==true:
+				#print("TRying to  water")
+				#for soil in Global.watered_plants:
+					#print("watered plants nt empty")
+					#if watered!=true:
+						#print("Watered is false")
+						##var determine_plant=randi_range(0,1)
 						#var plant_name
-						#if determine_plant==0:
-							#plant_name="strawberry"
-						#elif determine_plant==1:
-							#plant_name="potato"
-						#print("PLanT Is : ",plant_name)	
+						##if determine_plant==0:
+							##plant_name="strawberry"
+						##elif determine_plant==1:
+							##plant_name="potato"
+						##var seed_node=get_node("/root/Game/SeedShopInterior/VendorMenu/seeds")
+						##plant_name=seed_node.seed_type
+						#plant_name=seed_type
 						#
+						#print("watered soil has seeds: ",seed_type)	
+						#watered=true
+						#
+						#if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
+							#print("New plant:","Plant"+str(Global.plant_number))
+							#PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
+							##print("Plant name :",PlantTracker.plant_names[self.name])
+							#PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
+							#
+							#Global.plant_number+=1
+							#
+					#if soil ==self.name:
+						#watered=true
+						#print("Plant has been watered",self.name)
+						#return
+					#elif soil==Global.watered_plants[Global.watered_plants.size()-1]:
+						#print("Plant has not been watered",self.name)
+						#watered=true	
+						#Global.plant_watered(self)
+						#if animated_sprite_2d.animation=="seeds":
+							#animated_sprite_2d.play("watered_seeds")
+							##print("Playing watered")
+						#if animated_sprite_2d.animation=="circle_seeds":
+							#animated_sprite_2d.play("watered_circle_seeds")
+							##print("Playing watered")
+						##var determine_plant=randi_range(0,1)
+						##var plant_name
+						##if determine_plant==0:
+							##plant_name="strawberry"
+						##elif determine_plant==1:
+							##plant_name="potato"
+						##print("PLanT Is : ",plant_name)	
+						##
+						##if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
+							###print("New plant:","Plant"+str(Global.plant_number))
+							##PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
+							###print("Plant name :",PlantTracker.plant_names[self.name])
+							##PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
+							##
+							##Global.plant_number+=1
+							#
+				#if Global.watered_plants.is_empty():
+					#print("RUNNING 2")
+					#if watered!=true:
+						##var determine_plant=randi_range(0,1)
+						#var plant_name=seed_type
+						##if determine_plant==0:
+							##plant_name="strawberry"
+						##elif determine_plant==1:
+							##plant_name="potato"
+						##print("PLanT Is : ",plant_name)	
+						#print("watered soil has seeds: ",seed_type)	
 						#if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
 							##print("New plant:","Plant"+str(Global.plant_number))
 							#PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
@@ -100,35 +143,17 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							#PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
 							#
 							#Global.plant_number+=1
-							
-				if Global.watered_plants.is_empty():
-					print("RUNNING 2")
-					if watered!=true:
-						#var determine_plant=randi_range(0,1)
-						var plant_name=seed_type
-						#if determine_plant==0:
-							#plant_name="strawberry"
-						#elif determine_plant==1:
-							#plant_name="potato"
-						#print("PLanT Is : ",plant_name)	
-						print("watered soil has seeds: ",seed_type)	
-						if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
-							#print("New plant:","Plant"+str(Global.plant_number))
-							PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
-							#print("Plant name :",PlantTracker.plant_names[self.name])
-							PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
-							
-							Global.plant_number+=1
-						
-					
-					#print("Watered arr empty")
-					#print(self.name," watered :",watered)
-					Global.plant_watered(self)
-					watered=true	
-					if animated_sprite_2d.animation=="seeds":
-						animated_sprite_2d.play("watered_seeds")
-					elif animated_sprite_2d.animation=="circle_seeds":
-						animated_sprite_2d.play("watered_circle_seeds")
+						#
+					#
+					##print("Watered arr empty")
+					##print(self.name," watered :",watered)
+					#Global.watered_plants.append(self.name)
+					#Global.plant_watered(self)
+					#watered=true	
+					#if animated_sprite_2d.animation=="seeds":
+						#animated_sprite_2d.play("watered_seeds")
+					#elif animated_sprite_2d.animation=="circle_seeds":
+						#animated_sprite_2d.play("watered_circle_seeds")
 						#print("Plying wateed:",animated_sprite_2d.animation)
 					#planted=false
 					
@@ -141,7 +166,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			#print("panel.seeds_equipped :",panel.seeds_equipped)
 			#print("DIST:",distance)
 			#print("SEEDS COUNT:",inventory.seeds_count)
-			if distance<18 and tilled==true and panel.seeds_equipped==true :
+			if distance<40 and tilled==true and panel.seeds_equipped==true :
+				print("Try planting")
 				var count=Global.equipped_item+"_seeds_count"
 				if inventory.get(count)>0:
 					print("Plant ",Global.equipped_item)	
@@ -171,7 +197,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						animated_sprite_2d.play("seeds")
 					#print(animated_sprite_2d.animation)
 					Global.save_tilled_soil(self,animated_sprite_2d.animation)
-				
+			
+			
 			#CODE FOR TILLING
 				
 			if distance<=18 and !tilled:
