@@ -1,6 +1,5 @@
 extends Area2D
 
-# after loading farm scene seed type is set to null
 
 class_name Soil
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -14,6 +13,7 @@ var watered=false
 var seed_type
 var soil_path="/root/farm_scene/SoilManager/soil"
 var lock_growth_mechanism=false
+
 func _ready() -> void:
 	if Global.soil_data.has(self.name):
 		
@@ -62,10 +62,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
 					print("Added new plant: :",plant_name+str(Global.plant_number) )
 					Global.plant_number+=1
-				elif Global.day_passed==true	: # update stage if it does 
+				elif !PlantTracker.locked_growth.has(self.name)	: # update stage if it does 
 					print("Plant exists, updating stage ")
 					PlantTracker.update_plant_dictionary(PlantTracker.plant_names[self.name]) 
-					Global.day_passed=false	
+					PlantTracker.locked_growth[self.name]=true
+					
 			
 			# CODE FOR GROWING PLANT
 			#if distance<40 and planted==true and panel.water_equipped==true:

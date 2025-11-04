@@ -132,7 +132,7 @@ func grow_plant(soil_name):
 	print("Gobal plant name:",plant.name)
 	#soil.remove_child.soil.get_node("AnimatedSprite2D")
 	#get_node("/root/Game/farm_scene/").add_child(plant)
-	if get_node("/root/farm_scene/"):
+	if get_node("/root/farm_scene"):
 		#get_node("/root/Game/farm_scene/").add_child(plant)
 		
 		soil.add_child(plant)

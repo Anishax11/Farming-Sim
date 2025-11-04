@@ -16,6 +16,9 @@ func _ready() -> void:
 	var match = regex.search(text)
 	Global.last_plant_number = int(match.get_string())
 	stage = PlantTracker.plant_stages[self.name]
+	if stage>= PlantTracker.plant_stage_limits[string_part]:
+		stage=PlantTracker.plant_stage_limits[string_part]
+		PlantTracker.plant_stages[self.name]=stage
 	animated_sprite_2d.play(string_part+"_stage_"+str(stage))
 	print("Plant instantiated, play animation :",string_part+"_stage_"+str(stage))
 	#if string_part=="potato":
@@ -111,5 +114,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				print("get_parent().planted:",get_parent().planted)
 				PlantTracker.harvested_plants.append(self.name)
 				PlantTracker.plant_stages.erase(self.name)
+				PlantTracker.plant_names.erase(get_parent().name)
 				self.remove_child(animated_sprite_2d)
 				queue_free()

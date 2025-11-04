@@ -61,14 +61,6 @@ func _ready() -> void:
 				print(soil.name+" Watered")
 				var plant_found=false
 				
-				#for child in soil.get_children():
-				#
-						#if child!=soil.get_node("AnimatedSprite2D") and child!=soil.get_node("CollisionShape2D"):
-					#
-							#soil.remove_child(child)
-						#print("Soil node:",soil.name)
-						#print("Child node:", child.name)
-				
 				if 	PlantTracker.plant_stages==null or PlantTracker.plant_stages.is_empty():
 					print("............... not traversed")
 				for j in range(1,PlantTracker.plant_stages.size()+1):
@@ -76,22 +68,13 @@ func _ready() -> void:
 					#print("J:",j)
 					#print("Soil :",soil)
 					#print("Soil child:",soil.get_child(1))
-					if soil.has_node("strawberry"+str(j))!=false  :
-						print("PLANT FOUND:","Plant"+str(j))
-						#soil.get_node("strawberry"+str(j)).grow_plant()	
+					#
+					if soil.get_child_count()>2:
 						plant_found=true
-						break
-					#else:
-						#print("Plant"+str(j)+" not found")
-					elif soil.has_node("potato"+str(j))!=false:
-						print("PLANT FOUND:","potato"+str(j))
-						#soil.get_node("potato"+str(j)).grow_plant()	
-						plant_found=true
-						break
 						
 					elif plant_found==false and j==PlantTracker.plant_stages.size():#used to grow plant for the first time
 						print("PLANT NOT FOUND: ","Plant"+str(j))
-						#print("Growing plant")
+						print("Growing this plant for the first time")
 						Global.grow_plant(Global.watered_plants[i])
 						Global.planted_soil.append(Global.watered_plants[i])#contains plants that have been grown once so they can be reloaded
 						
@@ -100,58 +83,33 @@ func _ready() -> void:
 				
 				break
 				
-		for i in range (0,Global.planted_soil.size()):#Used to load back already grown plant(current Stage ) into scene,after this plant is grown to higher stages if watered 
+		for i in range (0,Global.planted_soil.size()):#Used to set soil watered to true
 			var soil=get_node("/root/farm_scene/SoilManager/"+Global.planted_soil[i])	
 			print("LAST plant :",Global.last_plant_number)
 			for j in range(1,Global.last_plant_number + 1):
 			
-					#print("plant_stages:",PlantTracker.plant_stages)
-					#print("J:",j)
-					#print("Soil :",soil)
-					#print("Soil child:",soil.get_child(1))
 					if soil.has_node("strawberry"+str(j))!=false  :
 						print("PLANT FOUND:","strawberry"+str(j))
 						if PlantTracker.plant_stages.has(soil.get_node("strawberry"+str(j)).name):
-							var stage=PlantTracker.plant_stages[soil.get_node("strawberry"+str(j)).name]
-							#print(stage)
+							
 							soil.watered=true
-							if stage!=0:
-								print("STge not zero")
-								print("stage_"+str(stage))
-								
-								#if stage==3:
-									#soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").play("strawberry_stage_"+str(stage))
-									#soil.get_node("strawberry"+str(j)).stage=3
-								#else:
-									#soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").play("stage_"+str(stage))
-								#print(soil.get_node("strawberry"+str(j)).get_node("AnimatedSprite2D").animation)
-								break
-					#else:
-						#print("Plant"+str(j)+" not found")
+							
+					
 					elif soil.has_node("potato"+str(j))!=false:
 						print("PLANT FOUND:","potato"+str(j))
 						#print(soil.get_node("potato"+str(j)).stage)
 						if PlantTracker.plant_stages.has(soil.get_node("potato"+str(j)).name):
-							var stage=PlantTracker.plant_stages[soil.get_node("potato"+str(j)).name]
-							#print(stage)
+							
 							soil.watered=true
-							if stage!=0:
-								print("STge not zero")
-								print("stage_"+str(stage))
+							
 								
-								#if stage==3:
-									#soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("potato_stage_"+str(stage))
-									#soil.get_node("potato"+str(j)).stage=3
-								#else:
-									#soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").play("stage_"+str(stage))
-								#print(soil.get_node("potato"+str(j)).get_node("AnimatedSprite2D").animation)
-								break	
 							
 			
 		Global.load_farm=false	
 		if Global.day_passed==true:
 			Global.watered_plants.clear()
-					
+			PlantTracker.locked_growth.clear()
+			Global.day_passed=false	
 			
 func till_soil(soil,soil_animation):
 	print("Till func called")
