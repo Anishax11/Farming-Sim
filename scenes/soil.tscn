@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6xokp1noba6f"]
+[gd_scene load_steps=24 format=3 uid="uid://c6xokp1noba6f"]
 
 [ext_resource type="Texture2D" uid="uid://da4gaksqh4jto" path="res://16x16/Sprites/ChatGPT Image Jun 14, 2025, 05_14_44 PM.png" id="1_2prn8"]
 [ext_resource type="Script" path="res://scripts/soil.gd" id="1_jrfko"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bec3k17gji45q" path="res://16x16/Sprites/Screenshot 2025-06-15 195435.png" id="5_234te"]
 [ext_resource type="Texture2D" uid="uid://1w7dby00xauo" path="res://16x16/Sprites/4890145e-ad48-4eae-9a71-f17fa410f99a.jpg" id="7_01yh7"]
 [ext_resource type="Texture2D" uid="uid://cm6xt3ahugjn4" path="res://16x16/Sprites/ChatGPT Image Jul 13, 2025, 05_32_10 PM.png" id="7_qm26e"]
+[ext_resource type="Texture2D" uid="uid://bxlpvbpw6pjaq" path="res://16x16/Sprites/watered_circle_tilled.png" id="8_11vae"]
+[ext_resource type="Texture2D" uid="uid://dutnkftumeesw" path="res://16x16/Sprites/Watered_Soil.png" id="9_ttbxo"]
+[ext_resource type="AudioStream" uid="uid://ejceeh16mt4g" path="res://audio/water_audio.mp3" id="11_bcy3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryoc2"]
 size = Vector2(16, 16)
@@ -40,8 +43,16 @@ region = Rect2(352, 935, 88, 85)
 atlas = ExtResource("7_01yh7")
 region = Rect2(0, 0, 84, 88)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxbi5"]
+atlas = ExtResource("8_11vae")
+region = Rect2(0, 0, 88, 77)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bo652"]
 atlas = ExtResource("7_qm26e")
+region = Rect2(0, 0, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lkbm"]
+atlas = ExtResource("9_ttbxo")
 region = Rect2(0, 0, 88, 88)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir0pw"]
@@ -104,10 +115,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fxbi5")
+}],
+"loop": true,
+"name": &"watered_circle_tilled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_bo652")
 }],
 "loop": true,
 "name": &"watered_seeds",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lkbm")
+}],
+"loop": true,
+"name": &"watered_soil",
 "speed": 5.0
 }]
 
@@ -120,8 +147,11 @@ shape = SubResource("RectangleShape2D_ryoc2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_ir0pw")
-animation = &"watered_seeds"
+animation = &"untilled"
 autoplay = "untilled"
+
+[node name="water_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_bcy3v")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -3,6 +3,8 @@ extends Area2D
 
 class_name Soil
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var water_audio: AudioStreamPlayer2D = $water_audio
+
 var tilled=false
 var adjusted=false
 var planted=false
@@ -13,6 +15,7 @@ var watered=false
 var seed_type
 var soil_path="/root/farm_scene/SoilManager/soil"
 var lock_growth_mechanism=false
+
 
 func _ready() -> void:
 	if Global.soil_data.has(self.name):
@@ -49,9 +52,31 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			var player_pos=Vector2( int(player.position.x / 8) * 8,int(player.position.y / 8) * 8 )
 			distance=soil_pos.distance_to(player_pos)
 			
+			if distance<40 and panel.water_equipped==true:
+				
+				print("Current animation :",animated_sprite_2d.animation)
+				
+				if(animated_sprite_2d.animation=="seeds"):
+						print("rect seeds")
+						animated_sprite_2d.play("watered_seeds")
+				elif(animated_sprite_2d.animation=="circle_seeds"):
+						print("Circ seeds")
+						animated_sprite_2d.play("watered_circle_seeds")
+				elif(animated_sprite_2d.animation=="tilled"):
+						print("Circ tilled")
+						animated_sprite_2d.play("watered_circle_tilled")
+				elif(animated_sprite_2d.animation=="rect_tilled"):
+						print("rect_tilled")
+						animated_sprite_2d.play("watered_soil")
+				
+				water_audio.play() 
+				watered=true
+				await get_tree().create_timer(1.0).timeout
+				water_audio.stop()
 			#NEW CODE FOR GROWING PLANT
 			if distance<40 and planted!=true and panel.water_equipped==true: 
 				print("trying to wate,planted not true")
+				
 			if distance<40 and planted==true and panel.water_equipped==true: #If plant doesn't exist yet
 				print("trying to water")
 				watered=true
@@ -64,6 +89,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					Global.plant_number+=1
 					PlantTracker.locked_growth[self.name]=true #Set lock on soil so plant stage can only be updated once a day
 					
+						
 				elif !PlantTracker.locked_growth.has(self.name)	: # update stage if it does 
 					print("Plant exists, updating stage ")
 					PlantTracker.update_plant_dictionary(PlantTracker.plant_names[self.name]) 
