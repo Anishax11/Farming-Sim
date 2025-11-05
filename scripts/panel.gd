@@ -8,6 +8,7 @@ var panel_number
 #@onready var texture_rect=get_node("texture")
 static var seeds_equipped=false
 static var water_equipped=false
+var equipped=false # used to check if current panel has equipped item
 var inventory
 var item_name
 var stylebox
@@ -18,6 +19,7 @@ var seed_type
 var transferred=false
 
 func _ready():
+	print("Panel Loaded")
 	mouse_default_cursor_shape=Control.CursorShape.CURSOR_POINTING_HAND
 	siblings = get_parent().get_children()
 	anchor_left = 1
@@ -31,16 +33,20 @@ func _ready():
 	self.connect("child_entered_tree", Callable(self, "_on_panel_1_child_entered_tree"))
 	self.connect("child_exiting_tree", Callable(self, "_on_panel_child_exiting_tree"))
 #	self.child_exiting_tree.connect(_on_child_removed)
+
 	inventory=get_parent().get_parent().get_parent()
-	#if get_tree().current_scene==get_node("/root/Game"):
-		#inventory_node=get_node("/root/Game/frontyard_scene/Farmer/Inventory")
-	#else:
-		#inventory_node=get_node("/root/house_interior/Farmer/Inventory")
+	while(inventory.inv_initialised==false):
+		await get_tree().process_frame
+	if Global.equipped_panel == self.name and item_name!=null :
+		print("HIGHLIGHT PANEL")
+		
+
 		
 func _on_gui_input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
+			Global.equipped_panel = self.name
 			if item_name!=null:
 				clicked=!clicked
 				if clicked==true:
@@ -84,6 +90,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				if water_equipped==true:
 					water_equipped=false
 				seeds_equipped=!seeds_equipped
+				
 				#print("seeds_equipped",seeds_equipped)
 				
 				Global.equip_item(seed_type)
@@ -158,53 +165,30 @@ func _on_gui_input(event: InputEvent) -> void:
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
 	
-	#node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	#node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	
-	#print("Item added to panel:",node.name)
-	#print("PATH : "+ node.get_path())
-	#node.global_position=Vector2(global_position.x+2,global_position.y+2)
-	
 	if node is TextureRect and node.name=="strawberry_seeds" or node.name=="potato_seeds":
 		
 		#print("Added to panel",self.name)
 		item_name=node.name
-		#node.position=Vector2(0,0)
-		#node.scale.x=2
-		#node.scale.y=2
-		#if seed_type==null:
-		#seed_type=get_node("/root/Game/SeedShopInterior/VendorMenu/seeds").seed_type
+		
 		if node.name=="strawberry_seeds":
 			seed_type="strawberry"
 			
 		elif node.name=="potato_seeds":
 			seed_type="potato"
-			
-		#print("Seeds scale x : ",node.scale.x)
 		
-		
-		
-		
-		#node.set_anchors_preset(Control.PRESET_CENTER)
-		#node.pivot_offset = node.size / 2  # For perfect centering
-		
-		
-		#node.position=Vector2(position.x+2,position.y+2)
-		
-		#print("SEEDS added:",node)
 	if node is TextureRect and node.name=="watercan":
-		
-		#node.scale.x=0.015
-		#node.scale.y=0.015
-		#node.position=Vector2(position.x+2,position.y+2)
+		node.position.y+=2
+		node.position.x+=1
+		node.scale.x=1
+		node.scale.y=1.5
 		item_name="watercan"
 		
 	if node is TextureRect and node.name=="strawberry" or node.name=="potato":
 		#print(node.name," ", node.texture)
 		node.position=Vector2(-2,-4)
 		
-		node.scale.x=0.11
-		node.scale.y=0.11
+		node.scale.x=0.1
+		node.scale.y=0.1
 		
 		item_name=node.name
 		#print("STr texturerect added to panel")
@@ -229,3 +213,12 @@ func remove_item(item_name):
 				#print(inventory_node.get_path())
 				inventory.remove_item(item_name)
 				
+
+func highlight_panel():
+	stylebox.texture=Global.HIGHLIGHTED_PANEL
+	add_theme_stylebox_override("panel", stylebox)   # resets image position
+					#get_child(0).position=Vector2(-4,-4)
+	stylebox.expand_margin_left = 1.5
+	stylebox.expand_margin_right = 1.5
+	stylebox.expand_margin_top = 1.5
+	stylebox.expand_margin_bottom = 1.5

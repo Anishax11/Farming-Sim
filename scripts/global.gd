@@ -52,7 +52,7 @@ var ItemPriceList={
 }
 
 var trade_money=0
-
+var equipped_panel #Keeps track of equipped panel
 
 func get_direction(direction) :
 	
@@ -93,14 +93,16 @@ func move_item(panel_number,item_name):
 			previous_panel.remove_child(texture_rect)
 			final_panel.add_child(texture_rect)
 			
-				
-			#print("NEW PARENT :"+texture_rect.get_parent().name)
-			#ADD ITEM TO ARRAY
 			Global.inventory_items[int((final_panel_number-1)/5)][int(final_panel_number-1)%5]=item_name
 			
 			texture_rect.global_position=final_panel.global_position
 			#REMOVE ITEM FROM ARRAY
 			Global.inventory_items[int((panel_number-1)/5)][(panel_number-1)%5]=""
+			
+			#Highligh new panel if dropped item  is equipped
+			if Global.equipped_panel == previous_panel.name:
+				Global.equipped_panel = final_panel.name
+				final_panel.highlight_panel()
 			
 	else:
 		print("OCCUPIED")
