@@ -62,53 +62,52 @@ func get_direction(direction) :
 func move_item(panel_number,item_name):
 	print("MOve item called on : "+item_name)
 	var current_scene = get_tree().current_scene
+	var panel_name ="Panel"+str(panel_number)
+	var previous_panel = get_tree().get_current_scene().find_child(panel_name, true, false)
+	var texture_rect = previous_panel.get_node(NodePath(item_name))
 	
-	var prev_panel_path="/root/"+current_scene.name+"/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(panel_number)
-	var texture_rect=get_node(prev_panel_path+"/"+item_name)
 	if texture_rect==null:
 		print("Texture_rect nulll")
-		print("Prev panel path: "+prev_panel_path)
-		print(prev_panel_path+"/"+item_name)
-		prev_panel_path="/root/"+current_scene.name+"/Inventory/NinePatchRect/GridContainer/Panel"+str(panel_number)
-		texture_rect=get_node(prev_panel_path+"/"+item_name)
 		
 	var inv=get_tree().get_root().find_child("Inventory", true, false)
 	#print(inv.inventory_items)
 
-	var final_panel=round(texture_rect.position.y / 40)*5+round(texture_rect.position.x / 40)+panel_number
-	var final_panel_path ="/root/"+current_scene.name+"/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)
+	var final_panel_number=round(texture_rect.position.y / 40)*5+round(texture_rect.position.x / 40)+panel_number
+#
+	var final_panel_name="Panel" + str(final_panel_number) 
+	var final_panel = 	get_tree().get_current_scene().find_child(final_panel_name, true, false)
 	
-	print("FINAL PANEL PATH:",final_panel_path)
-	if get_node(final_panel_path)==null:
-		final_panel_path ="/root/"+current_scene.name+"Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)
-	
-	
-	
+	if final_panel==null:
+		previous_panel.add_child(texture_rect)
+		texture_rect.global_position=previous_panel.global_position
+		Global.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]=item_name
+		return
 		
-	if get_tree().get_root().get_node(final_panel_path+"/"+item_name)==null and final_panel>0 and final_panel<16:
+	if final_panel.item_name==null and final_panel_number>0 and final_panel_number<16:
 		print("NOT OCCUPIED")
-		if final_panel_path!=prev_panel_path:
-			print("prev panel path:",prev_panel_path)
-			get_node(final_panel_path).seed_type=get_node(prev_panel_path).seed_type
-			get_node(prev_panel_path).item_name=null
+		if final_panel!=previous_panel:
 			
-			get_node(prev_panel_path).remove_child(texture_rect)
-			get_node(final_panel_path).add_child(texture_rect)
+			final_panel.seed_type=previous_panel.seed_type
+			previous_panel.item_name=null
+			
+			previous_panel.remove_child(texture_rect)
+			final_panel.add_child(texture_rect)
 			
 				
 			#print("NEW PARENT :"+texture_rect.get_parent().name)
 			#ADD ITEM TO ARRAY
-			Global.inventory_items[int((final_panel-1)/5)][int(final_panel-1)%5]=item_name
+			Global.inventory_items[int((final_panel_number-1)/5)][int(final_panel_number-1)%5]=item_name
 			
-			texture_rect.global_position=get_node(final_panel_path).global_position
+			texture_rect.global_position=final_panel.global_position
 			#REMOVE ITEM FROM ARRAY
 			Global.inventory_items[int((panel_number-1)/5)][(panel_number-1)%5]=""
 			
 	else:
-		#print("OCCUPIED")
-		if final_panel_path!=prev_panel_path:
-			get_node(prev_panel_path).add_child(texture_rect)
-			texture_rect.global_position=get_node(prev_panel_path).global_position
+		print("OCCUPIED")
+		if final_panel!=previous_panel:
+			print("New Panel occupied")
+			previous_panel.add_child(texture_rect)
+			texture_rect.global_position=previous_panel.global_position
 			Global.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]=item_name
 	
 	#print("Text final path:",texture_rect.get_path())
