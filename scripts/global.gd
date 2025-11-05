@@ -124,7 +124,7 @@ var plant_stages_index=0
 func grow_plant(soil_name):
 	var soil =get_node("/root/farm_scene/SoilManager/"+soil_name)
 	var plant=PLANT.instantiate()
-	plant.scale=Vector2(0.2,0.2)
+	plant.scale=Vector2(0.4,0.4)
 	#print("Last plnt index in dic:",PlantTracker.plant_stages.size()-1)
 
 	plant.name=PlantTracker.plant_names[soil_name]

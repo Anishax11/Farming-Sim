@@ -16,85 +16,30 @@ func _ready() -> void:
 	var match = regex.search(text)
 	Global.last_plant_number = int(match.get_string())
 	stage = PlantTracker.plant_stages[self.name]
+	
 	if stage>= PlantTracker.plant_stage_limits[string_part]:
 		stage=PlantTracker.plant_stage_limits[string_part]
 		PlantTracker.plant_stages[self.name]=stage
-	animated_sprite_2d.play(string_part+"_stage_"+str(stage))
+		
+	
+	
 	print("Plant instantiated, play animation :",string_part+"_stage_"+str(stage))
-	#if string_part=="potato":
-		#animated_sprite_2d.scale.y=1.5
-	#print("Plant parent:",get_parent())
-	#
-#func _on_body_entered(body: Node2D) -> void:
-	#if body is Player and animated_sprite_2d.animation!="stage_1" :
-		##print("FARMER Y pos",body.position.y)
-		##print("PLANT:",position.y)
-		#z_index=-1
-#
-#
-#func _on_body_exited(body: Node2D) -> void:
-	#if body is Player :
-		#
-		#z_index=0
+	if string_part=="potato":
+		animated_sprite_2d.scale=Vector2(1,1)
+		global_position.y+=2
+		
+	elif string_part=="strawberry" and stage>1:
+		if stage==2:
+			animated_sprite_2d.scale=Vector2(0.25,0.25)
+		else:
+			animated_sprite_2d.scale=Vector2(0.3,0.3)
+		global_position.x-=2
+		global_position.y+=1
+	
+	animated_sprite_2d.play(string_part+"_stage_"+str(stage))
 
-#func grow_plant():
-	#print("GROWING ",self.name)
-	#var last_char = self.name.substr(self.name.length() - 1, 1)
-	#var index=int(last_char)
-	#if PlantTracker.plant_stages[self.name]!=null:
-		#stage=PlantTracker.plant_stages[self.name]+1
-		#
-	#print("PLANT STAGE:",stage)
-	#stage+=1
-	#PlantTracker.update_plant_dictionary(self.name)
-	#print("PLANT STAGE AFTER:",stage)
-	##print("Plant grown:",$AnimatedSprite2D.animation)
-		#
-	#if stage>3:
-		#print("Plant in stage greater than 3")
-		##print("Harvested plants:",PlantTracker.harvested_plants)
-		##print("slf.name:",self.name)
-		#
-		#for i in range (PlantTracker.harvested_plants.size()):
-			#
-			#if self.name==PlantTracker.harvested_plants[i]:
-				##print("Freed")
-				#queue_free()
-				#
-		#stage=3
-		#animated_sprite_2d.play(string_part.to_lower()+"_stage_"+str(stage))
-		#if string_part=="Potato":
-			#animated_sprite_2d.scale.y=0.7
-			#print("Scale adjusted")
-		#return
-	#
-		#
-	#else:
-		#self.scale.x=0.3
-		#self.scale.y=0.3
-		#if stage==3:
-			#scale.x=0.1
-			#scale.y=0.1
-			#print("STage is 3")
-			#if string_part=="Potato":
-				#animated_sprite_2d.scale.y=0.7
-				#print("Scale adjusted")
-			#print(string_part+"_stage_"+str(stage))
-			#animated_sprite_2d.play(string_part+"_stage_"+str(stage))
-		#else:
-			#animated_sprite_2d.play("stage_"+str(stage))
-		#print("PLant animation:",animated_sprite_2d.animation)
-		#PlantTracker.update_plant_dictionary(self.name)
-		#
-	#if 	stage==3:
-		#if string_part=="Potato":
-			#animated_sprite_2d.scale.y=0.09
-			#print("Scale adjusted")
-		#var sprite_frames = $AnimatedSprite2D.sprite_frames  
-		#texture = sprite_frames.get_frame_texture(string_part.to_lower()+"_stage_3", 0)	
-		#
-		#Global.set(string_part + "_image", texture)
-		#
+#
+#
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -117,3 +62,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				PlantTracker.plant_names.erase(get_parent().name)
 				self.remove_child(animated_sprite_2d)
 				queue_free()
+
+
+func _on_mouse_entered() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)

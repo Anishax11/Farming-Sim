@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4ijlvy8qpq0q"
-path="res://.godot/imported/StrawberryStage1.jpeg-d11f60c6581bc082b5c0c567cec684e6.ctex"
+uid="uid://dsqr75jeojn2f"
+path="res://.godot/imported/StrawberryStage2.png-7894677402c650e129b1ef808fd605f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16/Sprites/StrawberryStage1.jpeg"
-dest_files=["res://.godot/imported/StrawberryStage1.jpeg-d11f60c6581bc082b5c0c567cec684e6.ctex"]
+source_file="res://16x16/Sprites/StrawberryStage2.png"
+dest_files=["res://.godot/imported/StrawberryStage2.png-7894677402c650e129b1ef808fd605f0.ctex"]
 
 [params]
 

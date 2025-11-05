@@ -1,45 +1,61 @@
 [gd_scene load_steps=16 format=3 uid="uid://2d8wujcsyrya"]
 
 [ext_resource type="Script" path="res://scripts/plant.gd" id="1_0ykwo"]
-[ext_resource type="Texture2D" uid="uid://jm5ih7cyj65l" path="res://16x16/Sprites/ChatGPT Image Jul 9, 2025, 05_47_14 PM (1).png" id="2_2lget"]
-[ext_resource type="Texture2D" uid="uid://dvetxmkifxbu3" path="res://16x16/Sprites/ChatGPT Image Jul 13, 2025, 11_20_49 AM.png" id="2_j5x4d"]
-[ext_resource type="Texture2D" uid="uid://w4p7p12i8dh7" path="res://16x16/Sprites/ChatGPT Image Jul 9, 2025, 06_32_34 PM.png" id="3_vep12"]
-[ext_resource type="Texture2D" uid="uid://b4ijlvy8qpq0q" path="res://16x16/Sprites/StrawberryStage1.jpeg" id="5_ksb10"]
-[ext_resource type="Texture2D" uid="uid://cl32q8sp0xqag" path="res://16x16/Sprites/StrawberryStage2.jpeg" id="6_433m2"]
-[ext_resource type="Texture2D" uid="uid://dvivvq248lrfk" path="res://16x16/Sprites/StrawberryStage3.jpeg" id="7_mm88x"]
+[ext_resource type="Texture2D" uid="uid://dhu2ma622yetu" path="res://16x16/Sprites/potato_stage_1.png" id="2_nntyp"]
+[ext_resource type="Texture2D" uid="uid://bhofbbpldbg64" path="res://16x16/Sprites/potato_stage_2.png" id="3_s7uvc"]
+[ext_resource type="Texture2D" uid="uid://cehsmcfa6m5n3" path="res://16x16/Sprites/potato_stage_3.png" id="4_fltbx"]
+[ext_resource type="Texture2D" uid="uid://dixr2tmohomnn" path="res://16x16/Sprites/StrawberryStage1.png" id="5_qfcgy"]
+[ext_resource type="Texture2D" uid="uid://dsqr75jeojn2f" path="res://16x16/Sprites/StrawberryStage2.png" id="6_iibpp"]
+[ext_resource type="Texture2D" uid="uid://b1kepcug51obc" path="res://16x16/Sprites/StrawberryStage3.png" id="7_wxgvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dyuw"]
-size = Vector2(89, 47)
+size = Vector2(54, 30)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7esyh"]
-atlas = ExtResource("2_j5x4d")
-region = Rect2(0, 0, 117, 200)
+[sub_resource type="AtlasTexture" id="AtlasTexture_irfcy"]
+atlas = ExtResource("2_nntyp")
+region = Rect2(0, 0, 88, 88)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0wc8t"]
-atlas = ExtResource("2_2lget")
-region = Rect2(0, 0, 100, 100)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnqtc"]
+atlas = ExtResource("3_s7uvc")
+region = Rect2(0, 0, 63, 67)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rl5nx"]
-atlas = ExtResource("3_vep12")
-region = Rect2(0, 0, 109, 150)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtf4i"]
+atlas = ExtResource("4_fltbx")
+region = Rect2(0, 0, 88, 88)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bodul"]
-atlas = ExtResource("5_ksb10")
+[sub_resource type="AtlasTexture" id="AtlasTexture_n74op"]
+atlas = ExtResource("5_qfcgy")
 region = Rect2(0, 0, 154, 153)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_og46y"]
-atlas = ExtResource("6_433m2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiyj5"]
+atlas = ExtResource("6_iibpp")
 region = Rect2(0, 0, 185, 188)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dcipx"]
-atlas = ExtResource("7_mm88x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogwhc"]
+atlas = ExtResource("7_wxgvi")
 region = Rect2(0, 0, 171, 158)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dxjdq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7esyh")
+"texture": SubResource("AtlasTexture_irfcy")
+}],
+"loop": false,
+"name": &"potato_stage_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnqtc")
+}],
+"loop": false,
+"name": &"potato_stage_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtf4i")
 }],
 "loop": true,
 "name": &"potato_stage_3",
@@ -47,23 +63,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0wc8t")
-}],
-"loop": true,
-"name": &"stage_1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rl5nx")
-}],
-"loop": true,
-"name": &"stage_2",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bodul")
+"texture": SubResource("AtlasTexture_n74op")
 }],
 "loop": true,
 "name": &"strawberry_stage_1",
@@ -71,7 +71,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_og46y")
+"texture": SubResource("AtlasTexture_hiyj5")
 }],
 "loop": true,
 "name": &"strawberry_stage_2",
@@ -79,7 +79,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dcipx")
+"texture": SubResource("AtlasTexture_ogwhc")
 }],
 "loop": true,
 "name": &"strawberry_stage_3",
@@ -91,16 +91,16 @@ y_sort_enabled = true
 script = ExtResource("1_0ykwo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 21)
+position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_0dyuw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.5, -21)
+position = Vector2(6, -2)
 scale = Vector2(0.812, 0.8)
 sprite_frames = SubResource("SpriteFrames_dxjdq")
-animation = &"strawberry_stage_3"
-autoplay = "stage_1"
+animation = &"potato_stage_3"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

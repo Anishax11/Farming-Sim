@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvivvq248lrfk"
-path="res://.godot/imported/StrawberryStage3.jpeg-28483e807e773d172b7335bf54a312a0.ctex"
+uid="uid://dhu2ma622yetu"
+path="res://.godot/imported/potato_stage_1.png-4c05ed7260f082b77884d5dcc976eeb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16/Sprites/StrawberryStage3.jpeg"
-dest_files=["res://.godot/imported/StrawberryStage3.jpeg-28483e807e773d172b7335bf54a312a0.ctex"]
+source_file="res://16x16/Sprites/potato_stage_1.png"
+dest_files=["res://.godot/imported/potato_stage_1.png-4c05ed7260f082b77884d5dcc976eeb9.ctex"]
 
 [params]
 
