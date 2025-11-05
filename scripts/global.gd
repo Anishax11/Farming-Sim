@@ -1,4 +1,5 @@
 extends Node
+
 const HOUSE_INTERIOR = preload("res://scenes/house_interior.tscn")
 var day_count=1
 var day_passed=false
@@ -13,7 +14,7 @@ var grass_clicked=false
 var grass_held=false
 var soil_clicked=false
 var panel_clicked=false
-var player_direction
+var player_direction = Vector2(0,0)
 var panel_number
 var item_out_of_inv=false
 var seeds_texture
@@ -102,6 +103,7 @@ func move_item(panel_number,item_name):
 			#Highligh new panel if dropped item  is equipped
 			if Global.equipped_panel == previous_panel.name:
 				Global.equipped_panel = final_panel.name
+				final_panel.item_name = previous_panel.item_name
 				final_panel.highlight_panel()
 			
 	else:

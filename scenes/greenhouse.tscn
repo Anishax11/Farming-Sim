@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs8muem2spgnl"]
+
+[ext_resource type="PackedScene" uid="uid://drxudcb0kqmyk" path="res://scenes/farm_entrance.tscn" id="1_1a83y"]
+
+[node name="Greenhouse" type="StaticBody2D"]
+
+[node name="Farm_Entrance" parent="." instance=ExtResource("1_1a83y")]
+position = Vector2(3, 40)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-107, 127, -103, 200, -38, 196, -35, 116, 39, 115, 39, 191, 108, 195, 112, -50, 48, -117, -42, -116, -105, -50, -108, 125, -113, 123)

@@ -62,4 +62,6 @@ func _on_exit_body_entered(body: Node2D) -> void:
 	Global.current_time=time_manager.current_time
 	Global.time_to_change_tint=time_manager.time_to_change_tint
 	Global.tint_index=time_manager.color_rect.i
+	Global.player_pos = Vector2(120,505)
+	
 	await get_tree().change_scene_to_packed(FRONTYARD_SCENE)

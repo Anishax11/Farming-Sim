@@ -273,18 +273,18 @@ script = ExtResource("7_3irru")
 
 [node name="CoinLabel" type="Label" parent="."]
 z_index = 5
-offset_left = -144.0
-offset_top = -106.0
-offset_right = -52.0
-offset_bottom = -83.0
+offset_left = -191.0
+offset_top = -107.0
+offset_right = -99.0
+offset_bottom = -84.0
 scale = Vector2(0.5, 1)
 
 [node name="DateLabel" parent="." instance=ExtResource("8_r8mox")]
 z_index = 5
-offset_left = 105.0
-offset_top = -104.0
-offset_right = 148.0
-offset_bottom = -81.0
+offset_left = 108.0
+offset_top = -106.0
+offset_right = 151.0
+offset_bottom = -83.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -300,12 +300,11 @@ script = ExtResource("10_scngo")
 metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" parent="." instance=ExtResource("11_n8gv4")]
-visible = true
 scale = Vector2(0.8, 0.8)
 
 [node name="TimeManager" parent="." instance=ExtResource("9_lco12")]
 z_index = 5
-position = Vector2(77, -81)
+position = Vector2(97, -80)
 
 [node name="PauseMenu" parent="." instance=ExtResource("12_idb42")]
 visible = false

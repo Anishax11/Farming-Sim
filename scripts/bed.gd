@@ -5,6 +5,8 @@ var sleep_button
 var dont_sleep_button
 var time_manager
 var color_rect
+const HOUSE_INTERIOR = preload("res://scenes/house_interior.tscn")
+
 func _ready() -> void:
 	time_manager=get_parent().get_node("TimeManager")
 	#print("int just loaded:",Global.tilled_soil)
@@ -19,26 +21,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			sleep_button.visible=true
 			dont_sleep_button.visible=true
 
-
-
-#EXIT BUTTON
-func _on_button_button_down() -> void:
-	#Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect_i)
-	Global.current_time=time_manager.current_time
-	Global.time_to_change_tint=time_manager.time_to_change_tint
-	Global.tint_index=time_manager.color_rect.i
-	
-	await get_tree().change_scene_to_packed(FARM_SCENE)
-	Global.load_farm=true
-
 #SLEEP BUTTON
 func _on_sleep_button_down() -> void:
 	Global.update_day_count()
-	Global.current_time=6.0
-	Global.time_to_change_tint=8.0
-	Global.tint_index=0
 	
-	time_manager.current_time=6.0
-	time_manager.time_to_change_tint=8.0
-	color_rect.i=0
-	get_tree().reload_current_scene()

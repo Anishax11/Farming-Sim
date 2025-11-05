@@ -38,7 +38,7 @@ func _ready() -> void:
 func _on_exit_body_entered(body: Node2D) -> void:
 	if Global.player_direction.y==1:
 		print("LEAVING SHOP")
-		Global.player_pos=Vector2(17,50)
+		Global.player_pos=Vector2(125,-50)
 		Dialogic.end_timeline()
 		Global.current_time = time_manager.current_time
 		Global.time_to_change_tint = time_manager.time_to_change_tint

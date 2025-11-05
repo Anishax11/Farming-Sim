@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://drxudcb0kqmyk"]
 
-[ext_resource type="Script" path="res://scenes/go_to_farm.gd" id="1_tmi2l"]
+[ext_resource type="Script" path="res://scripts/go_to_farm.gd" id="1_tmi2l"]
 [ext_resource type="Texture2D" uid="uid://d1fvc30fxsmrq" path="res://16x16/Sprites/Greenhouse.png" id="2_33uy1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gaoib"]

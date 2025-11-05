@@ -1,5 +1,6 @@
 extends ColorRect
 var i=0
+var timemanager
 var color_array:Array=[
 	"E6F0FF",   # 6 AM - Barely visible blue mist
 	"B4DCFF",  # 8 AM - Sky Blue
@@ -22,7 +23,9 @@ var opacity:Array=[0.1,0.05,0.0,0.03,0.1,0.2,0.3,0.4,0.5,0.6,0.8]
 
 func adjust_tint():
 	print("Color rect i:",i)
-	print("ADJUST TINT CALLED")
+	while(timemanager==null):
+		await get_tree().process_frame    # wait exactly one frame
+	print("ADJUST TINT CALLED :",timemanager.current_time)
 	if i!=null and i<11:
 		color=Color(color_array[i])
 		color.a=opacity[i]
@@ -31,4 +34,4 @@ func adjust_tint():
 		Global.color_rect_i=i	
 		
 func _ready():
-	print(get_path())
+	timemanager = get_parent().get_parent().get_node("TimeManager")

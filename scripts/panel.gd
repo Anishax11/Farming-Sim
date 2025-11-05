@@ -19,7 +19,7 @@ var seed_type
 var transferred=false
 
 func _ready():
-	print("Panel Loaded")
+	#print("Panel Loaded")
 	mouse_default_cursor_shape=Control.CursorShape.CURSOR_POINTING_HAND
 	siblings = get_parent().get_children()
 	anchor_left = 1
@@ -39,7 +39,7 @@ func _ready():
 		await get_tree().process_frame
 	if Global.equipped_panel == self.name and item_name!=null :
 		print("HIGHLIGHT PANEL")
-		
+		highlight_panel()
 
 		
 func _on_gui_input(event: InputEvent) -> void:
@@ -62,13 +62,7 @@ func _on_gui_input(event: InputEvent) -> void:
 							sibling.stylebox.expand_margin_top = 0
 							sibling.stylebox.expand_margin_bottom = 0
 					
-					stylebox.texture=Global.HIGHLIGHTED_PANEL
-					add_theme_stylebox_override("panel", stylebox)   # resets image position
-					#get_child(0).position=Vector2(-4,-4)
-					stylebox.expand_margin_left = 1.5
-					stylebox.expand_margin_right = 1.5
-					stylebox.expand_margin_top = 1.5
-					stylebox.expand_margin_bottom = 1.5
+					highlight_panel()
 						
 				else:
 					stylebox.texture=Global.INVENTORY_SLOT
