@@ -27,7 +27,9 @@ func _ready():
 	anchor_top = 1
 	anchor_right = 1
 	anchor_bottom = 1
-
+	if  PlantTracker.panel_seed_count.has(self.name):
+		seed_count = PlantTracker.panel_seed_count[self.name]
+		print(self.name ," limit :",seed_count)
 	stylebox = StyleBoxTexture.new()
 	
 	self.connect("gui_input", Callable(self, "_on_gui_input")) #Attach signal to node
@@ -124,8 +126,14 @@ func _on_gui_input(event: InputEvent) -> void:
 				#print("TEXTURE:",child.name)
 				Global.move_item(panel_number,item_name)#Passes panel no. to move_item func
 				
-			#else:
-				##print("TEXT not found")
+			else:
+				if  child != TextureRect :
+					print("TEXT not found")
+				if item_name==null:
+					print("Item name null")
+				for p in self.get_children():
+						print(child.name)
+					
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT :   
 		if event.pressed:	
 			inventory.get_node("DeleteItemConfirmation").visible=true
@@ -140,13 +148,13 @@ func _on_gui_input(event: InputEvent) -> void:
 		#print("DIst from inv:",relative_pos)#-get_parent().get_parent().position.x)
 		var child=get_child(0)
 		if child is TextureRect:
-			var relative_pos = child.global_position - get_parent().global_position
-			if relative_pos.x<0 or relative_pos.x>190 or relative_pos.y<0 or relative_pos.y>190 :
-				print("item out of inv")
-				print("Parent pos : ",get_parent().global_position)
-				print("Child pos : ",child.global_position )
-				print("Relative POs:",relative_pos)
-				Global.item_out_of_inv=true
+			#var relative_pos = child.global_position - get_parent().global_position
+			#if relative_pos.x<0 or relative_pos.x>190 or relative_pos.y<0 or relative_pos.y>190 :
+				#print("item out of inv")
+				#print("Parent pos : ",get_parent().global_position)
+				#print("Child pos : ",child.global_position )
+				#print("Relative POs:",relative_pos)
+				#Global.item_out_of_inv=true
 				
 			Global.panel_clicked=!Global.panel_clicked #Panel clicked shouldnt become true while dragging item
 			child.position=event.position 
@@ -159,11 +167,13 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
+	item_name=node.name
+	
 	
 	if node is TextureRect and node.name=="strawberry_seeds" or node.name=="potato_seeds":
 		
-		#print("Added to panel",self.name)
-		item_name=node.name
+		
+		#item_name=node.name
 		
 		if node.name=="strawberry_seeds":
 			seed_type="strawberry"
@@ -176,7 +186,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		node.position.x+=1
 		node.scale.x=1
 		node.scale.y=1.5
-		item_name="watercan"
+		#item_name="watercan"
 		
 	if node is TextureRect and node.name=="strawberry" or node.name=="potato":
 		#print(node.name," ", node.texture)
@@ -186,9 +196,9 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		node.scale.x=0.1
 		node.scale.y=0.1
 		
-		item_name=node.name
+		#item_name=node.name
 		#print("STr texturerect added to panel")
-
+	print("Added ",item_name," to panel :",self.name)
 
 
 func _on_panel_child_exiting_tree(node : Node) :

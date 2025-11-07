@@ -53,21 +53,21 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			var player_pos=Vector2( int(player.position.x / 8) * 8,int(player.position.y / 8) * 8 )
 			distance=soil_pos.distance_to(player_pos)
 			
-			if distance<40 and panel.water_equipped==true:
+			if distance<40 and tilled==true and panel.water_equipped==true:
 				
-				print("Current animation :",animated_sprite_2d.animation)
+				#print("Current animation :",animated_sprite_2d.animation)
 				
 				if(animated_sprite_2d.animation=="seeds"):
-						print("rect seeds")
+						#print("rect seeds")
 						animated_sprite_2d.play("watered_seeds")
 				elif(animated_sprite_2d.animation=="circle_seeds"):
-						print("Circ seeds")
+						#print("Circ seeds")
 						animated_sprite_2d.play("watered_circle_seeds")
 				elif(animated_sprite_2d.animation=="tilled"):
-						print("Circ tilled")
+						#print("Circ tilled")
 						animated_sprite_2d.play("watered_circle_tilled")
 				elif(animated_sprite_2d.animation=="rect_tilled"):
-						print("rect_tilled")
+						#print("rect_tilled")
 						animated_sprite_2d.play("watered_soil")
 				
 				water_audio.play() 
@@ -76,11 +76,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				water_audio.stop()
 				
 			#NEW CODE FOR GROWING PLANT
-			if distance<40 and planted!=true and panel.water_equipped==true: 
-				print("trying to wate,planted not true")
+			#if distance<40 and planted!=true and panel.water_equipped==true: 
+				#print("trying to wate,planted not true")
 				
 			if distance<40 and planted==true and panel.water_equipped==true: #If plant doesn't exist yet
-				print("trying to water")
+				#print("trying to water")
 				watered=true
 				Global.watered_plants.append(self.name)
 				
@@ -99,113 +99,15 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					PlantTracker.locked_growth[self.name]=true
 					
 			
-			# CODE FOR GROWING PLANT
-			#if distance<40 and planted==true and panel.water_equipped==true:
-				#print("TRying to  water")
-				#for soil in Global.watered_plants:
-					#print("watered plants nt empty")
-					#if watered!=true:
-						#print("Watered is false")
-						##var determine_plant=randi_range(0,1)
-						#var plant_name
-						##if determine_plant==0:
-							##plant_name="strawberry"
-						##elif determine_plant==1:
-							##plant_name="potato"
-						##var seed_node=get_node("/root/Game/SeedShopInterior/VendorMenu/seeds")
-						##plant_name=seed_node.seed_type
-						#plant_name=seed_type
-						#
-						#print("watered soil has seeds: ",seed_type)	
-						#watered=true
-						#
-						#if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
-							#print("New plant:","Plant"+str(Global.plant_number))
-							#PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
-							##print("Plant name :",PlantTracker.plant_names[self.name])
-							#PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
-							#
-							#Global.plant_number+=1
-							#
-					#if soil ==self.name:
-						#watered=true
-						#print("Plant has been watered",self.name)
-						#return
-					#elif soil==Global.watered_plants[Global.watered_plants.size()-1]:
-						#print("Plant has not been watered",self.name)
-						#watered=true	
-						#Global.plant_watered(self)
-						#if animated_sprite_2d.animation=="seeds":
-							#animated_sprite_2d.play("watered_seeds")
-							##print("Playing watered")
-						#if animated_sprite_2d.animation=="circle_seeds":
-							#animated_sprite_2d.play("watered_circle_seeds")
-							##print("Playing watered")
-						##var determine_plant=randi_range(0,1)
-						##var plant_name
-						##if determine_plant==0:
-							##plant_name="strawberry"
-						##elif determine_plant==1:
-							##plant_name="potato"
-						##print("PLanT Is : ",plant_name)	
-						##
-						##if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
-							###print("New plant:","Plant"+str(Global.plant_number))
-							##PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
-							###print("Plant name :",PlantTracker.plant_names[self.name])
-							##PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
-							##
-							##Global.plant_number+=1
-							#
-				#if Global.watered_plants.is_empty():
-					#print("RUNNING 2")
-					#if watered!=true:
-						##var determine_plant=randi_range(0,1)
-						#var plant_name=seed_type
-						##if determine_plant==0:
-							##plant_name="strawberry"
-						##elif determine_plant==1:
-							##plant_name="potato"
-						##print("PLanT Is : ",plant_name)	
-						#print("watered soil has seeds: ",seed_type)	
-						#if not PlantTracker.plant_stages.has(plant_name+str(Global.plant_number)):
-							##print("New plant:","Plant"+str(Global.plant_number))
-							#PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
-							##print("Plant name :",PlantTracker.plant_names[self.name])
-							#PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
-							#
-							#Global.plant_number+=1
-						#
-					#
-					##print("Watered arr empty")
-					##print(self.name," watered :",watered)
-					#Global.watered_plants.append(self.name)
-					#Global.plant_watered(self)
-					#watered=true	
-					#if animated_sprite_2d.animation=="seeds":
-						#animated_sprite_2d.play("watered_seeds")
-					#elif animated_sprite_2d.animation=="circle_seeds":
-						#animated_sprite_2d.play("watered_circle_seeds")
-						#print("Plying wateed:",animated_sprite_2d.animation)
-					#planted=false
-					
-				#print("Plant watered")
-				
-		
 			
-			#CODE FOR PLANTATION
-			
-			#print("panel.seeds_equipped :",panel.seeds_equipped)
-			#print("DIST:",distance)
-			#print("SEEDS COUNT:",inventory.seeds_count)
-			if distance<40 and tilled==true and panel.seeds_equipped==true :
+			if distance<40 and tilled==true and planted!=true and panel.seeds_equipped==true :
 				print("Try planting :",Global.equipped_item)
 				
 				var panel=inventory.find_child(Global.equipped_panel, true, false)
 				
 				var count= panel.seed_count
 				if count>0:
-					print("Plant ",Global.equipped_item)	
+					#print("Plant ",Global.equipped_item)	
 					planted=true
 					seed_type=Global.equipped_item
 					Global.soil_data[self.name]=seed_type
@@ -213,6 +115,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					#print("Seeds count before:",inventory.seeds_count)
 					#var current = inventory.get(count)
 					panel.seed_count-=1
+					PlantTracker.panel_seed_count[panel.name]=panel.seed_count
 					if panel.seed_count == 0:
 						
 						panel.remove_item()

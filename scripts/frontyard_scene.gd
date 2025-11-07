@@ -5,6 +5,8 @@ var slots_passed=0
 var slot_adjust=1
 
 func _ready() -> void:
+	var inventory = get_node("Farmer/Inventory")
+	inventory.add_to_inventory("strawberry_seeds",Global.strawberry_seeds_image)
 	time_manager=get_node("Farmer/TimeManager")
 	var player =get_node("Farmer")
 	if Global.player_pos!=null:

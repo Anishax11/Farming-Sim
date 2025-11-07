@@ -75,7 +75,8 @@ func _ready() -> void:
 						
 					if soil.get_child_count()>3:
 						plant_found=true
-						print("PLANT FOUND: ","Plant"+str(j))
+						print("PLANT FOUND: ",soil.name)
+						
 					elif plant_found==false and j==PlantTracker.plant_stages.size():#used to grow plant for the first time
 						print("PLANT NOT FOUND: ","Plant"+str(j))
 						print("Growing this plant for the first time")

@@ -79,20 +79,22 @@ func move_item(panel_number,item_name):
 	var final_panel = 	get_tree().get_current_scene().find_child(final_panel_name, true, false)
 	
 	if final_panel==null:
+		print("Final panel is null")
 		previous_panel.add_child(texture_rect)
 		texture_rect.global_position=previous_panel.global_position
 		Global.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]=item_name
 		return
-		
+	print("Final panel no :",final_panel_number)	
 	if final_panel.item_name==null and final_panel_number>0 and final_panel_number<16:
 		print("NOT OCCUPIED")
 		if final_panel!=previous_panel:
-			
+			print("final_panel!=previous_panel")
 			final_panel.seed_type=previous_panel.seed_type
-			previous_panel.item_name=null
 			final_panel.seed_count=previous_panel.seed_count
 			previous_panel.seed_count=6 # reset to six so that if new seeds are bought limit is 6
 			previous_panel.remove_child(texture_rect)
+			#texture_rect.name=previous_panel.item_name
+			previous_panel.item_name=null
 			final_panel.add_child(texture_rect)
 			
 			Global.inventory_items[int((final_panel_number-1)/5)][int(final_panel_number-1)%5]=item_name
@@ -104,7 +106,7 @@ func move_item(panel_number,item_name):
 			#Highligh new panel if dropped item  is equipped
 			if Global.equipped_panel == previous_panel.name:
 				Global.equipped_panel = final_panel.name
-				final_panel.item_name = previous_panel.item_name
+				#final_panel.item_name = previous_panel.item_name
 				final_panel.highlight_panel()
 			
 	else:

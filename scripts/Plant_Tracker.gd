@@ -11,7 +11,7 @@ var plant_stage_limits={
 	"tomatoes" : 3
 }
 var locked_growth={}#used to store soil {with plant} which has already been watered once in the day to prevent multiple updates in stage on the same day
-
+var panel_seed_count={} # keeps track of panel's seed_count to load back on another day
 func add_to_plant_dictionary(plant_name):
 	print("add_to_plant_dictionary called")
 	
