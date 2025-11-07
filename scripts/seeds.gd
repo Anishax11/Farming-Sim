@@ -5,6 +5,7 @@ var empty_panel
 var fake_input_called=false
 var seed_type
 var price
+var seed_count = 6
 @onready var texture_rect: TextureRect = $TextureRect
 
 func _ready() -> void:

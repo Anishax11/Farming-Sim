@@ -7,7 +7,7 @@ func _on_discard_button_down() -> void:
 			
 		if panel==null:
 			print("Panel not set")	
-		panel.remove_item((str(panel.item_name)))
+		panel.remove_item()
 		visible=false		
 
 

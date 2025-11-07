@@ -18,6 +18,7 @@ var lock_growth_mechanism=false
 
 
 func _ready() -> void:
+	
 	if Global.soil_data.has(self.name):
 		
 		seed_type=Global.soil_data[self.name]
@@ -70,9 +71,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						animated_sprite_2d.play("watered_soil")
 				
 				water_audio.play() 
-				watered=true
+				
 				await get_tree().create_timer(1.0).timeout
 				water_audio.stop()
+				
 			#NEW CODE FOR GROWING PLANT
 			if distance<40 and planted!=true and panel.water_equipped==true: 
 				print("trying to wate,planted not true")
@@ -81,6 +83,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				print("trying to water")
 				watered=true
 				Global.watered_plants.append(self.name)
+				
 				if not PlantTracker.plant_names.has(self.name):
 					var plant_name=seed_type
 					PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
@@ -196,17 +199,23 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			#print("DIST:",distance)
 			#print("SEEDS COUNT:",inventory.seeds_count)
 			if distance<40 and tilled==true and panel.seeds_equipped==true :
-				print("Try planting")
-				var count=Global.equipped_item+"_seeds_count"
-				if inventory.get(count)>0:
+				print("Try planting :",Global.equipped_item)
+				
+				var panel=inventory.find_child(Global.equipped_panel, true, false)
+				
+				var count= panel.seed_count
+				if count>0:
 					print("Plant ",Global.equipped_item)	
 					planted=true
 					seed_type=Global.equipped_item
 					Global.soil_data[self.name]=seed_type
 					#planted_seeds=panel.seeds_name
 					#print("Seeds count before:",inventory.seeds_count)
-					var current = inventory.get(count)
-					inventory.set(count, current - 1)
+					#var current = inventory.get(count)
+					panel.seed_count-=1
+					if panel.seed_count == 0:
+						
+						panel.remove_item()
 					#print("Seeds count:",inventory.seeds_count)
 					if Global.player_direction==Vector2(1,0):
 						print("Facing right")
@@ -222,11 +231,13 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					
 					if animated_sprite_2d.animation=="tilled":
 						animated_sprite_2d.play("circle_seeds")
+						
 					elif animated_sprite_2d.animation=="rect_tilled":
 						animated_sprite_2d.play("seeds")
 					#print(animated_sprite_2d.animation)
 					Global.save_tilled_soil(self,animated_sprite_2d.animation)
-			
+				
+					
 			
 			#CODE FOR TILLING
 				

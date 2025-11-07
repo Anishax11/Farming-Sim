@@ -32,4 +32,7 @@ func dim_bg(scene: PackedScene):
 	await get_tree().process_frame
 
 	# Change scene
+	while(scene==null):
+		await get_tree().process_frame
+		
 	get_tree().change_scene_to_packed(scene)

@@ -90,7 +90,8 @@ func move_item(panel_number,item_name):
 			
 			final_panel.seed_type=previous_panel.seed_type
 			previous_panel.item_name=null
-			
+			final_panel.seed_count=previous_panel.seed_count
+			previous_panel.seed_count=6 # reset to six so that if new seeds are bought limit is 6
 			previous_panel.remove_child(texture_rect)
 			final_panel.add_child(texture_rect)
 			

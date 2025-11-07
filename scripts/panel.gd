@@ -15,6 +15,7 @@ var stylebox
 var siblings 
 var clicked=false
 var seeds_name
+var seed_count = 6
 var seed_type
 var transferred=false
 
@@ -119,16 +120,16 @@ func _on_gui_input(event: InputEvent) -> void:
 			panel_number=int(result.get_string(0))
 			
 			var child=get_child(0)
-			if child is TextureRect:
+			if child is TextureRect and item_name!=null:
 				#print("TEXTURE:",child.name)
 				Global.move_item(panel_number,item_name)#Passes panel no. to move_item func
 				
 			#else:
 				##print("TEXT not found")
-	#if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT :   
-		#if event.pressed:	
-			#inventory.get_node("DeleteItemConfirmation").visible=true
-			#inventory.get_node("DeleteItemConfirmation").panel=self
+	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT :   
+		if event.pressed:	
+			inventory.get_node("DeleteItemConfirmation").visible=true
+			inventory.get_node("DeleteItemConfirmation").panel=self
 			
 			
 			
@@ -179,6 +180,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		
 	if node is TextureRect and node.name=="strawberry" or node.name=="potato":
 		#print(node.name," ", node.texture)
+		
 		node.position=Vector2(-2,-4)
 		
 		node.scale.x=0.1
@@ -198,14 +200,15 @@ func _on_panel_child_exiting_tree(node : Node) :
 	stylebox.expand_margin_top = 0
 	stylebox.expand_margin_bottom = 0
 
-func remove_item(item_name):
+func remove_item():
 	#print("Inside")
 	#print("Removing itemfrom inv and panel",self.name)	
 	if item_name!=null:
 			#	print("REMOVVE ITEM")	
-				self.remove_child(get_node(item_name))
+				self.remove_child(get_node(NodePath(item_name)))
 				#print(inventory_node.get_path())
 				inventory.remove_item(item_name)
+				item_name=null
 				
 
 func highlight_panel():
