@@ -55,19 +55,19 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			if distance<40 and tilled==true and panel.water_equipped==true:
 				
-				#print("Current animation :",animated_sprite_2d.animation)
+				print("Current animation :",animated_sprite_2d.animation)
 				
 				if(animated_sprite_2d.animation=="seeds"):
-						#print("rect seeds")
+						print("rect seeds")
 						animated_sprite_2d.play("watered_seeds")
 				elif(animated_sprite_2d.animation=="circle_seeds"):
-						#print("Circ seeds")
+						print("Circ seeds")
 						animated_sprite_2d.play("watered_circle_seeds")
 				elif(animated_sprite_2d.animation=="tilled"):
-						#print("Circ tilled")
+						print("Circ tilled")
 						animated_sprite_2d.play("watered_circle_tilled")
 				elif(animated_sprite_2d.animation=="rect_tilled"):
-						#print("rect_tilled")
+						print("rect_tilled")
 						animated_sprite_2d.play("watered_soil")
 				
 				water_audio.play() 
@@ -117,8 +117,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					panel.seed_count-=1
 					PlantTracker.panel_seed_count[panel.name]=panel.seed_count
 					if panel.seed_count == 0:
-						
+						Global.equipped_item=null
+						Global.equipped_panel=null
+						panel.seeds_equipped = false
 						panel.remove_item()
+						panel.seed_count =6
 					#print("Seeds count:",inventory.seeds_count)
 					if Global.player_direction==Vector2(1,0):
 						print("Facing right")
@@ -229,7 +232,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 								#print("watered_seeds")
 							get_node(soil_path+str(number-39)).adjusted=true
 							
-					if Global.player_direction==Vector2(0,-1):
+					if Global.player_direction==Vector2(0,-1) and get_node(soil_path+str(number+39))!=null:
 						
 						if get_node(soil_path+str(number+39)).tilled==true:
 							#print("Prev tilled")

@@ -3,7 +3,15 @@ var inventory
 var siblings
 var stylebox
 var item_name
+var panel_number
+
 func _ready() -> void:
+	var text = self.name
+	var regex = RegEx.new()
+	regex.compile(r"\d+")  # Matches one or more digits
+	var result = regex.search(text)
+	panel_number=int(result.get_string(0))
+	#print("Trade panel :",self.name)
 	mouse_default_cursor_shape=Control.CursorShape.CURSOR_POINTING_HAND
 	siblings = get_parent().get_children()
 	anchor_left = 1
@@ -66,5 +74,8 @@ func remove_item(item_name):
 			
 		self.remove_child(get_node(str(item_name)))
 		#print(inventory_node.get_path())
-		Inventory.remove_item(str(item_name))
+		var row = int( (panel_number-1)/5 )
+		var column = int(panel_number-1)%5
+		inventory.remove_item(row,column)
+		item_name=null
 		get_tree().get_current_scene().find_child(self.name, true, false).remove_child(get_node(str(item_name)))

@@ -1,5 +1,7 @@
 extends Panel
 
+#CANT PLANT 2 DIFF SEEDS ONE AFTER ANOTHER 
+
 class_name panel
 
 var button_held=false	
@@ -20,6 +22,11 @@ var seed_type
 var transferred=false
 
 func _ready():
+	var text = self.name
+	var regex = RegEx.new()
+	regex.compile(r"\d+")  # Matches one or more digits
+	var result = regex.search(text)
+	panel_number=int(result.get_string(0))
 	#print("Panel Loaded")
 	mouse_default_cursor_shape=Control.CursorShape.CURSOR_POINTING_HAND
 	siblings = get_parent().get_children()
@@ -55,8 +62,8 @@ func _on_gui_input(event: InputEvent) -> void:
 				if clicked==true:
 					
 					for sibling in siblings:
-						if sibling!=self:
-							#print(sibling.name)
+						if sibling!=self and sibling.stylebox.texture==Global.HIGHLIGHTED_PANEL :
+							print("sibling :",sibling.name)
 							sibling.clicked=false
 							sibling.stylebox.texture=Global.INVENTORY_SLOT
 							add_theme_stylebox_override("panel", sibling.stylebox)
@@ -64,6 +71,9 @@ func _on_gui_input(event: InputEvent) -> void:
 							sibling.stylebox.expand_margin_right = 0
 							sibling.stylebox.expand_margin_top = 0
 							sibling.stylebox.expand_margin_bottom = 0
+							var last_five = sibling.item_name.substr(sibling.item_name.length() - 5, 5)
+							if  last_five== "seeds":
+								seeds_equipped=false
 					
 					highlight_panel()
 						
@@ -86,6 +96,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				
 				if water_equipped==true:
 					water_equipped=false
+					
 				seeds_equipped=!seeds_equipped
 				
 				#print("seeds_equipped",seeds_equipped)
@@ -115,11 +126,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			#print(get_child(0).position)
 			#print("Button left")
 			button_held=false
-			var text = self.name
-			var regex = RegEx.new()
-			regex.compile(r"\d+")  # Matches one or more digits
-			var result = regex.search(text)
-			panel_number=int(result.get_string(0))
+			
 			
 			var child=get_child(0)
 			if child is TextureRect and item_name!=null:
@@ -213,12 +220,17 @@ func _on_panel_child_exiting_tree(node : Node) :
 func remove_item():
 	#print("Inside")
 	#print("Removing itemfrom inv and panel",self.name)	
+	#Global.inventory_items[][]=item_name
 	if item_name!=null:
 			#	print("REMOVVE ITEM")	
 				self.remove_child(get_node(NodePath(item_name)))
 				#print(inventory_node.get_path())
-				inventory.remove_item(item_name)
+				#Global.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]
+				var row = int( (panel_number-1)/5 )
+				var column = int(panel_number-1)%5
+				inventory.remove_item(row,column)
 				item_name=null
+				clicked=false
 				
 
 func highlight_panel():

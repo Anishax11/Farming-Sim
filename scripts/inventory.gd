@@ -40,8 +40,8 @@ func _ready() -> void:
 					print("Slot passed:",slots_passed)
 					print("ADJ:",slot_adjust)
 					print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
-					
-					Global.empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
+					var number = i*5 +1+j
+					Global.empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(number))
 					
 					Global.empty_panel.add_child(texture_rect)
 					slots_passed=0
@@ -55,10 +55,10 @@ func add_to_inventory(string,item_texture) :
 	var slots_passed=0
 	var slot_adjust=1
 	print("Item added to inv:",string)
-	if string=="strawberry_seeds":
-		strawberry_seeds_count+=6
-	elif string=="potato_seeds":
-		potato_seeds_count+=6
+	#if string=="strawberry_seeds":
+		#strawberry_seeds_count+=6
+	#elif string=="potato_seeds":
+		#potato_seeds_count+=6ddddddds
 		
 	for i in range(3):
 			
@@ -100,13 +100,17 @@ func add_to_inventory(string,item_texture) :
 		slots_passed+=5
 		slot_adjust-=1		
 				
-func remove_item(item_name):
+func remove_item(row,column):
 	print("REMOVING ITEM")
-	for i in range(3):
-		#print(i,",",j)	
-		for j in range(5):
-			#print(i,",",j)
-			if Global.inventory_items[i][j]==item_name:
-				Global.inventory_items[i][j]=""
-				return
+	Global.inventory_items[row][column]=""
+	
+	
+	
+	#for i in range(3):
+		##print(i,",",j)	
+		#for j in range(5):
+			##print(i,",",j)
+			#if Global.inventory_items[i][j]==item_name:
+				#Global.inventory_items[i][j]=""
+				#return
 			

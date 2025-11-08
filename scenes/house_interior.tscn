@@ -1215,7 +1215,7 @@ shape = SubResource("RectangleShape2D_p8n1x")
 
 [node name="PauseMenu" parent="." instance=ExtResource("10_ih88g")]
 visible = false
-z_index = 5
+z_index = 6
 offset_left = -166.429
 offset_top = -144.0
 offset_right = -8.42857

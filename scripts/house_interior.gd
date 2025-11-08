@@ -27,14 +27,14 @@ func _ready() -> void:
 
 	var inventory= get_tree().current_scene.find_child("Inventory")
 	
-	for i in range (3):
-		for j in range (5):
-			var string=Global.inventory_items[i][j]
-				
-			if string!="":
-				Global.inventory_items[i][j]=""
-				inventory.add_to_inventory(string,null)
-				
+	#for i in range (3):
+		#for j in range (5):
+			#var string=Global.inventory_items[i][j]
+				#
+			#if string!="":
+				#Global.inventory_items[i][j]=""
+				#inventory.add_to_inventory(string,null)
+				#
 	
 	farmer_added=true
 
