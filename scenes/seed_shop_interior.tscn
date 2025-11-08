@@ -10350,6 +10350,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("10_lo2ag")
 
 [node name="Inventory" parent="." instance=ExtResource("13_kfead")]
+visible = false
 z_index = 4
 position = Vector2(626.316, 51.7857)
 scale = Vector2(2.5, 2.5)

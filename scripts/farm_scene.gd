@@ -8,8 +8,10 @@ func _ready() -> void:
 	if Global.player_pos!=null:
 		player.global_position=Global.player_pos
 				
-	player.direction.y=-1
-			
+	player.animated_sprite_2d.play("backward")
+	if Tutorials.tutorials["farm_tutorial"]==false:
+		Dialogic.start("FarmTutorial")	
+		Tutorials.tutorials["farm_tutorial"]=true	
 			
 
 

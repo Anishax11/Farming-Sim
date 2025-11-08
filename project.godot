@@ -31,6 +31,7 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"FarmTutorial": "res://FarmTutorial.dtl",
 "SeedShopOwner": "res://SeedShopOwner.dtl",
 "SeedShopTutorial": "res://SeedShopTutorial.dtl",
 "TradeBoxTutorial": "res://TradeBoxTutorial.dtl"

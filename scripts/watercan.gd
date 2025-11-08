@@ -25,7 +25,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				print("NULL")
 				await get_tree().process_frame
 			print("CAll add to inv")		
-			get_node("/root/farm_scene/Farmer/Inventory").add_to_inventory(self.name,$TextureRect.texture)
+			get_node("/root/farm_scene/Farmer/ClickBlocker/Inventory").add_to_inventory(self.name,$TextureRect.texture)
 			$TextureRect.name="watercan"
 			empty_panel=Global.get_empty_panel()
 			texture_rect.scale.x=0.016

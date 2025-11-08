@@ -15,7 +15,11 @@ func _ready() -> void:
 	var player =get_node("Farmer")
 	if Global.player_pos!=null:
 		player.global_position=Global.player_pos
-	player.direction.y= Global.player_direction.y
+	
+	if(Global.player_direction.y==-1):
+		player.animated_sprite_2d.play("backward")
+	else:
+		player.animated_sprite_2d.play("forward")
 	#time_manager.current_time=Global.current_time
 	#time_manager.time_to_change_tint=time_manager.time_to_change_tint
 	#time_manager.tint_index=time_manager.color_rect.i

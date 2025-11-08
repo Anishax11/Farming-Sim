@@ -2,11 +2,21 @@ extends Node2D
 var game = load("res://scenes/game.tscn")
 var player 
 var time_manager
+var date_label
+var coin_label
 
 func _ready():
 	print("MARKET Place")
 	player=get_node("Farmer")
 	time_manager=get_node("Farmer/TimeManager")
+	date_label = get_node("Farmer/DateLabel")
+	coin_label=get_node("Farmer/CoinLabel")
+	time_manager.global_position.y+=70
+	date_label.global_position.y+=70
+	date_label.global_position.x-=80
+	time_manager.global_position.x-=110
+	coin_label.global_position.y+=70
+	coin_label.global_position.x+=110
 	player.get_node("Camera2D").zoom=Vector2(2,2)
 	if Global.player_pos!=null:
 		player.global_position = Global.player_pos

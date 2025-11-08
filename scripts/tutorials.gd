@@ -1,8 +1,14 @@
 extends Node
 
-var trade_box_tutorial=false
-var seed_shop={
-	"tutorial" : false,
-	"first_interaction": false
+#var 
+var tutorials ={
+	"trade_box_tutorial":false,
+	"seed_shop_tutorial" : false,
+	"farm_tutorial" : false
+	
+}
+var interactions={
+	
+	"seed_shop_first_interaction": false
 	
 }

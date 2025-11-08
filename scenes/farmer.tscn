@@ -271,21 +271,6 @@ shape = SubResource("CapsuleShape2D_ip8u5")
 zoom = Vector2(3, 3)
 script = ExtResource("7_3irru")
 
-[node name="CoinLabel" type="Label" parent="."]
-z_index = 5
-offset_left = -237.0
-offset_top = -131.0
-offset_right = -145.0
-offset_bottom = -108.0
-scale = Vector2(0.5, 1)
-
-[node name="DateLabel" parent="." instance=ExtResource("8_r8mox")]
-z_index = 5
-offset_left = 183.0
-offset_top = -132.0
-offset_right = 226.0
-offset_bottom = -109.0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
@@ -298,10 +283,6 @@ mouse_filter = 2
 color = Color(0.784, 0.941, 1, 0.077)
 script = ExtResource("10_scngo")
 metadata/_edit_use_anchors_ = true
-
-[node name="TimeManager" parent="." instance=ExtResource("9_lco12")]
-z_index = 5
-position = Vector2(153, -108)
 
 [node name="PauseMenu" parent="." instance=ExtResource("12_idb42")]
 visible = false
@@ -320,3 +301,22 @@ offset_bottom = 115.0
 
 [node name="Inventory" parent="ClickBlocker" instance=ExtResource("11_n8gv4")]
 scale = Vector2(0.8, 0.8)
+
+[node name="CoinLabel" type="Label" parent="."]
+z_index = 5
+offset_left = -237.0
+offset_top = -131.0
+offset_right = -145.0
+offset_bottom = -108.0
+scale = Vector2(0.5, 1)
+
+[node name="DateLabel" parent="." instance=ExtResource("8_r8mox")]
+z_index = 5
+offset_left = 183.0
+offset_top = -132.0
+offset_right = 226.0
+offset_bottom = -109.0
+
+[node name="TimeManager" parent="." instance=ExtResource("9_lco12")]
+z_index = 5
+position = Vector2(153, -108)

@@ -31,7 +31,8 @@ script = ExtResource("1_consl")
 [node name="SoilManager" parent="." instance=ExtResource("5_p20ei")]
 
 [node name="watercan" parent="." instance=ExtResource("6_osxcg")]
-position = Vector2(123, 334)
+position = Vector2(-164, 1041)
+scale = Vector2(1, 0.7)
 
 [node name="EXIT" type="Area2D" parent="."]
 

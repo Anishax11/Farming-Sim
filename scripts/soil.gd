@@ -23,7 +23,7 @@ func _ready() -> void:
 		
 		seed_type=Global.soil_data[self.name]
 		print(self.name , " has seed type :", seed_type)
-	inventory=get_node("/root/farm_scene/Farmer/Inventory")
+	inventory=get_node("/root/farm_scene/Farmer/ClickBlocker/Inventory")
 	if randi_range(0,7)==3:
 		animated_sprite_2d.play("untilled_rock")
 		#print(get_path())
@@ -69,7 +69,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				elif(animated_sprite_2d.animation=="rect_tilled"):
 						print("rect_tilled")
 						animated_sprite_2d.play("watered_soil")
-				
+				elif(animated_sprite_2d.animation=="tilled"):
+						print("rect_tilled")
+						animated_sprite_2d.play("watered_circle_tilled")
 				water_audio.play() 
 				
 				await get_tree().create_timer(1.0).timeout
@@ -147,7 +149,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			#CODE FOR TILLING
 				
-			if distance<=18 and !tilled:
+			if distance<=18 and !tilled and planted==false:
 				#print(self.name)
 				if Global.player_direction==Vector2(1,0):
 					if planted!=true:

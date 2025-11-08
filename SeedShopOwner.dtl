@@ -8,3 +8,4 @@ Would you like me to show you what’s in stock, {Charname}?
 - Yes please
 	Aria: Here, take a look
 	[signal arg="OpenMenu"]
+[signal arg="enable_movement"]

@@ -4,19 +4,19 @@ class_name Player
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var inventory 
-
+var input_disabled
 var pause_menu
 var speed=70
 var direction: Vector2
 
 func _ready():
-	print("coin label position :",get_node("CoinLabel").global_position)
-	print(get_path())
+	#print("coin label position :",get_node("Camera2D/CoinLabel").global_position)
+	#print(get_path())
 	display_coins()
 	SaveManager.player=self
 	pause_menu=get_node("PauseMenu")
 	inventory = get_node("ClickBlocker")
-	print(inventory.get_path())
+	#print(inventory.get_path())
 	
 	
 		
@@ -27,6 +27,8 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	
+	if input_disabled==true:
+		return	
 		
 	if direction==Vector2(0,1):
 		#rotation_degrees=0
@@ -85,6 +87,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _input(event: InputEvent) -> void:
+	if input_disabled==true:
+		return	
 	direction=Vector2.ZERO
 	if Input.is_action_pressed("Shift"):
 		speed=120
@@ -106,6 +110,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Inventory"):
 		print("Open INV ")
 		if inventory==null:
+			print("Interior scene")
 			inventory = get_parent().get_node("Inventory")
 			
 		inventory.visible = not inventory.visible

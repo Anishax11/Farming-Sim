@@ -6,7 +6,7 @@ const MARKET_PLACE = preload("res://scenes/market_place.tscn")
 ##
 
 #func _ready() -> void:
-	#await get_tree().change_scene_to_packed(MARKET_PLACE)
+	#await get_tree().change_scene_to_packed(SEED_SHOP_INTERIOR)
 	#print("FARMMMMMMMMM")
 	#var label=Label.new()
 	#label.position=Vector2(0,500)

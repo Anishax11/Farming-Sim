@@ -8,31 +8,33 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	#print("DIsplay menu 1")
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.pressed:
-			if !Tutorials.seed_shop["first_interaction"]:
+			if !Tutorials.interactions["seed_shop_first_interaction"]:
+				get_node("Farmer").input_disabled=true
 				Dialogic.signal_event.connect(_on_dialogic_signal)
 				Dialogic.start("SeedShopOwner")
-				Tutorials.seed_shop["first_interaction"]=true
+				Tutorials.interactions["seed_shop_first_interaction"]=true
+				
 				
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			get_node("VendorMenu").visible=true
 
 func _ready() -> void:
-	
+	get_node("Farmer/ClickBlocker").queue_free() #holds inv
 	get_node("Farmer/TimeManager").queue_free()
 	get_node("Farmer/DateLabel").queue_free()
 	get_node("Farmer/Camera2D").queue_free()
-	get_node("Farmer/Inventory").queue_free()
+	
 	get_node("Farmer/PauseMenu").queue_free()
 	get_node("Farmer/PauseMenu").position.y=-80
-	get_node("Farmer/Inventory").scale=Vector2(0.3,0.5)
+	
 	get_node("Farmer/AnimatedSprite2D").play("backward")
 	Global.player_direction=Vector2(0,0)
 	time_manager=get_node("TimeManager")
 	
-	if !Tutorials.seed_shop["tutorial"]:
+	if !Tutorials.tutorials["seed_shop_tutorial"]:
 		Dialogic.start("SeedShopTutorial")
-		Tutorials.seed_shop["tutorial"]=true
+		Tutorials.tutorials["seed_shop_tutorial"]=true
 		
 		
 func _on_exit_body_entered(body: Node2D) -> void:
@@ -53,7 +55,8 @@ func _on_exit_body_entered(body: Node2D) -> void:
 func _on_dialogic_signal(argument : String):
 	if argument=="OpenMenu":
 		get_node("VendorMenu").visible=true
-
+	if argument =="enable_movement":
+		get_node("Farmer").input_disabled=false
 
 func _on_close_menu_button_down() -> void:
 	print("Closing menu ")
