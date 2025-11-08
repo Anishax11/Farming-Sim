@@ -4,7 +4,7 @@ const HOUSE_INTERIOR = preload("res://scenes/house_interior.tscn")
 const MAIN_MENU = preload("res://scenes/main_menu.tscn")
 const MARKET_PLACE = preload("res://scenes/market_place.tscn")
 ##
-
+#
 #func _ready() -> void:
 	#await get_tree().change_scene_to_packed(SEED_SHOP_INTERIOR)
 	#print("FARMMMMMMMMM")

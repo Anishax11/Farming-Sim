@@ -16,6 +16,7 @@ func _on_button_down() -> void:
 	var seeds=SEEDS.instantiate()
 	seeds.name="seeds"
 	seeds.seed_type=self.name
+	
 	seeds.global_position=Vector2(1550, 425)
 	get_parent().get_parent().add_child(seeds)
 	

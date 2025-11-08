@@ -25,7 +25,8 @@ Grows in 3 days, and you might dig up extra potatoes at harvest!
 Best planted in cool weather, these dependable crops bring solid
  profits and full bellies."
 				
-	
+	elif seed_type=="pumpkin":
+		label.text = "Pumpkin Seeds :"
 	#
 		
 func fake_input():

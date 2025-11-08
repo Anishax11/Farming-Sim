@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bw6y0wxowu3xs" path="res://16x16/Sprites/seed_shop_interior.png" id="2_n1n15"]
 [ext_resource type="Texture2D" uid="uid://dr1hdvqxhvkj1" path="res://16x16/Sprites/SeedsVendorMenu.png" id="2_npwv0"]
 [ext_resource type="Texture2D" uid="uid://b57cgw7ov6gpr" path="res://16x16/Sprites/seeds_desc.jpg" id="4_and56"]
-[ext_resource type="Script" path="res://scenes/buy_strawberry.gd" id="4_u2sro"]
+[ext_resource type="Script" path="res://scripts/buy_strawberry.gd" id="4_u2sro"]
 [ext_resource type="Texture2D" uid="uid://ktjxew7ekj5j" path="res://16x16/Sprites/CloseMenuButton (2).png" id="5_j0ilo"]
 [ext_resource type="Script" path="res://scripts/close_menu.gd" id="5_x4uh4"]
 [ext_resource type="Texture2D" uid="uid://b5sc18s8184uj" path="res://16x16/Sprites/WhatsApp Image 2025-10-15 at 6.12.05 AM.jpeg" id="6_l3od6"]
@@ -10055,7 +10055,6 @@ scale = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_c1oly")
 
 [node name="VendorMenu" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VendorMenu"]
 offset_left = 105.0
@@ -10099,6 +10098,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🎃 Pumpkin Seeds"
 alignment = 0
+script = ExtResource("4_u2sro")
 
 [node name="Button4" type="Button" parent="VendorMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)

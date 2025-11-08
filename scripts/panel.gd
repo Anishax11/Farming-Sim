@@ -19,7 +19,7 @@ var seeds_name
 var seed_count = 6
 var seed_type
 var transferred=false
-
+var last_five
 func _ready():
 	var text = self.name
 	var regex = RegEx.new()
@@ -70,7 +70,7 @@ func _on_gui_input(event: InputEvent) -> void:
 							sibling.stylebox.expand_margin_right = 0
 							sibling.stylebox.expand_margin_top = 0
 							sibling.stylebox.expand_margin_bottom = 0
-							var last_five = sibling.item_name.substr(sibling.item_name.length() - 5, 5)
+							last_five = sibling.item_name.substr(sibling.item_name.length() - 5, 5)
 							if  last_five== "seeds":
 								seeds_equipped=false
 					
@@ -88,7 +88,8 @@ func _on_gui_input(event: InputEvent) -> void:
 			#print("Clicked panel")
 			button_held=true
 			
-			if item_name=="strawberry_seeds" or item_name=="potato_seeds":
+			last_five = item_name.substr(item_name.length() - 5, 5)
+			if last_five=="seeds":
 				print("Item is seeds")
 				print(get_child(0).name)
 				print(get_child(0).visible)
@@ -174,9 +175,11 @@ func _on_gui_input(event: InputEvent) -> void:
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
 	item_name=node.name
+	seed_type = item_name.substr(0,item_name.length() - 5)
+	print("Seed type :",seed_type)
+	var last_five = item_name.substr(item_name.length() - 5, 5)
 	
-	
-	if node is TextureRect and node.name=="strawberry_seeds" or node.name=="potato_seeds":
+	if node is TextureRect and last_five == "seeds":
 		
 		
 		#item_name=node.name
@@ -186,6 +189,8 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 			
 		elif node.name=="potato_seeds":
 			seed_type="potato"
+		elif node.name=="pumpkin_seeds":
+			seed_type="pumpkin"
 		
 	if node is TextureRect and node.name=="watercan":
 		node.position.y+=2

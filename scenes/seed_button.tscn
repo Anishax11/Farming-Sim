@@ -22,10 +22,13 @@ func _on_button_down() -> void:
 			#get_parent().seed_type = sibling.text
 	
 	if seed_type!=null:
-		if seed_type==\"strawberry\":
-			price=100
-		elif seed_type==\"potato\":
-			price=50
+		#if seed_type==\"strawberry\":
+			#price=100
+		#elif seed_type==\"potato\":
+			#price=50
+		#elif seed_type==\"pumkin\":
+			#price=80
+		price = PlantTracker.prices[seed_type]
 		print(\"SEED TYPE :\",seed_type)
 		
 			

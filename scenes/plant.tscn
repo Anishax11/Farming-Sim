@@ -1,11 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://2d8wujcsyrya"]
+[gd_scene load_steps=22 format=3 uid="uid://2d8wujcsyrya"]
 
 [ext_resource type="Script" path="res://scripts/plant.gd" id="1_0ykwo"]
 [ext_resource type="Texture2D" uid="uid://dhu2ma622yetu" path="res://16x16/Sprites/potato_stage_1.png" id="2_nntyp"]
 [ext_resource type="Texture2D" uid="uid://bhofbbpldbg64" path="res://16x16/Sprites/potato_stage_2.png" id="3_s7uvc"]
 [ext_resource type="Texture2D" uid="uid://cehsmcfa6m5n3" path="res://16x16/Sprites/potato_stage_3.png" id="4_fltbx"]
+[ext_resource type="Texture2D" uid="uid://cmewfgr50bey6" path="res://16x16/Sprites/pumpkin_stage_3.png" id="5_3cs3u"]
 [ext_resource type="Texture2D" uid="uid://dixr2tmohomnn" path="res://16x16/Sprites/StrawberryStage1.png" id="5_qfcgy"]
+[ext_resource type="Texture2D" uid="uid://dfbatwpjgqlm6" path="res://16x16/Sprites/pumpkin_stage_1.png" id="6_bd6ji"]
 [ext_resource type="Texture2D" uid="uid://dsqr75jeojn2f" path="res://16x16/Sprites/StrawberryStage2.png" id="6_iibpp"]
+[ext_resource type="Texture2D" uid="uid://baa1yywkg5bqb" path="res://16x16/Sprites/pumpkin_stage_2.png" id="7_ic5p7"]
 [ext_resource type="Texture2D" uid="uid://b1kepcug51obc" path="res://16x16/Sprites/StrawberryStage3.png" id="7_wxgvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dyuw"]
@@ -22,6 +25,18 @@ region = Rect2(0, 0, 63, 67)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dtf4i"]
 atlas = ExtResource("4_fltbx")
 region = Rect2(0, 0, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg2ey"]
+atlas = ExtResource("5_3cs3u")
+region = Rect2(0, 0, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onbib"]
+atlas = ExtResource("6_bd6ji")
+region = Rect2(0, 0, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oakgd"]
+atlas = ExtResource("7_ic5p7")
+region = Rect2(0, 0, 115, 88)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n74op"]
 atlas = ExtResource("5_qfcgy")
@@ -63,6 +78,30 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_yg2ey")
+}],
+"loop": true,
+"name": &"pumpin_stage_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onbib")
+}],
+"loop": true,
+"name": &"pumpkin_stage_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oakgd")
+}],
+"loop": true,
+"name": &"pumpkin_stage_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_n74op")
 }],
 "loop": true,
@@ -98,7 +137,7 @@ shape = SubResource("RectangleShape2D_0dyuw")
 position = Vector2(6, -2)
 scale = Vector2(0.812, 0.8)
 sprite_frames = SubResource("SpriteFrames_dxjdq")
-animation = &"potato_stage_3"
+animation = &"pumpin_stage_3"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
