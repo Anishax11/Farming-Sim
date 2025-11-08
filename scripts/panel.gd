@@ -1,6 +1,5 @@
 extends Panel
 
-#CANT PLANT 2 DIFF SEEDS ONE AFTER ANOTHER 
 
 class_name panel
 

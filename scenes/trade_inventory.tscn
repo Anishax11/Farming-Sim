@@ -140,6 +140,7 @@ script = ExtResource("4_hvlqn")
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
 visible = false
+z_index = 5
 offset_left = 28.0
 offset_top = 26.0
 offset_right = 163.0

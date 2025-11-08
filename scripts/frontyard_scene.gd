@@ -6,7 +6,7 @@ var slot_adjust=1
 
 func _ready() -> void:
 	
-	var inventory = get_node("Farmer/Inventory")
+	var inventory = get_node("Farmer/ClickBlocker/Inventory")
 	inventory.add_to_inventory("strawberry_seeds",Global.strawberry_seeds_image)
 	inventory.add_to_inventory("potato_seeds",Global.potato_seeds_image)
 	#inventory.add_to_inventory("strawberry_seeds",Global.strawberry_seeds_image)

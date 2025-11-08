@@ -15,7 +15,7 @@ func _ready():
 	display_coins()
 	SaveManager.player=self
 	pause_menu=get_node("PauseMenu")
-	inventory = get_node("Inventory")
+	inventory = get_node("ClickBlocker")
 	print(inventory.get_path())
 	
 	

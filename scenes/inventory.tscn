@@ -4117,7 +4117,6 @@ texture = ExtResource("6_xbopk")
 sources/0 = SubResource("TileSetAtlasSource_5f5f0")
 
 [node name="Inventory" type="Node2D"]
-visible = false
 z_index = 5
 script = ExtResource("1_nqscb")
 

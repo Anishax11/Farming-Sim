@@ -1,5 +1,6 @@
 extends Panel
 var inventory
+var real_inventory
 var siblings
 var stylebox
 var item_name
@@ -26,7 +27,7 @@ func _ready() -> void:
 	self.connect("child_exiting_tree", Callable(self, "_on_panel_child_exiting_tree"))
 #	self.child_exiting_tree.connect(_on_child_removed)
 	inventory=get_parent().get_parent().get_parent()
-	
+	real_inventory = get_tree().current_scene.find_child("Inventory", true, false)
 	
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT  and event.pressed:
@@ -77,5 +78,6 @@ func remove_item(item_name):
 		var row = int( (panel_number-1)/5 )
 		var column = int(panel_number-1)%5
 		inventory.remove_item(row,column)
+		real_inventory.remove_item(row,column)
 		item_name=null
 		get_tree().get_current_scene().find_child(self.name, true, false).remove_child(get_node(str(item_name)))

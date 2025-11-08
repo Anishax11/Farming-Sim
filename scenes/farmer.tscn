@@ -299,9 +299,6 @@ color = Color(0.784, 0.941, 1, 0.077)
 script = ExtResource("10_scngo")
 metadata/_edit_use_anchors_ = true
 
-[node name="Inventory" parent="." instance=ExtResource("11_n8gv4")]
-scale = Vector2(0.8, 0.8)
-
 [node name="TimeManager" parent="." instance=ExtResource("9_lco12")]
 z_index = 5
 position = Vector2(153, -108)
@@ -313,3 +310,13 @@ offset_left = -71.0
 offset_top = -59.0
 offset_right = 501.0
 offset_bottom = 456.0
+
+[node name="ClickBlocker" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 193.0
+offset_bottom = 115.0
+
+[node name="Inventory" parent="ClickBlocker" instance=ExtResource("11_n8gv4")]
+scale = Vector2(0.8, 0.8)

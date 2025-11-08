@@ -52,3 +52,7 @@ func _on_trade_button_down() -> void:
 
 func _on_close_inventory_button_down() -> void:
 	visible=false
+
+func remove_item(row,column):
+	print("REMOVING ITEM")
+	Global.inventory_items[row][column]=""
