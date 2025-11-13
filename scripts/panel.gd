@@ -175,15 +175,15 @@ func _on_gui_input(event: InputEvent) -> void:
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
 	item_name=node.name
-	seed_type = item_name.substr(0,item_name.length() - 5)
+	
 	print("Seed type :",seed_type)
 	var last_five = item_name.substr(item_name.length() - 5, 5)
 	
 	if node is TextureRect and last_five == "seeds":
 		
 		
-		#item_name=node.name
-		
+		node.scale=Vector2(0.9,0.9)
+		node.position.x+=1
 		if node.name=="strawberry_seeds":
 			seed_type="strawberry"
 			
@@ -191,6 +191,8 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 			seed_type="potato"
 		elif node.name=="pumpkin_seeds":
 			seed_type="pumpkin"
+			
+		seed_type = item_name.substr(0,item_name.length() - 5)
 		
 	if node is TextureRect and node.name=="watercan":
 		node.position.y+=2

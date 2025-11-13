@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlh38yd2sv2hx"
-path="res://.godot/imported/pumpkin_seeds.png-361f7f5295f69cde5ab0b9cd53ad776b.ctex"
+uid="uid://b7m6otipyawbm"
+path="res://.godot/imported/Pumpkin_seeds.png-8fbdd105b42ba9543cea9a7ed172ef55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16/Sprites/pumpkin_seeds.png"
-dest_files=["res://.godot/imported/pumpkin_seeds.png-361f7f5295f69cde5ab0b9cd53ad776b.ctex"]
+source_file="res://16x16/Sprites/Pumpkin_seeds.png"
+dest_files=["res://.godot/imported/Pumpkin_seeds.png-8fbdd105b42ba9543cea9a7ed172ef55.ctex"]
 
 [params]
 

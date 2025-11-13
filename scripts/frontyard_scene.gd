@@ -9,7 +9,7 @@ func _ready() -> void:
 	var inventory = get_node("Farmer/ClickBlocker/Inventory")
 	inventory.add_to_inventory("pumpkin_seeds",Global.pumpkin_seeds_image)
 	inventory.add_to_inventory("potato_seeds",Global.potato_seeds_image)
-	#inventory.add_to_inventory("strawberry_seeds",Global.strawberry_seeds_image)
+	inventory.add_to_inventory("strawberry_seeds",Global.strawberry_seeds_image)
 	
 	time_manager=get_node("Farmer/TimeManager")
 	var player =get_node("Farmer")
