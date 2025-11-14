@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtsl7koixwult"]
+[gd_scene load_steps=3 format=3 uid="uid://dtsl7koixwult"]
 
 [ext_resource type="Texture2D" uid="uid://bfjyl4tf4w2vc" path="res://16x16/Sprites/TaskManager.png" id="1_7tf3e"]
+[ext_resource type="Script" path="res://scripts/tasks.gd" id="1_dhnx0"]
 
 [node name="TaskManager" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_dhnx0")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
@@ -15,57 +17,9 @@ offset_top = 165.0
 offset_right = 677.0
 offset_bottom = 566.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="TaskVBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = -24
-
-[node name="Label1" type="Label" parent="ScrollContainer/VBoxContainer"]
-z_index = 1
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Task1sdvdsgdsgdsgsggsd"
-
-[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
-z_index = 1
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Task2"
-
-[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
-z_index = 1
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Task3"
-
-[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
-z_index = 1
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Task4"
-
-[node name="Label5" type="Label" parent="ScrollContainer/VBoxContainer"]
-z_index = 1
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Task5"
-
-[node name="Label6" type="Label" parent="ScrollContainer/VBoxContainer"]
-z_index = 1
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Task6"
-
-[node name="Label7" type="Label" parent="ScrollContainer/VBoxContainer"]
-z_index = 1
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Task7"
-
-[node name="Label8" type="Label" parent="ScrollContainer/VBoxContainer"]
-z_index = 1
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Task8"
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
 layout_mode = 0

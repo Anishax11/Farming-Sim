@@ -23,6 +23,7 @@ PlantTracker="*res://scripts/Plant_Tracker.gd"
 SaveManager="*res://scripts/SaveManager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Tutorials="*res://scripts/tutorials.gd"
+TaskManager="*res://scripts/task_manager.gd"
 
 [dialogic]
 

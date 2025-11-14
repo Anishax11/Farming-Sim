@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dj0hkgwoix4at"]
+[gd_scene load_steps=62 format=3 uid="uid://dj0hkgwoix4at"]
 
 [ext_resource type="Script" path="res://scripts/frontyard_scene.gd" id="1_3rtkc"]
 [ext_resource type="Texture2D" uid="uid://bpbn2trmc2git" path="res://MV/tilesets/_srw_tileset_0.png" id="1_ef1hy"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://cjrf0f5yk87ce" path="res://scenes/trade_box.tscn" id="32_qc5om"]
 [ext_resource type="PackedScene" uid="uid://bs8muem2spgnl" path="res://scenes/greenhouse.tscn" id="33_b3ttf"]
 [ext_resource type="PackedScene" uid="uid://bcrctwvmkf8ya" path="res://scenes/post_office.tscn" id="33_m2uud"]
+[ext_resource type="PackedScene" uid="uid://dtsl7koixwult" path="res://scenes/task_manager.tscn" id="34_45p7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugn7j"]
 texture = ExtResource("1_ef1hy")
@@ -33218,6 +33219,14 @@ offset_bottom = 1379.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("26_1prxw")
+
+[node name="TaskManager" parent="Farmer" instance=ExtResource("34_45p7v")]
+z_index = 5
+offset_left = -34.6154
+offset_top = -38.4615
+offset_right = 5.38462
+offset_bottom = 1.53847
+scale = Vector2(0.1, 0.1)
 
 [node name="Node2D" type="Node2D" parent="."]
 z_index = 3
