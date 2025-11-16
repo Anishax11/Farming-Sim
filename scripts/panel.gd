@@ -87,8 +87,8 @@ func _on_gui_input(event: InputEvent) -> void:
 			print(Global.inventory_items)
 			#print("Clicked panel")
 			button_held=true
-			
-			last_five = item_name.substr(item_name.length() - 5, 5)
+			if item_name!=null:
+				last_five = item_name.substr(item_name.length() - 5, 5)
 			if last_five=="seeds":
 				print("Item is seeds")
 				print(get_child(0).name)
@@ -184,15 +184,15 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		
 		node.scale=Vector2(0.9,0.9)
 		node.position.x+=1
-		if node.name=="strawberry_seeds":
-			seed_type="strawberry"
+		#if node.name=="strawberry_seeds":
+			#seed_type="strawberry"
+			#
+		#elif node.name=="potato_seeds":
+			#seed_type="potato"
+		#elif node.name=="pumpkin_seeds":
+			#seed_type="pumpkin"
 			
-		elif node.name=="potato_seeds":
-			seed_type="potato"
-		elif node.name=="pumpkin_seeds":
-			seed_type="pumpkin"
-			
-		seed_type = item_name.substr(0,item_name.length() - 5)
+		seed_type = item_name.substr(0,item_name.length() - 6)
 		
 	if node is TextureRect and node.name=="watercan":
 		node.position.y+=2
@@ -201,16 +201,11 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		node.scale.y=1.5
 		#item_name="watercan"
 		
-	if node is TextureRect and node.name=="strawberry" or node.name=="potato":
-		#print(node.name," ", node.texture)
-		
-		node.position=Vector2(-2,-4)
-		
-		node.scale.x=0.1
-		node.scale.y=0.1
+	
 		
 		#item_name=node.name
 		#print("STr texturerect added to panel")
+	
 	print("Added ",item_name," to panel :",self.name)
 
 

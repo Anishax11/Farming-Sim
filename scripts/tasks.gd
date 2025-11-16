@@ -1,15 +1,15 @@
 extends Control
+
+#CHANGE READY CODE, ONLY ADD TASKS THAT HAVE BEEN PREVIOUSLY ADDED THROUGH ADD TASK
 var vb
 var tasks
+var keys_array: Array = []
 func _ready() -> void:
 	tasks=TaskManager.tasks
-	var keys_array = tasks.keys()
+	
 	for i in range(keys_array.size()):
 		var id = keys_array[i]         # "Task1"
 		var task = tasks[id]
-		
- 
-		 
 		if task.acquired and !task.completed:
 			print("Acquired and not completed!")
 			var label = Label.new()
@@ -52,3 +52,5 @@ func add_task(task_name) :
 	#label.wrap = true  # Godot 4 way to enable word wrapping
 	label.z_index=4
 	vb.add_child(label)
+	TaskManager.tasks[task_name].acquired=true
+	keys_array.append(task_name)

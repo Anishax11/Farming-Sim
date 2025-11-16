@@ -15,3 +15,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 func _on_mouse_shape_entered(shape_idx: int) -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+
+func _on_mouse_shape_exited(shape_idx: int) -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)

@@ -108,13 +108,13 @@ func _input(event: InputEvent) -> void:
 		direction.x-=1
 		Global.get_direction(direction)
 	if Input.is_action_just_pressed("Inventory"):
-		print("Open INV ")
+		#print("Open INV ")
 		if inventory==null:
-			print("Interior scene")
+			#print("Interior scene")
 			inventory = get_parent().get_node("Inventory")
 			
 		inventory.visible = not inventory.visible
-		print("inventory.visible: ",inventory.visible)
+		#print("inventory.visible: ",inventory.visible)
 		#inventory.set_process_input(not inventory.visible)
 	if Input.is_action_just_pressed("Escape"):
 		print("ESCAPE")
@@ -124,6 +124,9 @@ func _input(event: InputEvent) -> void:
 		get_tree().paused=!get_tree().paused
 		#pause_menu.global_position=self.global_position
 		pause_menu.visible=!pause_menu.visible
+	
+	if Input.is_action_just_pressed("Tasks"):
+		get_node("TaskManager").visible=!get_node("TaskManager").visible
 		
 func play_animation():
 	animated_sprite_2d.play("hoe_right")
