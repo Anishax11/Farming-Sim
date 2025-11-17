@@ -1,11 +1,9 @@
 extends Node2D
-var game = load("res://scenes/game.tscn")
 var player 
 var time_manager
 var date_label
 var coin_label
 var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
-const GAME = preload("res://scenes/game.tscn")
 
 func _ready():
 	Global.music_fade_in()
