@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dba1gtffrvamm"]
+[gd_scene load_steps=20 format=3 uid="uid://dba1gtffrvamm"]
 
 [ext_resource type="Script" path="res://scripts/bed.gd" id="1_5hssx"]
 [ext_resource type="Script" path="res://scripts/house_interior.gd" id="1_mmlya"]
@@ -7,10 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="6_p8x7y"]
 [ext_resource type="Script" path="res://scripts/don't_sleep.gd" id="7_c23qe"]
 [ext_resource type="Script" path="res://scripts/date_label.gd" id="7_m2r8d"]
+[ext_resource type="Texture2D" uid="uid://cbjpjcdm0m8h2" path="res://16x16/Sprites/SleepConfirmation.png" id="7_qx5y7"]
 [ext_resource type="Script" path="res://scripts/time_manager.gd" id="8_rs4uk"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="9_o6apw"]
 [ext_resource type="PackedScene" uid="uid://but8qwaakhn1n" path="res://scenes/pause_menu.tscn" id="10_ih88g"]
 [ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="11_7fdhg"]
+[ext_resource type="AudioStream" uid="uid://cty2djlymy401" path="res://audio/Peritune_Whiteveil_Streets.ogg" id="13_bd5vn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ufii"]
 atlas = ExtResource("2_m68lv")
@@ -1139,39 +1141,47 @@ layer_0/tile_data = PackedInt32Array(-5767331, 0, 0, 5832541, 0, 24, -786455, 0,
 position = Vector2(779, -525)
 script = ExtResource("1_5hssx")
 
-[node name="Label" type="Label" parent="bed"]
-offset_left = -1115.07
-offset_top = 357.0
-offset_right = -795.071
-offset_bottom = 429.0
-scale = Vector2(2, 2)
-theme_override_font_sizes/font_size = 35
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="Sleep" type="Button" parent="bed"]
-visible = false
-offset_left = -1078.64
-offset_top = 515.0
-offset_right = -887.643
-offset_bottom = 592.0
-theme_override_font_sizes/font_size = 50
-text = "Yes"
-script = ExtResource("3_3w2cd")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bed"]
 position = Vector2(-1081.5, 471)
 shape = SubResource("RectangleShape2D_ij2w6")
 
-[node name="Don\'t_Sleep" type="Button" parent="bed"]
-visible = false
-offset_left = -718.286
-offset_top = 514.6
-offset_right = -496.286
-offset_bottom = 591.6
+[node name="SleepConfirmation" type="Control" parent="bed"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_left = -44.7143
+offset_top = -213.0
+offset_right = -4.71427
+offset_bottom = -173.0
+
+[node name="TextureRect" type="TextureRect" parent="bed/SleepConfirmation"]
+layout_mode = 0
+offset_left = -873.929
+offset_top = 578.4
+offset_right = -373.929
+offset_bottom = 1078.4
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_qx5y7")
+
+[node name="Sleep" type="Button" parent="bed/SleepConfirmation"]
+layout_mode = 0
+offset_left = -813.0
+offset_top = 724.0
+offset_right = -530.0
+offset_bottom = 856.0
+scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 50
-text = "No
+script = ExtResource("3_3w2cd")
+
+[node name="Don\'t_Sleep" type="Button" parent="bed/SleepConfirmation"]
+layout_mode = 0
+offset_left = -740.357
+offset_top = 724.4
+offset_right = -555.357
+offset_bottom = 812.4
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 50
+text = "
 "
 script = ExtResource("7_c23qe")
 
@@ -1199,6 +1209,7 @@ theme_override_font_sizes/font_size = 35
 text = "Time : 7:30"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_left = -195.0
@@ -1227,9 +1238,14 @@ visible = false
 position = Vector2(-193.571, -109.2)
 scale = Vector2(2, 2)
 
+[node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_bd5vn")
+autoplay = true
+parameters/looping = true
+
 [connection signal="input_event" from="bed" to="bed" method="_on_input_event"]
 [connection signal="mouse_entered" from="bed" to="." method="_on_bed_mouse_entered"]
 [connection signal="mouse_exited" from="bed" to="." method="_on_bed_mouse_exited"]
-[connection signal="button_down" from="bed/Sleep" to="bed" method="_on_sleep_button_down"]
-[connection signal="button_down" from="bed/Don\'t_Sleep" to="." method="_on_dont_sleep_button_down"]
+[connection signal="button_down" from="bed/SleepConfirmation/Sleep" to="bed" method="_on_sleep_button_down"]
+[connection signal="button_down" from="bed/SleepConfirmation/Don\'t_Sleep" to="." method="_on_dont_sleep_button_down"]
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

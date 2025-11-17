@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 
 	if current_time!=null and current_time<24:
 		time_passed+=delta
-		if time_passed-initial_time > 0.5:
+		if time_passed-initial_time > 0.4:
 			initial_time=time_passed
 			#print("Initial Time :",initial_time)	
 			#print("Time passed:",time_passed)
@@ -62,6 +62,8 @@ func _physics_process(delta: float) -> void:
 		
 		Global.update_day_count()
 		#Global.load_farm=true
-
+	
+	if current_time!=null and current_time==22 and Global.day_count==1:
+		Dialogic.start("NightWarning")
 
 	

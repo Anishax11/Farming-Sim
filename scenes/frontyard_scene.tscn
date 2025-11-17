@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dj0hkgwoix4at"]
+[gd_scene load_steps=62 format=3 uid="uid://dj0hkgwoix4at"]
 
 [ext_resource type="Script" path="res://scripts/frontyard_scene.gd" id="1_3rtkc"]
 [ext_resource type="Texture2D" uid="uid://bpbn2trmc2git" path="res://MV/tilesets/_srw_tileset_0.png" id="1_ef1hy"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://cjrf0f5yk87ce" path="res://scenes/trade_box.tscn" id="32_qc5om"]
 [ext_resource type="PackedScene" uid="uid://bs8muem2spgnl" path="res://scenes/greenhouse.tscn" id="33_b3ttf"]
 [ext_resource type="PackedScene" uid="uid://bcrctwvmkf8ya" path="res://scenes/post_office.tscn" id="33_m2uud"]
+[ext_resource type="AudioStream" uid="uid://cty2djlymy401" path="res://audio/Peritune_Whiteveil_Streets.ogg" id="34_ntsw8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugn7j"]
 texture = ExtResource("1_ef1hy")
@@ -33207,7 +33208,6 @@ scale = Vector2(1.3, 1.3)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Farmer"]
 layer = 2
-visible = false
 
 [node name="DimBG" type="ColorRect" parent="Farmer/CanvasLayer2"]
 visibility_layer = 2
@@ -33343,5 +33343,10 @@ scale = Vector2(0.7, 0.7)
 
 [node name="Greenhouse" parent="." instance=ExtResource("33_b3ttf")]
 position = Vector2(-468, 491)
+
+[node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("34_ntsw8")
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="MarketEntrance" to="." method="_on_market_entrance_body_entered"]

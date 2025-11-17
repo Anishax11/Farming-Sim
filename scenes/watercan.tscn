@@ -7,6 +7,7 @@
 size = Vector2(37, 37.5)
 
 [node name="watercan" type="Area2D"]
+scale = Vector2(0.5, 0.4)
 script = ExtResource("1_27n3v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -4,11 +4,16 @@ var time_manager
 var game = load("res://scenes/game.tscn")
 #
 func _ready() -> void:
+	Global.music_fade_in()
+	Dialogic.end_timeline()
 	var player = get_node("Farmer")
 	if Global.player_pos!=null:
 		player.global_position=Global.player_pos
 				
 	player.animated_sprite_2d.play("backward")
+	player.get_node("TimeManager").position+=Vector2(20,20)
+	player.get_node("DateLabel").position+=Vector2(20,20)
+	player.get_node("CoinLabel").position+=Vector2(2,18)
 	if Tutorials.tutorials["farm_tutorial"]==false:
 		Dialogic.start("FarmTutorial")	
 		Tutorials.tutorials["farm_tutorial"]=true	
@@ -24,4 +29,5 @@ func _on_exit_body_entered(body: Node2D) -> void:
 	Global.player_pos = Vector2(-465,725)
 	Global.player_direction.y=-1
 	Global.load_frontyard=true
+	Global.music_fade_out()
 	get_node("Farmer/CanvasLayer2/DimBG").dim_bg(game)

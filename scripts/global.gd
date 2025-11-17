@@ -49,8 +49,9 @@ var ItemPriceList={
 	"strawberry_seeds": 100,
 	"potato_seeds" : 50,
 	"watercan" : 100,
-	"strawberry" : 300,
-	"potato" : 150
+	"strawberry" : 200,
+	"potato" : 100,
+	"pumpkin" : 300
 	
 }
 
@@ -205,3 +206,19 @@ func track_time(time,change_time,index):
 func equip_item(item_name):
 	print("EQUIPPED: "+item_name)
 	equipped_item=item_name
+
+
+func music_fade_out():
+	print("Fade out")
+	var player = get_tree().get_current_scene().find_child("Farmer", true, false)
+	var tween=create_tween()
+	tween.tween_property(player,"volume_db",0,6)
+	await tween.finished
+
+var music_tween_finished=false	
+func music_fade_in():	
+	print("Fade out")
+	var player = get_tree().get_current_scene().find_child("Farmer", true, false)
+	var tween=create_tween()
+	tween.tween_property(player,"volume_db",0,6)
+	#await tween.finished

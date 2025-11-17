@@ -20,6 +20,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			get_node("VendorMenu").visible=true
 
 func _ready() -> void:
+	Global.music_fade_in()
+	Dialogic.end_timeline()
+	
 	get_node("Farmer/ClickBlocker").queue_free() #holds inv
 	get_node("Farmer/TimeManager").queue_free()
 	get_node("Farmer/DateLabel").queue_free()
@@ -45,6 +48,7 @@ func _on_exit_body_entered(body: Node2D) -> void:
 		Global.current_time = time_manager.current_time
 		Global.time_to_change_tint = time_manager.time_to_change_tint
 		Global.tint_index = time_manager.color_rect_i
+		Global.music_fade_out()
 		get_node("CanvasLayer2/DimBG").dim_bg(MARKET_PLACE)
 
 

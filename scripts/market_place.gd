@@ -4,8 +4,12 @@ var player
 var time_manager
 var date_label
 var coin_label
+var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
+const GAME = preload("res://scenes/game.tscn")
 
 func _ready():
+	Global.music_fade_in()
+	Dialogic.end_timeline()
 	print("MARKET Place")
 	player=get_node("Farmer")
 	time_manager=get_node("Farmer/TimeManager")
@@ -34,7 +38,8 @@ func _on_front_yard_entrance_body_entered(body: Node2D) -> void:
 		Global.tint_index=time_manager.color_rect.i
 		Global.player_pos = Vector2(300,850)
 		Global.player_direction.y = -1
-		get_node("Farmer/CanvasLayer2/DimBG").dim_bg(game)
+		Global.music_fade_out()
+		get_node("Farmer/CanvasLayer2/DimBG").dim_bg(FRONTYARD_SCENE)
 		
 		
 		#print("PLayer dir:",Global.player_direction.y)	

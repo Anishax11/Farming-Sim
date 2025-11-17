@@ -33,6 +33,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "FarmTutorial": "res://FarmTutorial.dtl",
+"NightWarning": "res://NightWarning.dtl",
 "SeedShopOwner": "res://SeedShopOwner.dtl",
 "SeedShopTutorial": "res://SeedShopTutorial.dtl",
 "TradeBoxTutorial": "res://TradeBoxTutorial.dtl"

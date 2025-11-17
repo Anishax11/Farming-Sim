@@ -12,6 +12,8 @@ var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
 
 func _ready() -> void:
 	#print("house running")
+	#Global.music_fade_in()
+	Dialogic.end_timeline()
 	farmer=get_node("Farmer")
 	get_node("Farmer/TimeManager").queue_free()
 	get_node("Farmer/DateLabel").queue_free()
@@ -49,9 +51,8 @@ func _on_bed_mouse_exited() -> void:
 
 
 func _on_dont_sleep_button_down() -> void:
-	get_node("/root/house_interior/bed/Label").visible=false
-	get_node("/root/house_interior/bed/Sleep").visible=false
-	get_node("/root/house_interior/bed/Don't_Sleep").visible=false
+	get_node("/root/house_interior/bed/SleepConfirmation").visible=false
+	
 
 
 
@@ -63,5 +64,5 @@ func _on_exit_body_entered(body: Node2D) -> void:
 	Global.time_to_change_tint=time_manager.time_to_change_tint
 	Global.tint_index=time_manager.color_rect.i
 	Global.player_pos = Vector2(120,505)
-	
+	Global.music_fade_out()
 	await get_tree().change_scene_to_packed(FRONTYARD_SCENE)

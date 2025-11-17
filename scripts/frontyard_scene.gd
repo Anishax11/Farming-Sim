@@ -3,8 +3,11 @@ var time_manager
 const MARKET_PLACE = preload("res://scenes/market_place.tscn")
 var slots_passed=0
 var slot_adjust=1
+@onready var bg_music: AudioStreamPlayer2D = $BGMusic
 
 func _ready() -> void:
+	Global.music_fade_in()
+	Dialogic.end_timeline()
 	
 	var inventory = get_node("Farmer/ClickBlocker/Inventory")
 	inventory.add_to_inventory("pumpkin",Global.pumpkin_image)
@@ -44,6 +47,7 @@ func _on_market_entrance_body_entered(body: Node2D) -> void:
 		Global.current_time=time_manager.current_time
 		Global.time_to_change_tint=time_manager.time_to_change_tint
 		Global.tint_index=time_manager.color_rect.i
+		Global.music_fade_out()
 		get_node("Farmer/CanvasLayer2/DimBG").dim_bg(MARKET_PLACE)
 		
 		
