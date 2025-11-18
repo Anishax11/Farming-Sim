@@ -8,7 +8,7 @@ var color_rect
 const HOUSE_INTERIOR = preload("res://scenes/house_interior.tscn")
 
 func _ready() -> void:
-	time_manager=get_parent().get_node("TimeManager")
+	time_manager = get_tree().get_current_scene().find_child("TimeManager",true,false)
 	#print("int just loaded:",Global.tilled_soil)
 	sleep_button=get_node("SleepConfirmation/Sleep")
 	dont_sleep_button=get_node("SleepConfirmation/Don't_Sleep")

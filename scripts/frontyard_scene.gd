@@ -14,7 +14,7 @@ func _ready() -> void:
 	inventory.add_to_inventory("potato",Global.potato_image)
 	inventory.add_to_inventory("strawberry",Global.strawberry_image)
 	
-	time_manager=get_node("Farmer/TimeManager")
+	time_manager = get_tree().get_current_scene().find_child("TimeManager",true,false)
 	var player =get_node("Farmer")
 	if Global.player_pos!=null:
 		player.global_position=Global.player_pos

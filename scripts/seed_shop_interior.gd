@@ -24,8 +24,7 @@ func _ready() -> void:
 	Dialogic.end_timeline()
 	
 	get_node("Farmer/ClickBlocker").queue_free() #holds inv
-	get_node("Farmer/TimeManager").queue_free()
-	get_node("Farmer/DateLabel").queue_free()
+
 	get_node("Farmer/Camera2D").queue_free()
 	
 	get_node("Farmer/PauseMenu").queue_free()

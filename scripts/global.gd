@@ -57,7 +57,10 @@ var ItemPriceList={
 
 var trade_money=0
 var equipped_panel #Keeps track of equipped panel
-
+var win_size
+func _ready():
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+	
 func get_direction(direction) :
 	
 	player_direction=direction
@@ -210,15 +213,18 @@ func equip_item(item_name):
 
 func music_fade_out():
 	print("Fade out")
+	var audio_player =  get_tree().get_current_scene().find_child("BGMusic", true, false)
 	var player = get_tree().get_current_scene().find_child("Farmer", true, false)
 	var tween=create_tween()
-	tween.tween_property(player,"volume_db",0,6)
+	tween.tween_property(audio_player,"volume_db",0,7)
 	await tween.finished
 
 var music_tween_finished=false	
+
 func music_fade_in():	
 	print("Fade out")
+	var audio_player =  get_tree().get_current_scene().find_child("BGMusic", true, false)
 	var player = get_tree().get_current_scene().find_child("Farmer", true, false)
 	var tween=create_tween()
-	tween.tween_property(player,"volume_db",0,6)
+	tween.tween_property(audio_player,"volume_db",0,7)
 	#await tween.finished

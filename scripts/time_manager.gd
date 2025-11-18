@@ -16,7 +16,7 @@ func _ready() -> void:
 	#game=get_node("/root/Game")
 	date_label=get_parent().get_node("DateLabel")
 	get_node("Label").text=("Time passed:"+str(current_time))
-	color_rect=get_parent().get_node("CanvasLayer/ColorRect") 
+	color_rect=get_tree().get_current_scene().find_child("ColorRect",true,false)
 	if current_time == time_to_change_tint:
 			color_rect.adjust_tint()
 	if Global.current_time!=null:

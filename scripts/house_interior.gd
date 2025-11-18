@@ -15,12 +15,11 @@ func _ready() -> void:
 	#Global.music_fade_in()
 	Dialogic.end_timeline()
 	farmer=get_node("Farmer")
-	get_node("Farmer/TimeManager").queue_free()
-	get_node("Farmer/DateLabel").queue_free()
+
 	pause_menu=get_node("Farmer/PauseMenu")
 	pause_menu.queue_free()
 	get_node("Farmer/ClickBlocker").queue_free()
-	time_manager=get_node("TimeManager")
+	time_manager=get_node("LabelCanvas/TimeManager")
 
 	camera=farmer.get_node("Camera2D")
 	camera.queue_free()

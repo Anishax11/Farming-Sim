@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bulruc5in76aq"]
+[gd_scene load_steps=37 format=3 uid="uid://bulruc5in76aq"]
 
 [ext_resource type="Script" path="res://scripts/farmer.gd" id="1_kssk7"]
 [ext_resource type="Texture2D" uid="uid://ct8kkbqy7hk43" path="res://MV/characters/_srw_free_farm_character_shovel.png" id="3_cdl31"]
@@ -7,12 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dtst4d7iek83i" path="res://16x16/Sprites/farmer_seeds_left.png" id="5_anfnw"]
 [ext_resource type="Texture2D" uid="uid://k8fl3cmcgjuv" path="res://16x16/Sprites/farmer_seeds_right.png" id="6_45prl"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="7_3irru"]
-[ext_resource type="PackedScene" uid="uid://cxgldqae4p20u" path="res://scenes/date_label.tscn" id="8_r8mox"]
-[ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="9_lco12"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="10_scngo"]
 [ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="11_n8gv4"]
 [ext_resource type="PackedScene" uid="uid://but8qwaakhn1n" path="res://scenes/pause_menu.tscn" id="12_idb42"]
-[ext_resource type="PackedScene" uid="uid://dtsl7koixwult" path="res://scenes/task_manager.tscn" id="13_802a7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uauli"]
 atlas = ExtResource("3_i0v8y")
@@ -305,21 +302,3 @@ offset_top = -131.0
 offset_right = -145.0
 offset_bottom = -108.0
 scale = Vector2(0.5, 1)
-
-[node name="DateLabel" parent="." instance=ExtResource("8_r8mox")]
-z_index = 5
-offset_left = 183.0
-offset_top = -132.0
-offset_right = 226.0
-offset_bottom = -109.0
-
-[node name="TimeManager" parent="." instance=ExtResource("9_lco12")]
-z_index = 5
-position = Vector2(153, -108)
-
-[node name="TaskManager" parent="." instance=ExtResource("13_802a7")]
-visible = false
-z_index = 5
-offset_left = 0.999992
-offset_right = 41.0
-scale = Vector2(0.1, 0.1)

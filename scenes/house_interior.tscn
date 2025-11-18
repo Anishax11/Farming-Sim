@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dba1gtffrvamm"]
+[gd_scene load_steps=19 format=3 uid="uid://dba1gtffrvamm"]
 
 [ext_resource type="Script" path="res://scripts/bed.gd" id="1_5hssx"]
 [ext_resource type="Script" path="res://scripts/house_interior.gd" id="1_mmlya"]
@@ -6,12 +6,11 @@
 [ext_resource type="Script" path="res://scripts/sleep.gd" id="3_3w2cd"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="6_p8x7y"]
 [ext_resource type="Script" path="res://scripts/don't_sleep.gd" id="7_c23qe"]
-[ext_resource type="Script" path="res://scripts/date_label.gd" id="7_m2r8d"]
 [ext_resource type="Texture2D" uid="uid://cbjpjcdm0m8h2" path="res://16x16/Sprites/SleepConfirmation.png" id="7_qx5y7"]
-[ext_resource type="Script" path="res://scripts/time_manager.gd" id="8_rs4uk"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="9_o6apw"]
 [ext_resource type="PackedScene" uid="uid://but8qwaakhn1n" path="res://scenes/pause_menu.tscn" id="10_ih88g"]
 [ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="11_7fdhg"]
+[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="12_lfyp4"]
 [ext_resource type="AudioStream" uid="uid://cty2djlymy401" path="res://audio/Peritune_Whiteveil_Streets.ogg" id="13_bd5vn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ufii"]
@@ -1146,6 +1145,7 @@ position = Vector2(-1081.5, 471)
 shape = SubResource("RectangleShape2D_ij2w6")
 
 [node name="SleepConfirmation" type="Control" parent="bed"]
+visible = false
 z_index = 5
 layout_mode = 3
 anchors_preset = 0
@@ -1185,29 +1185,6 @@ text = "
 "
 script = ExtResource("7_c23qe")
 
-[node name="DateLabel" type="Label" parent="."]
-offset_left = 240.357
-offset_top = -200.0
-offset_right = 368.357
-offset_bottom = -131.0
-scale = Vector2(0.6, 0.6)
-theme_override_font_sizes/font_size = 35
-text = "Day : 1"
-script = ExtResource("7_m2r8d")
-
-[node name="TimeManager" type="Node2D" parent="."]
-position = Vector2(211.786, -124)
-script = ExtResource("8_rs4uk")
-
-[node name="Label" type="Label" parent="TimeManager"]
-offset_left = -4.6431
-offset_top = -54.0
-offset_right = 179.357
-offset_bottom = 15.0
-scale = Vector2(0.6, 0.6)
-theme_override_font_sizes/font_size = 35
-text = "Time : 7:30"
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
@@ -1240,8 +1217,14 @@ scale = Vector2(2, 2)
 
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_bd5vn")
+volume_db = -18.0
 autoplay = true
 parameters/looping = true
+
+[node name="LabelCanvas" parent="." instance=ExtResource("12_lfyp4")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-27.8571, 0.8)
 
 [connection signal="input_event" from="bed" to="bed" method="_on_input_event"]
 [connection signal="mouse_entered" from="bed" to="." method="_on_bed_mouse_entered"]

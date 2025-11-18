@@ -24,7 +24,9 @@ var opacity:Array=[0.1,0.05,0.0,0.03,0.1,0.2,0.3,0.4,0.5,0.6,0.8]
 func adjust_tint():
 	print("Color rect i:",i)
 	while(timemanager==null):
-		await get_tree().process_frame    # wait exactly one frame
+		await get_tree().process_frame    # wait exactly one wwwwwwframe
+		if !is_instance_valid(self):
+			return
 	print("ADJUST TINT CALLED :",timemanager.current_time)
 	if i!=null and i<11:
 		color=Color(color_array[i])
@@ -34,4 +36,4 @@ func adjust_tint():
 		Global.color_rect_i=i	
 		
 func _ready():
-	timemanager = get_parent().get_parent().get_node("TimeManager")
+	timemanager = get_tree().get_current_scene().find_child("TimeManager",true,false)

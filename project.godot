@@ -46,6 +46,12 @@ variables={
 }
 glossary/default_case_sensitive=true
 
+[display]
+
+window/size/viewport_width=2600
+window/size/viewport_height=1200
+window/size/mode=2
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
