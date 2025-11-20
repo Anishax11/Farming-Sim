@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dca7rn3aasan6" path="res://16x16/Sprites/PauseMenu.png" id="2_uj8tv"]
 [ext_resource type="Script" path="res://scripts/pause_menu_button.gd" id="3_qgdr2"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63ep8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rj8ef"]
 texture = ExtResource("2_uj8tv")
 0:0/0 = 0
 1:0/0 = 0
@@ -4104,7 +4104,7 @@ texture = ExtResource("2_uj8tv")
 63:63/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_o375m"]
-sources/0 = SubResource("TileSetAtlasSource_63ep8")
+sources/0 = SubResource("TileSetAtlasSource_rj8ef")
 
 [sub_resource type="SystemFont" id="SystemFont_65o64"]
 subpixel_positioning = 0

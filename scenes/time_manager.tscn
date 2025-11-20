@@ -9,3 +9,6 @@ script = ExtResource("1_4qn8o")
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+scale = Vector2(2.5, 2.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Time "

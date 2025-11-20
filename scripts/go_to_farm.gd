@@ -9,9 +9,9 @@ func _on_body_entered(body: Node2D) -> void:
 			if body is StaticBody2D or body.name == "CollisionPolygon2D":
 				return
 			print("Open farm :",body.name)
-			time_manager=get_node("/root/Game/frontyard_scene/Farmer/TimeManager")
+			time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
 			if time_manager==null:
-				time_manager=get_node("/root/frontyard_scene/Farmer/TimeManager")
+				time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
 			Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i)
 			
 			Global.load_farm=true

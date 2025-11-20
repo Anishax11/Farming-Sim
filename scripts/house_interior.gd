@@ -19,7 +19,7 @@ func _ready() -> void:
 	pause_menu=get_node("Farmer/PauseMenu")
 	pause_menu.queue_free()
 	get_node("Farmer/ClickBlocker").queue_free()
-	time_manager=get_node("LabelCanvas/TimeManager")
+	time_manager=get_tree().get_current_scene().find_child("TimeManager")
 
 	camera=farmer.get_node("Camera2D")
 	camera.queue_free()

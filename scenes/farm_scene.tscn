@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bin5yuw7k5vj1"]
+[gd_scene load_steps=12 format=3 uid="uid://bin5yuw7k5vj1"]
 
 [ext_resource type="Script" path="res://scripts/farm_scene.gd" id="1_consl"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_pwhwc"]
@@ -6,11 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://s84nx63byva3" path="res://scenes/soil_manager.tscn" id="5_p20ei"]
 [ext_resource type="PackedScene" uid="uid://potiq7c4dk36" path="res://scenes/watercan.tscn" id="6_osxcg"]
 [ext_resource type="AudioStream" uid="uid://cty2djlymy401" path="res://audio/Peritune_Whiteveil_Streets.ogg" id="7_6vxkh"]
-[ext_resource type="PackedScene" uid="uid://cxgldqae4p20u" path="res://scenes/date_label.tscn" id="8_0tyff"]
-[ext_resource type="Script" path="res://scripts/label_canvas.gd" id="8_f3f4d"]
+[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="8_gkvs8"]
 [ext_resource type="Texture2D" uid="uid://sivsr2wlqb8c" path="res://16x16/Sprites/Empty_Greenhouse.png" id="9_ch212"]
-[ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="9_d4geg"]
-[ext_resource type="PackedScene" uid="uid://475fb1fcmkgf" path="res://coin_label.tscn" id="11_m0bwh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mh6hu"]
 atlas = ExtResource("9_ch212")
@@ -76,25 +73,6 @@ volume_db = -18.0
 autoplay = true
 parameters/looping = true
 
-[node name="LabelCanvas" type="CanvasLayer" parent="."]
-script = ExtResource("8_f3f4d")
-
-[node name="DateLabel" parent="LabelCanvas" instance=ExtResource("8_0tyff")]
-z_index = 5
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -900.0
-offset_top = 456.0
-offset_right = -857.0
-offset_bottom = 479.0
-grow_horizontal = 0
-scale = Vector2(2, 1)
-
-[node name="TimeManager" parent="LabelCanvas" instance=ExtResource("9_d4geg")]
-z_index = 5
-position = Vector2(258, 493)
-
-[node name="CoinLabel" parent="LabelCanvas" instance=ExtResource("11_m0bwh")]
+[node name="LabelCanvas" parent="." instance=ExtResource("8_gkvs8")]
 
 [connection signal="body_entered" from="EXIT" to="." method="_on_exit_body_entered"]

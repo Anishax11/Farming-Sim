@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://y0ksldc41d2b"]
+
+[ext_resource type="Texture2D" uid="uid://dgkbbkp5yf8t6" path="res://16x16/Sprites/LabelDisplay.png" id="1_ykqas"]
+[ext_resource type="PackedScene" uid="uid://cxgldqae4p20u" path="res://scenes/date_label.tscn" id="2_qkfu7"]
+[ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="3_fcbhx"]
+[ext_resource type="PackedScene" uid="uid://475fb1fcmkgf" path="res://coin_label.tscn" id="4_dv6se"]
+
+[node name="Control" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = 934.0
+offset_top = -81.0
+offset_right = 297.0
+offset_bottom = -440.0
+texture = ExtResource("1_ykqas")
+
+[node name="DateLabel" parent="TextureRect" instance=ExtResource("2_qkfu7")]
+z_index = 5
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1161.0
+offset_top = 666.0
+offset_right = -1118.0
+offset_bottom = 689.0
+grow_horizontal = 0
+scale = Vector2(4, 2)
+
+[node name="TimeManager" parent="TextureRect" instance=ExtResource("3_fcbhx")]
+z_index = 5
+position = Vector2(382, 498)
+
+[node name="CoinLabel" parent="TextureRect" instance=ExtResource("4_dv6se")]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 1034.0
+offset_right = 823.0
+offset_bottom = 1057.0

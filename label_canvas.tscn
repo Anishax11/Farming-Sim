@@ -7,23 +7,30 @@
 [ext_resource type="Texture2D" uid="uid://dgkbbkp5yf8t6" path="res://16x16/Sprites/LabelDisplay.png" id="5_hw4qw"]
 
 [node name="LabelCanvas" type="CanvasLayer"]
-scale = Vector2(0.5, 0.5)
-transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 script = ExtResource("1_vncsg")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = 50.0
-offset_bottom = 50.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+offset_right = 30.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 1
-offset_right = 1024.0
-offset_bottom = 1024.0
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -580.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 450.0
+grow_horizontal = 0
 texture = ExtResource("5_hw4qw")
+expand_mode = 1
 
 [node name="DateLabel" parent="Control/TextureRect" instance=ExtResource("2_x0h8e")]
 z_index = 5
@@ -31,19 +38,24 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -640.0
-offset_top = 390.0
-offset_right = -597.0
-offset_bottom = 413.0
+offset_left = -459.0
+offset_top = 243.0
+offset_right = -416.0
+offset_bottom = 266.0
 grow_horizontal = 0
 scale = Vector2(4, 2)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="TimeManager" parent="Control/TextureRect" instance=ExtResource("3_6fjnn")]
 z_index = 5
-position = Vector2(382, 498)
+position = Vector2(275, 301)
 
 [node name="CoinLabel" parent="Control/TextureRect" instance=ExtResource("4_m48ye")]
-offset_left = 396.0
-offset_top = 608.0
-offset_right = 488.0
-offset_bottom = 631.0
+layout_mode = 0
+offset_left = 274.0
+offset_top = 363.0
+offset_right = 366.0
+offset_bottom = 386.0
+scale = Vector2(2.5, 2.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Coins :"

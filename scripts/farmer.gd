@@ -145,11 +145,11 @@ func update_coins(amount:int):
 	print("Updating coins...")
 	Global.coins_count+=amount	
 
-	get_node("CoinLabel").text= "Coins :"+str(Global.coins_count)
+	get_tree().get_current_scene().find_child("CoinLabel",true,false).text = "Coins :"+str(Global.coins_count)
 	
 func display_coins():
-	get_node("CoinLabel").text= "Coins :"+str(Global.coins_count)	
-
+	get_tree().get_current_scene().find_child("CoinLabel",true,false).text= "Coins :"+str(Global.coins_count)	
+	#get_node("frontyard_scene/LabelCanvas/Control/TextureRect/CoinLabel").text= "Coins :"+str(Global.coins_count)	
 
 func _on_save_button_button_down() -> void:
 	SaveManager.save_game()

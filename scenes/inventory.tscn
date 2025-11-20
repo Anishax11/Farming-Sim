@@ -14,7 +14,7 @@ content_margin_right = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource("2_qymee")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mqjf0"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rn5e7"]
 texture = ExtResource("6_xbopk")
 0:0/0 = 0
 1:0/0 = 0
@@ -4114,7 +4114,7 @@ texture = ExtResource("6_xbopk")
 63:63/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_tk5pb"]
-sources/0 = SubResource("TileSetAtlasSource_mqjf0")
+sources/0 = SubResource("TileSetAtlasSource_rn5e7")
 
 [node name="Inventory" type="Node2D"]
 z_index = 5

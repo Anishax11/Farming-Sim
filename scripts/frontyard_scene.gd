@@ -8,7 +8,16 @@ var slot_adjust=1
 func _ready() -> void:
 	Global.music_fade_in()
 	Dialogic.end_timeline()
-	
+	#print("  " *  + node.name)
+	var labelcanvas = $LabelCanvas   # adjust path if needed
+	print_all_children(labelcanvas)
+	var root = get_tree().current_scene
+
+	for child in root.get_children():
+		print("Child:", child.name)
+
+		for grand in child.get_children():
+			print("  Grandchild:", grand.name)
 	var inventory = get_node("Farmer/ClickBlocker/Inventory")
 	inventory.add_to_inventory("pumpkin",Global.pumpkin_image)
 	inventory.add_to_inventory("potato",Global.potato_image)
@@ -52,3 +61,7 @@ func _on_market_entrance_body_entered(body: Node2D) -> void:
 		
 		
 		
+func print_all_children(node: Node, indent := 0):
+	for child in node.get_children():
+		print("  ".repeat(indent) + child.name)
+		print_all_children(child, indent + 1)
