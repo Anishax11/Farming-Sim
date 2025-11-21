@@ -56,6 +56,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					print(Global.planted_soil[i])
 				get_node("/root/farm_scene/Farmer/ClickBlocker/Inventory").add_to_inventory(string_part,texture)
 				get_parent().planted=false
+				get_parent().tilled=false
 				print("get_parent().planted:",get_parent().planted)
 				PlantTracker.harvested_plants.append(self.name)
 				PlantTracker.plant_stages.erase(self.name)

@@ -48,6 +48,7 @@ var player_pos #used to set player location after instantiating new scene
 var ItemPriceList={
 	"strawberry_seeds": 100,
 	"potato_seeds" : 50,
+	"pumpkin_seeds" : 80,
 	"watercan" : 100,
 	"strawberry" : 200,
 	"potato" : 100,

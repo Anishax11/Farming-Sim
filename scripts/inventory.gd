@@ -37,9 +37,9 @@ func _ready() -> void:
 					if Global.get(string+"_image")==null:
 						print(string+" is null")
 					
-					print("Slot passed:",slots_passed)
-					print("ADJ:",slot_adjust)
-					print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
+					#print("Slot passed:",slots_passed)
+					#print("ADJ:",slot_adjust)
+					#print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 					var number = i*5 +1+j
 					Global.empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(number))
 					
@@ -51,10 +51,10 @@ func _ready() -> void:
 			slot_adjust-=1	
 			
 func add_to_inventory(string,item_texture) :
-	print("Inside add to inv")
+	#print("Inside add to inv")
 	var slots_passed=0
 	var slot_adjust=1
-	print("Item added to inv:",string)
+	#print("Item added to inv:",string)
 	#if string=="strawberry_seeds":
 		#strawberry_seeds_count+=6
 	#elif string=="potato_seeds":
@@ -65,7 +65,7 @@ func add_to_inventory(string,item_texture) :
 		for j in range(5):
 			#print(i,",",j)
 			if Global.inventory_items[i][j]=="":
-				print("slot available",i," ",j)
+				#print("slot available",i," ",j)
 				Global.inventory_items[i][j]=string
 				var texture_rect=TextureRect.new()
 				texture_rect.texture=Global.get(string+"_image")
@@ -80,8 +80,8 @@ func add_to_inventory(string,item_texture) :
 				Global.empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 				
 				Global.empty_panel.add_child(texture_rect)
-				print("EMPTY PANEL :",Global.empty_panel)
-				print("Texture name :",texture_rect.name)
+				#print("EMPTY PANEL :",Global.empty_panel)
+				#print("Texture name :",texture_rect.name)
 				#texture_rect.global_position=Vector2(Global.empty_panel.global_position.x+2,Global.empty_panel.global_position.y+2)
 				#print("Empty panel:",Global.empty_panel.name,Global.empty_panel.get_child(0))
 				
@@ -103,7 +103,10 @@ func add_to_inventory(string,item_texture) :
 func remove_item(row,column):
 	print("REMOVING ITEM")
 	Global.inventory_items[row][column]=""
-	
+	#var trade_inv=get_tree().get_current_scene().find_child("TradeInventory",true,false)
+	#if trade_inv!=null:
+		#print("trade_inv not null")
+		#trade_inv.remove_item(row,column)
 	
 	
 	#for i in range(3):

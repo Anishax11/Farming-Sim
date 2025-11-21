@@ -5,10 +5,10 @@ var panel #reference to trade panel
 func _ready() -> void:
 	var slots_passed=0
 	var slot_adjust=1
-	for i in range(3):
-		Global.inventory_items.append([])
-		for j in range(5):
-			Global.inventory_items[i].append("")
+	#for i in range(3):
+		#Global.inventory_items.append([])
+		#for j in range(5):
+			#Global.inventory_items[i].append("")
 			
 	#Global.inventory_items[0][0]="strawberry_seeds"
 	#inventory_items[0][0]="seeds"
@@ -42,12 +42,15 @@ func _ready() -> void:
 
 
 func _on_dont_trade_button_down() -> void:
-	get_parent().visible=false
+	get_node("NinePatchRect2").visible=false
 
 
 func _on_trade_button_down() -> void:
-	panel.remove_item(panel.item_name)
+	print("Panel path :",panel.get_path())
 	Global.trade_money+=Global.ItemPriceList[str(panel.item_name)]
+	panel.remove_item()
+	print("Panel item :",str(panel.item_name))
+	
 	get_node("NinePatchRect2").visible=false
 
 func _on_close_inventory_button_down() -> void:
@@ -55,4 +58,8 @@ func _on_close_inventory_button_down() -> void:
 
 func remove_item(row,column):
 	print("REMOVING ITEM")
-	Global.inventory_items[row][column]=""
+	get_node("Trade")
+	#Global.inventory_items[row][column]=""
+	var panel_no = row*5 + column +1
+	var trade_panel = get_node("NinePatchRect/GridContainer/Panel"+str(panel_no))
+	trade_panel.remove_item(Global.inventory_items[row][column])

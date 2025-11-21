@@ -175,8 +175,8 @@ func _on_gui_input(event: InputEvent) -> void:
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
 	item_name=node.name
-	
-	print("Seed type :",seed_type)
+	print(get_path())
+	#print("Seed type :",seed_type)
 	var last_five = item_name.substr(item_name.length() - 5, 5)
 	
 	if node is TextureRect and last_five == "seeds":
@@ -184,16 +184,9 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		
 		node.scale=Vector2(0.9,0.9)
 		node.position.x+=1
-		#if node.name=="strawberry_seeds":
-			#seed_type="strawberry"
-			#
-		#elif node.name=="potato_seeds":
-			#seed_type="potato"
-		#elif node.name=="pumpkin_seeds":
-			#seed_type="pumpkin"
-			
-		seed_type = item_name.substr(0,item_name.length() - 6)
 		
+		seed_type = item_name.substr(0,item_name.length() - 6)
+	
 	if node is TextureRect and node.name=="watercan":
 		node.position.y+=2
 		node.position.x+=1
@@ -201,22 +194,37 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		node.scale.y=1.5
 		#item_name="watercan"
 		
-	
+	var trade_panel = 	get_node("/root/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
+	if trade_panel==null:
+		trade_panel = 	get_node("/root/Game/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
+	if trade_panel!=null:
+		print("Trade panel not nulll")
+		var texture_rect=TextureRect.new()
+		texture_rect.texture=node.texture
+				
+		texture_rect.name=node.name
+		trade_panel.add_child(texture_rect)
 		
 		#item_name=node.name
 		#print("STr texturerect added to panel")
 	
-	print("Added ",item_name," to panel :",self.name)
+	#print("Added ",item_name," to panel :",self.name)
 
 
 func _on_panel_child_exiting_tree(node : Node) :
-	#print("Child removeddd")
+	print("Child removeddd")
 	stylebox.texture=Global.INVENTORY_SLOT
 	add_theme_stylebox_override("panel", stylebox)
 	stylebox.expand_margin_left = 0
 	stylebox.expand_margin_right = 0
 	stylebox.expand_margin_top = 0
 	stylebox.expand_margin_bottom = 0
+	var trade_panel = 	get_node("/root/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
+	if trade_panel==null:
+		trade_panel = 	get_node("/root/Game/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
+	if trade_panel!=null:
+		trade_panel.remove_item(node.name)
+		trade_panel.item_name=null
 
 func remove_item():
 	#print("Inside")
