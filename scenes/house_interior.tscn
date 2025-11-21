@@ -1127,8 +1127,8 @@ scale = Vector2(6.98415, 7.21642)
 sprite_frames = SubResource("SpriteFrames_2vlml")
 
 [node name="Farmer" parent="." instance=ExtResource("6_p8x7y")]
-position = Vector2(97.1429, 128)
-scale = Vector2(5, 5)
+position = Vector2(99.2857, 143.2)
+scale = Vector2(2.5, 2.5)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1.42857, 2.4)
@@ -1186,7 +1186,6 @@ text = "
 script = ExtResource("7_c23qe")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_left = -195.0
@@ -1203,7 +1202,6 @@ shape = SubResource("RectangleShape2D_p8n1x")
 
 [node name="PauseMenu" parent="." instance=ExtResource("10_ih88g")]
 visible = false
-z_index = 6
 offset_left = -166.429
 offset_top = -144.0
 offset_right = -8.42857

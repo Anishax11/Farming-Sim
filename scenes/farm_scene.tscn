@@ -69,7 +69,7 @@ script = ExtResource("3_84hpi")
 
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_6vxkh")
-volume_db = -18.0
+volume_db = -20.0
 autoplay = true
 parameters/looping = true
 

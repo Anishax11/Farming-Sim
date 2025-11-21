@@ -1,35 +1,78 @@
-[gd_scene load_steps=5 format=3 uid="uid://brwxmtagn5m17"]
+[gd_scene load_steps=11 format=3 uid="uid://brwxmtagn5m17"]
 
 [ext_resource type="Script" path="res://scripts/seeds.gd" id="1_q1ha3"]
-[ext_resource type="Texture2D" uid="uid://bqhpytauejph1" path="res://16x16/Sprites/ChatGPT Image Jun 22, 2025, 01_37_12 AM.png" id="1_vvim8"]
 [ext_resource type="PackedScene" uid="uid://cormp4ej6i7fy" path="res://scenes/seed_button.tscn" id="3_pcq2q"]
+[ext_resource type="Texture2D" uid="uid://12orgbhokq1e" path="res://16x16/Sprites/Potato_seeds.png" id="3_yhjki"]
+[ext_resource type="Texture2D" uid="uid://b7m6otipyawbm" path="res://16x16/Sprites/Pumpkin_seeds.png" id="4_4og36"]
+[ext_resource type="Texture2D" uid="uid://dlvc6evuo0on5" path="res://16x16/Sprites/Strawberry_seeds.png" id="5_e75dw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmrh4"]
-size = Vector2(14.0391, 13.75)
+size = Vector2(15.6065, 13.8333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe8s5"]
+atlas = ExtResource("3_yhjki")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apbtx"]
+atlas = ExtResource("4_4og36")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8avot"]
+atlas = ExtResource("5_e75dw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_segy2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe8s5")
+}],
+"loop": true,
+"name": &"potato",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apbtx")
+}],
+"loop": true,
+"name": &"pumpkin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8avot")
+}],
+"loop": true,
+"name": &"strawberry",
+"speed": 5.0
+}]
 
 [node name="seeds" type="Area2D"]
 z_index = 3
 scale = Vector2(9.2, 6)
+input_pickable = false
 script = ExtResource("1_q1ha3")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.014, 0.014)
-mouse_filter = 2
-texture = ExtResource("1_vvim8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(7.21956, 7.29167)
+position = Vector2(6.97936, 7.41667)
 shape = SubResource("RectangleShape2D_fmrh4")
 
 [node name="Buy_Seed_Button" parent="." instance=ExtResource("3_pcq2q")]
-offset_left = -0.869565
-offset_top = -12.8333
-offset_right = 93.1304
-offset_bottom = 18.1667
+offset_left = -0.76087
+offset_top = -13.8333
+offset_right = 93.2391
+offset_bottom = 17.1667
 scale = Vector2(0.16, 0.356)
-mouse_filter = 1
 text = "BUY
 "
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7.71739, 6.83333)
+scale = Vector2(0.9, 0.95)
+sprite_frames = SubResource("SpriteFrames_segy2")
+animation = &"pumpkin"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

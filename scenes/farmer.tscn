@@ -279,7 +279,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenu" parent="." instance=ExtResource("12_idb42")]
 visible = false
-z_index = 6
 offset_left = -71.0
 offset_top = -59.0
 offset_right = 501.0

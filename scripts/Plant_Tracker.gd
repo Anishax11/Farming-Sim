@@ -7,7 +7,7 @@ var plant_names={}
 var plant_stage_limits={
 	"strawberry" : 3,
 	"potato" : 3,
-	"pumpkin" :4,
+	"pumpkin" :3,
 	"carrot" : 3
 }
 var locked_growth={}#used to store soil {with plant} which has already been watered once in the day to prevent multiple updates in stage on the same day

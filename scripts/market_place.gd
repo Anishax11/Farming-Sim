@@ -10,15 +10,9 @@ func _ready():
 	Dialogic.end_timeline()
 	print("MARKET Place")
 	player=get_node("Farmer")
-	time_manager=get_node("Farmer/TimeManager")
-	date_label = get_node("Farmer/DateLabel")
-	coin_label=get_node("Farmer/CoinLabel")
-	time_manager.global_position.y+=70
-	date_label.global_position.y+=70
-	date_label.global_position.x-=80
-	time_manager.global_position.x-=110
-	coin_label.global_position.y+=70
-	coin_label.global_position.x+=110
+	time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
+	date_label = get_tree().get_current_scene().find_child("DateLabel",true,false)
+	coin_label=get_tree().get_current_scene().find_child("CoinLabel",true,false)
 	player.get_node("Camera2D").zoom=Vector2(2,2)
 	if Global.player_pos!=null:
 		player.global_position = Global.player_pos

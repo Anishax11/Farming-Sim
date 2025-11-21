@@ -46,13 +46,15 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		
 		if event.pressed and get_node("Grass")==null:
-			print("CLICKEDDDD")
+			#print("CLICKEDDDD")
 			
 			var soil_pos=Vector2( int(position.x / 8) * 8,int(position.y / 8) * 8 )
 			var player=get_node("/root/farm_scene/Farmer")
 			var player_pos=Vector2( int(player.position.x / 8) * 8,int(player.position.y / 8) * 8 )
 			distance=soil_pos.distance_to(player_pos)
-			
+			print("dsit : ",distance)
+			print("Tilled :",tilled)
+			print("water can equipped :",panel.water_equipped)
 			if distance<40 and tilled==true and panel.water_equipped==true:
 				
 				print("Current animation :",animated_sprite_2d.animation)
@@ -150,7 +152,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			#CODE FOR TILLING
 				
 			if distance<=18 and !tilled and planted==false:
-				#print(self.name)
+				print(self.name," is tilled")
+				tilled=true
+				Global.tilled_soil.append(self.name)
+				Global.tilled_soil_animation.append(animated_sprite_2d.animation)
+				Global.save_tilled_soil(self,animated_sprite_2d.animation)
 				if Global.player_direction==Vector2(1,0):
 					if planted!=true:
 						rotation_degrees=90 #rotates animation of tilled soil towards right 
@@ -251,7 +257,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 								get_node(soil_path+str(number+39)).get_node("AnimatedSprite2D").play("watered_seeds")
 								#print("watered_seeds")
 							get_node(soil_path+str(number+39)).adjusted=true
-					tilled=true
+					
 					
 		else:
 			Global.soil_clicked=false
@@ -260,7 +266,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			if Global.soil_clicked==true:
 				animated_sprite_2d.play("tilled")
-				tilled==true
+				tilled=true
 		
 
 			

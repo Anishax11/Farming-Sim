@@ -4,25 +4,17 @@ var MARKET_PLACE = load("res://scenes/market_place.tscn")
 
 var time_manager
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	#print("DIsplay menu 1")
-	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
-		if event.pressed:
-			if !Tutorials.interactions["seed_shop_first_interaction"]:
-				get_node("Farmer").input_disabled=true
-				Dialogic.signal_event.connect(_on_dialogic_signal)
-				Dialogic.start("SeedShopOwner")
-				Tutorials.interactions["seed_shop_first_interaction"]=true
-				
-				
-	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			get_node("VendorMenu").visible=true
+	
 
 func _ready() -> void:
 	Global.music_fade_in()
-	Dialogic.end_timeline()
-	
+	#Dialogic.end_timeline()
+	print("Tutorials.tutorial",Tutorials.tutorials["seed_shop_tutorial"])
+	#if !Tutorials.tutorials["seed_shop_tutorial"]:
+		#print("Inside ")
+		#await Dialogic.start("SeedShopTutorial")
+		#Tutorials.tutorials["seed_shop_tutorial"]=true
 	get_node("Farmer/ClickBlocker").queue_free() #holds inv
 
 	get_node("Farmer/Camera2D").queue_free()
@@ -32,11 +24,8 @@ func _ready() -> void:
 	
 	get_node("Farmer/AnimatedSprite2D").play("backward")
 	Global.player_direction=Vector2(0,0)
-	time_manager=get_node("TimeManager")
+	time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
 	
-	if !Tutorials.tutorials["seed_shop_tutorial"]:
-		Dialogic.start("SeedShopTutorial")
-		Tutorials.tutorials["seed_shop_tutorial"]=true
 		
 		
 func _on_exit_body_entered(body: Node2D) -> void:
@@ -46,7 +35,7 @@ func _on_exit_body_entered(body: Node2D) -> void:
 		Dialogic.end_timeline()
 		Global.current_time = time_manager.current_time
 		Global.time_to_change_tint = time_manager.time_to_change_tint
-		Global.tint_index = time_manager.color_rect_i
+		Global.tint_index = time_manager.color_rect.i
 		Global.music_fade_out()
 		get_node("CanvasLayer2/DimBG").dim_bg(MARKET_PLACE)
 
@@ -72,3 +61,30 @@ func _on_close_menu_button_down() -> void:
 
 #func _on_mouse_exited() -> void:
 	#Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+
+func _on_cashier_mouse_entered() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+
+func _on_cashier_mouse_exited() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+
+func _on_cashier_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
+		if event.pressed:
+			if !Tutorials.interactions["seed_shop_first_interaction"]:
+				get_node("Farmer").input_disabled=true
+				Dialogic.signal_event.connect(_on_dialogic_signal)
+				await Dialogic.start("SeedShopOwner")
+				Tutorials.interactions["seed_shop_first_interaction"]=true
+				
+				
+	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			get_node("VendorMenu").visible=true
+
+
+func _on_button_button_down() -> void:
+	print("Button down")

@@ -14,20 +14,21 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 30.0
-offset_bottom = 47.0
+offset_right = 1.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -580.0
-offset_top = -200.0
-offset_right = 150.0
-offset_bottom = 450.0
+offset_left = -480.0
+offset_top = -150.0
+offset_right = 160.0
+offset_bottom = 350.0
 grow_horizontal = 0
 texture = ExtResource("5_hw4qw")
 expand_mode = 1
@@ -38,24 +39,24 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -459.0
-offset_top = 243.0
-offset_right = -416.0
-offset_bottom = 266.0
+offset_left = -443.0
+offset_top = 178.0
+offset_right = -400.0
+offset_bottom = 201.0
 grow_horizontal = 0
 scale = Vector2(4, 2)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="TimeManager" parent="Control/TextureRect" instance=ExtResource("3_6fjnn")]
 z_index = 5
-position = Vector2(275, 301)
+position = Vector2(197, 223)
 
 [node name="CoinLabel" parent="Control/TextureRect" instance=ExtResource("4_m48ye")]
 layout_mode = 0
-offset_left = 274.0
-offset_top = 363.0
-offset_right = 366.0
-offset_bottom = 386.0
+offset_left = 198.0
+offset_top = 272.0
+offset_right = 290.0
+offset_bottom = 295.0
 scale = Vector2(2.5, 2.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Coins :"

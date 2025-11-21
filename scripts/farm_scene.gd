@@ -12,9 +12,12 @@ func _ready() -> void:
 	cam.zoom.x+=0.6
 	cam.limit_left=-230
 	cam.limit_right=310
-	cam.limit_top=250
+	cam.limit_top=150
 	cam.limit_bottom=650
-	
+	var inventory = get_node("Farmer/ClickBlocker/Inventory")
+	inventory.add_to_inventory("pumpkin_seeds",Global.pumpkin_image)
+	inventory.add_to_inventory("potato_seeds",Global.potato_image)
+	inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
 	#if Global.player_pos!=null:
 		#player.global_position=Global.player_pos
 				#
@@ -22,7 +25,7 @@ func _ready() -> void:
 
 	
 	if Tutorials.tutorials["farm_tutorial"]==false:
-		Dialogic.start("FarmTutorial")	
+		await Dialogic.start("FarmTutorial")	
 		Tutorials.tutorials["farm_tutorial"]=true	
 			
 

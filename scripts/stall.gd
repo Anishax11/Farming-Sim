@@ -11,7 +11,7 @@ func _ready():
 	print("STALL z index: ",z_index)
 	camera=get_parent().get_node("Farmer/Camera2D")
 	player=get_parent().get_node("Farmer")
-	time_manager=get_parent().get_node("Farmer/TimeManager")
+	time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
 	
 		
 

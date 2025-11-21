@@ -6,10 +6,10 @@ var fake_input_called=false
 var seed_type
 var price
 var seed_count = 6
-@onready var texture_rect: TextureRect = $TextureRect
+
 
 func _ready() -> void:
-	print(get_path())
+	$AnimatedSprite2D.play(seed_type)
 	var label=get_parent().get_node("NinePatchRect2/Label")
 	if seed_type=="strawberry":
 		label.text="Strawberry Seeds  : 
@@ -26,7 +26,11 @@ Best planted in cool weather, these dependable crops bring solid
  profits and full bellies."
 				
 	elif seed_type=="pumpkin":
-		label.text = "Pumpkin Seeds :"
+		label.text = "Pumpkin Seeds :
+A vibrant autumn classic loved by farmers and festivals alike.
+Takes 3 days to grow, producing big, cheerful pumpkins!
+Resilient and steady, these crops thrive best in mild weather.
+Perfect for crafting pies, decorations, or just brightening your fields."
 	#
 		
 func fake_input():
@@ -44,3 +48,11 @@ func fake_input():
 
 
 	 	
+
+
+func _on_mouse_entered() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+
+func _on_mouse_exited() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)

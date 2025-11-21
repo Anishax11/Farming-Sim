@@ -30,7 +30,7 @@ func _ready() -> void:
 					#print(grass.get_path())		
 				id+=1
 				
-	if get_node("soil290")!=null and Global.load_farm==true:
+	if  Global.load_farm==true:
 		#print("FARM loaded, day:",Global.day_count)
 		#print("Dictionary:",PlantTracker.plant_stages)
 		till_soil(Global.tilled_soil,Global.tilled_soil_animation)
@@ -118,9 +118,12 @@ func _ready() -> void:
 			
 func till_soil(soil,soil_animation):
 	print("Till func called")
+	if Global.tilled_soil.size()==0:
+		print("Tilled soil empty")
+	
 	for i in range(0,Global.tilled_soil.size()):
 		if Global.tilled_soil[i]!=null :
-			#print(soil[0])
+			print(soil[i])
 			#print("soil m ",Global.tilled_soil[i])
 			get_node(NodePath(soil[i])).tilled=true
 			get_node(NodePath(soil[i])).get_node("AnimatedSprite2D").play(soil_animation[i])

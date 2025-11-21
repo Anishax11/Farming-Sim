@@ -47,7 +47,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		
 		if event.pressed:
 			print("PlNT harvested")
-			if stage==3:
+			if stage==PlantTracker.plant_stage_limits[string_part]:
 				print("Stage is 3")
 				Global.planted_soil.erase(get_parent().name)
 				Global.sown_soil.erase(get_parent().name)
