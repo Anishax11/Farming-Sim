@@ -1,0 +1,7 @@
+if {day} == 1:
+	if {random} == 1:
+		Aria: Hello there! First day here?
+	elif {random} == 2:
+		hey there! how's your first day going?
+elif {day} == 2:
+	Aria: Howdyy

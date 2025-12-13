@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://dj0hkgwoix4at"]
+[gd_scene load_steps=65 format=3 uid="uid://dj0hkgwoix4at"]
 
 [ext_resource type="Script" path="res://scripts/frontyard_scene.gd" id="1_3rtkc"]
 [ext_resource type="Texture2D" uid="uid://bpbn2trmc2git" path="res://MV/tilesets/_srw_tileset_0.png" id="1_ef1hy"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://bcrctwvmkf8ya" path="res://scenes/post_office.tscn" id="33_m2uud"]
 [ext_resource type="AudioStream" uid="uid://cty2djlymy401" path="res://audio/Peritune_Whiteveil_Streets.ogg" id="34_ntsw8"]
 [ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="35_y56ua"]
+[ext_resource type="PackedScene" uid="uid://drxqgj4xi1hb0" path="res://scenes/aria.tscn" id="36_rbvbx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugn7j"]
 texture = ExtResource("1_ef1hy")
@@ -37716,5 +37717,8 @@ autoplay = true
 parameters/looping = true
 
 [node name="LabelCanvas" parent="." instance=ExtResource("35_y56ua")]
+
+[node name="Aria" parent="." instance=ExtResource("36_rbvbx")]
+position = Vector2(-12, 622)
 
 [connection signal="body_entered" from="MarketEntrance" to="." method="_on_market_entrance_body_entered"]

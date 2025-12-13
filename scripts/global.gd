@@ -1,7 +1,7 @@
 extends Node
 
 const HOUSE_INTERIOR = preload("res://scenes/house_interior.tscn")
-var day_count=4
+var day_count=1
 var day_passed=false
 var inventory_items=[]
 var seeds_image=preload("res://16x16/Sprites/seeds_packet_16x16.png")
@@ -116,7 +116,7 @@ func move_item(panel_number,item_name):
 			if Global.equipped_panel == previous_panel.name:
 				Global.equipped_panel = final_panel.name
 				#final_panel.item_name = previous_panel.item_name
-				final_panel.highlight_panel()
+				#final_panel.highlight_panel()
 			
 			
 	else:
@@ -178,6 +178,8 @@ func save_tilled_soil(soil,animation):
 func update_day_count():
 	print("Update day")
 	day_count+=1
+	Dialogic.VAR.set("day",day_count)
+	print("DAy updated :",Dialogic.VAR.day)
 #date_label.update_day_count()
 	Global.time_to_change_tint=8.0
 	Global.tint_index=0

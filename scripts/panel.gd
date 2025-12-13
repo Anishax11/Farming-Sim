@@ -127,8 +127,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			#print(get_child(0).position)
 			#print("Button left")
 			button_held=false
-			if Global.equipped_panel!=self.name:
-				print("Item moved from :",self.name)
+			
 			
 			var child=get_child(0)
 			if child is TextureRect and item_name!=null:
