@@ -3,24 +3,28 @@ extends Control
 #CHANGE READY CODE, ONLY ADD TASKS THAT HAVE BEEN PREVIOUSLY ADDED THROUGH ADD TASK
 var vb
 var tasks
-var keys_array: Array = []
+
 func _ready() -> void:
 	tasks=TaskManager.tasks
-	
-	for i in range(keys_array.size()):
-		var id = keys_array[i]         # "Task1"
+	#if TaskManager.keys_array.size()==0:
+		#print("keys  array empty")
+	vb = get_tree().current_scene.find_child("TaskVBoxContainer", true, false)
+	for i in range(TaskManager.keys_array.size()):
+		var id = TaskManager.keys_array[i]         # "Task1"
 		var task = tasks[id]
-		if task.acquired and !task.completed:
+		#print("Task acq :",task["acquired"])
+		print("Task complete:",task["completed"])
+		if task["acquired"] and !task["completed"]:
 			print("Acquired and not completed!")
 			var label = Label.new()
-			label.name=task.title
+			label.name=id
 			label.add_theme_font_size_override("font_size", 50)
 			label.text = task["title"] + ": " + task["Desc"]
-			label.custom_minimum_size = Vector2(200, 50)  # Godot 4 replacement for rect_min_size
-			#label.wrap = true  # Godot 4 way to enable word wrapping
-			label.size_flags_horizontal = Control.SIZE_FILL  # fills container width
+			label.add_theme_color_override("font_color", Color.BLACK)
+			label.custom_minimum_size = Vector2(600, 50)  # Godot 4 replacement for rect_min_size
+			label.autowrap_mode = TextServer.AUTOWRAP_WORD
 			label.z_index=4
-			vb = get_tree().current_scene.find_child("TaskVBoxContainer", true, false)
+			
 			vb.add_child(label)
 			
 	#var timer = Timer.new()
@@ -48,9 +52,15 @@ func add_task(task_name) :
 	label.name=task_name
 	label.add_theme_font_size_override("font_size", 50)
 	label.text=task.title+": "+task.Desc
-	label.custom_minimum_size = Vector2(200, 50)  # Godot 4 replacement for rect_min_size
+	label.add_theme_color_override("font_color", Color.BLACK)
+	label.custom_minimum_size = Vector2(600, 50)  # Godot 4 replacement for rect_min_size
 	#label.wrap = true  # Godot 4 way to enable word wrapping
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD
+	#label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	#label.custom_minimum_size = Vector2(200, 50)
 	label.z_index=4
+	
 	vb.add_child(label)
-	TaskManager.tasks[task_name].acquired=true
-	keys_array.append(task_name)
+	TaskManager.tasks[task_name]["acquired"]=true
+	TaskManager.keys_array.append(task_name)
+	print("added task")

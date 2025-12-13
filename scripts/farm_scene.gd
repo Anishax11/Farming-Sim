@@ -6,7 +6,6 @@ var game = load("res://scenes/game.tscn")
 
 func _ready() -> void:
 	Global.music_fade_in()
-	Dialogic.end_timeline()
 	var player = get_node("Farmer")
 	var cam=player.get_node("Camera2D")
 	cam.zoom.x+=0.6
@@ -15,9 +14,9 @@ func _ready() -> void:
 	cam.limit_top=150
 	cam.limit_bottom=650
 	var inventory = get_node("Farmer/ClickBlocker/Inventory")
-	inventory.add_to_inventory("pumpkin_seeds",Global.pumpkin_image)
-	inventory.add_to_inventory("potato_seeds",Global.potato_image)
-	inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
+	#inventory.add_to_inventory("pumpkin_seeds",Global.pumpkin_image)
+	#inventory.add_to_inventory("potato_seeds",Global.potato_image)
+	#inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
 	#if Global.player_pos!=null:
 		#player.global_position=Global.player_pos
 				#

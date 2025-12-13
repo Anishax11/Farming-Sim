@@ -1,23 +1,31 @@
 extends Node
-
+var keys_array: Array = []
 var tasks={
 	"Task1" ={
-		"title" : "Tassk_1",
-		"Desc" : "Complete task 1",
+		"title" : "Buy Starter Seeds",
+		"Desc" : "Purchase strawberry, pumpkin, and potato seeds from the shop.",
 		"completed" : false,
-		"acquired" : true
+		"acquired" : false
 	},
 	
 	"Task2"={
 		"title" : "Tassk_2",
 		"Desc" : "Complete task 2",
 		"completed" : false,
-		"acquired" : true
+		"acquired" : false
 	}
 	
 }
-
-
+#TASK 1:
+var seeds_bought := {
+	"strawberry": false,
+	"pumpkin": false,
+	"potato": false,
+	# later...
+	# "corn": false,
+	# "melon": false,
+	# "wheat": false,
+}
 #func _ready() -> void:
 	#
 	#while(self==null):

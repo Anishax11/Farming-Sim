@@ -4121,7 +4121,7 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 2, 196608,
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(515, 609)
-zoom = Vector2(1.9, 0.8)
+zoom = Vector2(1.9, 0.85)
 
 [node name="Start_Game" type="Button" parent="."]
 offset_left = 340.0
@@ -4146,7 +4146,6 @@ script = ExtResource("5_gxrd4")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
 [node name="DimBG" type="ColorRect" parent="CanvasLayer2"]
 visibility_layer = 2

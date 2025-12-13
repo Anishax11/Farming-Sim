@@ -120,12 +120,14 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					#var current = inventory.get(count)
 					panel.seed_count-=1
 					PlantTracker.panel_seed_count[panel.name]=panel.seed_count
+					PlantTracker.panel_seed_count[panel.name]=panel.seed_count
 					if panel.seed_count == 0:
 						Global.equipped_item=null
 						Global.equipped_panel=null
 						panel.seeds_equipped = false
 						panel.remove_item()
-						panel.seed_count =6
+						
+						
 					#print("Seeds count:",inventory.seeds_count)
 					if Global.player_direction==Vector2(1,0):
 						print("Facing right")
@@ -194,69 +196,69 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							get_node(soil_path+str(number-1)).get_node("AnimatedSprite2D").scale.y=0.21
 							
 					
-						elif get_node(soil_path+str(number-1)).adjusted!=true :
-							get_node(soil_path+str(number-1)).get_node("AnimatedSprite2D").play("rect_tilled")
-							#print("RECT")
-							if get_node(soil_path+str(number-1)).planted==true:
-								get_node(soil_path+str(number-1)).get_node("AnimatedSprite2D").play("seeds")
-								#print("SEEDS")
-							if get_node(soil_path+str(number-1)).watered==true:
-								get_node(soil_path+str(number-1)).get_node("AnimatedSprite2D").play("watered_seeds")
-								#print("watered_seeds")
-							get_node(soil_path+str(number-1)).adjusted=true
+							if get_node(soil_path+str(number-1)).adjusted!=true :
+								get_node(soil_path+str(number-1)).get_node("AnimatedSprite2D").play("rect_tilled")
+								#print("RECT")
+								if get_node(soil_path+str(number-1)).planted==true:
+									get_node(soil_path+str(number-1)).get_node("AnimatedSprite2D").play("seeds")
+									#print("SEEDS")
+								if get_node(soil_path+str(number-1)).watered==true:
+									get_node(soil_path+str(number-1)).get_node("AnimatedSprite2D").play("watered_seeds")
+									#print("watered_seeds")
+								get_node(soil_path+str(number-1)).adjusted=true
 							
 					if Global.player_direction==Vector2(-1,0):
 						if get_node(soil_path+str(number+1)).tilled==true  :
 							#print("Prev tilled")
 							get_node(soil_path+str(number+1)).get_node("AnimatedSprite2D").scale.y=0.21
 							get_node(soil_path+str(number+1)).get_node("CollisionShape2D").scale.y=0.21
-						elif get_node(soil_path+str(number+1)).adjusted!=true :
-								get_node(soil_path+str(number+1)).get_node("AnimatedSprite2D").play("rect_tilled")
-								#print("RECT")
-								if get_node(soil_path+str(number+1)).planted==true:
-									get_node(soil_path+str(number+1)).get_node("AnimatedSprite2D").play("seeds")
-									#print("SEEDS")
-								if get_node(soil_path+str(number+1)).watered==true:
-									get_node(soil_path+str(number+1)).get_node("AnimatedSprite2D").play("watered_seeds")
-									#print("watered_seeds")
-								#print("RECT")
-								get_node(soil_path+str(number+1)).adjusted=true
+							if get_node(soil_path+str(number+1)).adjusted!=true :
+									get_node(soil_path+str(number+1)).get_node("AnimatedSprite2D").play("rect_tilled")
+									#print("RECT")
+									if get_node(soil_path+str(number+1)).planted==true:
+										get_node(soil_path+str(number+1)).get_node("AnimatedSprite2D").play("seeds")
+										#print("SEEDS")
+									if get_node(soil_path+str(number+1)).watered==true:
+										get_node(soil_path+str(number+1)).get_node("AnimatedSprite2D").play("watered_seeds")
+										#print("watered_seeds")
+									#print("RECT")
+									get_node(soil_path+str(number+1)).adjusted=true
 					
 								
 					if Global.player_direction==Vector2(0,1):
-						if get_node(soil_path+str(number-39)).tilled==true:
+						if get_node(soil_path+str(number-22)).tilled==true:
 							#print("Prev tilled")
-							get_node(soil_path+str(number-39)).get_node("AnimatedSprite2D").scale.y=0.21
+							get_node(soil_path+str(number-22)).get_node("AnimatedSprite2D").scale.y=0.21
 							
 							
-						elif get_node(soil_path+str(number-39)).adjusted!=true :
-							get_node(soil_path+str(number-39)).get_node("AnimatedSprite2D").play("rect_tilled")
-							#print("RECT")
-							if get_node(soil_path+str(number-39)).planted==true:
-								get_node(soil_path+str(number-39)).get_node("AnimatedSprite2D").play("seeds")
-								#print("SEEDS")
-							if get_node(soil_path+str(number-39)).watered==true:
-								get_node(soil_path+str(number-39)).get_node("AnimatedSprite2D").play("watered_seeds")
-								#print("watered_seeds")
-							get_node(soil_path+str(number-39)).adjusted=true
+							if get_node(soil_path+str(number-22)).adjusted!=true :
+								get_node(soil_path+str(number-22)).get_node("AnimatedSprite2D").play("rect_tilled")
+								#print("RECT")
+								if get_node(soil_path+str(number-22)).planted==true:
+									get_node(soil_path+str(number-22)).get_node("AnimatedSprite2D").play("seeds")
+									#print("SEEDS")
+								if get_node(soil_path+str(number-22)).watered==true:
+									get_node(soil_path+str(number-22)).get_node("AnimatedSprite2D").play("watered_seeds")
+									#print("watered_seeds")
+								get_node(soil_path+str(number-22)).adjusted=true
 							
-					if Global.player_direction==Vector2(0,-1) and get_node(soil_path+str(number+39))!=null:
+					if Global.player_direction==Vector2(0,-1) and get_node(soil_path+str(number+22))!=null:
 						
-						if get_node(soil_path+str(number+39)).tilled==true:
+						if get_node(soil_path+str(number+22)).tilled==true:
 							#print("Prev tilled")
-							get_node(soil_path+str(number+39)).get_node("AnimatedSprite2D").scale.y=0.17
+							get_node(soil_path+str(number+22)).get_node("AnimatedSprite2D").scale.y=0.17
 							
 							
-						elif get_node(soil_path+str(number+39)).adjusted!=true :
-							get_node(soil_path+str(number+39)).get_node("AnimatedSprite2D").play("rect_tilled")
-							#print("RECT")
-							if get_node(soil_path+str(number+39)).planted==true:
-								get_node(soil_path+str(number+39)).get_node("AnimatedSprite2D").play("seeds")
-								#print("SEEDS")
-							if get_node(soil_path+str(number+39)).watered==true:
-								get_node(soil_path+str(number+39)).get_node("AnimatedSprite2D").play("watered_seeds")
-								#print("watered_seeds")
-							get_node(soil_path+str(number+39)).adjusted=true
+							if get_node(soil_path+str(number+22)).adjusted!=true :
+								get_node(soil_path+str(number+22)).get_node("AnimatedSprite2D").play("rect_tilled")
+								#print("RECT")
+								if get_node(soil_path+str(number+22)).planted==true:
+									get_node(soil_path+str(number+22)).get_node("AnimatedSprite2D").play("seeds")
+									#print("SEEDS")
+								if get_node(soil_path+str(number+22)).watered==true:
+									get_node(soil_path+str(number+22)).get_node("AnimatedSprite2D").play("watered_seeds")
+									#print("watered_seeds")
+								get_node(soil_path+str(number+22)).adjusted=true
 					
 					
 		else:

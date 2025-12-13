@@ -39,12 +39,15 @@ func _on_button_down() -> void:
 		   		#
 		player.update_coins(-price)
 		var inventory= get_tree().current_scene.find_child("Inventory")
-		inventory.add_to_inventory(seed_type+"_seeds",Global.strawberry_image)
-		print(text+" seeds added to inv!")		
-		empty_panel=Global.get_empty_panel()
+	
 		
-				
+		inventory.add_to_inventory(seed_type+"_seeds",Global.strawberry_image)
+		empty_panel = Global.get_empty_panel()
+		PlantTracker.panel_seed_count[empty_panel.name]=6
+		print("Empty panel : ",empty_panel.name)				
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+		#print("Global.empty_panel:",Global.empty_panel.name)
+		#Global.empty_panel.seed_count=6
 		get_parent().queue_free()
 				
 	else:

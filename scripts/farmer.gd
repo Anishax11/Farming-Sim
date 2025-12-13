@@ -127,7 +127,7 @@ func _input(event: InputEvent) -> void:
 		pause_menu.visible=!pause_menu.visible
 	
 	if Input.is_action_just_pressed("Tasks"):
-		get_node("TaskManager").visible=!get_node("TaskManager").visible
+		get_tree().get_current_scene().find_child("TaskManager",true,false).visible=!get_tree().get_current_scene().find_child("TaskManager",true,false).visible
 		
 func play_animation():
 	animated_sprite_2d.play("hoe_right")

@@ -7,7 +7,7 @@ func _ready() -> void:
 	print("Scene loaded")
 	tween = create_tween()
 	
-	tween.tween_property(self, "color", Color(0, 0, 0, 0), 3.0)  # fade out
+	tween.tween_property(self, "color", Color(0, 0, 0, 0), 8.0)  # fade out
 
 
 func dim_bg(scene: PackedScene):
@@ -22,7 +22,7 @@ func dim_bg(scene: PackedScene):
 
 	# Create tween and fade to black over 4 seconds
 	var tween = create_tween()
-	tween.tween_property(self, "color", Color(0, 0, 0, 1), 3.0)
+	tween.tween_property(self, "color", Color(0, 0, 0, 1), 6.0)
 
 	# Wait until the tween finishes properly
 	await get_tree().process_frame  # ensures the tween starts

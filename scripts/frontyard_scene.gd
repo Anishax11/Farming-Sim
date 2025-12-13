@@ -19,9 +19,14 @@ func _ready() -> void:
 		#for grand in child.get_children():
 			#print("  Grandchild:", grand.name)
 	var inventory = get_node("Farmer/ClickBlocker/Inventory")
-	inventory.add_to_inventory("pumpkin",Global.pumpkin_image)
-	inventory.add_to_inventory("potato",Global.potato_image)
-	inventory.add_to_inventory("strawberry",Global.strawberry_image)
+	#inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
+	#
+	#inventory.add_to_inventory("potato_seeds",Global.potato_image)
+	#inventory.add_to_inventory("pumpkin_seeds",Global.pumpkin_image)
+	#inventory.add_to_inventory("watercan",Global.pumpkin_image)
+	#inventory.add_to_inventory("pumpkin",Global.pumpkin_image)
+	#inventory.add_to_inventory("potato",Global.potato_image)
+	#inventory.add_to_inventory("strawberry",Global.strawberry_image)
 	
 	time_manager = get_tree().get_current_scene().find_child("TimeManager",true,false)
 	var player =get_node("Farmer")

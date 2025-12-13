@@ -11,10 +11,10 @@ func _ready() -> void:
 	Global.music_fade_in()
 	#Dialogic.end_timeline()
 	print("Tutorials.tutorial",Tutorials.tutorials["seed_shop_tutorial"])
-	#if !Tutorials.tutorials["seed_shop_tutorial"]:
-		#print("Inside ")
-		#await Dialogic.start("SeedShopTutorial")
-		#Tutorials.tutorials["seed_shop_tutorial"]=true
+	if !Tutorials.tutorials["seed_shop_tutorial"]:
+		print("Inside ")
+		await Dialogic.start("SeedShopTutorial")
+		Tutorials.tutorials["seed_shop_tutorial"]=true
 	get_node("Farmer/ClickBlocker").queue_free() #holds inv
 
 	get_node("Farmer/Camera2D").queue_free()

@@ -1,7 +1,7 @@
 extends Node
 
 const HOUSE_INTERIOR = preload("res://scenes/house_interior.tscn")
-var day_count=1
+var day_count=4
 var day_passed=false
 var inventory_items=[]
 var seeds_image=preload("res://16x16/Sprites/seeds_packet_16x16.png")
@@ -39,7 +39,7 @@ const INVENTORY_SLOT = preload("res://16x16/Sprites/inventorySlot.png")
 var equipped_item
 var last_plant_number
 var load_frontyard=false
-var coins_count=1000
+var coins_count=770
 var color_rect_i=0
 var soil_data={
 	
@@ -98,7 +98,9 @@ func move_item(panel_number,item_name):
 			print("final_panel!=previous_panel")
 			final_panel.seed_type=previous_panel.seed_type
 			final_panel.seed_count=previous_panel.seed_count
-			previous_panel.seed_count=6 # reset to six so that if new seeds are bought limit is 6
+			PlantTracker.panel_seed_count[final_panel.name]=previous_panel.seed_count
+			PlantTracker.panel_seed_count[previous_panel.name]=0
+			previous_panel.seed_count=0 
 			previous_panel.remove_child(texture_rect)
 			#texture_rect.name=previous_panel.item_name
 			previous_panel.item_name=null
@@ -115,6 +117,7 @@ func move_item(panel_number,item_name):
 				Global.equipped_panel = final_panel.name
 				#final_panel.item_name = previous_panel.item_name
 				final_panel.highlight_panel()
+			
 			
 	else:
 		print("OCCUPIED")
@@ -217,7 +220,7 @@ func music_fade_out():
 	var audio_player =  get_tree().get_current_scene().find_child("BGMusic", true, false)
 	var player = get_tree().get_current_scene().find_child("Farmer", true, false)
 	var tween=create_tween()
-	tween.tween_property(audio_player,"volume_db",0,7)
+	tween.tween_property(audio_player,"volume_db",-40,7)
 	await tween.finished
 
 var music_tween_finished=false	
@@ -227,5 +230,5 @@ func music_fade_in():
 	var audio_player =  get_tree().get_current_scene().find_child("BGMusic", true, false)
 	var player = get_tree().get_current_scene().find_child("Farmer", true, false)
 	var tween=create_tween()
-	tween.tween_property(audio_player,"volume_db",0,7)
+	tween.tween_property(audio_player,"volume_db",-20,7)
 	#await tween.finished

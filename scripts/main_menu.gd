@@ -1,5 +1,5 @@
 extends Node2D
-
+const HOUSE_INTERIOR = preload("res://scenes/house_interior.tscn")
 const FRONTYARD_SCENE = preload("res://scenes/frontyard_scene.tscn")
 var GAME = load("res://scenes/game.tscn")
 func _ready() -> void:
@@ -7,7 +7,7 @@ func _ready() -> void:
 	
 func _on_start_game_button_down() -> void:
 	print("START GAME")
-	get_node("CanvasLayer2/DimBG").dim_bg(FRONTYARD_SCENE)
+	get_node("CanvasLayer2/DimBG").dim_bg(HOUSE_INTERIOR)
 
 func _on_load_game_button_down() -> void:
 	SaveManager.load_game()

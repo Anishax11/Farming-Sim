@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/tasks.gd" id="1_dhnx0"]
 
 [node name="TaskManager" type="Control"]
+z_index = 5
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

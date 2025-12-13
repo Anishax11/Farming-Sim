@@ -35,7 +35,7 @@ func _ready():
 	anchor_bottom = 1
 	if  PlantTracker.panel_seed_count.has(self.name):
 		seed_count = PlantTracker.panel_seed_count[self.name]
-		print(self.name ," limit :",seed_count)
+		#print(self.name ," limit :",seed_count)
 	stylebox = StyleBoxTexture.new()
 	
 	self.connect("gui_input", Callable(self, "_on_gui_input")) #Attach signal to node
@@ -47,7 +47,7 @@ func _ready():
 	while(inventory.inv_initialised==false):
 		await get_tree().process_frame
 	if Global.equipped_panel == self.name and item_name!=null :
-		print("HIGHLIGHT PANEL")
+		#print("HIGHLIGHT PANEL")
 		highlight_panel()
 
 		
@@ -55,6 +55,7 @@ func _on_gui_input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
+			#print(self.name,"Seed count :",seed_count)
 			Global.equipped_panel = self.name
 			if item_name!=null:
 				clicked=!clicked
@@ -62,7 +63,7 @@ func _on_gui_input(event: InputEvent) -> void:
 					
 					for sibling in siblings:
 						if sibling!=self and sibling.stylebox.texture==Global.HIGHLIGHTED_PANEL :
-							print("sibling :",sibling.name)
+							#print("sibling :",sibling.name)
 							sibling.clicked=false
 							sibling.stylebox.texture=Global.INVENTORY_SLOT
 							add_theme_stylebox_override("panel", sibling.stylebox)
@@ -83,17 +84,17 @@ func _on_gui_input(event: InputEvent) -> void:
 					stylebox.expand_margin_right = 0
 					stylebox.expand_margin_top = 0
 					stylebox.expand_margin_bottom = 0
-				print("clicked:",clicked)	
-			print(Global.inventory_items)
+				#print("clicked:",clicked)	
+			#print(Global.inventory_items)
 			#print("Clicked panel")
 			button_held=true
 			if item_name!=null:
 				last_five = item_name.substr(item_name.length() - 5, 5)
-			if last_five=="seeds":
-				print("Item is seeds")
-				print(get_child(0).name)
-				print(get_child(0).visible)
-				
+			if last_five=="seeds" and get_child(0)!=null :
+				#print("Item is seeds")
+				#print(get_child(0).name)
+				#print(get_child(0).visible)
+				#
 				if water_equipped==true:
 					water_equipped=false
 					
@@ -126,20 +127,21 @@ func _on_gui_input(event: InputEvent) -> void:
 			#print(get_child(0).position)
 			#print("Button left")
 			button_held=false
-			
+			if Global.equipped_panel!=self.name:
+				print("Item moved from :",self.name)
 			
 			var child=get_child(0)
 			if child is TextureRect and item_name!=null:
 				#print("TEXTURE:",child.name)
 				Global.move_item(panel_number,item_name)#Passes panel no. to move_item func
 				
-			else:
-				if  child != TextureRect :
-					print("TEXT not found")
-				if item_name==null:
-					print("Item name null")
-				for p in self.get_children():
-						print(child.name)
+			#else:
+				#if  child != TextureRect :
+					#print("TEXT not found")
+				#if item_name==null:
+					#print("Item name null")
+				#for p in self.get_children():
+						#print(child.name)
 					
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT :   
 		if event.pressed:	
@@ -175,7 +177,7 @@ func _on_gui_input(event: InputEvent) -> void:
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
 	item_name=node.name
-	print(get_path())
+	#print(get_path())
 	#print("Seed type :",seed_type)
 	var last_five = item_name.substr(item_name.length() - 5, 5)
 	
@@ -198,7 +200,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 	if trade_panel==null:
 		trade_panel = 	get_node("/root/Game/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
 	if trade_panel!=null:
-		print("Trade panel not nulll")
+		#print("Trade panel not nulll")
 		var texture_rect=TextureRect.new()
 		texture_rect.texture=node.texture
 				
@@ -212,7 +214,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 
 
 func _on_panel_child_exiting_tree(node : Node) :
-	print("Child removeddd")
+	#print("Child removeddd")
 	stylebox.texture=Global.INVENTORY_SLOT
 	add_theme_stylebox_override("panel", stylebox)
 	stylebox.expand_margin_left = 0
