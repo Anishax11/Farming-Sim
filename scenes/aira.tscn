@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctqwy3qxwoi1f"]
+
+[ext_resource type="Texture2D" uid="uid://ctju0yiv20e15" path="res://16x16/Sprites/MemaoCharacterFantasySpritePack/002.png" id="1_d4sis"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulojh"]
+atlas = ExtResource("1_d4sis")
+region = Rect2(0, 0, 48, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3g0bh"]
+atlas = ExtResource("1_d4sis")
+region = Rect2(48, 0, 48, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmqos"]
+atlas = ExtResource("1_d4sis")
+region = Rect2(96, 0, 48, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3xh5"]
+atlas = ExtResource("1_d4sis")
+region = Rect2(144, 0, 48, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4lf4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulojh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3g0bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmqos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3xh5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s653g"]
+size = Vector2(16, 31)
+
+[node name="Aira" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l4lf4")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_s653g")

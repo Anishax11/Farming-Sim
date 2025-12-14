@@ -19,7 +19,7 @@ func _ready() -> void:
 			var label = Label.new()
 			label.name=id
 			label.add_theme_font_size_override("font_size", 50)
-			label.text = task["title"] + ": " + task["Desc"]
+			label.text = "\n"+task["title"] + ": " + task["Desc"]
 			label.add_theme_color_override("font_color", Color.BLACK)
 			label.custom_minimum_size = Vector2(600, 50)  # Godot 4 replacement for rect_min_size
 			label.autowrap_mode = TextServer.AUTOWRAP_WORD
@@ -51,7 +51,7 @@ func add_task(task_name) :
 	var label = Label.new()
 	label.name=task_name
 	label.add_theme_font_size_override("font_size", 50)
-	label.text=task.title+": "+task.Desc
+	label.text = "\n" + task.title + ": " + task.Desc
 	label.add_theme_color_override("font_color", Color.BLACK)
 	label.custom_minimum_size = Vector2(600, 50)  # Godot 4 replacement for rect_min_size
 	#label.wrap = true  # Godot 4 way to enable word wrapping

@@ -1,0 +1,7 @@
+if {eiden_intro} == false:
+	Eiden: Hello! I'm Eiden
+else:
+	if {day} == 1:
+		Eiden: I can't wait for the festival to begin!
+	elif {day} == 2:
+		Eiden: I heard you're participating in the fest as well, goodluck!

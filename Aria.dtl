@@ -1,7 +1,42 @@
 if {day} == 1:
 	if {random} == 1:
-		Aria: Hello there! First day here?
+		Aria: Hello there!
 	elif {random} == 2:
 		hey there! how's your first day going?
 elif {day} == 2:
-	Aria: Howdyy
+	if {aria_strawberry_task_given} == false:
+		Aria: You’re growing crops in the greenhouse, right?
+		Aria: he temperature’s been fluctuating a lot lately. That can stress delicate plants.
+		Aria: A temperature regulator would stabilize the environment. I can install one for you—but I don’t work for free.
+		What do you need?
+		Aria: Fresh strawberries. Recently harvested, while they’re still at their best.
+		Strawberries… from my greenhouse?
+		Aria: Exactly. If you can grow them properly, I’ll know the regulator is worth installing.
+		*This could be the edge I need for Harvest Bloom.*
+		- I’ll have to pass for now.
+			Aria: Alright
+			[end_timeline]
+		- Sounds fair. I’ll bring you freshly harvested strawberries.
+			[signal arg="aria_strawberry_task_accepted"]
+			Aria: Great! Make sure they're fresh
+else:
+	Aria: Hey there
+if {aria_task_done} == true:
+	- Give strawberries to Aria
+		[signal arg="aria_strawberry_task_complete"]
+		Aria: These… they’re really good.
+		Narrator\: She turns one of the strawberries over in her palm, thoughtful.
+		Aria: I’ve always liked strawberries like this. Fresh.
+		Aria: My family never farmed. We didn’t even have a garden—just concrete and schedules.
+		Aria: I used to buy them from roadside stalls on my way home. They tasted different. Like someone actually cared about how they grew.
+		She pauses, then lets out a quiet breath.
+		Aria: I think that’s why I’m good at this. Machines, systems… controlled environments. It’s the closest I’ve ever been to growing something.
+		- You’ve thought about leaving, haven’t you?
+			Aria: Yeah. There’s a position overseas. Bigger facilities. Better research.
+			Aria: I wasn’t sure if I should take it.
+			She glances toward the greenhouse.
+			Aria: But seeing this work—done right—helps. It reminds me why I started.
+			Aria: Thank you. I’ll install the regulator tomorrow like I promised. And… I think I’ll send in my acceptance too.
+		- Have you thought about leaving?
+	- Leave
+		[end_timeline]

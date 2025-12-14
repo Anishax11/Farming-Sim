@@ -1,0 +1,9 @@
+if {aira_intro} == false:
+	aira: Helloo, I'm Aira!
+else:
+	if {day} == 1:
+		aira: It's been a while since I've seen a new face around here. It's quite refreshing
+		aira: I hope you're adjusting well.
+	elif {day} == 2:
+		aira: Have you tried Aria's cafe ? They make the best coffee in town
+		aira: You should check it out if you haven't yet! It's near the post office in the market area

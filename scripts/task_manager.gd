@@ -9,8 +9,8 @@ var tasks={
 	},
 	
 	"Task2"={
-		"title" : "Tassk_2",
-		"Desc" : "Complete task 2",
+		"title" : "Fresh Strawberries for Aria",
+		"Desc" : "Grow and harvest fresh strawberries, then deliver them to Aria so she can install a temperature regulator in your greenhouse.",
 		"completed" : false,
 		"acquired" : false
 	}

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://jsrjbk6o50t3"]
+
+[ext_resource type="Script" path="res://scripts/eiden.gd" id="1_oi2qp"]
+[ext_resource type="Texture2D" uid="uid://dk3pvclkemk3u" path="res://16x16/Sprites/MemaoCharacterFantasySpritePack/004.png" id="2_jrvjl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_biun8"]
+atlas = ExtResource("2_jrvjl")
+region = Rect2(0, 0, 48, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw0aw"]
+atlas = ExtResource("2_jrvjl")
+region = Rect2(48, 0, 48, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cei4i"]
+atlas = ExtResource("2_jrvjl")
+region = Rect2(96, 0, 48, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hfj4"]
+atlas = ExtResource("2_jrvjl")
+region = Rect2(144, 0, 48, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jctwo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_biun8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw0aw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cei4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hfj4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76q3c"]
+size = Vector2(15, 32)
+
+[node name="Eiden" type="Area2D"]
+script = ExtResource("1_oi2qp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jctwo")
+autoplay = "default"
+frame_progress = 0.891458
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_76q3c")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

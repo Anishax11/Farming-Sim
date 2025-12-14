@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ceodroqe0splv"]
+[gd_scene load_steps=9 format=3 uid="uid://ceodroqe0splv"]
 
 [ext_resource type="Script" path="res://maya.gd" id="1_are5c"]
 [ext_resource type="Texture2D" uid="uid://bixyh1m6b7ly3" path="res://16x16/Sprites/MemaoCharacterFantasySpritePack/009.png" id="2_koajl"]
@@ -39,13 +39,18 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pq24"]
+size = Vector2(16, 30)
+
 [node name="Maya" type="Area2D"]
 script = ExtResource("1_are5c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ob0xp")
-frame_progress = 0.918645
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_5pq24")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

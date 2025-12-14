@@ -29,14 +29,22 @@ TaskManager="*res://scripts/task_manager.gd"
 
 directories/dch_directory={
 "Aria": "res://Aria.dch",
+"Eiden": "res://16x16/Sprites/Eiden.dch",
+"Maya": "res://Maya.dch",
+"Noa": "res://16x16/Sprites/Noa.dch",
+"aira": "res://16x16/Sprites/aira.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"Aira": "res://16x16/Sprites/Aira.dtl",
 "Aria": "res://Aria.dtl",
 "AriaInfo": "res://AriaInfo.dtl",
 "AriaSeedShopDirections": "res://AriaSeedShopDirections.dtl",
+"Eiden": "res://16x16/Sprites/Eiden.dtl",
 "FarmTutorial": "res://FarmTutorial.dtl",
+"Maya": "res://Maya.dtl",
 "NightWarning": "res://NightWarning.dtl",
+"Noa": "res://16x16/Sprites/Noa.dtl",
 "SeedShopOwner": "res://SeedShopOwner.dtl",
 "SeedShopTutorial": "res://SeedShopTutorial.dtl",
 "TradeBoxTutorial": "res://TradeBoxTutorial.dtl"
@@ -46,7 +54,13 @@ layout/style_list=[]
 layout/default_style="Default"
 variables={
 "Charname": "",
+"aira_intro": false,
+"aria_strawberry_task_given": false,
+"aria_task_done": false,
 "day": 1,
+"eiden_intro": false,
+"maya_intro": false,
+"noa_intro": false,
 "random": 0
 }
 glossary/default_case_sensitive=true

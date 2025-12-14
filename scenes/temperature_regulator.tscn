@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3ta5gt8628rt"]
+
+[ext_resource type="Script" path="res://scripts/temperature_regulator.gd" id="1_kuvat"]
+
+[node name="TemperatureRegulator" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_kuvat")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -17.5
+offset_right = 44.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TempLabel" type="Label" parent="Control/TextureRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Temp : "
+
+[node name="Increase" type="Button" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 33.0
+offset_right = 32.0
+offset_bottom = 64.0
+text = "Inc"
+
+[node name="Decrease" type="Button" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 34.0
+offset_right = 80.0
+offset_bottom = 65.0
+text = "Dec"
+
+[connection signal="button_down" from="Control/TextureRect/Increase" to="." method="_on_increase_button_down"]
+[connection signal="button_down" from="Control/TextureRect/Decrease" to="." method="_on_decrease_button_down"]

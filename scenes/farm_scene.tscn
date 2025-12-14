@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bin5yuw7k5vj1"]
+[gd_scene load_steps=13 format=3 uid="uid://bin5yuw7k5vj1"]
 
 [ext_resource type="Script" path="res://scripts/farm_scene.gd" id="1_consl"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_pwhwc"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cty2djlymy401" path="res://audio/Peritune_Whiteveil_Streets.ogg" id="7_6vxkh"]
 [ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="8_gkvs8"]
 [ext_resource type="Texture2D" uid="uid://sivsr2wlqb8c" path="res://16x16/Sprites/Empty_Greenhouse.png" id="9_ch212"]
+[ext_resource type="PackedScene" uid="uid://c3ta5gt8628rt" path="res://scenes/temperature_regulator.tscn" id="9_jxt41"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mh6hu"]
 atlas = ExtResource("9_ch212")
@@ -55,6 +56,7 @@ scale = Vector2(1.3, 1.3)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Farmer"]
 layer = 2
+visible = false
 
 [node name="DimBG" type="ColorRect" parent="Farmer/CanvasLayer2"]
 visibility_layer = 2
@@ -73,5 +75,7 @@ autoplay = true
 parameters/looping = true
 
 [node name="LabelCanvas" parent="." instance=ExtResource("8_gkvs8")]
+
+[node name="TemperatureRegulator" parent="." instance=ExtResource("9_jxt41")]
 
 [connection signal="body_entered" from="EXIT" to="." method="_on_exit_body_entered"]

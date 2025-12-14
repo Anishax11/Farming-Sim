@@ -3,8 +3,10 @@ var FrontyardScene = load("res://scenes/frontyard_scene.gd")
 var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
 var time_manager
 var game = load("res://scenes/game.tscn")
-
+var farm_temp = 25
 func _ready() -> void:
+	
+	#get_tree().current_scene.find_child("TempLabel",true,false).text="Temp : "+str(farm_temp)
 	Global.music_fade_in()
 	var player = get_node("Farmer")
 	var cam=player.get_node("Camera2D")

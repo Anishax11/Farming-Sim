@@ -1,0 +1,15 @@
+if {noa_intro} == false:
+	Noa: ...\
+	
+	Noa: My parents say I shouldn't be talking to strangers\
+	
+else:
+	if {day} == 1:
+		Noa: I heard you’re participating in Harvest Bloom!
+		Her round eyes sparkle with a childlike glint, brimming with excitement
+		Noa: That’s so cool! Harvest Bloom is my favorite festival
+		Noa: Are you nervous? I’d be super nervous if it were me.
+		She rambles on for a while, until her excitement finally winds down.
+	elif {day} == 2:
+		Noa: Hii!
+		Noa: I wonder how many clouds are in the sky..

@@ -12,6 +12,9 @@ var interactions={
 	
 	"seed_shop_first_interaction": false,
 	"aria":false,
-	"maya":false
-	
+	"maya":false,
+	"eiden":false,
+	"aira":false,
+	"noa":false,
+	"aria_strawberry_task_given":false
 }
