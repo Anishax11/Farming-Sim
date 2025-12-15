@@ -1,5 +1,4 @@
 extends Area2D
-var rng := RandomNumberGenerator.new()
 
 
 
@@ -9,9 +8,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			print("Interact with maya")
 			if Tutorials.interactions["maya"]==false:
 				Dialogic.VAR.set("maya_intro",false)
+				Tutorials.interactions["maya"]=true
 			else:
 				Dialogic.VAR.set("maya_intro",true)
-			rng.randomize()
-			Dialogic.VAR.set("random",RandomNumberGenerator.new().randi_range(1, 2))
+				
+			Dialogic.VAR.set("random",randi_range(1, 2))
 			print("Random :",Dialogic.VAR.random)
 			Dialogic.start("Maya")

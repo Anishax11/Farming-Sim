@@ -22,8 +22,7 @@ func _ready() -> void:
 	get_node("Farmer/TaskManager").queue_free()
 	time_manager=get_tree().get_current_scene().find_child("TimeManager")
 	#print("Task acq :",tasks["Task1"]["acquired"])
-	if !TaskManager.tasks["Task1"]["acquired"]:
-		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task1")
+	
 	camera=farmer.get_node("Camera2D")
 	camera.queue_free()
 	

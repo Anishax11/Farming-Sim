@@ -5,8 +5,9 @@ var tutorials ={
 	"trade_box_tutorial":false,
 	"seed_shop_tutorial" : false,
 	"farm_tutorial" : false,
+	"temp_regulator_tutorial" : false
 
-	
+
 }
 var interactions={
 	

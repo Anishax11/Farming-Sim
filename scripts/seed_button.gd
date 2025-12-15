@@ -11,6 +11,9 @@ func _ready() -> void:
 	player=get_node("/root/SeedShopInterior/Farmer")
 	
 func _on_button_down() -> void:
+	if Inventory.full == true:
+		print("Inv full!")
+		return
 	print("Buy button clicked")
 	seed_type=get_parent().seed_type
 	print("Seed_Type:",seed_type)

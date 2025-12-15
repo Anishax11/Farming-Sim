@@ -4,6 +4,7 @@ var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
 var time_manager
 var game = load("res://scenes/game.tscn")
 var farm_temp = 25
+const ARIA = preload("res://scenes/aria.tscn")
 func _ready() -> void:
 	
 	#get_tree().current_scene.find_child("TempLabel",true,false).text="Temp : "+str(farm_temp)
@@ -28,7 +29,15 @@ func _ready() -> void:
 	if Tutorials.tutorials["farm_tutorial"]==false:
 		await Dialogic.start("FarmTutorial")	
 		Tutorials.tutorials["farm_tutorial"]=true	
-			
+		
+	if 	Tutorials.tutorials["temp_regulator_tutorial"]==false and TaskManager.tasks["Task2"]["completed"]==true:
+		var aria = ARIA.instantiate()
+		aria.position = Vector2(-50,625)
+		add_child(aria)
+		Dialogic.VAR.set("aria_last_convo",true)
+		await Dialogic.start("Aria")
+		await Dialogic.start("TempRegulatorTutorial")	
+		Tutorials.tutorials["temp_regulator_tutorial"]=true
 
 
 func _on_exit_body_entered(body: Node2D) -> void:

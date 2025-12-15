@@ -32,11 +32,17 @@ var panel_seed_count={
 var prices={
 	"strawberry" : 100,
 	"potato" : 50,
-	"pumpkin" :80,
+	"pumpkin" :200,
 	"carrot" : 50
 	
 }
 
+var favourable_conditions = {
+	"strawberry" : [18,24],
+	"potato" : 50,
+	"pumpkin" :80,
+	"carrot" : 50
+}
 
 func add_to_plant_dictionary(plant_name):
 	print("add_to_plant_dictionary called")

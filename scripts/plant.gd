@@ -1,12 +1,13 @@
 extends Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
+var quality = 3
 var stage=0
 var texture
 var empty_panel
 var string_part
+var farm
 func _ready() -> void:
-	
+	farm  = get_tree().current_scene
 	var text=self.name
 	var regex=RegEx.new()
 	regex.compile(r"\d+")  # Compile pattern to match one or more digits
@@ -37,7 +38,8 @@ func _ready() -> void:
 		global_position.y+=1
 	
 	animated_sprite_2d.play(string_part+"_stage_"+str(stage))
-
+	
+	
 #
 #
 
@@ -46,6 +48,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
 		
 		if event.pressed:
+			if Inventory.full == true:
+				print("Inv full!")
+				return
 			print("PlNT harvested")
 			if stage==PlantTracker.plant_stage_limits[string_part]:
 				print("Stage is 3")

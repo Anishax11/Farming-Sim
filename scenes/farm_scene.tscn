@@ -77,5 +77,6 @@ parameters/looping = true
 [node name="LabelCanvas" parent="." instance=ExtResource("8_gkvs8")]
 
 [node name="TemperatureRegulator" parent="." instance=ExtResource("9_jxt41")]
+visible = false
 
 [connection signal="body_entered" from="EXIT" to="." method="_on_exit_body_entered"]

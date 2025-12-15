@@ -8,7 +8,7 @@ var slot_found=false
 var inv_initialised=false
 var strawberry_seeds_count=6
 var potato_seeds_count=6
-
+var full = false
 
 func _ready() -> void:
 	#if get_node("DeleteItemConfirmation")==null:
@@ -96,11 +96,14 @@ func add_to_inventory(string,item_texture) :
 				return
 			elif i==2 and j==4:
 				print("Inventory is full")	
+				full = true
 			
 		slots_passed+=5
 		slot_adjust-=1		
 				
 func remove_item(row,column):
+	if full == true:
+		full = false
 	print("REMOVING ITEM")
 	Global.inventory_items[row][column]=""
 	#var trade_inv=get_tree().get_current_scene().find_child("TradeInventory",true,false)

@@ -3,13 +3,15 @@ var rng := RandomNumberGenerator.new()
 var aria_strawberry_task_given 
 
 func _ready() -> void:
-	if Global.day_count>2:
+	print("Aria here")
+	if Global.day_count>2 and TaskManager.tasks["Task2"]["acquired"]==true:
 		for i in range (3):
 			for j in range (5):
 				var string=Global.inventory_items[i][j]
 					
 				if string=="strawberry":
 					Dialogic.VAR.set("aria_task_done",true)
+					print("Aria tsk done set true")
 		
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -38,3 +40,15 @@ func _on_dialogic_signal(argument : String):
 		print("Task Complete!")
 		TaskManager.tasks["Task2"]["completed"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task2")
+		
+		for i in range (3): #Delete strawberry from inv
+			for j in range (5):
+				var string=Global.inventory_items[i][j]
+					
+				if string=="strawberry":
+					
+					var number = i*5 +1+j
+					get_tree().current_scene.find_child("Panel"+number,true,false).remove_item()
+	
+	elif argument== "Task1_acquired":
+		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task1")

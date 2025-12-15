@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cow2vl3bu5y4s"]
+[gd_scene load_steps=9 format=3 uid="uid://cow2vl3bu5y4s"]
 
 [ext_resource type="Texture2D" uid="uid://c60nbxn2ydxqi" path="res://16x16/Sprites/MemaoCharacterFantasySpritePack/010.png" id="1_1pbft"]
+[ext_resource type="Script" path="res://scripts/noa.gd" id="1_ixfpn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_05s50"]
 atlas = ExtResource("1_1pbft")
@@ -42,6 +43,7 @@ animations = [{
 size = Vector2(16, 31)
 
 [node name="Noa" type="Area2D"]
+script = ExtResource("1_ixfpn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tyero")
@@ -50,3 +52,5 @@ frame_progress = 0.664769
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_s653g")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

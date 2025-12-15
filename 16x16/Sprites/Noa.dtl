@@ -1,8 +1,6 @@
 if {noa_intro} == false:
-	Noa: ...\
-	
-	Noa: My parents say I shouldn't be talking to strangers\
-	
+	Noa: ...
+	Noa: My parents say I shouldn't be talking to strangers
 else:
 	if {day} == 1:
 		Noa: I heard you’re participating in Harvest Bloom!

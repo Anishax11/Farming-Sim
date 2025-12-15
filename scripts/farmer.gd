@@ -129,6 +129,8 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Tasks"):
 		get_tree().get_current_scene().find_child("TaskManager",true,false).visible=!get_tree().get_current_scene().find_child("TaskManager",true,false).visible
 		
+	if Input.is_action_just_pressed("TempRegulator") and get_tree().current_scene.name=="farm_scene" and TaskManager.tasks["Task2"]["completed"]==true:
+		get_tree().current_scene.find_child("TemperatureRegulator",true,false).visible=!get_tree().current_scene.find_child("TemperatureRegulator",true,false).visible
 func play_animation():
 	animated_sprite_2d.play("hoe_right")
 	get_tree().paused = !get_tree().paused

@@ -8,8 +8,8 @@ const FARM_SCENE = preload("res://scenes/farm_scene.tscn")
 const PAUSE_MENU = preload("res://scenes/pause_menu.tscn")
 
 
-func _ready() -> void:
-	await get_tree().change_scene_to_packed(FARM_SCENE)
+#func _ready() -> void:
+	#await get_tree().change_scene_to_packed(FARM_SCENE)
 	#print("FARMMMMMMMMM")
 	#var label=Label.new()
 	#label.position=Vector2(0,500)
