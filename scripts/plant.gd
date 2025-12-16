@@ -100,10 +100,7 @@ func _ready() -> void:
 				quality-=30
 	
 	PlantTracker.quality_tracker[self.name]["quality"] = quality
-	#if not PlantTracker.quality_tracker.has(self.name) :
-		#PlantTracker.quality_tracker[self.name] = {"quality": quality, "past_last_day":false} 
-	#else:
-		#PlantTracker.quality_tracker[self.name] = quality 
+	
 		
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton :

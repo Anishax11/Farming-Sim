@@ -12,7 +12,12 @@ var saved_data = {
 	"last_plant_number":null,
 	"tutorials" : null,
 	"interactions" : null,
-	"trade_money" : 0
+	"trade_money" : 0,
+	"quality_tracker" : null,
+	"harvested_plants" : null,
+	"plant_names" : null,
+	"locked_growth" : null,
+	"panel_seed_count" :null
 }
 
 var save_path="user://savegame.json"
@@ -51,6 +56,12 @@ func save_data():
 	saved_data["tutorials"]=Tutorials.tutorials
 	saved_data["interactions"] = Tutorials.interactions
 	saved_data["trade_money"] = Global.trade_money
+	saved_data["quality_tracker"] = PlantTracker["quality_tracker"]
+	saved_data["harvested_plants" ]= PlantTracker["harvested_plants"]
+	saved_data["plant_names" ]= PlantTracker["plant_names"]
+	saved_data["locked_growth" ]= PlantTracker["locked_growth" ]
+	saved_data["panel_seed_count"]= PlantTracker["panel_seed_count"]
+	
 	
 func save_game():
 	print("SAVING....")
@@ -105,8 +116,11 @@ func load_game():
 		Tutorials.tutorials=data["tutorials"]	
 		Tutorials.interactions = data["interactions"] 
 		Global.trade_money = data["trade_money"]
-	
-	
+		PlantTracker.quality_tracker = data["quality_tracker"]
+		PlantTracker.harvested_plants = data["harvested_plants"]
+		PlantTracker.plant_names = data["plant_names"]
+		PlantTracker.locked_growth = data["locked_growth"]
+		PlantTracker.panel_seed_count = data["panel_seed_count"]
 		
 		if packed_scene:
 			await get_tree().change_scene_to_packed(packed_scene)

@@ -56,7 +56,7 @@ var plant_info = {
 	}
 }
 
-var quality_tracker={
+var quality_tracker={ # holds quality and past_last_day (key is plant name)
 	
 }
 func add_to_plant_dictionary(plant_name):

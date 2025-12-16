@@ -58,9 +58,9 @@ var ItemPriceList={
 
 var trade_money=0
 var equipped_panel #Keeps track of equipped panel
-var win_size
-func _ready():
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+#var win_size
+#func _ready():
+	#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 	
 func get_direction(direction) :
 	
