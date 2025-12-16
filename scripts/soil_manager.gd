@@ -10,7 +10,7 @@ var id=1
 func _ready() -> void:
 	print("SOIL MANAGeR")
 	
-	var inventory=get_node("/root/farm_scene/Farmer/Inventory")
+	var inventory=get_node("/root/farm_scene/Farmer/ClickBlocker/Inventory")
 	for y in range(280,567,+15):
 		for x in range(-125, 215, +15):
 			#if (y<630 and x>224) or (y<630 and x<-24) or (y>=628):
@@ -80,6 +80,7 @@ func _ready() -> void:
 					elif plant_found==false and j==PlantTracker.plant_stages.size():#used to grow plant for the first time
 						print("PLANT NOT FOUND: ","Plant"+str(j))
 						print("Growing this plant for the first time")
+						print("Global.watered_plants[i] : ",Global.watered_plants[i])
 						Global.grow_plant(Global.watered_plants[i])
 						Global.planted_soil.append(Global.watered_plants[i])#contains plants that have been grown once so they can be reloaded
 						

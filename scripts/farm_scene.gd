@@ -1,12 +1,20 @@
 extends Node2D
-var FrontyardScene = load("res://scenes/frontyard_scene.gd")
+var FrontyardScene = load("res://scenes/frontyard_scene.tscn")
 var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
 var time_manager
 var game = load("res://scenes/game.tscn")
-var farm_temp = 25
+var farm_temp 
 const ARIA = preload("res://scenes/aria.tscn")
 func _ready() -> void:
-	
+	print("FARMMMMMM")
+	#if PlantTracker.curr_farm_temp!=null:
+		#farm_temp = PlantTracker.curr_farm_temp
+		#print("FArm temp ;",farm_temp)
+		#
+	#else :
+		#farm_temp = randi_range(18,40)
+		
+	print("Farm temp is : ",farm_temp)	
 	#get_tree().current_scene.find_child("TempLabel",true,false).text="Temp : "+str(farm_temp)
 	Global.music_fade_in()
 	var player = get_node("Farmer")
@@ -19,7 +27,8 @@ func _ready() -> void:
 	var inventory = get_node("Farmer/ClickBlocker/Inventory")
 	#inventory.add_to_inventory("pumpkin_seeds",Global.pumpkin_image)
 	#inventory.add_to_inventory("potato_seeds",Global.potato_image)
-	#inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
+	inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
+	Global.get_empty_panel().seed_count=6
 	#if Global.player_pos!=null:
 		#player.global_position=Global.player_pos
 				#

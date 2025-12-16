@@ -1,6 +1,6 @@
 extends Node
 
-
+var curr_farm_temp
 var plant_stages = {}
 var harvested_plants=[]
 var plant_names={}
@@ -37,13 +37,28 @@ var prices={
 	
 }
 
-var favourable_conditions = {
-	"strawberry" : [18,24],
-	"potato" : 50,
-	"pumpkin" :80,
-	"carrot" : 50
+var plant_info = {
+	"strawberry" : {
+		"difficulty" : 1.3,# moderate
+		"ideal_temp" : 21 
+	},
+	"potato" : {
+		"difficulty" : 1.3,# moderate
+		"ideal_temp" : 25 
+	},
+	"pumpkin" :{
+		"difficulty" : 1.6,# difficult
+		"ideal_temp" : 30 
+	},
+	"carrot" :{
+		"difficulty" : 1,# easy
+		"ideal_temp" : 25 
+	}
 }
 
+var quality_tracker={
+	
+}
 func add_to_plant_dictionary(plant_name):
 	print("add_to_plant_dictionary called")
 	

@@ -20,6 +20,7 @@ var seed_count = 6
 var seed_type
 var transferred=false
 var last_five
+var plant_score
 func _ready():
 	var text = self.name
 	var regex = RegEx.new()

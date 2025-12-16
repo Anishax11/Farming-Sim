@@ -31,8 +31,6 @@ radius = 49.0102
 [node name="farm_scene" type="Node2D"]
 script = ExtResource("1_consl")
 
-[node name="SoilManager" parent="." instance=ExtResource("5_p20ei")]
-
 [node name="watercan" parent="." instance=ExtResource("6_osxcg")]
 position = Vector2(74, 201)
 scale = Vector2(0.8, 0.56)
@@ -78,5 +76,7 @@ parameters/looping = true
 
 [node name="TemperatureRegulator" parent="." instance=ExtResource("9_jxt41")]
 visible = false
+
+[node name="SoilManager" parent="." instance=ExtResource("5_p20ei")]
 
 [connection signal="body_entered" from="EXIT" to="." method="_on_exit_body_entered"]

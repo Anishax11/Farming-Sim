@@ -98,9 +98,11 @@ func move_item(panel_number,item_name):
 			print("final_panel!=previous_panel")
 			final_panel.seed_type=previous_panel.seed_type
 			final_panel.seed_count=previous_panel.seed_count
+			final_panel.plant_score=previous_panel.plant_score
 			PlantTracker.panel_seed_count[final_panel.name]=previous_panel.seed_count
 			PlantTracker.panel_seed_count[previous_panel.name]=0
 			previous_panel.seed_count=0 
+			previous_panel.plant_score=null
 			previous_panel.remove_child(texture_rect)
 			#texture_rect.name=previous_panel.item_name
 			previous_panel.item_name=null
@@ -138,7 +140,7 @@ var plant_number=1
 var plant_stages_index=0
 
 func grow_plant(soil_name):
-	var soil =get_node("/root/farm_scene/SoilManager/"+soil_name)
+	var soil =get_node_or_null("/root/farm_scene/SoilManager/"+soil_name)
 	var plant=PLANT.instantiate()
 	plant.scale=Vector2(0.4,0.4)
 	#print("Last plnt index in dic:",PlantTracker.plant_stages.size()-1)
@@ -148,9 +150,11 @@ func grow_plant(soil_name):
 	print("Gobal plant name:",plant.name)
 	#soil.remove_child.soil.get_node("AnimatedSprite2D")
 	#get_node("/root/Game/farm_scene/").add_child(plant)
-	if get_node("/root/farm_scene"):
+	if soil==null:
+		print("SOil is null")
+	
+	if get_node_or_null("/root/farm_scene")!=null:
 		#get_node("/root/Game/farm_scene/").add_child(plant)
-		
 		soil.add_child(plant)
 		
 		#PlantTracker.add_to_plant_dictionary(plant.name)
@@ -159,8 +163,8 @@ func grow_plant(soil_name):
 		plant.global_position.y=soil.global_position.y-5
 		#plant.global_position.x=soil.global_position.x-8
 		plant.global_rotation=0
-	#else:
-		#print("farm_scene not found!")
+	else:
+		print("farm_scene not found!")
 		
 	
 	
