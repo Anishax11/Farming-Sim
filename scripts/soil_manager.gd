@@ -88,27 +88,34 @@ func _ready() -> void:
 			else:
 				
 				break
+		
+		for i in range (0,Global.watered_plants.size()):#Used to set soil watered to true
+			var soil=get_node("/root/farm_scene/SoilManager/"+Global.watered_plants[i])	
+			if soil.get_child_count()>3:
+				soil.watered=true		
 				
-		for i in range (0,Global.planted_soil.size()):#Used to set soil watered to true
-			var soil=get_node("/root/farm_scene/SoilManager/"+Global.planted_soil[i])	
-			print("LAST plant :",Global.last_plant_number)
-			for j in range(1,Global.last_plant_number + 1):
-			
-					if soil.has_node("strawberry"+str(j))!=false  :
-						print("PLANT FOUND:","strawberry"+str(j))
-						if PlantTracker.plant_stages.has(soil.get_node("strawberry"+str(j)).name):
-							
-							soil.watered=true
-							
-					
-					elif soil.has_node("potato"+str(j))!=false:
-						print("PLANT FOUND:","potato"+str(j))
-						#print(soil.get_node("potato"+str(j)).stage)
-						if PlantTracker.plant_stages.has(soil.get_node("potato"+str(j)).name):
-							
-							soil.watered=true
-							
-								
+		#for i in range (0,Global.planted_soil.size()):#Used to set soil watered to true
+			#var soil=get_node("/root/farm_scene/SoilManager/"+Global.planted_soil[i])	
+			#print("LAST plant :",Global.last_plant_number)
+			#for j in range(1,Global.last_plant_number + 1):
+					#
+					##if soil.get_child_count()>3:
+						##soil.watered=true
+					#if soil.has_node("strawberry"+str(j))!=false  :
+						#print("PLANT FOUND:","strawberry"+str(j))
+						#if PlantTracker.plant_stages.has(soil.get_node("strawberry"+str(j)).name):
+							#
+							#soil.watered=true
+							#
+					#
+					#elif soil.has_node("potato"+str(j))!=false:
+						#print("PLANT FOUND:","potato"+str(j))
+						##print(soil.get_node("potato"+str(j)).stage)
+						#if PlantTracker.plant_stages.has(soil.get_node("potato"+str(j)).name):
+							#
+							#soil.watered=true
+							#
+								#
 							
 			
 		Global.load_farm=false	
@@ -116,7 +123,7 @@ func _ready() -> void:
 			Global.watered_plants.clear()
 			
 			Global.day_passed=false	
-			print("Locked growth array cleared")
+			##print("Locked growth array cleared")
 			
 func till_soil(soil,soil_animation):
 	print("Till func called")

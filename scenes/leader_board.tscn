@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwwvxkgt01rx2"]
+
+[ext_resource type="Script" path="res://scripts/leader_board.gd" id="1_20l0w"]
+[ext_resource type="Texture2D" uid="uid://daeamlnxvcks" path="res://16x16/Sprites/Potato.png" id="2_5tlkv"]
+[ext_resource type="PackedScene" uid="uid://daxuwb0xs68u6" path="res://scenes/leader_board_display.tscn" id="3_kvskp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ct4gn"]
+radius = 66.6667
+height = 133.333
+
+[node name="LeaderBoard" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_20l0w")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 149.0
+offset_bottom = 145.0
+texture = ExtResource("2_5tlkv")
+
+[node name="LeaderBoardDisplay" parent="." instance=ExtResource("3_kvskp")]
+visible = false
+offset_left = -82.0
+offset_top = -139.0
+offset_right = 91.0
+offset_bottom = -8.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(73.3333, 66.6667)
+shape = SubResource("CapsuleShape2D_ct4gn")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

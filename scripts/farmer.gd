@@ -154,7 +154,7 @@ func update_points(amount:int):
 	print("Updating points...")
 	points+=amount	
 	Tutorials.PointTracker["Player"]+=amount
-	get_tree().get_current_scene().find_child("PointsLabel",true,false).text = "Coins :"+str(points)
+	get_tree().get_current_scene().find_child("PointsLabel",true,false).text = "Points :"+str(points)
 	
 		
 func display_coins():

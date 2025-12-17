@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://daxuwb0xs68u6"]
+
+[ext_resource type="Script" path="res://scripts/leader_board_display.gd" id="1_0o5ec"]
+
+[node name="LeaderBoardDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 173.0
+offset_bottom = 131.0
+script = ExtResource("1_0o5ec")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 172.0
+offset_bottom = 121.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="1" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="2" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="3" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="4" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="5" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1

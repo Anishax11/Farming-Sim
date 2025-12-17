@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://dj0hkgwoix4at"]
+[gd_scene load_steps=70 format=3 uid="uid://dj0hkgwoix4at"]
 
 [ext_resource type="Script" path="res://scripts/frontyard_scene.gd" id="1_3rtkc"]
 [ext_resource type="Texture2D" uid="uid://bpbn2trmc2git" path="res://MV/tilesets/_srw_tileset_0.png" id="1_ef1hy"]
@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://cow2vl3bu5y4s" path="res://scenes/noa.tscn" id="38_y5hju"]
 [ext_resource type="PackedScene" uid="uid://jsrjbk6o50t3" path="res://scenes/eiden.tscn" id="39_ud80x"]
 [ext_resource type="PackedScene" uid="uid://ctqwy3qxwoi1f" path="res://scenes/aira.tscn" id="40_y7v32"]
+[ext_resource type="PackedScene" uid="uid://cwwvxkgt01rx2" path="res://scenes/leader_board.tscn" id="41_gqh32"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugn7j"]
 texture = ExtResource("1_ef1hy")
@@ -37738,5 +37739,9 @@ position = Vector2(282, 583)
 position = Vector2(128, 595)
 
 [node name="Aira" parent="Aira" instance=ExtResource("40_y7v32")]
+
+[node name="LeaderBoard" parent="." instance=ExtResource("41_gqh32")]
+z_index = 3
+position = Vector2(40, 640)
 
 [connection signal="body_entered" from="MarketEntrance" to="." method="_on_market_entrance_body_entered"]

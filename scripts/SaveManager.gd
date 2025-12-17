@@ -20,7 +20,8 @@ var saved_data = {
 	"panel_info" :null,
 	"soil_data" : null,
 	"tasks" : null,
-	"full" : null #inv full
+	"full" : null, #inv full
+	"PointTracker" : null
 }
 
 var save_path="user://savegame.json"
@@ -69,6 +70,8 @@ func save_data():
 	saved_data["seeds_bought"]= TaskManager["seeds_bought"]
 	saved_data["keys_array"]= TaskManager["keys_array"]
 	saved_data["full"] = Inventory.full
+	saved_data["PointTracker"] = Tutorials.PointTracker
+	
 	
 	
 func save_game():
@@ -132,7 +135,7 @@ func load_game():
 		Global.soil_data = data["soil_data"]
 		TaskManager.tasks = data["tasks"]
 		Inventory.full = data["full"] 
-		
+		Tutorials.PointTracker = data["PointTracker"]
 		
 		if packed_scene:
 			await get_tree().change_scene_to_packed(packed_scene)

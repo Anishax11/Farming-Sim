@@ -195,7 +195,8 @@ func update_day_count():
 	while(get_node("/root/house_interior/Farmer")==null):
 		await get_tree().process_frame  # wait for the scene to finish loading
 	
-	PlantTracker.locked_growth.clear()
+	#Global.watered_plants.clear()
+	PlantTracker.locked_growth.clear() # plants in this array have been watered once(used to ensure plant stage is incremented only once per day )
 	day_passed=true
 	if trade_money>0:
 		print("Increment coins")

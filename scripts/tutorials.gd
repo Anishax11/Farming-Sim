@@ -24,13 +24,13 @@ var interactions={
 
 var PointTracker={
 	"Player" : 0,
-	"Aira" : 0,
-	"Noa" : 0,
-	"Eiden" : 0,
-	"Maya" : 0,
-	"Mia" : 0,
-	"Eli" : 0,
-	"Ellanora" : 0,
-	"Zoe" : 0
+	"Aira" : 100,
+	"Noa" : 80,
+	"Eiden" : 500,
+	"Maya" : 1000,
+	"Mia" : 2000,
+	"Eli" : 340,
+	"Ellanora" : 560,
+	"Zoe" : 780
 	
 }
