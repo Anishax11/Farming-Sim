@@ -12,22 +12,67 @@ var plant_stage_limits={
 }
 var locked_growth={}#used to store soil {with plant} which has already been watered once in the day to prevent multiple updates in stage on the same day
 # keeps track of panel's seed_count to load back on another day
-var panel_seed_count={
-	"Panel1":0,
-	"Panel2":0,
-	"Panel3":0,
-	"panel4":0,
-	"panel5":0,
-	"panel6":0,
-	"panel7":0,
-	"panel8":0,
-	"panel9":0,
-	"panel10":0,
-	"panel11":0,
-	"panel12":0,
-	"panel13":0,
-	"panel14":0,
-	"panel15":0,
+var panel_info={
+	"Panel1":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel2":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel3":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel4":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel5":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel6":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel7":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel8":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel9":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel10":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel11":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel12":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel13":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel14":{
+	"seed_count" : 0,
+	"plant_score" : null
+	},
+	"Panel15":{
+	"seed_count" : 0,
+	"plant_score" : null
+	}
 }  
 var prices={
 	"strawberry" : 100,

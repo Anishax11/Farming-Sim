@@ -6,8 +6,6 @@ var slot_found=false
 #var slots_passed=0
 #var slot_adjust=1
 var inv_initialised=false
-var strawberry_seeds_count=6
-var potato_seeds_count=6
 var full = false
 
 func _ready() -> void:

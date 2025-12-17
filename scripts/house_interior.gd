@@ -7,7 +7,6 @@ var date_label
 var farmer_added=false
 var camera
 var time_manager
-var pause_menu
 var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
 
 func _ready() -> void:
@@ -16,10 +15,9 @@ func _ready() -> void:
 	Dialogic.end_timeline()
 	farmer=get_node("Farmer")
 
-	pause_menu=get_node("Farmer/PauseMenu")
-	pause_menu.queue_free()
+	
 	get_node("Farmer/ClickBlocker").queue_free()
-	get_node("Farmer/TaskManager").queue_free()
+	#get_node("Farmer/TaskManager").queue_free()
 	time_manager=get_tree().get_current_scene().find_child("TimeManager")
 	#print("Task acq :",tasks["Task1"]["acquired"])
 	

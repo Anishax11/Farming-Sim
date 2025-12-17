@@ -17,5 +17,20 @@ var interactions={
 	"eiden":false,
 	"aira":false,
 	"noa":false,
-	"aria_strawberry_task_given":false
+	"sera" :false,
+	"aria_strawberry_task_given":false,
+	"registration_done" :false
+}
+
+var PointTracker={
+	"Player" : 0,
+	"Aira" : 0,
+	"Noa" : 0,
+	"Eiden" : 0,
+	"Maya" : 0,
+	"Mia" : 0,
+	"Eli" : 0,
+	"Ellanora" : 0,
+	"Zoe" : 0
+	
 }

@@ -144,7 +144,7 @@ material = SubResource("ShaderMaterial_ulggq")
 position = Vector2(6, -2)
 scale = Vector2(0.812, 0.8)
 sprite_frames = SubResource("SpriteFrames_dxjdq")
-animation = &"pumpin_stage_3"
+animation = &"strawberry_stage_1"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

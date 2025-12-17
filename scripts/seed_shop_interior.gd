@@ -19,8 +19,6 @@ func _ready() -> void:
 
 	get_node("Farmer/Camera2D").queue_free()
 	
-	get_node("Farmer/PauseMenu").queue_free()
-	get_node("Farmer/PauseMenu").position.y=-80
 	
 	get_node("Farmer/AnimatedSprite2D").play("backward")
 	Global.player_direction=Vector2(0,0)

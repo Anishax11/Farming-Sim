@@ -32,7 +32,11 @@ func _on_button_down() -> void:
 			#price=50
 		#elif seed_type=="pumkin":
 			#price=80
+		
 		price = PlantTracker.prices[seed_type]
+		if (price > Global.coins_count):
+			print("Insufficient coins")
+			return
 		print("SEED TYPE :",seed_type)
 		
 			
@@ -46,7 +50,7 @@ func _on_button_down() -> void:
 		
 		inventory.add_to_inventory(seed_type+"_seeds",Global.strawberry_image)
 		empty_panel = Global.get_empty_panel()
-		PlantTracker.panel_seed_count[empty_panel.name]=6
+		PlantTracker.panel_info[empty_panel.name]["seed_count"]=6
 		print("Empty panel : ",empty_panel.name)				
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		#print("Global.empty_panel:",Global.empty_panel.name)

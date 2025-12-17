@@ -6,10 +6,12 @@ var texture
 var empty_panel
 var string_part
 var farm
+var farmer
 var score # score = quality x difficulty
 # plant quality will increment on last day but not after that even if its not harvested
 func _ready() -> void:
 	
+	farmer = get_tree().current_scene.find_child("Farmer",true,false)
 	var text=self.name
 	var regex=RegEx.new()
 	regex.compile(r"\d+")  # Compile pattern to match one or more digits
@@ -20,13 +22,22 @@ func _ready() -> void:
 	Global.last_plant_number = int(match.get_string())
 	stage = PlantTracker.plant_stages[self.name]
 	
-	if stage>= PlantTracker.plant_stage_limits[string_part]:
+	if not PlantTracker.locked_growth.has(get_parent().name) :
+		animated_sprite_2d.play(string_part+"_stage_"+str(stage))
+		print("Plant instantiated, play animation :",string_part+"_stage_"+str(stage))
+		
+	else :
+		animated_sprite_2d.play(string_part+"_stage_"+str(stage-1))
+		print("Locked growth")
+		print("Playing animation :",string_part+"_stage_"+str(stage-1))
+		
+	if stage > PlantTracker.plant_stage_limits[string_part]: #If plant watered after reaching final stage, play animation of final stage
 		stage=PlantTracker.plant_stage_limits[string_part]
 		PlantTracker.plant_stages[self.name]=stage
-		
+		animated_sprite_2d.play(string_part+"_stage_"+str(stage))
 	
 	
-	print("Plant instantiated, play animation :",string_part+"_stage_"+str(stage))
+	
 	if string_part=="potato":
 		animated_sprite_2d.scale=Vector2(1,1)
 		global_position.y+=2
@@ -39,14 +50,15 @@ func _ready() -> void:
 		global_position.x-=2
 		global_position.y+=1
 	
-	animated_sprite_2d.play(string_part+"_stage_"+str(stage))
 	
+		
 	if not PlantTracker.quality_tracker.has(self.name):
 		quality = 40
 		PlantTracker.quality_tracker[self.name]={
 			"quality" : 40,
 			"past_last_day" : false
 		}
+		
 	else:
 		quality = PlantTracker.quality_tracker[self.name]["quality"]
 		
@@ -57,11 +69,12 @@ func _ready() -> void:
 		print("farm_temp is null")
 		
 	var temp_diff = abs(farm.farm_temp - PlantTracker.plant_info[string_part]["ideal_temp"])
-	print("Ideal temp : ",PlantTracker.plant_info[string_part]["ideal_temp"])
-	print("farm temp :",farm.farm_temp)
-	print("Temp diff :", temp_diff)
+	#print("Ideal temp : ",PlantTracker.plant_info[string_part]["ideal_temp"])
+	#print("farm temp :",farm.farm_temp)
+	#print("Temp diff :", temp_diff)
 	
 	if stage==PlantTracker.plant_stage_limits[string_part] and PlantTracker.quality_tracker[self.name]["past_last_day"]==true : # quality won't be increased anymore once plant is in its final stage, but it can fall
+		
 		if  PlantTracker.plant_info[string_part]["difficulty"] ==1: # easy difficulty
 			if temp_diff >7 :
 				quality-=5
@@ -75,6 +88,7 @@ func _ready() -> void:
 		
 		
 	else :
+		print("Incrementing quality")
 		if stage==PlantTracker.plant_stage_limits[string_part]:
 			PlantTracker.quality_tracker[self.name]["past_last_day"]=true
 		if  PlantTracker.plant_info[string_part]["difficulty"] ==1: # easy difficulty
@@ -113,6 +127,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			print("PlNT harvested")
 			if stage==PlantTracker.plant_stage_limits[string_part]:
 				score = quality * PlantTracker.plant_info[string_part]["difficulty"]
+				farmer.update_points(score)
 				print("Stage is 3")
 				Global.planted_soil.erase(get_parent().name)
 				Global.sown_soil.erase(get_parent().name)
@@ -122,6 +137,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				get_node("/root/farm_scene/Farmer/ClickBlocker/Inventory").add_to_inventory(string_part,texture)
 				var curr_panel = Global.get_empty_panel() # panel with harvested plant
 				curr_panel.plant_score = score
+				PlantTracker.panel_info[curr_panel.name]["plant_score"] = score
 				get_parent().planted=false
 				get_parent().tilled=false
 				#print("get_parent().planted:",get_parent().planted)

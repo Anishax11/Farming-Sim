@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqqqqqciwa4m4"]
+[gd_scene load_steps=7 format=3 uid="uid://bqqqqqciwa4m4"]
 
 [ext_resource type="Script" path="res://scripts/label_canvas.gd" id="1_vncsg"]
 [ext_resource type="PackedScene" uid="uid://cxgldqae4p20u" path="res://scenes/date_label.tscn" id="2_x0h8e"]
 [ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="3_6fjnn"]
 [ext_resource type="PackedScene" uid="uid://475fb1fcmkgf" path="res://coin_label.tscn" id="4_m48ye"]
 [ext_resource type="Texture2D" uid="uid://dgkbbkp5yf8t6" path="res://16x16/Sprites/LabelDisplay.png" id="5_hw4qw"]
+[ext_resource type="PackedScene" uid="uid://but8qwaakhn1n" path="res://scenes/pause_menu.tscn" id="6_8j1a0"]
 
 [node name="LabelCanvas" type="CanvasLayer"]
 script = ExtResource("1_vncsg")
@@ -60,3 +61,34 @@ offset_bottom = 295.0
 scale = Vector2(2.5, 2.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Coins :"
+
+[node name="PauseControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PauseMenu" parent="PauseControl" instance=ExtResource("6_8j1a0")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -259.0
+offset_right = 321.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+
+[node name="PointsLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(3, 3)
+text = "Points : "

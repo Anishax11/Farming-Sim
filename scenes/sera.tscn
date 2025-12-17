@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://t0lrekhwyjgk"]
+
+[ext_resource type="Script" path="res://scripts/sera.gd" id="1_ig4th"]
+[ext_resource type="Texture2D" uid="uid://b5wq0hmbgnmqm" path="res://16x16/Sprites/MemaoCharacterFantasySpritePack/006.png" id="1_ukmh8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0upb0"]
+atlas = ExtResource("1_ukmh8")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udnpo"]
+atlas = ExtResource("1_ukmh8")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd4p7"]
+atlas = ExtResource("1_ukmh8")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66ir0"]
+atlas = ExtResource("1_ukmh8")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jha3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0upb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udnpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd4p7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66ir0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtiue"]
+radius = 6.0
+height = 34.0
+
+[node name="Sera" type="Area2D"]
+script = ExtResource("1_ig4th")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3jha3")
+autoplay = "default"
+frame_progress = 0.0348298
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_dtiue")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

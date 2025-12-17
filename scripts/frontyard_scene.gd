@@ -8,25 +8,16 @@ var slot_adjust=1
 func _ready() -> void:
 	Global.music_fade_in()
 	Dialogic.end_timeline()
-	#print("  " *  + node.name)
 	var labelcanvas = $LabelCanvas   # adjust path if needed
-	#print_all_children(labelcanvas)
 	var root = get_tree().current_scene
-
-	#for child in root.get_children():
-		#print("Child:", child.name)
-#
-		#for grand in child.get_children():
-			#print("  Grandchild:", grand.name)
 	var inventory = get_node("Farmer/ClickBlocker/Inventory")
 	#inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
-	#
 	#inventory.add_to_inventory("potato_seeds",Global.potato_image)
 	#inventory.add_to_inventory("pumpkin_seeds",Global.pumpkin_image)
 	#inventory.add_to_inventory("watercan",Global.pumpkin_image)
 	#inventory.add_to_inventory("pumpkin",Global.pumpkin_image)
 	#inventory.add_to_inventory("potato",Global.potato_image)
-	inventory.add_to_inventory("strawberry",Global.strawberry_image)
+	#inventory.add_to_inventory("strawberry",Global.strawberry_image)
 	
 	time_manager = get_tree().get_current_scene().find_child("TimeManager",true,false)
 	var player =get_node("Farmer")
@@ -37,20 +28,9 @@ func _ready() -> void:
 		player.animated_sprite_2d.play("backward")
 	else:
 		player.animated_sprite_2d.play("forward")
-	#time_manager.current_time=Global.current_time
-	#time_manager.time_to_change_tint=time_manager.time_to_change_tint
-	#time_manager.tint_index=time_manager.color_rect.i
-#func _on_farm_entrance_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	#
-	#if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
-		#if event.pressed:
-			#print("Open farm")
-			#time_manager=get_node("/root/Game/frontyard_scene/Farmer/TimeManager")
-			#Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i)
-			#await get_tree().change_scene_to_packed(FARM_SCENE)
-			#Global.load_farm=true
+	
 
-
+	
 
 
 

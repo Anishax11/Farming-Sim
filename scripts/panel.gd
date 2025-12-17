@@ -21,6 +21,7 @@ var seed_type
 var transferred=false
 var last_five
 var plant_score
+
 func _ready():
 	var text = self.name
 	var regex = RegEx.new()
@@ -34,8 +35,9 @@ func _ready():
 	anchor_top = 1
 	anchor_right = 1
 	anchor_bottom = 1
-	if  PlantTracker.panel_seed_count.has(self.name):
-		seed_count = PlantTracker.panel_seed_count[self.name]
+	
+	seed_count = PlantTracker.panel_info[self.name]["seed_count"]
+	plant_score = PlantTracker.panel_info[self.name]["plant_score"]
 		#print(self.name ," limit :",seed_count)
 	stylebox = StyleBoxTexture.new()
 	
@@ -56,7 +58,7 @@ func _on_gui_input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
-			#print(self.name,"Seed count :",seed_count)
+			print(" Panel: ",self.name," Plant Score is : ",plant_score)
 			Global.equipped_panel = self.name
 			if item_name!=null:
 				clicked=!clicked

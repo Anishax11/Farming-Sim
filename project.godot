@@ -32,6 +32,7 @@ directories/dch_directory={
 "Eiden": "res://16x16/Sprites/Eiden.dch",
 "Maya": "res://Maya.dch",
 "Noa": "res://16x16/Sprites/Noa.dch",
+"Sera": "res://Sera.dch",
 "aira": "res://16x16/Sprites/aira.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
@@ -47,6 +48,7 @@ directories/dtl_directory={
 "Noa": "res://16x16/Sprites/Noa.dtl",
 "SeedShopOwner": "res://SeedShopOwner.dtl",
 "SeedShopTutorial": "res://SeedShopTutorial.dtl",
+"Sera": "res://Sera.dtl",
 "TempRegulatorTutorial": "res://TempRegulatorTutorial.dtl",
 "TradeBoxTutorial": "res://TradeBoxTutorial.dtl"
 }
@@ -59,11 +61,14 @@ variables={
 "aria_last_convo": false,
 "aria_strawberry_task_given": false,
 "aria_task_done": false,
+"current_scene": "",
 "day": 1,
 "eiden_intro": false,
 "maya_intro": false,
 "noa_intro": false,
-"random": 0
+"random": 0,
+"registration_done": false,
+"sera_intro": false
 }
 glossary/default_case_sensitive=true
 

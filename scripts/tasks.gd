@@ -9,6 +9,10 @@ func _ready() -> void:
 	#if TaskManager.keys_array.size()==0:
 		#print("keys  array empty")
 	vb = get_tree().current_scene.find_child("TaskVBoxContainer", true, false)
+	if vb == null:
+		print("VB IS NULL")
+	else:
+		print("VB IS NOT NULL")	
 	for i in range(TaskManager.keys_array.size()):
 		var id = TaskManager.keys_array[i]         # "Task1"
 		var task = tasks[id]
@@ -26,6 +30,7 @@ func _ready() -> void:
 			label.z_index=4
 			
 			vb.add_child(label)
+			print("TAsk added")
 			
 	#var timer = Timer.new()
 	#timer.wait_time = 3.0  # 3 seconds

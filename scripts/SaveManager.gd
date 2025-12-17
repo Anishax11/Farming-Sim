@@ -17,7 +17,10 @@ var saved_data = {
 	"harvested_plants" : null,
 	"plant_names" : null,
 	"locked_growth" : null,
-	"panel_seed_count" :null
+	"panel_info" :null,
+	"soil_data" : null,
+	"tasks" : null,
+	"full" : null #inv full
 }
 
 var save_path="user://savegame.json"
@@ -60,7 +63,12 @@ func save_data():
 	saved_data["harvested_plants" ]= PlantTracker["harvested_plants"]
 	saved_data["plant_names" ]= PlantTracker["plant_names"]
 	saved_data["locked_growth" ]= PlantTracker["locked_growth" ]
-	saved_data["panel_seed_count"]= PlantTracker["panel_seed_count"]
+	saved_data["panel_info"]= PlantTracker["panel_info"]
+	saved_data["soil_data"]= PlantTracker["soil_data"]
+	saved_data["tasks"] = TaskManager["tasks"]
+	saved_data["seeds_bought"]= TaskManager["seeds_bought"]
+	saved_data["keys_array"]= TaskManager["keys_array"]
+	saved_data["full"] = Inventory.full
 	
 	
 func save_game():
@@ -120,7 +128,11 @@ func load_game():
 		PlantTracker.harvested_plants = data["harvested_plants"]
 		PlantTracker.plant_names = data["plant_names"]
 		PlantTracker.locked_growth = data["locked_growth"]
-		PlantTracker.panel_seed_count = data["panel_seed_count"]
+		PlantTracker.panel_info = data["panel_info"]
+		Global.soil_data = data["soil_data"]
+		TaskManager.tasks = data["tasks"]
+		Inventory.full = data["full"] 
+		
 		
 		if packed_scene:
 			await get_tree().change_scene_to_packed(packed_scene)

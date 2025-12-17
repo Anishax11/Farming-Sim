@@ -4,6 +4,6 @@ No. I came for the Harvest Bloom Festival.
 Aria: Then you arrived on time. The festival will begin in a few days
 Do you know where I can buy seeds?
 Aria: The seed shop is in the marketplace.
-Aria: Head down the stairs by the statue, you'll see it.
 [signal arg="Task1_acquired"]
+Aria: Head down the stairs by the statue, you'll see it.
 [end_timeline]

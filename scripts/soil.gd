@@ -94,6 +94,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
 					print("Added new plant: :",plant_name+str(Global.plant_number) )
 					Global.plant_number+=1
+					
 					PlantTracker.locked_growth[self.name]=true #Set lock on soil so plant stage can only be updated once a day
 					
 						
@@ -119,8 +120,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					#print("Seeds count before:",inventory.seeds_count)
 					#var current = inventory.get(count)
 					panel.seed_count-=1
-					PlantTracker.panel_seed_count[panel.name]=panel.seed_count
-					PlantTracker.panel_seed_count[panel.name]=panel.seed_count
+					PlantTracker.panel_info[panel.name]["seed_count"]=panel.seed_count
 					if panel.seed_count == 0:
 						Global.equipped_item=null
 						Global.equipped_panel=null

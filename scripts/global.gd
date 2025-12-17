@@ -39,7 +39,7 @@ const INVENTORY_SLOT = preload("res://16x16/Sprites/inventorySlot.png")
 var equipped_item
 var last_plant_number
 var load_frontyard=false
-var coins_count=770
+var coins_count=50
 var color_rect_i=0
 var soil_data={
 	
@@ -194,7 +194,8 @@ func update_day_count():
 	await get_tree().change_scene_to_packed(HOUSE_INTERIOR)	
 	while(get_node("/root/house_interior/Farmer")==null):
 		await get_tree().process_frame  # wait for the scene to finish loading
-
+	
+	PlantTracker.locked_growth.clear()
 	day_passed=true
 	if trade_money>0:
 		print("Increment coins")

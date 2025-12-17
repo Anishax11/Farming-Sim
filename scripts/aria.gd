@@ -17,6 +17,7 @@ func _ready() -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			Dialogic.signal_event.connect(_on_dialogic_signal)
 			Dialogic.VAR.set("aria_strawberry_task_given",Tutorials.interactions["aria_strawberry_task_given"])
 			if Tutorials.interactions["aria"]==false:
 				print("Interact with aria")
@@ -25,7 +26,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				Tutorials.interactions["aria"]=true
 			else:
 				#rng.randomize()
-				Dialogic.signal_event.connect(_on_dialogic_signal)
+				
 				Dialogic.VAR.set("random",randi_range(1, 2))
 				print("Randome :",Dialogic.VAR.random)
 				Dialogic.start("Aria")
@@ -51,4 +52,5 @@ func _on_dialogic_signal(argument : String):
 					get_tree().current_scene.find_child("Panel"+number,true,false).remove_item()
 	
 	elif argument== "Task1_acquired":
+		print("task one acquired")
 		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task1")

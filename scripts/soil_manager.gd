@@ -53,7 +53,7 @@ func _ready() -> void:
 	
 					
 		for i in range((Global.watered_plants).size()):
-			print("runnihng loop watered plants:"+str(Global.watered_plants[0]))
+			print("runnihng loop watered plants:"+str(Global.watered_plants[i]))
 			if Global.watered_plants[i]!=null and Global.day_passed==true:
 				print("watered plnts not nuill")
 				var soil=get_node("/root/farm_scene/SoilManager/"+str(Global.watered_plants[i]))
@@ -114,8 +114,9 @@ func _ready() -> void:
 		Global.load_farm=false	
 		if Global.day_passed==true:
 			Global.watered_plants.clear()
-			PlantTracker.locked_growth.clear()
+			
 			Global.day_passed=false	
+			print("Locked growth array cleared")
 			
 func till_soil(soil,soil_animation):
 	print("Till func called")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bulruc5in76aq"]
+[gd_scene load_steps=37 format=3 uid="uid://bulruc5in76aq"]
 
 [ext_resource type="Script" path="res://scripts/farmer.gd" id="1_kssk7"]
 [ext_resource type="Texture2D" uid="uid://ct8kkbqy7hk43" path="res://MV/characters/_srw_free_farm_character_shovel.png" id="3_cdl31"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="10_scngo"]
 [ext_resource type="PackedScene" uid="uid://dtsl7koixwult" path="res://scenes/task_manager.tscn" id="11_cngkf"]
 [ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="11_n8gv4"]
-[ext_resource type="PackedScene" uid="uid://but8qwaakhn1n" path="res://scenes/pause_menu.tscn" id="12_idb42"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uauli"]
 atlas = ExtResource("3_i0v8y")
@@ -277,13 +276,6 @@ mouse_filter = 2
 color = Color(0.784, 0.941, 1, 0.077)
 script = ExtResource("10_scngo")
 metadata/_edit_use_anchors_ = true
-
-[node name="PauseMenu" parent="." instance=ExtResource("12_idb42")]
-visible = false
-offset_left = -71.0
-offset_top = -59.0
-offset_right = 501.0
-offset_bottom = 456.0
 
 [node name="ClickBlocker" type="Control" parent="."]
 visible = false
