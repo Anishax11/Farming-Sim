@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://daxuwb0xs68u6" path="res://scenes/leader_board_display.tscn" id="3_kvskp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ct4gn"]
-radius = 66.6667
+radius = 66.6665
 height = 133.333
 
 [node name="LeaderBoard" type="Area2D"]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://drxqgj4xi1hb0"]
+[gd_scene load_steps=10 format=3 uid="uid://xlrmye4aatl6"]
 
 [ext_resource type="Script" path="res://scripts/aria.gd" id="1_ntjl1"]
 [ext_resource type="Texture2D" uid="uid://beak8v2hfijlt" path="res://16x16/Sprites/MemaoCharacterFantasySpritePack/008.png" id="2_uatic"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvuy5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85swi"]
 atlas = ExtResource("2_uatic")
@@ -19,7 +21,7 @@ region = Rect2(96, 0, 48, 48)
 atlas = ExtResource("2_uatic")
 region = Rect2(144, 0, 48, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qkl2s"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pwow4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -39,19 +41,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p20de"]
-size = Vector2(16, 31)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_stgp7"]
 
-[node name="Aria" type="Area2D"]
+[node name="Aria" type="CharacterBody2D"]
+z_index = 2
 script = ExtResource("1_ntjl1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_qkl2s")
-autoplay = "default"
-frame_progress = 0.680175
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_p20de")
+shape = SubResource("CapsuleShape2D_lvuy5")
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pwow4")
+autoplay = "default"
+
+[node name="Interact" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
+shape = SubResource("CapsuleShape2D_stgp7")
+
+[connection signal="input_event" from="Interact" to="." method="_on_interact_input_event"]
+[connection signal="mouse_entered" from="Interact" to="." method="_on_interact_mouse_entered"]
+[connection signal="mouse_exited" from="Interact" to="." method="_on_interact_mouse_exited"]

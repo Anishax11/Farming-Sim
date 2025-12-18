@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://tc7oxctpg7uv"]
+[gd_scene load_steps=5 format=3 uid="uid://tc7oxctpg7uv"]
 
 [ext_resource type="Texture2D" uid="uid://cp2d2b7cg0rj3" path="res://16x16/Sprites/libassetpack-tiled.png" id="1_iujk3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7013"]
 atlas = ExtResource("1_iujk3")
 region = Rect2(356, 186, 178, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bpsj"]
+atlas = ExtResource("1_iujk3")
+region = Rect2(356, 210, 178, 105)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f05dt"]
 animations = [{
@@ -16,7 +20,10 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bpsj")
+}],
 "loop": true,
 "name": &"new_animation",
 "speed": 5.0

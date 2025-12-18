@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ceodroqe0splv"]
+[gd_scene load_steps=8 format=3 uid="uid://cd61e2b58ykhu"]
 
-[ext_resource type="Script" path="res://maya.gd" id="1_are5c"]
+[ext_resource type="Script" path="res://scripts/maya.gd" id="1_bqc2q"]
 [ext_resource type="Texture2D" uid="uid://bixyh1m6b7ly3" path="res://16x16/Sprites/MemaoCharacterFantasySpritePack/009.png" id="2_koajl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8e1c"]
@@ -19,7 +19,7 @@ region = Rect2(96, 0, 48, 48)
 atlas = ExtResource("2_koajl")
 region = Rect2(144, 0, 48, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ob0xp"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_a0t0r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -39,18 +39,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pq24"]
-size = Vector2(16, 30)
-
-[node name="Maya" type="Area2D"]
-script = ExtResource("1_are5c")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ob0xp")
-autoplay = "default"
+[node name="Maya" type="CharacterBody2D"]
+z_index = 2
+script = ExtResource("1_bqc2q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_5pq24")
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a0t0r")
+autoplay = "default"
+
+[node name="Interact" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
+
+[connection signal="input_event" from="Interact" to="." method="_on_interact_input_event"]
+[connection signal="mouse_entered" from="Interact" to="." method="_on_interact_mouse_entered"]
+[connection signal="mouse_exited" from="Interact" to="." method="_on_interact_mouse_exited"]

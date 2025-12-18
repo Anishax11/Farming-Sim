@@ -1,9 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnbemvhatpdqi"]
+[gd_scene load_steps=23 format=3 uid="uid://cnbemvhatpdqi"]
 
 [ext_resource type="Texture2D" uid="uid://cp2d2b7cg0rj3" path="res://16x16/Sprites/libassetpack-tiled.png" id="1_6v0k2"]
 [ext_resource type="Script" path="res://scenes/fest_centre.gd" id="1_v25sl"]
 [ext_resource type="PackedScene" uid="uid://tc7oxctpg7uv" path="res://scenes/fest_table.tscn" id="2_a54ly"]
-[ext_resource type="PackedScene" uid="uid://t0lrekhwyjgk" path="res://scenes/sera.tscn" id="3_buhuh"]
+[ext_resource type="PackedScene" uid="uid://bxodm70n68s8k" path="res://scenes/sera.tscn" id="3_buhuh"]
+[ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="5_xwo6g"]
+[ext_resource type="Script" path="res://scripts/dim_bg.gd" id="6_rtiqd"]
+[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="7_sgrkb"]
+[ext_resource type="Texture2D" uid="uid://rqkqpvmfxnxp" path="res://16x16/Sprites/farmer_with_seeds - Copy.png" id="8_08u3p"]
+[ext_resource type="Texture2D" uid="uid://cv2oofdaq558x" path="res://16x16/Sprites/$calf_brown.png" id="9_xae0y"]
+[ext_resource type="PackedScene" uid="uid://daxuwb0xs68u6" path="res://scenes/leader_board_display.tscn" id="10_ecnle"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1lcl"]
 texture = ExtResource("1_6v0k2")
@@ -2508,6 +2514,52 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mul6g"]
+atlas = ExtResource("8_08u3p")
+region = Rect2(48, 0, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk7xc"]
+atlas = ExtResource("9_xae0y")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7g43"]
+atlas = ExtResource("9_xae0y")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqjkj"]
+atlas = ExtResource("9_xae0y")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4ila"]
+atlas = ExtResource("9_xae0y")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gw2ie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mul6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk7xc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7g43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqjkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4ila")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mul6g")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="FestCentre" type="Node2D"]
 script = ExtResource("1_v25sl")
 
@@ -2544,3 +2596,36 @@ position = Vector2(-222, 590)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boxes/Area2D"]
 position = Vector2(78, -604)
 sprite_frames = SubResource("SpriteFrames_1eyr5")
+
+[node name="Farmer" parent="." instance=ExtResource("5_xwo6g")]
+position = Vector2(36, 455)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Farmer"]
+layer = 2
+
+[node name="DimBG" type="ColorRect" parent="Farmer/CanvasLayer2"]
+visible = false
+visibility_layer = 2
+offset_left = -2.0
+offset_top = -36.0
+offset_right = 2627.0
+offset_bottom = 1379.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("6_rtiqd")
+
+[node name="LabelCanvas" parent="." instance=ExtResource("7_sgrkb")]
+
+[node name="CountDown" type="AnimatedSprite2D" parent="."]
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_gw2ie")
+
+[node name="LeaderBoardDisplay" parent="." instance=ExtResource("10_ecnle")]
+visible = false
+offset_left = -82.0
+offset_top = -139.0
+offset_right = 91.0
+offset_bottom = -8.0
+scale = Vector2(3, 3)
+
+[connection signal="animation_finished" from="CountDown" to="." method="_on_count_down_animation_finished"]

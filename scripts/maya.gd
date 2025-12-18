@@ -92,20 +92,7 @@ func update_animation():
 		else:
 			animated_sprite_2d.play("walk_back" if state == State.WALK else "back")
 				
-func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			state = State.TALK
-			#print("Interact with eiden")
-			if Tutorials.interactions["eiden"]==false:
-				Dialogic.VAR.set("eiden_intro",false)
-				Tutorials.interactions["eiden"]=true
-			else:
-				Dialogic.VAR.set("eiden_intro",true)
-			
-			Dialogic.VAR.set("random",randi_range(1, 2))
-			#print("Random :",Dialogic.VAR.random)
-			Dialogic.start("Eiden")
+	
 
 func _on_dialogue_ended():
 	state = State.IDLE
@@ -120,5 +107,16 @@ func _on_interact_mouse_exited() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 
-
-	
+func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			print("Interact with maya")
+			if Tutorials.interactions["maya"]==false:
+				Dialogic.VAR.set("maya_intro",false)
+				Tutorials.interactions["maya"]=true
+			else:
+				Dialogic.VAR.set("maya_intro",true)
+				
+			Dialogic.VAR.set("random",randi_range(1, 2))
+			print("Random :",Dialogic.VAR.random)
+			Dialogic.start("Maya")

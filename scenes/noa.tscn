@@ -1,56 +1,63 @@
-[gd_scene load_steps=9 format=3 uid="uid://cow2vl3bu5y4s"]
+[gd_scene load_steps=10 format=3 uid="uid://dxlq4pc6e7qfb"]
 
 [ext_resource type="Texture2D" uid="uid://c60nbxn2ydxqi" path="res://16x16/Sprites/MemaoCharacterFantasySpritePack/010.png" id="1_1pbft"]
 [ext_resource type="Script" path="res://scripts/noa.gd" id="1_ixfpn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_05s50"]
-atlas = ExtResource("1_1pbft")
-region = Rect2(0, 0, 48, 50)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w7lrs"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_87o0l"]
-atlas = ExtResource("1_1pbft")
-region = Rect2(48, 0, 48, 50)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dcalp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ka87q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmw3d"]
 atlas = ExtResource("1_1pbft")
-region = Rect2(96, 0, 48, 50)
+region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2e1qn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q23cu"]
 atlas = ExtResource("1_1pbft")
-region = Rect2(144, 0, 48, 50)
+region = Rect2(48, 0, 48, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_tyero"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc4nc"]
+atlas = ExtResource("1_1pbft")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyam4"]
+atlas = ExtResource("1_1pbft")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_itpyv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_05s50")
+"texture": SubResource("AtlasTexture_mmw3d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_87o0l")
+"texture": SubResource("AtlasTexture_q23cu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ka87q")
+"texture": SubResource("AtlasTexture_fc4nc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2e1qn")
+"texture": SubResource("AtlasTexture_nyam4")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s653g"]
-size = Vector2(16, 31)
-
-[node name="Noa" type="Area2D"]
+[node name="Noa" type="CharacterBody2D"]
+z_index = 2
 script = ExtResource("1_ixfpn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_tyero")
-autoplay = "default"
-frame_progress = 0.664769
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_s653g")
+shape = SubResource("CapsuleShape2D_w7lrs")
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[node name="Interact" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
+shape = SubResource("CapsuleShape2D_dcalp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_itpyv")
+
+[connection signal="input_event" from="Interact" to="." method="_on_interact_input_event"]
+[connection signal="mouse_entered" from="Interact" to="." method="_on_interact_mouse_entered"]
+[connection signal="mouse_exited" from="Interact" to="." method="_on_interact_mouse_exited"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://kf3vv1ahysme"]
+
+[ext_resource type="Script" path="res://scenes/fest_building.gd" id="1_6ap2d"]
+[ext_resource type="Texture2D" uid="uid://brqvlrhii26f" path="res://16x16/Sprites/Church-sheet.png" id="2_w5kpl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_viqoy"]
+size = Vector2(183, 221)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxoy1"]
+size = Vector2(601, 272)
+
+[node name="FestBuilding" type="StaticBody2D"]
+script = ExtResource("1_6ap2d")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 283.5)
+shape = SubResource("RectangleShape2D_viqoy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_w5kpl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 245)
+shape = SubResource("RectangleShape2D_dxoy1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

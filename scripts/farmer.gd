@@ -21,10 +21,6 @@ func _ready():
 	inventory = get_node("ClickBlocker")
 	
 	#print(inventory.get_path())
-	
-	
-		
-
 	#print("Pos save:",SaveManager.player.position)
 	#global_position=SaveManager.player.position
 	#
@@ -91,6 +87,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _input(event: InputEvent) -> void:
+	print("INput playerr")
 	if input_disabled==true:
 		return	
 	direction=Vector2.ZERO

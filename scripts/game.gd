@@ -6,10 +6,10 @@ const MARKET_PLACE = preload("res://scenes/market_place.tscn")
 const TASK_MANAGER = preload("res://scenes/task_manager.tscn")
 const FARM_SCENE = preload("res://scenes/farm_scene.tscn")
 const PAUSE_MENU = preload("res://scenes/pause_menu.tscn")
-
+var FEST_CENTRE = load("res://scenes/fest_centre.tscn")
 
 #func _ready() -> void:
-	#await get_tree().change_scene_to_packed(FARM_SCENE)
+	#await get_tree().change_scene_to_packed(FEST_CENTRE)
 	#print("FARMMMMMMMMM")
 	#var label=Label.new()
 	#label.position=Vector2(0,500)

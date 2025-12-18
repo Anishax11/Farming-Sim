@@ -1,58 +1,64 @@
-[gd_scene load_steps=9 format=3 uid="uid://t0lrekhwyjgk"]
+[gd_scene load_steps=10 format=3 uid="uid://bxodm70n68s8k"]
 
 [ext_resource type="Script" path="res://scripts/sera.gd" id="1_ig4th"]
 [ext_resource type="Texture2D" uid="uid://b5wq0hmbgnmqm" path="res://16x16/Sprites/MemaoCharacterFantasySpritePack/006.png" id="1_ukmh8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0upb0"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anr7w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je6wt"]
 atlas = ExtResource("1_ukmh8")
 region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_udnpo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsxn2"]
 atlas = ExtResource("1_ukmh8")
 region = Rect2(48, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fd4p7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp3yo"]
 atlas = ExtResource("1_ukmh8")
 region = Rect2(96, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_66ir0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cfkm"]
 atlas = ExtResource("1_ukmh8")
 region = Rect2(144, 0, 48, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_3jha3"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_i0txs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0upb0")
+"texture": SubResource("AtlasTexture_je6wt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_udnpo")
+"texture": SubResource("AtlasTexture_vsxn2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fd4p7")
+"texture": SubResource("AtlasTexture_jp3yo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_66ir0")
+"texture": SubResource("AtlasTexture_8cfkm")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtiue"]
-radius = 6.0
-height = 34.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oqs3b"]
 
-[node name="Sera" type="Area2D"]
+[node name="Sera" type="CharacterBody2D"]
+z_index = 2
 script = ExtResource("1_ig4th")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_3jha3")
-autoplay = "default"
-frame_progress = 0.0348298
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-shape = SubResource("CapsuleShape2D_dtiue")
+shape = SubResource("CapsuleShape2D_anr7w")
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i0txs")
+autoplay = "default"
+
+[node name="Interact" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
+shape = SubResource("CapsuleShape2D_oqs3b")
+
+[connection signal="input_event" from="Interact" to="." method="_on_interact_input_event"]
+[connection signal="mouse_entered" from="Interact" to="." method="_on_interact_mouse_entered"]
+[connection signal="mouse_exited" from="Interact" to="." method="_on_interact_mouse_exited"]
