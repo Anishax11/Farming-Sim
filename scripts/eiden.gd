@@ -2,7 +2,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var farmer
 enum State{
-	WALK,IDLE,TALK
+	WALK,IDLE,TALK,MOVE_TO_TARGET
 }
 var state = State.IDLE
 var speed = 10
@@ -11,9 +11,18 @@ var decision_time = 0.0
 var decision_interval = 3.0 
 var last_direction = Vector2.DOWN	
 
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+var schedule={
+	"6" : "maya_home",
+	"9" : "Church",
+	"16" : "market_entrance",
+	"20" : "maya_home"
+}
+
 func _ready():
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
+	
 	
 func _physics_process(delta: float) -> void:
 	decision_time -=delta
@@ -25,7 +34,22 @@ func _physics_process(delta: float) -> void:
 			walk()
 		State.TALK:
 			talk()	
+		State.MOVE_TO_TARGET :
+			update_animation()
+			move_to()
 	move_and_slide()
+
+func move_to():
+	
+	var next_pos = navigation_agent_2d.get_next_path_position()
+	direction  = (next_pos - global_position).normalized()
+	velocity = direction * speed
+	move_and_slide()
+	if navigation_agent_2d.is_navigation_finished():
+		#print("Navigation finished")
+		state = State.IDLE
+		return
+		
 	
 func idle_behaviour()	:
 	#print("Idle")
@@ -79,18 +103,20 @@ func talk():
 			animated_sprite_2d.play("back")
 
 func update_animation():
-	var dir = direction if state == State.WALK else last_direction
+	var dir = direction if (state == State.WALK or state == State.MOVE_TO_TARGET) else last_direction
 
 	if abs(dir.x) > abs(dir.y):
 		if dir.x > 0:
-			animated_sprite_2d.play("walk_right" if state == State.WALK else "right")
+			animated_sprite_2d.play("walk_right" if (state == State.WALK or state == State.MOVE_TO_TARGET) else "right")
 		else:
-			animated_sprite_2d.play("walk_left" if state == State.WALK else "left")
+			animated_sprite_2d.play("walk_left" if (state == State.WALK or state == State.MOVE_TO_TARGET) else "left")
 	else:
 		if dir.y > 0:
-			animated_sprite_2d.play("walk_forward" if state == State.WALK else "front")
+			animated_sprite_2d.play("walk_forward" if (state == State.WALK or state == State.MOVE_TO_TARGET) else "front")
 		else:
-			animated_sprite_2d.play("walk_back" if state == State.WALK else "back")
+			animated_sprite_2d.play("walk_back" if (state == State.WALK or state == State.MOVE_TO_TARGET) else "back")
+				
+				
 				
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:

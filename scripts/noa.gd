@@ -112,7 +112,7 @@ func _on_interact_mouse_exited() -> void:
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			print("Interact with noa")
+			state = State.TALK
 			if Tutorials.interactions["noa"]==false:
 				Dialogic.VAR.set("noa_intro",false)
 				Tutorials.interactions["noa"]=true

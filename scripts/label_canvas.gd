@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-func _ready():
-	print("LabelCanvas texture pos : ",get_node("Control/TextureRect").global_position)
+#func _ready():
+	#print("LabelCanvas texture pos : ",get_node("Control/TextureRect").global_position)
 	#var date_label = get_node("TextureRect/DateLabel")
 	#var screen = get_viewport().get_visible_rect().size
 	#var time_manager= get_node("TextureRect/TimeManager/Label")

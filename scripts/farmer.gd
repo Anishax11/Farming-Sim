@@ -87,7 +87,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _input(event: InputEvent) -> void:
-	print("INput playerr")
+	#print("INput playerr")
 	if input_disabled==true:
 		return	
 	direction=Vector2.ZERO

@@ -6,7 +6,7 @@ var FARM_SCENE = load("res://scenes/farm_scene.tscn")
 	#time_manager=get_parent().time_manager
 	
 func _on_body_entered(body: Node2D) -> void:
-			if body is StaticBody2D or body.name == "CollisionPolygon2D":
+			if body.name!="Farmer":
 				return
 			print("Open farm :",body.name)
 			time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)

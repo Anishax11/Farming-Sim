@@ -9,9 +9,10 @@ var color_rect
 var date_label
 var game
 var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
+var npc_manager
 func _ready() -> void:
 	
-	
+	npc_manager = get_tree().current_scene.find_child("NPCManager",true,false)
 	#print("Path:",get_path())
 	#game=get_node("/root/Game")
 	date_label=get_parent().get_node("DateLabel")
@@ -24,9 +25,9 @@ func _ready() -> void:
 		time_to_change_tint=Global.time_to_change_tint
 		color_rect.i=Global.tint_index
 		
-		print("Time managed")
-	if color_rect==null:
-		print("COLOR RECT IS NULL")
+		#print("Time managed")
+	#if color_rect==null:
+		#print("COLOR RECT IS NULL")
 	#if Global.load_farm==true or Global.load_frontyard==true:
 		#
 		#current_time=Global.current_time
@@ -50,11 +51,14 @@ func _physics_process(delta: float) -> void:
 			minutes=round(fmod(current_time,1)*100)
 			if minutes>=60:
 				minutes=0
+				#print("Calling hour elapsed")
+				
 				current_time=int(current_time+1)
+				npc_manager.hour_elapsed()
 			#print("fmod:",minutes)
 			get_node("Label").text=("Time : "+str(int(current_time))+":"+str(minutes))
 			if current_time==time_to_change_tint:
-				print("Time to chnge tint :",time_to_change_tint)
+				#print("Time to chnge tint :",time_to_change_tint)
 				time_to_change_tint+=2
 				color_rect.adjust_tint()
 	elif current_time!=null:

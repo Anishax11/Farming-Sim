@@ -96,6 +96,7 @@ func update_animation():
 				
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and (Global.day_count == 1 or Global.day_count == 7):
+		state = State.TALK
 		Dialogic.signal_event.connect(_on_dialogic_signal)
 		Dialogic.VAR.set("registration_done",Tutorials.interactions["registration_done"])
 		Dialogic.VAR.set("fest_scene",get_tree().current_scene.name == "FestCentre")

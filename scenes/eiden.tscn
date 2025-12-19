@@ -333,6 +333,8 @@ frame_progress = 0.555375
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
 shape = SubResource("CapsuleShape2D_54eru")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
 [connection signal="input_event" from="Interact" to="." method="_on_interact_input_event"]
 [connection signal="mouse_entered" from="Interact" to="." method="_on_interact_mouse_entered"]
 [connection signal="mouse_exited" from="Interact" to="." method="_on_interact_mouse_exited"]

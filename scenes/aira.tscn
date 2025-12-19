@@ -313,12 +313,17 @@ shape = SubResource("CapsuleShape2D_1m5nt")
 sprite_frames = SubResource("SpriteFrames_4u253")
 animation = &"walk_right"
 autoplay = "front"
-frame_progress = 0.00625747
+frame_progress = 0.21143
 
 [node name="Interact" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
 shape = SubResource("CapsuleShape2D_hllum")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 3.0
+target_desired_distance = 3.0
+path_postprocessing = 1
 
 [connection signal="input_event" from="Interact" to="." method="_on_interact_input_event"]
 [connection signal="mouse_entered" from="Interact" to="." method="_on_interact_mouse_entered"]
