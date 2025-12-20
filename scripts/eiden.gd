@@ -12,12 +12,7 @@ var decision_interval = 3.0
 var last_direction = Vector2.DOWN	
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-var schedule={
-	"6" : "maya_home",
-	"9" : "Church",
-	"16" : "market_entrance",
-	"20" : "maya_home"
-}
+var free_later
 
 func _ready():
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
@@ -47,6 +42,8 @@ func move_to():
 	move_and_slide()
 	if navigation_agent_2d.is_navigation_finished():
 		#print("Navigation finished")
+		if free_later == true :
+			queue_free()
 		state = State.IDLE
 		return
 		

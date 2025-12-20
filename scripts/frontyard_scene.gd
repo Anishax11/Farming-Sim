@@ -36,7 +36,6 @@ func _ready() -> void:
 
 func _on_market_entrance_body_entered(body: Node2D) -> void:
 	if body.name!="Farmer" :
-		body.queue_free()
 		return
 	if Global.player_direction.y==1:
 		print("REAChed MArket Entrance")

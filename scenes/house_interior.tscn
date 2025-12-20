@@ -1202,6 +1202,7 @@ script = ExtResource("7_c23qe")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 offset_left = 766.0
 offset_top = 88.0
 offset_right = 890.0

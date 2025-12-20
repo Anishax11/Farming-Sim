@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://okef0creuj6l"]
+
+[ext_resource type="Script" path="res://scripts/library.gd" id="1_b6rgi"]
+[ext_resource type="Texture2D" uid="uid://ccldpa3lrmnan" path="res://16x16/Tilesets (Modular)/vectoraith_tileset_farmingsims_buildings.png" id="1_pxio7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk4e0"]
+atlas = ExtResource("1_pxio7")
+region = Rect2(0, 0, 85, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tarr6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk4e0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv0px"]
+size = Vector2(69, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucdd5"]
+
+[node name="Library" type="StaticBody2D"]
+script = ExtResource("1_b6rgi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tarr6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 32)
+shape = SubResource("RectangleShape2D_wv0px")
+
+[node name="Door" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(-18, 33)
+shape = SubResource("RectangleShape2D_ucdd5")
+
+[connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]

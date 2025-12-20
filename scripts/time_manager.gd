@@ -54,7 +54,8 @@ func _physics_process(delta: float) -> void:
 				#print("Calling hour elapsed")
 				
 				current_time=int(current_time+1)
-				npc_manager.hour_elapsed()
+				if npc_manager!=null:
+					npc_manager.hour_elapsed()
 			#print("fmod:",minutes)
 			get_node("Label").text=("Time : "+str(int(current_time))+":"+str(minutes))
 			if current_time==time_to_change_tint:

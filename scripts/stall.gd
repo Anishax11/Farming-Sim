@@ -16,6 +16,8 @@ func _ready():
 		
 
 func _on_body_entered(body: Node2D) -> void:
+	if body.name !="Farmer":
+		return
 	Global.current_time=time_manager.current_time
 	Global.time_to_change_tint=time_manager.time_to_change_tint
 	Global.tint_index=time_manager.color_rect.i

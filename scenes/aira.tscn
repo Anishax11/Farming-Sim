@@ -311,9 +311,8 @@ shape = SubResource("CapsuleShape2D_1m5nt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4u253")
-animation = &"walk_right"
+animation = &"front"
 autoplay = "front"
-frame_progress = 0.21143
 
 [node name="Interact" type="Area2D" parent="."]
 

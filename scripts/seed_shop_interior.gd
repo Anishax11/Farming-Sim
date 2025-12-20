@@ -27,6 +27,8 @@ func _ready() -> void:
 		
 		
 func _on_exit_body_entered(body: Node2D) -> void:
+	if body.name!= "Farmer":
+		return
 	if Global.player_direction.y==1:
 		print("LEAVING SHOP")
 		Global.player_pos=Vector2(125,-50)

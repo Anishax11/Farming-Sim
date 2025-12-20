@@ -12,25 +12,35 @@ var idle_decision_interval = 3.0
 var walk_decision_interval = 5.0 
 var last_direction = Vector2.DOWN	
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-
-
+var free_later
+var curr_scene
 var schedule={
-	"6" : "Church",
-	"12" : "aria_home"
+	"6" : "maya_home",
+	"9" : "library",
+	"10" : "librarian_desk",
+	"17" : "library_entrance",
+	"18" : "library",
+	"19" : "maya_home"
 }
 
 
 func _ready():
+	curr_scene = get_tree().current_scene.name
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
 	
 	
 func _physics_process(delta: float) -> void:
+	
 	decision_time -=delta
 	match state:
 		State.IDLE:
+			if curr_scene == "LibraryInterior":
+				return
 			idle_behaviour()
 		State.WALK:
+			if curr_scene == "LibraryInterior":
+				return
 			update_animation()
 			walk()
 		State.TALK:
@@ -48,6 +58,8 @@ func move_to():
 	move_and_slide()
 	if navigation_agent_2d.is_navigation_finished():
 		#print("Navigation finished")
+		if free_later == true :
+			queue_free()
 		state = State.IDLE
 		return
 		
@@ -122,6 +134,7 @@ func update_animation():
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			Dialogic.VAR.set("library_scene",(curr_scene=="LibraryInterior"))
 			state = State.TALK
 			#print("Interact with eiden")
 			if Tutorials.interactions["aira"]==false:
