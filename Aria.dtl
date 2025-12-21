@@ -1,8 +1,13 @@
 if {day} == 1:
-	if {random} == 1:
-		Aria: Hello there!
-	elif {random} == 2:
-		hey there! how's your first day going?
+	if {registration_done} == false:
+		Aria: Follow the road and you'll see the fest centre, complete your registrastion there
+		Aria: Today is the last day so u might want to hurry up
+		[signal arg="Task3_acquired"]
+	else:
+		if {random} == 1:
+			Aria: Hello there!
+		elif {random} == 2:
+			Aria: hey there! how's your first day going?
 elif {day} == 2:
 	if {aria_strawberry_task_given} == false:
 		if {aria_last_convo} == false:
@@ -50,10 +55,10 @@ else:
 		You mean the previous owner?
 		Aria: The scientist, yes. People in town still talk about her.
 		Aria steps back, scanning the structure with quiet interest.
-		Aria:  I didn’t know her but you can tell she planned ahead. This greenhouse wasn’t made to be temporary.
+		Aria: I didn’t know her but you can tell she planned ahead. This greenhouse wasn’t made to be temporary.
 		- No one knows why she left?
 			Aria: That’s what I heard.
-			Aria:  Someone doesn’t walk away from work like this without a reason.
+			Aria: Someone doesn’t walk away from work like this without a reason.
 		- It still feels like she might come back.
 			Aria: Maybe.
 			Aria: Places like this don’t forget their makers easily.
@@ -64,7 +69,7 @@ else:
 		Aria: Balance. Precision.
 		Aria: I respect that.
 		- Sounds like something you understand.
-			Aria:  I do.
+			Aria: I do.
 			Aria: That’s probably why this place feels… familiar.
 		- I wish I could’ve met her.
 			Aria: Me too.
@@ -79,7 +84,7 @@ else:
 		Aria: This place helped me decide.
 		She glances once more around the greenhouse.
 		Aria: If the scientist ever does come back…
-		Aria:  I hope she finds someone who understood what this place was meant for.
+		Aria: I hope she finds someone who understood what this place was meant for.
 		Aria: Take care of it.
 		She offers a small nod, then turns toward the door.
 		Aria: Goodbye.

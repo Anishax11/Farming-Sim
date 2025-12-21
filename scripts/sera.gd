@@ -110,6 +110,8 @@ func _on_dialogue_ended():
 func _on_dialogic_signal(argument : String):
 	if argument == "registration_done":
 		Tutorials.interactions["registration_done"] = true
+		TaskManager.tasks["Task3"]["completed"] = true
+		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task3")
 	elif argument == "sera_intro":
 		Tutorials.interactions["sera"]=true
 

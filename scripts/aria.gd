@@ -15,11 +15,14 @@ var walk_decision_interval = 5.0
 var last_direction = Vector2.DOWN	
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 var free_later
-
-
+var delay_schedule = false
+var prev_state
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
+	if Global.day_count == 1 and !TaskManager.tasks["Task3"]["acquired"]:
+		delay_schedule = true
+		global_position = Vector2(100,550)
 	if Global.day_count>2 and TaskManager.tasks["Task2"]["acquired"]==true:
 		for i in range (3):
 			for j in range (5):
@@ -46,8 +49,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func move_to():
-	
-	var next_pos = navigation_agent_2d.get_next_path_position()
+	prev_state = State.MOVE_TO_TARGET
+	if delay_schedule:
+		
+		return
+	var next_pos  = navigation_agent_2d.get_next_path_position()
 	direction  = (next_pos - global_position).normalized()
 	velocity = direction * speed
 	move_and_slide()
@@ -127,6 +133,10 @@ func update_animation():
 				
 
 func _on_dialogue_ended():
+	if prev_state == State.MOVE_TO_TARGET:
+		delay_schedule = false
+		state = State.MOVE_TO_TARGET
+		return
 	state = State.IDLE
 	
 
@@ -150,14 +160,17 @@ func _on_dialogic_signal(argument : String):
 					var number = i*5 +1+j
 					get_tree().current_scene.find_child("Panel"+number,true,false).remove_item()
 	
-	elif argument== "Task1_acquired":
+	elif argument== "Task3_acquired":
 		print("task one acquired")
-		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task1")
+		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task3")
 
 
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			if state == State.MOVE_TO_TARGET:
+				prev_state = State.MOVE_TO_TARGET
+				delay_schedule = true
 			state = State.TALK
 			Dialogic.signal_event.connect(_on_dialogic_signal)
 			Dialogic.VAR.set("aria_strawberry_task_given",Tutorials.interactions["aria_strawberry_task_given"])

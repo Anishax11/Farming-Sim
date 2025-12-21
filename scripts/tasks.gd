@@ -1,9 +1,8 @@
 extends Control
 
-#CHANGE READY CODE, ONLY ADD TASKS THAT HAVE BEEN PREVIOUSLY ADDED THROUGH ADD TASK
 var vb
 var tasks
-
+var tasks_acquired = 0
 func _ready() -> void:
 	tasks=TaskManager.tasks
 	#if TaskManager.keys_array.size()==0:
@@ -23,7 +22,7 @@ func _ready() -> void:
 			var label = Label.new()
 			label.name=id
 			label.add_theme_font_size_override("font_size", 50)
-			label.text = "\n"+task["title"] + ": " + task["Desc"]
+			label.text = str(i)+". " + task["title"] + ": " + task["Desc"]+"\n"
 			label.add_theme_color_override("font_color", Color.BLACK)
 			label.custom_minimum_size = Vector2(600, 50)  # Godot 4 replacement for rect_min_size
 			label.autowrap_mode = TextServer.AUTOWRAP_WORD
@@ -44,6 +43,7 @@ func _ready() -> void:
 	#)
 	
 func remove_task(task):
+	tasks_acquired-=1
 	print("Remove task called ")
 	for child in vb.get_children():
 		if child.name==task:
@@ -52,11 +52,12 @@ func remove_task(task):
 
 
 func add_task(task_name) :
+	tasks_acquired+=1
 	var task = tasks[task_name]
 	var label = Label.new()
 	label.name=task_name
 	label.add_theme_font_size_override("font_size", 50)
-	label.text = "\n" + task.title + ": " + task.Desc
+	label.text =  str(tasks_acquired)+". "+task.title + ": " + task.Desc + "\n" 
 	label.add_theme_color_override("font_color", Color.BLACK)
 	label.custom_minimum_size = Vector2(600, 50)  # Godot 4 replacement for rect_min_size
 	#label.wrap = true  # Godot 4 way to enable word wrapping
