@@ -10,7 +10,7 @@ var direction = Vector2.ZERO
 var decision_time = 0.0
 var decision_interval = 3.0 
 var last_direction = Vector2.DOWN	
-
+var prev_state 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 var free_later
 
@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func move_to():
-	
+	prev_state = state
 	var next_pos = navigation_agent_2d.get_next_path_position()
 	direction  = (next_pos - global_position).normalized()
 	velocity = direction * speed
@@ -118,6 +118,7 @@ func update_animation():
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			prev_state = state
 			state = State.TALK
 			#print("Interact with eiden")
 			if Tutorials.interactions["eiden"]==false:
@@ -131,6 +132,9 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 			Dialogic.start("Eiden")
 
 func _on_dialogue_ended():
+	if prev_state == State.MOVE_TO_TARGET:
+		state = State.MOVE_TO_TARGET
+		return
 	state = State.IDLE
 	
 

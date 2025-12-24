@@ -1,9 +1,8 @@
 extends CharacterBody2D
-
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var farmer
 enum State{
-	WALK,IDLE,TALK
+	WALK,IDLE,TALK,MOVE_TO_TARGET
 }
 var state = State.IDLE
 var speed = 10
@@ -12,12 +11,25 @@ var decision_time = 0.0
 var idle_decision_interval = 3.0 
 var walk_decision_interval = 5.0 
 var last_direction = Vector2.DOWN	
-
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+var free_later
+var curr_scene
+var prev_state
+var delay_schedule = false
 func _ready():
+	curr_scene = get_tree().current_scene.name
+	if Global.day_count>=2 and !TaskManager.tasks["Task5"]["acquired"] and !curr_scene=="farm_scene":
+		print("Sera freed")	
+		queue_free()
+	print("Sera here")	
+	
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
 	
 func _physics_process(delta: float) -> void:
+	if delay_schedule:
+		
+		return
 	decision_time -=delta
 	match state:
 		State.IDLE:
@@ -27,6 +39,9 @@ func _physics_process(delta: float) -> void:
 			walk()
 		State.TALK:
 			talk()	
+		State.MOVE_TO_TARGET :
+			update_animation()
+			move_to()
 	move_and_slide()
 	
 func idle_behaviour()	:
@@ -41,7 +56,23 @@ func idle_behaviour()	:
 		state = State.WALK
 		decision_time = walk_decision_interval
 		
-
+func move_to():
+	prev_state = State.MOVE_TO_TARGET
+	if delay_schedule:
+		
+		return
+	var next_pos  = navigation_agent_2d.get_next_path_position()
+	direction  = (next_pos - global_position).normalized()
+	velocity = direction * speed
+	move_and_slide()
+	if navigation_agent_2d.is_navigation_finished():
+		#print("Navigation finished")
+		if free_later == true :
+			print("Freeee")
+			queue_free()
+		state = State.IDLE
+		return
+		
 func walk():
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
@@ -81,21 +112,23 @@ func talk():
 			animated_sprite_2d.play("back")
 
 func update_animation():
-	var dir = direction if state == State.WALK else last_direction
+	var dir = direction if (state == State.WALK or state == State.MOVE_TO_TARGET) else last_direction
 
 	if abs(dir.x) > abs(dir.y):
 		if dir.x > 0:
-			animated_sprite_2d.play("walk_right" if state == State.WALK else "right")
+			animated_sprite_2d.play("walk_right" if (state == State.WALK or state == State.MOVE_TO_TARGET) else "right")
 		else:
-			animated_sprite_2d.play("walk_left" if state == State.WALK else "left")
+			animated_sprite_2d.play("walk_left" if (state == State.WALK or state == State.MOVE_TO_TARGET) else "left")
 	else:
 		if dir.y > 0:
-			animated_sprite_2d.play("walk_forward" if state == State.WALK else "front")
+			animated_sprite_2d.play("walk_forward" if (state == State.WALK or state == State.MOVE_TO_TARGET) else "front")
 		else:
-			animated_sprite_2d.play("walk_back" if state == State.WALK else "back")
+			animated_sprite_2d.play("walk_back" if (state == State.WALK or state == State.MOVE_TO_TARGET) else "back")
 				
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed and (Global.day_count == 1 or Global.day_count == 7):
+	if event is InputEventMouseButton and event.pressed:
+		print("Interact")
+		prev_state = state
 		state = State.TALK
 		Dialogic.signal_event.connect(_on_dialogic_signal)
 		Dialogic.VAR.set("registration_done",Tutorials.interactions["registration_done"])
@@ -105,6 +138,9 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 		Dialogic.start("Sera")
 
 func _on_dialogue_ended():
+	if prev_state == State.MOVE_TO_TARGET:
+		state = State.MOVE_TO_TARGET
+		return
 	state = State.IDLE
 	
 func _on_dialogic_signal(argument : String):
@@ -112,8 +148,18 @@ func _on_dialogic_signal(argument : String):
 		Tutorials.interactions["registration_done"] = true
 		TaskManager.tasks["Task3"]["completed"] = true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task3")
-	elif argument == "sera_intro":
+	
+	if argument == "sera_intro":
+		print("Task5 added")
 		Tutorials.interactions["sera"]=true
+		TaskManager.tasks["Task5"]["acquired"]=true
+		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task5")
+		delay_schedule = false
+		move_to()
+		
+	elif argument == "plant_sustained":
+		TaskManager.tasks["Task5"]["complete"]=true
+		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task5")
 
 func _on_interact_mouse_entered() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)

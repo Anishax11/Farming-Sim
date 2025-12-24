@@ -1,7 +1,6 @@
 extends Area2D
 const SEEDS = preload("res://scenes/seeds.tscn")
 var MARKET_PLACE = load("res://scenes/market_place.tscn")
-
 var time_manager
 
 	#print("DIsplay menu 1")
@@ -10,6 +9,8 @@ var time_manager
 func _ready() -> void:
 	Global.music_fade_in()
 	#Dialogic.end_timeline()
+	
+	Dialogic.VAR.set("proof_of_worth_done",TaskManager.tasks["Task4"]["complete"] )
 	print("Tutorials.tutorial",Tutorials.tutorials["seed_shop_tutorial"])
 	if !Tutorials.tutorials["seed_shop_tutorial"]:
 		print("Inside ")
@@ -52,10 +53,18 @@ func _on_exit_body_entered(body: Node2D) -> void:
 func _on_dialogic_signal(argument : String):
 	if argument=="OpenMenu":
 		get_node("VendorMenu").visible=true
+	
 	elif argument=="proof_of_worth_task_given":
 		TaskManager.tasks["Task4"]["acquired"] = true
+		if !TaskManager.tasks["Task4"]["complete"]:
+			get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task4")
+	
 	elif argument=="proof_of_worth_done":
 		TaskManager.tasks["Task4"]["complete"] = true	
+		if TaskManager.tasks["Task4"]["acquired"] == true :
+			get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task4")
+		Dialogic.VAR.set("proof_of_worth_done",true )
+	
 	elif argument =="enable_movement":
 		get_node("Farmer").input_disabled=false
 

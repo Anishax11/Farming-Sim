@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bin5yuw7k5vj1"]
+[gd_scene load_steps=14 format=3 uid="uid://bin5yuw7k5vj1"]
 
 [ext_resource type="Script" path="res://scripts/farm_scene.gd" id="1_consl"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_pwhwc"]
@@ -27,6 +27,11 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gypqm"]
 radius = 49.0102
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_uiqe6"]
+vertices = PackedVector2Array(90.0625, 633, 57.2969, 675.844, 33.9219, 634.102, 181.063, 237.031, -84.0234, 632.031, -161, 275.633, -161, 242.828, -194.969, 588.203, -194.008, 295.641, 259.938, 577.453, 195.289, 633, 256.078, 268.656)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 3, 2), PackedInt32Array(4, 7, 8, 5), PackedInt32Array(9, 10, 0, 3, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-171, 233, -171, 270, -204, 290, -205, 595, -86, 642, 28, 644, 56, 694, 95, 643, 199, 643, 270, 582, 266, 262, 183, 227)])
 
 [node name="farm_scene" type="Node2D"]
 script = ExtResource("1_consl")
@@ -78,5 +83,8 @@ parameters/looping = true
 visible = false
 
 [node name="SoilManager" parent="." instance=ExtResource("5_p20ei")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_uiqe6")
 
 [connection signal="body_entered" from="EXIT" to="." method="_on_exit_body_entered"]

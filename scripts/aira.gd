@@ -14,6 +14,7 @@ var last_direction = Vector2.DOWN
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 var free_later
 var curr_scene
+var prev_state
 var schedule={
 	"6" : "maya_home",
 	"9" : "library",
@@ -51,14 +52,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func move_to():
-	
+	prev_state = State.MOVE_TO_TARGET
 	var next_pos = navigation_agent_2d.get_next_path_position()
 	direction  = (next_pos - global_position).normalized()
 	velocity = direction * speed
 	move_and_slide()
 	if navigation_agent_2d.is_navigation_finished():
-		#print("Navigation finished")
+		print("Navigation finished")
 		if free_later == true :
+			print("Free ",self.name)
 			queue_free()
 		state = State.IDLE
 		return
@@ -134,6 +136,7 @@ func update_animation():
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			prev_state = state
 			Dialogic.VAR.set("library_scene",(curr_scene=="LibraryInterior"))
 			state = State.TALK
 			#print("Interact with eiden")
@@ -148,6 +151,9 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 			Dialogic.start("Aira")
 
 func _on_dialogue_ended():
+	if prev_state == State.MOVE_TO_TARGET:
+		state = State.MOVE_TO_TARGET
+		return
 	state = State.IDLE
 	
 

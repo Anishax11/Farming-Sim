@@ -7,7 +7,7 @@ var maya = load("res://scenes/maya.tscn")
 var noa = load("res://scenes/noa.tscn")
 var aria = load("res://scenes/aria.tscn")
 var aira = load("res://scenes/aira.tscn")
-
+var sera = load("res://scenes/sera.tscn") 
 var maya_schedule={
 	"6" : "maya_home",
 	"9" : "Church",
@@ -28,9 +28,9 @@ var aria_schedule={
 var aira_schedule={
 	"6" : "maya_home",
 	"9" : "library",
-	"10" : "librarian_desk",
+	"9.5" : "librarian_desk",
 	"17" : "library_entrance",
-	"18" : "library",
+	"17.5" : "library",
 	"19" : "maya_home"
 }
 
@@ -38,12 +38,18 @@ var aira_schedule={
 var eiden_schedule={
 	"6" : "Church",
 	"9" : "library",
-	"10" : "library_entrance",
-	"16" : "library",
+	"9.2" : "library_entrance",
+	"15" : "library_entrance",
+	"15.5" : "library",
 	"20" : "maya_home"
 }
 
-
+var sera_schedule={
+	"6" : "Church",
+	"10" : "cafe",
+	"16" : "library",
+	"20" : "maya_home"
+}
 
 var scene_wise_locations ={
 	"Game" = {
@@ -54,7 +60,20 @@ var scene_wise_locations ={
 		"maya_home":Vector2(450,700),
 		"aria_home": Vector2(-650,750),
 		"market_entrance" :Vector2(300,900),
-		"library" : Vector2(125,750)
+		"library" : Vector2(125,750),
+		"cafe" : Vector2(500,750)
+		
+	},
+	"frontyard_scene" = {
+		"Church" :Vector2(-250,700),
+		"Home" : Vector2(-250,700),
+		"Greenhouse": Vector2(-250,700),
+		"FestCentre" :Vector2(-250,700),
+		"maya_home":Vector2(450,700),
+		"aria_home": Vector2(-650,750),
+		"market_entrance" :Vector2(300,900),
+		"library" : Vector2(125,750),
+		"cafe" : Vector2(500,750)
 		
 	},
 	"MarketPlace" = {
@@ -77,20 +96,24 @@ var scene_wise_locations ={
 var npc_list ={
 	"aria" : aria,
 	"aira" :aira,
-	"eiden" : eiden
+	"eiden" : eiden,
+	"sera" : sera
 }# [aria,aira,eiden]#,noa,maya]
 
 
 func _ready():
+	print("NPC Manager")
 	time_manager = get_tree().current_scene.find_child("TimeManager",true,false)
 	curr_time = int(time_manager.current_time)
 	curr_scene =  get_tree().current_scene.name
 	
 	for character in npc_list :
+		print("NPC : ",character)
 		var spawn_point
 		for timeslot in get(character +"_schedule") :
 			if curr_time >= int(timeslot):
 				spawn_point = get(character +"_schedule")[str(timeslot)]
+				print("Spawn point : ",get(character +"_schedule")[str(timeslot)])
 				
 			
 		if scene_wise_locations.has(curr_scene) and scene_wise_locations[curr_scene].has(spawn_point)	:

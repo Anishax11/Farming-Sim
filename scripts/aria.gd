@@ -22,6 +22,7 @@ func _ready() -> void:
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
 	if Global.day_count == 1 and !TaskManager.tasks["Task3"]["acquired"]:
 		delay_schedule = true
+		#state = State.TALK
 		global_position = Vector2(100,550)
 	if Global.day_count>2 and TaskManager.tasks["Task2"]["acquired"]==true:
 		for i in range (3):
@@ -34,6 +35,9 @@ func _ready() -> void:
 			
 	
 func _physics_process(delta: float) -> void:
+	if delay_schedule:
+		
+		return
 	decision_time -=delta
 	match state:
 		State.IDLE:

@@ -25,6 +25,12 @@ var tasks={
 		"Desc" : "Show up on the leaderboard atleast once.",
 		"completed" : false,
 		"acquired" : false
+	},
+	"Task5"={
+		"title" : "What the Land Remembers",
+		"Desc" : "Grow any crop and keep it within acceptable conditions for 2 full days.",
+		"completed" : false,
+		"acquired" : false
 	}
 }
 #TASK 1:
@@ -42,5 +48,6 @@ var seeds_bought := {
 #var showed_up_on_leaderboard = false 
 
 var task_status ={
-	"top_5" : [] #TASK 4:
+	"top_5" : [], #TASK 4
+	"plant_sustained_counter" : 0 #TASK 5
 }

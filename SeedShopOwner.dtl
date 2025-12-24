@@ -18,9 +18,10 @@ else:
 			[signal arg="proof_of_worth_done"]
 		[signal arg="proof_of_worth_task_given"]
 	else:
-		if {proof_of_worth_done} == true:
-			Cashier: Congratulations on completing the task! I'll sell the speacial seeds to you like i promised
-			[signal arg="proof_of_worth_done"]
+		if {cashier_gives_better_seeds} == false:
+			if {} == true:
+				Cashier: Congratulations on completing the task! I'll sell the speacial seeds to you like i promised
+				[signal arg="proof_of_worth_done"]
 		else:
 			hello
 [signal arg="enable_movement"]

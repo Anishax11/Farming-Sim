@@ -9,6 +9,9 @@ if {registration_done} == false:
 elif {sera_intro} == false:
 	Sera: I'm Sera, nice to meet u!
 	Sera: I remember seeing u at the registrations.
+	Sera: Grow any crop.\
+	Keep it within acceptable conditions for 2 full days
+	[signal arg="sera_intro"]
 else:
 	if {} == 1:
 		Sera: Helloo

@@ -115,6 +115,10 @@ func _ready() -> void:
 	
 	PlantTracker.quality_tracker[self.name]["quality"] = quality
 	
+	if TaskManager.tasks["Task5"]["acquired"]:
+		if stage == PlantTracker.plant_stage_limits[string_part] and quality>=40:
+			TaskManager.task_status["plant_sustained_counter"]+=1
+			print("PLANT SUSTAINED STATUSSSSSSS:",TaskManager.task_status["plant_sustained_counter"])
 		
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton :
@@ -126,6 +130,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				return
 			print("PlNT harvested")
 			if stage==PlantTracker.plant_stage_limits[string_part]:
+				if TaskManager.tasks["Task4"]["completed"] == true:
+					print("Cashier task complete, boosting plant quality")
+					quality+=50
 				score = quality * PlantTracker.plant_info[string_part]["difficulty"]
 				farmer.update_points(score)
 				print("Stage is 3")
