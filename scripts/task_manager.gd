@@ -19,6 +19,12 @@ var tasks={
 		"Desc" : "Find the fest centre and complete registration for the festival.",
 		"completed" : false,
 		"acquired" : false
+	},
+	"Task4"={
+		"title" : "Proof of worth",
+		"Desc" : "Show up on the leaderboard atleast once.",
+		"completed" : false,
+		"acquired" : false
 	}
 }
 #TASK 1:
@@ -31,16 +37,10 @@ var seeds_bought := {
 	# "melon": false,
 	# "wheat": false,
 }
-#func _ready() -> void:
-	#
-	#while(self==null):
-		#await get_tree().process_frame
-		#
-	
-			#print_all(self)  # Print the hierarchy from TaskManager
-			#
-			 #
-#func print_all(node, indent := 0):
-				#print(" ".repeat(indent), "- ", node.name)
-				#for c in node.get_children():
-					#print_all(c, indent + 2)
+
+#TASK 4:
+#var showed_up_on_leaderboard = false 
+
+var task_status ={
+	"top_5" : [] #TASK 4:
+}

@@ -12,6 +12,7 @@ func _ready() -> void:
 		return a.points > b.points)
 		
 	top_5 = entries.slice(0, min(5, entries.size()))
+	TaskManager.task_status["top_5"] = top_5
 	print("TOp 5 is set")
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

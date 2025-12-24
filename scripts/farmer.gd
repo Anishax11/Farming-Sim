@@ -13,6 +13,7 @@ func _ready():
 	
 	#print("coin label position :",get_node("Camera2D/CoinLabel").global_position)
 	#print(get_path())
+	Tutorials.PointTracker["Player"] = 3000
 	points = Tutorials.PointTracker["Player"]
 	display_coins()
 	display_points()

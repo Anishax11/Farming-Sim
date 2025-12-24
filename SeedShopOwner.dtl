@@ -1,11 +1,26 @@
-Aria: Welcome to the seed shop!
-Aria: You must be the new neighbor everyone’s been talking about. What's  your name?
-[text_input var="Charname"]
-Aria: Here, you can find all kinds of seeds and young saplings to start your farm.\
-Would you like me to show you what’s in stock, {Charname}?
-- No thanks
-	Aria: Alright
-- Yes please
-	Aria: Here, take a look
-	[signal arg="OpenMenu"]
+if {cashier_intro} == false:
+	Aria: Welcome to the seed shop!
+	Aria: You must be the new neighbor everyone’s been talking about. What's  your name?
+	[text_input var="Charname"]
+	Aria: Here, you can find all kinds of seeds and young saplings to start your farm.\
+	Would you like me to show you what’s in stock, {Charname}?
+	- No thanks
+		Aria: Alright
+	- Yes please
+		Aria: Here, take a look
+		[signal arg="OpenMenu"]
+else:
+	if {proof_of_worth_task_given} == false:
+		Show up on the leaderboard atleast once
+		if {proof_of_worth_done} == true:
+			I'm on the leaderboard
+			Congratulations on completing the task! I'll sell the speacial seeds to you like i promised
+			[signal arg="proof_of_worth_done"]
+		[signal arg="proof_of_worth_task_given"]
+	else:
+		if {proof_of_worth_done} == true:
+			Cashier: Congratulations on completing the task! I'll sell the speacial seeds to you like i promised
+			[signal arg="proof_of_worth_done"]
+		else:
+			hello
 [signal arg="enable_movement"]

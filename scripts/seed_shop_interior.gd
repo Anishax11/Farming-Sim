@@ -15,6 +15,11 @@ func _ready() -> void:
 		print("Inside ")
 		await Dialogic.start("SeedShopTutorial")
 		Tutorials.tutorials["seed_shop_tutorial"]=true
+	for character in TaskManager.task_status["top_5"]:
+				if character.name == "Player":
+					Dialogic.VAR.set("proof_of_worth_done",true)
+					print("PRoof of worth done")
+	print("DIalogic PRoof of worth done : ",Dialogic.VAR.get("proof_of_worth_done"))	
 	get_node("Farmer/ClickBlocker").queue_free() #holds inv
 
 	get_node("Farmer/Camera2D").queue_free()
@@ -47,7 +52,11 @@ func _on_exit_body_entered(body: Node2D) -> void:
 func _on_dialogic_signal(argument : String):
 	if argument=="OpenMenu":
 		get_node("VendorMenu").visible=true
-	if argument =="enable_movement":
+	elif argument=="proof_of_worth_task_given":
+		TaskManager.tasks["Task4"]["acquired"] = true
+	elif argument=="proof_of_worth_done":
+		TaskManager.tasks["Task4"]["complete"] = true	
+	elif argument =="enable_movement":
 		get_node("Farmer").input_disabled=false
 
 func _on_close_menu_button_down() -> void:
@@ -74,13 +83,17 @@ func _on_cashier_mouse_exited() -> void:
 func _on_cashier_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.pressed:
+			
 			if !Tutorials.interactions["seed_shop_first_interaction"]:
-				get_node("Farmer").input_disabled=true
-				Dialogic.signal_event.connect(_on_dialogic_signal)
-				await Dialogic.start("SeedShopOwner")
 				Tutorials.interactions["seed_shop_first_interaction"]=true
-				
-				
+			print("DIalogic PRoof of worth done : ",Dialogic.VAR.get("proof_of_worth_done"))	
+			Dialogic.VAR.set("proof_of_worth_task_given",TaskManager.tasks["Task4"]["acquired"])			
+			get_node("Farmer").input_disabled=true
+			Dialogic.signal_event.connect(_on_dialogic_signal)
+			Dialogic.start("SeedShopOwner")
+			Dialogic.VAR.set("cashier_intro",Tutorials.interactions["seed_shop_first_interaction"])	
+			print("DIalogic PRoof of worth done : ",Dialogic.VAR.get("proof_of_worth_done"))	
+			
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			get_node("VendorMenu").visible=true
