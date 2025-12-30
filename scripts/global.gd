@@ -188,6 +188,7 @@ func update_day_count():
 	Global.time_to_change_tint=8.0
 	Global.tint_index=0
 	Global.current_time=6.0
+	TaskManager.task_status["lock_counter"]=false
 	#time_passed=0.0
 	#initial_time=0.0
 		

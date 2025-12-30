@@ -116,10 +116,17 @@ func _ready() -> void:
 	PlantTracker.quality_tracker[self.name]["quality"] = quality
 	
 	if TaskManager.tasks["Task5"]["acquired"]:
-		if stage == PlantTracker.plant_stage_limits[string_part] and quality>=40:
-			TaskManager.task_status["plant_sustained_counter"]+=1
-			print("PLANT SUSTAINED STATUSSSSSSS:",TaskManager.task_status["plant_sustained_counter"])
-		
+		if stage == PlantTracker.plant_stage_limits[string_part] and quality>=40 and !TaskManager.task_status["lock_counter"]:
+			if !TaskManager.task_status["plant_sustained_counter"].has(self.name):
+				TaskManager.task_status["plant_sustained_counter"][self.name] = 1
+			else:
+				TaskManager.task_status["plant_sustained_counter"][self.name]+=1
+				if TaskManager.task_status["plant_sustained_counter"][self.name] >= 2:
+					TaskManager.tasks["Task5"]["completed"] = true 
+			print("PLANT SUSTAINED STATUSSSSSSS: ",self.name ," : ",TaskManager.task_status["plant_sustained_counter"][self.name])
+			
+			#TaskManager.task_status["lock_counter"]=true #Counter is incremented once a day
+
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton :
 		
@@ -132,6 +139,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if stage==PlantTracker.plant_stage_limits[string_part]:
 				if TaskManager.tasks["Task4"]["completed"] == true:
 					print("Cashier task complete, boosting plant quality")
+					quality+=50
+				if TaskManager.tasks["Task5"]["completed"] == true:
+					print("Sera task complete, boosting plant quality")
 					quality+=50
 				score = quality * PlantTracker.plant_info[string_part]["difficulty"]
 				farmer.update_points(score)

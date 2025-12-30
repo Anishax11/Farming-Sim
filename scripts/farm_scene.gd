@@ -15,7 +15,7 @@ func _ready() -> void:
 	#else :
 		#farm_temp = randi_range(18,40)
 	if Global.day_count >= 2 and !TaskManager.tasks["Task5"]["acquired"]:
-		
+		print("SPawn sera")
 		var sera = SERA.instantiate()
 		sera.position = Vector2(-50,625)
 		sera.delay_schedule = true

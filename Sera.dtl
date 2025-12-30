@@ -13,7 +13,7 @@ elif {sera_intro} == false:
 	Keep it within acceptable conditions for 2 full days
 	[signal arg="sera_intro"]
 else:
-	if {} == 1:
+	if {day} == 1:
 		Sera: Helloo
 	elif {day} == 2:
 		Sera: Hii

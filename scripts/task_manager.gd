@@ -17,8 +17,8 @@ var tasks={
 	"Task3"={
 		"title" : "Register for the competition",
 		"Desc" : "Find the fest centre and complete registration for the festival.",
-		"completed" : false,
-		"acquired" : false
+		"completed" : true,
+		"acquired" : true
 	},
 	"Task4"={
 		"title" : "Proof of worth",
@@ -30,7 +30,7 @@ var tasks={
 		"title" : "What the Land Remembers",
 		"Desc" : "Grow any crop and keep it within acceptable conditions for 2 full days.",
 		"completed" : false,
-		"acquired" : false
+		"acquired" : true
 	}
 }
 #TASK 1:
@@ -49,5 +49,7 @@ var seeds_bought := {
 
 var task_status ={
 	"top_5" : [], #TASK 4
-	"plant_sustained_counter" : 0 #TASK 5
+	"plant_sustained_counter" : {
+		
+	} #TASK 5 : keeps track of a plant and its sustained counter in format plant1 : counter
 }

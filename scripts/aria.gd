@@ -17,6 +17,7 @@ var last_direction = Vector2.DOWN
 var free_later
 var delay_schedule = false
 var prev_state
+
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
@@ -36,8 +37,8 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	if delay_schedule:
-		
 		return
+		
 	decision_time -=delta
 	match state:
 		State.IDLE:
@@ -55,8 +56,8 @@ func _physics_process(delta: float) -> void:
 func move_to():
 	prev_state = State.MOVE_TO_TARGET
 	if delay_schedule:
-		
 		return
+		
 	var next_pos  = navigation_agent_2d.get_next_path_position()
 	direction  = (next_pos - global_position).normalized()
 	velocity = direction * speed
@@ -179,9 +180,9 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 			Dialogic.signal_event.connect(_on_dialogic_signal)
 			Dialogic.VAR.set("aria_strawberry_task_given",Tutorials.interactions["aria_strawberry_task_given"])
 			if Tutorials.interactions["aria"]==false:
-				print("Interact with aria")
-				Dialogic.start("AriaSeedShopDirections")
-				print("Interact with aria")
+				#print("Interact with aria")
+				#Dialogic.start("AriaSeedShopDirections")
+				#print("Interact with aria")
 				Tutorials.interactions["aria"]=true
 			else:
 				#rng.randomize()
