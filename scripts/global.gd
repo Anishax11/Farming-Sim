@@ -1,7 +1,7 @@
 extends Node
 
 const HOUSE_INTERIOR = preload("res://scenes/house_interior.tscn")
-var day_count=2
+var day_count=7
 var day_passed=false
 var inventory_items=[]
 var seeds_image=preload("res://16x16/Sprites/seeds_packet_16x16.png")

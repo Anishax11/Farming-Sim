@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcrctwvmkf8ya"]
+[gd_scene load_steps=9 format=3 uid="uid://bcrctwvmkf8ya"]
 
 [ext_resource type="Texture2D" uid="uid://bv1pg6c5hevq5" path="res://16x16/Sprites/PostOffice.png" id="1_oiggg"]
 [ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="2_e5v38"]
+[ext_resource type="PackedScene" uid="uid://kf3vv1ahysme" path="res://scenes/fest_building.tscn" id="3_o6dy6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20dl6"]
 texture = ExtResource("1_oiggg")
@@ -5341,3 +5342,7 @@ scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_yjx50")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65570, 851968, 6, -34, 655360, 7, 65502, 655360, 7, 131038, 655360, 7, 196574, 655360, 7, 262110, 655360, 7, 327646, 851968, 7, 393182, 851968, 7, 458718, 655360, 8, 458719, 720896, 8, 458720, 917504, 8, 458721, 917504, 8, 458722, 917504, 8, 458723, 720896, 8, 458724, 720896, 8, 458725, 917504, 8, 458726, 720896, 8, 458727, 720896, 8, 458728, 917504, 8, 458731, 917504, 8, 458732, 917504, 8, -19, 655360, 7, 65517, 655360, 7, 131053, 655360, 7, 196589, 655360, 7, 262125, 655360, 7, 327661, 655360, 7, 393197, 655360, 7, -65569, 917504, 6, -65568, 720896, 6, -65567, 720896, 6, -65566, 720896, 6, -65565, 720896, 6, -65564, 720896, 6, -65563, 720896, 6, -65562, 720896, 6, -65561, 720896, 6, -65560, 917504, 6, -65559, 917504, 6, -65558, 917504, 6, -65557, 720896, 6, -65556, 917504, 6, -65555, 983040, 6, 458733, 983040, 8)
+
+[node name="FestBuilding" parent="." instance=ExtResource("3_o6dy6")]
+position = Vector2(306, 14)
+scale = Vector2(0.6, 0.6)

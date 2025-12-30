@@ -52,16 +52,18 @@ func _ready() -> void:
 		Tutorials.tutorials["farm_tutorial"]=true	
 		
 	if 	Tutorials.tutorials["temp_regulator_tutorial"]==false and TaskManager.tasks["Task2"]["completed"]==true:
+		Dialogic.VAR.day = 4
 		var aria = ARIA.instantiate()
 		aria.position = Vector2(-50,625)
 		aria.delay_schedule = true
 		aria.get_node("NavigationAgent2D").target_position = Vector2(55,650)
+		aria.prev_state = aria.State.MOVE_TO_TARGET
 		add_child(aria)
 		Dialogic.VAR.set("aria_last_convo",true)
 		await Dialogic.start("Aria")
-		aria.move_to()
-		await Dialogic.start("TempRegulatorTutorial")	
-		Tutorials.tutorials["temp_regulator_tutorial"]=true
+		#aria.move_to()
+		#await Dialogic.start("TempRegulatorTutorial")	
+		#Tutorials.tutorials["temp_regulator_tutorial"]=true
 
 
 func _on_exit_body_entered(body: Node2D) -> void:

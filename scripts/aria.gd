@@ -163,7 +163,7 @@ func _on_dialogic_signal(argument : String):
 				if string=="strawberry":
 					
 					var number = i*5 +1+j
-					get_tree().current_scene.find_child("Panel"+number,true,false).remove_item()
+					get_tree().current_scene.find_child("Panel"+str(number),true,false).remove_item()
 	
 	elif argument== "Task3_acquired":
 		print("task one acquired")
@@ -175,21 +175,22 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 		if event.pressed:
 			if state == State.MOVE_TO_TARGET:
 				prev_state = State.MOVE_TO_TARGET
-				delay_schedule = true
+			delay_schedule = true
 			state = State.TALK
 			Dialogic.signal_event.connect(_on_dialogic_signal)
 			Dialogic.VAR.set("aria_strawberry_task_given",Tutorials.interactions["aria_strawberry_task_given"])
+			Dialogic.VAR.set("aria_intro",Tutorials.interactions["aria"])
 			if Tutorials.interactions["aria"]==false:
-				#print("Interact with aria")
+				print("aria intro")
 				#Dialogic.start("AriaSeedShopDirections")
 				#print("Interact with aria")
 				Tutorials.interactions["aria"]=true
-			else:
+			
 				#rng.randomize()
-				
-				Dialogic.VAR.set("random",randi_range(1, 2))
-				print("Randome :",Dialogic.VAR.random)
-				Dialogic.start("Aria")
+			print("Strawberry task :",Dialogic.VAR.aria_strawberry_task_given)
+			Dialogic.VAR.set("random",randi_range(1, 2))
+			print("Randome :",Dialogic.VAR.random)
+			Dialogic.start("Aria")
 
 
 

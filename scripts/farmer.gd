@@ -9,6 +9,7 @@ var pause_menu
 var speed=70
 var direction: Vector2
 var points
+var time_manager
 func _ready():
 	
 	#print("coin label position :",get_node("Camera2D/CoinLabel").global_position)

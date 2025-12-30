@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cnbemvhatpdqi"]
+[gd_scene load_steps=24 format=3 uid="uid://cnbemvhatpdqi"]
 
 [ext_resource type="Texture2D" uid="uid://cp2d2b7cg0rj3" path="res://16x16/Sprites/libassetpack-tiled.png" id="1_6v0k2"]
 [ext_resource type="Script" path="res://scenes/fest_centre.gd" id="1_v25sl"]
@@ -2560,7 +2560,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gp4p"]
+size = Vector2(158.333, 75)
+
 [node name="FestCentre" type="Node2D"]
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_v25sl")
 
 [node name="Base" type="TileMap" parent="."]
@@ -2604,7 +2608,6 @@ position = Vector2(36, 455)
 layer = 2
 
 [node name="DimBG" type="ColorRect" parent="Farmer/CanvasLayer2"]
-visible = false
 visibility_layer = 2
 offset_left = -2.0
 offset_top = -36.0
@@ -2617,6 +2620,7 @@ script = ExtResource("6_rtiqd")
 [node name="LabelCanvas" parent="." instance=ExtResource("7_sgrkb")]
 
 [node name="CountDown" type="AnimatedSprite2D" parent="."]
+position = Vector2(46.6667, -3.33333)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_gw2ie")
 
@@ -2628,4 +2632,13 @@ offset_right = 91.0
 offset_bottom = -8.0
 scale = Vector2(3, 3)
 
+[node name="Exit" type="Area2D" parent="."]
+z_index = 4
+position = Vector2(120, 720)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(-67.5, -72.4999)
+shape = SubResource("RectangleShape2D_2gp4p")
+
 [connection signal="animation_finished" from="CountDown" to="." method="_on_count_down_animation_finished"]
+[connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

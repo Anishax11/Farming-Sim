@@ -124,8 +124,10 @@ func _ready():
 			add_child(char)
 			
 func hour_elapsed():
-
+	
 	curr_time = int(time_manager.current_time)
+	
+					
 	for children in get_children():
 		var char = children.name
 		var found = false
@@ -145,3 +147,15 @@ func hour_elapsed():
 				#if !found:
 					#print("LOvcation not in scene")
 					#children.queue_free()
+	if Global.day_count == 7 and curr_time >=18:
+			for children in get_children():
+				var char = children.name
+				print("NPC : ",char)
+				for timeslot in get(char +"_schedule"):
+					var text = get(char +"_schedule")[str(timeslot)]
+					var last_five = text.substr(text.length() - 5, 5)
+					print("Destination (last 5) :",last_five)
+					if last_five == "_home":
+						children.free_later = true
+						if get_tree().current_scene.name == "frontyard_scene":
+							children.get_node("NavigationAgent2D").target_position = Vector2(125,750) #Move to fest centre entrance

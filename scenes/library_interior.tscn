@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://b3rvqgls20oph"]
+[gd_scene load_steps=15 format=4 uid="uid://b3rvqgls20oph"]
 
+[ext_resource type="Script" path="res://scripts/library_interior.gd" id="1_3himq"]
 [ext_resource type="Texture2D" uid="uid://cp2d2b7cg0rj3" path="res://16x16/Sprites/libassetpack-tiled.png" id="1_hclly"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="3_6neh7"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="4_mnb07"]
@@ -3743,7 +3744,11 @@ vertices = PackedVector2Array(370.617, 169.289, 363.219, 198.859, -311.57, -31.5
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 2, 1), PackedInt32Array(4, 8, 9, 5), PackedInt32Array(0, 5, 10, 11)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-373, -44, -322, -42, -324, -91, -89, -90, -89, -143, 128, -141, 127, -86, 417, -88, 423, 162, 379, 177, 371, 209, -376, 196)])
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plx8y"]
+size = Vector2(140, 22)
+
 [node name="LibraryInterior" type="Node2D"]
+script = ExtResource("1_3himq")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.3, 0.3)
@@ -3784,3 +3789,11 @@ script = ExtResource("4_mnb07")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_nj78y")
+
+[node name="Exit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(29, 208)
+shape = SubResource("RectangleShape2D_plx8y")
+
+[connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

@@ -58,6 +58,7 @@ layout/default_style="Default"
 variables={
 "Charname": "",
 "aira_intro": false,
+"aria_intro": false,
 "aria_last_convo": false,
 "aria_strawberry_task_given": false,
 "aria_task_done": false,

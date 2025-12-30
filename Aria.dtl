@@ -1,5 +1,5 @@
 if {day} == 1:
-	if {registration_done} == false:
+	if {aria_intro} == false:
 		Aria: Follow the road and you'll see the fest centre, complete your registrastion there
 		Aria: Today is the last day so u might want to hurry up
 		[signal arg="Task3_acquired"]
