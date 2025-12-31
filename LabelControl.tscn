@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dgkbbkp5yf8t6" path="res://16x16/Sprites/LabelDisplay.png" id="1_ykqas"]
 [ext_resource type="PackedScene" uid="uid://cxgldqae4p20u" path="res://scenes/date_label.tscn" id="2_qkfu7"]
 [ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="3_fcbhx"]
-[ext_resource type="PackedScene" uid="uid://475fb1fcmkgf" path="res://coin_label.tscn" id="4_dv6se"]
+[ext_resource type="PackedScene" uid="uid://475fb1fcmkgf" path="res://scenes/coin_label.tscn" id="4_dv6se"]
 
 [node name="Control" type="Control"]
 visible = false
