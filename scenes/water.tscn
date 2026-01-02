@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://bk8aauev1yndy"]
+
+[ext_resource type="Texture2D" uid="uid://i3o77okqprei" path="res://16x16/Sprites/SERENE_VILLAGE_REVAMPED/Animated stuff/water_waves_48x48.png" id="1_vg1d5"]
+[ext_resource type="Texture2D" uid="uid://7ccppvs5ne3k" path="res://16x16/Sprites/SERENE_VILLAGE_REVAMPED/Animated stuff/water_waves_32x32.png" id="2_dsgwy"]
+[ext_resource type="Texture2D" uid="uid://i18lkdswfsfm" path="res://16x16/Sprites/SERENE_VILLAGE_REVAMPED/Animated stuff/water_waves_16x16.png" id="3_8l04w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ircy"]
+atlas = ExtResource("1_vg1d5")
+region = Rect2(0, 0, 67, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0dq6"]
+atlas = ExtResource("1_vg1d5")
+region = Rect2(67, 0, 67, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok2tu"]
+atlas = ExtResource("1_vg1d5")
+region = Rect2(134, 0, 67, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up86l"]
+atlas = ExtResource("2_dsgwy")
+region = Rect2(0, 0, 112, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0r81"]
+atlas = ExtResource("2_dsgwy")
+region = Rect2(112, 0, 112, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py2k1"]
+atlas = ExtResource("2_dsgwy")
+region = Rect2(224, 0, 112, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8om60"]
+atlas = ExtResource("2_dsgwy")
+region = Rect2(336, 0, 112, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k53n0"]
+atlas = ExtResource("3_8l04w")
+region = Rect2(0, 0, 28, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8ag3"]
+atlas = ExtResource("3_8l04w")
+region = Rect2(56, 0, 28, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vxue"]
+atlas = ExtResource("3_8l04w")
+region = Rect2(28, 0, 28, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nbij"]
+atlas = ExtResource("3_8l04w")
+region = Rect2(84, 0, 28, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aabnw"]
+atlas = ExtResource("3_8l04w")
+region = Rect2(112, 0, 28, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8cjj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ircy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0dq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok2tu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up86l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0r81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py2k1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8om60")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k53n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8ag3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vxue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nbij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aabnw")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[node name="Water" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n8cjj")
+animation = &"new_animation_1"
+frame_progress = 0.962959
