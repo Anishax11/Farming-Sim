@@ -103,8 +103,8 @@ func move_item(panel_number,item_name):
 			final_panel.seed_type=previous_panel.seed_type
 			final_panel.seed_count=previous_panel.seed_count
 			final_panel.plant_score=previous_panel.plant_score
-			PlantTracker.panel_seed_count[final_panel.name]=previous_panel.seed_count
-			PlantTracker.panel_seed_count[previous_panel.name]=0
+			PlantTracker.panel_info[final_panel.name]["seed_count"]=previous_panel.seed_count
+			PlantTracker.panel_info[previous_panel.name]["seed_count"]=0
 			previous_panel.seed_count=0 
 			previous_panel.plant_score=null
 			previous_panel.remove_child(texture_rect)
@@ -119,8 +119,8 @@ func move_item(panel_number,item_name):
 			Global.inventory_items[int((panel_number-1)/5)][(panel_number-1)%5]=""
 			
 			#Highligh new panel if dropped item  is equipped
-			if Global.equipped_panel == previous_panel.name:
-				Global.equipped_panel = final_panel.name
+			#if Global.equipped_panel == previous_panel.name:  
+				#Global.equipped_panel = final_panel.name
 				#final_panel.item_name = previous_panel.item_name
 				#final_panel.highlight_panel()
 			
