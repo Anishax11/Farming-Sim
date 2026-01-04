@@ -1,7 +1,11 @@
 extends Node
 
 const HOUSE_INTERIOR = preload("res://scenes/house_interior.tscn")
-var day_count=7
+#PLAYER ABILITIES:
+var coherence = 3  #reset to 3 everyday
+var entropy = 3    #reset to 3 everyday
+##
+var day_count=1
 var day_passed=false
 var inventory_items=[]
 var seeds_image=preload("res://16x16/Sprites/seeds_packet_16x16.png")
@@ -191,7 +195,8 @@ func update_day_count():
 	TaskManager.task_status["lock_counter"]=false
 	#time_passed=0.0
 	#initial_time=0.0
-		
+	coherence = 3
+	entropy = 3	
 	await get_tree().change_scene_to_packed(HOUSE_INTERIOR)	
 	while(get_node("/root/house_interior/Farmer")==null):
 		await get_tree().process_frame  # wait for the scene to finish loading

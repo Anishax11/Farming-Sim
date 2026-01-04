@@ -52,13 +52,13 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			var player=get_node("/root/farm_scene/Farmer")
 			var player_pos=Vector2( int(player.position.x / 8) * 8,int(player.position.y / 8) * 8 )
 			distance=soil_pos.distance_to(player_pos)
-			print("dsit : ",distance)
 			print("Tilled :",tilled)
 			print("water can equipped :",panel.water_equipped)
+			
 			if distance<40 and tilled==true and panel.water_equipped==true:
 				
 				print("Current animation :",animated_sprite_2d.animation)
-				
+				watered = true
 				if(animated_sprite_2d.animation=="seeds"):
 						print("rect seeds")
 						animated_sprite_2d.play("watered_seeds")
@@ -75,7 +75,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						print("rect_tilled")
 						animated_sprite_2d.play("watered_circle_tilled")
 				water_audio.play() 
-				
+				Global.watered_plants.append(self.name)
 				await get_tree().create_timer(1.0).timeout
 				water_audio.stop()
 				
@@ -86,7 +86,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if distance<40 and planted==true and panel.water_equipped==true: #If plant doesn't exist yet
 				#print("trying to water")
 				watered=true
-				Global.watered_plants.append(self.name)
+				
 				
 				if not PlantTracker.plant_names.has(self.name):
 					var plant_name=seed_type
@@ -126,8 +126,18 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						Global.equipped_panel=null
 						panel.seeds_equipped = false
 						panel.remove_item()
+					
+					var initial = ""  	
+					if watered == true:
+						print("Plant watered before planting")	
+						initial = "watered_"
+						var plant_name=seed_type
+						PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
+						PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
+						print("Added new plant: :",plant_name+str(Global.plant_number) )
+						Global.plant_number+=1
 						
-						
+						PlantTracker.locked_growth[self.name]=true #Set lock on soil so plant stage can only be updated once a day
 					#print("Seeds count:",inventory.seeds_count)
 					if Global.player_direction==Vector2(1,0):
 						print("Facing right")
@@ -141,12 +151,13 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						
 						player.get_node("AnimatedSprite2D").play("seeds_front")
 					
-					if animated_sprite_2d.animation=="tilled":
-						animated_sprite_2d.play("circle_seeds")
+					if animated_sprite_2d.animation=="tilled" or  animated_sprite_2d.animation=="watered_circle_tilled"  :
+						animated_sprite_2d.play(str(initial)+"circle_seeds")
 						
-					elif animated_sprite_2d.animation=="rect_tilled":
-						animated_sprite_2d.play("seeds")
-					#print(animated_sprite_2d.animation)
+					elif animated_sprite_2d.animation=="rect_tilled" or animated_sprite_2d.animation=="watered_soil" :
+						animated_sprite_2d.play(str(initial)+"seeds")
+						
+					print("SOIL ANIMATION : ",animated_sprite_2d.animation)
 					Global.save_tilled_soil(self,animated_sprite_2d.animation)
 				
 					

@@ -85,15 +85,18 @@ var prices={
 var plant_info = {
 	"strawberry" : {
 		"difficulty" : 1.3,# moderate
-		"ideal_temp" : 21 
+		"ideal_temp" : 21 ,
+		"type" : "stable"
 	},
 	"potato" : {
 		"difficulty" : 1.3,# moderate
-		"ideal_temp" : 25 
+		"ideal_temp" : 25,
+		"type" : "volatile" 
 	},
 	"pumpkin" :{
 		"difficulty" : 1.6,# difficult
-		"ideal_temp" : 30 
+		"ideal_temp" : 30 ,
+		"type" : "stable"
 	},
 	"carrot" :{
 		"difficulty" : 1,# easy

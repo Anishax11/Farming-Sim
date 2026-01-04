@@ -63,7 +63,7 @@ func _ready() -> void:
 		await Dialogic.start("Aria")
 		#aria.move_to()
 		#await Dialogic.start("TempRegulatorTutorial")	
-		#Tutorials.tutorials["temp_regulator_tutorial"]=true
+		Tutorials.tutorials["temp_regulator_tutorial"]=true
 
 
 func _on_exit_body_entered(body: Node2D) -> void:

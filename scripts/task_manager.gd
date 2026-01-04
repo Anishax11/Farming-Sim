@@ -11,13 +11,13 @@ var tasks={
 	"Task2"={
 		"title" : "Fresh Strawberries for Aria",
 		"Desc" : "Grow and harvest fresh strawberries, then deliver them to Aria so she can install a temperature regulator in your greenhouse.",
-		"completed" : true,
+		"completed" : false,
 		"acquired" : false
 	},
 	"Task3"={
 		"title" : "Register for the competition",
 		"Desc" : "Find the fest centre and complete registration for the festival.",
-		"completed" : true,
+		"completed" : false,
 		"acquired" : true
 	},
 	"Task4"={
@@ -30,7 +30,7 @@ var tasks={
 		"title" : "What the Land Remembers",
 		"Desc" : "Grow any crop and keep it within acceptable conditions for 2 full days.",
 		"completed" : false,
-		"acquired" : true
+		"acquired" : false
 	}
 }
 #TASK 1:
