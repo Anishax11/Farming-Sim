@@ -95,35 +95,45 @@ func move_item(panel_number,item_name):
 		texture_rect.global_position=previous_panel.global_position
 		Global.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]=item_name
 		return
+	
 	print("Final panel no :",final_panel_number)	
 	if final_panel.item_name==null and final_panel_number>0 and final_panel_number<16:
 		print("NOT OCCUPIED")
 		if final_panel!=previous_panel:
 			print("final_panel!=previous_panel")
+			final_panel.item_name = previous_panel.item_name
 			final_panel.seed_type=previous_panel.seed_type
 			final_panel.seed_count=previous_panel.seed_count
 			final_panel.plant_score=previous_panel.plant_score
+			final_panel.clicked=previous_panel.clicked
 			PlantTracker.panel_info[final_panel.name]["seed_count"]=previous_panel.seed_count
 			PlantTracker.panel_info[previous_panel.name]["seed_count"]=0
 			previous_panel.seed_count=0 
 			previous_panel.plant_score=null
-			previous_panel.remove_child(texture_rect)
+			previous_panel.clicked = false
+			previous_panel.remove_item()
 			#texture_rect.name=previous_panel.item_name
-			previous_panel.item_name=null
+			#previous_panel.item_name=null
 			final_panel.add_child(texture_rect)
 			
 			Global.inventory_items[int((final_panel_number-1)/5)][int(final_panel_number-1)%5]=item_name
 			
 			texture_rect.global_position=final_panel.global_position
+			texture_rect.z_index = 1
+			#print("Text z :",texture_rect.z_index ," panel z : ",final_panel.z_index)
+			
 			#REMOVE ITEM FROM ARRAY
 			Global.inventory_items[int((panel_number-1)/5)][(panel_number-1)%5]=""
 			
 			#Highligh new panel if dropped item  is equipped
-			#if Global.equipped_panel == previous_panel.name:  
-				#Global.equipped_panel = final_panel.name
-				#final_panel.item_name = previous_panel.item_name
-				#final_panel.highlight_panel()
-			
+			if Global.equipped_panel == previous_panel.name:  
+				print("equipped item moved,Highlight panel new panel")
+				Global.equipped_panel = final_panel.name
+				final_panel.item_name = item_name
+				
+				print("Final panel equipped:",final_panel.name," item :",final_panel.item_name)
+				final_panel.highlight_panel()
+		
 			
 	else:
 		print("OCCUPIED")
@@ -132,7 +142,36 @@ func move_item(panel_number,item_name):
 			previous_panel.add_child(texture_rect)
 			texture_rect.global_position=previous_panel.global_position
 			Global.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]=item_name
-	
+		
+		else: # item is clicked, stays in same panel
+			if final_panel.item_name!=null:
+				print("Item clicked : ",final_panel.clicked)
+				final_panel.clicked=!final_panel.clicked
+				if final_panel.clicked==false:
+					equipped_panel=null
+				equipped_panel = final_panel.name
+				var last_five = final_panel.item_name.substr(item_name.length() - 5, 5)
+				if last_five=="seeds" and final_panel.get_child(0)!=null :
+					print("Item is seeds")
+				#print(get_child(0).name)
+				#print(get_child(0).visible)
+				#
+					if final_panel.water_equipped==true:
+						final_panel.water_equipped=false
+						
+					final_panel.seeds_equipped=!final_panel.seeds_equipped
+					
+					print("seeds_equipped :",final_panel.seeds_equipped)
+					
+					equip_item(final_panel.seed_type)
+			#else:
+				#print("Item is not seeds")	
+				
+				if final_panel.item_name=="watercan":
+					if final_panel.seeds_equipped==true:
+						final_panel.seeds_equipped=false
+					#print("Item is water")
+					final_panel.water_equipped=!final_panel.water_equipped
 	#print("Text final path:",texture_rect.get_path())
 	#
 	#print(get_node("/root/Game/Farmer/Inventory/NinePatchRect/GridContainer/Panel"+str(final_panel)).position)

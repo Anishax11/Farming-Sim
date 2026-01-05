@@ -58,65 +58,68 @@ func _on_gui_input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
-			print(" Panel: ",self.name," Plant Score is : ",plant_score)
-			Global.equipped_panel = self.name
-			if item_name!=null:
-				clicked=!clicked
-				if clicked==true:
-					
-					for sibling in siblings:
-						if sibling!=self and sibling.stylebox.texture==Global.HIGHLIGHTED_PANEL :
-							#print("sibling :",sibling.name)
-							sibling.clicked=false
-							sibling.stylebox.texture=Global.INVENTORY_SLOT
-							add_theme_stylebox_override("panel", sibling.stylebox)
-							sibling.stylebox.expand_margin_left = 0
-							sibling.stylebox.expand_margin_right = 0
-							sibling.stylebox.expand_margin_top = 0
-							sibling.stylebox.expand_margin_bottom = 0
-							last_five = sibling.item_name.substr(sibling.item_name.length() - 5, 5)
-							if  last_five== "seeds":
-								seeds_equipped=false
-							
-							elif sibling.item_name == "watercan":
-								water_equipped = false
-					
-					highlight_panel()
-						
-				else:
-					stylebox.texture=Global.INVENTORY_SLOT
-					add_theme_stylebox_override("panel", stylebox)
-					stylebox.expand_margin_left = 0
-					stylebox.expand_margin_right = 0
-					stylebox.expand_margin_top = 0
-					stylebox.expand_margin_bottom = 0
-				#print("clicked:",clicked)	
-			#print(Global.inventory_items)
-			#print("Clicked panel")
+			print(" Panel detected click: ",self.name," item : ",item_name)
 			button_held=true
-			if item_name!=null:
-				last_five = item_name.substr(item_name.length() - 5, 5)
-			if last_five=="seeds" and get_child(0)!=null :
-				#print("Item is seeds")
-				#print(get_child(0).name)
-				#print(get_child(0).visible)
+			#Global.equipped_panel = self.name done in move item func
+			#print("Equipped panel : ",self.name)
+			#if item_name!=null:
+				
+				#if clicked==true:
+					#
+					#for sibling in siblings:
+						#if sibling!=self and sibling.stylebox.texture==Global.HIGHLIGHTED_PANEL :
+							##print("sibling :",sibling.name)
+							#sibling.clicked=false
+							#sibling.stylebox.texture=Global.INVENTORY_SLOT
+							#add_theme_stylebox_override("panel", sibling.stylebox)
+							#sibling.stylebox.expand_margin_left = 0
+							#sibling.stylebox.expand_margin_right = 0
+							#sibling.stylebox.expand_margin_top = 0
+							#sibling.stylebox.expand_margin_bottom = 0
+							#last_five = sibling.item_name.substr(sibling.item_name.length() - 5, 5)
+							#if  last_five== "seeds":
+								#seeds_equipped=false
+							#
+							#elif sibling.item_name == "watercan":
+								#water_equipped = false
+					#print("Highlight panel")
+					#highlight_panel()
+						#
+				#else:
+					#print("Remove highlight from panel")
+					#stylebox.texture=Global.INVENTORY_SLOT
+					#add_theme_stylebox_override("panel", stylebox)
+					#stylebox.expand_margin_left = 0
+					#stylebox.expand_margin_right = 0
+					#stylebox.expand_margin_top = 0
+					#stylebox.expand_margin_bottom = 0
+				##print("clicked:",clicked)	
+			##print(Global.inventory_items)
+			##print("Clicked panel")
+			#button_held=true
+			#if item_name!=null:
+				#last_five = item_name.substr(item_name.length() - 5, 5)
+			#if last_five=="seeds" and get_child(0)!=null :
+				##print("Item is seeds")
+				##print(get_child(0).name)
+				##print(get_child(0).visible)
+				##
+				#if water_equipped==true:
+					#water_equipped=false
+					#
+				#seeds_equipped=!seeds_equipped
 				#
-				if water_equipped==true:
-					water_equipped=false
-					
-				seeds_equipped=!seeds_equipped
-				
-				#print("seeds_equipped",seeds_equipped)
-				
-				Global.equip_item(seed_type)
-			#else:
-				#print("Item is not seeds")	
-				
-			if item_name=="watercan":
-				if seeds_equipped==true:
-					seeds_equipped=false
-				#print("Item is water")
-				water_equipped=!water_equipped
+				##print("seeds_equipped",seeds_equipped)
+				#
+				#Global.equip_item(seed_type)
+			##else:
+				##print("Item is not seeds")	
+				#
+			#if item_name=="watercan":
+				#if seeds_equipped==true:
+					#seeds_equipped=false
+				##print("Item is water")
+				#water_equipped=!water_equipped
 				#Global.equip_item("watercan")
 				#print("water_equipped",water_equipped)
 			
@@ -131,15 +134,50 @@ func _on_gui_input(event: InputEvent) -> void:
 				#get_child(0).global_position=Vector2(global_position.x+2,global_position.y+2)
 			#
 			#print(get_child(0).position)
-			#print("Button left")
+			print("Button left :",self.name)
 			button_held=false
 			
 			
 			var child=get_child(0)
 			if child is TextureRect and item_name!=null:
 				#print("TEXTURE:",child.name)
+				print("Move item called :",self.name)
 				Global.move_item(panel_number,item_name)#Passes panel no. to move_item func
-				
+				if clicked==true:
+					
+					for sibling in siblings:
+						if sibling!=self and sibling.stylebox.texture==Global.HIGHLIGHTED_PANEL :
+							#print("sibling :",sibling.name)
+							sibling.clicked=false
+							sibling.stylebox.texture=Global.INVENTORY_SLOT
+							add_theme_stylebox_override("panel", sibling.stylebox)
+							sibling.stylebox.expand_margin_left = 0
+							sibling.stylebox.expand_margin_right = 0
+							sibling.stylebox.expand_margin_top = 0
+							sibling.stylebox.expand_margin_bottom = 0
+							sibling.clicked=false
+							last_five = sibling.item_name.substr(sibling.item_name.length() - 5, 5)
+							if  last_five== "seeds":
+								seeds_equipped=false
+							
+							elif sibling.item_name == "watercan":
+								water_equipped = false
+					print("Highlight panel")
+					highlight_panel()
+						
+				else:
+					print("Remove highlight from panel")
+					stylebox.texture=Global.INVENTORY_SLOT
+					add_theme_stylebox_override("panel", stylebox)
+					stylebox.expand_margin_left = 0
+					stylebox.expand_margin_right = 0
+					stylebox.expand_margin_top = 0
+					stylebox.expand_margin_bottom = 0
+					
+				#print("clicked:",clicked)	
+			#print(Global.inventory_items)
+			#print("Clicked panel")
+			
 			#else:
 				#if  child != TextureRect :
 					#print("TEXT not found")
@@ -182,6 +220,7 @@ func _on_gui_input(event: InputEvent) -> void:
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
 	item_name=node.name
+	print("Child added :",self.name)
 	#print(get_path())
 	#print("Seed type :",seed_type)
 	var last_five = item_name.substr(item_name.length() - 5, 5)
@@ -235,7 +274,7 @@ func _on_panel_child_exiting_tree(node : Node) :
 
 func remove_item():
 	#print("Inside")
-	#print("Removing itemfrom inv and panel",self.name)	
+	print("Removing itemfrom inv and panel",self.name)	
 	#Global.inventory_items[][]=item_name
 	if item_name!=null:
 			#	print("REMOVVE ITEM")	
