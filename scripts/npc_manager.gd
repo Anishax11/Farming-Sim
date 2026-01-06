@@ -21,7 +21,7 @@ var aria_schedule={
 	"6" : "aria_home",
 	"7" : "market_entrance",
 	"8" : "SeedShop",
-	"10" : "market_exit",
+	"10" : "market_entrance",
 	"11" : "maya_home"
 }
 
@@ -47,9 +47,9 @@ var eiden_schedule={
 
 var sera_schedule={
 	"6" : "Church",
-	"10" : "cafe",
-	"16" : "library",
-	"20" : "maya_home"
+	"8" : "cafe",
+	"9" : "library"
+	
 }
 
 var scene_wise_locations ={
@@ -70,8 +70,8 @@ var scene_wise_locations ={
 	"frontyard_scene" = {
 		"Church" :Vector2(-250,700),
 		"Home" : Vector2(-250,700),
-		"Greenhouse": Vector2(-250,700),
-		"FestCentre" :Vector2(-250,700),
+		"Greenhouse": Vector2(-650,700),
+		"FestCentre" :Vector2(-650,700),
 		"aira_home":Vector2(450,700),
 		"aria_home": Vector2(-650,750),
 		"market_entrance" :Vector2(300,900),
@@ -107,12 +107,22 @@ var npc_list ={
 	"maya" : maya
 }# [aria,aira,eiden]#,noa,maya]
 
-
+var npc_keys = npc_list.keys()
 func _ready():
 	print("NPC Manager")
 	time_manager = get_tree().current_scene.find_child("TimeManager",true,false)
 	curr_time = int(time_manager.current_time)
 	curr_scene =  get_tree().current_scene.name
+	if Global.day_count == 1:
+		for char in npc_list:
+			var timeslot_count = 0
+			var last_time_slot =  get(char +"_schedule").keys().size()-1
+			for timeslot in get(char +"_schedule"):
+				timeslot_count+=1
+				if timeslot_count == last_time_slot: #last destination for the day	
+					get(char +"_schedule")[timeslot] = "FestCentre"
+					print("Location set to fest")
+	
 	
 	for character in npc_list :
 		print("NPC : ",character)
@@ -143,33 +153,33 @@ func hour_elapsed():
 				print("Has time in schedule :",curr_time)
 				if scene_wise_locations.has(curr_scene) :
 					for location in scene_wise_locations[curr_scene]:
+						#print("Char schedule :",get(children +"_schedule")[str(curr_time)])
+						#print("Location :",location)
 						if (get(children +"_schedule")[str(curr_time)]==location):
 							if location == "library" or location == "market_exit" or location =="library_entrance" :
-								print("scheduled to free later")
+								#print("scheduled to free later")
 								char.free_later = true
-							print("Move char to location :",scene_wise_locations[curr_scene][location])
+							#print("Move char to location :",scene_wise_locations[curr_scene][location])
 							char.get_node("NavigationAgent2D").target_position = scene_wise_locations[curr_scene][location]
 							char.state = char.State.MOVE_TO_TARGET
-				#if !found:
-					#print("LOvcation not in scene")
-					#children.queue_free()
-					
-		elif scene_wise_locations[curr_scene].has(get(children +"_schedule")[str(curr_time)] ):#Char enters scene
+				
+						
+		elif get(children +"_schedule").has(str(curr_time)) and scene_wise_locations[curr_scene].has(get(children +"_schedule")[str(curr_time)] ):#Char enters scene
 			
 			var char = npc_list[children].instantiate()
 			char.name = children
 			char.global_position = scene_wise_locations[curr_scene][get(children +"_schedule")[str(curr_time)]]
 			add_child(char)
 				
-	if Global.day_count == 7 and curr_time >=18:
-			for children in get_children():
-				var char = children.name
-				print("NPC : ",char)
-				for timeslot in get(char +"_schedule"):
-					var text = get(char +"_schedule")[str(timeslot)]
-					var last_five = text.substr(text.length() - 5, 5)
-					print("Destination (last 5) :",last_five)
-					if last_five == "_home":
-						children.free_later = true
-						if get_tree().current_scene.name == "frontyard_scene":
-							children.get_node("NavigationAgent2D").target_position = Vector2(125,750) #Move to fest centre entrance
+	#if Global.day_count == 7 and curr_time >=18:
+			#for children in get_children():
+				#var char = children.name
+				#print("NPC : ",char)
+				#for timeslot in get(char +"_schedule"):
+					#var text = get(char +"_schedule")[str(timeslot)]
+					#var last_five = text.substr(text.length() - 5, 5)
+					#print("Destination (last 5) :",last_five)
+					#if last_five == "_home":
+						#children.free_later = true
+						#if get_tree().current_scene.name == "frontyard_scene":
+							#children.get_node("NavigationAgent2D").target_position = Vector2(125,750) #Move to fest centre entrance

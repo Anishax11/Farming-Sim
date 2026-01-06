@@ -67,6 +67,14 @@ func move_to():
 	var next_pos  = navigation_agent_2d.get_next_path_position()
 	direction  = (next_pos - global_position).normalized()
 	velocity = direction * speed
+	if get_slide_collision_count() > 0:
+		var collision = get_slide_collision(0)
+		var normal = collision.get_normal()
+		if abs(normal.x) > abs(normal.y):
+			print("Collision on X axis (left/right wall)")
+			direction.y=randi_range(-1,1)
+		else:
+			direction.x=randi_range(-1,1)
 	move_and_slide()
 	if navigation_agent_2d.is_navigation_finished():
 		#print("Navigation finished")

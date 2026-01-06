@@ -48,6 +48,17 @@ func move_to():
 	prev_state = State.MOVE_TO_TARGET
 	if delay_schedule:
 		return
+	if get_slide_collision_count() > 0:
+		var collision = get_slide_collision(0)
+		var normal = collision.get_normal()
+		if abs(normal.x) > abs(normal.y):
+			print("Collision on X axis (left/right wall)")
+			direction.y=randi_range(-1,1)
+		else:
+			direction.x=randi_range(-1,1)
+			
+		
+			
 	if navigation_agent_2d.is_navigation_finished():
 		#print("Navigation finished")
 		if free_later:
