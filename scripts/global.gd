@@ -145,10 +145,12 @@ func move_item(panel_number,item_name):
 		
 		else: # item is clicked, stays in same panel
 			if final_panel.item_name!=null:
+				equipped_panel = final_panel.name
 				print("Item clicked : ",final_panel.clicked)
 				final_panel.clicked=!final_panel.clicked
 				if final_panel.clicked==false:
 					equipped_panel=null
+					print("equipped panel null")
 				equipped_panel = final_panel.name
 				var last_five = final_panel.item_name.substr(item_name.length() - 5, 5)
 				if last_five=="seeds" and final_panel.get_child(0)!=null :

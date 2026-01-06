@@ -11,7 +11,9 @@ var decision_time = 0.0
 var decision_interval = 3.0 
 var last_direction = Vector2.DOWN	
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-
+var delay_schedule =false
+var free_later = false
+var prev_state
 var schedule={
 	"6" : "maya_home",
 	"9" : "Church",
@@ -19,13 +21,15 @@ var schedule={
 	"20" : "maya_home"
 }
 func _ready():
-	#Dialogic.timeline_ended.connect(_on_dialogue_ended)
+	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
 	
 func _physics_process(delta: float) -> void:
 	#if state == State.MOVE_TO_TARGET:
 		#move_to()
 		#return
+	if delay_schedule:
+		return
 	decision_time -=delta
 	match state:
 		State.IDLE:
@@ -41,10 +45,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func move_to():
-	
-	#navigation_agent_2d.target_position = Vector2(-250,700)
+	prev_state = State.MOVE_TO_TARGET
+	if delay_schedule:
+		return
 	if navigation_agent_2d.is_navigation_finished():
 		#print("Navigation finished")
+		if free_later:
+			queue_free()
 		state = State.IDLE
 		return
 	var next_pos = (navigation_agent_2d.get_next_path_position())
@@ -131,7 +138,13 @@ func update_animation():
 func _on_interact_mouse_entered() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
-
+func _on_dialogue_ended():
+	if prev_state == State.MOVE_TO_TARGET:
+		delay_schedule = false
+		state = State.MOVE_TO_TARGET
+		return
+	state = State.IDLE
+	
 func _on_interact_mouse_exited() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
@@ -139,6 +152,9 @@ func _on_interact_mouse_exited() -> void:
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			delay_schedule = true
+			prev_state = state
+			
 			state = State.TALK
 			if Tutorials.interactions["maya"]==false:
 				Dialogic.VAR.set("maya_intro",false)

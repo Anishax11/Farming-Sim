@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://dj0hkgwoix4at"]
+[gd_scene load_steps=43 format=4 uid="uid://dj0hkgwoix4at"]
 
 [ext_resource type="Script" path="res://scripts/frontyard_scene.gd" id="1_3rtkc"]
 [ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="4_jskuh"]
@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bqf55ab0jubbx" path="res://scenes/grass.tscn" id="22_f1ckv"]
 [ext_resource type="Texture2D" uid="uid://e08xt8ukef7b" path="res://16x16/Sprites/Road_TileSet.jpeg" id="22_jc4tp"]
 [ext_resource type="PackedScene" uid="uid://cg6sbm3jtalyf" path="res://scenes/normaltree2.tscn" id="23_2dyqx"]
+[ext_resource type="PackedScene" uid="uid://bwe173ng4o4tr" path="res://scenes/maya_home.tscn" id="25_2x5nl"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="26_1prxw"]
+[ext_resource type="PackedScene" uid="uid://cv1c77q73y7fp" path="res://scenes/noa_home.tscn" id="26_5xrvd"]
 [ext_resource type="PackedScene" uid="uid://bjcduanqpeh7o" path="res://npc_home.tscn" id="28_06t6h"]
 [ext_resource type="PackedScene" uid="uid://obpviqay7x0" path="res://npc_home_2.tscn" id="29_80ppe"]
 [ext_resource type="PackedScene" uid="uid://bn32g7o32l0ug" path="res://scenes/church.tscn" id="29_exdj4"]
@@ -22746,5 +22748,11 @@ tile_set = SubResource("TileSet_20x78")
 
 [node name="Library" parent="." instance=ExtResource("21_hm4g1")]
 position = Vector2(119, 672)
+
+[node name="maya_home" parent="." instance=ExtResource("25_2x5nl")]
+position = Vector2(603, 781)
+
+[node name="noa_home" parent="." instance=ExtResource("26_5xrvd")]
+position = Vector2(-200, 820)
 
 [connection signal="body_entered" from="MarketEntrance" to="." method="_on_market_entrance_body_entered"]

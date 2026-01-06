@@ -15,6 +15,7 @@ var last_direction = Vector2.DOWN
 var free_later
 var curr_scene
 var prev_state
+var delay_schedule = false
 var schedule={
 	"6" : "maya_home",
 	"9" : "library",
@@ -137,6 +138,7 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			prev_state = state
+			delay_schedule = true
 			Dialogic.VAR.set("library_scene",(curr_scene=="LibraryInterior"))
 			state = State.TALK
 			#print("Interact with eiden")
@@ -152,6 +154,7 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 
 func _on_dialogue_ended():
 	if prev_state == State.MOVE_TO_TARGET:
+		delay_schedule = false
 		state = State.MOVE_TO_TARGET
 		return
 	state = State.IDLE

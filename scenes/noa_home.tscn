@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv1c77q73y7fp"]
+
+[ext_resource type="Texture2D" uid="uid://dxx6m4pm3jrbk" path="res://16x16/Sprites/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_3ltlb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exxuo"]
+size = Vector2(53, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isjss"]
+atlas = ExtResource("1_3ltlb")
+region = Rect2(0, 648, 83, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2yhe4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isjss")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="noa_home" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 10.5)
+shape = SubResource("RectangleShape2D_exxuo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2yhe4")

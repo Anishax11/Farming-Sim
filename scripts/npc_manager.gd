@@ -8,6 +8,7 @@ var noa = load("res://scenes/noa.tscn")
 var aria = load("res://scenes/aria.tscn")
 var aira = load("res://scenes/aira.tscn")
 var sera = load("res://scenes/sera.tscn") 
+
 var maya_schedule={
 	"6" : "maya_home",
 	"9" : "Church",
@@ -26,12 +27,12 @@ var aria_schedule={
 
 
 var aira_schedule={
-	"6" : "maya_home",
+	"7" : "aira_home",
 	"9" : "library",
 	"9.5" : "librarian_desk",
 	"17" : "library_entrance",
 	"17.5" : "library",
-	"19" : "maya_home"
+	"19" : "aira_home"
 }
 
 
@@ -41,7 +42,7 @@ var eiden_schedule={
 	"9.2" : "library_entrance",
 	"15" : "library_entrance",
 	"15.5" : "library",
-	"20" : "maya_home"
+	"20" : "aira_home"
 }
 
 var sera_schedule={
@@ -57,11 +58,13 @@ var scene_wise_locations ={
 		"Home" : Vector2(-250,700),
 		"Greenhouse": Vector2(-250,700),
 		"FestCentre" :Vector2(-250,700),
-		"maya_home":Vector2(450,700),
+		"aira_home":Vector2(450,700),
 		"aria_home": Vector2(-650,750),
 		"market_entrance" :Vector2(300,900),
 		"library" : Vector2(125,750),
-		"cafe" : Vector2(500,750)
+		"cafe" : Vector2(500,750),
+		"maya_home" : Vector2(600,850),
+		"noa_home" : Vector2(-200,850)
 		
 	},
 	"frontyard_scene" = {
@@ -69,17 +72,20 @@ var scene_wise_locations ={
 		"Home" : Vector2(-250,700),
 		"Greenhouse": Vector2(-250,700),
 		"FestCentre" :Vector2(-250,700),
-		"maya_home":Vector2(450,700),
+		"aira_home":Vector2(450,700),
 		"aria_home": Vector2(-650,750),
 		"market_entrance" :Vector2(300,900),
 		"library" : Vector2(125,750),
-		"cafe" : Vector2(500,750)
+		"cafe" : Vector2(500,750),
+		"maya_home" : Vector2(600,850),
+		"noa_home" : Vector2(-200,850)
 		
 	},
 	"MarketPlace" = {
 		"SeedShop" : Vector2(125,-150),
 		"PostOffice" : Vector2(),
-		"market_exit" : Vector2(-150,-150)
+		"market_exit" : Vector2(-150,-150),
+		"market_entrance" : Vector2(-150,-150)
 		},
 	
 	"LibraryInterior" = {
@@ -97,7 +103,8 @@ var npc_list ={
 	"aria" : aria,
 	"aira" :aira,
 	"eiden" : eiden,
-	"sera" : sera
+	"sera" : sera,
+	"maya" : maya
 }# [aria,aira,eiden]#,noa,maya]
 
 
@@ -128,25 +135,32 @@ func hour_elapsed():
 	curr_time = int(time_manager.current_time)
 	
 					
-	for children in get_children():
-		var char = children.name
-		var found = false
-		#print("COntrolling :",char.name)
-		if (get(char +"_schedule").has(str(curr_time))):
-			print("Has time in schedule :",curr_time)
-			if scene_wise_locations.has(curr_scene) :
-				for location in scene_wise_locations[curr_scene]:
-					if (get(char +"_schedule")[str(curr_time)]==location):
-						found = true
-						if location == "library" or location == "market_exit" or location =="library_entrance" :
-							print("scheduled to free later")
-							children.free_later = true
-						print("Move char to location :",scene_wise_locations[curr_scene][location])
-						children.get_node("NavigationAgent2D").target_position = scene_wise_locations[curr_scene][location]
-						children.state = children.State.MOVE_TO_TARGET
+	for children in npc_list:
+		if get_node(children)!=null:
+			var char = get_node(children)
+			#print("COntrolling :",char.name)
+			if (get(children +"_schedule").has(str(curr_time))):
+				print("Has time in schedule :",curr_time)
+				if scene_wise_locations.has(curr_scene) :
+					for location in scene_wise_locations[curr_scene]:
+						if (get(children +"_schedule")[str(curr_time)]==location):
+							if location == "library" or location == "market_exit" or location =="library_entrance" :
+								print("scheduled to free later")
+								char.free_later = true
+							print("Move char to location :",scene_wise_locations[curr_scene][location])
+							char.get_node("NavigationAgent2D").target_position = scene_wise_locations[curr_scene][location]
+							char.state = char.State.MOVE_TO_TARGET
 				#if !found:
 					#print("LOvcation not in scene")
 					#children.queue_free()
+					
+		elif scene_wise_locations[curr_scene].has(get(children +"_schedule")[str(curr_time)] ):#Char enters scene
+			
+			var char = npc_list[children].instantiate()
+			char.name = children
+			char.global_position = scene_wise_locations[curr_scene][get(children +"_schedule")[str(curr_time)]]
+			add_child(char)
+				
 	if Global.day_count == 7 and curr_time >=18:
 			for children in get_children():
 				var char = children.name
