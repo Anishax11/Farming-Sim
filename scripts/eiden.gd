@@ -8,7 +8,7 @@ var state = State.IDLE
 var speed = 10
 var direction = Vector2.ZERO
 var decision_time = 0.0
-var decision_interval = 3.0 
+var idle_decision_interval = 3.0 
 var last_direction = Vector2.DOWN	
 var prev_state 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
@@ -42,11 +42,7 @@ func move_to():
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
 		var normal = collision.get_normal()
-		if abs(normal.x) > abs(normal.y):
-			print("Collision on X axis (left/right wall)")
-			direction.y=randi_range(-1,1)
-		else:
-			direction.x=randi_range(-1,1)
+		state = State.IDLE
 	move_and_slide()
 	if navigation_agent_2d.is_navigation_finished():
 		#print("Navigation finished")
@@ -90,8 +86,11 @@ func walk():
 	
 	
 	if decision_time <= 0.0:
-		state = State.IDLE
-		decision_time = decision_interval
+		if !prev_state == State.MOVE_TO_TARGET:
+			state = State.IDLE
+			decision_time = idle_decision_interval
+		else:
+			state = State.MOVE_TO_TARGET
 		
 func talk():
 	velocity = Vector2.ZERO
