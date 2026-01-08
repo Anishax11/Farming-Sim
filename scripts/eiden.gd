@@ -44,6 +44,7 @@ func move_to():
 		var normal = collision.get_normal()
 		state = State.IDLE
 	move_and_slide()
+	
 	if navigation_agent_2d.is_navigation_finished():
 		#print("Navigation finished")
 		if free_later == true :

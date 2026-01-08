@@ -113,15 +113,15 @@ func _ready():
 	time_manager = get_tree().current_scene.find_child("TimeManager",true,false)
 	curr_time = int(time_manager.current_time)
 	curr_scene =  get_tree().current_scene.name
-	if Global.day_count == 1:
-		for char in npc_list:
-			var timeslot_count = 0
-			var last_time_slot =  get(char +"_schedule").keys().size()-1
-			for timeslot in get(char +"_schedule"):
-				timeslot_count+=1
-				if timeslot_count == last_time_slot: #last destination for the day	
-					get(char +"_schedule")[timeslot] = "FestCentre"
-					print("Location set to fest")
+	#if Global.day_count == 1:
+		#for char in npc_list:
+			#var timeslot_count = 0
+			#var last_time_slot =  get(char +"_schedule").keys().size()-1
+			#for timeslot in get(char +"_schedule"):
+				#timeslot_count+=1
+				#if timeslot_count == last_time_slot: #last destination for the day	
+					#get(char +"_schedule")[timeslot] = "FestCentre"
+					#print("Location set to fest")
 	
 	
 	for character in npc_list :
@@ -164,13 +164,26 @@ func hour_elapsed():
 							char.state = char.State.MOVE_TO_TARGET
 				
 						
-		elif get(children +"_schedule").has(str(curr_time)) and scene_wise_locations[curr_scene].has(get(children +"_schedule")[str(curr_time)] ):#Char enters scene
-			
-			var char = npc_list[children].instantiate()
-			char.name = children
-			char.global_position = scene_wise_locations[curr_scene][get(children +"_schedule")[str(curr_time)]]
-			add_child(char)
+		#elif get(children +"_schedule").has(str(curr_time)) and scene_wise_locations[curr_scene].has(get(children +"_schedule")[str(curr_time)] ):#Char enters scene
+			#
+			#var char = npc_list[children].instantiate()
+			#char.name = children
+			#char.global_position = scene_wise_locations[curr_scene][get(children +"_schedule")[str(curr_time)]]
+			#add_child(char)
+		else :
+			var spawn_point
+			for timeslot in get(children +"_schedule") :
+				if curr_time >= int(timeslot):
+					spawn_point = get(children +"_schedule")[str(timeslot)]
+					print("Spawn point : ",get(children +"_schedule")[str(timeslot)])
+					
 				
+			if scene_wise_locations.has(curr_scene) and scene_wise_locations[curr_scene].has(spawn_point)	:
+				print("Spawn at scheduled location :",scene_wise_locations[curr_scene][spawn_point])
+				var char = npc_list[children].instantiate()
+				char.name = children
+				char.global_position = scene_wise_locations[curr_scene][spawn_point]
+				add_child(char)		
 	#if Global.day_count == 7 and curr_time >=18:
 			#for children in get_children():
 				#var char = children.name

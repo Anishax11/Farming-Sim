@@ -8,11 +8,11 @@ if {day} == 1:
 			Aria: Hello there!
 		elif {random} == 2:
 			Aria: hey there! how's your first day going?
-elif {day} == 2:
+elif {day} >= 2:
 	if {aria_strawberry_task_given} == false:
 		if {aria_last_convo} == false:
 			Aria: You’re growing crops in the greenhouse, right?
-			Aria: he temperature’s been fluctuating a lot lately. That can stress delicate plants.
+			Aria: The temperature’s been fluctuating a lot lately. That can stress delicate plants.
 			Aria: A temperature regulator would stabilize the environment. I can install one for you—but I don’t work for free.
 			What do you need?
 			Aria: Fresh strawberries. Recently harvested, while they’re still at their best.
@@ -45,12 +45,12 @@ else:
 				Aria: I wasn’t sure if I should take it.
 				She glances toward the greenhouse.
 				Aria: But seeing this work—done right—helps. It reminds me why I started.
-				Aria: Thank you. I’ll install the regulator tomorrow like I promised. And… I think I’ll send in my acceptance too.
+				Aria: Thank you. I’ll install the regulator  like I promised. And… I think I’ll send in my acceptance too.
 				[end_timeline]
 			- Leave
 				[end_timeline]
 	else:
-		Aria: The greenhouse is warmer than usual, the air steady and controlled. Aria stands by the wall-mounted regulator, tightening the final fastenings.
+		Narrator: The greenhouse is warmer than usual, the air steady and controlled. Aria stands by the wall-mounted regulator, tightening the final fastenings.
 		Aria: That should do it. Whoever built this place knew what they were doing.
 		You mean the previous owner?
 		Aria: The scientist, yes. People in town still talk about her.
@@ -78,7 +78,7 @@ else:
 			Aria: You did.
 			Aria: But you’re meeting them in your own way.
 		The regulator hums softly as it stabilizes.
-		Aria: I’m leaving tonight. Overseas work.
+		Aria: I’m leaving soon. Overseas work.
 		Will you be okay?
 		Aria: I think so.
 		Aria: This place helped me decide.
