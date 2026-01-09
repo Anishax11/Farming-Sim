@@ -31,6 +31,12 @@ var tasks={
 		"Desc" : "Grow any crop and keep it within acceptable conditions for 2 full days.",
 		"completed" : false,
 		"acquired" : false
+	},
+	"Task6"={
+		"title" : "Measured Faith",
+		"Desc" : "Investigate the abandoned church mechanism with the huntress.",
+		"completed" : false,
+		"acquired" : false
 	}
 }
 #TASK 1:
