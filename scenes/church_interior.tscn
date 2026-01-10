@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://6rofkaegdwbj"]
+[gd_scene load_steps=32 format=4 uid="uid://6rofkaegdwbj"]
 
 [ext_resource type="Texture2D" uid="uid://cmdj7cebqx7xk" path="res://16x16/Sprites/ChurchInterior.jpg" id="1_pryng"]
 [ext_resource type="Script" path="res://scripts/church_interior.gd" id="1_slh8s"]
@@ -9,7 +9,12 @@
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="7_p5i3g"]
 [ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="8_34oxk"]
 [ext_resource type="Script" path="res://scripts/dial_display.gd" id="9_dleng"]
+[ext_resource type="Texture2D" uid="uid://cmewfgr50bey6" path="res://16x16/Sprites/pumpkin_stage_3.png" id="10_d0e6i"]
 [ext_resource type="Texture2D" uid="uid://c217niiofdv2n" path="res://16x16/Sprites/Pumpkin.png" id="10_p63qc"]
+[ext_resource type="Texture2D" uid="uid://b1kepcug51obc" path="res://16x16/Sprites/StrawberryStage3.png" id="12_wxlmn"]
+[ext_resource type="PackedScene" uid="uid://ygemhstkx1nc" path="res://scenes/doubt.tscn" id="13_ao0b5"]
+[ext_resource type="PackedScene" uid="uid://jsk5ea18wsft" path="res://scenes/compliance.tscn" id="14_5cese"]
+[ext_resource type="PackedScene" uid="uid://m6360tr1ask" path="res://scenes/trust.tscn" id="15_to1xy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ddwhu"]
 texture = ExtResource("1_pryng")
@@ -4228,54 +4233,8 @@ animation = &"idle"
 position = Vector2(-2, -3)
 shape = SubResource("CapsuleShape2D_eii75")
 
-[node name="Trust" type="Sprite2D" parent="."]
-
-[node name="Label" type="Label" parent="Trust"]
-offset_left = 108.0
-offset_top = -26.0
-offset_right = 166.0
-offset_bottom = -3.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Trust
-"
-
-[node name="Dial" type="Sprite2D" parent="Trust"]
-position = Vector2(128, 9)
-texture = ExtResource("4_sa22o")
-
-[node name="Doubt" type="Sprite2D" parent="."]
-
-[node name="Label" type="Label" parent="Doubt"]
-offset_left = -93.0
-offset_top = 122.0
-offset_right = -35.0
-offset_bottom = 145.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Doubt
-"
-
-[node name="Dial" type="Sprite2D" parent="Doubt"]
-position = Vector2(-76, 157)
-texture = ExtResource("4_sa22o")
-
-[node name="Compliance" type="Sprite2D" parent="."]
-position = Vector2(150, 156)
-
-[node name="Label" type="Label" parent="Compliance"]
-offset_left = -94.0
-offset_top = -27.0
-offset_right = -36.0
-offset_bottom = -4.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Compliance
-"
-
-[node name="Dial" type="Sprite2D" parent="Compliance"]
-position = Vector2(-70, 6)
-texture = ExtResource("4_sa22o")
-
 [node name="Control" parent="." instance=ExtResource("5_2hdtg")]
-position = Vector2(-6, -3)
+position = Vector2(68, -3)
 
 [node name="Farmer" parent="." instance=ExtResource("6_hmdl0")]
 position = Vector2(-8, 74)
@@ -4294,9 +4253,19 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("7_p5i3g")
 
+[node name="Doubt" parent="." instance=ExtResource("13_ao0b5")]
+position = Vector2(117, 175)
+
+[node name="Compliance" parent="." instance=ExtResource("14_5cese")]
+position = Vector2(-70, -3)
+
+[node name="Trust" parent="." instance=ExtResource("15_to1xy")]
+position = Vector2(-74, 171)
+
 [node name="LabelCanvas" parent="." instance=ExtResource("8_34oxk")]
 
-[node name="DialDisplay" type="Control" parent="LabelCanvas"]
+[node name="ControlDialDisplay" type="Control" parent="LabelCanvas"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -4308,7 +4277,7 @@ grow_vertical = 2
 scale = Vector2(8, 8)
 script = ExtResource("9_dleng")
 
-[node name="TextureRect" type="TextureRect" parent="LabelCanvas/DialDisplay"]
+[node name="TextureRect" type="TextureRect" parent="LabelCanvas/ControlDialDisplay"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4323,4 +4292,94 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_p63qc")
 
-[connection signal="gui_input" from="LabelCanvas/DialDisplay" to="." method="_on_dial_display_gui_input"]
+[node name="TrustDialDisplay" type="Control" parent="LabelCanvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="LabelCanvas/TrustDialDisplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -264.0
+offset_right = -227.0
+offset_bottom = -176.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+texture = ExtResource("10_d0e6i")
+
+[node name="ComplianceDialDisplay" type="Control" parent="LabelCanvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="LabelCanvas/ComplianceDialDisplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_sa22o")
+
+[node name="DoubtDialDisplay" type="Control" parent="LabelCanvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="LabelCanvas/DoubtDialDisplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.5
+offset_top = -79.0
+offset_right = 85.5
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_wxlmn")
+
+[connection signal="gui_input" from="LabelCanvas/ControlDialDisplay" to="." method="_on_dial_display_gui_input"]
+[connection signal="gui_input" from="LabelCanvas/TrustDialDisplay" to="." method="_on_trust_dial_display_gui_input"]
+[connection signal="gui_input" from="LabelCanvas/ComplianceDialDisplay" to="." method="_on_compliance_dial_display_gui_input"]
+[connection signal="gui_input" from="LabelCanvas/DoubtDialDisplay" to="." method="_on_dout_dial_display_gui_input"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://ygemhstkx1nc"]
+
+[ext_resource type="Script" path="res://scripts/control.gd" id="1_16bhg"]
+[ext_resource type="Texture2D" uid="uid://b1kepcug51obc" path="res://16x16/Sprites/StrawberryStage3.png" id="2_0jh4d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tiun"]
+atlas = ExtResource("2_0jh4d")
+region = Rect2(0, 0, 171, 158)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_berna"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tiun")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03083"]
+size = Vector2(124, 117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rykf7"]
+size = Vector2(126, 113)
+
+[node name="Doubt" type="StaticBody2D"]
+script = ExtResource("1_16bhg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_berna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, -9.5)
+shape = SubResource("RectangleShape2D_03083")
+
+[node name="InputDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputDetector"]
+position = Vector2(-7, -8.5)
+shape = SubResource("RectangleShape2D_rykf7")
+
+[connection signal="input_event" from="InputDetector" to="." method="_on_input_detector_input_event"]
