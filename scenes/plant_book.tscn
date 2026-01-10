@@ -531,6 +531,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1om1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xumqq")
 }],
 "loop": false,
 "name": &"middle_page_front",
@@ -570,14 +573,13 @@ animations = [{
 }]
 
 [node name="PlantBook" type="Node2D"]
+scale = Vector2(20, 15)
 script = ExtResource("1_bd801")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4jh8x")
-animation = &"middle_page_back"
+animation = &"middle_page_front"
 autoplay = "default"
-frame = 8
-frame_progress = 1.0
 
 [node name="Next" type="Button" parent="."]
 offset_left = 25.0
@@ -595,6 +597,48 @@ text = "Back"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 2)
+zoom = Vector2(0.7, 0.7)
+
+[node name="RightPage" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.1
+offset_top = -19.2
+offset_right = 24.1
+offset_bottom = 18.8
+scale = Vector2(1, 0.980629)
+
+[node name="Right" type="RichTextLabel" parent="RightPage"]
+layout_mode = 0
+offset_left = 1.8
+offset_top = 1.73358
+offset_right = 45.8
+offset_bottom = 155.734
+scale = Vector2(0.514017, 0.326801)
+theme_override_font_sizes/normal_font_size = 8
+fit_content = true
+scroll_active = false
+
+[node name="LeftPage" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -25.0
+offset_top = -15.0
+offset_right = -1.0
+offset_bottom = 20.0
+
+[node name="Left" type="RichTextLabel" parent="LeftPage"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -0.8
+offset_right = 45.0
+offset_bottom = 1533.2
+scale = Vector2(0.5, 0.3)
+theme_override_font_sizes/normal_font_size = 8
+fit_content = true
+scroll_active = false
 
 [connection signal="button_down" from="Next" to="." method="_on_next_button_down"]
 [connection signal="button_down" from="Back" to="." method="_on_back_button_down"]
