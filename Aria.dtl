@@ -8,7 +8,7 @@ if {day} == 1:
 			Aria: Hello there!
 		elif {random} == 2:
 			Aria: hey there! how's your first day going?
-elif {day} >= 2:
+elif {day} = 2:
 	if {aria_strawberry_task_given} == false:
 		if {aria_last_convo} == false:
 			Aria: You’re growing crops in the greenhouse, right?
@@ -50,7 +50,7 @@ else:
 			- Leave
 				[end_timeline]
 	else:
-		Narrator: The greenhouse is warmer than usual, the air steady and controlled. Aria stands by the wall-mounted regulator, tightening the final fastenings.
+		The greenhouse is warmer than usual, the air steady and controlled. Aria stands by the wall-mounted regulator, tightening the final fastenings.
 		Aria: That should do it. Whoever built this place knew what they were doing.
 		You mean the previous owner?
 		Aria: The scientist, yes. People in town still talk about her.

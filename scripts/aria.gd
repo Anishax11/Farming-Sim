@@ -159,6 +159,7 @@ func _on_dialogic_signal(argument : String):
 			print("Aria task accepted")
 			get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task2")
 			Tutorials.interactions["aria_strawberry_task_given"]=true
+			
 	elif argument== "aria_strawberry_task_complete":
 		print("Task Complete!")
 		TaskManager.tasks["Task2"]["completed"]=true
@@ -167,11 +168,10 @@ func _on_dialogic_signal(argument : String):
 		for i in range (3): #Delete strawberry from inv
 			for j in range (5):
 				var string=Global.inventory_items[i][j]
-					
 				if string=="strawberry":
-					
 					var number = i*5 +1+j
 					get_tree().current_scene.find_child("Panel"+str(number),true,false).remove_item()
+					
 	
 	elif argument== "Task3_acquired":
 		print("task one acquired")

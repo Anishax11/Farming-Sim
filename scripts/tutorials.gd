@@ -18,6 +18,7 @@ var interactions={
 	"aira":false,
 	"noa":false,
 	"sera" :false,
+	"ilyra" : false,
 	"aria_strawberry_task_given":false,
 	"registration_done" :false
 }

@@ -1,0 +1,14 @@
+if {lyra_intro} == false:
+	Narra: The woman appears to be blind
+else:
+	if {day} <= 2:
+		The woman seems to be focused, she doesn't acknowlege your presence
+	else:
+		if {measured_faith_given} == false:
+			Lyra: Align these dials for me.
+			[signal arg="measured_faith_given"]
+		else:
+			if {measured_faith_complete} == false:
+				Lyra: The dials don't seem to be aligned.
+			else:
+				Lyra: Thank you. The password is xxxxx
