@@ -1,8 +1,15 @@
-[gd_scene load_steps=20 format=4 uid="uid://6rofkaegdwbj"]
+[gd_scene load_steps=27 format=4 uid="uid://6rofkaegdwbj"]
 
 [ext_resource type="Texture2D" uid="uid://cmdj7cebqx7xk" path="res://16x16/Sprites/ChurchInterior.jpg" id="1_pryng"]
 [ext_resource type="Script" path="res://scripts/church_interior.gd" id="1_slh8s"]
 [ext_resource type="Texture2D" uid="uid://duahmfvwn1kfl" path="res://16x16/Sprites/1 - Idle.png" id="3_r1w3n"]
+[ext_resource type="Texture2D" uid="uid://croa3grvhd7xu" path="res://16x16/Sprites/Strawberry.png" id="4_sa22o"]
+[ext_resource type="PackedScene" uid="uid://dkw5m52w1e0na" path="res://scenes/control.tscn" id="5_2hdtg"]
+[ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="6_hmdl0"]
+[ext_resource type="Script" path="res://scripts/dim_bg.gd" id="7_p5i3g"]
+[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="8_34oxk"]
+[ext_resource type="Script" path="res://scripts/dial_display.gd" id="9_dleng"]
+[ext_resource type="Texture2D" uid="uid://c217niiofdv2n" path="res://16x16/Sprites/Pumpkin.png" id="10_p63qc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ddwhu"]
 texture = ExtResource("1_pryng")
@@ -4221,10 +4228,99 @@ animation = &"idle"
 position = Vector2(-2, -3)
 shape = SubResource("CapsuleShape2D_eii75")
 
-[node name="Control" type="Sprite2D" parent="."]
-
 [node name="Trust" type="Sprite2D" parent="."]
 
-[node name="Compliance" type="Sprite2D" parent="."]
+[node name="Label" type="Label" parent="Trust"]
+offset_left = 108.0
+offset_top = -26.0
+offset_right = 166.0
+offset_bottom = -3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Trust
+"
+
+[node name="Dial" type="Sprite2D" parent="Trust"]
+position = Vector2(128, 9)
+texture = ExtResource("4_sa22o")
 
 [node name="Doubt" type="Sprite2D" parent="."]
+
+[node name="Label" type="Label" parent="Doubt"]
+offset_left = -93.0
+offset_top = 122.0
+offset_right = -35.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Doubt
+"
+
+[node name="Dial" type="Sprite2D" parent="Doubt"]
+position = Vector2(-76, 157)
+texture = ExtResource("4_sa22o")
+
+[node name="Compliance" type="Sprite2D" parent="."]
+position = Vector2(150, 156)
+
+[node name="Label" type="Label" parent="Compliance"]
+offset_left = -94.0
+offset_top = -27.0
+offset_right = -36.0
+offset_bottom = -4.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Compliance
+"
+
+[node name="Dial" type="Sprite2D" parent="Compliance"]
+position = Vector2(-70, 6)
+texture = ExtResource("4_sa22o")
+
+[node name="Control" parent="." instance=ExtResource("5_2hdtg")]
+position = Vector2(-6, -3)
+
+[node name="Farmer" parent="." instance=ExtResource("6_hmdl0")]
+position = Vector2(-8, 74)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Farmer"]
+layer = 2
+
+[node name="DimBG" type="ColorRect" parent="Farmer/CanvasLayer2"]
+visible = false
+visibility_layer = 2
+offset_left = -2.0
+offset_top = -36.0
+offset_right = 2627.0
+offset_bottom = 1379.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("7_p5i3g")
+
+[node name="LabelCanvas" parent="." instance=ExtResource("8_34oxk")]
+
+[node name="DialDisplay" type="Control" parent="LabelCanvas"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+script = ExtResource("9_dleng")
+
+[node name="TextureRect" type="TextureRect" parent="LabelCanvas/DialDisplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_p63qc")
+
+[connection signal="gui_input" from="LabelCanvas/DialDisplay" to="." method="_on_dial_display_gui_input"]
