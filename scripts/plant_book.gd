@@ -3,11 +3,13 @@ extends Node2D
 
 var current_page = 0
 var total_pages = 10
+var offset = -1
 @onready var right: RichTextLabel = $RightPage/Right
 @onready var left: RichTextLabel = $LeftPage/Left
-var offset = -1
 @onready var back: Button = $Back
+@onready var next: Button = $Next
 var direction # next/back button click tracker
+
 var content = {
 	page1 ="
 Excerpt from “On Cultivated Flora and Their Comforts”
@@ -98,6 +100,7 @@ func flip_back():
 	#print("Page no:",current_page)
 
 func _on_next_button_down() -> void:
+	next.visible=false
 	flip_to_next()
 
 
@@ -134,7 +137,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		elif current_page == 1:
 				right.text = content["page"+str(current_page)]
 				left.text=""
-
+	
+	next.visible=true
 
 func _on_animated_sprite_2d_animation_changed() -> void:
 	if left!=null:

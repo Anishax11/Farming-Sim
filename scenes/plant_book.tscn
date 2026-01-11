@@ -371,7 +371,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"first_page_back",
-"speed": 8.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -403,7 +403,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"first_page_front",
-"speed": 8.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -435,7 +435,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"last_page_back",
-"speed": 8.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -467,7 +467,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"last_page_front",
-"speed": 8.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -499,7 +499,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"middle_page_back",
-"speed": 8.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -537,7 +537,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"middle_page_front",
-"speed": 8.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -569,7 +569,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"open_book",
-"speed": 8.0
+"speed": 13.0
 }]
 
 [node name="PlantBook" type="Node2D"]
@@ -578,7 +578,7 @@ script = ExtResource("1_bd801")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4jh8x")
-animation = &"last_page_front"
+animation = &"middle_page_back"
 autoplay = "default"
 
 [node name="Next" type="Button" parent="."]
