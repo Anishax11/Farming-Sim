@@ -146,6 +146,7 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 		if event.pressed:
 			prev_state = state
 			delay_schedule = true
+			Dialogic.signal_event.connect(_on_dialogic_signal)
 			Dialogic.VAR.set("library_scene",(curr_scene=="LibraryInterior"))
 			state = State.TALK
 			#print("Interact with eiden")
@@ -166,7 +167,9 @@ func _on_dialogue_ended():
 		return
 	state = State.IDLE
 	
-
+func _on_dialogic_signal(arg : String):
+	if arg=="plant_book_given":
+		get_tree().current_scene.find_child("PlantBookButton",true,false).visible = true
 
 func _on_interact_mouse_entered() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)

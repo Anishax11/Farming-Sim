@@ -14,3 +14,7 @@ extends CanvasLayer
 	##time_manager.global_position=Vector2(date_label.global_position.x-8, date_label.global_position.y+32)
 	##coin_label.global_position=Vector2(date_label.global_position.x, date_label.global_position.y+64)
 	#coin_label.text="Coins : "+str(Global.coins_count)
+
+
+func _on_plant_book_button_button_down() -> void:
+	get_node("PlantBookControl/PlantBook").visible = true

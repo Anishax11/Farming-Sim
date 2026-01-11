@@ -19,13 +19,16 @@ func _ready() -> void:
 		print("Task complete:",task["completed"])
 		if task["acquired"] and !task["completed"]:
 			print("Acquired and not completed!")
-			var label = Label.new()
+			var label = RichTextLabel.new()
 			label.name=id
-			label.add_theme_font_size_override("font_size", 50)
-			label.text = str(i)+". " + task["title"] + ": " + task["Desc"]+"\n"
-			label.add_theme_color_override("font_color", Color.BLACK)
-			label.custom_minimum_size = Vector2(600, 50)  # Godot 4 replacement for rect_min_size
+			label.add_theme_font_size_override("normal_font_size", 24)
+			label.text =  str(i)+". "+task.title + ": " + task.Desc + "\n" 
+			label.add_theme_color_override("default_color", Color.BLACK)
+			label.size = Vector2(600, 180)
 			label.autowrap_mode = TextServer.AUTOWRAP_WORD
+			label.scroll_active = true
+			label.scroll_following = false   # Player-controlled scroll
+			label.clip_contents = true
 			label.z_index=4
 			
 			vb.add_child(label)
@@ -54,16 +57,16 @@ func remove_task(task):
 func add_task(task_name) :
 	tasks_acquired+=1
 	var task = tasks[task_name]
-	var label = Label.new()
+	var label = RichTextLabel.new()
 	label.name=task_name
-	label.add_theme_font_size_override("font_size", 50)
+	label.add_theme_font_size_override("normal_font_size", 40)
 	label.text =  str(tasks_acquired)+". "+task.title + ": " + task.Desc + "\n" 
-	label.add_theme_color_override("font_color", Color.BLACK)
-	label.custom_minimum_size = Vector2(600, 50)  # Godot 4 replacement for rect_min_size
-	#label.wrap = true  # Godot 4 way to enable word wrapping
-	label.autowrap_mode = TextServer.AUTOWRAP_WORD
-	#label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	#label.custom_minimum_size = Vector2(200, 50)
+	label.add_theme_color_override("default_color", Color.BLACK)
+	label.custom_minimum_size = Vector2(600, 150)
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.scroll_active = true
+	label.scroll_following = false   # Player-controlled scroll
+	label.clip_contents = true
 	label.z_index=4
 	
 	vb.add_child(label)

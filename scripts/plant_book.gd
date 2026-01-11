@@ -6,8 +6,8 @@ var total_pages = 10
 var offset = -1
 @onready var right: RichTextLabel = $RightPage/Right
 @onready var left: RichTextLabel = $LeftPage/Left
-@onready var back: Button = $Back
-@onready var next: Button = $Next
+@onready var next: TextureButton = $Next
+@onready var back: TextureButton = $Back
 var direction # next/back button click tracker
 
 var content = {
@@ -58,6 +58,7 @@ func flip_to_next():
 	elif current_page == total_pages:
 		animated_sprite_2d.play("close_book")
 		current_page = 0
+		offset = -2 #set to -1 later in animation finished func
 		back.visible = false
 		return
 	else:
@@ -81,6 +82,8 @@ func flip_back():
 	if current_page == 1:
 		animated_sprite_2d.play("close_book")
 		back.visible = false
+		current_page = 0
+		offset = 0
 	elif current_page == 2:
 		animated_sprite_2d.play("first_page_back")#go back to 1st page
 	elif current_page == total_pages:
@@ -101,20 +104,32 @@ func flip_back():
 
 func _on_next_button_down() -> void:
 	next.visible=false
+	back.visible=false
+	if left!=null:
+		left.text=""
+	if right!=null:
+		right.text=""
 	flip_to_next()
 
 
 func _on_back_button_down() -> void:
+	back.visible=false
+	next.visible=false
+	if left!=null:
+		left.text=""
+	if right!=null:
+		right.text=""
 	flip_back()
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if direction =="next":#Next button clicked
-		
+		print("Curr + offset :",current_page+offset)
 		if current_page>1:
 			
 			if content.has("page"+str(current_page+offset)):
 				left.text = content["page"+str(current_page+offset)]
+				print("Left page dic :",current_page+offset)
 			else:
 				left.text = ""
 			if content.has("page"+str(current_page+1+offset)):
@@ -139,9 +154,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 				left.text=""
 	
 	next.visible=true
+	back.visible=true
 
-func _on_animated_sprite_2d_animation_changed() -> void:
-	if left!=null:
-		left.text=""
-	if right!=null:
-		right.text=""
+	
+
+
+func _on_close_button_button_down() -> void:
+	visible = false

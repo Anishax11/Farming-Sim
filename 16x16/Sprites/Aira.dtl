@@ -7,3 +7,23 @@ else:
 	elif {day} == 2:
 		aira: Have you tried Aria's cafe ? They make the best coffee in town
 		aira: You should check it out if you haven't yet! It's near the post office in the market area
+		- Are you a librarian?
+			aira: Yeah
+			I started farming recently, can you tell me more about plants?
+			aira: Yap yap
+		- Book of Plants
+			Do you happen to have any book that can help me learn about plants?
+			aira: I remember seeing one somewhere, I'm not sure where it is
+			aira: Come find me in the library at 12 pm tomorrow, I'll find it by then
+	else:
+		if {} == false:
+			if {} == true:
+				aira: Welcome to the library!
+				- Ask about book of plants
+					aira: Here you go
+					[signal arg="plant_book_given"]
+					Book of Plants acquired. Click on the bottom left book display to read the book when you want
+				- Ask about Eiden
+					aira: He's my younger brother
+			else:
+				aira: Hey

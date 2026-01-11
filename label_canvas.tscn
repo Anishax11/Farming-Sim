@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqqqqqciwa4m4"]
+[gd_scene load_steps=9 format=3 uid="uid://bqqqqqciwa4m4"]
 
 [ext_resource type="Script" path="res://scripts/label_canvas.gd" id="1_vncsg"]
 [ext_resource type="PackedScene" uid="uid://cxgldqae4p20u" path="res://scenes/date_label.tscn" id="2_x0h8e"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://475fb1fcmkgf" path="res://scenes/coin_label.tscn" id="4_m48ye"]
 [ext_resource type="Texture2D" uid="uid://dgkbbkp5yf8t6" path="res://16x16/Sprites/LabelDisplay.png" id="5_hw4qw"]
 [ext_resource type="PackedScene" uid="uid://but8qwaakhn1n" path="res://scenes/pause_menu.tscn" id="6_8j1a0"]
+[ext_resource type="Texture2D" uid="uid://d4n3ujfsd65w4" path="res://16x16/Sprites/field_notes_book_closed.png" id="7_ujah6"]
+[ext_resource type="PackedScene" uid="uid://bccv3j8afdqpw" path="res://scenes/plant_book.tscn" id="8_v277u"]
 
 [node name="LabelCanvas" type="CanvasLayer"]
 script = ExtResource("1_vncsg")
@@ -92,3 +94,33 @@ offset_right = 40.0
 offset_bottom = 23.0
 scale = Vector2(3, 3)
 text = "Points : "
+
+[node name="PlantBookControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlantBookButton" type="TextureButton" parent="PlantBookControl"]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -237.0
+offset_right = 938.0
+offset_bottom = 611.0
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("7_ujah6")
+
+[node name="PlantBook" parent="PlantBookControl" instance=ExtResource("8_v277u")]
+visible = false
+position = Vector2(921, 416)
+scale = Vector2(8, 8)
+
+[connection signal="button_down" from="PlantBookControl/PlantBookButton" to="." method="_on_plant_book_button_button_down"]

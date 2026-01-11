@@ -16,9 +16,9 @@ var tasks={
 	},
 	"Task3"={
 		"title" : "Register for the competition",
-		"Desc" : "Find the fest centre and complete registration for the festival.",
+		"Desc" : "Find the fest centre and complete registration for the festival. Grow and harvest fresh strawberries, then deliver them to Aria so she can install a temperature regulator in your greenhouse.",
 		"completed" : false,
-		"acquired" : true
+		"acquired" : false
 	},
 	"Task4"={
 		"title" : "Proof of worth",
@@ -37,7 +37,14 @@ var tasks={
 		"Desc" : "Investigate the abandoned church mechanism with the huntress.",
 		"completed" : false,
 		"acquired" : false
-	}
+	},
+	"Task7" = {
+	"title" : "Bound Knowledge",
+	"Desc" : "Visit the librarian to get the Book of Plants and learn the ideal conditions needed to properly use the temperature regulator.",
+	"completed" : false,
+	"acquired" : false
+}
+
 }
 #TASK 1:
 var seeds_bought := {
