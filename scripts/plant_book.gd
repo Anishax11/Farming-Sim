@@ -7,25 +7,45 @@ var total_pages = 10
 @onready var left: RichTextLabel = $LeftPage/Left
 var offset = -1
 @onready var back: Button = $Back
+var direction # next/back button click tracker
 var content = {
-	page1 ="Excerpt from “On Cultivated Flora and Their Comforts”
-(Author unknown, margins annotated in a steady, analytical hand)",
+	page1 ="
+Excerpt from “On Cultivated Flora and Their Comforts”
 
-	page2 ="Strawberry Ideal Comfort Range: ~21°C
-Strawberries are temperamental not because ",
+  ~Unknown
+	   Author ",
 
-	page3 ="they are fragile, but because they are honest. They reflect",
+	page2 ="Strawberry
 
-	page4 =" their surroundings without restraint. At approximately twenty-one degrees, the plant settles into a quiet productivity — leaves widen, sugar concentrates, and growth remains steady rather than frantic.Below this, sweetness dulls. Above it, the fruit rushes and hollows.",
-	page5 ="Pageeeeeeeeee5",
-	page6 ="Pageeeeeeeeee6",
-	page7 ="Pageeeeeeeeee7",
-	page8 ="Pageeeeeeeeee8",
-	page9 ="Pageeeeeeeeee9",
-	page10 ="Pageeeeeeeeee10"
-}
+Ideal Temperatu-re: ~21°C
+Difficulty: Moderate
+
+Strawberries demand consistency.Temperature fluctuations quickly dull",
+
+	page3 ="sweetness, though careful control is generously rewarded. 
+
+It is a plant that teaches restraint.",
+
+	page4 ="Pumpkin
+
+Ideal Temperature: ~24°C
+Difficulty: High
+
+Pumpkins hunger for heat and stability.
+When warmth is precise,growth",
+
+	page5 ="accelerates dramaticall-y. When mismanaged, quality collapses just as fast.
+Powerful yields favor discipline.",
+	page6 ="Potato
+
+Ideal Temperature: ~17°C
+Difficulty: Low
+
+Hardy and forgiving, potatoes tolerate neglect better than most.",
+	page7 ="They endure cooler air and uneven conditions with little complaint.Reliable, but unambitiou-s",
+	}
 func flip_to_next():
-	
+	direction = "next"
 	if current_page == 0: #book closed
 		animated_sprite_2d.play("open_book")
 		back.visible = true
@@ -41,17 +61,21 @@ func flip_to_next():
 	else:
 		animated_sprite_2d.play("middle_page_front")
 	current_page+=1
-	if current_page>1:
-		left.text = content["page"+str(current_page+offset)]
-		if content.has("page"+str(current_page+1+offset)):
-			right.text = content["page"+str(current_page+1+offset)]
-	elif current_page == 1:
-		right.text = content["page"+str(current_page)]
-	offset+=1
-	#print("Page no:",current_page)
+	#if current_page>1:
+		#if content.has("page"+str(current_page+offset)):
+			#left.text = content["page"+str(current_page+offset)]
+		#else:
+			#left.text = ""
+		#if content.has("page"+str(current_page+1+offset)):
+			#right.text = content["page"+str(current_page+1+offset)]
+		#else:
+			#right.text =""
+	#elif current_page == 1:
+		#right.text = content["page"+str(current_page)]
+	
 
 func flip_back():
-	
+	direction = "back"
 	if current_page == 1:
 		animated_sprite_2d.play("close_book")
 		back.visible = false
@@ -63,13 +87,13 @@ func flip_back():
 		animated_sprite_2d.play("middle_page_back")
 	current_page-=1
 	offset-=1
-	if current_page>1:
-		left.text = content["page"+str(current_page+offset-1)]
-		if content.has("page"+str(current_page+1+offset)):
-			right.text = content["page"+str(current_page+1+offset-1)]
-	elif current_page == 1:
-		right.text = content["page"+str(current_page)]
-		left.text=""
+	#if current_page>1:
+		#left.text = content["page"+str(current_page+offset-1)]
+		#if content.has("page"+str(current_page+1+offset)):
+			#right.text = content["page"+str(current_page+1+offset-1)]
+	#elif current_page == 1:
+		#right.text = content["page"+str(current_page)]
+		#left.text=""
 	
 	#print("Page no:",current_page)
 
@@ -79,3 +103,41 @@ func _on_next_button_down() -> void:
 
 func _on_back_button_down() -> void:
 	flip_back()
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if direction =="next":#Next button clicked
+		
+		if current_page>1:
+			
+			if content.has("page"+str(current_page+offset)):
+				left.text = content["page"+str(current_page+offset)]
+			else:
+				left.text = ""
+			if content.has("page"+str(current_page+1+offset)):
+				right.text = content["page"+str(current_page+1+offset)]
+			else:
+				right.text =""
+		elif current_page == 1:
+			right.text = content["page"+str(current_page)]
+		offset+=1
+	else: #Back button clicked
+		if current_page>1:
+			if content.has("page"+str(current_page+offset-1)):
+				left.text = content["page"+str(current_page+offset-1)]
+			else:
+				left.text = ""
+			if content.has("page"+str(current_page+offset)):
+				right.text = content["page"+str(current_page+offset)]
+			else:
+				right.text = ""
+		elif current_page == 1:
+				right.text = content["page"+str(current_page)]
+				left.text=""
+
+
+func _on_animated_sprite_2d_animation_changed() -> void:
+	if left!=null:
+		left.text=""
+	if right!=null:
+		right.text=""
