@@ -14,14 +14,14 @@ else:
 		Show up on the leaderboard atleast once
 		if {proof_of_worth_done} == true:
 			I'm on the leaderboard
-			Congratulations on completing the task! I'll sell the speacial seeds to you like i promised
+			Congratulations! I'll sell the speacial seeds to you like i promised
 			[signal arg="proof_of_worth_done"]
 		[signal arg="proof_of_worth_task_given"]
 	else:
 		if {cashier_gives_better_seeds} == false:
-			if {} == true:
-				Cashier: Congratulations on completing the task! I'll sell the speacial seeds to you like i promised
+			if {proof_of_worth_done} == true:
+				Congratulations on completing the task! I'll sell the speacial seeds to you like i promised
 				[signal arg="proof_of_worth_done"]
 		else:
-			hello
+			Welcome!
 [signal arg="enable_movement"]

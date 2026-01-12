@@ -89,7 +89,7 @@ var plant_info = {
 		"type" : "stable"
 	},
 	"potato" : {
-		"difficulty" : 1.3,# moderate
+		"difficulty" : 1,# easy
 		"ideal_temp" : 25,
 		"type" : "volatile" 
 	},

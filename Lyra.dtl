@@ -1,14 +1,47 @@
 if {lyra_intro} == false:
-	Narra: The woman appears to be blind
+	The woman appears to be blind
 else:
-	if {day} <= 2:
+	if {day} <= 3:
 		The woman seems to be focused, she doesn't acknowlege your presence
+	elif {day} == 4:
+		The blind woman turns towards you
+		Lyra: What do these statues seem to represent to you?
+		- a,b,c,d
+			Lyra: I doubt that..
+		- I don't know
+			Lyra: I suppoose that would be hard  to interpret for someone that just moved here
+		- History of AetherField?
+			Lyra: You have good intuition
+		Lyra: These staues represent the history of this town
+		Lyra: The history of the Goddess of Creation to be precise.
+		Lyra: But the thing is, I'm new here , so I can't interpret this either. The green haired kid, I believe her name was maya could probably help.
+		Lyra: I haven't seen her around for a while though, the last time I saw her she seemed bothered
+		Lyra: Could you please find her and talk to her?
+		[signal arg="talk_to_maya_given"]
 	else:
 		if {measured_faith_given} == false:
-			Lyra: Align these dials for me.
-			[signal arg="measured_faith_given"]
+			if {talk_to_maya_task_done} == true:
+				Lyra: What did Maya say?
+				[Recap alignment rules]
+				Lyra: Align these dials for me.
+				[signal arg="measured_faith_given"]
+			else:
+				Lyra: Have you seen Maya around?
+				- Maya?
+					Lyra: Yes, the green haired kid, remember?
+				- Why do you need her?
+				Lyra: She knows a lot about the history of Aetherfield, especially the goddess of this shrine
+				Lyra: I could probably fix the alignment of the church's dial with her help. Could you please talk to her for me?
+				- Sure
+					[signal arg="talk_to_maya_given"]
+				- I don't think I can help
+					Lyra: I understand.
+					She seems disappointed.
 		else:
 			if {measured_faith_complete} == false:
 				Lyra: The dials don't seem to be aligned.
+				if {talk_to_maya_task_done} == true:
+					Lyra: [alignment rules recap]
 			else:
-				Lyra: Thank you. The password is xxxxx
+				Lyra: Thank you. You can have these seeds
+				[signal arg="measured_faith_complete"]

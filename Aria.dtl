@@ -8,7 +8,7 @@ if {day} == 1:
 			Aria: Hello there!
 		elif {random} == 2:
 			Aria: hey there! how's your first day going?
-elif {day} = 2:
+elif {day} >= 2:
 	if {aria_strawberry_task_given} == false:
 		if {aria_last_convo} == false:
 			Aria: You’re growing crops in the greenhouse, right?
@@ -25,6 +25,13 @@ elif {day} = 2:
 			- Sounds fair. I’ll bring you freshly harvested strawberries.
 				[signal arg="aria_strawberry_task_accepted"]
 				Aria: Great! Make sure they're fresh
+	else:
+		Aria: Did you change your mind?
+		- Yes
+			Aria: Great!
+			[signal arg="aria_strawberry_task_accepted"]
+		- No
+			Aria: Let me know if  you do, I'll be around for a while
 else:
 	Aria: Hey there
 	if {aria_last_convo} == false:
@@ -32,7 +39,7 @@ else:
 			- Give strawberries to Aria
 				[signal arg="aria_strawberry_task_complete"]
 				Aria: These… they’re really good.
-				Narrator\: She turns one of the strawberries over in her palm, thoughtful.
+				She turns one of the strawberries over in her palm, thoughtful.
 				Aria: I’ve always liked strawberries like this. Fresh.
 				Aria: My family never farmed. We didn’t even have a garden—just concrete and schedules.
 				Aria: I used to buy them from roadside stalls on my way home. They tasted different. Like someone actually cared about how they grew.

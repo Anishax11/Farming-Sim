@@ -14,16 +14,20 @@ else:
 		- Book of Plants
 			Do you happen to have any book that can help me learn about plants?
 			aira: I remember seeing one somewhere, I'm not sure where it is
-			aira: Come find me in the library at 12 pm tomorrow, I'll find it by then
+			aira: Come find me in the library tomorrow at 12 pm, I'll find it by then
 	else:
-		if {} == false:
-			if {} == true:
-				aira: Welcome to the library!
+		if {library_scene} == true:
+			aira: Welcome to the library!
+			if {plant_book_given} == false:
 				- Ask about book of plants
 					aira: Here you go
 					[signal arg="plant_book_given"]
 					Book of Plants acquired. Click on the bottom left book display to read the book when you want
-				- Ask about Eiden
-					aira: He's my younger brother
-			else:
-				aira: Hey
+			- Ask about Eiden
+				aira: He's my younger brother
+			- Ask about last year's competition
+				aira: Yap
+		else:
+			aira: Hey
+			if {plant_book_given} == false:
+				aira: I managed to find the book on plants I've been looking for, come find me in the library if you want it

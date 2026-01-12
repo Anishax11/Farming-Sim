@@ -17,3 +17,10 @@ else:
 			- That looks terrible
 				Maya: .........
 				Maya: Maybe it was a bad idea after all..
+	elif {day} == 3:
+		She seems bothered
+	else:
+		if {talk_to_bullies_done} == true:
+			Maya: Thank you so much! 
+			Maya: Please let me know if I can help you with anything
+			The dials in the church seem to be misaligned, I want to fix them. Can you me what the staues in the shrine represent?

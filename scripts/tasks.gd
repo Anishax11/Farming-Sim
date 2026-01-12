@@ -21,11 +21,11 @@ func _ready() -> void:
 			print("Acquired and not completed!")
 			var label = RichTextLabel.new()
 			label.name=id
-			label.add_theme_font_size_override("normal_font_size", 24)
-			label.text =  str(i)+". "+task.title + ": " + task.Desc + "\n" 
+			label.add_theme_font_size_override("normal_font_size", 40)
+			label.text =  str(tasks_acquired)+". "+task.title + ": " + task.Desc + "\n" 
 			label.add_theme_color_override("default_color", Color.BLACK)
-			label.size = Vector2(600, 180)
-			label.autowrap_mode = TextServer.AUTOWRAP_WORD
+			label.custom_minimum_size = Vector2(600, 150)
+			label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			label.scroll_active = true
 			label.scroll_following = false   # Player-controlled scroll
 			label.clip_contents = true
