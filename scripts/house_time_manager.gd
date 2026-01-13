@@ -12,7 +12,7 @@ func _ready() -> void:
 	date_label=get_parent().get_node("DateLabel")
 	#if date_label==null:
 		#print("date label is null")
-	get_node("TimeLabel").text=("Time passed:"+str(current_time))
+	get_node("TimeLabel").text=("Time :"+str(current_time))
 	#print("HOUSE")
 	current_time=Global.current_time
 	#print("color_rect_i:",color_rect_i)

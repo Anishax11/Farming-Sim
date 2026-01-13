@@ -42,6 +42,7 @@ func _on_market_entrance_body_entered(body: Node2D) -> void:
 		print("REAChed MArket Entrance")
 		Global.player_pos = Vector2(-214, -187)
 		Global.current_time=time_manager.current_time
+		Global.minutes=time_manager.minutes
 		Global.time_to_change_tint=time_manager.time_to_change_tint
 		Global.tint_index=time_manager.color_rect.i
 		Global.music_fade_out()

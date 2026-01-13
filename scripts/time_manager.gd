@@ -2,41 +2,32 @@ extends Node2D
 
 var time_passed=0.0
 var initial_time=0.0
-var current_time=6.0
-var time_to_change_tint=6.0
-var minutes=0
+var current_time=6.00
+var time_to_change_tint=6.00
+var minutes=00
+var display_minutes
 var color_rect
 var date_label
 var game
 var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
 var npc_manager
 func _ready() -> void:
-	
-	npc_manager = get_tree().current_scene.find_child("NPCManager",true,false)
-	#print("Path:",get_path())
-	#game=get_node("/root/Game")
-	date_label=get_parent().get_node("DateLabel")
-	get_node("Label").text=("Time passed:"+str(current_time))
+	print("Time Manager Loaded")
 	color_rect=get_tree().get_current_scene().find_child("ColorRect",true,false)
-	if current_time == time_to_change_tint:
-			color_rect.adjust_tint()
+	npc_manager = get_tree().current_scene.find_child("NPCManager",true,false)
+	date_label=get_parent().get_node("DateLabel")
 	if Global.current_time!=null:
 		current_time=Global.current_time
+		minutes = Global.minutes
+		print("Adjust time")
 		time_to_change_tint=Global.time_to_change_tint
 		color_rect.i=Global.tint_index
-		
-		#print("Time managed")
-	#if color_rect==null:
-		#print("COLOR RECT IS NULL")
-	#if Global.load_farm==true or Global.load_frontyard==true:
-		#
-		#current_time=Global.current_time
-		#time_to_change_tint=Global.time_to_change_tint
-		#color_rect.i=Global.tint_index
-		#
-		#color_rect.adjust_tint()
-	#else:
-		#print("Load farm is false")
+	get_node("Label").text=("Time : "+str(int(current_time))+":"+str(minutes))	
+	
+	if current_time == time_to_change_tint:
+			color_rect.adjust_tint()
+	
+
 		
 	
 func _physics_process(delta: float) -> void:
@@ -52,14 +43,18 @@ func _physics_process(delta: float) -> void:
 			current_time+=0.10
 			minutes=round(fmod(current_time,1)*100)
 			if minutes>=60:
-				minutes=0
+				minutes=00
 				#print("Calling hour elapsed")
 				
 				current_time=int(current_time+1)
 				if npc_manager!=null:
 					npc_manager.hour_elapsed()
 			#print("fmod:",minutes)
-			get_node("Label").text=("Time : "+str(int(current_time))+":"+str(minutes))
+			if !minutes == 00:
+				display_minutes = str(minutes)
+			else:
+				display_minutes = "00"
+			get_node("Label").text=("Time : "+str(int(current_time))+":"+display_minutes)
 			if current_time==time_to_change_tint:
 				#print("Time to chnge tint :",time_to_change_tint)
 				time_to_change_tint+=2

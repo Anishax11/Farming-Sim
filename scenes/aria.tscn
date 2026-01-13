@@ -330,7 +330,7 @@ shape = SubResource("CapsuleShape2D_stgp7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s60l3")
-animation = &"front"
+animation = &"back"
 autoplay = "front"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
