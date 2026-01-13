@@ -5,6 +5,7 @@ const HOUSE_INTERIOR = preload("res://scenes/house_interior.tscn")
 var coherence = 3  #reset to 3 everyday
 var entropy = 3    #reset to 3 everyday
 ##
+var freeze_time = false
 var day_count=1
 var day_passed=false
 var inventory_items=[]

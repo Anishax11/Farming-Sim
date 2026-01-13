@@ -9,10 +9,10 @@ const PAUSE_MENU = preload("res://scenes/pause_menu.tscn")
 var FEST_CENTRE = load("res://scenes/fest_centre.tscn")
 const CHURCH_INTERIOR = preload("res://scenes/church_interior.tscn")
 const PLANT_BOOK = preload("res://scenes/plant_book.tscn")
-
-func _ready() -> void:
-	
-	await get_tree().change_scene_to_packed(FEST_CENTRE)
+#
+#func _ready() -> void:
+	#
+	#await get_tree().change_scene_to_packed(FEST_CENTRE)
 	#print("FARMMMMMMMMM")
 	#var label=Label.new()
 	#label.position=Vector2(0,500)

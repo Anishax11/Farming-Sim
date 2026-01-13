@@ -40,6 +40,8 @@ func _ready() -> void:
 		
 	
 func _physics_process(delta: float) -> void:
+	if Global.freeze_time:
+		return
 
 	if current_time!=null and current_time<24:
 		time_passed+=delta
