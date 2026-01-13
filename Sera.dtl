@@ -2,18 +2,17 @@ if {registration_done} == false:
 	if {fest_scene} == true:
 		Sera: Registration done!
 		[signal arg="registration_done"]
-	elif {sera_intro} == false:
-		Sera: I'm Sera!
-		Sera: Are you new here?
-		[signal arg="sera_intro"]
 elif {sera_intro} == false:
-	Sera: I'm Sera, nice to meet u!
-	Sera: I remember seeing u at the registrations.
-	Sera: Grow any crop.\
-	Keep it within acceptable conditions for 2 full days
-	[signal arg="sera_intro"]
+	if {fest_scene} == false:
+		Sera: I'm Sera, nice to meet u!
+		Sera: I remember seeing u at the registrations.
+		Sera: Grow any crop.\
+		Keep it within acceptable conditions for 2 full days
+		[signal arg="sera_intro"]
+	else:
+		Sera: Do you have any questions about the festival?
 else:
 	if {day} == 1:
-		Sera: Helloo
+		Sera: Hello
 	elif {day} == 2:
 		Sera: Hii

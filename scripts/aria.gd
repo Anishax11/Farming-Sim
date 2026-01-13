@@ -176,6 +176,7 @@ func _on_dialogic_signal(argument : String):
 	elif argument== "Task3_acquired":
 		print("task one acquired")
 		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task3")
+		delay_schedule = false
 
 
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

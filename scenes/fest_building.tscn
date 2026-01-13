@@ -1,17 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://kf3vv1ahysme"]
+[gd_scene load_steps=6 format=3 uid="uid://kf3vv1ahysme"]
 
 [ext_resource type="Script" path="res://scenes/fest_building.gd" id="1_6ap2d"]
+[ext_resource type="Texture2D" uid="uid://cvlc2gagpwy0t" path="res://16x16/Sprites/festival_hall.png" id="2_iwqod"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mymso"]
+atlas = ExtResource("2_iwqod")
+region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1y73"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mymso")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_viqoy"]
-size = Vector2(183, 221)
+size = Vector2(376, 272)
 
 [node name="FestBuilding" type="StaticBody2D"]
 script = ExtResource("1_6ap2d")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h1y73")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-752, 286, -692, 604, 696, 601, 750, 293)
+
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-25, 205)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 283.5)
+position = Vector2(41, 285)
 shape = SubResource("RectangleShape2D_viqoy")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

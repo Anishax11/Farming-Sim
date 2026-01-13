@@ -3,6 +3,8 @@ var entries = []
 var top_5 
 
 func _ready() -> void:
+	if Global.day_count == 1:
+		queue_free()
 	for name in Tutorials.PointTracker:
 		entries.append({
 		"name": name,
