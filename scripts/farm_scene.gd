@@ -69,9 +69,7 @@ func _ready() -> void:
 func _on_exit_body_entered(body: Node2D) -> void:
 	print("LEAVE  FARM")
 	var time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
-	Global.current_time=time_manager.current_time
-	Global.time_to_change_tint=time_manager.time_to_change_tint
-	Global.tint_index=time_manager.color_rect.i
+	Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
 	Global.player_pos = Vector2(-663,725)
 	Global.player_direction.y=-1
 	Global.load_frontyard=true

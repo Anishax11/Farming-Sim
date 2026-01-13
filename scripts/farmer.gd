@@ -10,8 +10,10 @@ var speed=70
 var direction: Vector2
 var points
 var time_manager
+
 func _ready():
-	
+	if Global.day_count == 1 and !TaskManager.tasks["Task3"]["complete"]:
+		Global.freeze_time = true
 	#print("coin label position :",get_node("Camera2D/CoinLabel").global_position)
 	#print(get_path())
 	Tutorials.PointTracker["Player"] = 3000

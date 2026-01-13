@@ -43,6 +43,12 @@ var tasks={
 	"Desc" : "Visit the librarian to get the Book of Plants and learn the ideal conditions needed to properly use the temperature regulator.",
 	"completed" : false,
 	"acquired" : false
+},
+"Task8" = {
+	"title" : "Buy Seeds",
+	"Desc" : "Visit the seed shop in market place and buy seeds .",
+	"completed" : false,
+	"acquired" : false
 }
 
 }

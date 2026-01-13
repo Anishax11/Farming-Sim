@@ -166,6 +166,8 @@ func _on_dialogic_signal(argument : String):
 		Tutorials.interactions["registration_done"] = true
 		TaskManager.tasks["Task3"]["completed"] = true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task3")
+		TaskManager.tasks["Task8"]["acquired"] = true
+		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task8")
 		Global.freeze_time = false
 		
 	if argument == "sera_intro":
@@ -179,6 +181,8 @@ func _on_dialogic_signal(argument : String):
 	elif argument == "plant_sustained":
 		TaskManager.tasks["Task5"]["complete"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task5")
+		
+		
 
 func _on_interact_mouse_entered() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)

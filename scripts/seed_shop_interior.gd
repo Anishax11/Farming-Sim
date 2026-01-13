@@ -39,9 +39,10 @@ func _on_exit_body_entered(body: Node2D) -> void:
 		print("LEAVING SHOP")
 		Global.player_pos=Vector2(125,-50)
 		Dialogic.end_timeline()
-		Global.current_time = time_manager.current_time
-		Global.time_to_change_tint = time_manager.time_to_change_tint
-		Global.tint_index = time_manager.color_rect.i
+		Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
+		#Global.current_time = time_manager.current_time
+		#Global.time_to_change_tint = time_manager.time_to_change_tint
+		#Global.tint_index = time_manager.color_rect.i
 		Global.music_fade_out()
 		get_node("CanvasLayer2/DimBG").dim_bg(MARKET_PLACE)
 

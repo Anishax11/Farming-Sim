@@ -8,11 +8,15 @@ var FARM_SCENE = load("res://scenes/farm_scene.tscn")
 func _on_body_entered(body: Node2D) -> void:
 			if body.name!="Farmer":
 				return
+			#if !TaskManager.tasks["Task8"]["complete"]: #complete registration and buy seeds first
+				#print("Complete registrations")
+				#return
+				#
 			print("Open farm :",body.name)
 			time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
 			if time_manager==null:
 				time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
-			Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i)
+			Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
 			
 			Global.load_farm=true
 			Global.player_pos = Vector2(100,1000)

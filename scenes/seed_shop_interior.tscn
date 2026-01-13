@@ -10049,6 +10049,7 @@ scale = Vector2(1.9, 1.12)
 script = ExtResource("1_j0vwb")
 
 [node name="VendorMenu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VendorMenu"]
 offset_left = 105.0

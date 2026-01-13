@@ -11,6 +11,11 @@ func _ready() -> void:
 	player=get_node("/root/SeedShopInterior/Farmer")
 	
 func _on_button_down() -> void:
+	
+	if !TaskManager.tasks["Task8"]["complete"]:
+		TaskManager.tasks["Task8"]["complete"] = true
+		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task8")
+	
 	if Inventory.full == true:
 		print("Inv full!")
 		return

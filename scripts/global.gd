@@ -262,12 +262,13 @@ var minutes = 00
 var time_to_change_tint=8.00
 var tint_index=0	
 
-func track_time(time,change_time,index):
+func track_time(time,change_time,index,minutes_passed):
 	#print("saved time")
 	current_time=time
 	time_to_change_tint=change_time 
 	tint_index=index
-	
+	minutes=minutes_passed
+
 func equip_item(item_name):
 	print("EQUIPPED: "+item_name)
 	equipped_item=item_name

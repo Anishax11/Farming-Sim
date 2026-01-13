@@ -59,9 +59,7 @@ func _on_exit_body_entered(body: Node2D) -> void:
 	if Global.player_direction.y!=1:
 		return
 	print("Exit House")
-	Global.current_time=time_manager.current_time
-	Global.time_to_change_tint=time_manager.time_to_change_tint
-	Global.tint_index=time_manager.color_rect.i
+	Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
 	Global.player_pos = Vector2(120,505)
 	Global.music_fade_out()
 	await get_tree().change_scene_to_packed(FRONTYARD_SCENE)

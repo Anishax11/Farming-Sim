@@ -18,7 +18,8 @@ func _ready():
 func _on_body_entered(body: Node2D) -> void:
 	if body.name !="Farmer":
 		return
-	Global.current_time=time_manager.current_time
-	Global.time_to_change_tint=time_manager.time_to_change_tint
-	Global.tint_index=time_manager.color_rect.i
+	if !TaskManager.tasks["Task3"]["completed"]:
+		
+		return
+	Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
 	await get_tree().change_scene_to_packed(SEED_SHOP_INTERIOR)

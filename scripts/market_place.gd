@@ -24,8 +24,8 @@ func _ready():
 
 func _on_front_yard_entrance_body_entered(body: Node2D) -> void:
 	if Global.player_direction.y==-1:
-		print("PLayer here")
 		Global.current_time=time_manager.current_time
+		Global.minutes=time_manager.minutes
 		Global.time_to_change_tint=time_manager.time_to_change_tint
 		Global.tint_index=time_manager.color_rect.i
 		Global.player_pos = Vector2(300,850)
