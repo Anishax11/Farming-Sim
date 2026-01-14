@@ -16,6 +16,8 @@ var free_later
 var curr_scene
 var prev_state
 var delay_schedule = false
+var lock_in_idle
+
 func _ready():
 	curr_scene = get_tree().current_scene.name
 
@@ -56,6 +58,8 @@ func idle_behaviour()	:
 	#var action = randi_range(0,10)
 	#if action == 1:
 		#state = State.WALK
+	if lock_in_idle:
+		return
 	if decision_time <= 0.0:
 		state = State.WALK
 		decision_time = walk_decision_interval

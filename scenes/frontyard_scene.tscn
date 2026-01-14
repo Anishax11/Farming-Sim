@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://dj0hkgwoix4at"]
+[gd_scene load_steps=43 format=4 uid="uid://dj0hkgwoix4at"]
 
 [ext_resource type="Script" path="res://scripts/frontyard_scene.gd" id="1_3rtkc"]
 [ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="4_jskuh"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://dcd55qto241rp" path="res://scenes/kyra.tscn" id="27_6hy4l"]
 [ext_resource type="PackedScene" uid="uid://bjcduanqpeh7o" path="res://npc_home.tscn" id="28_06t6h"]
 [ext_resource type="PackedScene" uid="uid://obpviqay7x0" path="res://npc_home_2.tscn" id="29_80ppe"]
-[ext_resource type="PackedScene" uid="uid://bn32g7o32l0ug" path="res://scenes/church.tscn" id="29_exdj4"]
 [ext_resource type="PackedScene" uid="uid://cjrf0f5yk87ce" path="res://scenes/trade_box.tscn" id="32_qc5om"]
 [ext_resource type="PackedScene" uid="uid://bs8muem2spgnl" path="res://scenes/greenhouse.tscn" id="33_b3ttf"]
 [ext_resource type="PackedScene" uid="uid://bcrctwvmkf8ya" path="res://scenes/post_office.tscn" id="33_m2uud"]
@@ -22684,10 +22683,6 @@ position = Vector2(-328, 533)
 
 [node name="Tree4" parent="Node2D" instance=ExtResource("20_7d7hj")]
 position = Vector2(436, 604)
-
-[node name="Church" parent="." instance=ExtResource("29_exdj4")]
-z_index = 1
-position = Vector2(-260, 595)
 
 [node name="MarketEntrance" type="Area2D" parent="."]
 position = Vector2(434, -359)

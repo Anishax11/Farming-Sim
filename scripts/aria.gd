@@ -6,6 +6,7 @@ var farmer
 enum State{
 	WALK,IDLE,TALK,MOVE_TO_TARGET
 }
+var lock_in_idle
 var state = State.IDLE
 var speed = 10
 var direction = Vector2.ZERO
@@ -84,6 +85,8 @@ func idle_behaviour()	:
 	#var action = randi_range(0,10)
 	#if action == 1:
 		#state = State.WALK
+	if lock_in_idle:
+		return 
 	if decision_time <= 0.0:
 		state = State.WALK
 		decision_time = walk_decision_interval

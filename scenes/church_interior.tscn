@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://6rofkaegdwbj"]
+[gd_scene load_steps=33 format=4 uid="uid://6rofkaegdwbj"]
 
 [ext_resource type="Texture2D" uid="uid://cmdj7cebqx7xk" path="res://16x16/Sprites/ChurchInterior.jpg" id="1_pryng"]
 [ext_resource type="Script" path="res://scripts/church_interior.gd" id="1_slh8s"]
@@ -4214,6 +4214,9 @@ animations = [{
 radius = 8.0
 height = 38.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xd5h"]
+size = Vector2(73, 43)
+
 [node name="ChurchInterior" type="Node2D"]
 script = ExtResource("1_slh8s")
 
@@ -4379,7 +4382,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_wxlmn")
 
+[node name="Exit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(-1, 259)
+shape = SubResource("RectangleShape2D_6xd5h")
+
 [connection signal="gui_input" from="LabelCanvas/ControlDialDisplay" to="." method="_on_dial_display_gui_input"]
 [connection signal="gui_input" from="LabelCanvas/TrustDialDisplay" to="." method="_on_trust_dial_display_gui_input"]
 [connection signal="gui_input" from="LabelCanvas/ComplianceDialDisplay" to="." method="_on_compliance_dial_display_gui_input"]
 [connection signal="gui_input" from="LabelCanvas/DoubtDialDisplay" to="." method="_on_dout_dial_display_gui_input"]
+[connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

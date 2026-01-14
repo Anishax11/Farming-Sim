@@ -6,6 +6,9 @@ var aria = load("res://scenes/aria.tscn")
 var aira = load("res://scenes/aira.tscn")
 var sera = load("res://scenes/sera.tscn") 
 var time_manager
+var done =false
+@onready var characters: Node2D = $Characters
+
 const MARKET_PLACE = preload("res://scenes/market_place.tscn")
 var npc_list ={
 	"aria" : aria,
@@ -23,19 +26,32 @@ func _ready() -> void:
 	player.animated_sprite_2d.play("backward")
 	player.scale = Vector2(2,2)
 	if Global.day_count == 7:
+		get_node("LeaderBoard").visible = true
+		Dialogic.signal_event.connect(_on_dialogic_signal)
+		Dialogic.VAR.set("last_scene_start",true)
+		Dialogic.start("LastScene")
 		get_node("Characters/Sera").queue_free()
-		get_node("Boxes").queue_free()
 		for character in npc_list :
 			print("NPC : ",character)
 			var char = npc_list[character].instantiate()
 			char.name = character
 			#char.scale = Vector2(2,2)
-			char.global_position = Vector2(randi_range(-100,100),randi_range(-100,50))
-			add_child(char)
+			char.global_position = Vector2(randi_range(-600,600),randi_range(-200,300))
+			characters.add_child(char)
 			print("time_manager.current_time :",time_manager.current_time)
 	
 		
-
+func _process(delta: float) -> void:
+	if Global.day_count==7 and time_manager.current_time>=7 and !done:
+		done = true
+		print("LOCK NPC MOVEMENT")
+		Dialogic.VAR.set("last_scene_start",false)
+		for character in characters.get_children()  :
+			character.lock_in_idle = true
+			print(character)
+		
+		Dialogic.VAR.set("judge_announcement",true)
+		Dialogic.start("LastScene")
 
 func _on_count_down_animation_finished() -> void:
 	get_node("LeaderBoardDisplay").visible = true
@@ -43,9 +59,16 @@ func _on_count_down_animation_finished() -> void:
 
 func _on_exit_body_entered(body: Node2D) -> void:
 	if Global.player_direction.y==1 and body.name == "Farmer":
+		body.velocity = Vector2.ZERO
 		print("PLayer here")
 		Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
-		Global.player_pos = Vector2(-475,25)
+		Global.player_pos = Vector2(-575,100)
 		Global.player_direction.y = 1
 		Global.music_fade_out()
 		get_node("Farmer/CanvasLayer2/DimBG").dim_bg(MARKET_PLACE)
+
+func _on_dialogic_signal(arg: String):
+	if arg=="results_announced":
+		print("Res announced")
+		get_node("LeaderBoard").disable_display = false
+	

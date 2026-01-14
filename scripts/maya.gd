@@ -9,6 +9,7 @@ var speed = 10
 var direction = Vector2.ZERO
 var decision_time = 0.0
 var idle_decision_interval = 3.0 
+var lock_in_idle
 var last_direction = Vector2.DOWN	
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 var delay_schedule =false
@@ -77,6 +78,8 @@ func idle_behaviour()	:
 	#var action = randi_range(0,10)
 	#if action == 1:
 		#state = State.WALK
+	if lock_in_idle:
+		return
 	if decision_time <= 0.0:
 		state = State.WALK
 		decision_time = 5.0

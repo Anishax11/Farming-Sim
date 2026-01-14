@@ -13,7 +13,7 @@ var last_direction = Vector2.DOWN
 var prev_state 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 var free_later
-
+var lock_in_idle
 func _ready():
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
@@ -61,6 +61,8 @@ func idle_behaviour()	:
 	#var action = randi_range(0,10)
 	#if action == 1:
 		#state = State.WALK
+	if lock_in_idle:
+		return 
 	if decision_time <= 0.0:
 		state = State.WALK
 		decision_time = 5.0
