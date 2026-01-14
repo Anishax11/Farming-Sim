@@ -4,7 +4,10 @@ var time_manager
 func _ready() -> void:
 	time_manager = get_tree().get_current_scene().find_child("TimeManager",true,false)
 func _on_door_body_entered(body: Node2D) -> void:
-	if !TaskManager.tasks["Task3"]["complete"]:
+	if !TaskManager.tasks["Task3"]["acquired"]:
+				print("Talk to aria")
+				return
+	if !TaskManager.tasks["Task3"]["completed"]:
 				print("Complete registrations")
 				return
 				

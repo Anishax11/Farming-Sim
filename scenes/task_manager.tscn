@@ -20,7 +20,7 @@ offset_bottom = 566.0
 
 [node name="TaskVBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
-theme_override_constants/separation = -24
+theme_override_constants/separation = 4
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
 layout_mode = 0

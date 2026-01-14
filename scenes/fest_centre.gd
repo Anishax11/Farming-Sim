@@ -29,8 +29,8 @@ func _ready() -> void:
 			print("NPC : ",character)
 			var char = npc_list[character].instantiate()
 			char.name = character
-			char.scale = Vector2(2,2)
-			char.global_position = Vector2(randi_range(-1000,1000),randi_range(-500,500))
+			#char.scale = Vector2(2,2)
+			char.global_position = Vector2(randi_range(-100,100),randi_range(-100,50))
 			add_child(char)
 			print("time_manager.current_time :",time_manager.current_time)
 	

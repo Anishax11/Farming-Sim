@@ -5,9 +5,11 @@ var tasks
 var tasks_acquired = 0
 func _ready() -> void:
 	tasks=TaskManager.tasks
+	
 	#if TaskManager.keys_array.size()==0:
 		#print("keys  array empty")
 	vb = get_tree().current_scene.find_child("TaskVBoxContainer", true, false)
+	
 	if vb == null:
 		print("VB IS NULL")
 	else:
@@ -33,7 +35,10 @@ func _ready() -> void:
 			
 			vb.add_child(label)
 			print("TAsk added")
-			
+	
+	add_task("Task3")
+	add_task("Task8")
+	add_task("Task7")		
 	#var timer = Timer.new()
 	#timer.wait_time = 3.0  # 3 seconds
 	#timer.one_shot = true
@@ -58,18 +63,41 @@ func add_task(task_name) :
 	tasks_acquired+=1
 	var task = tasks[task_name]
 	var label = RichTextLabel.new()
+	var label_button = Button.new()
+	label_button.text = "+"
+	label_button.pressed.connect(_on_button_pressed.bind(label_button))
+	label_button.scale = Vector2(2,2)
 	label.name=task_name
 	label.add_theme_font_size_override("normal_font_size", 40)
 	label.text =  str(tasks_acquired)+". "+task.title + ": " + task.Desc + "\n" 
 	label.add_theme_color_override("default_color", Color.BLACK)
-	label.custom_minimum_size = Vector2(600, 150)
+	label.custom_minimum_size = Vector2(600, 100)
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.scroll_active = true
-	label.scroll_following = false   # Player-controlled scroll
+	label.scroll_active = false
+	label.scroll_following = false   
 	label.clip_contents = true
 	label.z_index=4
+	label.add_child(label_button)
+	label_button.position+=Vector2(500,60) # Button appears at bottom right of label
 	
 	vb.add_child(label)
 	TaskManager.tasks[task_name]["acquired"]=true
 	TaskManager.keys_array.append(task_name)
 	print("added task")
+
+
+
+
+
+func _on_button_pressed(button : Button) -> void:
+	print("Button down")
+	var label = button.get_parent()
+	print("Label button down : ",label.name)
+	if label.custom_minimum_size == Vector2(600, 400):
+		label.custom_minimum_size = Vector2(600, 100)
+		button.position+=Vector2(500,60) # Button appears at bottom right of label
+		button.text = "+"
+		return
+	label.custom_minimum_size = Vector2(600, 400)
+	button.position=Vector2(500,300) # Button appears at bottom right of label
+	button.text = "-"

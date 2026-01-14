@@ -12,9 +12,6 @@ func _ready() -> void:
 	
 func _on_button_down() -> void:
 	
-	if !TaskManager.tasks["Task8"]["complete"]:
-		TaskManager.tasks["Task8"]["complete"] = true
-		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task8")
 	
 	if Inventory.full == true:
 		print("Inv full!")
@@ -51,6 +48,10 @@ func _on_button_down() -> void:
 		   		#
 		player.update_coins(-price)
 		var inventory= get_tree().current_scene.find_child("Inventory")
+		if !TaskManager.tasks["Task8"]["completed"]:
+			TaskManager.tasks["Task8"]["completed"] = true
+			get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task8")
+	
 	
 		
 		inventory.add_to_inventory(seed_type+"_seeds",Global.strawberry_image)

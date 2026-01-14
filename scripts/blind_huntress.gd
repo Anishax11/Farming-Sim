@@ -8,7 +8,7 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 			Dialogic.signal_event.connect(_on_dialogic_signal)
 			if TaskManager.tasks["Task6"]["acquired"]:
 				Dialogic.VAR.set("measured_faith_given",true)
-			if TaskManager.tasks["Task6"]["complete"]:
+			if TaskManager.tasks["Task6"]["completed"]:
 				Dialogic.VAR.set("measured_faith_complete",true)	
 				
 			Dialogic.VAR.set("ilyra_intro",Tutorials.interactions["ilyra"])

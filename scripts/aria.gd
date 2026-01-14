@@ -51,6 +51,7 @@ func _physics_process(delta: float) -> void:
 		State.MOVE_TO_TARGET :
 			update_animation()
 			move_to()
+			
 	move_and_slide()
 
 func move_to():

@@ -11,7 +11,7 @@ func _ready() -> void:
 	var labelcanvas = $LabelCanvas   # adjust path if needed
 	var root = get_tree().current_scene
 	var inventory = get_node("Farmer/ClickBlocker/Inventory")
-	#inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
+	inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
 	#inventory.add_to_inventory("potato_seeds",Global.potato_image)
 	#inventory.add_to_inventory("pumpkin_seeds",Global.pumpkin_image)
 	#inventory.add_to_inventory("watercan",Global.pumpkin_image)
@@ -38,6 +38,9 @@ func _ready() -> void:
 func _on_market_entrance_body_entered(body: Node2D) -> void:
 	if body.name!="Farmer" :
 		return
+	if !TaskManager.tasks["Task3"]["acquired"]:
+				print("Talk to aria")
+				return
 	if Global.player_direction.y==1:
 		print("REAChed MArket Entrance")
 		Global.player_pos = Vector2(-214, -187)

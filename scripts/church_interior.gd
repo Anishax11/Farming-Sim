@@ -58,5 +58,5 @@ func _on_dout_dial_display_gui_input(event: InputEvent) -> void:
 func check_alignment():
 	if control > compliance and trust>doubt and doubt > compliance and trust > control:
 		print("Task COmplete")
-		TaskManager.tasks["Task6"]["complete"]=true
+		TaskManager.tasks["Task6"]["completed"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task6")

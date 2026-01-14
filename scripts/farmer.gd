@@ -12,7 +12,7 @@ var points
 var time_manager
 
 func _ready():
-	if Global.day_count == 1 and !TaskManager.tasks["Task3"]["complete"]:
+	if Global.day_count == 1 and !TaskManager.tasks["Task3"]["completed"]:
 		Global.freeze_time = true
 	#print("coin label position :",get_node("Camera2D/CoinLabel").global_position)
 	#print(get_path())

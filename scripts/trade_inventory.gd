@@ -26,14 +26,14 @@ func _ready() -> void:
 					texture_rect.name=string
 					if Global.get(string+"_image")==null:
 						print(string+" is null")
-					
+					print("TEXTURE NAME IS :",string)
 					#print("Slot passed:",slots_passed)
 					#print("ADJ:",slot_adjust)
 					#print("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 					
 					var empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
-					
 					empty_panel.add_child(texture_rect)
+					empty_panel.item_name = string
 					slots_passed=0
 					slot_adjust=1
 					

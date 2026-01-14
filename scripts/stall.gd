@@ -19,7 +19,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name !="Farmer":
 		return
 	if !TaskManager.tasks["Task3"]["completed"]:
-		
 		return
+		
 	Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
 	await get_tree().change_scene_to_packed(SEED_SHOP_INTERIOR)
