@@ -12,9 +12,6 @@ else:
 			I started farming recently, can you tell me more about plants?
 			aira: Yap yap
 		- Book of Plants
-			Do you happen to have any book that can help me learn about plants?
-			aira: I remember seeing one somewhere, I'm not sure where it is
-			aira: Come find me in the library tomorrow at 12 pm, I'll find it by then
 	else:
 		if {library_scene} == true:
 			aira: Welcome to the library!
@@ -31,3 +28,5 @@ else:
 			aira: Hey
 			if {plant_book_given} == false:
 				aira: I managed to find the book on plants I've been looking for, come find me in the library if you want it
+			else:
+				Not library, day>2

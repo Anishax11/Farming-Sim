@@ -22,23 +22,26 @@ func _ready() -> void:
 		if task["acquired"] and !task["completed"]:
 			#print("Acquired and not completed!")
 			var label = RichTextLabel.new()
+			var label_button = Button.new()
+			label_button.text = "+"
+			label_button.pressed.connect(_on_button_pressed.bind(label_button))
+			label_button.scale = Vector2(2,1.5)
 			label.name=id
 			label.add_theme_font_size_override("normal_font_size", 40)
-			label.text =  str(tasks_acquired)+". "+task.title + ": " + task.Desc + "\n" 
+			label.text =  "\n" +  str(i+1)+". "+task.title + ": " + task.Desc 
 			label.add_theme_color_override("default_color", Color.BLACK)
-			label.custom_minimum_size = Vector2(600, 150)
+			label.custom_minimum_size = Vector2(600, 100)
 			label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-			label.scroll_active = true
-			label.scroll_following = false   # Player-controlled scroll
+			label.scroll_active = false
+			label.scroll_following = false   
 			label.clip_contents = true
 			label.z_index=4
-			
+			label.add_child(label_button)
+			label_button.position+=Vector2(550,60) # Button appears at bottom right of label
+					
 			vb.add_child(label)
 			print("TAsk added")
-	
-	add_task("Task3")
-	add_task("Task8")
-	add_task("Task7")		
+
 	#var timer = Timer.new()
 	#timer.wait_time = 3.0  # 3 seconds
 	#timer.one_shot = true

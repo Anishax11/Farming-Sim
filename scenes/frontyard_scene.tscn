@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://dj0hkgwoix4at"]
+[gd_scene load_steps=44 format=4 uid="uid://dj0hkgwoix4at"]
 
 [ext_resource type="Script" path="res://scripts/frontyard_scene.gd" id="1_3rtkc"]
 [ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="4_jskuh"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bwe173ng4o4tr" path="res://scenes/maya_home.tscn" id="25_2x5nl"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="26_1prxw"]
 [ext_resource type="PackedScene" uid="uid://cv1c77q73y7fp" path="res://scenes/noa_home.tscn" id="26_5xrvd"]
+[ext_resource type="PackedScene" uid="uid://dcd55qto241rp" path="res://scenes/kyra.tscn" id="27_6hy4l"]
 [ext_resource type="PackedScene" uid="uid://bjcduanqpeh7o" path="res://npc_home.tscn" id="28_06t6h"]
 [ext_resource type="PackedScene" uid="uid://obpviqay7x0" path="res://npc_home_2.tscn" id="29_80ppe"]
 [ext_resource type="PackedScene" uid="uid://bn32g7o32l0ug" path="res://scenes/church.tscn" id="29_exdj4"]
@@ -22754,5 +22755,8 @@ position = Vector2(603, 781)
 
 [node name="noa_home" parent="." instance=ExtResource("26_5xrvd")]
 position = Vector2(-200, 820)
+
+[node name="Kyra" parent="." instance=ExtResource("27_6hy4l")]
+position = Vector2(-157, 574)
 
 [connection signal="body_entered" from="MarketEntrance" to="." method="_on_market_entrance_body_entered"]

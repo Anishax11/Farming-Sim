@@ -16,7 +16,7 @@ var tasks={
 	},
 	"Task3"={
 		"title" : "Register for the competition",
-		"Desc" : "Find the fest centre and complete registration for the festival. Grow and harvest fresh strawberries, then deliver them to Aria so she can install a temperature regulator in your greenhouse.",
+		"Desc" : "Find the fest centre and complete registration for the festival. ",
 		"completed" : false,
 		"acquired" : false
 	},

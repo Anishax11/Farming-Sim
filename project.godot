@@ -68,6 +68,7 @@ variables={
 "cashier_intro": false,
 "day": 1,
 "eiden_intro": false,
+"farm_scene": false,
 "fest_scene": false,
 "ilyra_intro": false,
 "library_scene": false,

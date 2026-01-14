@@ -10,18 +10,23 @@ if {cashier_intro} == false:
 		Aria: Here, take a look
 		[signal arg="OpenMenu"]
 else:
-	if {proof_of_worth_task_given} == false:
-		Show up on the leaderboard atleast once
-		if {proof_of_worth_done} == true:
-			I'm on the leaderboard
-			Congratulations! I'll sell the speacial seeds to you like i promised
-			[signal arg="proof_of_worth_done"]
-		[signal arg="proof_of_worth_task_given"]
-	else:
-		if {cashier_gives_better_seeds} == false:
+	if {day} == 1:
+		Do you need any help?
+	if {day} == 2:
+		Blah blahh
+	if {day} >= 3:
+		if {proof_of_worth_task_given} == false:
+			Show up on the leaderboard atleast once
 			if {proof_of_worth_done} == true:
-				Congratulations on completing the task! I'll sell the speacial seeds to you like i promised
+				I'm on the leaderboard
+				Congratulations! I'll sell the speacial seeds to you like i promised
 				[signal arg="proof_of_worth_done"]
+			[signal arg="proof_of_worth_task_given"]
 		else:
-			Welcome!
+			if {cashier_gives_better_seeds} == false:
+				if {proof_of_worth_done} == true:
+					Congratulations on completing the task! I'll sell the speacial seeds to you like i promised
+					[signal arg="proof_of_worth_done"]
+			else:
+				Welcome!
 [signal arg="enable_movement"]

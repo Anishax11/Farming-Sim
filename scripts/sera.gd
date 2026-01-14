@@ -18,6 +18,7 @@ var prev_state
 var delay_schedule = false
 func _ready():
 	curr_scene = get_tree().current_scene.name
+
 	if Global.day_count == 1 and !TaskManager.tasks["Task3"]["acquired"] and !curr_scene=="FestCentre":
 		print("Sera freed")	
 		queue_free()
