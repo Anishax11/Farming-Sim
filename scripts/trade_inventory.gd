@@ -33,6 +33,7 @@ func _ready() -> void:
 					
 					var empty_panel=get_node("NinePatchRect/GridContainer/Panel"+str(i+j+slots_passed+slot_adjust))
 					empty_panel.add_child(texture_rect)
+					print("Item in trade panel :",empty_panel.name," item :",string)
 					empty_panel.item_name = string
 					slots_passed=0
 					slot_adjust=1

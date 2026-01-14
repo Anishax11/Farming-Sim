@@ -254,7 +254,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		#item_name=node.name
 		#print("STr texturerect added to panel")
 	
-	#print("Added ",item_name," to panel :",self.name)
+	print("Added ",item_name," to panel :",self.name)
 
 
 func _on_panel_child_exiting_tree(node : Node) :
@@ -265,12 +265,16 @@ func _on_panel_child_exiting_tree(node : Node) :
 	stylebox.expand_margin_right = 0
 	stylebox.expand_margin_top = 0
 	stylebox.expand_margin_bottom = 0
-	var trade_panel = 	get_node("/root/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
+	#var trade_panel = 	get_node("/root/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
+	var trade_panel = get_tree().current_scene.get_node("TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
 	if trade_panel==null:
 		trade_panel = 	get_node("/root/Game/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
+	
 	if trade_panel!=null:
 		trade_panel.remove_item(node.name)
-		trade_panel.item_name=null
+		#trade_panel.item_name=null
+	else:
+		print("Trade panel null")
 
 func remove_item():
 	#print("Inside")

@@ -44,7 +44,6 @@ func _gui_input(event: InputEvent) -> void:
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
 	item_name=node.name
-	print("Item added to trade panel:",node.name)
 	var last_five = item_name.substr(item_name.length() - 5, 5)
 	
 	if node is TextureRect and last_five == "seeds":
@@ -75,11 +74,14 @@ func remove_item(item_name):
 	print("Remove item called on trade panel")
 	if item_name!=null:
 		
-		print("Removing from trade panel :",item_name)	
-		self.remove_child(get_node(str(item_name)))
-		if get_node(str(item_name))==null:
-			remove_child(get_node("TextureRect"))
+		print("Removing from trade panel :",item_name)
+		for child in get_children():
+			remove_child(child)	
+		#self.remove_child(get_node(str(item_name)))
+		#if get_node(str(item_name))==null:
+			#remove_child(get_node("TextureRect"))
 		item_name=null
+		print("Removed successfully!!!")
 		#print(inventory_node.get_path())
 		#var row = int( (panel_number-1)/5 )
 		#var column = int(panel_number-1)%5
