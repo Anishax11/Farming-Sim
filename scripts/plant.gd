@@ -76,14 +76,14 @@ func _ready() -> void:
 	if stage==PlantTracker.plant_stage_limits[string_part] and PlantTracker.quality_tracker[self.name]["past_last_day"]==true : # quality won't be increased anymore once plant is in its final stage, but it can fall
 		
 		if  PlantTracker.plant_info[string_part]["difficulty"] ==1: # easy difficulty
-			if temp_diff >7 :
+			if temp_diff >20 :
 				quality-=5
 		elif PlantTracker.plant_info[string_part]["difficulty"] ==1.3:# moderate difficulty
-			if temp_diff >5 :
+			if temp_diff >10 :
 				quality-=10
 			
 		else: # high difficulty
-			if temp_diff >3 :
+			if temp_diff >5 :
 				quality-=30
 		
 		
@@ -92,23 +92,25 @@ func _ready() -> void:
 		if stage==PlantTracker.plant_stage_limits[string_part]:
 			PlantTracker.quality_tracker[self.name]["past_last_day"]=true
 		if  PlantTracker.plant_info[string_part]["difficulty"] ==1: # easy difficulty
-			if temp_diff <=5 :
+			if temp_diff <=10 :
 				quality+=20
-			elif temp_diff <=7 :
+			elif temp_diff <=20 :
 				quality+=10
-			else:
-				quality-=5
+			#else:
+				#quality-=5
+				
 		elif PlantTracker.plant_info[string_part]["difficulty"] ==1.3:# moderate difficulty
-			if temp_diff <=3 :
+			if temp_diff <=5 :
 				quality+=31
-			elif temp_diff <=5 :
+			elif temp_diff <=10 :
 				quality+=10
 			else:
 				quality-=10
+				
 		else: # high difficulty
-			if temp_diff <=2 :
+			if temp_diff <=3 :
 				quality+=40
-			elif temp_diff <=3 :
+			elif temp_diff <=5 :
 				quality+=10
 			else:
 				quality-=30

@@ -10,88 +10,36 @@ if {day} == 1:
 			Aria: hey there! how's your first day going?
 elif {day} >= 2:
 	if {aria_strawberry_task_given} == false:
-		if {aria_last_convo} == false:
-			Aria: You’re growing crops in the greenhouse, right?
-			Aria: The temperature’s been fluctuating a lot lately. That can stress delicate plants.
-			Aria: A temperature regulator would stabilize the environment. I can install one for you—but I don’t work for free.
-			What do you need?
-			Aria: Fresh strawberries. Recently harvested, while they’re still at their best.
-			Strawberries… from my greenhouse?
-			Aria: Exactly. If you can grow them properly, I’ll know the regulator is worth installing.
-			*This could be the edge I need for Harvest Bloom.*
-			- I’ll have to pass for now.
-				Aria: Alright
-				[end_timeline]
-			- Sounds fair. I’ll bring you freshly harvested strawberries.
-				[signal arg="aria_strawberry_task_accepted"]
-				Aria: Great! Make sure they're fresh
-	else:
-		Aria: Did you change your mind?
-		- Yes
-			Aria: Great!
+		Aria: The temperature’s been fluctuating a lot lately. That can stress delicate plants.
+		Aria: A temperature regulator would stabilize the environment. I can install one for you—but I don’t work for free.
+		What do you need?
+		Aria: Fresh strawberries. Recently harvested, while they’re still at their best.
+		Strawberries… from my greenhouse?
+		Aria: Exactly. If you can grow them properly, I’ll know the regulator is worth installing.
+		*This could be the edge I need for Harvest Bloom.*
+		- I’ll have to pass for now.
+			Aria: Alright
+			[signal arg="decline_aria_task"]
+			[end_timeline]
+		- Sounds fair. I’ll bring you freshly harvested strawberries.
 			[signal arg="aria_strawberry_task_accepted"]
-		- No
-			Aria: Let me know if  you do, I'll be around for a while
-else:
-	Aria: Hey there
-	if {aria_last_convo} == false:
-		if {aria_task_done} == true:
-			- Give strawberries to Aria
-				[signal arg="aria_strawberry_task_complete"]
-				Aria: These… they’re really good.
-				She turns one of the strawberries over in her palm, thoughtful.
-				Aria: I’ve always liked strawberries like this. Fresh.
-				Aria: My family never farmed. We didn’t even have a garden—just concrete and schedules.
-				Aria: I used to buy them from roadside stalls on my way home. They tasted different. Like someone actually cared about how they grew.
-				Aria: I think that’s why I’m good at this. Machines, systems… controlled environments. It’s the closest I’ve ever been to growing something.
-				She pauses, then lets out a quiet breath.
-				- You’ve thought about leaving, haven’t you?
-					Aria: Yeah. There’s a position overseas. Bigger facilities. Better research.
-				- Have you thought about leaving?
-					Aria: Ofcourse I have
-				Aria: I wasn’t sure if I should take it.
-				She glances toward the greenhouse.
-				Aria: But seeing this work—done right—helps. It reminds me why I started.
-				Aria: Thank you. I’ll install the regulator  like I promised. And… I think I’ll send in my acceptance too.
-				[end_timeline]
-			- Leave
-				[end_timeline]
+			Aria: Great! Make sure they're fresh
 	else:
-		The greenhouse is warmer than usual, the air steady and controlled. Aria stands by the wall-mounted regulator, tightening the final fastenings.
-		Aria: That should do it. Whoever built this place knew what they were doing.
-		You mean the previous owner?
-		Aria: The scientist, yes. People in town still talk about her.
-		Aria steps back, scanning the structure with quiet interest.
-		Aria: I didn’t know her but you can tell she planned ahead. This greenhouse wasn’t made to be temporary.
-		- No one knows why she left?
-			Aria: That’s what I heard.
-			Aria: Someone doesn’t walk away from work like this without a reason.
-		- It still feels like she might come back.
-			Aria: Maybe.
-			Aria: Places like this don’t forget their makers easily.
-		- I’m just trying to take care of what she left behind.
-			Aria: Then it’s in steady hands. That’s not a small thing.
-		Aria rests her hand briefly on the greenhouse frame.
-		Aria: Whatever she was working on, she cared about control.
-		Aria: Balance. Precision.
-		Aria: I respect that.
-		- Sounds like something you understand.
-			Aria: I do.
-			Aria: That’s probably why this place feels… familiar.
-		- I wish I could’ve met her.
-			Aria: Me too.
-			Aria: I think she’d have liked seeing this place still in use.
-		- Guess I inherited big expectations.
-			Aria: You did.
-			Aria: But you’re meeting them in your own way.
-		The regulator hums softly as it stabilizes.
-		Aria: I’m leaving soon. Overseas work.
-		Will you be okay?
-		Aria: I think so.
-		Aria: This place helped me decide.
-		She glances once more around the greenhouse.
-		Aria: If the scientist ever does come back…
-		Aria: I hope she finds someone who understood what this place was meant for.
-		Aria: Take care of it.
-		She offers a small nod, then turns toward the door.
-		Aria: Goodbye.
+		if {aria_task_declined} == true:
+			Aria: Hey, did you change yoyr mind?
+			- Yes
+				Aria: Great!
+				[signal arg="aria_strawberry_task_accepted"]
+			- No
+				Aria: Let me know if  you do, I'll be around for a while
+		else:
+			Aria: Hey there
+			if {aria_last_convo} == false:
+				if {aria_task_done} == true:
+					- Give strawberries
+						[signal arg="aria_strawberry_task_complete"]
+						Task COmplete
+					- Leave
+						[end_timeline]
+			else:
+				Last convo with aria

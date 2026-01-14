@@ -63,6 +63,7 @@ variables={
 "aria_intro": false,
 "aria_last_convo": false,
 "aria_strawberry_task_given": false,
+"aria_task_declined": false,
 "aria_task_done": false,
 "cashier_gives_better_seeds": false,
 "cashier_intro": false,

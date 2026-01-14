@@ -26,7 +26,7 @@ func _ready() -> void:
 		display_minutes = str(minutes)
 	else:
 		display_minutes = "00"
-	get_node("Label").text=("Time : "+str(int(current_time))+":"+str(minutes))	
+	get_node("Label").text=("Time : "+str(int(current_time))+":"+display_minutes)	
 	
 	if current_time == time_to_change_tint:
 			color_rect.adjust_tint()

@@ -11,7 +11,8 @@ else:
 			aira: Yeah
 			I started farming recently, can you tell me more about plants?
 			aira: Yap yap
-		- Book of Plants
+		- Leave
+			[end_timeline]
 	else:
 		if {library_scene} == true:
 			aira: Welcome to the library!

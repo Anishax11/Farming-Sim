@@ -77,6 +77,8 @@ func remove_item(item_name):
 		
 		print("Removing from trade panel :",item_name)	
 		self.remove_child(get_node(str(item_name)))
+		if get_node(str(item_name))==null:
+			remove_child(get_node("TextureRect"))
 		item_name=null
 		#print(inventory_node.get_path())
 		#var row = int( (panel_number-1)/5 )

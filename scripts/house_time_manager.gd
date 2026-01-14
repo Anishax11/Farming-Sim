@@ -7,17 +7,23 @@ var time_to_change_tint=8.0
 var minutes=0
 var color_rect_i
 var date_label
+var display_minutes = 00
 func _ready() -> void:
 	
 	date_label=get_parent().get_node("DateLabel")
 	#if date_label==null:
 		#print("date label is null")
-	get_node("TimeLabel").text=("Time :"+str(current_time))
-	#print("HOUSE")
 	current_time=Global.current_time
-	#print("color_rect_i:",color_rect_i)
 	time_to_change_tint=Global.time_to_change_tint
 	color_rect_i=Global.tint_index
+	minutes = Global.minutes
+	if !minutes == 00:
+		display_minutes = str(minutes)
+	else:
+		display_minutes = "00"
+	get_node("Label").text=("Time : "+str(int(current_time))+":"+display_minutes)	
+	#print("HOUSE")
+	
 	
 func _physics_process(delta: float) -> void:
 	
@@ -35,7 +41,11 @@ func _physics_process(delta: float) -> void:
 				minutes=0
 				current_time=int(current_time+1)
 			#print("fmod:",minutes)
-			get_node("TimeLabel").text=("Time : "+str(int(current_time))+":"+str(minutes))
+			if !minutes == 00:
+				display_minutes = str(minutes)
+			else:
+				display_minutes = "00"
+			get_node("Label").text=("Time : "+str(int(current_time))+":"+display_minutes)	
 			if current_time==time_to_change_tint:
 				color_rect_i+=1
 				#print("Change tint")

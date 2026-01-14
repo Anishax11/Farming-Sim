@@ -20,7 +20,8 @@ var interactions={
 	"sera" :false,
 	"ilyra" : false,
 	"aria_strawberry_task_given":false,
-	"registration_done" :false
+	"registration_done" :false,
+	"aria_task_declined" : false 
 }
 
 var PointTracker={

@@ -1,6 +1,8 @@
 extends CanvasLayer
 
-#func _ready():
+func _ready():
+	if TaskManager.tasks["Task7"]["completed"]:
+		get_node("PlantBookControl/PlantBookButton").visible = true
 	#print("LabelCanvas texture pos : ",get_node("Control/TextureRect").global_position)
 	#var date_label = get_node("TextureRect/DateLabel")
 	#var screen = get_viewport().get_visible_rect().size

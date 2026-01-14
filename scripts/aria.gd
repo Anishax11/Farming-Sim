@@ -178,7 +178,9 @@ func _on_dialogic_signal(argument : String):
 		print("task one acquired")
 		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task3")
 		delay_schedule = false
-		Global.freeze_time = true
+	
+	elif argument == "decline_aria_task":
+		Tutorials.interactions["aria_task_declined"] = true
 
 
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -191,6 +193,7 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 			Dialogic.signal_event.connect(_on_dialogic_signal)
 			Dialogic.VAR.set("aria_strawberry_task_given",Tutorials.interactions["aria_strawberry_task_given"])
 			Dialogic.VAR.set("aria_intro",Tutorials.interactions["aria"])
+			Dialogic.VAR.set("aria_task_declined",Tutorials.interactions["aria_task_declined"] )
 			if Tutorials.interactions["aria"]==false:
 				print("aria intro")
 				#Dialogic.start("AriaSeedShopDirections")

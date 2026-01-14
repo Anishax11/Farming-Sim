@@ -28,6 +28,7 @@ func _ready() -> void:
 
 	var inventory= get_tree().current_scene.find_child("Inventory")
 	
+	
 	#for i in range (3):
 		#for j in range (5):
 			#var string=Global.inventory_items[i][j]
