@@ -2,6 +2,7 @@ if {last_scene_start} == true:
 	The hall is bustling
 	The judges are busy tallying, the results will be announced soon
 elif {judge_announcement} == true:
+	A voice cuts through the noise
 	The scores have been tallied. The results can be viewed on the leaderboard on stage
 	I should go take a look
 	[signal arg="results_announced"]

@@ -26,5 +26,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				print("DIsplay disabled")
 				return
 			print("PRESSES")
+			if Global.day_count==7:
+				get_parent().get_node("LabelCanvas/LeaderBoardDisplay").visible = !get_node("LeaderBoardDisplay").visible
 			get_node("LeaderBoardDisplay").visible = !get_node("LeaderBoardDisplay").visible
 			print("LeaderBoardDisplay visible :",get_node("LeaderBoardDisplay").visible)

@@ -32,13 +32,13 @@ func _ready() -> void:
 		Dialogic.start("LastScene")
 		get_node("Characters/Sera").queue_free()
 		for character in npc_list :
-			print("NPC : ",character)
+			#print("NPC : ",character)
 			var char = npc_list[character].instantiate()
 			char.name = character
-			#char.scale = Vector2(2,2)
-			char.global_position = Vector2(randi_range(-600,600),randi_range(-200,300))
+			char.scale = Vector2(0.6,0.6)
+			char.global_position = Vector2(randi_range(-100,100),randi_range(-100,100))
 			characters.add_child(char)
-			print("time_manager.current_time :",time_manager.current_time)
+			#print("time_manager.current_time :",time_manager.current_time)
 	
 		
 func _process(delta: float) -> void:

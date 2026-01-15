@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/leader_board_display.gd" id="1_0o5ec"]
 
 [node name="LeaderBoardDisplay" type="Control"]
+z_index = 5
 layout_mode = 3
 anchors_preset = 0
 offset_right = 173.0

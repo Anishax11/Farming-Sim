@@ -81,7 +81,7 @@ func idle_behaviour()	:
 	#if action == 1:
 		#state = State.WALK
 	if	lock_in_idle:
-		print("Aira locked in idle")
+		#print("Aira locked in idle")
 		return
 	if decision_time <= 0.0:
 		state = State.WALK
