@@ -1,16 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwe173ng4o4tr"]
 
-[ext_resource type="Texture2D" uid="uid://dxx6m4pm3jrbk" path="res://16x16/Sprites/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_vaqmx"]
+[ext_resource type="Texture2D" path="res://16x16/Sprites/house_sprites.jpg" id="1_w61qv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wwkya"]
-atlas = ExtResource("1_vaqmx")
-region = Rect2(0, 395, 76, 79)
+[sub_resource type="AtlasTexture" id="AtlasTexture_i65pb"]
+atlas = ExtResource("1_w61qv")
+region = Rect2(0, 279, 341, 279)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s1vav"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wwkya")
+"texture": SubResource("AtlasTexture_i65pb")
 }],
 "loop": true,
 "name": &"default",
@@ -18,7 +18,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huaq2"]
-size = Vector2(56, 20)
+size = Vector2(139, 80)
 
 [node name="maya_home" type="StaticBody2D"]
 
@@ -26,5 +26,5 @@ size = Vector2(56, 20)
 sprite_frames = SubResource("SpriteFrames_s1vav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 5)
+position = Vector2(2.5, 35)
 shape = SubResource("RectangleShape2D_huaq2")

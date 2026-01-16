@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccfxn81rc5kh"]
+
+[ext_resource type="Texture2D" uid="uid://b6tq5n1x1kjfp" path="res://16x16/Sprites/house_sprites.png" id="1_0ttsx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8myf"]
+atlas = ExtResource("1_0ttsx")
+region = Rect2(341, 279, 341, 279)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_heblf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8myf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SeraHome" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_heblf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-146, -12, -154, 12, -153, 32, -169, 34, -169, 63, -155, 69, -145, 76, -127, 77, -128, 89, -71, 90, -71, 76, -62, 76, -61, 90, -37, 91, -37, 77, -32, 75, -31, 91, -7, 92, -7, 75, 12, 74, 12, 87, 25, 88, 25, 79, 103, 80, 105, 91, 119, 92, 118, 68, 130, 66, 130, 23, 137, 15, 126, -15)

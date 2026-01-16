@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5f4jdwmul5tn"]
+
+[ext_resource type="PackedScene" uid="uid://bn32g7o32l0ug" path="res://scenes/church.tscn" id="1_eb1rg"]
+[ext_resource type="Texture2D" path="res://16x16/Sprites/house_sprites.jpg" id="2_iduws"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udeib"]
+atlas = ExtResource("2_iduws")
+region = Rect2(0, 0, 372, 279)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25cs4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udeib")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8j5e"]
+size = Vector2(317, 89)
+
+[node name="House_Building" type="StaticBody2D"]
+
+[node name="House" parent="." instance=ExtResource("1_eb1rg")]
+z_index = 2
+position = Vector2(28, 14)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_25cs4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18.5, 44.5)
+shape = SubResource("RectangleShape2D_r8j5e")

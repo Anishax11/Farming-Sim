@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://cv1c77q73y7fp"]
 
-[ext_resource type="Texture2D" uid="uid://dxx6m4pm3jrbk" path="res://16x16/Sprites/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_3ltlb"]
+[ext_resource type="Texture2D" path="res://16x16/Sprites/house_sprites.jpg" id="1_ol0ol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exxuo"]
 size = Vector2(53, 21)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_isjss"]
-atlas = ExtResource("1_3ltlb")
-region = Rect2(0, 648, 83, 72)
+[sub_resource type="AtlasTexture" id="AtlasTexture_18k8g"]
+atlas = ExtResource("1_ol0ol")
+region = Rect2(680, 0, 170, 264)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2yhe4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_isjss")
+"texture": SubResource("AtlasTexture_18k8g")
 }],
 "loop": true,
 "name": &"default",
