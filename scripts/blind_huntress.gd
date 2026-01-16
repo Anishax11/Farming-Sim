@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-
+#func _ready() -> void:
+	#Dialogic.VAR.set("ilyra_intro",true)
 
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
@@ -12,6 +13,8 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 				Dialogic.VAR.set("measured_faith_complete",true)	
 				
 			Dialogic.VAR.set("ilyra_intro",Tutorials.interactions["ilyra"])
+			
+				
 			if Tutorials.interactions["ilyra"]==false:
 				Tutorials.interactions["ilyra"]=true
 			
@@ -25,3 +28,6 @@ func _on_dialogic_signal(argument : String):
 	if argument =="measured_faith_given":
 		TaskManager.tasks["Task6"]["acquired"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task6")
+	if argument =="talk_to_maya_given":
+		TaskManager.tasks["Task9"]["acquired"]=true
+		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task9")

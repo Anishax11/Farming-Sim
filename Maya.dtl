@@ -28,9 +28,10 @@ else:
 				[signal arg="talk_to_maya_task_done"]
 			Maya: Hello
 		else:
-			She seems down
-			- Ask her whats wrong
-				Maya: Some of my classmates have been bullying me
-				[signal arg="talk_to_bullies_task_given"]
-			- Leave
-				[end_timeline]
+			if {talk_to_maya_task_given} == true:
+				She seems down
+				- Ask her whats wrong
+					Maya: Some of my classmates have been bullying me
+					[signal arg="talk_to_bullies_task_given"]
+				- Leave
+					[end_timeline]

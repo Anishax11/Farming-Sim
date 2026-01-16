@@ -1,0 +1,6 @@
+if {talk_to_bullies_given} == true:
+	Are u sure u want to attempt the task now? Once failed you won't be given another chance 
+	- Talk to her
+		[signal arg="talked_to_bully"]
+	- Leave
+		[end_timeline]

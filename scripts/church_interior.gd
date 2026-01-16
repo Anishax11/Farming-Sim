@@ -3,7 +3,7 @@ extends Node2D
 @onready var trust_dial := get_node("LabelCanvas/TrustDialDisplay/TextureRect")
 @onready var compliance_dial := get_node("LabelCanvas/ComplianceDialDisplay/TextureRect")
 @onready var doubt_dial := get_node("LabelCanvas/DoubtDialDisplay/TextureRect")
-const FRONTYARD_SCENE = preload("res://scenes/frontyard_scene.tscn")
+var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
 var control = 0
 var trust = 0
 var compliance = 0
@@ -68,9 +68,7 @@ func check_alignment():
 func _on_exit_body_entered(body: Node2D) -> void:
 	if body.name!="Farmer" :
 		return
-	if !TaskManager.tasks["Task3"]["acquired"]:
-				print("Talk to aria")
-				return
+	
 	if Global.player_direction.y==1:
 		#Global.player_pos = Vector2(-214, -187)
 		Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)

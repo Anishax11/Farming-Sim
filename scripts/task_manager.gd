@@ -49,7 +49,21 @@ var tasks={
 	"Desc" : "Visit the seed shop in market place and buy seeds .",
 	"completed" : false,
 	"acquired" : false
+},
+
+"Task9" = {
+	"title" : "Talk to Maya",
+	"Desc" : "Maya seems bothered, help her and ask her about the dials.",
+	"completed" : false,
+	"acquired" : false
+},
+"Task10" = {
+	"title" : "Talk to Bully",
+	"Desc" : ".",
+	"completed" : false,
+	"acquired" : false
 }
+
 
 }
 #TASK 1:

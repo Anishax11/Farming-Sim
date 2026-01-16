@@ -24,6 +24,7 @@ var schedule={
 func _ready():
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
+	Dialogic.VAR.set("talk_to_maya_task_given",TaskManager.tasks["Task9"]["acquired"])
 	
 func _physics_process(delta: float) -> void:
 	#if state == State.MOVE_TO_TARGET:
