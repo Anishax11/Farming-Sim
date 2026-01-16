@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-#func _ready() -> void:
-	#Dialogic.VAR.set("ilyra_intro",true)
+func _ready() -> void:
+	Dialogic.VAR.set("talk_to_maya_task_done",TaskManager.tasks["Task10"]["completed"])
 
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:

@@ -25,6 +25,7 @@ func _ready():
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
 	Dialogic.VAR.set("talk_to_maya_task_given",TaskManager.tasks["Task9"]["acquired"])
+	Dialogic.VAR.set("talk_to_bullies_done",TaskManager.tasks["Task10"]["completed"])
 	
 func _physics_process(delta: float) -> void:
 	#if state == State.MOVE_TO_TARGET:
@@ -40,6 +41,7 @@ func _physics_process(delta: float) -> void:
 			update_animation()
 			walk()
 		State.TALK:
+			
 			talk()	
 		State.MOVE_TO_TARGET:
 			update_animation()
@@ -114,6 +116,7 @@ func walk():
 			state = State.MOVE_TO_TARGET
 		
 func talk():
+	print("Talking to maya")
 	velocity = Vector2.ZERO
 	animated_sprite_2d.stop()
 	if farmer.position.x > position.x:
@@ -153,6 +156,7 @@ func _on_interact_mouse_entered() -> void:
 
 func _on_dialogue_ended():
 	if prev_state == State.MOVE_TO_TARGET:
+		
 		delay_schedule = false
 		state = State.MOVE_TO_TARGET
 		return
@@ -165,10 +169,12 @@ func _on_interact_mouse_exited() -> void:
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			Dialogic.signal_event.connect(_on_dialogic_signal)
 			delay_schedule = true
 			prev_state = state
-			
 			state = State.TALK
+			talk()
+			print("Clicked maya")
 			if Tutorials.interactions["maya"]==false:
 				Dialogic.VAR.set("maya_intro",false)
 				Tutorials.interactions["maya"]=true
@@ -178,3 +184,17 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 			Dialogic.VAR.set("random",randi_range(1, 2))
 			print("Random :",Dialogic.VAR.random)
 			Dialogic.start("Maya")
+
+func _on_dialogic_signal(arg : String):
+	if arg == "talk_to_bullies_task_given":
+		#TaskManager.tasks["Task9"]["completed"]=true
+		TaskManager.tasks["Task10"]["acquired"]=true
+		#get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task9")
+		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task10")
+	if arg=="talk_to_maya_task_done":
+		Tutorials.interactions["talk_to_maya_task_done"] = true	
+		TaskManager.tasks["Task9"]["completed"]=true
+		TaskManager.tasks["Task10"]["completed"]=true
+		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task9")
+		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task10")
+		

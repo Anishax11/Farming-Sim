@@ -21,7 +21,8 @@ var interactions={
 	"ilyra" : false,
 	"aria_strawberry_task_given":false,
 	"registration_done" :false,
-	"aria_task_declined" : false 
+	"aria_task_declined" : false,
+	"talk_to_maya_task_done" : true
 }
 
 var PointTracker={

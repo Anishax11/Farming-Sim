@@ -37,6 +37,8 @@ func _ready() -> void:
 			
 	
 func _physics_process(delta: float) -> void:
+	if state == State.TALK:
+		talk()
 	if delay_schedule:
 		return
 		
@@ -193,6 +195,7 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 				prev_state = State.MOVE_TO_TARGET
 			delay_schedule = true
 			state = State.TALK
+			talk()
 			Dialogic.signal_event.connect(_on_dialogic_signal)
 			Dialogic.VAR.set("aria_strawberry_task_given",Tutorials.interactions["aria_strawberry_task_given"])
 			Dialogic.VAR.set("aria_intro",Tutorials.interactions["aria"])

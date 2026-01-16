@@ -178,6 +178,7 @@ script = ExtResource("1_xn7in")
 sprite_frames = SubResource("SpriteFrames_1m04h")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.900363
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 25)
@@ -188,3 +189,5 @@ shape = SubResource("CapsuleShape2D_156eg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InputDetector"]
 position = Vector2(0, 23)
 shape = SubResource("CapsuleShape2D_sss5q")
+
+[connection signal="input_event" from="InputDetector" to="." method="_on_input_detector_input_event"]

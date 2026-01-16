@@ -185,7 +185,7 @@ func _on_dialogic_signal(argument : String):
 		move_to()
 		
 	elif argument == "plant_sustained":
-		TaskManager.tasks["Task5"]["complete"]=true
+		TaskManager.tasks["Task5"]["completed"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task5")
 		
 		
