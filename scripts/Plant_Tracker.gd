@@ -8,7 +8,8 @@ var plant_stage_limits={
 	"strawberry" : 3,
 	"potato" : 3,
 	"pumpkin" :3,
-	"carrot" : 3
+	"carrot" : 3,
+	"special" : 1
 }
 var locked_growth={}#used to store soil {with plant} which has already been watered once in the day to prevent multiple updates in stage on the same day
 # keeps track of panel's seed_count to load back on another day
@@ -99,6 +100,10 @@ var plant_info = {
 		"type" : "stable"
 	},
 	"carrot" :{
+		"difficulty" : 1,# easy
+		"ideal_temp" : 25 
+	},
+	"special" :{
 		"difficulty" : 1,# easy
 		"ideal_temp" : 25 
 	}

@@ -163,6 +163,9 @@ func _on_gui_input(event: InputEvent) -> void:
 							elif sibling.item_name == "watercan":
 								water_equipped = false
 					print("Highlight panel")
+					last_five = item_name.substr(item_name.length() - 5, 5)
+					if last_five =="seeds":
+						seeds_equipped=true
 					highlight_panel()
 						
 				else:

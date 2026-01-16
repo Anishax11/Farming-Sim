@@ -346,7 +346,7 @@ shape = SubResource("CapsuleShape2D_my6l7")
 sprite_frames = SubResource("SpriteFrames_vbtxd")
 animation = &"back"
 autoplay = "front"
-frame_progress = 0.355302
+frame_progress = 0.899889
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 3.0

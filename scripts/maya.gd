@@ -24,13 +24,16 @@ var schedule={
 func _ready():
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
-	Dialogic.VAR.set("talk_to_maya_task_given",TaskManager.tasks["Task9"]["acquired"])
-	Dialogic.VAR.set("talk_to_bullies_done",TaskManager.tasks["Task10"]["completed"])
+	#Dialogic.VAR.set("talk_to_maya_task_given",TaskManager.tasks["Task9"]["acquired"])
+	#Dialogic.VAR.set("talk_to_bullies_done",TaskManager.tasks["Task10"]["completed"])
+	
 	
 func _physics_process(delta: float) -> void:
 	#if state == State.MOVE_TO_TARGET:
 		#move_to()
 		#return
+	if state == State.TALK:
+		talk()
 	if delay_schedule:
 		return
 	decision_time -=delta
@@ -170,11 +173,14 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			Dialogic.signal_event.connect(_on_dialogic_signal)
+			
 			delay_schedule = true
 			prev_state = state
 			state = State.TALK
 			talk()
-			print("Clicked maya")
+			Dialogic.VAR.set("talk_to_maya_task_given",TaskManager.tasks["Task9"]["acquired"])
+			Dialogic.VAR.set("talk_to_bullies_done",TaskManager.tasks["Task10"]["completed"])
+			
 			if Tutorials.interactions["maya"]==false:
 				Dialogic.VAR.set("maya_intro",false)
 				Tutorials.interactions["maya"]=true

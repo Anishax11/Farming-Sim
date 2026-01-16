@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
+var inventory
 func _ready() -> void:
-	Dialogic.VAR.set("talk_to_maya_task_done",TaskManager.tasks["Task10"]["completed"])
-
+	Dialogic.VAR.set("talk_to_maya_task_done",TaskManager.tasks["Task9"]["completed"])
+	inventory = get_tree().current_scene.find_child("Inventory",true,false)
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
@@ -31,3 +32,6 @@ func _on_dialogic_signal(argument : String):
 	if argument =="talk_to_maya_given":
 		TaskManager.tasks["Task9"]["acquired"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task9")
+	if argument == "measured_faith_complete":
+		inventory.add_to_inventory("special_seeds",Global.strawberry_image)
+		Global.get_empty_panel().seed_count=6

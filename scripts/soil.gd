@@ -110,6 +110,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				var panel=inventory.find_child(Global.equipped_panel, true, false)
 				
 				var count= panel.seed_count
+				if count<=0:
+					print("Seed count not sufficient :",count)
 				if count>0:
 					#print("Plant ",Global.equipped_item)	
 					planted=true

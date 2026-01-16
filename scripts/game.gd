@@ -10,9 +10,9 @@ var FEST_CENTRE = load("res://scenes/fest_centre.tscn")
 const CHURCH_INTERIOR = preload("res://scenes/church_interior.tscn")
 const PLANT_BOOK = preload("res://scenes/plant_book.tscn")
 
-#func _ready() -> void:
-	#
-	#await get_tree().change_scene_to_packed(CHURCH_INTERIOR)
+func _ready() -> void:
+	
+	await get_tree().change_scene_to_packed(FARM_SCENE)
 	#print("FARMMMMMMMMM")
 	#var label=Label.new()
 	#label.position=Vector2(0,500)
