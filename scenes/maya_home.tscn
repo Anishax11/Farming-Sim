@@ -1,16 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwe173ng4o4tr"]
 
-[ext_resource type="Texture2D" path="res://16x16/Sprites/house_sprites.jpg" id="1_w61qv"]
+[ext_resource type="Texture2D" uid="uid://dm6vv785k2xe5" path="res://16x16/Sprites/village_houses.png" id="1_bpbpr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i65pb"]
-atlas = ExtResource("1_w61qv")
-region = Rect2(0, 279, 341, 279)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1km2e"]
+atlas = ExtResource("1_bpbpr")
+region = Rect2(587, 0, 587, 496)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s1vav"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i65pb")
+"texture": SubResource("AtlasTexture_1km2e")
 }],
 "loop": true,
 "name": &"default",

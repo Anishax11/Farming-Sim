@@ -3,6 +3,7 @@ var time_manager
 const MARKET_PLACE = preload("res://scenes/market_place.tscn")
 var slots_passed=0
 var slot_adjust=1
+var camera
 @onready var bg_music: AudioStreamPlayer2D = $BGMusic
 
 func _ready() -> void:
@@ -22,6 +23,12 @@ func _ready() -> void:
 	#inventory.add_to_inventory("watercan",Global.strawberry_image)
 	time_manager = get_tree().get_current_scene().find_child("TimeManager",true,false)
 	var player =get_node("Farmer")
+	camera = player.get_node("Camera2D")
+	camera.limit_bottom = 950
+	camera.limit_top = 350
+	camera.limit_left = 900
+	camera.limit_right = 1300
+	
 	if Global.player_pos!=null:
 		player.global_position=Global.player_pos
 	

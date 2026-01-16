@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6tq5n1x1kjfp"
-path="res://.godot/imported/house_sprites.png-864264b9c74bf88e2f93327305c3f172.ctex"
+uid="uid://dm6vv785k2xe5"
+path="res://.godot/imported/village_houses.png-000a4af038319defc1bb36b5c9dc58e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16/Sprites/house_sprites.png"
-dest_files=["res://.godot/imported/house_sprites.png-864264b9c74bf88e2f93327305c3f172.ctex"]
+source_file="res://16x16/Sprites/village_houses.png"
+dest_files=["res://.godot/imported/village_houses.png-000a4af038319defc1bb36b5c9dc58e7.ctex"]
 
 [params]
 

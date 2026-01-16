@@ -4,12 +4,14 @@ var time_manager
 var date_label
 var coin_label
 var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
-
+var camera
 func _ready():
+	
 	Global.music_fade_in()
 	Dialogic.end_timeline()
 	print("MARKET Place")
 	player=get_node("Farmer")
+	camera = player.get_node("Camera2D")
 	time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
 	date_label = get_tree().get_current_scene().find_child("DateLabel",true,false)
 	coin_label=get_tree().get_current_scene().find_child("CoinLabel",true,false)
@@ -17,6 +19,10 @@ func _ready():
 	if Global.player_pos!=null:
 		player.global_position = Global.player_pos
 	print("PLayer Pos :",player.global_position)
+	camera.limit_bottom = 1000
+	camera.limit_top = -400
+	camera.limit_left = -1250
+	camera.limit_right = 500
 
 	#
 #func _process(delta: float) -> void:

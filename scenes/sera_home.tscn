@@ -1,19 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccfxn81rc5kh"]
 
-[ext_resource type="Texture2D" uid="uid://b6tq5n1x1kjfp" path="res://16x16/Sprites/house_sprites.png" id="1_0ttsx"]
+[ext_resource type="Texture2D" uid="uid://dm6vv785k2xe5" path="res://16x16/Sprites/village_houses.png" id="2_sl234"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d8myf"]
-atlas = ExtResource("1_0ttsx")
-region = Rect2(341, 279, 341, 279)
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4hcb"]
+atlas = ExtResource("2_sl234")
+region = Rect2(864, 522, 432, 522)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_heblf"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d8myf")
-}],
+"frames": [],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4hcb")
+}],
+"loop": true,
+"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -21,6 +26,9 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_heblf")
+animation = &"new_animation"
+autoplay = "new_animation"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-146, -12, -154, 12, -153, 32, -169, 34, -169, 63, -155, 69, -145, 76, -127, 77, -128, 89, -71, 90, -71, 76, -62, 76, -61, 90, -37, 91, -37, 77, -32, 75, -31, 91, -7, 92, -7, 75, 12, 74, 12, 87, 25, 88, 25, 79, 103, 80, 105, 91, 119, 92, 118, 68, 130, 66, 130, 23, 137, 15, 126, -15)
+position = Vector2(-58, 46)
+polygon = PackedVector2Array(-158, -50, -154, 12, -153, 32, -169, 34, -169, 63, -157, 97, -135, 95, -118, 111, -71, 90, -27, 66, -26, 89, -5, 98, 21, 110, 42, 95, 38, 130, 72, 135, 102, 137, 118, 68, 123, 127, 152, 138, 273, 82, 265, -37)

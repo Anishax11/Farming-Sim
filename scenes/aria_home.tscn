@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://de4ybe4mmebre"]
+
+[ext_resource type="Texture2D" uid="uid://dm6vv785k2xe5" path="res://16x16/Sprites/village_houses.png" id="1_gyyd1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f02n"]
+atlas = ExtResource("1_gyyd1")
+region = Rect2(1324, 496, 662, 496)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7vm53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f02n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="aria_home" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7vm53")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-140, -35, -143, 86, -153, 105, -149, 122, -99, 145, -60, 144, -10, 175, -3, 193, 58, 227, 243, 142, 273, 154, 293, 145, 292, 122, 278, 105, 275, -29)
