@@ -14,7 +14,7 @@ const LIBRARY_INTERIOR = preload("res://scenes/library_interior.tscn")
 
 func _ready() -> void:
 	
-	await get_tree().change_scene_to_packed(HOUSE_INTERIOR)
+	await get_tree().change_scene_to_packed(FEST_CENTRE)
 	#print("FARMMMMMMMMM")
 	#var label=Label.new()
 	#label.position=Vector2(0,500)
