@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmftsmxp0mhew"
-path="res://.godot/imported/House-Interior.png-4b725cc96af288ccd8f4835500174137.ctex"
+uid="uid://c4lpflxin5133"
+path="res://.godot/imported/FestCentre.png-b609f1bd06f10b2c5e58a466e92e6254.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16/Sprites/House-Interior.png"
-dest_files=["res://.godot/imported/House-Interior.png-4b725cc96af288ccd8f4835500174137.ctex"]
+source_file="res://16x16/Sprites/FestCentre.png"
+dest_files=["res://.godot/imported/FestCentre.png-b609f1bd06f10b2c5e58a466e92e6254.ctex"]
 
 [params]
 

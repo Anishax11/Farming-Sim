@@ -28,9 +28,9 @@ func _ready() -> void:
 	player.scale = Vector2(2,2)
 	camera = player.get_node("Camera2D")
 	camera.limit_bottom = 950
-	camera.limit_top = 350
+	camera.limit_top = 330
 	camera.limit_left = -1200
-	camera.limit_right = 1300
+	camera.limit_right = 1200
 	if Global.day_count == 7:
 		get_node("LeaderBoard").visible = true
 		Dialogic.signal_event.connect(_on_dialogic_signal)

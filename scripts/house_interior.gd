@@ -5,15 +5,24 @@ var farmer
 var inventory
 var date_label
 var farmer_added=false
-var camera
 var time_manager
 var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
+#@onready var camera_2d: Camera2D = $Camera2D
+
 
 func _ready() -> void:
-	#print("house running")
+	print("house running")
 	#Global.music_fade_in()
 	Dialogic.end_timeline()
 	farmer=get_node("Farmer")
+	var camera_2d = farmer.get_node("Camera2D")
+	#camera.queue_free()
+	
+	camera_2d.limit_bottom = 1250
+	camera_2d.limit_top = -45
+	camera_2d.limit_left = 0
+	camera_2d.limit_right = 2060
+	camera_2d.zoom=Vector2(1,1)
 
 	
 	get_node("Farmer/ClickBlocker").queue_free()
@@ -21,8 +30,8 @@ func _ready() -> void:
 	time_manager=get_tree().get_current_scene().find_child("TimeManager")
 	#print("Task acq :",tasks["Task1"]["acquired"])
 	
-	camera=farmer.get_node("Camera2D")
-	camera.queue_free()
+	#camera=farmer.get_node("Camera2D")
+	#camera.queue_free()
 	
 	farmer.get_node("AnimatedSprite2D").play("backward")
 

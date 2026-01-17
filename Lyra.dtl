@@ -1,4 +1,4 @@
-if {lyra_intro} == false:
+if {ilyra_intro} == false:
 	The woman appears to be blind
 else:
 	if {day} <= 3:
