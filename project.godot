@@ -32,6 +32,7 @@ directories/dch_directory={
 "Eiden": "res://16x16/Sprites/Eiden.dch",
 "Lyra": "res://Lyra.dch",
 "Maya": "res://Maya.dch",
+"Narrator": "res://Narrator.dch",
 "Noa": "res://16x16/Sprites/Noa.dch",
 "Sera": "res://Sera.dch",
 "aira": "res://16x16/Sprites/aira.dch",
