@@ -63,13 +63,17 @@ func idle_behaviour()	:
 		#state = State.WALK
 	if lock_in_idle:
 		return 
+		
+	
 	if decision_time <= 0.0:
 		state = State.WALK
 		decision_time = 5.0
 		
 
 func walk():
+	#print("Walk")
 	if get_slide_collision_count() > 0:
+		#print("Walk collision")
 		var collision = get_slide_collision(0)
 		var normal = collision.get_normal()
 		direction = direction.bounce(normal)
@@ -87,6 +91,9 @@ func walk():
 	direction = direction.normalized()	
 	velocity = direction * speed
 	
+	if prev_state == State.MOVE_TO_TARGET:
+		state = State.MOVE_TO_TARGET
+		return
 	
 	if decision_time <= 0.0:
 		if !prev_state == State.MOVE_TO_TARGET:

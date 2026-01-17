@@ -8,12 +8,12 @@ var FARM_SCENE = load("res://scenes/farm_scene.tscn")
 func _on_body_entered(body: Node2D) -> void:
 			if body.name!="Farmer":
 				return
-			if !TaskManager.tasks["Task3"]["acquired"]:
-				print("Talk to aria")
-				return
-			if !TaskManager.tasks["Task8"]["completed"]: #complete registration and buy seeds first
-				print("Complete registrations")
-				return
+			#if !TaskManager.tasks["Task3"]["acquired"]:
+				#print("Talk to aria")
+				#return
+			#if !TaskManager.tasks["Task8"]["completed"]: #complete registration and buy seeds first
+				#print("Complete registrations")
+				#return
 				#
 			print("Open farm :",body.name)
 			time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)

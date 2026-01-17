@@ -21,6 +21,10 @@ func _ready() -> void:
 	var match = regex.search(text)
 	Global.last_plant_number = int(match.get_string())
 	stage = PlantTracker.plant_stages[self.name]
+	if stage ==PlantTracker.plant_stage_limits[string_part] and !Tutorials.tutorials["harvest"]:
+		Tutorials.tutorials["harvest"] = true
+		Dialogic.VAR.set("harvest_tut",true)
+		Dialogic.start("FarmTutorial")
 	
 	if not PlantTracker.locked_growth.has(get_parent().name) :
 		animated_sprite_2d.play(string_part+"_stage_"+str(stage))

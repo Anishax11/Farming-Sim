@@ -73,6 +73,7 @@ variables={
 "eiden_intro": false,
 "farm_scene": false,
 "fest_scene": false,
+"harvest_tut": false,
 "ilyra_intro": false,
 "judge_announcement": false,
 "last_scene_start": false,
@@ -82,6 +83,7 @@ variables={
 "measured_faith_given": false,
 "noa_intro": false,
 "plant_book_given": false,
+"plant_tut": false,
 "proof_of_worth_done": false,
 "proof_of_worth_task_given": false,
 "random": 0,
@@ -90,7 +92,9 @@ variables={
 "talk_to_bullies_done": false,
 "talk_to_bullies_given": false,
 "talk_to_maya_task_done": false,
-"talk_to_maya_task_given": false
+"talk_to_maya_task_given": false,
+"till_tut": false,
+"water_tut": false
 }
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"

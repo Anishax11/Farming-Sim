@@ -1,9 +1,11 @@
-You step inside the greenhouse. The air smells of soil and sunlight.
-Farming isn’t too hard once you get the rhythm.
-Start by tilling the soil — just click on a patch of dirt to loosen it up.
-You’ll need seeds next. Open your inventory and equip them.
-Click the tilled soil again to plant.
-Don’t forget to water it — there’s a watering can near the entrance.
-Every new day, your plant will grow a little more... but only if it’s watered.
-Keep at it daily until it’s fully grown.
-[end_timeline]
+if {till_tut} == false:
+	Tilling tut
+elif {plant_tut} == false:
+	Plant tut
+elif {water_tut} == false:
+	Water tut
+elif {harvest_tut} == false:
+	Harvest tut
+if {water_tut} == true:
+	if {harvest_tut} == false:
+		Wait for plant to grow, water daily

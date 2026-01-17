@@ -4,7 +4,11 @@ extends Node
 var tutorials ={
 	"trade_box_tutorial":false,
 	"seed_shop_tutorial" : false,
-	"farm_tutorial" : true,
+	"farm_tutorial" : false,
+	"tilling" :false,
+	"plant_seeds" :false,
+	"water" : false,
+	"harvest" : false,
 	"temp_regulator_tutorial" : false
 
 

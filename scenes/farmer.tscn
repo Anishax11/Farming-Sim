@@ -285,6 +285,7 @@ offset_right = 193.0
 offset_bottom = 115.0
 
 [node name="Inventory" parent="ClickBlocker" instance=ExtResource("11_n8gv4")]
+z_index = 6
 scale = Vector2(0.8, 0.8)
 
 [node name="TaskManager" parent="." instance=ExtResource("11_cngkf")]

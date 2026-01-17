@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wv0px"]
-size = Vector2(69, 20)
+size = Vector2(71, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ucdd5"]
 
@@ -30,7 +30,7 @@ script = ExtResource("1_b6rgi")
 sprite_frames = SubResource("SpriteFrames_tarr6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 32)
+position = Vector2(-3.5, 24.5)
 shape = SubResource("RectangleShape2D_wv0px")
 
 [node name="Door" type="Area2D" parent="."]

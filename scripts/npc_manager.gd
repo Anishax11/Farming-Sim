@@ -30,7 +30,7 @@ var aira_schedule={
 	"7" : "aira_home",
 	"9" : "library",
 	"9.5" : "librarian_desk",
-	"17" : "library_entrance",
+	"12" : "library_entrance",
 	"17.5" : "library",
 	"19" : "aira_home"
 }
@@ -89,8 +89,8 @@ var scene_wise_locations ={
 		},
 	
 	"LibraryInterior" = {
-		"library_entrance" : Vector2(0,100),
-		"librarian_desk" : Vector2(0,-115),
+		"library_entrance" : Vector2(25,200),
+		"librarian_desk" : Vector2(25,-75),
 	},
 	
 	"SeedShopInterior" ={
@@ -109,7 +109,7 @@ var npc_list ={
 
 var npc_keys = npc_list.keys()
 func _ready():
-	print("NPC Manager")
+	#print("NPC Manager")
 	time_manager = get_tree().current_scene.find_child("TimeManager",true,false)
 	curr_time = int(time_manager.current_time)
 	curr_scene =  get_tree().current_scene.name
@@ -125,16 +125,16 @@ func _ready():
 	
 	
 	for character in npc_list :
-		print("NPC : ",character)
+		#print("NPC : ",character)
 		var spawn_point
 		for timeslot in get(character +"_schedule") :
 			if curr_time >= int(timeslot):
 				spawn_point = get(character +"_schedule")[str(timeslot)]
-				print("Spawn point : ",get(character +"_schedule")[str(timeslot)])
+				#print("Spawn point : ",get(character +"_schedule")[str(timeslot)])
 				
 			
 		if scene_wise_locations.has(curr_scene) and scene_wise_locations[curr_scene].has(spawn_point)	:
-			print("Spawn at scheduled location :",scene_wise_locations[curr_scene][spawn_point])
+			#print("Spawn at scheduled location :",scene_wise_locations[curr_scene][spawn_point])
 			var char = npc_list[character].instantiate()
 			char.name = character
 			char.global_position = scene_wise_locations[curr_scene][spawn_point]
@@ -150,7 +150,7 @@ func hour_elapsed():
 			var char = get_node(children)
 			#print("COntrolling :",char.name)
 			if (get(children +"_schedule").has(str(curr_time))):
-				print("Has time in schedule :",curr_time)
+				#print("Has time in schedule :",curr_time)
 				if scene_wise_locations.has(curr_scene) :
 					for location in scene_wise_locations[curr_scene]:
 						#print("Char schedule :",get(children +"_schedule")[str(curr_time)])
@@ -175,11 +175,11 @@ func hour_elapsed():
 			for timeslot in get(children +"_schedule") :
 				if curr_time >= int(timeslot):
 					spawn_point = get(children +"_schedule")[str(timeslot)]
-					print("Spawn point : ",get(children +"_schedule")[str(timeslot)])
+					#print("Spawn point : ",get(children +"_schedule")[str(timeslot)])
 					
 				
 			if scene_wise_locations.has(curr_scene) and scene_wise_locations[curr_scene].has(spawn_point)	:
-				print("Spawn at scheduled location :",scene_wise_locations[curr_scene][spawn_point])
+				#print("Spawn at scheduled location :",scene_wise_locations[curr_scene][spawn_point])
 				var char = npc_list[children].instantiate()
 				char.name = children
 				char.global_position = scene_wise_locations[curr_scene][spawn_point]

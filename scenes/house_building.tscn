@@ -1,35 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5f4jdwmul5tn"]
+[gd_scene load_steps=5 format=3 uid="uid://b5f4jdwmul5tn"]
 
 [ext_resource type="PackedScene" uid="uid://bn32g7o32l0ug" path="res://scenes/church.tscn" id="1_eb1rg"]
-[ext_resource type="Texture2D" path="res://16x16/Sprites/house_sprites.png" id="2_q0gw5"]
+[ext_resource type="Texture2D" uid="uid://dkwkcqyo8povv" path="res://16x16/Sprites/Gemini_Generated_Image_2r1n5e2r1n5e2r1n.png" id="2_ojuta"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cq18t"]
-atlas = ExtResource("2_q0gw5")
-region = Rect2(0, 0, 369, 279)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vpe8"]
+atlas = ExtResource("2_ojuta")
+region = Rect2(444, 370, 444, 370)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_25cs4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cq18t")
+"texture": SubResource("AtlasTexture_6vpe8")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8j5e"]
-size = Vector2(317, 89)
-
 [node name="House_Building" type="StaticBody2D"]
 
 [node name="House" parent="." instance=ExtResource("1_eb1rg")]
 z_index = 2
-position = Vector2(28, 14)
+position = Vector2(-45, 89)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_25cs4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(18.5, 44.5)
-shape = SubResource("RectangleShape2D_r8j5e")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-147, 51, -146, 165, 45, 167, 60, 159, 77, 159, 93, 148, 118, 148, 191, 149, 190, 103, 193, 71, 179, 46)

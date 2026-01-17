@@ -50,8 +50,10 @@ func _ready() -> void:
 
 	
 	if Tutorials.tutorials["farm_tutorial"]==false:
-		await Dialogic.start("FarmTutorial")	
 		Tutorials.tutorials["farm_tutorial"]=true	
+		print("STart farm tut")
+		Dialogic.start("FarmTutorial")	
+		
 		
 	if 	Tutorials.tutorials["temp_regulator_tutorial"]==false and TaskManager.tasks["Task2"]["completed"]==true:
 		Dialogic.VAR.day = 4

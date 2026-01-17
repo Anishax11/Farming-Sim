@@ -7,6 +7,7 @@ var aira = load("res://scenes/aira.tscn")
 var sera = load("res://scenes/sera.tscn") 
 var time_manager
 var done =false
+var camera
 @onready var characters: Node2D = $Characters
 
 const MARKET_PLACE = preload("res://scenes/market_place.tscn")
@@ -25,6 +26,11 @@ func _ready() -> void:
 	player = get_node("Farmer")
 	player.animated_sprite_2d.play("backward")
 	player.scale = Vector2(2,2)
+	camera = player.get_node("Camera2D")
+	camera.limit_bottom = 950
+	camera.limit_top = 350
+	camera.limit_left = -1200
+	camera.limit_right = 1300
 	if Global.day_count == 7:
 		get_node("LeaderBoard").visible = true
 		Dialogic.signal_event.connect(_on_dialogic_signal)

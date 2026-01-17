@@ -17,18 +17,21 @@ var free_later
 var curr_scene
 var prev_state
 var delay_schedule = false
-var schedule={
-	"6" : "maya_home",
-	"9" : "library",
-	"10" : "librarian_desk",
-	"17" : "library_entrance",
-	"18" : "library",
-	"19" : "maya_home"
-}
+
+#var schedule={
+	#"6" : "maya_home",
+	#"9" : "library",
+	#"10" : "librarian_desk",
+	#"17" : "library_entrance",
+	#"18" : "library",
+	#"19" : "maya_home"
+#}
 
 
 func _ready():
 	curr_scene = get_tree().current_scene.name
+	if curr_scene == "LibraryInterior":
+		lock_in_idle = true
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
 	
@@ -38,12 +41,9 @@ func _physics_process(delta: float) -> void:
 	decision_time -=delta
 	match state:
 		State.IDLE:
-			if curr_scene == "LibraryInterior":
-				return
 			idle_behaviour()
+			
 		State.WALK:
-			if curr_scene == "LibraryInterior":
-				return
 			update_animation()
 			walk()
 		State.TALK:
@@ -59,37 +59,39 @@ func move_to():
 	direction  = (next_pos - global_position).normalized()
 	velocity = direction * speed
 	if get_slide_collision_count() > 0:
+		lock_in_idle = false
 		var collision = get_slide_collision(0)
-		var normal = collision.get_normal()
 		state = State.IDLE
+		
 	move_and_slide()
 	if navigation_agent_2d.is_navigation_finished():
-		print("Navigation finished")
 		if free_later == true :
-			print("Free ",self.name)
 			queue_free()
 		state = State.IDLE
 		return
 		
 	
 func idle_behaviour()	:
-	#print("Idle")
 	velocity = Vector2.ZERO
 	update_animation()
 		
 	#var action = randi_range(0,10)
 	#if action == 1:
 		#state = State.WALK
-	if	lock_in_idle:
-		#print("Aira locked in idle")
+	if	lock_in_idle and !prev_state ==State.MOVE_TO_TARGET:
+		print("Aira locked in idle")
 		return
+	
+		
 	if decision_time <= 0.0:
 		state = State.WALK
 		decision_time = walk_decision_interval
 		
 
 func walk():
+	print("Walk")
 	if get_slide_collision_count() > 0:
+		print("walk COllsion")
 		var collision = get_slide_collision(0)
 		var normal = collision.get_normal()
 		direction = direction.bounce(normal)
@@ -108,11 +110,14 @@ func walk():
 	velocity = direction * speed
 	
 	
+	
 	if decision_time <= 0.0:
 		if !prev_state == State.MOVE_TO_TARGET:
+			print("Go to idle")
 			state = State.IDLE
 			decision_time = idle_decision_interval
 		else:
+			print("BAck to move target")
 			state = State.MOVE_TO_TARGET
 		
 func talk():

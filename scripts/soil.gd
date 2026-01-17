@@ -86,7 +86,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if distance<40 and planted==true and panel.water_equipped==true: #If plant doesn't exist yet
 				#print("trying to water")
 				watered=true
-				
+				if !Tutorials.tutorials["water"]:
+					Tutorials.tutorials["water"] = true
+					Dialogic.VAR.set("water_tut",true)
+					Dialogic.start("FarmTutorial")
 				if not PlantTracker.plant_names.has(self.name):
 					var plant_name=seed_type
 					PlantTracker.add_plant_names(self.name,plant_name+str(Global.plant_number))
@@ -114,6 +117,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					print("Seed count not sufficient :",count)
 				if count>0:
 					#print("Plant ",Global.equipped_item)	
+					if !Tutorials.tutorials["plant_seeds"]:
+						Tutorials.tutorials["plant_seeds"] = true
+						Dialogic.VAR.set("plant_tut",true)
+						Dialogic.start("FarmTutorial")
 					planted=true
 					seed_type=Global.equipped_item
 					Global.soil_data[self.name]=seed_type
@@ -168,6 +175,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if distance<=18 and !tilled and planted==false:
 				#print(self.name," is tilled")
 				#print("Crr animation : ", animated_sprite_2d.animation)
+				if !Tutorials.tutorials["tilling"]:
+					Tutorials.tutorials["tilling"] = true
+					Dialogic.VAR.set("till_tut",true)
+					Dialogic.start("FarmTutorial")
 				tilled=true
 				Global.tilled_soil.append(self.name)
 				Global.tilled_soil_animation.append(animated_sprite_2d.animation)

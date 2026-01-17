@@ -2,7 +2,7 @@ extends Node2D
 
 var time_passed=0.0
 var initial_time=0.0
-var current_time=6.00
+var current_time=9.00
 var time_to_change_tint=6.00
 var minutes=00
 var display_minutes
@@ -11,6 +11,7 @@ var date_label
 var game
 var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
 var npc_manager
+
 func _ready() -> void:
 	print("Time Manager Loaded")
 	color_rect=get_tree().get_current_scene().find_child("ColorRect",true,false)

@@ -26,7 +26,7 @@ func _ready() -> void:
 	camera = player.get_node("Camera2D")
 	camera.limit_bottom = 950
 	camera.limit_top = 350
-	camera.limit_left = 900
+	camera.limit_left = -1200
 	camera.limit_right = 1300
 	
 	if Global.player_pos!=null:

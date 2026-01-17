@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://mycwobqcgawc"]
+
+[ext_resource type="Texture2D" uid="uid://dkwkcqyo8povv" path="res://16x16/Sprites/Gemini_Generated_Image_2r1n5e2r1n5e2r1n.png" id="1_0ak53"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvhvj"]
+atlas = ExtResource("1_0ak53")
+region = Rect2(0, 384, 469, 384)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k18k2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvhvj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NPCHome2" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k18k2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-199, -21, -180, 145, 47, 149, 48, 124, 174, 125, 183, -27)

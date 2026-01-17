@@ -15,7 +15,7 @@ func _ready() -> void:
 		
 	top_5 = entries.slice(0, min(5, entries.size()))
 	TaskManager.task_status["top_5"] = top_5
-	print("TOp 5 is set")
+	#print("TOp 5 is set")
 	if Global.day_count>=5:
 		disable_display = true
 
