@@ -3,7 +3,14 @@ extends Control
 #func _ready():
 	##process_mode = Node.PAUSE_MODE_PROCESS
 	#get_node("PanelContainer/VBoxContainer/RESUME").pressed.connect(_on_resume_button_down)
-var MAIN_MENU = load("res://scenes/main_menu.tscn")	
+var MAIN_MENU = load("res://scenes/main_menu.tscn")
+	
+func _input(event):
+	if event.is_action_pressed("Escape") :
+		print("ReSume")
+		get_tree().paused=!get_tree().paused
+		print("Resume COmplete")
+		
 func _on_resume_button_down() -> void:
 	
 	print("ReSume")

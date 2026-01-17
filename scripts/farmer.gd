@@ -121,12 +121,12 @@ func _input(event: InputEvent) -> void:
 		inventory.visible = not inventory.visible
 		#print("inventory.visible: ",inventory.visible)
 		#inventory.set_process_input(not inventory.visible)
-	if Input.is_action_just_pressed("Escape"):
-		print("ESCAPE")
-		
-		get_tree().paused=!get_tree().paused
-		#pause_menu.global_position=self.global_position
-		pause_menu.visible=!pause_menu.visible
+	#if Input.is_action_just_pressed("Escape")  :
+		#print("ESCAPE")
+		#
+		#get_tree().paused=!get_tree().paused
+		##pause_menu.global_position=self.global_position
+		#pause_menu.visible=!pause_menu.visible
 	
 	if Input.is_action_just_pressed("Tasks"):
 		get_tree().get_current_scene().find_child("TaskManager",true,false).visible=!get_tree().get_current_scene().find_child("TaskManager",true,false).visible

@@ -8,7 +8,7 @@ elif {water_tut} == false:
 	Narrator: Seeds need water to take root. Right click  the watering can at the end of the farm to pick it up then left-click the soil to water it.
 elif {harvest_tut} == true:
 	Narrator: Your crop is ready.
-	Narrator: Left-click to harvest it.
+	Narrator: Right-click to harvest it.
 if {water_tut} == true:
 	if {harvest_tut} == false:
 		Narrator: That’s enough for now

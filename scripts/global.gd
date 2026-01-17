@@ -68,7 +68,19 @@ var equipped_panel #Keeps track of equipped panel
 #var win_size
 #func _ready():
 	#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+
 	
+func _input(event):
+	var pause_menu = get_tree().current_scene.find_child("PauseMenu",true,false)
+	if event.is_action_pressed("Escape") :
+		if pause_menu.visible:
+			pause_menu.visible = false 
+			return
+		print("Esc")
+		get_tree().paused=!get_tree().paused
+		pause_menu.visible=!pause_menu.visible
+		print("Esc COmplete")
+		
 func get_direction(direction) :
 	
 	player_direction=direction
