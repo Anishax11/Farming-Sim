@@ -1,6 +1,6 @@
 if {till_tut} == false:
 	Narrator: Every harvest begins with the soil.
-	Narrator: Right-click on the ground to till it
+	Narrator: Left-click on the ground to till it
 elif {plant_tut} == false:
 	Narrator: Good. The soil is ready
 	Narrator: Choose a seed from your inventory, then left-click on the tilled ground to plant it.

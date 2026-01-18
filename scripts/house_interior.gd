@@ -7,6 +7,7 @@ var date_label
 var farmer_added=false
 var time_manager
 var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
+var sleep_confirmation
 #@onready var camera_2d: Camera2D = $Camera2D
 
 
@@ -36,7 +37,7 @@ func _ready() -> void:
 	farmer.get_node("AnimatedSprite2D").play("backward")
 
 	var inventory= get_tree().current_scene.find_child("Inventory")
-	
+	sleep_confirmation = get_tree().current_scene.find_child("SleepConfirmation",true,false)
 	
 	#for i in range (3):
 		#for j in range (5):
@@ -60,7 +61,8 @@ func _on_bed_mouse_exited() -> void:
 
 
 func _on_dont_sleep_button_down() -> void:
-	get_node("/root/house_interior/bed/SleepConfirmation").visible=false
+	print("DOnt sleep")
+	sleep_confirmation.visible=false
 	
 
 
@@ -73,3 +75,7 @@ func _on_exit_body_entered(body: Node2D) -> void:
 	Global.player_pos = Vector2(120,505)
 	Global.music_fade_out()
 	await get_tree().change_scene_to_packed(FRONTYARD_SCENE)
+
+
+func _on_button_button_down() -> void:
+	print("Test button working")

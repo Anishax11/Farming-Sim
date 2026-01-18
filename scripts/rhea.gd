@@ -1,6 +1,13 @@
 extends CharacterBody2D
 
+var menu
+var farmer
 
+func _ready() -> void:
+	menu = get_tree().current_scene.find_child("VendorMenu",true,false)
+	farmer = get_tree().current_scene.find_child("Farmer",true,false)
+	
+	
 func _on_input_detector_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.pressed:
@@ -21,12 +28,12 @@ func _on_input_detector_input_event(viewport: Node, event: InputEvent, shape_idx
 			
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			get_node("VendorMenu").visible=true
+			menu.visible=true
 
 
 func _on_dialogic_signal(argument : String):
 	if argument=="OpenMenu":
-		get_node("VendorMenu").visible=true
+		menu.visible=true
 	
 	elif argument=="proof_of_worth_task_given":
 		TaskManager.tasks["Task4"]["acquired"] = true

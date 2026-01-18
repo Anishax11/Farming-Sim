@@ -4592,8 +4592,8 @@ script = ExtResource("10_lo2ag")
 [node name="Inventory" parent="." instance=ExtResource("13_kfead")]
 visible = false
 z_index = 4
-position = Vector2(626.316, 51.7857)
-scale = Vector2(2.5, 2.5)
+position = Vector2(590.333, 158.282)
+scale = Vector2(2, 2)
 
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_sch5q")

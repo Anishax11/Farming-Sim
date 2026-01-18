@@ -137,6 +137,8 @@ func _ready():
 			#print("Spawn at scheduled location :",scene_wise_locations[curr_scene][spawn_point])
 			var char = npc_list[character].instantiate()
 			char.name = character
+			char.y_sort_enabled = true
+
 			char.global_position = scene_wise_locations[curr_scene][spawn_point]
 			add_child(char)
 			
@@ -182,6 +184,7 @@ func hour_elapsed():
 				#print("Spawn at scheduled location :",scene_wise_locations[curr_scene][spawn_point])
 				var char = npc_list[children].instantiate()
 				char.name = children
+				char.y_sort_enabled = true
 				char.global_position = scene_wise_locations[curr_scene][spawn_point]
 				add_child(char)		
 	#if Global.day_count == 7 and curr_time >=18:

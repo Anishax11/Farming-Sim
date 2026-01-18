@@ -49,7 +49,7 @@ position = Vector2(67, 576)
 sprite_frames = SubResource("SpriteFrames_exubg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EXIT"]
-position = Vector2(92, 1100)
+position = Vector2(90, 1113.33)
 shape = SubResource("CircleShape2D_gypqm")
 
 [node name="Farmer" parent="." instance=ExtResource("1_pwhwc")]

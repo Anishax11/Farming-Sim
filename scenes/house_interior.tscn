@@ -1,11 +1,9 @@
-[gd_scene load_steps=17 format=4 uid="uid://dba1gtffrvamm"]
+[gd_scene load_steps=15 format=4 uid="uid://dba1gtffrvamm"]
 
 [ext_resource type="Script" path="res://scripts/bed.gd" id="1_5hssx"]
 [ext_resource type="Script" path="res://scripts/house_interior.gd" id="1_mmlya"]
-[ext_resource type="Script" path="res://scripts/sleep.gd" id="3_3w2cd"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="4_uq3q3"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="6_p8x7y"]
-[ext_resource type="Script" path="res://scripts/don't_sleep.gd" id="7_c23qe"]
 [ext_resource type="Texture2D" uid="uid://cbjpjcdm0m8h2" path="res://16x16/Sprites/SleepConfirmation.png" id="7_qx5y7"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="9_o6apw"]
 [ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="11_7fdhg"]
@@ -7068,7 +7066,8 @@ parameters/looping = true
 [node name="LabelCanvas" parent="." instance=ExtResource("12_lfyp4")]
 
 [node name="bed" type="Area2D" parent="."]
-position = Vector2(1336.43, -514.4)
+z_index = 2
+position = Vector2(1314.64, -512)
 script = ExtResource("1_5hssx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bed"]
@@ -7080,42 +7079,47 @@ shape = SubResource("RectangleShape2D_ij2w6")
 visible = false
 z_index = 5
 layout_mode = 3
-anchors_preset = 0
-offset_left = -44.7143
-offset_top = -213.0
-offset_right = -4.71427
-offset_bottom = -173.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -877.143
+offset_top = 467.6
+offset_right = -837.143
+offset_bottom = 507.6
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
 
 [node name="TextureRect" type="TextureRect" parent="bed/SleepConfirmation"]
 layout_mode = 0
-offset_left = -873.929
-offset_top = 578.4
-offset_right = -373.929
-offset_bottom = 1078.4
+offset_left = -331.0
+offset_top = -81.0
+offset_right = 169.0
+offset_bottom = 419.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_qx5y7")
 
 [node name="Sleep" type="Button" parent="bed/SleepConfirmation"]
 layout_mode = 0
-offset_left = -813.0
-offset_top = 724.0
-offset_right = -530.0
-offset_bottom = 856.0
+offset_left = -268.75
+offset_top = 65.0
+offset_right = 14.25
+offset_bottom = 197.0
 scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 50
-script = ExtResource("3_3w2cd")
 
 [node name="Don\'t_Sleep" type="Button" parent="bed/SleepConfirmation"]
 layout_mode = 0
-offset_left = -740.357
-offset_top = 724.4
-offset_right = -555.357
-offset_bottom = 812.4
+offset_left = -195.893
+offset_top = 65.0
+offset_right = -10.8929
+offset_bottom = 153.0
 scale = Vector2(0.3, 0.3)
 theme_override_font_sizes/font_size = 50
 text = "
 "
-script = ExtResource("7_c23qe")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-183.571, -113.6)

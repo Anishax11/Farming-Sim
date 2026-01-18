@@ -13,7 +13,7 @@ var price=300
 	
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
-	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT:
+	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
 		player=get_node("/root/farm_scene/Farmer")
 		distance=position.distance_to(player.position)
 		if fake_input_called==true:

@@ -51,6 +51,7 @@ func _on_button_down() -> void:
 		if !TaskManager.tasks["Task8"]["completed"]:
 			TaskManager.tasks["Task8"]["completed"] = true
 			get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task8")
+			Dialogic.start("InventoryTutorial")
 	
 	
 		

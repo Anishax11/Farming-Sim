@@ -72,7 +72,7 @@ func add_task(task_name) :
 	label_button.scale = Vector2(2,1.5)
 	label.name=task_name
 	label.add_theme_font_size_override("normal_font_size", 40)
-	label.text =  "\n" +  str(tasks_acquired)+". "+task.title + ": " + task.Desc 
+	label.text =  "\n" +  str(tasks_acquired+1)+". "+task.title + ": " + task.Desc 
 	label.add_theme_color_override("default_color", Color.BLACK)
 	label.custom_minimum_size = Vector2(600, 100)
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

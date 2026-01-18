@@ -25,7 +25,7 @@ func _ready() -> void:
 	if Global.day_count == 1 and !TaskManager.tasks["Task3"]["acquired"]:
 		delay_schedule = true
 		#state = State.TALK
-		global_position = Vector2(100,550)
+		global_position = Vector2(-850,700)
 	if Global.day_count>2 and TaskManager.tasks["Task2"]["acquired"]==true:
 		for i in range (3):
 			for j in range (5):

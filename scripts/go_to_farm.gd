@@ -24,6 +24,7 @@ func _on_body_entered(body: Node2D) -> void:
 			Global.load_farm=true
 			Global.player_pos = Vector2(100,1000)
 			
-			get_parent().get_parent().get_node("Farmer/CanvasLayer2/DimBG").dim_bg(FARM_SCENE)
+			get_tree().current_scene.find_child("DimBG").dim_bg(FARM_SCENE)
+			#get_parent().get_parent().get_parent().get_node("Farmer/CanvasLayer2/DimBG").dim_bg(FARM_SCENE)
 			
 			
