@@ -48,8 +48,12 @@ func _on_dont_trade_button_down() -> void:
 
 func _on_trade_button_down() -> void:
 	print("Panel path :",panel.get_path())
+	
 	if Global.ItemPriceList.has(str(panel.item_name)):
-		Global.trade_money+=Global.ItemPriceList[str(panel.item_name)]
+		if panel.score==0:
+			panel.score = 1
+		var price = Global.ItemPriceList[panel.item_name]*(panel.score)*0.1
+		Global.trade_money+=price
 		panel.remove_item()
 		print("Panel item :",str(panel.item_name))
 		

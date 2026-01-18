@@ -39,12 +39,12 @@ func _ready() -> void:
 	var inventory = get_node("Farmer/ClickBlocker/Inventory")
 	#inventory.add_to_inventory("pumpkin_seeds",Global.pumpkin_image)
 	#inventory.add_to_inventory("potato_seeds",Global.potato_image)
-	inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
+	inventory.add_to_inventory("special_seeds",Global.strawberry_image)
 	Global.get_empty_panel().seed_count=6
-	inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
-	Global.get_empty_panel().seed_count=6
-	inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
-	Global.get_empty_panel().seed_count=6
+	#inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
+	#Global.get_empty_panel().seed_count=6
+	#inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
+	#Global.get_empty_panel().seed_count=6
 	
 	#if Global.player_pos!=null:
 		#player.global_position=Global.player_pos

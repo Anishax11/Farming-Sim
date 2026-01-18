@@ -16,63 +16,63 @@ var locked_growth={}#used to store soil {with plant} which has already been wate
 var panel_info={
 	"Panel1":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel2":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel3":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel4":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel5":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel6":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel7":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel8":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel9":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel10":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel11":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel12":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel13":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel14":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	},
 	"Panel15":{
 	"seed_count" : 0,
-	"plant_score" : null
+	"score" : 0
 	}
 }  
 var prices={

@@ -27060,6 +27060,7 @@ navigation_polygon = SubResource("NavigationPolygon_60rii")
 
 [node name="NPCManager" parent="." instance=ExtResource("41_nt07v")]
 z_index = 2
+y_sort_enabled = true
 
 [node name="Base" type="TileMapLayer" parent="."]
 z_index = -1

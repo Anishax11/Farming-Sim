@@ -20,7 +20,7 @@ var seed_count = 6
 var seed_type
 var transferred=false
 var last_five
-var plant_score
+var score
 
 func _ready():
 	var text = self.name
@@ -37,7 +37,7 @@ func _ready():
 	anchor_bottom = 1
 	
 	seed_count = PlantTracker.panel_info[self.name]["seed_count"]
-	plant_score = PlantTracker.panel_info[self.name]["plant_score"]
+	score = PlantTracker.panel_info[self.name]["score"]
 		#print(self.name ," limit :",seed_count)
 	stylebox = StyleBoxTexture.new()
 	
@@ -223,11 +223,20 @@ func _on_gui_input(event: InputEvent) -> void:
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
 	item_name=node.name
-	print("Child added :",self.name)
+	print("Child added to panel :",self.name)
 	#print(get_path())
 	#print("Seed type :",seed_type)
 	var last_five = item_name.substr(item_name.length() - 5, 5)
-	
+	var trade_panel = 	get_node("/root/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
+	if trade_panel==null:
+		trade_panel = 	get_node("/root/Game/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
+	if trade_panel!=null:
+		#print("Trade panel not nulll")
+		var texture_rect=TextureRect.new()
+		texture_rect.texture=node.texture
+				
+		texture_rect.name=node.name
+		trade_panel.add_child(texture_rect)
 	if node is TextureRect and last_five == "seeds":
 		
 		
@@ -243,16 +252,7 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 		node.scale.y=1.5
 		#item_name="watercan"
 		
-	var trade_panel = 	get_node("/root/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
-	if trade_panel==null:
-		trade_panel = 	get_node("/root/Game/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
-	if trade_panel!=null:
-		#print("Trade panel not nulll")
-		var texture_rect=TextureRect.new()
-		texture_rect.texture=node.texture
-				
-		texture_rect.name=node.name
-		trade_panel.add_child(texture_rect)
+	
 		
 		#item_name=node.name
 		#print("STr texturerect added to panel")

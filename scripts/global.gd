@@ -55,12 +55,13 @@ var player_pos #used to set player location after instantiating new scene
 var ItemPriceList={
 	"strawberry_seeds": 100,
 	"potato_seeds" : 50,
-	"pumpkin_seeds" : 80,
+	"pumpkin_seeds" : 200,
+	"special_seeds" : 300,
 	"watercan" : 100,
 	"strawberry" : 50,
 	"potato" : 225,
 	"pumpkin" : 100,
-	"special" : 200
+	"special" : 400
 	
 }
 
@@ -120,12 +121,12 @@ func move_item(panel_number,item_name):
 			final_panel.item_name = previous_panel.item_name
 			final_panel.seed_type=previous_panel.seed_type
 			final_panel.seed_count=previous_panel.seed_count
-			final_panel.plant_score=previous_panel.plant_score
+			final_panel.score=previous_panel.score
 			final_panel.clicked=previous_panel.clicked
 			PlantTracker.panel_info[final_panel.name]["seed_count"]=previous_panel.seed_count
 			PlantTracker.panel_info[previous_panel.name]["seed_count"]=0
 			previous_panel.seed_count=0 
-			previous_panel.plant_score=null
+			previous_panel.score=null
 			previous_panel.clicked = false
 			previous_panel.remove_item()
 			#texture_rect.name=previous_panel.item_name

@@ -5,11 +5,11 @@ extends Control
 	#get_node("PanelContainer/VBoxContainer/RESUME").pressed.connect(_on_resume_button_down)
 var MAIN_MENU = load("res://scenes/main_menu.tscn")
 	
-func _input(event):
-	if event.is_action_pressed("Escape") :
-		print("ReSume")
-		get_tree().paused=false
-		print("Resume COmplete")
+#func _input(event):
+	#if event.is_action_pressed("Escape") :
+		#print("ReSume")
+		#get_tree().paused=false
+		#print("Resume COmplete")
 		
 func _on_resume_button_down() -> void:
 	

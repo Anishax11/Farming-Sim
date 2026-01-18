@@ -170,8 +170,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				#for i in range(Global.planted_soil.size()):
 					#print(Global.planted_soil[i])
 				
-				curr_panel.plant_score = score
-				PlantTracker.panel_info[curr_panel.name]["plant_score"] = score
+				curr_panel.score = score
+				PlantTracker.panel_info[curr_panel.name]["score"] = score
 				get_parent().planted=false
 				get_parent().tilled=false
 				#print("get_parent().planted:",get_parent().planted)

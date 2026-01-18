@@ -5,6 +5,8 @@ var siblings
 var stylebox
 var item_name
 var panel_number
+var real_panel
+#var price
 
 func _ready() -> void:
 	var text = self.name
@@ -33,8 +35,13 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT  and event.pressed:
 		print("Trade :",item_name)
 		inventory.get_node("NinePatchRect2").visible=true
+		real_panel = real_inventory.find_child("Panel"+str(panel_number))
+		
 		if(item_name!=null):
-			inventory.get_node("NinePatchRect2/Label").text="This item costs "+str(Global.ItemPriceList[item_name])+"
+			if real_panel.score==0:
+				real_panel.score = 1
+			var price = Global.ItemPriceList[item_name]*(real_panel.score)*0.1
+			inventory.get_node("NinePatchRect2/Label").text="This item costs "+str(price)+"
 			Trade it?"
 			inventory.panel=get_tree().get_current_scene().find_child(self.name, true, false)#pass reference
 		else:
@@ -43,7 +50,11 @@ func _gui_input(event: InputEvent) -> void:
 		
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
-	item_name=node.name
+	#var first_letter = node.name.substr(0, 1)
+	#if first_letter =="@":
+		#remove_item(node.name)
+		#return
+	item_name=node.name #set in trade inv while addinf texture
 	var last_five = item_name.substr(item_name.length() - 5, 5)
 	
 	if node is TextureRect and last_five == "seeds":
