@@ -23,4 +23,4 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_7vm53")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-140, -35, -143, 86, -153, 105, -149, 122, -99, 145, -60, 144, -10, 175, -3, 193, 58, 227, 243, 142, 273, 154, 293, 145, 292, 122, 278, 105, 275, -29)
+polygon = PackedVector2Array(-146, -59, -143, 86, -153, 105, -149, 122, -99, 145, -60, 144, -10, 175, -3, 193, 58, 227, 243, 142, 273, 154, 293, 145, 292, 122, 278, 105, 275, -29)

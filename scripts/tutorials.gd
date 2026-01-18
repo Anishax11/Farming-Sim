@@ -9,7 +9,8 @@ var tutorials ={
 	"plant_seeds" :false,
 	"water" : false,
 	"harvest" : false,
-	"temp_regulator_tutorial" : false
+	"temp_regulator_tutorial" : false,
+	"first_harvest_done" : false  # play trade box tut
 
 
 }

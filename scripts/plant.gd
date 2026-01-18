@@ -141,6 +141,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if Inventory.full == true:
 				print("Inv full!")
 				return
+			if !Tutorials.tutorials["first_harvest_done"]:
+				Tutorials.tutorials["first_harvest_done"] = true
+				Dialogic.start("FirstHarvest")
+				
+				
 			print("PlNT harvested")
 			if stage==PlantTracker.plant_stage_limits[string_part]:
 				if TaskManager.tasks["Task4"]["completed"] == true:

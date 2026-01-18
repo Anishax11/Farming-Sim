@@ -89,9 +89,9 @@ func idle_behaviour()	:
 		
 
 func walk():
-	print("Walk")
+	#print("Walk")
 	if get_slide_collision_count() > 0:
-		print("walk COllsion")
+		#print("walk COllsion")
 		var collision = get_slide_collision(0)
 		var normal = collision.get_normal()
 		direction = direction.bounce(normal)

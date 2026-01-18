@@ -10,12 +10,14 @@ func _ready() -> void:
 	Global.music_fade_in()
 	#Dialogic.end_timeline()
 	var player =get_node("Farmer")
+	player.animated_sprite_2d.play("backward")
 	camera = player.get_node("Camera2D")
 	camera.limit_bottom = 1850
-	camera.limit_top = 460
+	camera.limit_top = 0
 	camera.limit_left = 55
 	camera.limit_right = 2350
-	camera.zoom = Vector2(1,1)
+	camera.zoom = Vector2(0.8,0.8)
+	
 	Dialogic.VAR.set("proof_of_worth_done",TaskManager.tasks["Task4"]["completed"] )
 	print("Tutorials.tutorial",Tutorials.tutorials["seed_shop_tutorial"])
 	if !Tutorials.tutorials["seed_shop_tutorial"]:

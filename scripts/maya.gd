@@ -97,7 +97,7 @@ func walk():
 		var collision = get_slide_collision(0)
 		var normal = collision.get_normal()
 		direction = direction.bounce(normal)
-		print("COllison!!!")
+		#print("COllison!!!")
 		#update_animation()
 				
 	var change_dir = randi_range(0,100)
@@ -119,7 +119,7 @@ func walk():
 			state = State.MOVE_TO_TARGET
 		
 func talk():
-	print("Talking to maya")
+	#print("Talking to maya")
 	velocity = Vector2.ZERO
 	animated_sprite_2d.stop()
 	if farmer.position.x > position.x:

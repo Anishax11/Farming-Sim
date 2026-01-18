@@ -1,25 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://okef0creuj6l"]
+[gd_scene load_steps=6 format=3 uid="uid://okef0creuj6l"]
 
 [ext_resource type="Script" path="res://scripts/library.gd" id="1_b6rgi"]
-[ext_resource type="Texture2D" uid="uid://ccldpa3lrmnan" path="res://16x16/Tilesets (Modular)/vectoraith_tileset_farmingsims_buildings.png" id="1_pxio7"]
+[ext_resource type="Texture2D" uid="uid://dhi2e3gk0srq3" path="res://16x16/Sprites/library_building.png" id="2_uh6xe"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sk4e0"]
-atlas = ExtResource("1_pxio7")
-region = Rect2(0, 0, 85, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w0rs"]
+atlas = ExtResource("2_uh6xe")
+region = Rect2(0, 0, 691, 477)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tarr6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sk4e0")
+"texture": SubResource("AtlasTexture_5w0rs")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv0px"]
-size = Vector2(71, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ucdd5"]
 
@@ -27,16 +24,21 @@ size = Vector2(71, 35)
 script = ExtResource("1_b6rgi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-13, -2)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_tarr6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.5, 24.5)
-shape = SubResource("RectangleShape2D_wv0px")
-
 [node name="Door" type="Area2D" parent="."]
+position = Vector2(16, -7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(-18, 33)
 shape = SubResource("RectangleShape2D_ucdd5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-56, -3, -57, 5, -54, 23, -57, 23, -59, 24, -60, 28, -61, 30, -58, 32, -56, 35, -53, 34, -52, 31, -50, 31, -50, 33, -48, 35, -45, 33, -44, 31, -32, 31, -30, 33, -30, 38, -19, 37, -19, 32, -18, 36, -15, 36, -14, 34, -14, 40, -11, 40, -11, 32, 7, 31, 7, 41, 10, 41, 10, 38, 16, 38, 16, 35, 19, 35, 19, 30, 23, 31, 25, 33, 29, 32, 29, 30, 46, 30, 49, 34, 52, 34, 54, 33, 54, 30, 56, 31, 56, 29, 56, 28, 55, 25, 52, 22, 50, 20, 51, 6, 51, -3)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(32, 39, 33, 30, 39, 31, 40, 38, 37, 41, 37, 38, 33, 37)
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]

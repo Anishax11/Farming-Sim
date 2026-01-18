@@ -71,6 +71,8 @@ func _ready() -> void:
 
 
 func _on_exit_body_entered(body: Node2D) -> void:
+	if !body.name =="Farmer":
+		return
 	print("LEAVE  FARM")
 	var time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
 	Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)

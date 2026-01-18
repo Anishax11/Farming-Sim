@@ -46,6 +46,7 @@ directories/dtl_directory={
 "AriaSeedShopDirections": "res://AriaSeedShopDirections.dtl",
 "Eiden": "res://16x16/Sprites/Eiden.dtl",
 "FarmTutorial": "res://FarmTutorial.dtl",
+"FirstHarvest": "res://FirstHarvest.dtl",
 "InventoryTutorial": "res://InventoryTutorial.dtl",
 "Kyra": "res://Kyra.dtl",
 "LastScene": "res://LastScene.dtl",

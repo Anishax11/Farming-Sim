@@ -247,7 +247,7 @@ func update_day_count():
 #date_label.update_day_count()
 	time_to_change_tint=8.00
 	tint_index=0
-	current_time=9.00
+	current_time=6.00
 	minutes = 00
 	TaskManager.task_status["lock_counter"]=false
 	#time_passed=0.0
@@ -273,7 +273,7 @@ func plant_watered(node):
 	
 var current_time=6.00
 var minutes = 00
-var time_to_change_tint=8.00
+var time_to_change_tint=6.00
 var tint_index=0	
 
 func track_time(time,change_time,index,minutes_passed):

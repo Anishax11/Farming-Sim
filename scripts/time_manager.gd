@@ -2,7 +2,7 @@ extends Node2D
 
 var time_passed=0.0
 var initial_time=0.0
-var current_time=9.00
+var current_time=6.00
 var time_to_change_tint=6.00
 var minutes=00
 var display_minutes
