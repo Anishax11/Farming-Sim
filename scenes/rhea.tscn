@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://sil86bh6faen"]
+
+[ext_resource type="Script" path="res://scripts/rhea.gd" id="1_l1v7y"]
+[ext_resource type="Texture2D" uid="uid://b6e5gnm3el5rx" path="res://16x16/Sprites/MemaoCharacterFantasySpritePack/003.png" id="2_y4j71"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lellb"]
+atlas = ExtResource("2_y4j71")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2hli"]
+atlas = ExtResource("2_y4j71")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f72vy"]
+atlas = ExtResource("2_y4j71")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiqyo"]
+atlas = ExtResource("2_y4j71")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_moqs2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lellb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2hli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f72vy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiqyo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sxodt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xhyhq"]
+
+[node name="Rhea" type="CharacterBody2D"]
+script = ExtResource("1_l1v7y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_moqs2")
+autoplay = "default"
+frame_progress = 0.243597
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_sxodt")
+
+[node name="InputDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputDetector"]
+shape = SubResource("CapsuleShape2D_xhyhq")
+
+[connection signal="input_event" from="InputDetector" to="." method="_on_input_detector_input_event"]

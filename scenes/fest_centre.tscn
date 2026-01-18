@@ -6640,7 +6640,6 @@ position = Vector2(21.25, 181.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 position = Vector2(-22.5, 5.93752)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2gp4p")
 
 [node name="LeaderBoard" parent="." instance=ExtResource("12_l6g7p")]

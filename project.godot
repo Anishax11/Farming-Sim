@@ -34,6 +34,7 @@ directories/dch_directory={
 "Maya": "res://Maya.dch",
 "Narrator": "res://Narrator.dch",
 "Noa": "res://16x16/Sprites/Noa.dch",
+"Rhea": "res://Rhea.dch",
 "Sera": "res://Sera.dch",
 "aira": "res://16x16/Sprites/aira.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"

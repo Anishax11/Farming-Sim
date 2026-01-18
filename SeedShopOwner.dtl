@@ -1,32 +1,32 @@
 if {cashier_intro} == false:
-	Aria: Welcome to the seed shop!
-	Aria: You must be the new neighbor everyone’s been talking about. What's  your name?
+	Rhea: Welcome to the seed shop!
+	Rhea: You must be the new neighbor everyone’s been talking about. What's  your name?
 	[text_input var="Charname"]
-	Aria: Here, you can find all kinds of seeds and young saplings to start your farm.\
+	Rhea: Here, you can find all kinds of seeds and young saplings to start your farm.\
 	Would you like me to show you what’s in stock, {Charname}?
 	- No thanks
-		Aria: Alright
+		Rhea: Alright
 	- Yes please
-		Aria: Here, take a look
+		Rhea: Here, take a look
 		[signal arg="OpenMenu"]
 else:
 	if {day} == 1:
-		Do you need any help?
+		Rhea: Do you need any help?
 	if {day} == 2:
-		Blah blahh
+		Rhea: Blah blahh
 	if {day} >= 3:
 		if {proof_of_worth_task_given} == false:
-			Show up on the leaderboard atleast once
+			Rhea: Show up on the leaderboard atleast once
 			if {proof_of_worth_done} == true:
-				I'm on the leaderboard
-				Congratulations! I'll sell the speacial seeds to you like i promised
+				Rhea: I'm on the leaderboard
+				Rhea: Congratulations! I'll sell the speacial seeds to you like i promised
 				[signal arg="proof_of_worth_done"]
 			[signal arg="proof_of_worth_task_given"]
 		else:
 			if {cashier_gives_better_seeds} == false:
 				if {proof_of_worth_done} == true:
-					Congratulations on completing the task! I'll sell the speacial seeds to you like i promised
+					Rhea: Congratulations on completing the task! I'll sell the speacial seeds to you like i promised
 					[signal arg="proof_of_worth_done"]
 			else:
-				Welcome!
+				Rhea: Welcome!
 [signal arg="enable_movement"]

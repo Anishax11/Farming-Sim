@@ -29,8 +29,8 @@ func _ready() -> void:
 	camera = player.get_node("Camera2D")
 	camera.limit_bottom = 150
 	camera.limit_top = -500
-	camera.limit_left = -600
-	camera.limit_right = 550
+	camera.limit_left = -550
+	camera.limit_right = 650
 	
 	if Global.day_count == 7:
 		get_node("LeaderBoard").visible = true
@@ -43,7 +43,7 @@ func _ready() -> void:
 			var char = npc_list[character].instantiate()
 			char.name = character
 			char.scale = Vector2(0.6,0.6)
-			char.global_position = Vector2(randi_range(-100,100),randi_range(-100,100))
+			char.global_position = Vector2(randi_range(-400,500),randi_range(50,-200))
 			characters.add_child(char)
 			#print("time_manager.current_time :",time_manager.current_time)
 	

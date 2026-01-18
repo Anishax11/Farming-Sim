@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw77ubrcwffu2"
-path="res://.godot/imported/ChatGPT Image Aug 7, 2025, 05_14_23 AM.png-cd95d75549c8c3a792f47864c8ffc3bb.ctex"
+uid="uid://da78hkwbweelc"
+path="res://.godot/imported/seed_shop_interior.jpg-b80260957d9a12c3121d57a3cbb22485.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16/Sprites/ChatGPT Image Aug 7, 2025, 05_14_23 AM.png"
-dest_files=["res://.godot/imported/ChatGPT Image Aug 7, 2025, 05_14_23 AM.png-cd95d75549c8c3a792f47864c8ffc3bb.ctex"]
+source_file="res://16x16/Sprites/seed_shop_interior.jpg"
+dest_files=["res://.godot/imported/seed_shop_interior.jpg-b80260957d9a12c3121d57a3cbb22485.ctex"]
 
 [params]
 
