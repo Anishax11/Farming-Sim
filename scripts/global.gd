@@ -57,9 +57,10 @@ var ItemPriceList={
 	"potato_seeds" : 50,
 	"pumpkin_seeds" : 80,
 	"watercan" : 100,
-	"strawberry" : 200,
-	"potato" : 100,
-	"pumpkin" : 300
+	"strawberry" : 50,
+	"potato" : 225,
+	"pumpkin" : 100,
+	"special" : 200
 	
 }
 

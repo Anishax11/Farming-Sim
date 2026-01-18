@@ -75,7 +75,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						#print("rect_tilled")
 						animated_sprite_2d.play("watered_circle_tilled")
 				water_audio.play() 
-				Global.watered_plants.append(self.name)
+				#
 				await get_tree().create_timer(1.0).timeout
 				water_audio.stop()
 				
@@ -85,6 +85,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				
 			if distance<40 and planted==true and panel.water_equipped==true: #If plant doesn't exist yet
 				#print("trying to water")
+				Global.watered_plants.append(self.name)
 				watered=true
 				if !Tutorials.tutorials["water"]:
 					Tutorials.tutorials["water"] = true
@@ -144,7 +145,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						PlantTracker.add_to_plant_dictionary(plant_name+str(Global.plant_number))
 						#print("Added new plant: :",plant_name+str(Global.plant_number) )
 						Global.plant_number+=1
-						
+						Global.watered_plants.append(self.name) #This array is passed to grow plant func
 						PlantTracker.locked_growth[self.name]=true #Set lock on soil so plant stage can only be updated once a day
 					#print("Seeds count:",inventory.seeds_count)
 					if Global.player_direction==Vector2(1,0):

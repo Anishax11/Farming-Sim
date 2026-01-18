@@ -5,7 +5,7 @@ elif {plant_tut} == false:
 	Narrator: Good. The soil is ready
 	Narrator: Choose a seed from your inventory, then left-click on the tilled ground to plant it.
 elif {water_tut} == false:
-	Narrator: Seeds need water to take root. Right click  the watering can at the end of the farm to pick it up then left-click the soil to water it.
+	Narrator: Seeds need water to take root. Left click  the watering can at the end of the farm to pick it up then left-click the soil to water it.
 elif {harvest_tut} == true:
 	Narrator: Your crop is ready.
 	Narrator: Right-click to harvest it.

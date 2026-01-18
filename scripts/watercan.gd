@@ -5,16 +5,16 @@ var empty_panel
 var fake_input_called=false
 var price=300
 @onready var texture_rect: TextureRect = $TextureRect
-
-#func _ready() -> void:
-
+var inv
+func _ready() -> void:
+	inv = get_tree().current_scene.find_child("Inventory",true,false)
+	player =  get_tree().current_scene.find_child("Farmer",true,false)
 
 	
 	
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	
-	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
-		player=get_node("/root/farm_scene/Farmer")
+	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
+		
 		distance=position.distance_to(player.position)
 		if fake_input_called==true:
 			distance=0
@@ -25,7 +25,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				print("NULL")
 				await get_tree().process_frame
 			print("CAll add to inv")		
-			get_node("/root/farm_scene/Farmer/ClickBlocker/Inventory").add_to_inventory(self.name,$TextureRect.texture)
+			inv.add_to_inventory(self.name,$TextureRect.texture)
+			if inv.full == true:
+				print("Inv full!")
+				return
 			$TextureRect.name="watercan"
 			empty_panel=Global.get_empty_panel()
 			texture_rect.scale.x=0.016

@@ -15,7 +15,7 @@ func _on_input_detector_input_event(viewport: Node, event: InputEvent, shape_idx
 			
 			#print("DIalogic PRoof of worth done : ",Dialogic.VAR.get("proof_of_worth_done"))	
 			Dialogic.VAR.set("proof_of_worth_task_given",TaskManager.tasks["Task4"]["acquired"])			
-			get_node("Farmer").input_disabled=true
+			farmer.input_disabled=true
 			Dialogic.signal_event.connect(_on_dialogic_signal)
 			Dialogic.VAR.set("cashier_intro",Tutorials.interactions["seed_shop_first_interaction"])	
 			#print("Start dialogue")
@@ -47,4 +47,4 @@ func _on_dialogic_signal(argument : String):
 		Dialogic.VAR.set("proof_of_worth_done",true )
 	
 	elif argument =="enable_movement":
-		get_node("Farmer").input_disabled=false
+		farmer.input_disabled=false

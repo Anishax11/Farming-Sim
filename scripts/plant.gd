@@ -8,9 +8,10 @@ var string_part
 var farm
 var farmer
 var score # score = quality x difficulty
+var inv
 # plant quality will increment on last day but not after that even if its not harvested
 func _ready() -> void:
-	
+	inv = get_tree().current_scene.find_child("Inventory",true,false)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
 	var text=self.name
 	var regex=RegEx.new()
@@ -133,14 +134,18 @@ func _ready() -> void:
 			
 			#TaskManager.task_status["lock_counter"]=true #Counter is incremented once a day
 
+
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton :
-		
 		if event.pressed and  event.button_index == MOUSE_BUTTON_RIGHT:
 			
-			if Inventory.full == true:
+			inv.add_to_inventory(string_part,texture)
+			var curr_panel = Global.get_empty_panel() # panel with harvested plant	
+			
+			if inv.full:
 				print("Inv full!")
 				return
+				
 			if !Tutorials.tutorials["first_harvest_done"]:
 				Tutorials.tutorials["first_harvest_done"] = true
 				Dialogic.start("FirstHarvest")
@@ -164,8 +169,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				Global.tilled_soil.erase(get_parent().name)
 				#for i in range(Global.planted_soil.size()):
 					#print(Global.planted_soil[i])
-				get_node("/root/farm_scene/Farmer/ClickBlocker/Inventory").add_to_inventory(string_part,texture)
-				var curr_panel = Global.get_empty_panel() # panel with harvested plant
+				
 				curr_panel.plant_score = score
 				PlantTracker.panel_info[curr_panel.name]["plant_score"] = score
 				get_parent().planted=false
