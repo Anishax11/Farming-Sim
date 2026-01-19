@@ -11,8 +11,8 @@ func _ready() -> void:
 	print("SOIL MANAGeR")
 	
 	var inventory=get_node("/root/farm_scene/Farmer/ClickBlocker/Inventory")
-	for y in range(280,567,+15):
-		for x in range(-125, 215, +15):
+	for y in range(200,465,+15):
+		for x in range(81, 665, +15):
 			#if (y<630 and x>224) or (y<630 and x<-24) or (y>=628):
 			#if x>=225 and x<=350 :
 			

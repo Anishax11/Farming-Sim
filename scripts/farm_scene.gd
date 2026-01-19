@@ -31,11 +31,11 @@ func _ready() -> void:
 	Global.music_fade_in()
 	var player = get_node("Farmer")
 	var cam=player.get_node("Camera2D")
-	cam.zoom.x+=0.6
-	cam.limit_left=-230
-	cam.limit_right=310
-	cam.limit_top=150
-	cam.limit_bottom=650
+	#cam.zoom.x+=0.6
+	cam.limit_left=0
+	cam.limit_right=775
+	cam.limit_top=0
+	cam.limit_bottom=500
 	var inventory = get_node("Farmer/ClickBlocker/Inventory")
 	#inventory.add_to_inventory("pumpkin_seeds",Global.pumpkin_image)
 	#inventory.add_to_inventory("potato_seeds",Global.potato_image)

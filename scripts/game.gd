@@ -12,9 +12,9 @@ const PLANT_BOOK = preload("res://scenes/plant_book.tscn")
 const LIBRARY_INTERIOR = preload("res://scenes/library_interior.tscn")
 
 
-#func _ready() -> void:
-	#
-	#await get_tree().change_scene_to_packed(FARM_SCENE)
+func _ready() -> void:
+	
+	await get_tree().change_scene_to_packed(FARM_SCENE)
 	#print("FARMMMMMMMMM")
 	#var label=Label.new()
 	#label.position=Vector2(0,500)

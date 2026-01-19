@@ -147,8 +147,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				return
 				
 			if !Tutorials.tutorials["first_harvest_done"]:
+				Dialogic.start("FarmTutorial")
 				Tutorials.tutorials["first_harvest_done"] = true
-				Dialogic.start("FirstHarvest")
 				
 				
 			print("PlNT harvested")

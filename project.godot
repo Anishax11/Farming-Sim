@@ -77,6 +77,7 @@ variables={
 "eiden_intro": false,
 "farm_scene": false,
 "fest_scene": false,
+"first_harvest_done": false,
 "harvest_tut": false,
 "ilyra_intro": false,
 "judge_announcement": false,
