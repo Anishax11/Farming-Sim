@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmdj7cebqx7xk"
-path="res://.godot/imported/ChurchInterior.jpg-cb98e6b159c05836a07347cbd90ca326.ctex"
+uid="uid://dgtpua3bywv5s"
+path="res://.godot/imported/DialHolder.jpg-a9d8043cbe9ae3d24eb31194030fdea0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16/Sprites/ChurchInterior.jpg"
-dest_files=["res://.godot/imported/ChurchInterior.jpg-cb98e6b159c05836a07347cbd90ca326.ctex"]
+source_file="res://16x16/Sprites/DialHolder.jpg"
+dest_files=["res://.godot/imported/DialHolder.jpg-a9d8043cbe9ae3d24eb31194030fdea0.ctex"]
 
 [params]
 

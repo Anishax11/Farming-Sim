@@ -1,8 +1,9 @@
 extends Node2D
-@onready var control_dial := get_node("LabelCanvas/ControlDialDisplay/TextureRect")
-@onready var trust_dial := get_node("LabelCanvas/TrustDialDisplay/TextureRect")
-@onready var compliance_dial := get_node("LabelCanvas/ComplianceDialDisplay/TextureRect")
-@onready var doubt_dial := get_node("LabelCanvas/DoubtDialDisplay/TextureRect")
+@onready var compliance_dial_display: Control = $LabelCanvas/DialBG/ComplianceDialDisplay
+@onready var trust_dial_display: Control = $LabelCanvas/DialBG/TrustDialDisplay
+@onready var control_dial_display: Control = $LabelCanvas/DialBG/ControlDialDisplay
+@onready var doubt_dial_display: Control = $LabelCanvas/DialBG/DoubtDialDisplay
+
 var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
 var control = 0
 var trust = 0
@@ -15,8 +16,11 @@ func _ready() -> void:
 func _on_dial_display_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
-			control_dial.pivot_offset = control_dial.size / 2
-			control_dial.rotation+=45
+			#control_dial_display.pivot_offset = control_dial_display.size / 2
+			if control_dial_display.rotation>=360:
+				control_dial_display.rotation = 0
+			control_dial_display.rotation+=90
+			print("Control Rotation ")
 			if control<3:
 				control+=1
 			else:
@@ -27,8 +31,10 @@ func _on_dial_display_gui_input(event: InputEvent) -> void:
 func _on_trust_dial_display_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
-			trust_dial.pivot_offset = trust_dial.size / 2
-			trust_dial.rotation+=45
+			print("Trust Rotation  ")
+			if trust_dial_display.rotation>=360:
+				trust_dial_display.rotation = 0
+			trust_dial_display.rotation+=90
 			if trust<3:
 				trust+=1
 			else:
@@ -39,8 +45,10 @@ func _on_trust_dial_display_gui_input(event: InputEvent) -> void:
 func _on_compliance_dial_display_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
-			compliance_dial.pivot_offset = compliance_dial.size / 2
-			compliance_dial.rotation+=45
+			print("Compliance Rotation ")
+			if compliance_dial_display.rotation>=360:
+				compliance_dial_display.rotation = 0
+			compliance_dial_display.rotation+=90
 			if compliance<3:
 				compliance+=1
 			else:
@@ -50,8 +58,10 @@ func _on_compliance_dial_display_gui_input(event: InputEvent) -> void:
 func _on_dout_dial_display_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
-			doubt_dial.pivot_offset = doubt_dial.size / 2
-			doubt_dial.rotation+=45
+			print("Doubt Rotation : ")
+			if doubt_dial_display.rotation>=360:
+				doubt_dial_display.rotation = 0
+			doubt_dial_display.rotation+=90
 			if doubt<3:
 				doubt+=1
 			else:
@@ -59,11 +69,12 @@ func _on_dout_dial_display_gui_input(event: InputEvent) -> void:
 			check_alignment()
 
 func check_alignment():
+	
 	if control > compliance and trust>doubt and doubt > compliance and trust > control:
 		print("Task COmplete")
 		TaskManager.tasks["Task6"]["completed"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task6")
-
+	#print("Rotation : ",control_dial_display.rotation )
 
 func _on_exit_body_entered(body: Node2D) -> void:
 	if body.name!="Farmer" :
