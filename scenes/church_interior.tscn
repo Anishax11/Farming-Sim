@@ -17137,7 +17137,8 @@ position = Vector2(8, 264.25)
 shape = SubResource("RectangleShape2D_6xd5h")
 
 [node name="BlindHuntress" parent="." instance=ExtResource("15_wxrtn")]
-position = Vector2(-79, -104)
+z_index = 2
+position = Vector2(-74, -103)
 
 [connection signal="gui_input" from="LabelCanvas/DialBG/ControlDialDisplay" to="." method="_on_dial_display_gui_input"]
 [connection signal="gui_input" from="LabelCanvas/DialBG/TrustDialDisplay" to="." method="_on_trust_dial_display_gui_input"]

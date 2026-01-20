@@ -25,7 +25,7 @@ func _ready() -> void:
 	Global.music_fade_in()
 	player = get_node("Farmer")
 	player.animated_sprite_2d.play("backward")
-	player.scale = Vector2(2,2)
+	#player.scale = Vector2(2,2)
 	camera = player.get_node("Camera2D")
 	camera.limit_bottom = 150
 	camera.limit_top = -500
@@ -65,11 +65,11 @@ func _on_count_down_animation_finished() -> void:
 
 
 func _on_exit_body_entered(body: Node2D) -> void:
-	if Global.player_direction.y==1 and body.name == "Farmer":
+	if Global.player_direction.y==1 and body.name == "Farmer" and !Global.day_count==7:
 		body.velocity = Vector2.ZERO
 		print("PLayer here")
 		Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
-		Global.player_pos = Vector2(-575,100)
+		Global.player_pos = Vector2(-725,200)
 		Global.player_direction.y = 1
 		Global.music_fade_out()
 		get_node("Farmer/CanvasLayer2/DimBG").dim_bg(MARKET_PLACE)

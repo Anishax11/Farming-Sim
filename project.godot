@@ -57,6 +57,7 @@ directories/dtl_directory={
 "SeedShopOwner": "res://SeedShopOwner.dtl",
 "SeedShopTutorial": "res://SeedShopTutorial.dtl",
 "Sera": "res://Sera.dtl",
+"SleepTut": "res://SleepTut.dtl",
 "TempRegulatorTutorial": "res://TempRegulatorTutorial.dtl",
 "TradeBoxTutorial": "res://TradeBoxTutorial.dtl"
 }

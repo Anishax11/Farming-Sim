@@ -240,8 +240,9 @@ func save_tilled_soil(soil,animation):
 		#print("Added to array")
 		sown_soil_animation.append(animation)
 		
-		
+var leaderboard		
 func update_day_count():
+	 
 	print("Update day")
 	day_count+=1
 	Dialogic.VAR.set("day",day_count)
@@ -263,6 +264,7 @@ func update_day_count():
 	#Global.watered_plants.clear()
 	PlantTracker.locked_growth.clear() # plants in this array have been watered once(used to ensure plant stage is incremented only once per day )
 	day_passed=true
+	
 	if trade_money>0:
 		print("Increment coins")
 		get_node("/root/house_interior/Farmer").update_coins(trade_money)

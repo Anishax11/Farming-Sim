@@ -17,37 +17,20 @@ func _ready() -> void:
 	Dialogic.end_timeline()
 	farmer=get_node("Farmer")
 	var camera_2d = farmer.get_node("Camera2D")
-	#camera.queue_free()
-	
 	camera_2d.limit_bottom = 1250
 	camera_2d.limit_top = -45
 	camera_2d.limit_left = 0
 	camera_2d.limit_right = 2060
 	camera_2d.zoom=Vector2(1,1)
-
-	
 	get_node("Farmer/ClickBlocker").queue_free()
-	#get_node("Farmer/TaskManager").queue_free()
 	time_manager=get_tree().get_current_scene().find_child("TimeManager")
-	#print("Task acq :",tasks["Task1"]["acquired"])
-	
-	#camera=farmer.get_node("Camera2D")
-	#camera.queue_free()
-	
 	farmer.get_node("AnimatedSprite2D").play("backward")
-
 	var inventory= get_tree().current_scene.find_child("Inventory")
 	sleep_confirmation = get_tree().current_scene.find_child("SleepConfirmation",true,false)
-	
-	#for i in range (3):
-		#for j in range (5):
-			#var string=Global.inventory_items[i][j]
-				#
-			#if string!="":
-				#Global.inventory_items[i][j]=""
-				#inventory.add_to_inventory(string,null)
-				#
-	
+	if Tutorials.tutorials["sleep_tut"]:
+		Tutorials.tutorials["sleep_tut"] = true
+		Dialogic.start("SleepTut")
+		
 	farmer_added=true
 
 

@@ -85,7 +85,7 @@ var scene_wise_locations ={
 		"SeedShop" : Vector2(125,-150),
 		"PostOffice" : Vector2(),
 		"market_exit" : Vector2(-150,-150),
-		"market_entrance" : Vector2(-150,-150)
+		"market_entrance" : Vector2(-200,-300)
 		},
 	
 	"LibraryInterior" = {

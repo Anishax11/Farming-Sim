@@ -19,10 +19,10 @@ func _ready():
 	if Global.player_pos!=null:
 		player.global_position = Global.player_pos
 	print("PLayer Pos :",player.global_position)
-	camera.limit_bottom = 1000
-	camera.limit_top = -400
-	camera.limit_left = -1250
-	camera.limit_right = 500
+	camera.limit_bottom = 425
+	camera.limit_top = -300
+	camera.limit_left = -1150
+	camera.limit_right = 380
 
 	#
 #func _process(delta: float) -> void:

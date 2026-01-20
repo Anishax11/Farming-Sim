@@ -12,7 +12,8 @@ func _ready() -> void:
 	var labelcanvas = $LabelCanvas   # adjust path if needed
 	var root = get_tree().current_scene
 	var inventory = get_node("Farmer/ClickBlocker/Inventory")
-	
+	var leaderboard =  get_tree().current_scene.find_child("LeaderBoard",true,false)
+	leaderboard.allot_points()
 	#inventory.add_to_inventory("potato_seeds",Global.potato_image)
 	#inventory.add_to_inventory("pumpkin_seeds",Global.pumpkin_image)
 	#inventory.add_to_inventory("potato_seeds",Global.potato_image)

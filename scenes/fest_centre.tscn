@@ -6587,7 +6587,6 @@ position = Vector2(57.5, -115)
 scale = Vector2(4, 4)
 
 [node name="Sera" parent="Characters" instance=ExtResource("3_buhuh")]
-z_index = 1
 y_sort_enabled = true
 position = Vector2(29.375, 27.5)
 scale = Vector2(0.7, 0.7)
@@ -6644,7 +6643,9 @@ shape = SubResource("RectangleShape2D_2gp4p")
 
 [node name="LeaderBoard" parent="." instance=ExtResource("12_l6g7p")]
 visible = false
-position = Vector2(-178.75, -328.75)
+z_index = 2
+y_sort_enabled = true
+position = Vector2(-241.25, -448.75)
 scale = Vector2(1, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
