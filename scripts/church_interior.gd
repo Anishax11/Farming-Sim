@@ -12,6 +12,14 @@ var doubt = 0
 var time_manager
 func _ready() -> void:
 	time_manager = get_tree().current_scene.find_child("TimeManager",true,false)
+	var player = get_node("Farmer")
+	var cam=player.get_node("Camera2D")
+	player.animated_sprite_2d.play("backward")
+	#cam.zoom.x+=0.6
+	cam.limit_left=-210
+	cam.limit_right=210
+	cam.limit_top=-250
+	cam.limit_bottom=270
 	
 func _on_dial_display_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
