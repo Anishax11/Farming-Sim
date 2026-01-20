@@ -17,24 +17,27 @@ func _on_dial_display_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
 			#control_dial_display.pivot_offset = control_dial_display.size / 2
-			if control_dial_display.rotation>=360:
-				control_dial_display.rotation = 0
-			control_dial_display.rotation+=90
-			print("Control Rotation ")
+			if control_dial_display.rotation_degrees>=360:
+				control_dial_display.rotation_degrees = 0
+			control_dial_display.rotation_degrees+=90
+
+			#print("Control Rotation :",control_dial_display.rotation)
+			#print("Control text Rotation :",control_dial_display.get_node("TextureRect").rotation)
 			if control<3:
 				control+=1
 			else:
 				control = 0
 			check_alignment()
+			
 
 
 func _on_trust_dial_display_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
 			print("Trust Rotation  ")
-			if trust_dial_display.rotation>=360:
-				trust_dial_display.rotation = 0
-			trust_dial_display.rotation+=90
+			if trust_dial_display.rotation_degrees>=360:
+				trust_dial_display.rotation_degrees = 0
+			trust_dial_display.rotation_degrees+=90
 			if trust<3:
 				trust+=1
 			else:
@@ -46,9 +49,9 @@ func _on_compliance_dial_display_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
 			print("Compliance Rotation ")
-			if compliance_dial_display.rotation>=360:
-				compliance_dial_display.rotation = 0
-			compliance_dial_display.rotation+=90
+			if compliance_dial_display.rotation_degrees>=360:
+				compliance_dial_display.rotation_degrees = 0
+			compliance_dial_display.rotation_degrees+=90
 			if compliance<3:
 				compliance+=1
 			else:
@@ -59,9 +62,9 @@ func _on_dout_dial_display_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
 			print("Doubt Rotation : ")
-			if doubt_dial_display.rotation>=360:
-				doubt_dial_display.rotation = 0
-			doubt_dial_display.rotation+=90
+			if doubt_dial_display.rotation_degrees>=360:
+				doubt_dial_display.rotation_degrees = 0
+			doubt_dial_display.rotation_degrees+=90
 			if doubt<3:
 				doubt+=1
 			else:
@@ -74,7 +77,7 @@ func check_alignment():
 		print("Task COmplete")
 		TaskManager.tasks["Task6"]["completed"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task6")
-	#print("Rotation : ",control_dial_display.rotation )
+	#print("check control Rotation : ",control_dial_display.rotation )
 
 func _on_exit_body_entered(body: Node2D) -> void:
 	if body.name!="Farmer" :

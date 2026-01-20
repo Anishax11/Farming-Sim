@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://c6g37gom8v7r" path="res://scenes/blind_huntress.tscn" id="15_wxrtn"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3u72u"]
-load_path = "res://.godot/imported/ChurchInterior.jpg-cb98e6b159c05836a07347cbd90ca326.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ddwhu"]
 texture = SubResource("CompressedTexture2D_3u72u")
@@ -16767,6 +16766,7 @@ scale = Vector2(0.5, 0.5)
 [node name="LabelCanvas" parent="." instance=ExtResource("8_34oxk")]
 
 [node name="DialBG" type="Control" parent="LabelCanvas"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -16779,6 +16779,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(3, 3)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="LabelCanvas/DialBG"]
 scale = Vector2(0.1, 0.1)
@@ -16898,11 +16899,9 @@ offset_right = -476.0
 offset_bottom = -363.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -1.51669
 pivot_offset = Vector2(500, 395)
 
 [node name="TextureRect" type="TextureRect" parent="LabelCanvas/DialBG/DoubtDialDisplay"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
