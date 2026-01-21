@@ -79,7 +79,7 @@ func idle_behaviour()	:
 	#if action == 1:
 		#state = State.WALK
 	if	lock_in_idle and !prev_state ==State.MOVE_TO_TARGET:
-		print("Aira locked in idle")
+		#print("Aira locked in idle")
 		return
 	
 		
@@ -113,11 +113,11 @@ func walk():
 	
 	if decision_time <= 0.0:
 		if !prev_state == State.MOVE_TO_TARGET:
-			print("Go to idle")
+			#print("Go to idle")
 			state = State.IDLE
 			decision_time = idle_decision_interval
 		else:
-			print("BAck to move target")
+			#print("BAck to move target")
 			state = State.MOVE_TO_TARGET
 		
 func talk():

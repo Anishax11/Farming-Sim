@@ -31,7 +31,7 @@ var interactions={
 }
 
 var PointTracker={
-	"Player" : 0,
+	"Player" : 2500,
 	"Aira" : 0,
 	"Noa" : 0,
 	"Eiden" : 0,

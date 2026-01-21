@@ -19,6 +19,7 @@ var npc_list ={
 }
 
 var player 
+
 func _ready() -> void:
 	time_manager = get_tree().get_current_scene().find_child("TimeManager",true,false)
 	
@@ -42,8 +43,8 @@ func _ready() -> void:
 			#print("NPC : ",character)
 			var char = npc_list[character].instantiate()
 			char.name = character
-			char.scale = Vector2(0.6,0.6)
-			char.global_position = Vector2(randi_range(-400,500),randi_range(50,-200))
+			char.scale = Vector2(0.7,0.7)
+			char.global_position = Vector2(randi_range(-400,500),randi_range(0,-200))
 			characters.add_child(char)
 			#print("time_manager.current_time :",time_manager.current_time)
 	
