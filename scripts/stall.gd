@@ -3,6 +3,8 @@ const SEEDS = preload("res://scenes/seeds.tscn")
 var camera
 var player
 var time_manager
+var opening_time = 8
+var closing_time = 21
 const SEED_SHOP_INTERIOR = preload("res://scenes/seed_shop_interior.tscn")
 
 
@@ -23,11 +25,24 @@ func _on_body_entered(body: Node2D) -> void:
 				print("Register")
 				Dialogic.VAR.set("complete_registration",true)
 				Dialogic.start("GeneralMessages")
-				
 				return
+				
+	if !(time_manager.current_time > opening_time and time_manager.current_time < closing_time):
+		print("Seed shop closed")
+		Dialogic.VAR.set("seed_shop_closed",true)
+		Dialogic.start("GeneralMessages")
+		return
+	
+	if (Global.day_count == 7 and time_manager.current_time>=6)	:
+		print("Head to fest centre")
+		Dialogic.VAR.set("go_to_fest",true)
+		Dialogic.start("GeneralMessages")
+		return			
 		
 	Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
 	await get_tree().change_scene_to_packed(SEED_SHOP_INTERIOR)
 
 func _on_timeline_ended():
 	Dialogic.VAR.set("complete_registration",false)
+	Dialogic.VAR.set("seed_shop_closed",false)
+	Dialogic.VAR.set("go_to_fest",false)

@@ -5,6 +5,7 @@ var tutorials ={
 	"trade_box_tutorial":false,
 	"seed_shop_tutorial" : false,
 	"farm_tutorial" : false,
+	"night_warning" : false,
 	"tilling" :false,
 	"plant_seeds" :false,
 	"water" : false,

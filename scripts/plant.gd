@@ -11,6 +11,7 @@ var score # score = quality x difficulty
 var inv
 # plant quality will increment on last day but not after that even if its not harvested
 func _ready() -> void:
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	inv = get_tree().current_scene.find_child("Inventory",true,false)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
 	var text=self.name
@@ -138,48 +139,55 @@ func _ready() -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton :
 		if event.pressed and  event.button_index == MOUSE_BUTTON_RIGHT:
-			
+			if stage==PlantTracker.plant_stage_limits[string_part]:
+				return
 			inv.add_to_inventory(string_part,texture)
 			var curr_panel = Global.get_empty_panel() # panel with harvested plant	
 			
 			if inv.full:
 				print("Inv full!")
+				Dialogic.VAR.set("inv_full",true)
+				Dialogic.start("GeneralMessages")
 				return
 				
-			if !Tutorials.tutorials["first_harvest_done"]:
-				Dialogic.start("FarmTutorial")
-				Tutorials.tutorials["first_harvest_done"] = true
+			
 				
 				
 			print("PlNT harvested")
-			if stage==PlantTracker.plant_stage_limits[string_part]:
-				if TaskManager.tasks["Task4"]["completed"] == true:
+			
+				
+					
+			if TaskManager.tasks["Task4"]["completed"] == true:
 					print("Cashier task complete, boosting plant quality")
 					quality+=50
-				if TaskManager.tasks["Task5"]["completed"] == true:
+			if TaskManager.tasks["Task5"]["completed"] == true:
 					print("Sera task complete, boosting plant quality")
 					quality+=50
-				if string_part == "special":
+			if string_part == "special":
 					quality+=100
-				score = quality * PlantTracker.plant_info[string_part]["difficulty"]
-				farmer.update_points(score)
-				print("Stage is 3")
-				Global.planted_soil.erase(get_parent().name)
-				Global.sown_soil.erase(get_parent().name)
-				Global.tilled_soil.erase(get_parent().name)
+			score = quality * PlantTracker.plant_info[string_part]["difficulty"]
+			farmer.update_points(score)
+			print("Stage is 3")
+			Global.planted_soil.erase(get_parent().name)
+			Global.sown_soil.erase(get_parent().name)
+			Global.tilled_soil.erase(get_parent().name)
 				#for i in range(Global.planted_soil.size()):
 					#print(Global.planted_soil[i])
-				
-				curr_panel.score = score
-				PlantTracker.panel_info[curr_panel.name]["score"] = score
-				get_parent().planted=false
-				get_parent().tilled=false
+			if !Tutorials.tutorials["first_harvest_done"]:
+					print("First harvest done")
+					Dialogic.VAR.set("first_harvest_done",true)
+					Dialogic.start("FarmTutorial")
+					Tutorials.tutorials["first_harvest_done"] = true
+			curr_panel.score = score
+			PlantTracker.panel_info[curr_panel.name]["score"] = score
+			get_parent().planted=false
+			get_parent().tilled=false
 				#print("get_parent().planted:",get_parent().planted)
-				PlantTracker.harvested_plants.append(self.name)
-				PlantTracker.plant_stages.erase(self.name)
-				PlantTracker.plant_names.erase(get_parent().name)
-				self.remove_child(animated_sprite_2d)
-				queue_free()
+			PlantTracker.harvested_plants.append(self.name)
+			PlantTracker.plant_stages.erase(self.name)
+			PlantTracker.plant_names.erase(get_parent().name)
+			self.remove_child(animated_sprite_2d)
+			queue_free()
 		
 		if event.pressed and  event.button_index == MOUSE_BUTTON_LEFT:
 			print("Quality is : ",quality)
@@ -187,3 +195,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 func _on_mouse_entered() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+func _on_timeline_ended():
+	Dialogic.VAR.set("inv_full",false)

@@ -8416,6 +8416,8 @@ sources/4 = SubResource("TileSetAtlasSource_gevqw")
 script = ExtResource("1_consl")
 
 [node name="watercan" parent="." instance=ExtResource("6_osxcg")]
+z_index = 2
+y_sort_enabled = true
 position = Vector2(74, 201)
 scale = Vector2(0.8, 0.56)
 

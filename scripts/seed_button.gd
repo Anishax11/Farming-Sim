@@ -4,17 +4,21 @@ var seed_type
 var price
 var player
 var empty_panel
-
+var inv
 func _ready() -> void:
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	print("Here ...........")
 	mouse_default_cursor_shape = Control.CursorShape.CURSOR_POINTING_HAND
 	player=get_node("/root/SeedShopInterior/Farmer")
+	inv = get_tree().current_scene.find_child("Inventory",true,false)
 	
 func _on_button_down() -> void:
 	
 	
-	if Inventory.full == true:
+	if inv.full:
 		print("Inv full!")
+		Dialogic.VAR.set("inv_full",true)
+		Dialogic.start("GeneralMessages")
 		return
 	print("Buy button clicked")
 	seed_type=get_parent().seed_type
@@ -68,3 +72,5 @@ func _on_button_down() -> void:
 		print("SEED TYPE  null")			
 				
 				
+func _on_timeline_ended():
+	Dialogic.VAR.set("inv_full",false)

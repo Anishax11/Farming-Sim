@@ -12,5 +12,9 @@ elif {library_closed} == true:
 	The library is closed, I should come back between 8 am to 9 pm
 elif {go_to_fest} == true:
 	The fest is about to start, I get going
+elif {fest_centre_closed} == true:
+	I don't need to go here right now
+elif {inv_full} == true:
+	Inventory is full!
 Gennnn
 [end_timeline]

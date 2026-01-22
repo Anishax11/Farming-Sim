@@ -21,6 +21,7 @@ func _ready() -> void:
 		#print("Task complete:",task["completed"])
 		if task["acquired"] and !task["completed"]:
 			#print("Acquired and not completed!")
+			tasks_acquired+=1
 			var label = RichTextLabel.new()
 			var label_button = Button.new()
 			label_button.text = "+"
@@ -72,7 +73,7 @@ func add_task(task_name) :
 	label_button.scale = Vector2(2,1.5)
 	label.name=task_name
 	label.add_theme_font_size_override("normal_font_size", 40)
-	label.text =  "\n" +  str(tasks_acquired+1)+". "+task.title + ": " + task.Desc 
+	label.text =  "\n" +  str(tasks_acquired)+". "+task.title + ": " + task.Desc 
 	label.add_theme_color_override("default_color", Color.BLACK)
 	label.custom_minimum_size = Vector2(600, 100)
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -86,7 +87,7 @@ func add_task(task_name) :
 	vb.add_child(label)
 	TaskManager.tasks[task_name]["acquired"]=true
 	TaskManager.keys_array.append(task_name)
-	#print("added task")
+	print("added task")
 
 
 

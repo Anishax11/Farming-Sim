@@ -13,7 +13,8 @@ var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
 var npc_manager
 
 func _ready() -> void:
-	
+	if Global.day_count == 1 and !TaskManager.tasks["Task3"]["completed"]  :
+		Global.freeze_time = true
 	print("Time Manager Loaded")
 	color_rect=get_tree().get_current_scene().find_child("ColorRect",true,false)
 	npc_manager = get_tree().current_scene.find_child("NPCManager",true,false)
@@ -68,13 +69,16 @@ func _physics_process(delta: float) -> void:
 				#print("Time to chnge tint :",time_to_change_tint)
 				time_to_change_tint+=2
 				color_rect.adjust_tint()
+	
 	elif current_time!=null:
-		
-		
 		Global.update_day_count()
 		#Global.load_farm=true
 	
-	if current_time!=null and current_time==22 and Global.day_count==1:
+	if current_time!=null and current_time==22 and !Tutorials.tutorials["night_warning"] and Global.day_count==1:
 		Dialogic.start("NightWarning")
+		Tutorials.tutorials["night_warning"] = true
+		
+	if Global.day_count == 7 and current_time == 6:
+		Global.freeze_time = true
 
 	
