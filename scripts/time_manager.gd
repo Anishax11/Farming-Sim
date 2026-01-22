@@ -13,6 +13,7 @@ var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
 var npc_manager
 
 func _ready() -> void:
+	
 	print("Time Manager Loaded")
 	color_rect=get_tree().get_current_scene().find_child("ColorRect",true,false)
 	npc_manager = get_tree().current_scene.find_child("NPCManager",true,false)
@@ -30,6 +31,8 @@ func _ready() -> void:
 		display_minutes = "00"
 	get_node("Label").text=("Time : "+str(int(current_time))+":"+display_minutes)	
 	
+	if Global.freeze_time:
+		return
 	if current_time == time_to_change_tint:
 			color_rect.adjust_tint()
 	

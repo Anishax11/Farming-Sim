@@ -15,8 +15,8 @@ func _ready() -> void:
 	if !Tutorials.tutorials["interaction_tut"]:
 		Tutorials.tutorials["interaction_tut"] = true
 		print("Interact tut")
-		#Dialogic.VAR.set("interact_tut",true)
-		#Dialogic.start("GeneralMessages")
+		Dialogic.VAR.set("interact_tut",true)
+		Dialogic.start("GeneralMessages")
 		
 		#
 		#Dialogic.set("interact_tut",false)F
@@ -89,3 +89,4 @@ func print_all_children(node: Node, indent := 0):
 
 func _on_timeline_ended():
 	Dialogic.VAR.set("aria_talk",false)
+	Dialogic.VAR.set("interact_tut",false)
