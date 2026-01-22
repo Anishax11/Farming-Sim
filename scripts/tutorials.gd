@@ -11,7 +11,8 @@ var tutorials ={
 	"harvest" : false,
 	"temp_regulator_tutorial" : false,
 	"first_harvest_done" : false,  # play trade box tut
-	"sleep_tut" : false
+	"sleep_tut" : false,
+	"interaction_tut" : false
 
 }
 var interactions={

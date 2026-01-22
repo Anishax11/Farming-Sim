@@ -23,6 +23,7 @@ func _ready() -> void:
 		print("Adjust time")
 		time_to_change_tint=Global.time_to_change_tint
 		color_rect.i=Global.tint_index
+		
 	if !minutes == 00:
 		display_minutes = str(minutes)
 	else:

@@ -8,7 +8,7 @@ const SEED_SHOP_INTERIOR = preload("res://scenes/seed_shop_interior.tscn")
 
 
 func _ready():
-	print("STALL z index: ",z_index)
+	#print("STALL z index: ",z_index)
 	camera=get_parent().get_node("Farmer/Camera2D")
 	player=get_parent().get_node("Farmer")
 	time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
@@ -18,8 +18,16 @@ func _ready():
 func _on_body_entered(body: Node2D) -> void:
 	if body.name !="Farmer":
 		return
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	if !TaskManager.tasks["Task3"]["completed"]:
-		return
+				print("Register")
+				Dialogic.VAR.set("complete_registration",true)
+				Dialogic.start("GeneralMessages")
+				
+				return
 		
 	Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
 	await get_tree().change_scene_to_packed(SEED_SHOP_INTERIOR)
+
+func _on_timeline_ended():
+	Dialogic.VAR.set("complete_registration",false)

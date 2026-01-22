@@ -1,0 +1,16 @@
+if {interact_tut} == true:
+	Narrator: Left click on character to talk with them
+elif {aria_talk} == true:
+	I should talk to Aria first
+elif {complete_registration} == true:
+	I should complete registration
+elif {seeds_bought} == true:
+	I should buy seeds first
+elif {seed_shop_closed} == true:
+	The shop is closed, I should come back between 8 am to 9 pm
+elif {library_closed} == true:
+	The library is closed, I should come back between 8 am to 9 pm
+elif {go_to_fest} == true:
+	The fest is about to start, I get going
+Gennnn
+[end_timeline]

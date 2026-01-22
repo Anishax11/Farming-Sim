@@ -24,7 +24,7 @@ var opacity:Array=[0.1,0.05,0.0,0.03,0.1,0.2,0.3,0.4,0.5,0.6,0.8]
 func adjust_tint():
 	print("Color rect i:",i)
 	while(timemanager==null):
-		await get_tree().process_frame    # wait exactly one wwwwwwframe
+		await get_tree().process_frame    
 		if !is_instance_valid(self):
 			return
 	print("ADJUST TINT CALLED :",timemanager.current_time)

@@ -7,9 +7,20 @@ var camera
 @onready var bg_music: AudioStreamPlayer2D = $BGMusic
 
 func _ready() -> void:
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	Global.music_fade_in()
-	Dialogic.end_timeline()
-	var labelcanvas = $LabelCanvas   # adjust path if needed
+	#Dialogic.end_timeline()
+	#await Dialogic.start("GeneralMessages")
+	var labelcanvas = $LabelCanvas   
+	if !Tutorials.tutorials["interaction_tut"]:
+		Tutorials.tutorials["interaction_tut"] = true
+		print("Interact tut")
+		#Dialogic.VAR.set("interact_tut",true)
+		#Dialogic.start("GeneralMessages")
+		
+		#
+		#Dialogic.set("interact_tut",false)F
+		
 	var root = get_tree().current_scene
 	var inventory = get_node("Farmer/ClickBlocker/Inventory")
 	var leaderboard =  get_tree().current_scene.find_child("LeaderBoard",true,false)
@@ -58,6 +69,9 @@ func _on_market_entrance_body_entered(body: Node2D) -> void:
 		return
 	if !TaskManager.tasks["Task3"]["acquired"]:
 				print("Talk to aria")
+				Dialogic.VAR.set("aria_talk",true)
+				Dialogic.start("GeneralMessages")
+						
 				return
 	if Global.player_direction.y==1:
 		print("REAChed MArket Entrance")
@@ -72,3 +86,6 @@ func print_all_children(node: Node, indent := 0):
 	for child in node.get_children():
 		print("  ".repeat(indent) + child.name)
 		print_all_children(child, indent + 1)
+
+func _on_timeline_ended():
+	Dialogic.VAR.set("aria_talk",false)

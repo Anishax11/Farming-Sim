@@ -6,15 +6,23 @@ var FARM_SCENE = load("res://scenes/farm_scene.tscn")
 	#time_manager=get_parent().time_manager
 	
 func _on_body_entered(body: Node2D) -> void:
+	
 			if body.name!="Farmer":
 				return
-			#if !TaskManager.tasks["Task3"]["acquired"]:
-				#print("Talk to aria")
-				#return
-			#if !TaskManager.tasks["Task8"]["completed"]: #complete registration and buy seeds first
-				#print("Complete registrations")
-				#return
-				#
+			Dialogic.timeline_ended.connect(_on_dialogic_ended)
+			if !TaskManager.tasks["Task3"]["acquired"]:
+				print("Farm, Talk to aria")
+				Dialogic.VAR.set("aria_talk",true)
+				Dialogic.start("GeneralMessages")
+				print("Aria talk :",Dialogic.VAR.aria_talk)
+				return
+				
+			elif !TaskManager.tasks["Task8"]["completed"]: #complete registration and buy seeds first
+				print("Farm, Buy seeds")
+				Dialogic.VAR.set("seeds_bought",true)
+				Dialogic.start("GeneralMessages")
+				return
+				
 			print("Open farm :",body.name)
 			time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
 			if time_manager==null:
@@ -28,3 +36,8 @@ func _on_body_entered(body: Node2D) -> void:
 			#get_parent().get_parent().get_parent().get_node("Farmer/CanvasLayer2/DimBG").dim_bg(FARM_SCENE)
 			
 			
+
+func _on_dialogic_ended():
+	Dialogic.VAR.set("aria_talk",false)
+	Dialogic.VAR.set("seeds_bought",false)
+	

@@ -5,8 +5,9 @@ var date_label
 var coin_label
 var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
 var camera
+
 func _ready():
-	
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	Global.music_fade_in()
 	Dialogic.end_timeline()
 	print("MARKET Place")
@@ -29,16 +30,32 @@ func _ready():
 	#print("ZOOM:",player.get_node("Camera2D").zoom)
 
 func _on_front_yard_entrance_body_entered(body: Node2D) -> void:
-	if Global.player_direction.y==-1:
-		Global.current_time=time_manager.current_time
-		Global.minutes=time_manager.minutes
-		Global.time_to_change_tint=time_manager.time_to_change_tint
-		Global.tint_index=time_manager.color_rect.i
-		Global.player_pos = Vector2(300,850)
-		Global.player_direction.y = -1
-		Global.music_fade_out()
-		get_node("Farmer/CanvasLayer2/DimBG").dim_bg(FRONTYARD_SCENE)
+	
+		if !TaskManager.tasks["Task3"]["completed"]:
+				print("Register")
+				Dialogic.VAR.set("complete_registration",true)
+				Dialogic.start("GeneralMessages")
+				
+				return
+		if !TaskManager.tasks["Task8"]["completed"]: #complete registration and buy seeds first
+				print("Buy Seeds")
+				
+				Dialogic.VAR.set("seeds_bought",true)
+				Dialogic.start("GeneralMessages")
+				
+				return
+				
 		
-		
+				
+		if Global.player_direction.y==-1:
+			Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
+			Global.player_pos = Vector2(300,850)
+			Global.player_direction.y = -1
+			Global.music_fade_out()
+			get_node("Farmer/CanvasLayer2/DimBG").dim_bg(FRONTYARD_SCENE)
 		#print("PLayer dir:",Global.player_direction.y)	
 		
+
+func _on_timeline_ended():
+	Dialogic.VAR.set("seeds_bought",false)
+	Dialogic.VAR.set("complete_registration",false)
