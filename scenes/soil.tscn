@@ -147,7 +147,7 @@ shape = SubResource("RectangleShape2D_ryoc2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_ir0pw")
-animation = &"tilled"
+animation = &"untilled"
 autoplay = "untilled"
 
 [node name="water_audio" type="AudioStreamPlayer2D" parent="."]

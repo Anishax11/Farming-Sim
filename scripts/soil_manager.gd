@@ -7,20 +7,24 @@ const GRASS = preload("res://scenes/grass.tscn")
 var x
 var y
 var id=1
+var tot_soil = 666
+var skip_soil = 74 # some soil node are 
 func _ready() -> void:
 	print("SOIL MANAGeR")
 	
 	var inventory=get_node("/root/farm_scene/Farmer/ClickBlocker/Inventory")
-	for y in range(200,465,+15):
-		for x in range(81, 665, +15):
-			#if (y<630 and x>224) or (y<630 and x<-24) or (y>=628):
+	for y in range(204,465,+15):
+		for x in range(122, 695, +15):
+				if (y<=219 and x>=665):
+					id+=2
+					break
 			#if x>=225 and x<=350 :
 			
 				
 				var soil=SOIL.instantiate()
 				soil.position=Vector2(x,y)
 				soil.name="soil"+str(id)
-				
+				print(id)
 				add_child(soil)
 				
 				if randi_range(0,90)==1:

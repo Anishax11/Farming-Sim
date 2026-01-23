@@ -15,7 +15,7 @@ var watered=false
 var seed_type
 var soil_path="/root/farm_scene/SoilManager/soil"
 var lock_growth_mechanism=false
-var row_soil_count = 39 
+var row_soil_count = 39
 
 func _ready() -> void:
 	
@@ -46,7 +46,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		
 		if event.pressed and get_node("Grass")==null:
-			#print("CLICKEDDDD")
+			
 			
 			var soil_pos=Vector2( int(position.x / 8) * 8,int(position.y / 8) * 8 )
 			var player=get_node("/root/farm_scene/Farmer")
@@ -54,8 +54,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			distance=soil_pos.distance_to(player_pos)
 			#print("Tilled :",tilled)
 			print("water can equipped :",panel.water_equipped)
-			
-			if distance<40 and tilled==true and panel.water_equipped==true:
+			print("DIST :",distance)
+			if distance<50 and tilled==true and panel.water_equipped==true:
 				
 				#print("Current animation :",animated_sprite_2d.animation)
 				watered = true
@@ -83,7 +83,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			#if distance<40 and planted!=true and panel.water_equipped==true: 
 				#print("trying to wate,planted not true")
 				
-			if distance<40 and planted==true and panel.water_equipped==true: #If plant doesn't exist yet
+			if distance<50 and planted==true and panel.water_equipped==true: #If plant doesn't exist yet
 				#print("trying to water")
 				Global.watered_plants.append(self.name)
 				watered=true
@@ -108,7 +108,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					
 			
 			
-			if distance<40 and tilled==true and planted!=true and panel.seeds_equipped==true :
+			if distance<50 and tilled==true and planted!=true and panel.seeds_equipped==true :
 				#print("Try planting :",Global.equipped_item)
 				
 				var panel=inventory.find_child(Global.equipped_panel, true, false)
@@ -173,8 +173,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			#CODE FOR TILLING
 				
-			if distance<=18 and !tilled and planted==false:
-				#print(self.name," is tilled")
+			if distance<=50 and !tilled and planted==false:
+				print(self.name," is tilled")
 				#print("Crr animation : ", animated_sprite_2d.animation)
 				if !Tutorials.tutorials["tilling"]:
 					Tutorials.tutorials["tilling"] = true
@@ -285,9 +285,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 								get_node(soil_path+str(number-row_soil_count)).adjusted=true
 							
 					if Global.player_direction==Vector2(0,-1) and get_node(soil_path+str(number+row_soil_count))!=null:
-						
+						#print("ADjust soil")
 						if get_node(soil_path+str(number+row_soil_count)).tilled==true:
-							#print("Prev tilled")
+							#print("Prev tillesd")
 							get_node(soil_path+str(number+row_soil_count)).get_node("AnimatedSprite2D").scale.y=0.21
 							
 							
