@@ -64,7 +64,7 @@ if {talk_to_bullies_given} == true:
 							Kyra: What? Of course it would. What kind of—
 							Kyra: Look, I'm not psychic. If something's wrong, people need to actually tell me. I can't fix problems I don't know exist.
 							[signal arg="decrement"]
-						if {kyra_success_rate} <= 1:
+						if {kyra_success_rate} < 0:
 							Kyra: But you know what? I don't need a lecture from someone who doesn't know what the fuck they're talking about. You think I wanted things to change? You think I'm happy I never see my best friend anymore?
 							Kyra: I'm doing the best I can with an impossible situation, and if that's not good enough for Leah, then she can come tell me herself instead of sending you to guilt-trip me.
 							Kyra: We're done here.

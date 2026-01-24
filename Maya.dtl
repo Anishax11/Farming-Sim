@@ -30,8 +30,65 @@ else:
 		else:
 			if {talk_to_maya_task_given} == true:
 				She seems down
-				- Ask her whats wrong
-					Maya: Some of my classmates have been bullying me
+				- You okay?
+					Maya: Yeah. Fine. Just needed some air
+				- Cold out here.
+					Maya: Yeah. I don't mind it.
+				- How've you been?
+					Maya: Same as always. You know.
+				...
+				Maya: Can I ask you something?
+				Sure.
+				Maya: You ever feel stuck?
+				Maya: Like everyone else is doing things and you're just... not.
+				- Sometimes, yeah.
+					Maya: Yeah
+				- What do you mean?
+					Maya: No, actually—it's just. Everyone's doing things. Getting promotions. Taking on more. Making changes. And I'm just... here.
+				- Who's moving forward?
+					Maya: I didn't mean anyone specific.
+					Maya: ...
+				Maya: Me and Kyra used to spend a lot of time together. Like, multiple times a week. It wasn't even planned, it just... happened. We'd end up in the same places. Meet up after work. Normal things.
+				Maya: Now I see her around and she's always heading somewhere. Or I'll message her and she'll reply hours later with 'sorry, busy day.
+				Maya: And it's not like she's doing anything wrong. She's got responsibilities now. I get it.
+				- But it still sucks.
+					Maya: Yeah. It does.
+					Maya: I know I shouldn't feel like this. She's doing well. I should be happy for her.
+				- Have you told her?
+					Maya: What am I supposed to say? 'Hey, I know you're busy keeping things running, but I miss when we used to hang out'? That sounds pathetic.
+				- (say nothing)
+					Maya: I don't want to be that person, you know? The one who makes their friend feel guilty for having a life.
+				Maya: The worst part is, I can't even be mad at her. She didn't do anything. People grow apart. Jobs change. That's just what happens.
+				Maya: I had this thing last week. Nothing big. Just one of those days where everything went wrong and I felt terrible. And I realized the person I wanted to talk to about it was Kyra, but I couldn't because she was probably dealing with actual important problems, and my stuff would just be... I don't know. An interruption
+				Maya: So I didn't message her. And she didn't message me. And that was the whole month.
+				- That sounds really lonely.
+					Maya: Yeah, it is
+				- Maybe she doesn't know you feel like an interruption.
+					Maya: Probably not. But what's she supposed to do about it? She can't just stop doing her job because I'm... what, needy?
+					Maya: It's not her job to fix this.
+				- You should tell her.
+					She smiles bitterly
+					And say what? 'Hey, your new job is making me sad'? That'll go over great.
+				Maya: I keep thinking about how she used to know things about me without me having to say them. Like, she could tell I was having a bad day just from the way I answered when she called.
+				Maya: Now when we talk, it's all surface. 'How's work? Fine. How's work? Busy. Okay, talk later.' And that's it.
+				Maya: I don't think she's trying to push me away. I think she just doesn't notice I'm already gone.
+				A crow caws somewhere in the distance. She watches it fly across the field.
+				Maya: Anyway. Sorry. I don't know why I'm telling you this.
+				- Don't apologize. I asked
+					Maya: Thanks for listening, then.
+				- It's fine.
+					Maya: Yeah. Okay.
+				- What are you going to do?
+					Maya: Nothing, probably. Just... let it fade. It's easier than making it into a thing.
+				Maya: I know what you're thinking. That I should just talk to her.
+				Maya: But every time I think about it, I... I don't know. What if she doesn't care? Or worse, what if she does care but nothing changes anyway?
+				Maya: At least this way I don't have to know for sure.
+				- I could talk to her. If you want
+					Maya: What? No. That would be—
+					Maya: She didn't do anything wrong. I don't want you making her feel bad on my behalf.
+					Maya: I mean... I guess if you happened to be talking to her anyway, you could... I don't know. See if she even notices?
+					Maya: But don't tell her I said anything. I don't want her thinking I'm sitting around feeling sorry for myself.
 					[signal arg="talk_to_bullies_task_given"]
-				- Leave
-					[end_timeline]
+				- (say nothing)
+					Maya: If you do run into Maren... don't mention this, okay? It's not her problem.
+				[end_timeline]

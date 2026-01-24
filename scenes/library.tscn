@@ -29,7 +29,7 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_tarr6")
 
 [node name="Door" type="Area2D" parent="."]
-position = Vector2(16, -7)
+position = Vector2(16, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(-18, 33)

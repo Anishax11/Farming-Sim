@@ -4,6 +4,7 @@ var inventory
 func _ready() -> void:
 	Dialogic.VAR.set("talk_to_maya_task_done",TaskManager.tasks["Task9"]["completed"])
 	inventory = get_tree().current_scene.find_child("Inventory",true,false)
+	
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:

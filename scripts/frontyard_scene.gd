@@ -9,8 +9,7 @@ var camera
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	Global.music_fade_in()
-	#Dialogic.end_timeline()
-	#await Dialogic.start("GeneralMessages")
+
 	var labelcanvas = $LabelCanvas   
 	if !Tutorials.tutorials["interaction_tut"]:
 		Tutorials.tutorials["interaction_tut"] = true

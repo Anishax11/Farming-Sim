@@ -9,7 +9,7 @@ var sucess_rate = 0
 
 func _on_input_detector_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	Dialogic.VAR.set("talk_to_bullies_given",TaskManager.tasks["Task10"]["acquired"])
-	Dialogic.VAR.set("talk_to_bullies_given",true)
+	#Dialogic.VAR.set("talk_to_bullies_given",true)
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	Dialogic.start("Kyra")
 

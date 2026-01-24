@@ -52,6 +52,7 @@ func _on_body_entered(body: Node2D) -> void:
 	var time_manager = get_tree().get_current_scene().find_child("TimeManager",true,false)
 	if time_manager==null:
 			print("TIme manager is null")
+	Global.player_pos = Vector2(-900, 600)
 	Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
 			
 	get_tree().change_scene_to_packed(interior)

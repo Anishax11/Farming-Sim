@@ -3,14 +3,14 @@
 [ext_resource type="Script" path="res://scripts/church.gd" id="1_acqe4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87j22"]
-size = Vector2(240, 330)
+size = Vector2(240, 315)
 
 [node name="Church" type="Area2D"]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_acqe4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 290)
+position = Vector2(5, 282.5)
 shape = SubResource("RectangleShape2D_87j22")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

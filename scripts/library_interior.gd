@@ -18,7 +18,7 @@ func _on_exit_body_entered(body: Node2D) -> void:
 		print("PLayer here")
 
 		Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
-		Global.player_pos = Vector2(100,750)
+		Global.player_pos = Vector2(100,600)
 		Global.player_direction.y = 1
 		Global.music_fade_out()
 		get_node("Farmer/CanvasLayer2/DimBG").dim_bg(FRONTYARD_SCENE)
