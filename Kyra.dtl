@@ -1,6 +1,85 @@
 if {talk_to_bullies_given} == true:
-	Are u sure u want to attempt the task now? Once failed you won't be given another chance 
+	Are u sure u want to attempt the task now? Once failed you won't be given another chance
 	- Talk to her
-		[signal arg="talked_to_bully"]
+		Kyra: If this is about the shipment schedules, I already told Vi the hydraulics are shot. It's going out tomorrow or it's not going out.
+		set {kyra_stage_counter} = 1
+		- Not about work. Can we talk for a second?
+			Kyra: Yeah. Okay. What's going on?
+			[signal arg="increment"]
+		- It's about Leah.
+			Kyra: What about her? Is she okay?
+			[signal arg="increment"]
+		- You need to make time for your actual friends, you know.
+			Kyra: Excuse me?
+			[signal arg="decrement"]
+		if {kyra_stage_counter} == 1:
+			set {kyra_stage_counter} = 3
+			- When's the last time you two actually hung out? Not texted. Hung out.
+				Kyra: Uh. Three weeks? No, longer. A month, maybe.
+				Kyra: We were supposed to grab drinks after shift a couple weeks back, but I had to cancel. And then... yeah. It's been a while.
+				[signal arg="increment"]
+			- How much time have you been spending with her lately?
+				Kyra: I mean... not a lot. I've been drowning here. Why? What's this about?
+			- You got the supervisor job and basically ditched her.
+				Kyra: I didn't ditch anyone. I've been working eighty-hour weeks. What is this, an intervention?
+				[signal arg="decrement"]
+			if {kyra_stage_counter} == 3:
+				set {kyra_stage_counter} = 4
+				- She misses you. That's all.
+					Kyra: ...She said that?
+					Kyra: She really said that to you?
+					[signal arg="increment"]
+				- I don't think she believes things are going to calm down.
+					Kyra: ...Yeah. That's probably fair.
+				- You keep saying 'when things calm down,' but you're a supervisor now. They're never going to calm down.
+					Kyra: So what, I'm just supposed to fail at my job? Let people down here because Maya wants to watch shitty movies?
+					[signal arg="decrement"]
+				if {kyra_stage_counter} == 4:
+					set {kyra_stage_counter} = 5
+					- You know Leah. She doesn't say things like that.
+						Kyra: Yeah. No, you're right. She keeps everything inside until it eats her alive.
+						Kyra: I used to be the one who noticed. Before.
+						[signal arg="increment"]
+					- You two used to be attached at the hip. What does she talk to you about now?
+						Kyra: Work stuff, mostly. I mean, I talk about work. She mostly just... listens.
+						Kyra: She doesn't really talk about herself anymore..
+					- Maybe she figured you were too important to bother now.
+						Kyra: That's bullshit. I never—
+						Kyra: I never said that. I never treated her like that.
+						Kyra: ...
+						Kyra: Did she say I did?
+						[signal arg="decrement"]
+					if {kyra_stage_counter} == 5:
+						- She'd never ask. You know that. She'd just quietly drift away
+							Kyra: God, you're right. That's exactly what she'd do.
+							Kyra: That's what she almost did after her dad died.  Just... stopped showing up. I had to drag her out of that apartment.
+							Kyra: ...
+							Kyra: When I got this job, she was the first person I told. She brought over a bottle of that garbage wine we used to drink in training. We stayed up until four in the morning talking about what it would mean.
+							Kyra: I don't remember when I stopped telling her things. It just... happened.
+							[signal arg="increment"]
+						- "No. I just thought someone should tell you before it got worse.
+							Kyra: Thanks. I mean it. I wouldn't have... I'm too close to see it.
+							[signal arg="increment"]
+						- Would it matter if she had?
+							Kyra: What? Of course it would. What kind of—
+							Kyra: Look, I'm not psychic. If something's wrong, people need to actually tell me. I can't fix problems I don't know exist.
+							[signal arg="decrement"]
+						if {kyra_success_rate} <= 1:
+							Kyra: But you know what? I don't need a lecture from someone who doesn't know what the fuck they're talking about. You think I wanted things to change? You think I'm happy I never see my best friend anymore?
+							Kyra: I'm doing the best I can with an impossible situation, and if that's not good enough for Leah, then she can come tell me herself instead of sending you to guilt-trip me.
+							Kyra: We're done here.
+							[TASK FAILED]
+							Narrator: She's angry, hurt, and completely shut down. Will not talk to Maya. May damage their friendship further.
+						elif {kyra_success_rate} < 3:
+							Kyra: So what exactly do you want from me here? Quit my job? Tell the crews to figure it out themselves while I go watch movies?
+							Kyra: I didn't ask for things to get complicated. I didn't ask to have to choose. But here we are, and I'm doing the best I can.
+							Kyra: If that's not enough, then I don't know what to tell you. Or her.
+							Kyra: We're done here. I have work to do
+							[TASK FAILED]
+							Narrator: She feels cornered and attacked. Will not reach out to Leah. Conversation has made things worse.
+						else:
+							Kyra: I'm going to talk to her. Tonight. I can't promise I'll say the right things, but I'll try. And I'll—I'll figure something out. Even if it's just one night a week. Something.
+							Kyra: Thanks for doing this. I mean it. I wouldn't have seen it on my own.
+						[signal arg="talked_to_bully"]
 	- Leave
 		[end_timeline]

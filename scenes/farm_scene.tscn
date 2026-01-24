@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bin5yuw7k5vj1"]
+[gd_scene load_steps=18 format=4 uid="uid://bin5yuw7k5vj1"]
 
 [ext_resource type="Script" path="res://scripts/farm_scene.gd" id="1_consl"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="1_pwhwc"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="8_gkvs8"]
 [ext_resource type="Texture2D" uid="uid://ciese8bleml21" path="res://16x16/Sprites/greenshouse_interior.png" id="9_i1pkv"]
 [ext_resource type="PackedScene" uid="uid://c3ta5gt8628rt" path="res://scenes/temperature_regulator.tscn" id="9_jxt41"]
-[ext_resource type="PackedScene" uid="uid://c6xokp1noba6f" path="res://scenes/soil.tscn" id="9_lcnnw"]
 [ext_resource type="Texture2D" uid="uid://us5khbnoryw1" path="res://16x16/Sprites/soil_partition.png" id="10_7tjkx"]
 [ext_resource type="Texture2D" uid="uid://i6rdst1gcgm4" path="res://16x16/Sprites/greenhouse_tiles.jpg" id="10_qgc5d"]
 
@@ -14775,7 +14774,7 @@ script = ExtResource("1_consl")
 [node name="watercan" parent="." instance=ExtResource("6_osxcg")]
 z_index = 2
 y_sort_enabled = true
-position = Vector2(74, 201)
+position = Vector2(226, 157)
 scale = Vector2(0.8, 0.56)
 
 [node name="EXIT" type="Area2D" parent="."]
@@ -14820,166 +14819,6 @@ visible = false
 [node name="SoilManager" parent="." instance=ExtResource("5_p20ei")]
 z_index = 1
 position = Vector2(-35, -10)
-
-[node name="Soil" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 219)
-scale = Vector2(1, 1.1)
-
-[node name="Soil2" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 235)
-scale = Vector2(1, 1.1)
-
-[node name="Soil3" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 251)
-scale = Vector2(1, 1.1)
-
-[node name="Soil4" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 267)
-scale = Vector2(1, 1.1)
-
-[node name="Soil5" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 283)
-scale = Vector2(1, 1.1)
-
-[node name="Soil6" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 299)
-scale = Vector2(1, 1.1)
-
-[node name="Soil7" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 315)
-scale = Vector2(1, 1.1)
-
-[node name="Soil8" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 331)
-scale = Vector2(1, 1.1)
-
-[node name="Soil9" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 347)
-scale = Vector2(1, 1.1)
-
-[node name="Soil10" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 363)
-scale = Vector2(1, 1.1)
-
-[node name="Soil11" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 379)
-scale = Vector2(1, 1.1)
-
-[node name="Soil12" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 395)
-scale = Vector2(1, 1.1)
-
-[node name="Soil13" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 411)
-scale = Vector2(1, 1.1)
-
-[node name="Soil14" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 427)
-scale = Vector2(1, 1.1)
-
-[node name="Soil15" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 443)
-scale = Vector2(1, 1.1)
-
-[node name="Soil32" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(678, 459)
-scale = Vector2(1, 1.1)
-
-[node name="Soil16" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 219)
-scale = Vector2(1, 1.1)
-
-[node name="Soil17" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 235)
-scale = Vector2(1, 1.1)
-
-[node name="Soil18" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 251)
-scale = Vector2(1, 1.1)
-
-[node name="Soil19" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 267)
-scale = Vector2(1, 1.1)
-
-[node name="Soil20" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 283)
-scale = Vector2(1, 1.1)
-
-[node name="Soil21" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 299)
-scale = Vector2(1, 1.1)
-
-[node name="Soil22" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 315)
-scale = Vector2(1.091, 1.2)
-
-[node name="Soil23" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 331)
-scale = Vector2(1, 1.1)
-
-[node name="Soil24" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 347)
-scale = Vector2(1, 1.1)
-
-[node name="Soil25" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 363)
-scale = Vector2(1, 1.1)
-
-[node name="Soil26" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 379)
-scale = Vector2(1, 1.1)
-
-[node name="Soil27" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 395)
-scale = Vector2(1, 1.1)
-
-[node name="Soil28" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 411)
-scale = Vector2(1, 1.1)
-
-[node name="Soil29" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 427)
-scale = Vector2(1, 1.1)
-
-[node name="Soil30" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 443)
-scale = Vector2(1, 1.1)
-
-[node name="Soil33" parent="SoilManager" instance=ExtResource("9_lcnnw")]
-visible = false
-position = Vector2(694, 459)
-scale = Vector2(1, 1.1)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false

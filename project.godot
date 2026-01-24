@@ -30,6 +30,7 @@ TaskManager="*res://scripts/task_manager.gd"
 directories/dch_directory={
 "Aria": "res://Aria.dch",
 "Eiden": "res://16x16/Sprites/Eiden.dch",
+"Kyra": "res://Kyra.dch",
 "Lyra": "res://Lyra.dch",
 "Maya": "res://Maya.dch",
 "Narrator": "res://Narrator.dch",
@@ -89,6 +90,8 @@ variables={
 "interact_tut": false,
 "inv_full": false,
 "judge_announcement": false,
+"kyra_stage_counter": 0,
+"kyra_success_rate": 0,
 "last_scene_start": false,
 "library_closed": false,
 "library_scene": false,
