@@ -37077,7 +37077,7 @@ script = ExtResource("1_3rtkc")
 
 [node name="Farmer" parent="." instance=ExtResource("12_7uvrb")]
 y_sort_enabled = true
-position = Vector2(472, 666)
+position = Vector2(-906, 687)
 scale = Vector2(1.3, 1.3)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Farmer"]

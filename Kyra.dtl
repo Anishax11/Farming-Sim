@@ -70,7 +70,7 @@ if {talk_to_bullies_given} == true:
 							Kyra: We're done here.
 							[TASK FAILED]
 							Narrator: She's angry, hurt, and completely shut down. Will not talk to Maya. May damage their friendship further.
-						elif {kyra_success_rate} < 3:
+						elif {kyra_success_rate} < 2:
 							Kyra: So what exactly do you want from me here? Quit my job? Tell the crews to figure it out themselves while I go watch movies?
 							Kyra: I didn't ask for things to get complicated. I didn't ask to have to choose. But here we are, and I'm doing the best I can.
 							Kyra: If that's not enough, then I don't know what to tell you. Or her.

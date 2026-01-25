@@ -16,7 +16,7 @@ func _ready() -> void:
 	var cam=player.get_node("Camera2D")
 	player.animated_sprite_2d.play("backward")
 	#cam.zoom.x+=0.6
-	cam.limit_left=-210
+	cam.limit_left=-200
 	cam.limit_right=210
 	cam.limit_top=-250
 	cam.limit_bottom=270
@@ -92,7 +92,7 @@ func _on_exit_body_entered(body: Node2D) -> void:
 		return
 	
 	if Global.player_direction.y==1:
-		Global.player_pos = Vector2(100, 650)
+		Global.player_pos = Vector2(475, 600)
 		Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
 		Global.music_fade_out()
 		get_node("Farmer/CanvasLayer2/DimBG").dim_bg(FRONTYARD_SCENE)

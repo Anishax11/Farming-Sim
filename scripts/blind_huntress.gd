@@ -35,4 +35,6 @@ func _on_dialogic_signal(argument : String):
 		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task9")
 	if argument == "measured_faith_complete":
 		inventory.add_to_inventory("special_seeds",Global.strawberry_image)
-		Global.get_empty_panel().seed_count=6
+		var empty_panel = Global.get_empty_panel()
+		PlantTracker.panel_info[empty_panel.name]["seed_count"]
+		

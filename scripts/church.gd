@@ -29,10 +29,10 @@ func _on_body_entered(body: Node2D) -> void:
 				#Dialogic.start("GeneralMessages")
 				#return
 		
-	Global.player_pos = Vector2(475, 600)
-	Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
-	Global.music_fade_out()
-	Dim_bg.dim_bg(CHURCH_INTERIOR)
+		Global.player_pos = Vector2(475, 600)
+		Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
+		Global.music_fade_out()
+		Dim_bg.dim_bg(CHURCH_INTERIOR)
 
 func _on_dialogic_ended():
 	Dialogic.VAR.set("aria_talk",false)
