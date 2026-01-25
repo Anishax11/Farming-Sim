@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://5hqpp2u4apk8"]
+
+[ext_resource type="Texture2D" uid="uid://c3smmdvtxhdre" path="res://16x16/Sprites/mechanic_shop.jpg" id="1_vd66e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksjkl"]
+atlas = ExtResource("1_vd66e")
+region = Rect2(0, 0, 683, 951)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g6k1r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksjkl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ergp8"]
+size = Vector2(287, 72)
+
+[node name="MechanicShop" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g6k1r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-260, 41, -260, 215, -275, 225, -278, 314, -271, 333, -268, 361, -238, 374, -209, 359, -200, 344, -175, 374, -156, 371, -147, 342, -118, 361, -67, 327, -108, 267, 174, 269, 177, 293, 145, 325, 166, 358, 283, 354, 298, 303, 268, 212, 268, 37)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(17, 269)
+shape = SubResource("RectangleShape2D_ergp8")
