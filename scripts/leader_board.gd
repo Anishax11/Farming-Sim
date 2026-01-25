@@ -37,7 +37,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			else:
 				
 				get_node("LeaderBoardDisplay").visible = !get_node("LeaderBoardDisplay").visible
-			print("LeaderBoardDisplay visible :",get_node("LeaderBoardDisplay").visible)
+			#print("LeaderBoardDisplay visible :",get_node("LeaderBoardDisplay").visible)
 
 func allot_points():
 	for npc in entries:

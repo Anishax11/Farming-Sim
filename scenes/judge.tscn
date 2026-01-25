@@ -1,0 +1,141 @@
+[gd_scene load_steps=21 format=3 uid="uid://ctj85uvvtdrqg"]
+
+[ext_resource type="Texture2D" uid="uid://biwaljqgyuv3n" path="res://16x16/Sprites/Idle.png" id="1_72r7c"]
+[ext_resource type="Script" path="res://scripts/judge.gd" id="1_fx8fr"]
+[ext_resource type="Texture2D" uid="uid://c2vmbyu3t5h0f" path="res://16x16/Sprites/Satyr_1/Walk.png" id="2_sr0b2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otnuc"]
+atlas = ExtResource("1_72r7c")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33a6i"]
+atlas = ExtResource("1_72r7c")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34l7w"]
+atlas = ExtResource("1_72r7c")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r6oo"]
+atlas = ExtResource("1_72r7c")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfydm"]
+atlas = ExtResource("1_72r7c")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyciq"]
+atlas = ExtResource("1_72r7c")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i2cy"]
+atlas = ExtResource("1_72r7c")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsenq"]
+atlas = ExtResource("2_sr0b2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r528i"]
+atlas = ExtResource("2_sr0b2")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_424ho"]
+atlas = ExtResource("2_sr0b2")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh4wn"]
+atlas = ExtResource("2_sr0b2")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mwlt"]
+atlas = ExtResource("2_sr0b2")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcctd"]
+atlas = ExtResource("2_sr0b2")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88gar"]
+atlas = ExtResource("2_sr0b2")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st8b2"]
+atlas = ExtResource("2_sr0b2")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olmb4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otnuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33a6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34l7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2r6oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfydm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyciq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i2cy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsenq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r528i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_424ho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh4wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mwlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcctd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88gar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st8b2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_11c0d"]
+height = 70.0
+
+[node name="Judge" type="CharacterBody2D"]
+script = ExtResource("1_fx8fr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_olmb4")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.96296
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 27)
+shape = SubResource("CapsuleShape2D_11c0d")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

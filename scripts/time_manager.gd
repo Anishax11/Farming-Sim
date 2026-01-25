@@ -32,8 +32,8 @@ func _ready() -> void:
 		display_minutes = "00"
 	get_node("Label").text=("Time : "+str(int(current_time))+":"+display_minutes)	
 	
-	if Global.freeze_time:
-		return
+	#if Global.freeze_time:
+		#return
 	if current_time == time_to_change_tint:
 			color_rect.adjust_tint()
 	
@@ -41,8 +41,8 @@ func _ready() -> void:
 		
 	
 func _physics_process(delta: float) -> void:
-	if Global.freeze_time:
-		return
+	#if Global.freeze_time:
+		#return
 
 	if current_time!=null and current_time<24:
 		time_passed+=delta

@@ -28,7 +28,7 @@ func _ready():
 
 
 func create_leaderboard():
-	print()
+	#print()
 	var on_leaderboard =[]
 	var top_player = {
 			"name": "Player",
@@ -64,15 +64,15 @@ func create_leaderboard():
 			get_tree().current_scene.find_child(str(i+1),true,false).text = top_5[i].name + "  " +str(top_5[i].points)
 		return
 	
-	print("START : ",start)
+	#print("START : ",start)
 	for i in range(start-1,-1,-1):
 
 		if !entries[i]["name"]=="Player":
-			print("player :",entries[i])
+			#print("player :",entries[i])
 			entries[i]["points"] = top_player["points"] + randi_range(1,100)
 			top_player = entries[i]
 	
-	print("DOne setting top")
+	#print("DOne setting top")
 	top_player = {
 			"name": "You",
 			"points": Tutorials.PointTracker["Player"]} 
@@ -80,10 +80,10 @@ func create_leaderboard():
 	for i in range(start,5):
 		
 		if !entries[i]["name"]=="Player":# and !char_on_leaderboard:
-			print("player :",entries[i])
+			#print("player :",entries[i])
 			entries[i]["points"] = top_player["points"] - randi_range(1,100)
 			top_player = entries[i]
-	print("DOne setting bottom")	
+	#print("DOne setting bottom")	
 	top_5 = entries.slice(0, min(5, entries.size()))
 	
 	for i in top_5.size():

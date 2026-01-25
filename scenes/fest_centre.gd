@@ -9,6 +9,7 @@ var time_manager
 var done =false
 var camera
 @onready var characters: Node2D = $Characters
+@onready var judge: CharacterBody2D = $Characters/Judge
 
 const MARKET_PLACE = preload("res://scenes/market_place.tscn")
 var npc_list ={
@@ -34,6 +35,7 @@ func _ready() -> void:
 	camera.limit_right = 650
 	
 	if Global.day_count == 7:
+		judge.visible = true
 		get_node("LeaderBoard").visible = true
 		Dialogic.signal_event.connect(_on_dialogic_signal)
 		Dialogic.VAR.set("last_scene_start",true)
@@ -44,7 +46,7 @@ func _ready() -> void:
 			var char = npc_list[character].instantiate()
 			char.name = character
 			char.scale = Vector2(0.7,0.7)
-			char.global_position = Vector2(randi_range(-400,500),randi_range(0,-200))
+			char.global_position = Vector2(randi_range(-300,400),randi_range(-250,0))
 			characters.add_child(char)
 			#print("time_manager.current_time :",time_manager.current_time)
 	
@@ -52,14 +54,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.day_count==7 and time_manager.current_time>=7 and !done:
 		done = true
-		print("LOCK NPC MOVEMENT")
-		Dialogic.VAR.set("last_scene_start",false)
-		for character in characters.get_children()  :
-			character.lock_in_idle = true
-			print(character)
+		judge.get_node("NavigationAgent2D").target_position = Vector2(50,-300)
+		judge.state = judge.State.MOVE_TO_TARGET
 		
-		Dialogic.VAR.set("judge_announcement",true)
-		Dialogic.start("LastScene")
 
 func _on_count_down_animation_finished() -> void:
 	get_node("LeaderBoardDisplay").visible = true
