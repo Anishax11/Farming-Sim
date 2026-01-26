@@ -3,6 +3,7 @@ extends CanvasLayer
 var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
 @onready var Dim_bg: ColorRect = $CanvasLayer2/DimBG
 @onready var timer: Timer = $Timer
+var MAIN_MENU = load("res://scenes/main_menu.tscn")
 
 var time_elapsed = 15.0
 var label
@@ -66,13 +67,34 @@ var text ={
 
 															Some places aren’t meant to be waited for.
 ",
-"page_4" :""
+"page_4" :"																					The festival ends.
+
+																	 My name is called. Once. Clearly.
+
+									   The greenhouse is approved. Not as a relic.  Not as a compromise.
+
+																		   They say it has a future.
+
+																	  Whatever she was reaching for—
+																				  it didn’t disappear.
+
+																						   It stayed.
+																		   In the soil. In the work.  In me.
+
+																					  So I keep going.
+												 Somewhere along the way, it stopped being hers alone.
+"
 	
 		
 	
 }
 func _ready() -> void:
 	label = get_tree().current_scene.find_child("RichTextLabel",true,false)
+	if Global.day_count == 7:
+		if Tutorials.PointTracker["You"]>= 5000:
+			label.text =  text["page_4"]
+		else:
+			label.text =  text["page_3"]
 	#label.text =  text["page_1"]
 	label.visible_characters = 0
 	
@@ -101,6 +123,13 @@ func _process(delta: float) -> void:
 		timer.timeout.connect(_on_timer2_timeout)
 		timer.wait_time = 3.0
 		timer.start()
+	elif (label.visible_characters == text["page_3"].length() and page==3) or (label.visible_characters == text["page_4"].length() and page==4) :
+		print("Page 3/4 over")
+		pause = true
+		timer.wait_time = 3.0
+		timer.timeout.connect(_on_timer3_timeout)
+		timer.wait_time = 3.0
+		timer.start()
 	
 func _on_timer_timeout():
 	if page==1:
@@ -114,5 +143,9 @@ func _on_timer_timeout():
 func _on_timer2_timeout():
 	print("Timer 2 timeout")
 	#label.visible_characters = 0
-	Dim_bg.visible = true
 	Dim_bg.dim_bg(HOUSE_INTERIOR)
+	
+func _on_timer3_timeout():
+	print("Timer 3 timeout")
+	#label.visible_characters = 0
+	Dim_bg.dim_bg(MAIN_MENU)

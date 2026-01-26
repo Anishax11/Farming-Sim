@@ -6,7 +6,7 @@ var max_point_diff = 400
 var point_increment_limit = 100
 var player
 var leaderboard_display
-
+var OPENING_SCENE = load("res://scenes/opening_scene.tscn")
 func _ready() -> void:
 	
 	if Global.day_count == 1:
@@ -50,8 +50,15 @@ func _on_input_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 				return
 			print("PRESSES")
 			leaderboard_display.visible = !leaderboard_display.visible
-			#if Global.day_count==7:
+			if Global.day_count==7:
+				var timer = Timer.new()
+				timer.timeout.connect(_on_timer_timeout)
+				timer.wait_time = 5.0
+				timer.start()
 				#
 				#leaderboard_display.visible = !leaderboard_display
 			#else:
 				#leaderboard_display = !leaderboard_display
+func _on_timer_timeout():
+	print("Time up")
+	get_tree().load

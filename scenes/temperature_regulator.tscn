@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3ta5gt8628rt"]
+[gd_scene load_steps=3 format=3 uid="uid://c3ta5gt8628rt"]
 
 [ext_resource type="Script" path="res://scripts/temperature_regulator.gd" id="1_kuvat"]
+[ext_resource type="Texture2D" uid="uid://5gdii5lhqs17" path="res://16x16/Sprites/ui_counter_panel.png" id="2_tb05h"]
 
 [node name="TemperatureRegulator" type="CanvasLayer"]
 layer = 2
@@ -28,28 +29,33 @@ offset_right = 44.0
 offset_bottom = 17.5
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_tb05h")
 
 [node name="TempLabel" type="Label" parent="Control/TextureRect"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Temp : "
+offset_left = 372.0
+offset_top = 171.0
+offset_right = 645.0
+offset_bottom = 312.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Temperature : 27 "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Increase" type="Button" parent="Control/TextureRect"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 33.0
-offset_right = 32.0
-offset_bottom = 64.0
-text = "Inc"
+offset_left = 546.0
+offset_top = 367.0
+offset_right = 645.0
+offset_bottom = 408.0
 
 [node name="Decrease" type="Button" parent="Control/TextureRect"]
 layout_mode = 0
-offset_left = 43.0
-offset_top = 34.0
-offset_right = 80.0
-offset_bottom = 65.0
-text = "Dec"
+offset_left = 371.0
+offset_top = 365.0
+offset_right = 470.0
+offset_bottom = 408.0
 
 [connection signal="button_down" from="Control/TextureRect/Increase" to="." method="_on_increase_button_down"]
 [connection signal="button_down" from="Control/TextureRect/Decrease" to="." method="_on_decrease_button_down"]

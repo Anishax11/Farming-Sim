@@ -1,7 +1,7 @@
 extends Control
 var entries : Array
 var top_5
-
+var OPENING_SCENE = load("res://scenes/opening_scene.tscn")
 func _ready():
 	#print("LeaderBoard disp loaded")
 	if Global.day_count==7:
@@ -98,3 +98,4 @@ func create_leaderboard():
 
 func _on_button_button_down() -> void:
 	visible = false
+	get_tree().change_scene_to_packed(OPENING_SCENE)
