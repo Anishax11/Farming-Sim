@@ -18,7 +18,7 @@ func _ready():
 	#print("coin label position :",get_node("Camera2D/CoinLabel").global_position)
 	#print(get_path())
 	#Tutorials.PointTracker["Player"] = 3000
-	points = Tutorials.PointTracker["Player"]
+	points = Tutorials.PointTracker["You"]
 	display_coins()
 	display_points()
 	SaveManager.player=self
@@ -153,7 +153,7 @@ func update_coins(amount:int):
 func update_points(amount:int):
 	print("Updating points...")
 	points+=amount	
-	Tutorials.PointTracker["Player"]+=amount
+	Tutorials.PointTracker["You"]+=amount
 	get_tree().get_current_scene().find_child("PointsLabel",true,false).text = "Points :"+str(points)
 	
 		

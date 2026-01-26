@@ -38,6 +38,7 @@ func _ready() -> void:
 	if Global.day_count == 7:
 		judge.visible = true
 		leader_board.visible = true
+		
 		leader_board.get_node("AnimatedSprite2D").play("FestLeaderBoard")
 		Dialogic.signal_event.connect(_on_dialogic_signal)
 		Dialogic.VAR.set("last_scene_start",true)
@@ -56,6 +57,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.day_count==7 and time_manager.current_time>=7 and !done:
 		done = true
+		leader_board.disable_display = false
 		judge.get_node("NavigationAgent2D").target_position = Vector2(50,-400)
 		judge.state = judge.State.MOVE_TO_TARGET
 		

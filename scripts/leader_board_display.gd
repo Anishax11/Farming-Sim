@@ -35,29 +35,29 @@ func create_leaderboard():
 	#print()
 	var on_leaderboard =[]
 	var top_player = {
-			"name": "Player",
-			"points": Tutorials.PointTracker["Player"]} 
+			"name": "You",
+			"points": Tutorials.PointTracker["You"]} 
 	for entry in entries:
-		if entry["name"] == "Player":
+		if entry["name"] == "You":
 			entries.erase(entry)
 	var start 
-	if  Tutorials.PointTracker["Player"]>=5000:
+	if  Tutorials.PointTracker["You"]>=5000:
 		entries[0] = top_player
 		start = 1
 		
-	elif  Tutorials.PointTracker["Player"]>=4000:
+	elif  Tutorials.PointTracker["You"]>=4000:
 		
 		entries[1] =top_player
 		start = 2
 		
-	elif  Tutorials.PointTracker["Player"]>=3000:
+	elif  Tutorials.PointTracker["You"]>=3000:
 		entries[2] = top_player
 		start = 3
-	elif  Tutorials.PointTracker["Player"]>=2000:
+	elif  Tutorials.PointTracker["You"]>=2000:
 	
 		entries[3] = top_player
 		start = 4
-	elif  Tutorials.PointTracker["Player"]>=1000:
+	elif  Tutorials.PointTracker["You"]>=1000:
 		
 		entries[4] =top_player
 		start = 5
@@ -71,7 +71,7 @@ func create_leaderboard():
 	#print("START : ",start)
 	for i in range(start-1,-1,-1):
 
-		if !entries[i]["name"]=="Player":
+		if !entries[i]["name"]=="You":
 			#print("player :",entries[i])
 			entries[i]["points"] = top_player["points"] + randi_range(1,100)
 			top_player = entries[i]
@@ -79,11 +79,11 @@ func create_leaderboard():
 	#print("DOne setting top")
 	top_player = {
 			"name": "You",
-			"points": Tutorials.PointTracker["Player"]} 
+			"points": Tutorials.PointTracker["You"]} 
 	
 	for i in range(start,5):
 		
-		if !entries[i]["name"]=="Player":# and !char_on_leaderboard:
+		if !entries[i]["name"]=="You":# and !char_on_leaderboard:
 			#print("player :",entries[i])
 			entries[i]["points"] = top_player["points"] - randi_range(1,100)
 			top_player = entries[i]
@@ -98,4 +98,4 @@ func create_leaderboard():
 
 func _on_button_button_down() -> void:
 	visible = false
-	get_tree().change_scene_to_packed(OPENING_SCENE)
+	#get_tree().change_scene_to_packed(OPENING_SCENE)

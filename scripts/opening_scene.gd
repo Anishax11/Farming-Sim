@@ -93,14 +93,16 @@ func _ready() -> void:
 	if Global.day_count == 7:
 		if Tutorials.PointTracker["You"]>= 5000:
 			label.text =  text["page_4"]
+			page = 4
 		else:
 			label.text =  text["page_3"]
+			page =3 
 	#label.text =  text["page_1"]
 	label.visible_characters = 0
 	
 func _process(delta: float) -> void:
 	if pause:
-		print("Paused")
+		#print("Paused")
 		return
 	time_elapsed-=1
 	if time_elapsed>=0:
@@ -141,6 +143,8 @@ func _on_timer_timeout():
 
 
 func _on_timer2_timeout():
+	if page ==3 or page ==4:
+		return
 	print("Timer 2 timeout")
 	#label.visible_characters = 0
 	Dim_bg.dim_bg(HOUSE_INTERIOR)

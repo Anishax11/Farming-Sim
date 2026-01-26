@@ -25,7 +25,7 @@ func _ready() -> void:
 		await Dialogic.start("SeedShopTutorial")
 		Tutorials.tutorials["seed_shop_tutorial"]=true
 	for character in TaskManager.task_status["top_5"]:
-				if character.name == "Player":
+				if character.name == "You":
 					Dialogic.VAR.set("proof_of_worth_done",true)
 					print("PRoof of worth done")
 	print("DIalogic PRoof of worth done : ",Dialogic.VAR.get("proof_of_worth_done"))	

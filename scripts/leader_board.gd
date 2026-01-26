@@ -32,7 +32,7 @@ func _ready() -> void:
 
 func allot_points():
 	for npc in entries:
-		if !npc["name"]=="Player":
+		if !npc["name"]=="You":
 			var increment = randi_range(0,point_increment_limit)
 			if ((npc["points"] +increment- player.points)>max_point_diff):
 				npc["points"]=max_point_diff+ player.points
@@ -51,9 +51,11 @@ func _on_input_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 			print("PRESSES")
 			leaderboard_display.visible = !leaderboard_display.visible
 			if Global.day_count==7:
+				print("STArt timer")
 				var timer = Timer.new()
 				timer.timeout.connect(_on_timer_timeout)
 				timer.wait_time = 5.0
+				add_child(timer)
 				timer.start()
 				#
 				#leaderboard_display.visible = !leaderboard_display
@@ -61,4 +63,4 @@ func _on_input_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 				#leaderboard_display = !leaderboard_display
 func _on_timer_timeout():
 	print("Time up")
-	get_tree().load
+	get_tree().change_scene_to_packed(OPENING_SCENE)
