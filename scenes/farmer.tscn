@@ -1,11 +1,9 @@
-[gd_scene load_steps=56 format=3 uid="uid://bulruc5in76aq"]
+[gd_scene load_steps=54 format=3 uid="uid://bulruc5in76aq"]
 
 [ext_resource type="Script" path="res://scripts/farmer.gd" id="1_kssk7"]
 [ext_resource type="Texture2D" uid="uid://b5mqdlrh2vga4" path="res://16x16/Sprites/MemaoCharacterFantasySpritePack/001.png" id="2_hk0tk"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="7_3irru"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="10_scngo"]
-[ext_resource type="PackedScene" uid="uid://dtsl7koixwult" path="res://scenes/task_manager.tscn" id="11_cngkf"]
-[ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="11_n8gv4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6111"]
 atlas = ExtResource("2_hk0tk")
@@ -396,11 +394,12 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ip8u5"]
 radius = 5.25
-height = 20.0
+height = 16.6667
 
 [node name="Farmer" type="CharacterBody2D"]
 process_mode = 1
 z_index = 2
+scale = Vector2(3, 3)
 collision_mask = 7
 script = ExtResource("1_kssk7")
 
@@ -413,7 +412,7 @@ frame = 5
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_ip8u5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -432,18 +431,3 @@ mouse_filter = 2
 color = Color(0.784, 0.941, 1, 0.077)
 script = ExtResource("10_scngo")
 metadata/_edit_use_anchors_ = true
-
-[node name="ClickBlocker" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 193.0
-offset_bottom = 115.0
-
-[node name="Inventory" parent="ClickBlocker" instance=ExtResource("11_n8gv4")]
-z_index = 6
-scale = Vector2(0.8, 0.8)
-
-[node name="TaskManager" parent="." instance=ExtResource("11_cngkf")]
-visible = false
-scale = Vector2(0.1, 0.1)

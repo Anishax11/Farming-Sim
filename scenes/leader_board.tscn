@@ -1,31 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwwvxkgt01rx2"]
+[gd_scene load_steps=7 format=3 uid="uid://cwwvxkgt01rx2"]
 
 [ext_resource type="Script" path="res://scripts/leader_board.gd" id="1_20l0w"]
-[ext_resource type="Texture2D" uid="uid://daeamlnxvcks" path="res://16x16/Sprites/Potato.png" id="2_5tlkv"]
-[ext_resource type="PackedScene" uid="uid://daxuwb0xs68u6" path="res://scenes/leader_board_display.tscn" id="3_kvskp"]
+[ext_resource type="Texture2D" uid="uid://mo40kxe1ein5" path="res://16x16/Sprites/leaderboard_festive.png" id="1_gidvn"]
+[ext_resource type="Texture2D" uid="uid://bhpm2bj0qslg4" path="res://16x16/Sprites/leaderboard.png" id="2_fp4xj"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ct4gn"]
-radius = 66.6665
-height = 133.333
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ocry"]
+atlas = ExtResource("1_gidvn")
+region = Rect2(0, 0, 1024, 1024)
 
-[node name="LeaderBoard" type="Area2D"]
-scale = Vector2(0.3, 0.3)
+[sub_resource type="AtlasTexture" id="AtlasTexture_alnuw"]
+atlas = ExtResource("2_fp4xj")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b7awl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ocry")
+}],
+"loop": true,
+"name": &"FestLeaderBoard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alnuw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LeaderBoard" type="StaticBody2D"]
 script = ExtResource("1_20l0w")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 149.0
-offset_bottom = 145.0
-texture = ExtResource("2_5tlkv")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(49, 46)
+scale = Vector2(0.09, 0.09)
+sprite_frames = SubResource("SpriteFrames_b7awl")
 
-[node name="LeaderBoardDisplay" parent="." instance=ExtResource("3_kvskp")]
-visible = false
-offset_left = -82.0
-offset_top = -139.0
-offset_right = 91.0
-offset_bottom = -8.0
+[node name="Input" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(73.3333, 66.6667)
-shape = SubResource("CapsuleShape2D_ct4gn")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Input"]
+polygon = PackedVector2Array(40, 16, 31, 42, 38, 50, 39, 67, 32, 73, 52, 81, 65, 73, 58, 68, 58, 52, 66, 23)
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(33, 36, 31, 45, 37, 49, 39, 66, 32, 70, 31, 75, 50, 82, 66, 75, 59, 69, 59, 52, 62, 43)
+
+[connection signal="input_event" from="Input" to="." method="_on_input_input_event"]

@@ -46,7 +46,27 @@ var text ={
 
 																					Just in case..... she returns.
 
-															  			 			And finds it still standing"
+															  			 			And finds it still standing",
+																					
+	"page_3":"																			The festival ends quietly.
+
+																		   The winner is announced.
+																						It isn’t me.
+
+																The greenhouse is no longer necessary.
+
+																They say it will be dismantled carefully.
+																		That nothing will be wasted.
+
+																I return once more before they begin.
+
+							   The systems are already shut down. The air is still. The plants lean toward nothing.
+
+			 I stand there longer than I should. There isn’t anything left to tend. When I leave, I don’t look back.
+
+															Some places aren’t meant to be waited for.
+",
+"page_4" :""
 	
 		
 	
@@ -69,7 +89,7 @@ func _process(delta: float) -> void:
 	if label.visible_characters == text["page_1"].length() and page==1:
 		print("PAge 1 over")
 		pause = true
-		page += 1
+		
 		timer.timeout.connect(_on_timer_timeout)
 		timer.wait_time = 3.0
 		timer.start()
@@ -83,14 +103,16 @@ func _process(delta: float) -> void:
 		timer.start()
 	
 func _on_timer_timeout():
-	print("TImer1 timeout")
-	label.visible_characters = 0
-	label.text = text["page_2"]
-	pause = false
+	if page==1:
+		print("TImer1 timeout")
+		label.visible_characters = 0
+		label.text = text["page_2"]
+		page += 1
+		pause = false
 
 
 func _on_timer2_timeout():
 	print("Timer 2 timeout")
-	label.visible_characters = 0
-	#Dim_bg.visiblw = true
+	#label.visible_characters = 0
+	Dim_bg.visible = true
 	Dim_bg.dim_bg(HOUSE_INTERIOR)

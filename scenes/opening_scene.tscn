@@ -36,22 +36,22 @@ scale = Vector2(0.7, 0.9)
 theme_override_colors/font_selected_color = Color(0.795047, 0.826697, 0.90783, 1)
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "											The greenhouse was abandoned. Before that, it wasn’t a farm. 
-																			   It was a research site.
+text = "																					The festival ends.
 
-	 She worked here alone. Long hours. No interest in visitors. Every result chased until it broke or she did.
+																	 My name is called. Once. Clearly.
 
-		   				 				One day, the work stopped. The lights went out. The town moved on.
- 																			
-																							 I didn’t.
+						               The greenhouse is approved. Not as a relic.  Not as a compromise.
 
-							I told myself I came for the caretaker job. Someone had to keep the place from 
-																							 rotting.
-																			
-																			But that isn’t the real reason.
+						                                                   They say it has a future.
 
-			 A festival will be held in seven days. This competition will decide whether the greenhouse stays, 
-   																				   or gets dismantled.
+                                                                      Whatever she was reaching for—
+																			      it didn’t disappear.
+
+					                                                                       It stayed.
+						                                                   In the soil. In the work.  In me.
+
+																				      So I keep going.
+												 Somewhere along the way, it stopped being hers alone.
 "
 scroll_active = false
 

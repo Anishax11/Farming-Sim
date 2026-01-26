@@ -4148,6 +4148,7 @@ script = ExtResource("5_gxrd4")
 layer = 2
 
 [node name="DimBG" type="ColorRect" parent="CanvasLayer2"]
+visible = false
 visibility_layer = 2
 offset_left = -2.0
 offset_top = -36.0

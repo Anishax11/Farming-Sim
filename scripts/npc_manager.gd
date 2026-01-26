@@ -19,10 +19,12 @@ var maya_schedule={
 
 var aria_schedule={
 	"6" : "aria_home",
-	"7" : "market_entrance",
-	"8" : "SeedShop",
 	"10" : "market_entrance",
-	"11" : "maya_home"
+	"8" : "MechanicShop",
+	"12" : "MechanicShop",
+	"16" : "MechanicShop",
+	"20" : "MechanicShop",
+	"22" :"market_exit"
 }
 
 
@@ -73,7 +75,7 @@ var scene_wise_locations ={
 		"Greenhouse": Vector2(-650,700),
 		"FestCentre" :Vector2(-650,700),
 		"aira_home":Vector2(450,700),
-		"aria_home": Vector2(-650,750),
+		"aria_home": Vector2(1050,550),
 		"market_entrance" :Vector2(300,900),
 		"library" : Vector2(125,750),
 		"cafe" : Vector2(500,750),
@@ -83,7 +85,7 @@ var scene_wise_locations ={
 	},
 	"MarketPlace" = {
 		"SeedShop" : Vector2(125,-150),
-		"PostOffice" : Vector2(),
+		"MechanicShop" : Vector2(300,300),
 		"market_exit" : Vector2(-150,-150),
 		"market_entrance" : Vector2(-200,-300)
 		},

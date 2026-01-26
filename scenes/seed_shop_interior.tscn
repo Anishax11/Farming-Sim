@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dsgabfk5fykbw"]
+[gd_scene load_steps=16 format=4 uid="uid://dsgabfk5fykbw"]
 
 [ext_resource type="Script" path="res://scripts/seed_shop_interior.gd" id="1_j0vwb"]
 [ext_resource type="Texture2D" uid="uid://bw6y0wxowu3xs" path="res://16x16/Sprites/seed_shop_interior.png" id="2_n1n15"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="7_4qsky"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="10_lo2ag"]
 [ext_resource type="PackedScene" uid="uid://sil86bh6faen" path="res://scenes/rhea.tscn" id="13_73sk8"]
-[ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="13_kfead"]
 [ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="14_1b55x"]
 [ext_resource type="AudioStream" uid="uid://cty2djlymy401" path="res://audio/Peritune_Whiteveil_Streets.ogg" id="15_sch5q"]
 
@@ -4588,12 +4587,6 @@ offset_bottom = 1408.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("10_lo2ag")
-
-[node name="Inventory" parent="." instance=ExtResource("13_kfead")]
-visible = false
-z_index = 4
-position = Vector2(590.333, 158.282)
-scale = Vector2(2, 2)
 
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_sch5q")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqqqqqciwa4m4"]
+[gd_scene load_steps=12 format=3 uid="uid://bqqqqqciwa4m4"]
 
 [ext_resource type="Script" path="res://scripts/label_canvas.gd" id="1_vncsg"]
 [ext_resource type="PackedScene" uid="uid://cxgldqae4p20u" path="res://scenes/date_label.tscn" id="2_x0h8e"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://but8qwaakhn1n" path="res://scenes/pause_menu.tscn" id="6_8j1a0"]
 [ext_resource type="Texture2D" uid="uid://d4n3ujfsd65w4" path="res://16x16/Sprites/field_notes_book_closed.png" id="7_ujah6"]
 [ext_resource type="PackedScene" uid="uid://bccv3j8afdqpw" path="res://scenes/plant_book.tscn" id="8_v277u"]
+[ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="9_bm0m8"]
+[ext_resource type="PackedScene" uid="uid://dtsl7koixwult" path="res://scenes/task_manager.tscn" id="10_sin76"]
+[ext_resource type="PackedScene" uid="uid://daxuwb0xs68u6" path="res://scenes/leader_board_display.tscn" id="11_apuka"]
 
 [node name="LabelCanvas" type="CanvasLayer"]
 script = ExtResource("1_vncsg")
@@ -123,5 +126,42 @@ texture_normal = ExtResource("7_ujah6")
 visible = false
 position = Vector2(921, 416)
 scale = Vector2(8, 8)
+
+[node name="ClickBlocker" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" parent="ClickBlocker" instance=ExtResource("9_bm0m8")]
+visible = false
+z_index = 6
+position = Vector2(1332, 568)
+scale = Vector2(3, 3)
+
+[node name="TaskManager" parent="ClickBlocker" instance=ExtResource("10_sin76")]
+visible = false
+offset_left = 963.0
+offset_top = 219.0
+offset_right = 1003.0
+offset_bottom = 259.0
+
+[node name="LeaderBoardDisplay" parent="." instance=ExtResource("11_apuka")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -205.0
+offset_right = 13.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
 
 [connection signal="button_down" from="PlantBookControl/PlantBookButton" to="." method="_on_plant_book_button_button_down"]

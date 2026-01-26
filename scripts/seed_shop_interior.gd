@@ -29,7 +29,7 @@ func _ready() -> void:
 					Dialogic.VAR.set("proof_of_worth_done",true)
 					print("PRoof of worth done")
 	print("DIalogic PRoof of worth done : ",Dialogic.VAR.get("proof_of_worth_done"))	
-	get_node("Farmer/ClickBlocker").queue_free() #holds inv
+
 
 	#get_node("Farmer/Camera2D").queue_free()
 	

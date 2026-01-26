@@ -10,6 +10,8 @@ var speed=70
 var direction: Vector2
 var points
 var time_manager
+var click_blocker
+var task_manager
 
 func _ready():
 	
@@ -21,8 +23,9 @@ func _ready():
 	display_points()
 	SaveManager.player=self
 	pause_menu=get_tree().current_scene.find_child("PauseMenu",true,false)
-	inventory = get_node("ClickBlocker")
-	
+	inventory = get_tree().current_scene.find_child("Inventory",true,false)
+	click_blocker =  get_tree().current_scene.find_child("ClickBlocker",true,false)
+	task_manager =  get_tree().current_scene.find_child("TaskManager",true,false)
 	#print(inventory.get_path())
 	#print("Pos save:",SaveManager.player.position)
 	#global_position=SaveManager.player.position
@@ -114,16 +117,18 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Inventory"):
 		#print("Open INV ")
 		if inventory==null:
-			#print("Interior scene")
-			inventory = get_parent().get_node("Inventory")
+			print("Inv NUll")
+			
 			
 		inventory.visible = not inventory.visible
+		click_blocker.visible = inventory.visible or task_manager.visible
 		#print("inventory.visible: ",inventory.visible)
 		#inventory.set_process_input(not inventory.visible)
 	#Fmenu.visible
 	
 	if Input.is_action_just_pressed("Tasks"):
-		get_tree().get_current_scene().find_child("TaskManager",true,false).visible=!get_tree().get_current_scene().find_child("TaskManager",true,false).visible
+		task_manager.visible=!task_manager.visible
+		click_blocker.visible = inventory.visible or task_manager.visible
 		
 	if Input.is_action_just_pressed("TempRegulator") and get_tree().current_scene.name=="farm_scene":# and TaskManager.tasks["Task2"]["completed"]==true:
 		get_tree().current_scene.find_child("TemperatureRegulator",true,false).visible=!get_tree().current_scene.find_child("TemperatureRegulator",true,false).visible

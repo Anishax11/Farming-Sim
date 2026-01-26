@@ -12,7 +12,10 @@ func _ready():
 		create_leaderboard()
 		return
 	
-		
+	for name in Tutorials.PointTracker:
+			entries.append({
+			"name": name,
+			"points": Tutorials.PointTracker[name]})
 	entries.sort_custom(func(a, b): #Sort by points (descending)
 		return a.points > b.points)
 		
@@ -23,7 +26,8 @@ func _ready():
 		#await process
 	for i in top_5.size():
 		#print("top_5[i].name :",top_5[i].name)
-		get_tree().current_scene.find_child(str(i+1),true,false).text = top_5[i].name + "  " +str(top_5[i].points)
+		get_tree().current_scene.find_child(str(i+1),true,false).text = top_5[i].name 
+		get_tree().current_scene.find_child(str("Point"+ str(i+1)),true,false).text = str(top_5[i].points)
 		#print(get_tree().current_scene.find_child(str(i+1),true,false).get_path())
 
 
@@ -88,4 +92,9 @@ func create_leaderboard():
 	
 	for i in top_5.size():
 		#print("top_5[i].name :",top_5[i].name)
-		get_tree().current_scene.find_child(str(i+1),true,false).text = top_5[i].name + "  " +str(top_5[i].points)
+		get_tree().current_scene.find_child(str(i+1),true,false).text = top_5[i].name 
+		get_tree().current_scene.find_child(str("Point"+ str(i+1)),true,false).text = str(top_5[i].points)
+
+
+func _on_button_button_down() -> void:
+	visible = false

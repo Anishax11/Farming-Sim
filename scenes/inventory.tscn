@@ -14,7 +14,7 @@ content_margin_right = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource("2_qymee")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rn5e7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4lokn"]
 texture = ExtResource("6_xbopk")
 0:0/0 = 0
 1:0/0 = 0
@@ -4114,15 +4114,24 @@ texture = ExtResource("6_xbopk")
 63:63/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_tk5pb"]
-sources/0 = SubResource("TileSetAtlasSource_rn5e7")
+sources/0 = SubResource("TileSetAtlasSource_4lokn")
 
 [node name="Inventory" type="Node2D"]
 z_index = 5
 script = ExtResource("1_nqscb")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-offset_right = 195.0
-offset_bottom = 116.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = -58.0
+offset_right = 97.5
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_isptr")
 patch_margin_left = 6
 patch_margin_top = 6
@@ -4239,11 +4248,17 @@ script = ExtResource("3_bunsj")
 [node name="DeleteItemConfirmation" type="Control" parent="."]
 visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_left = 94.0
-offset_top = 61.0
-offset_right = 134.0
-offset_bottom = 101.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.2, 0.2)
 script = ExtResource("5_fi8m3")
 

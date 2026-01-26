@@ -22,7 +22,7 @@ func _ready() -> void:
 	camera_2d.limit_left = 0
 	camera_2d.limit_right = 2060
 	camera_2d.zoom=Vector2(1,1)
-	get_node("Farmer/ClickBlocker").queue_free()
+	
 	time_manager=get_tree().get_current_scene().find_child("TimeManager")
 	farmer.get_node("AnimatedSprite2D").play("backward")
 	var inventory= get_tree().current_scene.find_child("Inventory")

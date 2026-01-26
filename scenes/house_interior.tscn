@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dba1gtffrvamm"]
+[gd_scene load_steps=14 format=4 uid="uid://dba1gtffrvamm"]
 
 [ext_resource type="Script" path="res://scripts/bed.gd" id="1_5hssx"]
 [ext_resource type="Script" path="res://scripts/house_interior.gd" id="1_mmlya"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="6_p8x7y"]
 [ext_resource type="Texture2D" uid="uid://cbjpjcdm0m8h2" path="res://16x16/Sprites/SleepConfirmation.png" id="7_qx5y7"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="9_o6apw"]
-[ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="11_7fdhg"]
 [ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="12_lfyp4"]
 [ext_resource type="Texture2D" uid="uid://bpoqlswt8f5g0" path="res://16x16/Sprites/House_Interior.png" id="12_opef0"]
 [ext_resource type="AudioStream" uid="uid://cty2djlymy401" path="res://audio/Peritune_Whiteveil_Streets.ogg" id="13_bd5vn"]
@@ -7051,11 +7050,6 @@ offset_top = 88.0
 offset_right = 890.0
 offset_bottom = 208.0
 script = ExtResource("9_o6apw")
-
-[node name="Inventory" parent="." instance=ExtResource("11_7fdhg")]
-visible = false
-position = Vector2(-193.571, -109.2)
-scale = Vector2(2, 2)
 
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_bd5vn")
