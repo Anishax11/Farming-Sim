@@ -16,5 +16,21 @@ elif {fest_centre_closed} == true:
 	I don't need to go here right now
 elif {inv_full} == true:
 	Inventory is full!
-Gennnn
+elif {regulator_broken} == true:
+	The temperature regulator seems to be broken
+elif {opening_scene_dialogue} == true:
+	The house still smells faintly of oil and damp wood.
+	Player: I could stand here longer. 
+	Player: But today isn’t for standing still.
+	Player: Registrations start early. Aria said she’d wait outside,  said the line gets messy if you’re late.
+	Player: If I want the greenhouse to last the week,\
+	I should probably start by leaving the house.
+elif {StormDialogue} == true:
+	There was a storm last night
+elif {last_day_dialogue} == true:
+	It's the day of the festival
+elif {enter_name} == true:
+	Enter your name
+	[text_input var="Charname"]
 [end_timeline]
+<Empty Text Event>

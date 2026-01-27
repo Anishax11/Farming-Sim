@@ -2,8 +2,8 @@ extends Area2D
 var time_manager
 var FARM_SCENE = load("res://scenes/farm_scene.tscn")
 
-#func _ready() -> void:
-	#time_manager=get_parent().time_manager
+func _ready() -> void:
+	time_manager=get_tree().current_scene.find_child("TimeManager",true,false)
 	
 func _on_body_entered(body: Node2D) -> void:
 	
@@ -30,7 +30,6 @@ func _on_body_entered(body: Node2D) -> void:
 				return	
 				
 			print("Open farm :",body.name)
-			time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
 			if time_manager==null:
 				time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
 			Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)

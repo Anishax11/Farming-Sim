@@ -1,16 +1,21 @@
 extends Node2D
-const HOUSE_INTERIOR = preload("res://scenes/house_interior.tscn")
-const FRONTYARD_SCENE = preload("res://scenes/frontyard_scene.tscn")
-var GAME = load("res://scenes/game.tscn")
+
+var OPENING_SCENE = load("res://scenes/opening_scene.tscn")
+
 func _ready() -> void:
 	get_tree().paused=false
 	
 func _on_start_game_button_down() -> void:
 	print("START GAME")
-	get_node("CanvasLayer2/DimBG").dim_bg(HOUSE_INTERIOR)
-
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	Dialogic.VAR.set("enter_name",true)
+	Dialogic.start("GeneralMessages")
+	
 func _on_load_game_button_down() -> void:
 	SaveManager.load_game()
 
 func _on_exit_button_down() -> void:
 	get_tree().quit()
+
+func _on_timeline_ended():
+	get_node("CanvasLayer2/DimBG").dim_bg(OPENING_SCENE)

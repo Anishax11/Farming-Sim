@@ -4121,17 +4121,8 @@ z_index = 5
 script = ExtResource("1_nqscb")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -97.5
-offset_top = -58.0
-offset_right = 97.5
-offset_bottom = 58.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 197.0
+offset_bottom = 116.0
 texture = ExtResource("1_isptr")
 patch_margin_left = 6
 patch_margin_top = 6

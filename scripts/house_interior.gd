@@ -13,7 +13,18 @@ var sleep_confirmation
 
 func _ready() -> void:
 	print("house running")
-	#Global.music_fade_in()
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	if !Tutorials.interactions["opening_scene_dialogue"]:
+		Dialogic.VAR.set("opening_scene_dialogue",true)
+		Dialogic.start("GeneralMessages")
+	elif Global.day_count == 7 and !Tutorials.interactions["last_day_dialogue"]:
+		Dialogic.VAR.set("last_day_dialogue",true)
+		Dialogic.start("GeneralMessages")
+	elif Global.day_count == 5 and !Tutorials.interactions["StormDialogue"]:
+		Dialogic.VAR.set("StormDialogue",true)
+		Dialogic.start("GeneralMessages")
+		
+	Global.music_fade_in()
 	Dialogic.end_timeline()
 	farmer=get_node("Farmer")
 	var camera_2d = farmer.get_node("Camera2D")
@@ -62,3 +73,8 @@ func _on_exit_body_entered(body: Node2D) -> void:
 
 func _on_button_button_down() -> void:
 	print("Test button working")
+
+func _on_timeline_ended():
+	Dialogic.VAR.set("opening_scene_dialogue",false)
+	Dialogic.VAR.set("StormDialogue",false)
+	Dialogic.VAR.set("last_day_dialogue",false)

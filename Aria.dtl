@@ -1,13 +1,47 @@
 if {day} == 1:
 	if {aria_intro} == false:
-		Aria: Follow the road and you'll see the fest centre, complete your registrastion there
-		Aria: Today is the last day so u might want to hurry up
+		Aria: You’re up. Thought you might decide the house was more convincing company.
+		Player: It tried. Lost.
+		Aria: Yeah. It usually does.
+		Aria: Registrations are being done at the fest hall in the market area
+		Player: That early?
+		Aria: There’s no setup yet.
+		Aria: Just the hall, some vegetable baskets and one person with a pen.
+		Aria: Where's the market side?
+		Aria: Down the stairs near the statue, keep going straight and you’ll hit it.
+		Player: Sounds… empty.
+		Aria: It is. Fest doesn’t start until people decide it’s worth showing up for.
+		Aria: You’ll probably be the first.
+		Player: You’re not registering?
+		Aria: Nope. I build things. I don’t grow them.
+		Player: You helped her grow plenty.
+		Aria: Yeah. Different kind of growing.
+		Aria: Anyway, you’ll need your name, greenhouse ID, and whatever optimism you’ve got left.
+		Player: Anything I should know?
+		Aria: Don’t argue with the officials.
+		Aria: Don’t promise yields you can’t hit.
+		Aria: And don’t mention the place used to be a research site unless they ask.
+		Player: Why?
+		Aria: Because then they always ask more questions.
+		...
+		Player: You think this is doable?
+		Aria: I think the greenhouse is still standing. That already puts you ahead of most things around here.
+		Aria: Go. I’ll check on the temperature regulator later. If anything breaks, come find me near the mechanic shop in market area
 		[signal arg="Task3_acquired"]
 	else:
 		if {random} == 1:
-			Aria: Hello there!
+			Aria: Still standing?
+			Player: For now.
+			Aria: That’s most of this town’s philosophy.
 		elif {random} == 2:
-			Aria: hey there! how's your first day going?
+			Aria: House treating you okay?
+			Player: It’s quiet.
+			Aria: Good. It likes that.
+		elif {random} == 3:
+			Player: Was the research important?
+			Aria: To her? Yeah.
+			Player: To anyone else?
+			Aria: That’s… complicated.
 elif {day} >= 2:
 	if {aria_strawberry_task_given} == false:
 		Aria: The temperature’s been fluctuating a lot lately. That can stress delicate plants.
@@ -26,7 +60,7 @@ elif {day} >= 2:
 			Aria: Great! Make sure they're fresh
 	else:
 		if {aria_task_declined} == true:
-			Aria: Hey, did you change yoyr mind?
+			Aria: Hey, did you change your mind?
 			- Yes
 				Aria: Great!
 				[signal arg="aria_strawberry_task_accepted"]
@@ -41,5 +75,27 @@ elif {day} >= 2:
 						Task COmplete
 					- Leave
 						[end_timeline]
+				else:
+					if {random} == 1:
+						Player: You helped design some of the greenhouse, right?
+						Aria: Bits. Anything that rattled or overheated.
+						Player: And the rest?
+						Aria: That was her arguing with physics.
+					elif {random} == 2:
+						Player: Did she talk much?
+						Aria: Only when something worked. Or when it very much didn’t.
+						Player: What was she like… before?
+						Aria: Busy.
+						Aria: Then tired.
+						Aria: Then quiet.
+					elif {random} == 3:
+						Player: Do you miss her?
+						Aria: I miss fixing things that wanted to be fixed.
+						Player: You stayed after she left.
+						Aria: You stayed after she left.
+						Player: For how long?
+						Aria: Longer than I meant to.
+						Aria: ...
+					Aria: Anyway, I should get back to pretending I’m busy.
 			else:
 				Last convo with aria

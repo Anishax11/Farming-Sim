@@ -29,7 +29,11 @@ var interactions={
 	"aria_strawberry_task_given":false,
 	"registration_done" :false,
 	"aria_task_declined" : false,
-	"talk_to_maya_task_done" : true
+	"talk_to_maya_task_done" : false,
+	"opening_scene_dialogue" : false,
+	"last_day_dialogue" : false,
+	"StormDialogue" : false # Played the day the leaderboard stops working
+	
 }
 
 var PointTracker={

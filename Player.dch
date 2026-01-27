@@ -4,15 +4,13 @@
 "_translation_id": "",
 "color": Color(1, 1, 1, 1),
 "custom_info": {
-"prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "",
-"suffix": ""
+"style": ""
 },
 "default_portrait": "",
 "description": "",
-"display_name": "Kyra",
+"display_name": "{Charname}",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),

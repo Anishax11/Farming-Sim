@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Farm sim"
-run/main_scene="res://scenes/fest_centre.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -35,6 +35,7 @@ directories/dch_directory={
 "Maya": "res://Maya.dch",
 "Narrator": "res://Narrator.dch",
 "Noa": "res://16x16/Sprites/Noa.dch",
+"Player": "res://Player.dch",
 "Rhea": "res://Rhea.dch",
 "Sera": "res://Sera.dch",
 "aira": "res://16x16/Sprites/aira.dch",
@@ -68,6 +69,7 @@ layout/style_list=[]
 layout/default_style="Default"
 variables={
 "Charname": "",
+"StormDialogue": false,
 "aira_intro": false,
 "aria_intro": false,
 "aria_last_convo": false,
@@ -80,6 +82,7 @@ variables={
 "complete_registration": false,
 "day": 1,
 "eiden_intro": false,
+"enter_name": false,
 "farm_scene": false,
 "fest_centre_closed": false,
 "fest_scene": false,
@@ -92,6 +95,7 @@ variables={
 "judge_announcement": false,
 "kyra_stage_counter": 0,
 "kyra_success_rate": 0,
+"last_day_dialogue": false,
 "last_scene_start": false,
 "library_closed": false,
 "library_scene": false,
@@ -99,12 +103,14 @@ variables={
 "measured_faith_complete": false,
 "measured_faith_given": false,
 "noa_intro": false,
+"opening_scene_dialogue": false,
 "plant_book_given": false,
 "plant_tut": false,
 "proof_of_worth_done": false,
 "proof_of_worth_task_given": false,
 "random": 0,
 "registration_done": false,
+"regulator_broken": false,
 "seed_shop_closed": false,
 "seeds_bought": false,
 "sera_intro": false,

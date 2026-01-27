@@ -139,7 +139,7 @@ grow_vertical = 2
 [node name="Inventory" parent="ClickBlocker" instance=ExtResource("9_bm0m8")]
 visible = false
 z_index = 6
-position = Vector2(1301, 652)
+position = Vector2(1007, 487)
 scale = Vector2(3, 3)
 
 [node name="TaskManager" parent="ClickBlocker" instance=ExtResource("10_sin76")]
