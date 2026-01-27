@@ -1,19 +1,177 @@
 if {registration_done} == false:
 	if {fest_scene} == true:
-		Sera: Registration done!
+		Sera: Oh! Hi—wait, new face.
+		Sera: That means paperwork. My favorite.
+		Sera: Name?
+		- [Give name]
+			Sera: Perfect. I’ll spell it wrong later for authenticity.
+		- Do you need my real name?
+			Sera: Only if you plan on winning. If not, I can put you down as “mysterious greenhouse person".
+		- Is this going to take long?
+			Sera: Only if you keep whining.
+		Sera: Alright! Here’s how this works.
+		Sera: Every time you harvest a plant, you get points. Not just what you grow—how well you grow it.
+		Player: Health, care, timing. The plants know if you half-tried.
+		Sera: Festival’s on Day Seven at ten in the morning.
+		Sera: Right here. Same hall. No excuses.
+		Sera: Whoever has the most points by then wins. Simple. Mostly.
+		Narrator: She glances at the baskets.
+		Sera: You’ll want seeds. Seed shop’s right outside, run by a red-skinned woman who pretends she isn’t judging you.
 		[signal arg="registration_done"]
 elif {sera_intro} == false:
 	if {farm_scene} == true:
 		if {day} >= 2:
-			Sera: I'm Sera, nice to meet u!
-			Sera: I remember seeing u at the registrations.
-			Sera: Grow any crop.\
-			Keep it within acceptable conditions for 2 full days
+			Narrator: She looks around at the greenhouse
+			Sera: Say, can I ask you something that’s technically none of my business?
+			- Go ahead.
+			- If it’s about the festival—
+				Sera: No, this is about you
+			- You’re going to ask anyway, aren’t you?
+				Sera: Of course
+			Sera: You didn’t come here just for points.
+			Sera: This place… people don’t walk into it by accident.
+			Sera: So, why are you really here?
+			Player: For someone I look up to.
+			...
+			Player: For the sake of a woman that gave me a home, when I didn’t have one.
+			Player: I don’t want it to disappear.
+			Sera: …Yeah.
+			Sera: That’s what I thought.
+			Sera: Alright. Then I should tell you something.
+			Sera: I've got a task for you
+			Sera: Grow any plant you like. Doesn’t matter what. But once it’s fully grown, you must keep it alive for two whole days. The quality isn't important but it should be within an acceptable range
+			Sera: This task isn’t arbitrary. It comes from an old story. One from my people.
+			Sera: There’s a story about a woman called Nerai.
+			Sera: She was a keeper of fields during a long dying season. Crops would grow fast—too fast—then rot overnight.
+			Sera: So she begged the soil for help.
+			Sera: The soil answered like this\: ‘Give me a life that stays.’
+			Sera: She planted a seed. Tended it until it bloomed.
+			Sera: On the first day after it matured, the soil watched her hands. Did she stay once the miracle was done?”
+			Sera: She did.
+			On the second day, the soil watched her heart. When nothing changed, when no reward came, did she still care?
+			Sera: She did.
+			Sera: On the third day, the soil slept again. The judgment was over.
+			Sera: The myth says that if a plant survives those two days, the ground accepts it as belonging.
+			Sera: And once the soil accepts something, it gives back.
+			Sera: Stronger roots. Better yield. Quiet help.
+			Sera: That’s why it has to be two days.
+			Sera: So. Grow something. Watch it. Stay. If the soil likes you, you’ll feel it.
+			Narrator: She turns to leave, then stops
+			Sera: Oh, and I noticed the temperature regulator's broken, it's going haywire. You might want to talk to Aria as soon as you can if you want to keep any plants alive in here.
 			[signal arg="sera_intro"]
-	elif {fest_scene} == true:
-		Sera: Do you have any questions about the festival?
 else:
 	if {day} == 1:
-		Sera: Hello
+		if {random} == 1:
+			Sera: Hard to believe this hall used to be empty all year.
+		elif {random} == 2:
+			Sera: I keep meaning to reorganize the registry. I also keep not doing that.
+		elif {random} == 3:
+			Sera: You’re staying at that greenhouse, right?
+			- People talk
+				Sera: Oh constantly. Markets live on it.
+			- Say nothing
+				Sera: …Right. Got it.
 	elif {day} == 2:
-		Sera: Hii
+		if {random} == 1:
+			Sera: Fest keeps people looking forward. Even when they don’t admit it.
+			- Forward to what?
+				Sera: To things returning. Or changing their mind.
+			- People like distractions
+				Sera: Sure. But sometimes they distract toward something.
+			- [Say Nothing}
+				Sera: Yeah. That works too.
+		elif {random} == 3:
+			Sera: The greenhouse feels different now. Not better. Just… awake.
+		elif {random} == 2:
+			Sera: Blue skin burns faster than red, by the way. Learned that the annoying way
+	elif {day} == 3:
+		if {random} == 1:
+			Sera: You ever notice how humans always apologize before asking questions?
+			- Is that a problem?
+				Sera: Nope. Just funny.
+				Sera: My people apologize after things go wrong. Much more efficient
+			- What do others do?
+				Sera: Oh, it depends
+				Sera: Elves phrase it like a story. Takes three sentences to get to the point.
+				Sera: The librarian already knows the answer—she’s just checking if you do.
+				Sera: The redfolk say it straight, then argue about it afterward.
+				Sera: I collect information and pretend it’s for work. Less apologizing. More deniability.
+		elif {random} == 2:
+			Sera: Festival week makes everyone pretend they’ve always cared about plants.
+		elif {random} == 3:
+			Sera: You smell like soil. That’s a compliment. Around here.
+	elif {day} == 4:
+		Sera: You look like you’re thinking very hard about nothing. That’s usually a sign you’re new.
+		- I’m not from around here.
+			Sera: So where’d you come from?
+			- A small town. Mostly humans.
+				Sera: Ohhh. That explains the staring.
+				Narrator: She grins.
+				Sera: Don’t worry. We only notice for a week. After that, you’re just ‘the one who lives by the greenhouse.’
+			- Nowhere interesting.
+				Sera: That’s what everyone from somewhere interesting says
+			- Does it matter?
+				Sera: Not really.
+				Sera: But I like knowing things. Occupational hazard. Registrations, gossip, misplaced secrets—same skillset.
+		- Is it that obvious?
+			Sera: A little.
+			Sera: You look around before standing still. Locals just… stop. Wherever they are. In doorways. In traffic. In conversations.
+			Sera: It’s not a bad thing. Means you’re paying attention.
+			Sera: Give it a few days. You’ll start blocking hallways like the rest of us.
+		- I was just passing through.
+			Sera: Mm. Everyone says that.
+			Sera: Passing through usually turns into staying for a reason.
+			Sera: Festival. Weather. Someone you didn’t mean to talk to.
+			Sera: This town’s bad at letting people leave unnoticed.
+			Sera: But hey, passing through still counts as being here. So. Welcome anyway.
+	elif {day} == 5:
+		Sera: Hey. Don’t take this the wrong way, but—
+		Narrator: She squints at you
+		Sera: —you make the same face she used to
+		- Who?
+			Sera: The scientist. Greenhouse one.
+			Sera: It’s not your clothes. Or the way you stand.
+			Sera: It’s your eyes.
+			Sera: Or maybe the look in your eyes
+		- What face?
+			Sera: That one.
+			Narrator: She points at your face
+			Sera: Like you’re looking through things instead of at them. Like the room is a suggestion, not a fact.
+		- …I get that a lot.
+			Sera: Mm. She did too.
+		- I knew her
+			Sera: The scientist?
+			Sera: Yeah,  That tracks.
+			Sera: She didn’t take many people in. Mostly ideas. Occasionally strays.
+			Sera: Anyway, if you’re here because of her, or in spite of her… the greenhouse is still standing.
+			Sera: For now.
+		- What was she like?
+			Sera: Restless. Polite in a way that made people uneasy.
+			Sera: She talked to plants like they were coworkers.
+			Sera: Sometimes she’d come to register things she didn’t intend to explain. Equipment. Permits. Time.
+			Sera: Didn’t matter. She always left something behind anyway.
+		- You’re imagining things
+			Sera: Probably
+			Sera: I imagine a lot. Keeps the world from getting boring.
+			Sera: But I’m rarely wrong about faces.
+		Sera: Try not to wear that look too often. It makes people expect answers
+		Sera: See you around
+	else:
+		Player: What do people think happened here?
+		Sera: Officially?
+		Sera: Funding dried up. Research stalled. The committee got impatient.
+		- Unofficially?
+			Sera: She was close to something.
+			Sera: Not a breakthrough. More like… a direction.
+			Sera: And then she stopped submitting reports.
+			Sera: After that, people got nervous.
+		- Let me guess.
+			Sera: Go on.
+			Player: They didn’t understand it.
+			Sera: Exactly.
+			Sera: And things people don’t understand get repurposed. Or removed.
+			Sera: Depends who’s in charge.
+		- You don’t believe that.
+			Sera: I believe the paperwork.
+			Sera: I just don’t believe it tells the whole story.
+			You don’t either. That’s why you’re here.

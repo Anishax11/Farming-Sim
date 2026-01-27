@@ -114,10 +114,12 @@ variables={
 "seed_shop_closed": false,
 "seeds_bought": false,
 "sera_intro": false,
+"sera_talk": false,
 "talk_to_bullies_done": false,
 "talk_to_bullies_given": false,
 "talk_to_maya_task_done": false,
 "talk_to_maya_task_given": false,
+"task_tut": false,
 "till_tut": false,
 "water_tut": false
 }

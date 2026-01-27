@@ -152,6 +152,7 @@ func update_animation():
 				
 
 func _on_dialogue_ended():
+	Dialogic.VAR.set("task_tut",false)
 	if prev_state == State.MOVE_TO_TARGET:
 		delay_schedule = false
 		state = State.MOVE_TO_TARGET
@@ -181,6 +182,8 @@ func _on_dialogic_signal(argument : String):
 	
 	elif argument== "Task3_acquired":
 		print("task one acquired")
+		Dialogic.VAR.set("task_tut",true)
+		Dialogic.start("GeneralMessages")
 		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task3")
 		delay_schedule = false
 	

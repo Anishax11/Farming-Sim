@@ -20,7 +20,7 @@ elif {regulator_broken} == true:
 	The temperature regulator seems to be broken
 elif {opening_scene_dialogue} == true:
 	The house still smells faintly of oil and damp wood.
-	Player: I could stand here longer. 
+	Player: I could stand here longer.
 	Player: But today isn’t for standing still.
 	Player: Registrations start early. Aria said she’d wait outside,  said the line gets messy if you’re late.
 	Player: If I want the greenhouse to last the week,\
@@ -32,5 +32,8 @@ elif {last_day_dialogue} == true:
 elif {enter_name} == true:
 	Enter your name
 	[text_input var="Charname"]
+elif {sera_talk} == true:
+	Player: I should talk to Sera
+elif {task_tut} == true:
+	You have received your first task. You can click T to view all of your active tasks
 [end_timeline]
-<Empty Text Event>

@@ -7,6 +7,7 @@ var farm_temp
 const ARIA = preload("res://scenes/aria.tscn")
 var SERA = load("res://scenes/sera.tscn")
 func _ready() -> void:
+	Dialogic.timeline_ended.connect(_timeline_ended)
 	print("FARMMMMMM")
 	#if PlantTracker.curr_farm_temp!=null:
 		#farm_temp = PlantTracker.curr_farm_temp
@@ -21,7 +22,7 @@ func _ready() -> void:
 		sera.delay_schedule = true
 		sera.get_node("NavigationAgent2D").target_position = Vector2(55,650)
 		add_child(sera)
-		Dialogic.VAR.set("registration_done",true)
+		#Dialogic.VAR.set("registration_done",true)
 		#await Dialogic.start("Sera")
 		
 		
@@ -77,6 +78,10 @@ func _ready() -> void:
 func _on_exit_body_entered(body: Node2D) -> void:
 	if !body.name =="Farmer":
 		return
+	if Global.day_count >= 2 and !TaskManager.tasks["Task5"]["acquired"]:
+		Dialogic.VAR.set("sera_talk",true)
+		Dialogic.start("GeneralMssages")
+		return
 	print("LEAVE  FARM")
 	var time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)
 	Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
@@ -85,3 +90,6 @@ func _on_exit_body_entered(body: Node2D) -> void:
 	Global.load_frontyard=true
 	Global.music_fade_out()
 	get_node("Farmer/CanvasLayer2/DimBG").dim_bg(FRONTYARD_SCENE)
+
+func _timeline_ended():
+	Dialogic.VAR.set("sera_talk",false)
