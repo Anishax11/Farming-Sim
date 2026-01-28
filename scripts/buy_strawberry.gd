@@ -19,9 +19,9 @@ func _on_button_down() -> void:
 	#print("PArent:",get_parent())
 	var seeds=SEEDS.instantiate()
 	TaskManager.seeds_bought[self.name]=true
-	if TaskManager.seeds_bought["strawberry"]==true and TaskManager.seeds_bought["potato"]==true and TaskManager.seeds_bought["pumpkin"]==true:
-		TaskManager.tasks["Task1"]["completed"]=true
-		print("Task 1 complete")
+	#if TaskManager.seeds_bought["strawberry"]==true and TaskManager.seeds_bought["potato"]==true and TaskManager.seeds_bought["pumpkin"]==true:
+		#TaskManager.tasks["Task1"]["completed"]=true
+		#print("Task 1 complete")
 	seeds.name="seeds"
 	seeds.seed_type=self.name
 	seeds.get_node("AnimatedSprite2D").play(self.name)

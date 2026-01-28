@@ -18,23 +18,28 @@ var last_direction = Vector2.DOWN
 var free_later
 var delay_schedule = false
 var prev_state
+var curr_scene
 
 func _ready() -> void:
+	if Tutorials.interactions["aria_last_convo_done"]:
+		queue_free()
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
 	if Global.day_count == 1 and !TaskManager.tasks["Task3"]["acquired"]:
 		delay_schedule = true
 		#state = State.TALK
 		global_position = Vector2(-850,700)
+	
 	if Global.day_count>2 and TaskManager.tasks["Task2"]["acquired"]==true:
 		for i in range (3):
 			for j in range (5):
 				var string=Global.inventory_items[i][j]
 					
-				if string=="strawberry":
+				if string=="potato":
 					Dialogic.VAR.set("aria_task_done",true)
 					print("Aria task done set to true")
-			
+	
+	curr_scene = get_tree().current_scene		
 	
 func _physics_process(delta: float) -> void:
 	if state == State.TALK:
@@ -74,6 +79,8 @@ func move_to():
 	if navigation_agent_2d.is_navigation_finished():
 		#print("Navigation finished")
 		if free_later == true :
+			if curr_scene!="farm_scene":
+				farmer.input_disabled = false
 			print("Freeee")
 			queue_free()
 		state = State.IDLE
@@ -152,6 +159,8 @@ func update_animation():
 				
 
 func _on_dialogue_ended():
+	if curr_scene!="farm_scene":
+		farmer.input_disabled = false
 	Dialogic.VAR.set("task_tut",false)
 	if prev_state == State.MOVE_TO_TARGET:
 		delay_schedule = false
@@ -172,12 +181,13 @@ func _on_dialogic_signal(argument : String):
 		TaskManager.tasks["Task2"]["completed"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task2")
 		
-		for i in range (3): #Delete strawberry from inv
+		for i in range (3): #Delete potato from inv
 			for j in range (5):
 				var string=Global.inventory_items[i][j]
-				if string=="strawberry":
+				if string=="potato":
 					var number = i*5 +1+j
 					get_tree().current_scene.find_child("Panel"+str(number),true,false).remove_item()
+					break
 					
 	
 	elif argument== "Task3_acquired":
@@ -187,8 +197,9 @@ func _on_dialogic_signal(argument : String):
 		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task3")
 		delay_schedule = false
 	
-	elif argument == "decline_aria_task":
-		Tutorials.interactions["aria_task_declined"] = true
+	elif argument == "last_convo":
+		Tutorials.interactions["aria_last_convo_done"] = true
+		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task7")
 
 
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -210,9 +221,15 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 				Tutorials.interactions["aria"]=true
 			
 				#rng.randomize()
-			print("Strawberry task :",Dialogic.VAR.aria_strawberry_task_given)
-			Dialogic.VAR.set("random",randi_range(1, 2))
-			print("Randome :",Dialogic.VAR.random)
+			#print("Strawberry task :",Dialogic.VAR.aria_strawberry_task_given)
+			
+			if Global.day_count ==1:
+				Dialogic.VAR.set("random",randi_range(1, 3))
+			else:
+				Dialogic.VAR.set("random",randi_range(1, 6))
+			#print("Randome :",Dialogic.VAR.random)
+			farmer.input_disabled = true
+		
 			Dialogic.start("Aria")
 
 

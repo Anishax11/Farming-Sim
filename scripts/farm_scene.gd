@@ -6,6 +6,10 @@ var game = load("res://scenes/game.tscn")
 var farm_temp 
 const ARIA = preload("res://scenes/aria.tscn")
 var SERA = load("res://scenes/sera.tscn")
+var aria
+var sera
+@onready var farmer: Player = $Farmer
+
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_timeline_ended)
 	print("FARMMMMMM")
@@ -17,10 +21,12 @@ func _ready() -> void:
 		#farm_temp = randi_range(18,40)
 	if Global.day_count >= 2 and !TaskManager.tasks["Task5"]["acquired"]:
 		print("SPawn sera")
-		var sera = SERA.instantiate()
-		sera.position = Vector2(-50,625)
+		
+		sera = SERA.instantiate()
+		sera.position = Vector2(250,250)
 		sera.delay_schedule = true
 		sera.get_node("NavigationAgent2D").target_position = Vector2(55,650)
+		sera.free_later = true
 		add_child(sera)
 		#Dialogic.VAR.set("registration_done",true)
 		#await Dialogic.start("Sera")
@@ -61,17 +67,17 @@ func _ready() -> void:
 		
 		
 	if 	Tutorials.tutorials["temp_regulator_tutorial"]==false and TaskManager.tasks["Task2"]["completed"]==true:
-		Dialogic.VAR.day = 4
-		var aria = ARIA.instantiate()
-		aria.position = Vector2(-50,625)
+		aria = ARIA.instantiate()
+		aria.position = Vector2(250,250)
 		aria.delay_schedule = true
 		aria.get_node("NavigationAgent2D").target_position = Vector2(55,650)
+		aria.free_later = true
 		aria.prev_state = aria.State.MOVE_TO_TARGET
 		add_child(aria)
 		Dialogic.VAR.set("aria_last_convo",true)
 		await Dialogic.start("Aria")
 		#aria.move_to()
-		#await Dialogic.start("TempRegulatorTutorial")	
+		#
 		Tutorials.tutorials["temp_regulator_tutorial"]=true
 
 
@@ -93,3 +99,8 @@ func _on_exit_body_entered(body: Node2D) -> void:
 
 func _timeline_ended():
 	Dialogic.VAR.set("sera_talk",false)
+	if aria!=null:
+		Dialogic.start("TempRegulatorTutorial")	
+		aria.move_to()
+	if sera!=null:
+		sera.move_to()

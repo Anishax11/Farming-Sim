@@ -27,6 +27,7 @@ var interactions={
 	"noa":false,
 	"sera" :false,
 	"ilyra" : false,
+	"aria_last_convo_done" : false,
 	"aria_strawberry_task_given":false,
 	"registration_done" :false,
 	"aria_task_declined" : false,

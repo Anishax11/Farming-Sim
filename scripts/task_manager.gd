@@ -27,8 +27,8 @@ var tasks={
 		"acquired" : false
 	},
 	"Task5"={
-		"title" : "What the Land Remembers",
-		"Desc" : "Grow any crop and keep it within acceptable conditions for 2 full days.",
+		"title" : "The Two Day Vigil",
+		"Desc" : "Grow any plant in the greenhouse and keep it alive after it fully matures for two days.",
 		"completed" : false,
 		"acquired" : false
 	},

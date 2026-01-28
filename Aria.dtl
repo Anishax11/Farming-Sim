@@ -44,58 +44,216 @@ if {day} == 1:
 			Aria: That’s… complicated.
 elif {day} >= 2:
 	if {aria_strawberry_task_given} == false:
-		Aria: The temperature’s been fluctuating a lot lately. That can stress delicate plants.
-		Aria: A temperature regulator would stabilize the environment. I can install one for you—but I don’t work for free.
-		What do you need?
-		Aria: Fresh strawberries. Recently harvested, while they’re still at their best.
-		Strawberries… from my greenhouse?
-		Aria: Exactly. If you can grow them properly, I’ll know the regulator is worth installing.
-		*This could be the edge I need for Harvest Bloom.*
-		- I’ll have to pass for now.
-			Aria: Alright
-			[signal arg="decline_aria_task"]
-			[end_timeline]
-		- Sounds fair. I’ll bring you freshly harvested strawberries.
-			[signal arg="aria_strawberry_task_accepted"]
-			Aria: Great! Make sure they're fresh
+		Aria: Hey
+		Aria: I checked the temperature regulator like I said I would.
+		Player: And?
+		Aria: It’s active. And completely ungoverned.
+		Player: The temperature you see on the display? It's forced onto the greenhouse
+		- Forced how?
+			Aria: The system overrides everything.
+			Aria: Vents. Heaters. Cooling lines.
+			Aria: When it picks a value, the greenhouse obeys
+		- At random?
+			Aria: No pattern I can see. Every day it assigns a new target temperature.\
+			Aria: Sometimes survivable. Sometimes not.
+		- The buttons don’t work?
+			Aria: No, not anymore
+		Aria: The regulator was never meant to decide on its own. This was supposed to be a manual system.
+		Aria: You adjust the temperature based on what you’re growing. That authority is gone.
+		- Can you shut it off?
+			Aria: No. Powering it down would lock the last assigned temperature in place. That could be worse.
+		- Why is it doing this?
+			Aria: The control logic lost its reference state.
+			Aria: It’s still functioning. It just doesn’t know what ‘correct’ means anymore.
+		- What’s it doing to the plants?
+			Aria: Stress. Cell damage. Growth confusion.
+			Aria: Some crops can adapt. Some can’t.
+		Aria: We give it a reference it can’t ignore.
+		Aria: Not through the system but through observation.
+		- Observation of what?
+			Aria: Physical stress markers. Things the regulator doesn’t account for.
+		- You’re thinking plants.
+			Aria: Yes.
+		- That sounds slow
+			Aria: It is but that's still faster than guessing.
+		Aria: I need a potato.
+		Aria: To make sure if the regulator is really enforcing the display  temperature on the greenhouse
+		- Have you done this before?
+			Aria: Yes. With the scientist.
+		- Why potatoes?
+			Aria: Under excessive heat, potato starch synthesis decreases
+			Aria: In extreme cold, the leave edges turn purple
+			Aria: I need to analyse if the crops are really affected by the temperature and compare their damage patterns to the displayed temperature
+			Aria: Potatoes are resilient, they have the highest probability of surviving until I  finish analysing.
+		- And that helps how?
+			Aria: I need to analyse and compare it's damage patterns to the regulator’s temperature history
+		Aria: With enough data, I can intervene. I can re-enable the buttons.
+		Player: So after this… I get control back?
+		Aria: Yes. The regulator will stop assigning values on its own.
+		Aria: I’m severing its internal target generator.
+		- It won’t change unless I tell it to?
+			Aria: Exactly. If you set a temperature, it stays there until you decide otherwise.
+		- So it’s finally manual again.
+			Aria: That’s what it was always meant to be.
+			Aria: You choose the crops. You choose the conditions.
+		- And it won’t drift?
+			Aria: No. The instability isn’t in the hardware, it's in the decision layer. That part won’t exist anymore
+		Aria: This is all that I can do.
+		Aria: What happens after that…is in your hands.
+		[signal arg="aria_strawberry_task_accepted"]
 	else:
-		if {aria_task_declined} == true:
-			Aria: Hey, did you change your mind?
-			- Yes
-				Aria: Great!
-				[signal arg="aria_strawberry_task_accepted"]
-			- No
-				Aria: Let me know if  you do, I'll be around for a while
-		else:
-			Aria: Hey there
-			if {aria_last_convo} == false:
-				if {aria_task_done} == true:
-					- Give strawberries
-						[signal arg="aria_strawberry_task_complete"]
-						Task COmplete
-					- Leave
-						[end_timeline]
-				else:
-					if {random} == 1:
-						Player: You helped design some of the greenhouse, right?
-						Aria: Bits. Anything that rattled or overheated.
-						Player: And the rest?
-						Aria: That was her arguing with physics.
-					elif {random} == 2:
-						Player: Did she talk much?
-						Aria: Only when something worked. Or when it very much didn’t.
-						Player: What was she like… before?
-						Aria: Busy.
-						Aria: Then tired.
-						Aria: Then quiet.
-					elif {random} == 3:
-						Player: Do you miss her?
-						Aria: I miss fixing things that wanted to be fixed.
-						Player: You stayed after she left.
-						Aria: You stayed after she left.
-						Player: For how long?
-						Aria: Longer than I meant to.
-						Aria: ...
-					Aria: Anyway, I should get back to pretending I’m busy.
+		if {aria_last_convo} == false:
+			if {aria_task_done} == true:
+				- Give potato
+					[signal arg="aria_strawberry_task_complete"]
+					Player: This one’s ready.
+					Aria: “I know. I’ve been watching it,since the sprouts broke soil.
+					- You’ve been checking on it?
+						Aria: Every day.
+						Aria: Leaf curl. Stem stiffness. Growth rate.
+						Aria: It reacted exactly when the regulator shifted.
+					- Does it look wrong?
+						Aria: No. It looks consistent, that’s what matters.
+					- So what does it tell you?
+						Aria: That the greenhouse experienced exactly what the display reported.
+					Aria: The tissue degradation lines up with the temperature history. The regulator wasn’t misreading anything
+					- So it really was that bad..
+						Aria: Yes. Random. And absolute.
+					- The plants didn’t stand a chance.
+						Aria: Some did.
+					- That means your fix will work.
+						Aria: Yeah.
+					Aria: I’ll make the final adjustments in the greenhouse.
+					Aria: After that…we’ll see.
+					Aria: You can go in now. It’s safe.
+				- [Leave]
+					[end_timeline]
 			else:
-				Last convo with aria
+				if {random} == 1:
+					Player: You helped design some of the greenhouse, right?
+					Aria: Bits. Anything that rattled or overheated.
+					Player: And the rest?
+					Aria: That was her arguing with physics.
+				elif {random} == 2:
+					Player: Did she talk much?
+					Aria: Only when something worked. Or when it very much didn’t.
+					Player: What was she like… before?
+					Aria: Busy.
+					Aria: Then tired.
+					Aria: Then quiet.
+				elif {random} == 3:
+					Player: Do you miss her?
+					Aria: I miss fixing things that wanted to be fixed.
+					Player: You stayed after she left.
+					Aria: You stayed after she left.
+					Player: For how long?
+					Aria: Longer than I meant to.
+					Aria: ...
+				elif {random} == 4:
+					Aria: You’ve noticed it too, right?
+					Player: Notice what?
+					Aria: How everyone here knows just enough about everyone else.
+					Aria: Never more. Never less.
+				elif {random} == 5:
+					Aria: I’ve been spending time at the library lately.
+					Aria: Aira has a talent for finding exactly the book you didn’t know you needed.
+					Aria: And then judging you for needing it.
+					Aria: Yes
+					Player: You two get along?
+					Aria: Enough. She listens. That’s rarer than friendliness.
+					Aria: I’ll miss our pointless arguments
+				elif {random} == 6:
+					Aria: Do you believe places can outlive the people who built them?
+					Player: I think they try
+					Aria: That’s enough, I suppose.
+					Aria: Sometimes all you can do is make sure the door doesn’t lock behind you.
+				Aria: Anyway, I should get back to pretending I’m busy.
+		else:
+			Narrator: Aria is waiting for you
+			Aria: The regulator isn't  perfect but it’ll hold a temperature again.
+			Aria: You can stop watching it like it’s going to bite.\
+			Aria: It won’t spike anymore. Or freeze.
+			Aria: It’ll obey the set value now, like it was meant to.
+			Aria: You kept the plants alive longer than most people manage. Even with the regulator breaking itself every few hours.
+			Aria: You knew how to compensate. How to predict the swings before they happened.
+			Aria: Only one person I worked with thought like that.
+			Aria: Dr. Elira Voss was—
+			Aria: —is the most accomplished scientist I’ve ever worked with.
+			Aria: She disappeared in the middle of her research.
+			Aria: No notes wrapped up. No warnings.
+			Aria: One night, the greenhouse lights went out and she never came back.
+			Player: She took me in after my parents died. I was seventeen.
+			Narrator: Aria freezes.
+			Player: Elira Voss.
+			Player: She taught me. Let me assist. Let me publish under her supervision.
+			Player: This place… this work, it was home to her
+			Aria: …Voss.
+			Narrator: She seems to have been struck by a sudden realisation
+			Aria: I wondered why those papers felt… familiar.
+			Aria: Same blind spots. Same refusal to simplify conclusions.
+			Narrator: She looks at you
+			Aria: Same obsession in your eyes.
+			Narrator: For the first time, she smiles at you
+			Aria: I see
+			Aria: The organization sent you here because you were the only one who could keep this place alive without her.
+			Aria: I’ve done what I came to do.
+			Aria: The greenhouse will run. The systems won’t fight themselves anymore.
+			Aria: I’ve delayed long enough.
+			Aria: It’s time I go home.
+			...
+			Aria: This will be the last time we meet. So ask what you need to ask. Now.
+			label Questions
+			- Did Elira abandon the research?
+				Player: I don't believe it, but I'd rather account for all possibilities
+				Aria: No.
+				Aria: You know Elira Voss didn’t walk away from unfinished work.
+				Aria: If she left willingly… then something forced her hand.
+				Narrator: Her voice turns softer
+				Aria: Or removed her choice entirely.
+				jump Questions
+			- What was she researching?
+				Aria: During the war, they tested downgraded nuclear weapons here in this town
+				Aria: Crude things. Designed to destabilize, not erase.
+				Narrator: She gestures to the soil beds.
+				Aria: They didn’t level cities, they poisoned the ground.
+				Aria: It left behind a residue. A reactive particulate that fused with the soil.
+				Aria: They called it Myrion.
+				Aria: Unstable. Invisible until it wasn’t.
+				Aria: Places with high Myrion concentration reported plants that shouldn’t exist.
+				Aria: Growth without logic. Mutation without decay.
+				Aria: Elira wanted to understand it, not weaponize it.
+				Aria: She experimented here. On plants. On soil regeneration.
+				Narrator: A shadow crosses her face.
+				Aria: That alone made people nervous.
+				jump Questions
+			- What did the town think of the research?
+				Aria: They didn’t know what to think.
+				Aria: Visitors were restricted. Methods weren’t explained.
+				Aria: Mystery breeds fear.
+				Aria: And fear turns into suspicion.
+				Aria: They didn't trust the research and they certainly did not trust the woman conducting it.
+				jump Questions
+			- Where could she have gone?
+				Narrator: Aria shakes her head
+				Aria: If I knew… I would’ve told you by now.
+				jump Questions
+			- Was she threatened?
+				Aria: ...
+				Aria: Possibly.
+				Aria: If she believed staying silent would keep others safe…she would’ve chosen that.
+				Narrator: Aria doesn’t mention the other possibility, that the scientist may have been dealt with in a way that all scientists that know too much are.
+				Narrator: Neither do you.
+				jump Questions
+			- [End Conversation]
+				Narrator: She looks around one last time
+				Aria: This place doesn’t need me anymore. It has you.
+				Aria: Whatever Elira Voss was trying to protect…you’re closer to it than anyone now.
+				Aria: Before I go, there’s something you should do.
+				Aria: Visit the library and ask Aira, the librarian, about the plant index kept under restricted circulation.
+				Player: Restricted?
+				Aria: Old, mostly detailed and unfashionable.
+				Aria: It lists ideal temperature ranges for some species grown here.
+				Aria: That’ll help stabilize the greenhouse.
+				Aria: The rest… is up to you.
+				Aria: Take care of yourself. Not just the greenhouse.
+			[signal arg="last_convo"]

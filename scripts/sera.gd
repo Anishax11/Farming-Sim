@@ -88,6 +88,8 @@ func move_to():
 	if navigation_agent_2d.is_navigation_finished():
 		#print("Navigation finished")
 		if free_later == true :
+			if curr_scene=="farm_scene":
+				farmer.input_disabled = false
 			print("Freeee")
 			queue_free()
 		state = State.IDLE
@@ -159,9 +161,13 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 		Dialogic.VAR.set("farm_scene",get_tree().current_scene.name == "farm_scene")
 		#print("Current scene :",Dialogic.VAR.current_scene)
 		Dialogic.VAR.set("sera_intro",Tutorials.interactions["sera"])	
+		Dialogic.VAR.set("random",randi_range(1,3))	
+		farmer.input_disabled = true
 		Dialogic.start("Sera")
 
 func _on_dialogue_ended():
+	if curr_scene!="farm_scene":
+		farmer.input_disabled = false
 	if prev_state == State.MOVE_TO_TARGET:
 		state = State.MOVE_TO_TARGET
 		return
