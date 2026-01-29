@@ -1,33 +1,82 @@
 if {aira_intro} == false:
-	aira: Helloo, I'm Aira!
+	aira: …Oh. Hello.
+	aira: You’re new.
+	- Is it that obvious?
+		aira: You hesitate before you speak.
+		aira: Locals stopped doing that years ago.
+	- I was told you’d have answers.
+		aira: That depends on the question.
+		aira: And how patient you are.
+	- I’m just looking around
+		aira: That’s how most people begin.\
+		
+		aira: Few realize when they stop.
+	aira: I’m Aira. If you need a book, you can come find me in the library
 else:
 	if {day} == 1:
-		aira: It's been a while since I've seen a new face around here. It's quite refreshing
-		aira: I hope you're adjusting well.
+		aira: People only visit libraries when something is missing.
+		aira: Usually answers. Sometimes excuses.
 	elif {day} == 2:
-		aira: Have you tried Aria's cafe ? They make the best coffee in town
-		aira: You should check it out if you haven't yet! It's near the post office in the market area
-		- Are you a librarian?
-			aira: Yeah
-			I started farming recently, can you tell me more about plants?
-			aira: Yap yap
-		- Leave
-			[end_timeline]
+		aira: There are books I don’t lend out.
+		aira: Not because they’re dangerous  but because they’re incomplete.
+		aira: Half-knowledge causes more damage than forbidden knowledge.
 	else:
 		if {library_scene} == true:
-			aira: Welcome to the library!
+			aira: Welcome to the library.
 			if {plant_book_given} == false:
-				- Ask about book of plants
-					aira: Here you go
-					[signal arg="plant_book_given"]
-					Book of Plants acquired. Click on the bottom left book display to read the book when you want
-			- Ask about Eiden
-				aira: He's my younger brother
-			- Ask about last year's competition
-				aira: Yap
-		else:
-			aira: Hey
-			if {plant_book_given} == false:
-				aira: I managed to find the book on plants I've been looking for, come find me in the library if you want it
+				aira: I was wondering when you’d come.
+				aira: …You were?
+				aira: I heard the greenhouse has been unstable.
+				aira: People don’t notice temperature changes unless they’re extreme. Plants do.
+				aira: I have the Plant Index, each entry lists a plant’s ideal temperature range.
+				aira: If you’re adjusting greenhouse temperatures, guessing will cost you.
+				Narrator: She hands the book to you
+				aira: You may consult it anytime. Just… return it in one piece when you are done
+				[signal arg="plant_book_given"]
+				Plant Index acquired. Click on the bottom left book display to read the book when you want
 			else:
-				Not library, day>2
+				if {random} == 1:
+					aira: Most people read the main text.
+					aira: Scholars read the references.
+					aira: Researchers read the corrections.\
+					
+				elif {random} == 2:
+					aira: Older botanical systems classified plants by behavior, not shape.
+					aira: “Climbers”, “Sleepers”,  “Drinkers.”
+					aira: Less precise but honest.
+				elif {random} == 3:
+					aira: The margins are the most honest part of any book.
+					aira: That’s where doubt lives.
+				else:
+					aira: My brother, Eiden, finished the migration atlas yesterday.
+					aira: He disagrees with three of the author’s conclusions.
+					aira: He is ten.
+		else:
+			if {random} == 1:
+				aira: This town remembers things poorly. It remembers people even worse.
+			elif {random} == 2:
+				aira: Some visitors arrive already packed to leave. You can tell by how lightly they stand.
+			elif {random} == 3:
+				aira: Eiden counts steps between street lamps.
+				aira: He says patterns prevent surprises. I let him believe that.
+			elif {random} == 4:
+				aira: Desert settlers evolved reflective eye layers. Snow settlers evolved slower blink reflex.
+				aira: Adaptation is quiet work.
+			elif {random} == 5:
+				aira: I once catalogued a cookbook under “chemical reactions.” It was more accurate.
+			elif {random} == 6:
+				aira: Maps older than the war show rivers that don’t exist anymore. The riverbeds do.
+			elif {random} == 7:
+				aira: Your engineer friend doesn’t read fiction. That’s usually temporary.
+			elif {random} == 8:
+			elif {random} == 9:
+				aira: Some root systems grow toward radiation pockets. Not away.
+				aira: Adaptation doesn’t share our fear.
+			elif {random} == 10:
+				aira: Different races adapted differently after the soil shifts.
+				aira: Highland settlers developed thicker lung tissue.
+				aira: Coastal towns developed denser root crops.\
+				
+				aira: Environment edits people too, just slower.
+			elif {random} == 11:
+				<Empty Text Event>

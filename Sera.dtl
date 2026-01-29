@@ -57,7 +57,8 @@ elif {sera_intro} == false:
 			Sera: That’s why it has to be two days.
 			Sera: So. Grow something. Watch it. Stay. If the soil likes you, you’ll feel it.
 			Narrator: She turns to leave, then stops
-			Sera: Oh, and I noticed the temperature regulator's broken, it's going haywire. You might want to talk to Aria as soon as you can if you want to keep any plants alive in here.
+			Sera: Oh, and I noticed yesterday that the temperature regulator's broken, it's going haywire. 
+			Sera: You should talk to Aria about it as soon as possible if you haven't yet.
 			[signal arg="sera_intro"]
 else:
 	if {day} == 1:
@@ -174,4 +175,4 @@ else:
 		- You don’t believe that.
 			Sera: I believe the paperwork.
 			Sera: I just don’t believe it tells the whole story.
-			You don’t either. That’s why you’re here.
+			Sera: You don’t either. That’s why you’re here.
