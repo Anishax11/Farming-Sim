@@ -35,22 +35,70 @@ if {cashier_intro} == false:
 	[signal arg="OpenMenu"]
 else:
 	if {day} == 1:
-		Rhea: Do you need any help?
+		Rhea: You know there are only three types of growers.
+		Player: Three?
+		Rhea: Overwaterers, underwaterers 
+		Rhea: And liars.
+		- Which am I?
+			Rhea: Too early to tell. Your plants haven’t filed complaints yet.
+		- What about experts?
+			Rhea: Experts are just people whose mistakes happened off record.
 	if {day} == 2:
-		Rhea: Blah blahh
+		Rhea: People think I sell seeds.
+		Rhea: I sell second chances. Every crop cycle is a retry button.
 	if {day} >= 3:
 		if {proof_of_worth_task_given} == false:
-			Rhea: Show up on the leaderboard atleast once
 			if {proof_of_worth_done} == true:
-				Rhea: I'm on the leaderboard
-				Rhea: Congratulations! I'll sell the speacial seeds to you like i promised
+				Rhea: —and if you clump again I’m selling you as gravel—Oh! Hey!
+				Rhea: Leaderboard grower!
+				Player: That obvious?
+				Rhea: I check it every morning. With tea and judgment.
+				Rhea: Top five already, huh? Nice. Very nice. Suspiciously nice.
+				Rhea: Good,  that saves me a speech. From now on, you get premium stock.
+				Player: Just like that?
+				Rhea: Not “just like that.”
+				Rhea:  Like that plus proof you don’t murder plants.
+				Rhea: Leaderboard growers get better lineage seeds.
+				Rhea: Don’t waste them. They’re better than most people.
 				[signal arg="proof_of_worth_done"]
+			else:
+				Rhea: Hmm.
+				Player: …What?
+				Rhea: You look like someone who wants better seeds\
+				but hasn’t earned them yet.
+				- Earned?
+				- I can grow fine
+				- What are you talking about?
+				Rhea: See that big statue in the residential plaza? There's a leaderboard near it.
+				Rhea: Top five growers get listed on the board there.
+				Narrator: She taps a locked crate under counter.
+				Rhea: That’s my high-grade seed stock. I only sell those to growers who place Top Five.
+				Rhea: You make the leaderboard, you unlock the good stuff. Permanently.
+				Rhea: Deal?
+				Player: Deal.
 			[signal arg="proof_of_worth_task_given"]
 		else:
 			if {cashier_gives_better_seeds} == false:
 				if {proof_of_worth_done} == true:
-					Rhea: Congratulations on completing the task! I'll sell the speacial seeds to you like i promised
+					Rhea: Congratulations on completing the task! I'll sell the premium seeds to you like I promised.
 					[signal arg="proof_of_worth_done"]
 			else:
-				Rhea: Welcome!
+				if {random} == 1:
+					Rhea: Sera keeps notes on everything.
+					Rhea: People. Times. Promises.
+					Rhea: She just doesn’t tell you which ones she’s memorized.
+				elif {random} == 2:
+					Rhea: At the end of the day, seeds don’t care who you are.
+					Rhea: You do it right, they grow.
+					You don’t, they make it very clear.
+				elif {random} == 3:
+					Rhea: You can tell how someone farms by what they buy twice.
+					Rhea: First purchase is hope. Second purchase is reality.
+					Rhea: You’re doing better than most.
+				elif {random} == 4:
+					Rhea: People always ask if they can return seeds.
+					Rhea: You can’t return time. That’s the part they’re actually paying for.
+				elif {random} == 5:
+					Rhea: Most plants don’t die from neglect. They drown from care.
+					Rhea: Remember that. Applies outside farming too.
 [signal arg="enable_movement"]

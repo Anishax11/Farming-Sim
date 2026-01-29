@@ -20,6 +20,10 @@ func _on_input_detector_input_event(viewport: Node, event: InputEvent, shape_idx
 			Dialogic.VAR.set("cashier_intro",Tutorials.interactions["seed_shop_first_interaction"])	
 			#print("Start dialogue")
 			#print("Cashier intro :",Dialogic.VAR.cashier_intro,Tutorials.interactions["seed_shop_first_interaction"])
+			if Global.day_count<3:
+				Dialogic.VAR.set("random",randi_range(1,2))
+			else:
+				Dialogic.VAR.set("random",randi_range(1,5))
 			Dialogic.start("SeedShopOwner")
 			if !Tutorials.interactions["seed_shop_first_interaction"]:
 				Tutorials.interactions["seed_shop_first_interaction"]=true
