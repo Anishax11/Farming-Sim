@@ -4,6 +4,7 @@ const SEED_BUTTON = preload("res://scenes/seed_button.tscn")
 var strawberry_bought =false
 var potato_bought =false
 var pumpkin_bought =false
+
 func _ready() -> void:
 		mouse_default_cursor_shape=Control.CursorShape.CURSOR_POINTING_HAND
 		self.connect("pressed", Callable(self, "_on_button_down"))

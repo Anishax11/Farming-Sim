@@ -84,6 +84,7 @@ func _ready() -> void:
 		if  PlantTracker.plant_info[string_part]["difficulty"] ==1: # easy difficulty
 			if temp_diff >20 :
 				quality-=5
+				
 		elif PlantTracker.plant_info[string_part]["difficulty"] ==1.3:# moderate difficulty
 			if temp_diff >10 :
 				quality-=10

@@ -1,14 +1,38 @@
 if {cashier_intro} == false:
-	Rhea: Welcome to the seed shop!
-	Rhea: You must be the new neighbor everyone’s been talking about. What's  your name?
-	[text_input var="Charname"]
-	Rhea: Here, you can find all kinds of seeds and young saplings to start your farm.\
-	Would you like me to show you what’s in stock, {Charname}?
-	- No thanks
-		Rhea: Alright
-	- Yes please
-		Rhea: Here, take a look
-		[signal arg="OpenMenu"]
+	Narrator: The seed shop owner seems distracted, mumbling to herself
+	Rhea: —no, I definitely stocked pumpkins—
+	Rhea: —oh! Hi! Welcome! Don’t touch anything fragile!
+	Rhea: Or do. I’m not your mother.
+	Player: …Hi.
+	Rhea: You’re the greenhouse caretaker, right?
+	Rhea: Yeah, I heard. Sera will not shut up about you.
+	Rhea: That sounds about right.
+	Rhea: I’m Rhea. Strawbeery seeds, Pumpkin seeds, questionable advice.\
+	If it grows, or might grow, I sell it.
+	Rhea: So! First time buying seeds here?
+	Player: Yeah.
+	Rhea: Great! Then I should probably explain how these little nightmares behave.
+	Rhea: See, not all plants freak out the same way when the temperature goes weird.
+	Rhea: Potatoes are easy, they don’t care. You could sneeze on the thermostat and they’d still grow.
+	Rhea: Temperature goes up, down, sideways— they lose a bit of quality, sure, but it's nothing serious.
+	Rhea: Pumpkins on the other hand have a high difficulty
+	Rhea: Meaning if the temperature so much as glances away from their ideal— boom. Quality drop. Hard.
+	Rhea: You can deviate a maximum of ~5 degree celsius from their ideal temperature while growing it.
+	Player: That sounds risky.
+	Rhea: Oh, absolutely! But, but, when you nail the temperature?
+	Rhea: They go wild. Massive quality boost. Like they’ve been holding a grudge and finally forgive you.
+	Player: And the medium difficulty plants?
+	Rhea: Middle children.
+	Rhea: Medium difficulty plants like strawberries  don’t collapse at the first mistake, but they still care.
+	Rhea: Mess up too much, they’ll sulk. Get close to ideal, they reward you—just not as explosively.
+	Rhea: They’ll tolerate about ten degrees off the ideal before the quality starts dropping.
+	Rhea: So, rule of thumb!
+	Rhea: Easy seeds? Safe, stable, boring. Medium? Balanced. Hard seeds? High risk, high reward.
+	Player: And temperature control decides quality.
+	Rhea: Bingo!
+	Rhea: So! What’ll it be? Something chill to start? Or are we feeling bold today?
+	Rhea: Here, take a look at available seeds
+	[signal arg="OpenMenu"]
 else:
 	if {day} == 1:
 		Rhea: Do you need any help?
