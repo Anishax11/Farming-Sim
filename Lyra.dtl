@@ -1,7 +1,6 @@
 if {ilyra_intro} == false:
 	Narrator: The woman turns her head slightly at your footsteps.
 	Narrator: Her eyes don’t focus. She’s blind.
-	Narrator: She says nothing.
 else:
 	if {day} <= 3:
 		if {random} == 1:
@@ -10,7 +9,7 @@ else:
 		elif {random} == 2:
 			Narrator: Only her head shifts slightly when you step closer. She appears to be listening to something you can’t hear.
 		elif {random} == 3:
-			Narrator: Her posture is steady, deliberate. Like she’s measuring the room without seeing it. 
+			Narrator: Her posture is steady, deliberate. Like she’s measuring the room without seeing it.
 		elif {random} == 4:
 			Narrator: You get the feeling she noticed you immediately, even without looking. But she offers no words.
 	elif {day} == 4:
@@ -22,51 +21,144 @@ else:
 			Lyra: There is no one else here shifting their weight every three seconds.
 		- What do you mean?
 			Lyra: You’re carrying frustration. It has a rhythm.
-		Lyra: I’m Ilyra. Not a priest. Not a believer either,  before you wonder.
-		Lyra: I am a  huntress by trade.
-		Lyra: I need a pair of eyes that can see. Look at the statues. 
-		Lyra: Tell me what they represent.
+		Lyra: My name is Ilyra. I’m a huntress.
+		Lyra: I travel alone, not used to talking much so pardon the rough edges
+		Lyra: I need help with something.
+		Lyra: Describe the statues in this room to me.
+		label StatueDesc
 		- Hope, Judgment, Power, Sacrifice
+			Lyra: No. That doesn’t match the records I heard. Look again.
 		- Trust, Doubt, Authority, Compliance
-			Lyra: …Yes.
+			Lyra: …Good. That's it.
 		- Faith, Fear, Law, Punishment
-		- I don’t know
+			Lyra: No. That doesn’t match the records I heard. Look again.
+			jump StatueDesc
+			jump StatueDesc
 		Lyra: These are not gods. They’re principles.
 		Lyra: This town nearly destroyed itself once, not by famine or war, but by people choosing wrong whom to trust… and refusing to question.
 		Lyra: Each statue controls a section of the water system under the church.
 		Lyra: The dials must be turned exact amounts. The correct balance restores circulation.
-		Lyra: You don’t know the numbers?
-		Lyra: The records are missing. 
-		Lyra: The priestess is dead.
-		Lyra: I don’t follow the faith taught here.
+		Player: You’re trying to fix it?
+		Lyra: Yes.
+		Lyra: The former priest maintained this place.
+		Lyra: I don’t follow the faith taught here
 		Lyra: But she was… important to me.
 		Lyra: ...
-		Lyra: There is a girl in town. Green hair, fast voice, faster opinions.
+		Lyra: I was away when she passed away.
+		Lyra: I came back too late.
+		Player: You don’t know the dial numbers?
+		Lyra: No
+		Lyra: The counts are related to the town's history.
+		Lyra: There’s a green haired kid named Maya, studies local history obsessively.
+		Lyra: She’ll know how the dials are supposed to be set.
 		[signal arg="talk_to_maya_given"]
 	else:
 		if {measured_faith_given} == false:
 			if {talk_to_maya_task_done} == true:
-				Lyra: What did Maya say?
-				[Recap alignment rules]
-				Lyra: Align these dials for me.
+				Lyra: You’re back.
+				Lyra: You spoke to the history kid.
+				- Yeah. She knew the order.
+				- She talked a lot.
+				- She didn’t give exact numbers.
+				Lyra: This town prefers stories to instructions.
+				Lyra: She gave you an order, didn’t she.
+				Player: Yeah. Just the order.
+				Lyra: That’s enough
+				- Why are you doing this?
+				- You could’ve left
+				Lyra: I travel constantly. When I passed through this town, I rested here.
+				Lyra: I don’t believe in gods.
+				Lyra: Though that never bothered the priest.
+				Lyra: She wasn't what I thought priests were like
+				Lyra: Drank rum in the nave.
+				Lyra: Complained about the pipes.
+				Lyra: Let me sleep on the pews.
+				Lyra: This place doesn’t matter to me but the time I spent inside it does.
+				Narrator: She turns toward you
+				Lyra: You’re tense every time we talk.
+				Like you’re holding something back
+				- It’s nothing.
+					Lyra: …Alright.
+					Lyra: You don’t owe me answers.
+				- I’m just tired.
+					Lyra: …Alright.
+					Lyra: You don’t owe me answers.
+				- It’s about someone I lost.
+					Lyra: …I’m listening.
+					Player: She was a scientist sent here for research
+					Player: She disappeared.
+					Lyra: What was she to you?
+					- She took me in.
+					- She was my mentor.
+					- She was my home
+					- It’s complicated.
+					Lyra: That kind of bond doesn’t disappear cleanly.
+					Lyra: How do you feel about her leaving?
+					- Angry
+						Lyra: …Yeah.
+						Lyra: That feeling doesn’t fade just because time passes.
+						Lyra: You start wondering what you should’ve said. Or whether staying would’ve changed anything.
+						Lyra: It usually wouldn’t have but knowing that doesn’t help.”
+					- Regretful
+						Lyra: …Yeah.
+						Lyra: That feeling doesn’t fade just because time passes.
+						Lyra: You start wondering what you should’ve said. Or whether staying would’ve changed anything.
+						Lyra: It usually wouldn’t have but knowing that doesn’t help.
+					- Confused
+						Lyra: That makes sense too.
+						Lyra: Loss doesn’t arrive with a guidebook.
+						Lyra: That makes sense too.
+						Lyra: Loss doesn’t arrive with a guidebook.
+					- I don’t know
+						Lyra: That makes sense too.
+						Lyra: Loss doesn’t arrive with a guidebook.
+					...
+					Lyra: Maya told you the order.
+					Lyra: <Empty Text Event>
+					Lyra: <Empty Text Event>
 				[signal arg="measured_faith_given"]
-			else:
-				Lyra: Have you seen Maya around?
-				- Maya?
-					Lyra: Yes, the green haired kid, remember?
-				- Why do you need her?
-				Lyra: She knows a lot about the history of Aetherfield, especially the goddess of this shrine
-				Lyra: I could probably fix the alignment of the church's dial with her help. Could you please talk to her for me?
-				- Sure
-					[signal arg="talk_to_maya_given"]
-				- I don't think I can help
-					Lyra: I understand.
-					She seems disappointed.
-		else:
-			if {measured_faith_complete} == false:
-				Lyra: The dials don't seem to be aligned.
-				if {talk_to_maya_task_done} == true:
-					Lyra: [alignment rules recap]
-			else:
-				Lyra: Thank you. You can have these seeds
-				[signal arg="measured_faith_complete"]
+			[signal arg="talk_to_maya_given"]
+else:
+	if {measured_faith_complete} == false:
+		Lyra: The dials don't seem to be aligned.
+		if {talk_to_maya_task_done} == true:
+			Lyra: [alignment rules recap]
+	else:
+		Lyra: …There it is.
+		Lyra: Good. The flow’s back
+		Lyra: That’s done, then. I have something for you.
+		Player: For me?
+		Lyra: Answer first.
+		Lyra: Did you know a woman named Elira Voss?
+		- Yes
+		- ....Why?
+		- How do you know that name?
+		Lyra: I met her once. 
+		Lyra: Passing through a town east of here one year ago.
+		Lyra: She was studying soil samples near the riverbanks.\
+		
+		Lyra: Didn’t like interruptions
+		Lyra: Not too fond of hunters either.
+		Lyra: She said she wouldn’t be able to return home anytime soon.
+		Lyra: hen she said this, exactly this —
+		Lyra: “‘A stubborn woman will show up there one day. She won’t quit even when she should.’”
+		Lyra: “‘Give these to her.’”
+		Narrator: She holds out the wrapped bundle.
+		Lyra: They’re not normal stock. She called them a stable mutation. A fragment of her research that could survive outside controlled trials.”
+		- …She knew I’d come?
+			Lyra: She didn’t say your name but she sounded certain.
+		- Why didn’t you give them sooner?
+			Lyra: I was told to give them to the stubborn one. I confirm things before I hand over someone else’s work.
+		- Are you sure they’re meant for me?
+			Lyra: Yes. You’re still here.
+		Lyra: My part’s finished too.
+		Lyra: I came to fix what I could for an old friend.
+		Lyra: I did.
+		Lyra: I don’t stay in towns longer than necessary.
+		Player: You’re leaving now?
+		Lyra: Yes.
+		Lyra: You’ll do fine.
+		...
+		Lyra: Grow them carefully, it will take only one day for the plant to grow
+		Lyra: If they behave like the rest of her work, they won’t forgive sloppy conditions.
+		[signal arg="measured_faith_complete"]

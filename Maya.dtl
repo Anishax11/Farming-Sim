@@ -5,7 +5,7 @@ else:
 		if {random} == 1:
 			Maya: How is your first day here going?
 		elif {random} == 2:
-			Maya: Did you sign up for the fest? I heard the registrastions will be closed soon
+			Maya: Did you sign up for the festival? 
 	elif {day} == 2:
 		if {random} == 1:
 			Maya: The weather looks great today!
@@ -13,7 +13,7 @@ else:
 			Maya: I dyed my my hair green a few days ago, mom was super pissed but this was totally worth it!
 			Maya: What do you think?
 			- I think it looks great on you
-				Maya: Thanks!!
+				Maya: Thanks!
 			- That looks terrible
 				Maya: .........
 				Maya: Maybe it was a bad idea after all..
