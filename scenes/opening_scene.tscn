@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3iqhw1xeqrcy"]
+[gd_scene load_steps=6 format=3 uid="uid://c3iqhw1xeqrcy"]
 
 [ext_resource type="Script" path="res://scripts/opening_scene.gd" id="1_ro410"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="2_721gd"]
+[ext_resource type="AudioStream" uid="uid://cvs5hvaggvvns" path="res://audio/Drifting Memories.wav" id="3_5sw7t"]
+[ext_resource type="AudioStream" uid="uid://rgr8e72pjy8i" path="res://audio/Gymnopédie No.1.wav" id="4_1prcq"]
+[ext_resource type="AudioStream" uid="uid://s1ta12rtf2ec" path="res://audio/06 - Victory!.wav" id="5_dg1ot"]
 
 [node name="Opening_Scene" type="CanvasLayer"]
 script = ExtResource("1_ro410")
@@ -85,3 +88,14 @@ script = ExtResource("2_721gd")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="OpeningSceneAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5sw7t")
+
+[node name="BadEnding" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1prcq")
+volume_db = 7.924
+
+[node name="GoodEnding" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_dg1ot")
+volume_db = 18.819

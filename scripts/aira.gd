@@ -165,7 +165,12 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 			else:
 				Dialogic.VAR.set("aira_intro",true)
 			
-			Dialogic.VAR.set("random",randi_range(1, 2))
+			if Global.day_count<3:
+				Dialogic.VAR.set("random",randi_range(1, 2))
+			elif curr_scene == "LibraryInterior":
+				Dialogic.VAR.set("random",randi_range(1, 4))
+			else:
+				Dialogic.VAR.set("random",randi_range(1, 11))
 			#print("Random :",Dialogic.VAR.random)
 			Dialogic.start("Aira")
 

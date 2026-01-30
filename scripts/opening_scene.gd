@@ -3,6 +3,11 @@ extends CanvasLayer
 var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
 @onready var Dim_bg: ColorRect = $CanvasLayer2/DimBG
 @onready var timer: Timer = $Timer
+@onready var opening_scene_audio: AudioStreamPlayer2D = $OpeningSceneAudio
+@onready var good_ending: AudioStreamPlayer2D = $GoodEnding
+@onready var bad_ending: AudioStreamPlayer2D = $BadEnding
+
+
 var MAIN_MENU = load("res://scenes/main_menu.tscn")
 
 var time_elapsed = 15.0
@@ -49,17 +54,17 @@ var text ={
 
 															  			 			And finds it still standing",
 																					
-	"page_3":"																			The festival ends quietly.
+																					
+	"page_3":"	                                                                        The festival ends quietly.
 
 																		   The winner is announced.
 																						It isn’t me.
 
 																The greenhouse is no longer necessary.
 
-																They say it will be dismantled carefully.
-																		That nothing will be wasted.
-
-																I return once more before they begin.
+										They say it will be dismantled carefully. That nothing will be wasted.
+																		
+																 I return once more before they begin.
 
 							   The systems are already shut down. The air is still. The plants lean toward nothing.
 
@@ -92,11 +97,18 @@ func _ready() -> void:
 	label = get_tree().current_scene.find_child("RichTextLabel",true,false)
 	if Global.day_count == 7:
 		if Tutorials.PointTracker["You"]>= 5000:
+			good_ending.play()
 			label.text =  text["page_4"]
 			page = 4
 		else:
+			bad_ending.play()
 			label.text =  text["page_3"]
 			page =3 
+	else:
+		opening_scene_audio.play()	
+		
+	Global.music_fade_in()	
+	 
 	#label.text =  text["page_1"]
 	label.visible_characters = 0
 	
@@ -148,8 +160,10 @@ func _on_timer2_timeout():
 	print("Timer 2 timeout")
 	#label.visible_characters = 0
 	Dim_bg.dim_bg(HOUSE_INTERIOR)
+	Global.music_fade_out()
 	
 func _on_timer3_timeout():
 	print("Timer 3 timeout")
 	#label.visible_characters = 0
 	Dim_bg.dim_bg(MAIN_MENU)
+	Global.music_fade_out()

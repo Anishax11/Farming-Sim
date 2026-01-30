@@ -4,6 +4,8 @@ extends Area2D
 class_name Soil
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var water_audio: AudioStreamPlayer2D = $water_audio
+@onready var tilling_sound: AudioStreamPlayer2D = $tilling_sound
+@onready var plant_seeds: AudioStreamPlayer2D = $plant_seeds
 
 var tilled=false
 var adjusted=false
@@ -123,6 +125,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						Dialogic.VAR.set("plant_tut",true)
 						Dialogic.start("FarmTutorial")
 					planted=true
+					plant_seeds.play()
 					seed_type=Global.equipped_item
 					Global.soil_data[self.name]=seed_type
 					#planted_seeds=panel.seeds_name
@@ -181,6 +184,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					Dialogic.VAR.set("till_tut",true)
 					Dialogic.start("FarmTutorial")
 				tilled=true
+				tilling_sound.play()
 				Global.tilled_soil.append(self.name)
 				Global.tilled_soil_animation.append(animated_sprite_2d.animation)
 				Global.save_tilled_soil(self,animated_sprite_2d.animation)

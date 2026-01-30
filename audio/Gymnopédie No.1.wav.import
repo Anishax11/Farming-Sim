@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rgr8e72pjy8i"
+path="res://.godot/imported/Gymnopédie No.1.wav-262f050c0d3cdbd9df1acab708735b28.sample"
+
+[deps]
+
+source_file="res://audio/Gymnopédie No.1.wav"
+dest_files=["res://.godot/imported/Gymnopédie No.1.wav-262f050c0d3cdbd9df1acab708735b28.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

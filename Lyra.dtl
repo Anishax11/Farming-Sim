@@ -1,22 +1,47 @@
 if {ilyra_intro} == false:
-	The woman appears to be blind
+	Narrator: The woman turns her head slightly at your footsteps.
+	Narrator: Her eyes don’t focus. She’s blind.
+	Narrator: She says nothing.
 else:
 	if {day} <= 3:
-		The woman seems to be focused, she doesn't acknowlege your presence
+		if {random} == 1:
+			Narrator: The woman stands very still, listening rather than looking.
+			Narrator: She seems deeply focused. Better not interrupt.
+		elif {random} == 2:
+			Narrator: Only her head shifts slightly when you step closer. She appears to be listening to something you can’t hear.
+		elif {random} == 3:
+			Narrator: Her posture is steady, deliberate. Like she’s measuring the room without seeing it. 
+		elif {random} == 4:
+			Narrator: You get the feeling she noticed you immediately, even without looking. But she offers no words.
 	elif {day} == 4:
-		The blind woman turns towards you
-		Lyra: What do these statues seem to represent to you?
-		- a,b,c,d
-			Lyra: I doubt that..
-		- I don't know
-			Lyra: I suppoose that would be hard  to interpret for someone that just moved here
-		- History of AetherField?
-			Lyra: You have good intuition
-		Lyra: These staues represent the history of this town
-		Lyra: The history of the Goddess of Creation to be precise.
-		Lyra: But the thing is, I'm new here , so I can't interpret this either. The green haired kid, I believe her name was maya could probably help.
-		Lyra: I haven't seen her around for a while though, the last time I saw her she seemed bothered
-		Lyra: Could you please find her and talk to her?
+		Lyra: You’re loud in thought today. Something isn’t working the way it should.
+		- You can tell that?
+			Lyra: Yes.
+			Lyra: People breathe differently when something is wrong.
+		- Are you talking to me?
+			Lyra: There is no one else here shifting their weight every three seconds.
+		- What do you mean?
+			Lyra: You’re carrying frustration. It has a rhythm.
+		Lyra: I’m Ilyra. Not a priest. Not a believer either,  before you wonder.
+		Lyra: I am a  huntress by trade.
+		Lyra: I need a pair of eyes that can see. Look at the statues. 
+		Lyra: Tell me what they represent.
+		- Hope, Judgment, Power, Sacrifice
+		- Trust, Doubt, Authority, Compliance
+			Lyra: …Yes.
+		- Faith, Fear, Law, Punishment
+		- I don’t know
+		Lyra: These are not gods. They’re principles.
+		Lyra: This town nearly destroyed itself once, not by famine or war, but by people choosing wrong whom to trust… and refusing to question.
+		Lyra: Each statue controls a section of the water system under the church.
+		Lyra: The dials must be turned exact amounts. The correct balance restores circulation.
+		Lyra: You don’t know the numbers?
+		Lyra: The records are missing. 
+		Lyra: The priestess is dead.
+		Lyra: I don’t follow the faith taught here.
+		Lyra: But she was… important to me.
+		Lyra: ...
+		Lyra: There is a girl in town. Green hair, fast voice, faster opinions.
 		[signal arg="talk_to_maya_given"]
 	else:
 		if {measured_faith_given} == false:
