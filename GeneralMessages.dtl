@@ -33,4 +33,6 @@ elif {sera_talk} == true:
 	Player: I should talk to Sera
 elif {task_tut} == true:
 	You have received your first task. You can click T to view all of your active tasks
+elif {enter_name} == true:
+	[text_input text="Please enter your name" var="Charname"]
 [end_timeline]

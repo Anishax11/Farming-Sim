@@ -12,6 +12,15 @@ if {maya_intro} == false:
 	Maya: Stories, festival logs, church mechanisms, migration maps.
 	Maya: If you like old systems, this town is full of them.
 	Maya: She seems bothered
+elif {day} == 1:
+	Maya: The war didn’t end here.
+	Maya: It just… thinned out.
+	Maya: Left behind things that didn’t belong. 
+	Maya: Like altered soil and quiet resentments.
+elif {day} == 2:
+	Maya: People think this town is unusually diverse.
+	Maya: It isn’t. It’s unusually stubborn.
+	Maya: No one wanted to leave when the borders shifted. So everyone stayed.
 else:
 	if {day} >= 3:
 		if {talk_to_bullies_done} == true:
@@ -27,7 +36,7 @@ else:
 				Maya: They’re arranged the way the town believes stability is built.
 				Maya: Authority had to come first. Otherwise nothing held.
 				Maya: Compliance followed, not blind obedience, but agreement to try.
-				Maya: Only after that could trust exist. 
+				Maya: Only after that could trust exist.
 				Maya: And doubt came last, as a safeguard.
 				Maya: The problem is, doubt can’t overpower everything.
 				Maya: If doubt outweighs authority, people stop believing in structure.
@@ -49,7 +58,24 @@ else:
 				set {maya_gives_info} = true
 				[signal arg="talk_to_maya_task_done"]
 			else:
-				Maya: Normal convo
+				if {random} == 1:
+				elif {random} == 2:
+					Maya: Elves aren’t planners. We are record-keepers.
+					Maya: Someone had to remember where things went wrong.
+					Maya: Turns out that job never ends.
+				elif {random} == 3:
+					Maya: The centaur judge? She wasn’t chosen for fairness, she was chosen for memory.
+					Maya: Centaurs don’t forget seasons. Or debts.
+				elif {random} == 4:
+					Maya: Most people here wake up, work and argue about water pressure.
+					Maya: That’s how towns survive.
+				elif {random} == 5:
+					Maya: The market wasn’t built for trade.
+					Maya: It was built so people had a place to run into each other.
+				elif {random} == 6:
+					Maya: “People say history is about the past.
+					Maya: It isn’t.
+					Maya: It’s about predicting which mistakes we’ll repeat next.
 		else:
 			if {talk_to_maya_task_given} == true:
 				if {talked_to_maya} == false:

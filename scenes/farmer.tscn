@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bulruc5in76aq"]
+[gd_scene load_steps=55 format=3 uid="uid://bulruc5in76aq"]
 
 [ext_resource type="Script" path="res://scripts/farmer.gd" id="1_kssk7"]
 [ext_resource type="Texture2D" uid="uid://b5mqdlrh2vga4" path="res://16x16/Sprites/MemaoCharacterFantasySpritePack/001.png" id="2_hk0tk"]
@@ -193,6 +193,10 @@ region = Rect2(192, 432, 48, 48)
 atlas = ExtResource("2_hk0tk")
 region = Rect2(240, 432, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwd6h"]
+atlas = ExtResource("2_hk0tk")
+region = Rect2(144, 192, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_yhg64"]
 animations = [{
 "frames": [{
@@ -356,7 +360,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4jf4t")
 }, {
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_x5lqg")
 }, {
 "duration": 1.0,
@@ -370,7 +374,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_omy4d")
 }, {
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_bg53q")
 }, {
 "duration": 1.0,
@@ -384,10 +388,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6xav6")
 }, {
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_ok25n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwd6h")
 }],
-"loop": true,
+"loop": false,
 "name": &"seeds_right",
 "speed": 5.0
 }]
@@ -407,9 +414,7 @@ script = ExtResource("1_kssk7")
 position = Vector2(0, -9)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_yhg64")
-animation = &"forward"
-frame = 5
-frame_progress = 1.0
+animation = &"seeds_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
