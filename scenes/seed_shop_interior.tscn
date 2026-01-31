@@ -4352,6 +4352,7 @@ parameters/looping = true
 [node name="LabelCanvas" parent="." instance=ExtResource("14_1b55x")]
 
 [node name="VendorMenu" type="Control" parent="LabelCanvas"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

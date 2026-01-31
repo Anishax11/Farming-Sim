@@ -14833,8 +14833,8 @@ tile_set = SubResource("TileSet_ahtf8")
 
 [node name="tilling_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_jkuw3")
-volume_db = 1.0
-pitch_scale = 0.84
+volume_db = -9.289
+pitch_scale = 0.95
 
 [node name="plant_seeds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_nbans")

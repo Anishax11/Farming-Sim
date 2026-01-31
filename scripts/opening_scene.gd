@@ -15,7 +15,7 @@ var label
 var string 
 var page =1
 var pause = false
-
+var waiting_time 
 var text ={
 	"page_1":"											The greenhouse was abandoned. Before that, it wasn’t a farm. 
 																			   It was a research site.
@@ -112,14 +112,18 @@ func _ready() -> void:
 	#label.text =  text["page_1"]
 	label.visible_characters = 0
 	
+
 func _process(delta: float) -> void:
 	if pause:
 		#print("Paused")
 		return
 	time_elapsed-=1
 	if time_elapsed>=0:
+		#print(time_elapsed)
 		return
+	
 	label.visible_characters+=1
+	#print("Visible characters : ",label.visible_characters)	
 	string=label.visible_characters
 	
 	if label.visible_characters == text["page_1"].length() and page==1:
@@ -144,6 +148,7 @@ func _process(delta: float) -> void:
 		timer.timeout.connect(_on_timer3_timeout)
 		timer.wait_time = 5.0
 		timer.start()
+	time_elapsed = 5.0
 	
 func _on_timer_timeout():
 	if page==1:

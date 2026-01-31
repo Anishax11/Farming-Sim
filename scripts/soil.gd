@@ -4,9 +4,9 @@ extends Area2D
 class_name Soil
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var water_audio: AudioStreamPlayer2D = $water_audio
-@onready var plant_seeds: AudioStreamPlayer2D = $plant_seeds
-@onready var tilling_sound: AudioStreamPlayer2D = $tilling_sound
 
+var tilling_sound : AudioStreamPlayer2D 
+var plant_seeds: AudioStreamPlayer2D 
 var tilled=false
 var adjusted=false
 var planted=false
@@ -28,6 +28,9 @@ func _ready() -> void:
 	inventory=get_node("/root/farm_scene/Farmer/ClickBlocker/Inventory")
 	if randi_range(0,7)==3:
 		animated_sprite_2d.play("untilled_rock")
+	
+	tilling_sound = get_tree().current_scene.find_child("tilling_sound",true,false)
+	plant_seeds = get_tree().current_scene.find_child("plant_seeds",true,false)
 		#print(get_path())
 	#if Global.soil_data.has(self.name):
 		#print("Reloaded seed type")
@@ -113,7 +116,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if distance<50 and tilled==true and planted!=true and panel.seeds_equipped==true :
 				#print("Try planting :",Global.equipped_item)
 				
-				var panel=inventory.find_child(Global.equipped_panel, true, false)
+				var panel=inventory.get_node(Global.equipped_panel)
 				
 				var count= panel.seed_count
 				if count<=0:
