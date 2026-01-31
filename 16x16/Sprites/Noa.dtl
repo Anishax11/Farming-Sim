@@ -1,13 +1,27 @@
 if {noa_intro} == false:
 	Noa: ...
-	Noa: My parents say I shouldn't be talking to strangers
+	Noa: …You’re not from here.
+	Noa: People from here don’t walk like that.
 else:
 	if {day} == 1:
-		Noa: I heard you’re participating in Harvest Bloom!
-		Her round eyes sparkle with a childlike glint, brimming with excitement
-		Noa: That’s so cool! Harvest Bloom is my favorite festival
-		Noa: Are you nervous? I’d be super nervous if it were me.
-		She rambles on for a while, until her excitement finally winds down.
+		Noa: I see you around.
+		Noa: Not in a creepy way.
+		Noa: Okay. Maybe a little.
 	elif {day} == 2:
-		Noa: Hii!
-		Noa: I wonder how many clouds are in the sky..
+		Noa: My mom says not to go near the greenhouse.
+		Noa: But she looks at it every morning.
+	elif {day} == 3:
+		Noa: You don’t scare me.
+		That’s… probably good.
+	elif {day} == 4:
+		Noa: When the air feels heavy, something breaks.
+		Noa: That’s what my grandma said.
+	elif {day} == 5:
+		Noa: If you fix things long enough…
+		Noa: It starts belonging to you.
+	elif {day} == 6:
+		Noa: I count steps when I’m bored.
+		Noa: From the statue to the stairs it’s forty-six.
+	elif {day} == 0:
+		Noa: The plants in the greenhouse look different.
+		Like they’re listening

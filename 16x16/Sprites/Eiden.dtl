@@ -2,6 +2,39 @@ if {eiden_intro} == false:
 	Eiden: Hello! I'm Eiden
 else:
 	if {day} == 1:
-		Eiden: I can't wait for the festival to begin!
+		Eiden: My sister reads like she’s afraid the books will disappear.
+		Eiden: I think she’s afraid people will.
 	elif {day} == 2:
-		Eiden: I heard you're participating in the fest as well, goodluck!
+		if {random} == 1:
+			Eiden: The library has restricted records.
+			Eiden: Not crimes. Just… things the town would rather forget.
+			Eiden: I read those first.
+		else:
+			Eiden: They put up the leaderboard today.
+			Eiden: By the statue. The big one.
+			Eiden: People pretend they’re not checking. They all are
+	elif {day} == 3:
+		Eiden: Elves believe memory lives in wood.
+		Eiden: That’s why we don’t burn old trees.
+		Eiden: They know things.
+	elif {day} == 4:
+		if {random} == 1:
+			Eiden: Ogres used to carve warnings into stone.
+			Eiden: If you can still read them, you’re already too late.
+		else:
+			Eiden: …Do you hear that?
+			Eiden: ...
+			Eiden: The air sounds wrong.
+			- Wrong how?
+				Eiden: Like it’s being held back.
+				Eiden: My sister says storms don’t ask permission.
+				Eiden: If one comes tonight…the leaderboard won’t last.”
+			- [Leave]
+				[end_timeline]
+	elif {day} == 5:
+		Eiden: Centaurs measure time by hoof-wear.
+		Eiden: Not years. Distance traveled.
+	elif {day} == 6:
+		Eiden: The horned folk believe their ancestors listen through bone.
+		Eiden: That’s why they never decorate their horns.
+	elif {day} == 7:

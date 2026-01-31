@@ -10,18 +10,18 @@ func _on_body_entered(body: Node2D) -> void:
 			if body.name!="Farmer":
 				return
 			Dialogic.timeline_ended.connect(_on_dialogic_ended)
-			#if !TaskManager.tasks["Task3"]["acquired"]:
-				#print("Farm, Talk to aria")
-				#Dialogic.VAR.set("aria_talk",true)
-				#Dialogic.start("GeneralMessages")
-				#print("Aria talk :",Dialogic.VAR.aria_talk)
-				#return
-				#
-			#if !TaskManager.tasks["Task8"]["completed"]: #complete registration and buy seeds first
-				#print("Farm, Buy seeds")
-				#Dialogic.VAR.set("seeds_bought",true)
-				#Dialogic.start("GeneralMessages")
-				#return
+			if !TaskManager.tasks["Task3"]["acquired"]:
+				print("Farm, Talk to aria")
+				Dialogic.VAR.set("aria_talk",true)
+				Dialogic.start("GeneralMessages")
+				print("Aria talk :",Dialogic.VAR.aria_talk)
+				return
+				
+			if !TaskManager.tasks["Task8"]["completed"]: #complete registration and buy seeds first
+				print("Farm, Buy seeds")
+				Dialogic.VAR.set("seeds_bought",true)
+				Dialogic.start("GeneralMessages")
+				return
 				
 			if (Global.day_count == 7 and time_manager.current_time>=6)	:
 				print("Head to fest centre")
