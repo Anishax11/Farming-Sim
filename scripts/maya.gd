@@ -25,7 +25,8 @@ func _ready():
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	farmer = get_tree().current_scene.find_child("Farmer",true,false)
 	#Dialogic.VAR.set("talk_to_maya_task_given",TaskManager.tasks["Task9"]["acquired"])
-	#Dialogic.VAR.set("talk_to_bullies_done",TaskManager.tasks["Task10"]["completed"])
+	Dialogic.VAR.set("talked_to_maya",Tutorials.interactions["talked_to_maya"])
+	Dialogic.VAR.set("maya_gives_info",Tutorials.interactions["maya_gives_info"])
 	
 	
 func _physics_process(delta: float) -> void:
@@ -197,10 +198,14 @@ func _on_dialogic_signal(arg : String):
 		TaskManager.tasks["Task10"]["acquired"]=true
 		#get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task9")
 		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task10")
+		Tutorials.interactions["talked_to_maya"] = true
+		
 	if arg=="talk_to_maya_task_done":
 		Tutorials.interactions["talk_to_maya_task_done"] = true	
 		TaskManager.tasks["Task9"]["completed"]=true
 		TaskManager.tasks["Task10"]["completed"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task9")
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task10")
+		Tutorials.interactions["maya_gives_info"] = true
+		
 		

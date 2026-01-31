@@ -56,14 +56,14 @@ else:
 		if {measured_faith_given} == false:
 			if {talk_to_maya_task_done} == true:
 				Lyra: You’re back.
-				Lyra: You spoke to the history kid.
+				Lyra: You spoke to the history kid?
 				- Yeah. She knew the order.
 				- She talked a lot.
 				- She didn’t give exact numbers.
 				Lyra: This town prefers stories to instructions.
 				Lyra: She gave you an order, didn’t she.
 				Player: Yeah. Just the order.
-				Lyra: That’s enough
+				Lyra: That’s enough.
 				- Why are you doing this?
 				- You could’ve left
 				Lyra: I travel constantly. When I passed through this town, I rested here.
@@ -76,7 +76,7 @@ else:
 				Lyra: This place doesn’t matter to me but the time I spent inside it does.
 				Narrator: She turns toward you
 				Lyra: You’re tense every time we talk.
-				Like you’re holding something back
+				Lyra: Like you’re holding something back
 				- It’s nothing.
 					Lyra: …Alright.
 					Lyra: You don’t owe me answers.
@@ -112,17 +112,15 @@ else:
 					- I don’t know
 						Lyra: That makes sense too.
 						Lyra: Loss doesn’t arrive with a guidebook.
-					...
-					Lyra: Maya told you the order.
-					Lyra: <Empty Text Event>
-					Lyra: <Empty Text Event>
+				...
+				Lyra: Maya told you the order.
+				Lyra: The dials don’t respond to belief. Only priority.
+				Lyra: Use it to turn the dials. That’s how the system unlocks.
+				Lyra: I’ll stay still. You adjust them.
 				[signal arg="measured_faith_given"]
-			[signal arg="talk_to_maya_given"]
 else:
 	if {measured_faith_complete} == false:
 		Lyra: The dials don't seem to be aligned.
-		if {talk_to_maya_task_done} == true:
-			Lyra: [alignment rules recap]
 	else:
 		Lyra: …There it is.
 		Lyra: Good. The flow’s back
@@ -133,10 +131,9 @@ else:
 		- Yes
 		- ....Why?
 		- How do you know that name?
-		Lyra: I met her once. 
+		Lyra: I met her once.
 		Lyra: Passing through a town east of here one year ago.
 		Lyra: She was studying soil samples near the riverbanks.\
-		
 		Lyra: Didn’t like interruptions
 		Lyra: Not too fond of hunters either.
 		Lyra: She said she wouldn’t be able to return home anytime soon.

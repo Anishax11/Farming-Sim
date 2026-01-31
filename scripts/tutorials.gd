@@ -34,7 +34,10 @@ var interactions={
 	"talk_to_maya_task_done" : false,
 	"opening_scene_dialogue" : false,
 	"last_day_dialogue" : false,
-	"StormDialogue" : false # Played the day the leaderboard stops working
+	"StormDialogue" : false, # Played the day the leaderboard stops working
+	"talked_to_maya" : false,
+	"maya_gives_info" : false,
+	"talked_to_bully" : false
 	
 }
 

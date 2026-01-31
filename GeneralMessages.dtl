@@ -29,9 +29,6 @@ elif {StormDialogue} == true:
 	There was a storm last night
 elif {last_day_dialogue} == true:
 	It's the day of the festival
-elif {enter_name} == true:
-	Enter your name
-	[text_input var="Charname"]
 elif {sera_talk} == true:
 	Player: I should talk to Sera
 elif {task_tut} == true:

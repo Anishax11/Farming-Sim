@@ -39,7 +39,7 @@ func _ready() -> void:
 					Dialogic.VAR.set("aria_task_done",true)
 					print("Aria task done set to true")
 	
-	curr_scene = get_tree().current_scene		
+	curr_scene = get_tree().current_scene.name	
 	
 func _physics_process(delta: float) -> void:
 	if state == State.TALK:
@@ -159,8 +159,8 @@ func update_animation():
 				
 
 func _on_dialogue_ended():
-	if curr_scene!="farm_scene":
-		farmer.input_disabled = false
+	#if curr_scene!="farm_scene":
+		#farmer.input_disabled = false
 	Dialogic.VAR.set("task_tut",false)
 	if prev_state == State.MOVE_TO_TARGET:
 		delay_schedule = false
@@ -205,6 +205,8 @@ func _on_dialogic_signal(argument : String):
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			if Tutorials.interactions["aria_last_convo_done"]:
+				return
 			if state == State.MOVE_TO_TARGET:
 				prev_state = State.MOVE_TO_TARGET
 			delay_schedule = true
@@ -228,7 +230,6 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 			else:
 				Dialogic.VAR.set("random",randi_range(1, 6))
 			#print("Randome :",Dialogic.VAR.random)
-			farmer.input_disabled = true
 		
 			Dialogic.start("Aria")
 

@@ -14,7 +14,7 @@ func _ready() -> void:
 	camera = player.get_node("Camera2D")
 	camera.limit_bottom = 1850
 	camera.limit_top = 0
-	camera.limit_left = 55
+	camera.limit_left = 100
 	camera.limit_right = 2350
 	camera.zoom = Vector2(0.8,0.8)
 	
@@ -63,7 +63,7 @@ func _on_exit_body_entered(body: Node2D) -> void:
 
 func _on_close_menu_button_down() -> void:
 	print("Closing menu ")
-	get_node("VendorMenu").visible=false
+	get_node("LabelCanvas/VendorMenu").visible=false
 
 
 #func _on_mouse_entered() -> void:

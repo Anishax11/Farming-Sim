@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Farm sim"
-run/main_scene="res://scenes/main_menu.tscn"
+run/main_scene="res://scenes/seed_shop_interior.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -99,6 +99,7 @@ variables={
 "last_scene_start": false,
 "library_closed": false,
 "library_scene": false,
+"maya_gives_info": false,
 "maya_intro": false,
 "measured_faith_complete": false,
 "measured_faith_given": false,
@@ -119,6 +120,7 @@ variables={
 "talk_to_bullies_given": false,
 "talk_to_maya_task_done": false,
 "talk_to_maya_task_given": false,
+"talked_to_maya": false,
 "task_tut": false,
 "till_tut": false,
 "water_tut": false

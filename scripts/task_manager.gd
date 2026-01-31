@@ -53,13 +53,13 @@ var tasks={
 
 "Task9" = {
 	"title" : "Talk to Maya",
-	"Desc" : "Maya seems bothered, help her and ask her about the dials.",
+	"Desc" : "Ask Maya about the church dials.",
 	"completed" : false,
 	"acquired" : false
 },
 "Task10" = {
-	"title" : "Talk to Bully",
-	"Desc" : ".",
+	"title" : "Talk to Kyra",
+	"Desc" : "Maya is worried about her growing distance from Kyra. Your conversation choices will affect their relationship..",
 	"completed" : false,
 	"acquired" : false
 }

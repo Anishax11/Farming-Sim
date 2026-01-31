@@ -10,7 +10,7 @@ if {registration_done} == false:
 		- Is this going to take long?
 			Sera: Only if you keep whining.
 		Sera: Alright! Here’s how this works.
-		Sera: Every time you harvest a plant, you get points. Not just what you grow—how well you grow it.
+		Sera: Every time you harvest a plant, you get points. Not just  based on what you grow but how well you grow it.
 		Player: Health, care, timing. The plants know if you half-tried.
 		Sera: Festival’s on Day Seven at ten in the morning.
 		Sera: Right here. Same hall. No excuses.
@@ -57,7 +57,7 @@ elif {sera_intro} == false:
 			Sera: That’s why it has to be two days.
 			Sera: So. Grow something. Watch it. Stay. If the soil likes you, you’ll feel it.
 			Narrator: She turns to leave, then stops
-			Sera: Oh, and I noticed yesterday that the temperature regulator's broken, it's going haywire. 
+			Sera: Oh, and I noticed yesterday that the temperature regulator's broken, it's going haywire.
 			Sera: You should talk to Aria about it as soon as possible if you haven't yet.
 			[signal arg="sera_intro"]
 else:

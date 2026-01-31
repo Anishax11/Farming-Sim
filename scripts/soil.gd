@@ -4,8 +4,8 @@ extends Area2D
 class_name Soil
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var water_audio: AudioStreamPlayer2D = $water_audio
-@onready var tilling_sound: AudioStreamPlayer2D = $tilling_sound
 @onready var plant_seeds: AudioStreamPlayer2D = $plant_seeds
+@onready var tilling_sound: AudioStreamPlayer2D = $tilling_sound
 
 var tilled=false
 var adjusted=false

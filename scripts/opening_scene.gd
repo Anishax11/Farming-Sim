@@ -10,7 +10,7 @@ var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
 
 var MAIN_MENU = load("res://scenes/main_menu.tscn")
 
-var time_elapsed = 15.0
+var time_elapsed = 200.0
 var label
 var string 
 var page =1
@@ -127,22 +127,22 @@ func _process(delta: float) -> void:
 		pause = true
 		
 		timer.timeout.connect(_on_timer_timeout)
-		timer.wait_time = 3.0
+		timer.wait_time = 5.0
 		timer.start()
 		
 	elif label.visible_characters == text["page_2"].length() and page==2:
 		print("Page 2 over")
 		pause = true
-		timer.wait_time = 3.0
+		timer.wait_time = 5.0
 		timer.timeout.connect(_on_timer2_timeout)
-		timer.wait_time = 3.0
+		timer.wait_time = 5.0
 		timer.start()
 	elif (label.visible_characters == text["page_3"].length() and page==3) or (label.visible_characters == text["page_4"].length() and page==4) :
 		print("Page 3/4 over")
 		pause = true
-		timer.wait_time = 3.0
+		timer.wait_time = 5.0
 		timer.timeout.connect(_on_timer3_timeout)
-		timer.wait_time = 3.0
+		timer.wait_time = 5.0
 		timer.start()
 	
 func _on_timer_timeout():

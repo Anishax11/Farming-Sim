@@ -26,6 +26,6 @@ func _on_button_down() -> void:
 	seeds.name="seeds"
 	seeds.seed_type=self.name
 	seeds.get_node("AnimatedSprite2D").play(self.name)
-	seeds.global_position=Vector2(1550, 425)
+	seeds.position+=Vector2(575, 81)
 	get_parent().get_parent().add_child(seeds)
-	#seeds.get_node("Label").text=self.name
+	

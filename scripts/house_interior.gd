@@ -17,6 +17,7 @@ func _ready() -> void:
 	if !Tutorials.interactions["opening_scene_dialogue"]:
 		Dialogic.VAR.set("opening_scene_dialogue",true)
 		Dialogic.start("GeneralMessages")
+		Tutorials.interactions["opening_scene_dialogue"] = true
 	elif Global.day_count == 7 and !Tutorials.interactions["last_day_dialogue"]:
 		Dialogic.VAR.set("last_day_dialogue",true)
 		Dialogic.start("GeneralMessages")

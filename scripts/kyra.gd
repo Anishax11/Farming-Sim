@@ -8,6 +8,8 @@ var sucess_rate = 0
 
 
 func _on_input_detector_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if Tutorials.interactions["talked_to_bully"]:
+		return
 	Dialogic.VAR.set("talk_to_bullies_given",TaskManager.tasks["Task10"]["acquired"])
 	#Dialogic.VAR.set("talk_to_bullies_given",true)
 	Dialogic.signal_event.connect(_on_dialogic_signal)
@@ -25,3 +27,4 @@ func _on_dialogic_signal(arg : String):
 	if arg =="talked_to_bully" and sucess_rate>=3:
 		TaskManager.tasks["Task10"]["completed"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task10")
+		Tutorials.interactions["talked_to_bully"] = true
