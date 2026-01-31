@@ -24,38 +24,35 @@ var text ={
 
 		   				 				One day, the work stopped. The lights went out. The town moved on.
  																			
-																							 I didn’t.
+																						   I didn’t.
 
 							I told myself I came for the caretaker job. Someone had to keep the place from 
-																							 rotting.
+																						   rotting.
 																			
 																			But that isn’t the real reason.
 
 			 A festival will be held in seven days. This competition will decide whether the greenhouse stays, 
-   																				   or gets dismantled.
-",
+   																				   or gets dismantled.",
 																				
 	
 	"page_2" :
-		"																  			 If I win, the greenhouse is spared.
-										Someone will still come. Keep the water running. Make sure it doesn't go dark.
-																						   			If I lose—
+		"																  		If I win, the greenhouse is spared.
+									Someone will still come. Keep the place running. Make sure it doesn't go dark.
+																						   	 If I lose—
 
-																	  			it’s dismantled piece by piece,
-												  			until there’s nothing left that remembers her hands.
+																	  	   it’s dismantled piece by piece,
+												  		until there’s nothing left that remembers her hands.
 
-																						 		 	So I work.
-																	 		 			water what’s still alive.
-																		 I adjust systems I don’t fully understand.
-																			I follow habits she never wrote down,
-											  		  		  	 only left behind in the way things are arranged.
+																						   So I work.
+																	 			Water what’s still alive.
+															   I salvage systems I don’t fully understand.
+																   I follow habits she never wrote down,
+											  		  	   only left behind in the way things are arranged.
 
-																					Just in case..... she returns.
+																			 Just in case..... she returns.
 
-															  			 			And finds it still standing",
-																					
-																					
-	"page_3":"	                                                                        The festival ends quietly.
+															  				  And finds it still standing.",
+"page_3":"	                                                                        The festival ends quietly.
 
 																		   The winner is announced.
 																						It isn’t me.

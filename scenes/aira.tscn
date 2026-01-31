@@ -303,7 +303,6 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hllum"]
 
 [node name="Aira" type="CharacterBody2D"]
-z_index = 2
 script = ExtResource("1_npqhb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

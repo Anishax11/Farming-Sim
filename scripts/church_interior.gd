@@ -15,7 +15,7 @@ func _ready() -> void:
 	var player = get_node("Farmer")
 	var cam=player.get_node("Camera2D")
 	player.animated_sprite_2d.play("backward")
-	#cam.zoom.x+=0.6
+	cam.zoom.x+=2
 	cam.limit_left=-200
 	cam.limit_right=210
 	cam.limit_top=-250

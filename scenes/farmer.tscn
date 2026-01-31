@@ -400,8 +400,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ip8u5"]
-radius = 5.25
-height = 16.6667
+radius = 2.66667
+height = 12.0
 
 [node name="Farmer" type="CharacterBody2D"]
 process_mode = 1
@@ -414,7 +414,9 @@ script = ExtResource("1_kssk7")
 position = Vector2(0, -9)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_yhg64")
-animation = &"seeds_front"
+animation = &"forward"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)

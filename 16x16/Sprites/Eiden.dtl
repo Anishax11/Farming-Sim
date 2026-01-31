@@ -1,5 +1,5 @@
 if {eiden_intro} == false:
-	Eiden: Hello! I'm Eiden
+	Eiden: Hello! I'm Eiden.
 else:
 	if {day} == 1:
 		Eiden: My sister reads like she’s afraid the books will disappear.

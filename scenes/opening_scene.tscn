@@ -46,16 +46,15 @@ text = "											The greenhouse was abandoned. Before that, it wasn’t a farm
 
 		   				 				One day, the work stopped. The lights went out. The town moved on.
  																			
-																							 I didn’t.
+																						   I didn’t.
 
 							I told myself I came for the caretaker job. Someone had to keep the place from 
-																							 rotting.
+																						   rotting.
 																			
 																			But that isn’t the real reason.
 
 			 A festival will be held in seven days. This competition will decide whether the greenhouse stays, 
-   																				   or gets dismantled.
-"
+   																				   or gets dismantled."
 scroll_active = false
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
@@ -65,10 +64,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1442.0
-offset_top = -1181.0
-offset_right = 1490.0
-offset_bottom = 873.0
+offset_left = -1035.5
+offset_top = -1575.0
+offset_right = 1896.5
+offset_bottom = 479.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0288333, 0.00589752, 3.00817e-09, 1)
@@ -77,6 +76,7 @@ color = Color(0.0288333, 0.00589752, 3.00817e-09, 1)
 layer = 2
 
 [node name="DimBG" type="ColorRect" parent="CanvasLayer2"]
+visible = false
 visibility_layer = 2
 offset_left = -2.0
 offset_top = -36.0
@@ -91,10 +91,11 @@ one_shot = true
 
 [node name="OpeningSceneAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_5sw7t")
+volume_db = 13.838
 
 [node name="BadEnding" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_1prcq")
-volume_db = 7.924
+volume_db = 13.867
 
 [node name="GoodEnding" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_dg1ot")

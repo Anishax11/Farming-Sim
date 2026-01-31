@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scripts/bed.gd" id="1_5hssx"]
 [ext_resource type="Script" path="res://scripts/house_interior.gd" id="1_mmlya"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="4_uq3q3"]
+[ext_resource type="AudioStream" uid="uid://c2mcmgemp6342" path="res://audio/Minuet (Slower).wav" id="5_fdsvb"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="6_p8x7y"]
 [ext_resource type="Texture2D" uid="uid://cbjpjcdm0m8h2" path="res://16x16/Sprites/SleepConfirmation.png" id="7_qx5y7"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="9_o6apw"]
 [ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="12_lfyp4"]
 [ext_resource type="Texture2D" uid="uid://bpoqlswt8f5g0" path="res://16x16/Sprites/House_Interior.png" id="12_opef0"]
-[ext_resource type="AudioStream" uid="uid://cty2djlymy401" path="res://audio/Peritune_Whiteveil_Streets.ogg" id="13_bd5vn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ij2w6"]
 size = Vector2(99.2856, 103.2)
@@ -7052,10 +7052,9 @@ offset_bottom = 208.0
 script = ExtResource("9_o6apw")
 
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_bd5vn")
-volume_db = -18.0
+stream = ExtResource("5_fdsvb")
+volume_db = 13.867
 autoplay = true
-parameters/looping = true
 
 [node name="LabelCanvas" parent="." instance=ExtResource("12_lfyp4")]
 

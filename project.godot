@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Farm sim"
-run/main_scene="res://scenes/frontyard_scene.tscn"
+run/main_scene="res://scenes/church_interior.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -97,6 +97,7 @@ variables={
 "kyra_success_rate": 0,
 "last_day_dialogue": false,
 "last_scene_start": false,
+"leaderboard_broken": false,
 "library_closed": false,
 "library_scene": false,
 "maya_gives_info": false,

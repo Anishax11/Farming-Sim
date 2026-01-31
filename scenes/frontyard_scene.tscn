@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/frontyard_scene.gd" id="1_3rtkc"]
 [ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="4_jskuh"]
+[ext_resource type="AudioStream" uid="uid://c2mcmgemp6342" path="res://audio/Minuet (Slower).wav" id="7_yxwuj"]
 [ext_resource type="PackedScene" uid="uid://dnnuq6f68u4ja" path="res://scenes/parallax_background.tscn" id="10_eg7ug"]
 [ext_resource type="Texture2D" uid="uid://dsjxyq7y76wkp" path="res://16x16/Sprites/Floors_Tiles.png" id="10_re3j7"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="12_7uvrb"]
@@ -27,7 +28,6 @@
 [ext_resource type="PackedScene" uid="uid://b8qdmnhp66qlj" path="res://scenes/aira_home.tscn" id="32_xabx6"]
 [ext_resource type="PackedScene" uid="uid://bs8muem2spgnl" path="res://scenes/greenhouse.tscn" id="33_b3ttf"]
 [ext_resource type="Texture2D" uid="uid://dkwkcqyo8povv" path="res://16x16/Sprites/Gemini_Generated_Image_2r1n5e2r1n5e2r1n.png" id="33_pglsu"]
-[ext_resource type="AudioStream" uid="uid://cty2djlymy401" path="res://audio/Peritune_Whiteveil_Streets.ogg" id="34_ntsw8"]
 [ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="35_y56ua"]
 [ext_resource type="PackedScene" uid="uid://cwwvxkgt01rx2" path="res://scenes/leader_board.tscn" id="41_gqh32"]
 [ext_resource type="PackedScene" uid="uid://dumpth2eqq4jq" path="res://scenes/npc_manager.tscn" id="41_nt07v"]
@@ -37130,10 +37130,9 @@ position = Vector2(415, 821)
 scale = Vector2(0.1, 0.1)
 
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("34_ntsw8")
-volume_db = -20.0
+stream = ExtResource("7_yxwuj")
+volume_db = 13.867
 autoplay = true
-parameters/looping = true
 
 [node name="LabelCanvas" parent="." instance=ExtResource("35_y56ua")]
 

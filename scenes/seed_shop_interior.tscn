@@ -5,13 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://dr1hdvqxhvkj1" path="res://16x16/Sprites/SeedsVendorMenu.png" id="2_npwv0"]
 [ext_resource type="Texture2D" uid="uid://b57cgw7ov6gpr" path="res://16x16/Sprites/seeds_desc.jpg" id="4_and56"]
 [ext_resource type="Script" path="res://scripts/buy_strawberry.gd" id="4_u2sro"]
+[ext_resource type="AudioStream" uid="uid://c2mcmgemp6342" path="res://audio/Minuet (Slower).wav" id="4_yi6ne"]
 [ext_resource type="Texture2D" uid="uid://ktjxew7ekj5j" path="res://16x16/Sprites/CloseMenuButton (2).png" id="5_j0ilo"]
 [ext_resource type="Script" path="res://scripts/close_menu.gd" id="5_x4uh4"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="7_4qsky"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="10_lo2ag"]
 [ext_resource type="PackedScene" uid="uid://sil86bh6faen" path="res://scenes/rhea.tscn" id="13_73sk8"]
 [ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="14_1b55x"]
-[ext_resource type="AudioStream" uid="uid://cty2djlymy401" path="res://audio/Peritune_Whiteveil_Streets.ogg" id="15_sch5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tifw4"]
 size = Vector2(106.316, 68.2149)
@@ -4313,7 +4313,7 @@ physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_fihcc")
 
 [node name="SeedShopInterior" type="Area2D"]
-position = Vector2(-1099, 620)
+position = Vector2(-1208, 638)
 scale = Vector2(3, 1.769)
 script = ExtResource("1_j0vwb")
 
@@ -4344,10 +4344,10 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("10_lo2ag")
 
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("15_sch5q")
-volume_db = -18.0
+position = Vector2(-27, 0)
+stream = ExtResource("4_yi6ne")
+volume_db = 13.867
 autoplay = true
-parameters/looping = true
 
 [node name="LabelCanvas" parent="." instance=ExtResource("14_1b55x")]
 

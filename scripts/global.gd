@@ -75,6 +75,10 @@ var equipped_panel #Keeps track of equipped panel
 func _input(event):
 	var pause_menu = get_tree().current_scene.find_child("PauseMenu",true,false)
 	if event.is_action_pressed("Escape") :
+		if Dialogic.current_timeline != null:
+			print("DIalogic running")
+			return
+   
 		if pause_menu.visible:
 			pause_menu.visible = false 
 			return

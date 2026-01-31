@@ -140,7 +140,7 @@ func _ready() -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton :
 		if event.pressed and  event.button_index == MOUSE_BUTTON_RIGHT:
-			if stage==PlantTracker.plant_stage_limits[string_part]:
+			if stage!=PlantTracker.plant_stage_limits[string_part]:
 				return
 			inv.add_to_inventory(string_part,texture)
 			var curr_panel = Global.get_empty_panel() # panel with harvested plant	

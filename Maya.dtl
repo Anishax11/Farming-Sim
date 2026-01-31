@@ -11,11 +11,10 @@ if {maya_intro} == false:
 	Maya: I like collecting records. Old ones, mostly
 	Maya: Stories, festival logs, church mechanisms, migration maps.
 	Maya: If you like old systems, this town is full of them.
-	Maya: She seems bothered
 elif {day} == 1:
 	Maya: The war didn’t end here.
 	Maya: It just… thinned out.
-	Maya: Left behind things that didn’t belong. 
+	Maya: Left behind things that didn’t belong.
 	Maya: Like altered soil and quiet resentments.
 elif {day} == 2:
 	Maya: People think this town is unusually diverse.
