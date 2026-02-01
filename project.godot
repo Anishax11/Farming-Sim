@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Farm sim"
-run/main_scene="res://scenes/church_interior.tscn"
+run/main_scene="res://scenes/seed_shop_interior.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 

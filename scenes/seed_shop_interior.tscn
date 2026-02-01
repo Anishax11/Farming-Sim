@@ -4343,12 +4343,6 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("10_lo2ag")
 
-[node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-27, 0)
-stream = ExtResource("4_yi6ne")
-volume_db = 13.867
-autoplay = true
-
 [node name="LabelCanvas" parent="." instance=ExtResource("14_1b55x")]
 
 [node name="VendorMenu" type="Control" parent="LabelCanvas"]
@@ -4647,6 +4641,11 @@ tile_set = SubResource("TileSet_n31iy")
 z_index = 2
 position = Vector2(768, 163.369)
 scale = Vector2(3, 3)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_yi6ne")
+volume_db = 8.0
+autoplay = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

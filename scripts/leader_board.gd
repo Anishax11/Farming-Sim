@@ -13,6 +13,7 @@ func _ready() -> void:
 		queue_free()
 	leaderboard_display = get_tree().current_scene.find_child("LeaderBoardDisplay",true,false)
 	player = get_tree().current_scene.find_child("Farmer",true,false)
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	for name in Tutorials.PointTracker:
 		entries.append({
 		"name": name,
@@ -46,6 +47,8 @@ func _on_input_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			if disable_display:
+				Dialogic.VAR.set("leaderboard_broken",true)
+				Dialogic.start("GeneralMessages")
 				print("DIsplay disabled")
 				return
 			print("PRESSES")
@@ -64,3 +67,6 @@ func _on_input_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 func _on_timer_timeout():
 	print("Time up")
 	get_tree().change_scene_to_packed(OPENING_SCENE)
+
+func _on_timeline_ended():
+	Dialogic.VAR.set("leaderboard_broken",false)

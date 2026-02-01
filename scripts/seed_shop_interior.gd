@@ -4,9 +4,11 @@ var MARKET_PLACE = load("res://scenes/market_place.tscn")
 var time_manager
 var camera
 	#print("DIsplay menu 1")
-	
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 
 func _ready() -> void:
+	audio_stream_player_2d.play()
 	Global.music_fade_in()
 	#Dialogic.end_timeline()
 	var player =get_node("Farmer")
@@ -14,9 +16,9 @@ func _ready() -> void:
 	camera = player.get_node("Camera2D")
 	camera.limit_bottom = 1850
 	camera.limit_top = 0
-	camera.limit_left = 100
-	camera.limit_right = 2350
-	camera.zoom = Vector2(0.8,0.8)
+	camera.limit_left = -50
+	camera.limit_right = 2275
+	camera.zoom = Vector2(1,1)
 	
 	Dialogic.VAR.set("proof_of_worth_done",TaskManager.tasks["Task4"]["completed"] )
 	print("Tutorials.tutorial",Tutorials.tutorials["seed_shop_tutorial"])

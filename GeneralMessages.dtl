@@ -36,5 +36,5 @@ elif {task_tut} == true:
 elif {enter_name} == true:
 	[text_input text="Please enter your name" var="Charname"]
 elif {leaderboard_broken} == true:
-	The leaderboard is broken.
+	The leaderboard isn’t working.
 [end_timeline]

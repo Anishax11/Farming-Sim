@@ -170,3 +170,8 @@ func _on_save_button_button_down() -> void:
 
 func _on_load_button_button_down() -> void:
 	SaveManager.load_game()
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	animated_sprite_2d.play(animated_sprite_2d.animation+"_idle")
+	
