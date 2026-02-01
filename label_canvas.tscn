@@ -101,11 +101,18 @@ text = "Points : "
 
 [node name="PlantBookControl" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -704.0
+offset_top = -440.0
+offset_right = -704.0
+offset_bottom = -440.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.6, 0.6)
 mouse_filter = 2
 
 [node name="PlantBookButton" type="TextureButton" parent="PlantBookControl"]
@@ -114,17 +121,17 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -86.0
-offset_top = -237.0
-offset_right = 938.0
-offset_bottom = 611.0
+offset_left = -1016.67
+offset_top = 1468.33
+offset_right = 7.33337
+offset_bottom = 2316.33
 grow_vertical = 0
 scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("7_ujah6")
 
 [node name="PlantBook" parent="PlantBookControl" instance=ExtResource("8_v277u")]
 visible = false
-position = Vector2(921, 416)
+position = Vector2(1137, 443)
 scale = Vector2(8, 8)
 
 [node name="ClickBlocker" type="Control" parent="."]

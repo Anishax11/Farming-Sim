@@ -37,7 +37,7 @@ func _gui_input(event: InputEvent) -> void:
 		inventory.get_node("NinePatchRect2").visible=true
 		real_panel = real_inventory.find_child("Panel"+str(panel_number))
 		
-		if(item_name!=null):
+		if(item_name!=null) and  Global.ItemPriceList.has(item_name):
 			if real_panel.score==0:
 				real_panel.score = 1
 			var price = Global.ItemPriceList[item_name]*(real_panel.score)*0.1
@@ -50,11 +50,15 @@ func _gui_input(event: InputEvent) -> void:
 		
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
-	#var first_letter = node.name.substr(0, 1)
-	#if first_letter =="@":
-		#remove_item(node.name)
-		#return
+	var first_letter = node.name.substr(0, 1)
+	if first_letter =="@":
+		remove_item(node.name)
+		return
 	item_name=node.name #set in trade inv while addinf texture
+	#if !Global.ItemPriceList.has(item_name):
+		#remove_child(node)
+		#return
+		
 	var last_five = item_name.substr(item_name.length() - 5, 5)
 	
 	if node is TextureRect and last_five == "seeds":
@@ -87,11 +91,14 @@ func remove_item(item_name):
 		
 		print("Removing from trade panel :",item_name)
 		for child in get_children():
-			remove_child(child)	
+			if child.name == item_name:
+				remove_child(child)	
 		#self.remove_child(get_node(str(item_name)))
 		#if get_node(str(item_name))==null:
 			#remove_child(get_node("TextureRect"))
-		item_name=null
+			#d
+		#item_name=null # item name is never set if name starts with @
+		
 		print("Removed successfully!!!")
 		#print(inventory_node.get_path())
 		#var row = int( (panel_number-1)/5 )

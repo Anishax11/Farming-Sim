@@ -38,7 +38,7 @@ func _ready() -> void:
 		#print("FARM loaded, day:",Global.day_count)
 		#print("Dictionary:",PlantTracker.plant_stages)
 		till_soil(Global.tilled_soil,Global.tilled_soil_animation)
-		print("Planted soil:",Global.planted_soil)
+		#print("Planted soil:",Global.planted_soil)
 	#if 	Global.load_farm==false:
 		#print("SLOAD FALSE")
 		#for i in range((Global.watered_plants).size()):
@@ -52,23 +52,23 @@ func _ready() -> void:
 		for i in range (0,Global.planted_soil.size()):#Used to load back already grown plant(Stage 1) into scene,after this plant is grown to higher stages if watered 
 			#var soil=get_node("/root/Game/farm_scene/SoilManager/"+Global.planted_soil[i])
 			
-			print("GRO@W AT:",Global.planted_soil[i])
+			#print("GRO@W AT:",Global.planted_soil[i])
 			Global.grow_plant(Global.planted_soil[i])
 	
 					
 		for i in range((Global.watered_plants).size()):
-			print("runnihng loop watered plants:"+str(Global.watered_plants[i]))
+			#print("runnihng loop watered plants:"+str(Global.watered_plants[i]))
 			if Global.watered_plants[i]!=null and Global.day_passed==true:
-				print("watered plnts not nuill")
+				#print("watered plnts not nuill")
 				var soil=get_node("/root/farm_scene/SoilManager/"+str(Global.watered_plants[i]))
 				soil.watered=true
-				print(soil.name+" Watered")
+				#print(soil.name+" Watered")
 				var plant_found=false
 				
-				if 	PlantTracker.plant_stages==null or PlantTracker.plant_stages.is_empty():
-					print("............... not traversed")
+				#if 	PlantTracker.plant_stages==null or PlantTracker.plant_stages.is_empty():
+					#print("............... not traversed")
 				for j in range(1,PlantTracker.plant_stages.size()+1):
-					print("plant_stages:",PlantTracker.plant_stages)
+					#print("plant_stages:",PlantTracker.plant_stages)
 					#print("J:",j)
 					#print("Soil :",soil)
 					#print("Soil child:",soil.get_child(1))
@@ -79,12 +79,12 @@ func _ready() -> void:
 						
 					if soil.get_child_count()>3:
 						plant_found=true
-						print("PLANT FOUND: ",soil.name)
+						#print("PLANT FOUND: ",soil.name)
 						
 					elif plant_found==false and j==PlantTracker.plant_stages.size():#used to grow plant for the first time
-						print("PLANT NOT FOUND: ","Plant"+str(j))
-						print("Growing this plant for the first time")
-						print("Global.watered_plants[i] : ",Global.watered_plants[i])
+						#print("PLANT NOT FOUND: ","Plant"+str(j))
+						#print("Growing this plant for the first time")
+						#print("Global.watered_plants[i] : ",Global.watered_plants[i])
 						Global.grow_plant(Global.watered_plants[i])
 						Global.planted_soil.append(Global.watered_plants[i])#contains plants that have been grown once so they can be reloaded
 						
@@ -130,19 +130,19 @@ func _ready() -> void:
 			##print("Locked growth array cleared")
 			
 func till_soil(soil,soil_animation):
-	print("Till func called")
-	if Global.tilled_soil.size()==0:
-		print("Tilled soil empty")
+	#print("Till func called")
+	#if Global.tilled_soil.size()==0:
+		#print("Tilled soil empty")
 	
 	for i in range(0,Global.tilled_soil.size()):
 		if Global.tilled_soil[i]!=null :
-			print(soil[i])
+			#print(soil[i])
 			#print("soil m ",Global.tilled_soil[i])
 			get_node(NodePath(soil[i])).tilled=true
 			get_node(NodePath(soil[i])).get_node("AnimatedSprite2D").play(soil_animation[i])
 			
-		if Global.tilled_soil.is_empty() or Global.tilled_soil==null:
-			print("Global.tilled_soil ",i, "is null")
+		#if Global.tilled_soil.is_empty() or Global.tilled_soil==null:
+			#print("Global.tilled_soil ",i, "is null")
 		
 			
 	for i in range(0,Global.sown_soil.size()):

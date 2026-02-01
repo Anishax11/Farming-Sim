@@ -585,10 +585,6 @@ sprite_frames = SubResource("SpriteFrames_4jh8x")
 animation = &"first_page_front"
 autoplay = "default"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 2)
-zoom = Vector2(0.7, 0.7)
-
 [node name="RightPage" type="Control" parent="."]
 clip_contents = true
 layout_mode = 3
@@ -653,10 +649,10 @@ rotation = 3.14159
 texture_normal = ExtResource("4_sbxrk")
 
 [node name="CloseButton" type="TextureButton" parent="."]
-offset_left = 82.55
-offset_top = -96.6667
-offset_right = 1106.55
-offset_bottom = 927.334
+offset_left = 74.0
+offset_top = -75.7333
+offset_right = 1098.0
+offset_bottom = 948.267
 scale = Vector2(0.01, 0.01)
 texture_normal = ExtResource("5_hbj6e")
 

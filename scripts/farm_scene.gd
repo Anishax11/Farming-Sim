@@ -45,7 +45,7 @@ func _ready() -> void:
 	cam.limit_top=0
 	cam.limit_bottom=500
 	var inventory = get_tree().current_scene.find_child("Inventory",true,false)
-	#inventory.add_to_inventory("pumpkin_seeds",Global.pumpkin_image)
+	#inventory.add_to_inventory("potato",Global.pumpkin_image)
 	#inventory.add_to_inventory("potato_seeds",Global.potato_image)
 	#inventory.add_to_inventory("special_seeds",Global.strawberry_image)
 	#Global.get_empty_panel().seed_count=6

@@ -69,12 +69,14 @@ func _ready() -> void:
 		quality = PlantTracker.quality_tracker[self.name]["quality"]
 		
 	farm  = get_node("/root/farm_scene")
-	if farm == null:
-		print("Farm is null")
-	if farm.farm_temp == null:
-		print("farm_temp is null")
+	#if farm == null:
+		#print("Farm is null")
+	#if farm.farm_temp == null:
+		#print("farm_temp is null")
 		
 	var temp_diff = abs(farm.farm_temp - PlantTracker.plant_info[string_part]["ideal_temp"])
+	print("Plant stage : ",stage)
+	print("Plant animation : ",animated_sprite_2d.animation)
 	#print("Ideal temp : ",PlantTracker.plant_info[string_part]["ideal_temp"])
 	#print("farm temp :",farm.farm_temp)
 	#print("Temp diff :", temp_diff)
@@ -141,7 +143,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton :
 		if event.pressed and  event.button_index == MOUSE_BUTTON_RIGHT:
 			if stage!=PlantTracker.plant_stage_limits[string_part]:
-				#print("Plants stage no")
+				print("Plant can't be harvested yet, return")
 				return
 			inv.add_to_inventory(string_part,texture)
 			var curr_panel = Global.get_empty_panel() # panel with harvested plant	
@@ -200,3 +202,5 @@ func _on_mouse_entered() -> void:
 
 func _on_timeline_ended():
 	Dialogic.VAR.set("inv_full",false)
+	Dialogic.VAR.set("harvest_tut",false)
+	Dialogic.VAR.set("first_harvest_done",false)

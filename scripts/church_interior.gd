@@ -3,6 +3,7 @@ extends Node2D
 @onready var trust_dial_display: Control = $LabelCanvas/DialBG/TrustDialDisplay
 @onready var control_dial_display: Control = $LabelCanvas/DialBG/ControlDialDisplay
 @onready var doubt_dial_display: Control = $LabelCanvas/DialBG/DoubtDialDisplay
+@onready var dial_turn: AudioStreamPlayer2D = $DialTurn
 
 var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
 var control = 0
@@ -28,6 +29,7 @@ func _on_dial_display_gui_input(event: InputEvent) -> void:
 			if control_dial_display.rotation_degrees>=360:
 				control_dial_display.rotation_degrees = 0
 			control_dial_display.rotation_degrees+=90
+			dial_turn.play()
 
 			#print("Control Rotation :",control_dial_display.rotation)
 			#print("Control text Rotation :",control_dial_display.get_node("TextureRect").rotation)
@@ -46,6 +48,7 @@ func _on_trust_dial_display_gui_input(event: InputEvent) -> void:
 			if trust_dial_display.rotation_degrees>=360:
 				trust_dial_display.rotation_degrees = 0
 			trust_dial_display.rotation_degrees+=90
+			dial_turn.play()
 			if trust<3:
 				trust+=1
 			else:
@@ -60,6 +63,7 @@ func _on_compliance_dial_display_gui_input(event: InputEvent) -> void:
 			if compliance_dial_display.rotation_degrees>=360:
 				compliance_dial_display.rotation_degrees = 0
 			compliance_dial_display.rotation_degrees+=90
+			dial_turn.play()
 			if compliance<3:
 				compliance+=1
 			else:
@@ -73,6 +77,7 @@ func _on_dout_dial_display_gui_input(event: InputEvent) -> void:
 			if doubt_dial_display.rotation_degrees>=360:
 				doubt_dial_display.rotation_degrees = 0
 			doubt_dial_display.rotation_degrees+=90
+			dial_turn.play()
 			if doubt<3:
 				doubt+=1
 			else:
