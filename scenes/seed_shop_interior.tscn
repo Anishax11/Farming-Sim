@@ -4318,8 +4318,8 @@ scale = Vector2(3, 1.769)
 script = ExtResource("1_j0vwb")
 
 [node name="Farmer" parent="." instance=ExtResource("7_4qsky")]
-position = Vector2(776, 599.774)
-scale = Vector2(6, 6)
+position = Vector2(781.667, 617.863)
+scale = Vector2(10, 10)
 
 [node name="Exit" type="Area2D" parent="."]
 z_index = 1
@@ -4643,6 +4643,7 @@ position = Vector2(768, 163.369)
 scale = Vector2(3, 3)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(780.667, 284.341)
 stream = ExtResource("4_yi6ne")
 volume_db = 8.0
 autoplay = true

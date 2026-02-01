@@ -140,7 +140,7 @@ func _ready():
 			var char = npc_list[character].instantiate()
 			char.name = character
 			char.y_sort_enabled = true
-
+			char.z_index = 2
 			char.global_position = scene_wise_locations[curr_scene][spawn_point]
 			add_child(char)
 			
@@ -186,6 +186,7 @@ func hour_elapsed():
 				#print("Spawn at scheduled location :",scene_wise_locations[curr_scene][spawn_point])
 				var char = npc_list[children].instantiate()
 				char.name = children
+				char.z_index = 2
 				char.y_sort_enabled = true
 				char.global_position = scene_wise_locations[curr_scene][spawn_point]
 				add_child(char)		

@@ -37115,6 +37115,13 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("26_1prxw")
 
+[node name="BGMusic" type="AudioStreamPlayer2D" parent="Farmer"]
+position = Vector2(-1.59998, 1.59999)
+scale = Vector2(0.4, 0.4)
+stream = ExtResource("7_yxwuj")
+volume_db = 16.838
+autoplay = true
+
 [node name="MarketEntrance" type="Area2D" parent="."]
 position = Vector2(434, -359)
 
@@ -37128,11 +37135,6 @@ position = Vector2(-163, 458)
 [node name="TradeBox" parent="." instance=ExtResource("32_qc5om")]
 position = Vector2(415, 821)
 scale = Vector2(0.1, 0.1)
-
-[node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_yxwuj")
-volume_db = 13.867
-autoplay = true
 
 [node name="LabelCanvas" parent="." instance=ExtResource("35_y56ua")]
 

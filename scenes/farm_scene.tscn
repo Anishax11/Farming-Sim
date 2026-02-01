@@ -14806,7 +14806,9 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("3_84hpi")
 
-[node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="BGMusic" type="AudioStreamPlayer2D" parent="Farmer"]
+position = Vector2(0.333336, -7.66667)
+scale = Vector2(0.333333, 0.333333)
 stream = ExtResource("5_c5tuh")
 volume_db = 13.867
 autoplay = true

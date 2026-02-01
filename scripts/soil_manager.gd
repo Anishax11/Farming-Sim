@@ -24,7 +24,7 @@ func _ready() -> void:
 				var soil=SOIL.instantiate()
 				soil.position=Vector2(x,y)
 				soil.name="soil"+str(id)
-				print(id)
+				#print(id)s
 				add_child(soil)
 				
 				if randi_range(0,90)==1:

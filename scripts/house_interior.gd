@@ -13,8 +13,9 @@ var sleep_confirmation
 
 func _ready() -> void:
 	print("house running")
-	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	
 	if !Tutorials.interactions["opening_scene_dialogue"]:
+		print("Opening scene dialogue")
 		Dialogic.VAR.set("opening_scene_dialogue",true)
 		Dialogic.start("GeneralMessages")
 		Tutorials.interactions["opening_scene_dialogue"] = true
@@ -45,7 +46,7 @@ func _ready() -> void:
 		Dialogic.start("SleepTut")
 		
 	farmer_added=true
-
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 
 func _on_bed_mouse_entered() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)

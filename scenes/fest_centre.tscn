@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cnbemvhatpdqi"]
+[gd_scene load_steps=23 format=4 uid="uid://cnbemvhatpdqi"]
 
 [ext_resource type="Script" path="res://scenes/fest_centre.gd" id="1_v25sl"]
 [ext_resource type="PackedScene" uid="uid://bxodm70n68s8k" path="res://scenes/sera.tscn" id="3_buhuh"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="7_sgrkb"]
 [ext_resource type="Texture2D" uid="uid://rqkqpvmfxnxp" path="res://16x16/Sprites/farmer_with_seeds - Copy.png" id="8_08u3p"]
 [ext_resource type="Texture2D" uid="uid://cv2oofdaq558x" path="res://16x16/Sprites/$calf_brown.png" id="9_xae0y"]
+[ext_resource type="AudioStream" uid="uid://c2mcmgemp6342" path="res://audio/Minuet (Slower).wav" id="11_h4ixp"]
 [ext_resource type="Texture2D" uid="uid://c4lpflxin5133" path="res://16x16/Sprites/FestCentre.png" id="11_lao4g"]
+[ext_resource type="AudioStream" uid="uid://be10k5f63etw8" path="res://audio/08 - Shop.wav" id="12_5f1sj"]
 [ext_resource type="PackedScene" uid="uid://cwwvxkgt01rx2" path="res://scenes/leader_board.tscn" id="12_l6g7p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mul6g"]
@@ -6600,6 +6602,7 @@ position = Vector2(29.375, 27.5)
 scale = Vector2(0.7, 0.7)
 
 [node name="Judge" parent="Characters" instance=ExtResource("3_n5xea")]
+visible = false
 position = Vector2(-77.5, -74.6875)
 scale = Vector2(0.4, 0.4)
 
@@ -6650,6 +6653,15 @@ tile_set = SubResource("TileSet_6o62r")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_cabx8")
+
+[node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-15, -397.5)
+stream = ExtResource("11_h4ixp")
+
+[node name="FestivalMusic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-15, -400)
+stream = ExtResource("12_5f1sj")
+volume_db = -34.387
 
 [connection signal="animation_finished" from="CountDown" to="." method="_on_count_down_animation_finished"]
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

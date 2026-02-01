@@ -311,5 +311,5 @@ func music_fade_in():
 	var audio_player =  get_tree().get_current_scene().find_child("BGMusic", true, false)
 	var player = get_tree().get_current_scene().find_child("Farmer", true, false)
 	var tween=create_tween()
-	tween.tween_property(audio_player,"volume_db",-20,7)
+	tween.tween_property(audio_player,"volume_db",16,7)
 	#await tween.finished

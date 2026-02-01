@@ -183,6 +183,7 @@ func _on_dialogue_ended():
 	
 func _on_dialogic_signal(arg : String):
 	if arg=="plant_book_given":
+		TaskManager.tasks["Task7"]["commpleted"] = true
 		get_tree().current_scene.find_child("PlantBookButton",true,false).visible = true
 
 func _on_interact_mouse_entered() -> void:

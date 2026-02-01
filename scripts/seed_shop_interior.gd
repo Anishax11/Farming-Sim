@@ -8,7 +8,6 @@ var camera
 
 
 func _ready() -> void:
-	audio_stream_player_2d.play()
 	Global.music_fade_in()
 	#Dialogic.end_timeline()
 	var player =get_node("Farmer")

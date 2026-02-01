@@ -23,6 +23,7 @@ func _ready() -> void:
 		print("SPawn sera")
 		
 		sera = SERA.instantiate()
+		sera.z_index = 2
 		sera.position = Vector2(250,250)
 		sera.delay_schedule = true
 		sera.get_node("NavigationAgent2D").target_position = Vector2(55,650)
@@ -43,7 +44,7 @@ func _ready() -> void:
 	cam.limit_right=775
 	cam.limit_top=0
 	cam.limit_bottom=500
-	var inventory = get_node("Farmer/ClickBlocker/Inventory")
+	var inventory = get_tree().current_scene.find_child("Inventory",true,false)
 	#inventory.add_to_inventory("pumpkin_seeds",Global.pumpkin_image)
 	#inventory.add_to_inventory("potato_seeds",Global.potato_image)
 	#inventory.add_to_inventory("special_seeds",Global.strawberry_image)
@@ -86,7 +87,7 @@ func _on_exit_body_entered(body: Node2D) -> void:
 		return
 	if Global.day_count >= 2 and !TaskManager.tasks["Task5"]["acquired"]:
 		Dialogic.VAR.set("sera_talk",true)
-		Dialogic.start("GeneralMssages")
+		Dialogic.start("GeneralMessages")
 		return
 	print("LEAVE  FARM")
 	var time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)

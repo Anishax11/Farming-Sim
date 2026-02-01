@@ -11,6 +11,9 @@ var camera
 @onready var characters: Node2D = $Characters
 @onready var judge: CharacterBody2D = $Characters/Judge
 @onready var leader_board: StaticBody2D = $LeaderBoard
+@onready var bg_music: AudioStreamPlayer2D = $BGMusic
+@onready var festival_music: AudioStreamPlayer2D = $FestivalMusic
+
 
 const MARKET_PLACE = preload("res://scenes/market_place.tscn")
 var npc_list ={
@@ -36,6 +39,7 @@ func _ready() -> void:
 	camera.limit_right = 650
 	
 	if Global.day_count == 7:
+		festival_music.play()
 		judge.visible = true
 		leader_board.visible = true
 		
@@ -52,6 +56,8 @@ func _ready() -> void:
 			char.global_position = Vector2(randi_range(-250,250),randi_range(-250,0))
 			characters.add_child(char)
 			#print("time_manager.current_time :",time_manager.current_time)
+	else:
+		bg_music.play()
 	
 		
 func _process(delta: float) -> void:

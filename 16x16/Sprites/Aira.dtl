@@ -8,7 +8,7 @@ if {aira_intro} == false:
 		aira: That depends on the question.
 		aira: And how patient you are.
 	- I’m just looking around
-		aira: That’s how most people begin.\
+		aira: That’s how most people begin.
 		aira: Few realize when they stop.
 	aira: I’m Aira. If you need a book, you can come find me in the library
 else:
@@ -74,7 +74,7 @@ else:
 				aira: Different races adapted differently after the soil shifts.
 				aira: Highland settlers developed thicker lung tissue.
 				aira: Coastal towns developed denser root crops.\
-				aira: Environment edits people too, just slower.
+				aira\: Environment edits people too, just slower.
 			elif {random} == 11:
 				aira: If you could grow only one plant forever — what would it be?
 				- Root crop
@@ -82,5 +82,5 @@ else:
 				- Fruit plant
 					aira: Visible results. Immediate reward. You like proof.
 				- Experimental hybrid
-					aira: Risk tolerant. Or bored. 
+					aira: Risk tolerant. Or bored.
 					aira: Both are productive states.
