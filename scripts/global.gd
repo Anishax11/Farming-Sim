@@ -100,7 +100,7 @@ func move_item(panel_number,item_name):
 	var texture_rect = previous_panel.get_node(NodePath(item_name))
 	
 	if texture_rect==null:
-		print("Texture_rect nulll")
+		print("Texture_rect nulll(Move item func )")
 		
 	var inv=get_tree().get_root().find_child("Inventory", true, false)
 	#print(inv.inventory_items)
@@ -148,37 +148,35 @@ func move_item(panel_number,item_name):
 			
 			#Highligh new panel if dropped item  is equipped
 			if Global.equipped_panel == previous_panel.name:  
-				print("equipped item moved,Highlight panel new panel")
+				#print("equipped item moved,Highlight panel new panel")
 				Global.equipped_panel = final_panel.name
 				final_panel.item_name = item_name
 				
-				print("Final panel equipped:",final_panel.name," item :",final_panel.item_name)
+				#print("Final panel equipped:",final_panel.name," item :",final_panel.item_name)
 				final_panel.highlight_panel()
 		
 			
 	else:
-		print("OCCUPIED")
+		#print("OCCUPIED")
 		if final_panel!=previous_panel:
-			print("New Panel occupied")
+			#print("New Panel occupied")
 			previous_panel.add_child(texture_rect)
 			texture_rect.global_position=previous_panel.global_position
 			Global.inventory_items[int((panel_number-1)/5)][int(panel_number-1)%5]=item_name
 		
 		else: # item is clicked, stays in same panel
-			if final_panel.item_name!=null:
+			if final_panel.item_name!=null and final_panel.clicked!=null:
 				equipped_panel = final_panel.name
-				print("Item clicked : ",final_panel.clicked)
+				#print("Item clicked : ",final_panel.clicked)
 				final_panel.clicked=!final_panel.clicked
 				if final_panel.clicked==false:
 					equipped_panel=null
-					print("equipped panel null")
+					#print("equipped panel set to null")
 				equipped_panel = final_panel.name
 				var last_five = final_panel.item_name.substr(item_name.length() - 5, 5)
 				if last_five=="seeds" and final_panel.get_child(0)!=null :
-					print("Item is seeds")
-				#print(get_child(0).name)
-				#print(get_child(0).visible)
-				#
+					print("Item is seed")
+				
 					if final_panel.water_equipped==true:
 						final_panel.water_equipped=false
 						

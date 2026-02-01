@@ -4,7 +4,6 @@ const MARKET_PLACE = preload("res://scenes/market_place.tscn")
 var slots_passed=0
 var slot_adjust=1
 var camera
-@onready var bg_music: AudioStreamPlayer2D = $BGMusic
 
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_timeline_ended)

@@ -1,5 +1,6 @@
 extends Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var current_page = 0
 var total_pages = 10
@@ -78,6 +79,7 @@ func flip_to_next():
 	
 
 func flip_back():
+	audio_stream_player_2d.play()
 	direction = "back"
 	if current_page == 1:
 		animated_sprite_2d.play("close_book")
@@ -103,6 +105,7 @@ func flip_back():
 	#print("Page no:",current_page)
 
 func _on_next_button_down() -> void:
+	audio_stream_player_2d.play()
 	next.visible=false
 	back.visible=false
 	if left!=null:

@@ -142,12 +142,13 @@ func _on_gui_input(event: InputEvent) -> void:
 			if child is TextureRect and item_name!=null:
 				#print("TEXTURE:",child.name)
 				print("Move item called :",self.name)
+				print("PAnel no., item name : ",panel_number," ",item_name)
 				Global.move_item(panel_number,item_name)#Passes panel no. to move_item func
 				if clicked==true:
 					
 					for sibling in siblings:
 						if sibling!=self and sibling.stylebox.texture==Global.HIGHLIGHTED_PANEL :
-							#print("sibling :",sibling.name)
+							print("sibling :",sibling.name)
 							sibling.clicked=false
 							sibling.stylebox.texture=Global.INVENTORY_SLOT
 							add_theme_stylebox_override("panel", sibling.stylebox)
@@ -229,9 +230,9 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 	var last_five = item_name.substr(item_name.length() - 5, 5)
 	var trade_panel = 	get_node("/root/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
 	if trade_panel==null:
-		trade_panel = 	get_node("/root/Game/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
+		print("Trade panel not found")
 	if trade_panel!=null:
-		#print("Trade panel not nulll")
+		print("Trade panel not nulll")
 		var texture_rect=TextureRect.new()
 		texture_rect.texture=node.texture
 				

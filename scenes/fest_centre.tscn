@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ctj85uvvtdrqg" path="res://scenes/judge.tscn" id="3_n5xea"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="5_xwo6g"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="6_rtiqd"]
-[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="7_sgrkb"]
+[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://scenes/label_canvas.tscn" id="7_sgrkb"]
 [ext_resource type="Texture2D" uid="uid://rqkqpvmfxnxp" path="res://16x16/Sprites/farmer_with_seeds - Copy.png" id="8_08u3p"]
 [ext_resource type="Texture2D" uid="uid://cv2oofdaq558x" path="res://16x16/Sprites/$calf_brown.png" id="9_xae0y"]
 [ext_resource type="AudioStream" uid="uid://c2mcmgemp6342" path="res://audio/Minuet (Slower).wav" id="11_h4ixp"]

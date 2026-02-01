@@ -163,12 +163,12 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					
 			if TaskManager.tasks["Task4"]["completed"] == true:
 					print("Cashier task complete, boosting plant quality")
-					quality+=50
+					quality+=100
 			if TaskManager.tasks["Task5"]["completed"] == true:
 					print("Sera task complete, boosting plant quality")
-					quality+=50
+					quality+=200
 			if string_part == "special":
-					quality+=100
+					quality+=300
 			score = quality * PlantTracker.plant_info[string_part]["difficulty"]
 			farmer.update_points(score)
 			print("Stage is 3")

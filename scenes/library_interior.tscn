@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cp2d2b7cg0rj3" path="res://16x16/Sprites/libassetpack-tiled.png" id="1_hclly"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="3_6neh7"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="4_mnb07"]
-[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="5_32wcw"]
+[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://scenes/label_canvas.tscn" id="5_32wcw"]
 [ext_resource type="PackedScene" uid="uid://dumpth2eqq4jq" path="res://scenes/npc_manager.tscn" id="5_s1cfm"]
 [ext_resource type="AudioStream" uid="uid://did7kw1kskrg1" path="res://audio/Tales From The Vienna Woods.wav" id="7_a66mf"]
 

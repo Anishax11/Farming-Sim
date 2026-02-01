@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var inventory
 func _ready() -> void:
+	Dialogic.VAR.set("talk_to_maya_task_given",TaskManager.tasks["Task9"]["acquired"])
 	Dialogic.VAR.set("talk_to_maya_task_done",TaskManager.tasks["Task9"]["completed"])
 	inventory = get_tree().current_scene.find_child("Inventory",true,false)
 	

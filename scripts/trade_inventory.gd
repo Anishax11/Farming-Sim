@@ -47,14 +47,17 @@ func _ready() -> void:
 func _on_dont_trade_button_down() -> void:
 	get_node("NinePatchRect2").visible=false
 
-
+var price
 func _on_trade_button_down() -> void:
+	
 	print("Panel path :",panel.get_path())
 	real_panel = real_inv.find_child(panel.name,true,false)
-	if Global.ItemPriceList.has(str(panel.item_name)):
+	if Global.ItemPriceList.has(str(panel.item_name)) and real_panel!=null and real_panel.item_name!=null and real_panel.score!=null:
 		if real_panel.score==0:
 			real_panel.score = 1
-		var price = Global.ItemPriceList[real_panel.item_name]*(real_panel.score)*0.1
+			price = Global.ItemPriceList[real_panel.item_name]*(real_panel.score)*0.1
+		else:
+			price = Global.ItemPriceList[real_panel.item_name]*(real_panel.score)*00.1
 		Global.trade_money+=price
 		real_panel.remove_item()
 		print("Panel item :",str(real_panel.item_name))

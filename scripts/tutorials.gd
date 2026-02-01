@@ -42,7 +42,7 @@ var interactions={
 }
 
 var PointTracker={
-	"You" : 2500,
+	"You" : 0,
 	"Aira" : 0,
 	"Noa" : 0,
 	"Eiden" : 0,
@@ -50,6 +50,6 @@ var PointTracker={
 	"Mia" : 0,
 	"Eli" : 0,
 	"Ellanora" : 0,
-	"Zoe" : 0
+	"Zen" : 0
 	
 }

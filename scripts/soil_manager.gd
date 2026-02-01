@@ -12,7 +12,7 @@ var skip_soil = 74 # some soil node are
 func _ready() -> void:
 	print("SOIL MANAGeR")
 	
-	var inventory=get_node("/root/farm_scene/Farmer/ClickBlocker/Inventory")
+	var inventory=get_tree().current_scene.find_child("Inventory",true,false)
 	for y in range(204,465,+15):
 		for x in range(122, 695, +15):
 				if (y<=219 and x>=665):

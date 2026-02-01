@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="7_4qsky"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="10_lo2ag"]
 [ext_resource type="PackedScene" uid="uid://sil86bh6faen" path="res://scenes/rhea.tscn" id="13_73sk8"]
-[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="14_1b55x"]
+[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://scenes/label_canvas.tscn" id="14_1b55x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tifw4"]
 size = Vector2(106.316, 68.2149)

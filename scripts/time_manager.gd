@@ -11,6 +11,8 @@ var date_label
 var game
 var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
 var npc_manager
+var freeze_set =false
+var fest_time = 10.0
 
 func _ready() -> void:
 	if Global.day_count == 1 and !TaskManager.tasks["Task3"]["completed"]  :
@@ -78,7 +80,8 @@ func _physics_process(delta: float) -> void:
 		Dialogic.start("NightWarning")
 		Tutorials.tutorials["night_warning"] = true
 		
-	if Global.day_count == 7 and current_time == 6:
+	if Global.day_count == 7 and current_time == 6 and !freeze_set:
 		Global.freeze_time = true
+		freeze_set = true
 
 	
