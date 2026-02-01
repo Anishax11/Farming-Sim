@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkw5m52w1e0na" path="res://scenes/control.tscn" id="5_2hdtg"]
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="6_hmdl0"]
 [ext_resource type="Script" path="res://scripts/dim_bg.gd" id="7_p5i3g"]
-[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="8_34oxk"]
+[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://scenes/label_canvas.tscn" id="8_34oxk"]
 [ext_resource type="Texture2D" uid="uid://drpsyjhfaqltm" path="res://16x16/Sprites/dial_clean.png" id="12_x3xt7"]
 [ext_resource type="Texture2D" uid="uid://dgtpua3bywv5s" path="res://16x16/Sprites/DialHolder.jpg" id="13_6wgcj"]
 [ext_resource type="PackedScene" uid="uid://ygemhstkx1nc" path="res://scenes/doubt.tscn" id="13_ao0b5"]
