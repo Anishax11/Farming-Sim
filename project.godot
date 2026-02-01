@@ -79,6 +79,7 @@ variables={
 "aria_task_done": false,
 "cashier_gives_better_seeds": false,
 "cashier_intro": false,
+"church_task_complete": false,
 "complete_registration": false,
 "day": 1,
 "eiden_intro": false,

@@ -11,6 +11,7 @@ elif {harvest_tut} == true:
 	Narrator: Right-click to harvest it.
 elif {first_harvest_done} == true:
 	Narrator: Well done. You can now sell your crops at the trade box near the market entrance
+	set {harvest_tut} = true
 if {water_tut} == true:
 	if {harvest_tut} == false:
 		Narrator: That’s enough for now

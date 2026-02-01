@@ -16,7 +16,6 @@ if {day} == 1:
 		Aria: Nope. I build things. I don’t grow them.
 		Player: You helped her grow plenty.
 		Aria: Yeah. Different kind of growing.
-		Aria: Anyway, you’ll need your name, greenhouse ID, and whatever optimism you’ve got left.
 		Player: Anything I should know?
 		Aria: Don’t argue with the officials.
 		Aria: Don’t promise yields you can’t hit.
@@ -55,7 +54,7 @@ elif {day} >= 2:
 			Aria: When it picks a value, the greenhouse obeys
 		- At random?
 			Aria: No pattern I can see. Every day it assigns a new target temperature.\
-			Aria: Sometimes survivable. Sometimes not.
+			Aria\: Sometimes survivable. Sometimes not.
 		- The buttons don’t work?
 			Aria: No, not anymore
 		Aria: The regulator was never meant to decide on its own. This was supposed to be a manual system.
@@ -171,8 +170,8 @@ elif {day} >= 2:
 		else:
 			Narrator: Aria is waiting for you
 			Aria: The regulator isn't  perfect but it’ll hold a temperature again.
-			Aria: You can stop watching it like it’s going to bite.\
-			Aria: It won’t spike anymore. Or freeze.
+			Aria: You can stop watching it like it’s going to bite.
+			Aria:  It won’t spike anymore. Or freeze.
 			Aria: It’ll obey the set value now, like it was meant to.
 			Aria: You kept the plants alive longer than most people manage. Even with the regulator breaking itself every few hours.
 			Aria: You knew how to compensate. How to predict the swings before they happened.

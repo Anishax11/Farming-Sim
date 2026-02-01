@@ -11,7 +11,7 @@ elif {seed_shop_closed} == true:
 elif {library_closed} == true:
 	The library is closed, I should come back between 8 am to 9 pm
 elif {go_to_fest} == true:
-	The fest is about to start, I get going
+	The fest is about to start, I should get going
 elif {fest_centre_closed} == true:
 	I don't need to go here right now
 elif {inv_full} == true:
@@ -25,6 +25,7 @@ elif {opening_scene_dialogue} == true:
 	Player: Registrations start early. Aria said she’d wait outside,  said the line gets messy if you’re late.
 	Player: If I want the greenhouse to last the week,\
 	I should probably start by leaving the house.
+	set {opening_scene_dialogue} = false
 elif {StormDialogue} == true:
 	There was a storm last night
 elif {last_day_dialogue} == true:
@@ -37,4 +38,6 @@ elif {enter_name} == true:
 	[text_input text="Please enter your name" var="Charname"]
 elif {leaderboard_broken} == true:
 	The leaderboard isn’t working.
+elif {church_task_complete} == true:
+	Player: The dials seem to be aligned now. I should tell Ilyra.
 [end_timeline]

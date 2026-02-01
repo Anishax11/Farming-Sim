@@ -12,7 +12,7 @@ else:
 			Narrator: Her posture is steady, deliberate. Like she’s measuring the room without seeing it.
 		elif {random} == 4:
 			Narrator: You get the feeling she noticed you immediately, even without looking. But she offers no words.
-	elif {day} == 4:
+	elif {day} >= 4:
 		Lyra: You’re loud in thought today. Something isn’t working the way it should.
 		- You can tell that?
 			Lyra: Yes.
@@ -134,7 +134,7 @@ else:
 		Lyra: I met her once.
 		Lyra: Passing through a town east of here one year ago.
 		Lyra: She was studying soil samples near the riverbanks.\
-		Lyra: Didn’t like interruptions
+		Lyra\: Didn’t like interruptions
 		Lyra: Not too fond of hunters either.
 		Lyra: She said she wouldn’t be able to return home anytime soon.
 		Lyra: hen she said this, exactly this —

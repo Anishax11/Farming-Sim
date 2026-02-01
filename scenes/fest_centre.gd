@@ -42,7 +42,7 @@ func _ready() -> void:
 		festival_music.play()
 		judge.visible = true
 		leader_board.visible = true
-		
+		Global.freeze_time = false
 		leader_board.get_node("AnimatedSprite2D").play("FestLeaderBoard")
 		Dialogic.signal_event.connect(_on_dialogic_signal)
 		Dialogic.VAR.set("last_scene_start",true)

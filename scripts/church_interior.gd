@@ -4,6 +4,9 @@ extends Node2D
 @onready var control_dial_display: Control = $LabelCanvas/DialBG/ControlDialDisplay
 @onready var doubt_dial_display: Control = $LabelCanvas/DialBG/DoubtDialDisplay
 @onready var dial_turn: AudioStreamPlayer2D = $DialTurn
+@onready var water_flow: AudioStreamPlayer2D = $WaterFlow
+@onready var timer: Timer = $Timer
+
 
 var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
 var control = 0
@@ -12,7 +15,9 @@ var compliance = 0
 var doubt = 0
 var time_manager
 func _ready() -> void:
+	#timer.timeout.connect("")
 	time_manager = get_tree().current_scene.find_child("TimeManager",true,false)
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	var player = get_node("Farmer")
 	var cam=player.get_node("Camera2D")
 	player.animated_sprite_2d.play("backward")
@@ -87,9 +92,13 @@ func _on_dout_dial_display_gui_input(event: InputEvent) -> void:
 func check_alignment():
 	
 	if control > compliance and trust>doubt and doubt > compliance and trust > control:
+		water_flow.play()
+		water_flow_fade_in()
 		print("Task COmplete")
 		TaskManager.tasks["Task6"]["completed"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task6")
+		Dialogic.VAR.set("church_task_complete",false)
+		Dialogic.start("GeneralMessages")
 	#print("check control Rotation : ",control_dial_display.rotation )
 
 func _on_exit_body_entered(body: Node2D) -> void:
@@ -101,3 +110,22 @@ func _on_exit_body_entered(body: Node2D) -> void:
 		Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
 		Global.music_fade_out()
 		get_node("Farmer/CanvasLayer2/DimBG").dim_bg(FRONTYARD_SCENE)
+		
+func _on_timeline_ended():
+	Dialogic.VAR.set("church_task_complete",false)
+
+
+func _on_timer_timeout() -> void:
+	water_flow_fade_out()
+	
+func water_flow_fade_out():
+	var tween=create_tween()
+	tween.tween_property(water_flow,"volume_db",-14,2)
+	await tween.finished
+
+var music_tween_finished=false	
+
+func water_flow_fade_in():	
+
+	var tween=create_tween()
+	tween.tween_property(water_flow,"volume_db",0,3)

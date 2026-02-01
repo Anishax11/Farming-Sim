@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://6rofkaegdwbj"]
+[gd_scene load_steps=23 format=4 uid="uid://6rofkaegdwbj"]
 
 [ext_resource type="Script" path="res://scripts/church_interior.gd" id="1_slh8s"]
 [ext_resource type="Texture2D" uid="uid://cd75ec0xqkp3v" path="res://16x16/Sprites/churchInterior.png" id="3_4pgby"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ygemhstkx1nc" path="res://scenes/doubt.tscn" id="13_ao0b5"]
 [ext_resource type="PackedScene" uid="uid://jsk5ea18wsft" path="res://scenes/compliance.tscn" id="14_5cese"]
 [ext_resource type="AudioStream" uid="uid://d1e1klwob8rf4" path="res://audio/Evening Harmony.wav" id="14_sg5b3"]
+[ext_resource type="AudioStream" uid="uid://cdl7tpdf28g04" path="res://audio/254878__blukotek__water-brook.wav" id="14_shnr3"]
 [ext_resource type="PackedScene" uid="uid://m6360tr1ask" path="res://scenes/trust.tscn" id="15_to1xy"]
 [ext_resource type="AudioStream" uid="uid://dsbpbm4my87o7" path="res://audio/759936__selectdetail57__dialed.wav" id="15_wudaf"]
 [ext_resource type="PackedScene" uid="uid://c6g37gom8v7r" path="res://scenes/blind_huntress.tscn" id="15_wxrtn"]
@@ -13402,6 +13403,14 @@ shape = SubResource("RectangleShape2D_6xd5h")
 z_index = 2
 position = Vector2(-74, -103)
 
+[node name="WaterFlow" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_shnr3")
+volume_db = -7.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_sg5b3")
 volume_db = 20.924
@@ -13417,3 +13426,4 @@ pitch_scale = 0.85
 [connection signal="gui_input" from="LabelCanvas/DialBG/ComplianceDialDisplay" to="." method="_on_compliance_dial_display_gui_input"]
 [connection signal="gui_input" from="LabelCanvas/DialBG/DoubtDialDisplay" to="." method="_on_dout_dial_display_gui_input"]
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

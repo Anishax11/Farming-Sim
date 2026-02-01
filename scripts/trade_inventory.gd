@@ -1,10 +1,12 @@
 extends Node2D
 
+var real_inv
 var panel #reference to trade panel
-
+var real_panel  #reference to real inv panel
 func _ready() -> void:
 	var slots_passed=0
 	var slot_adjust=1
+	real_inv = get_tree().current_scene.find_child("Inventory",true,false)
 	#for i in range(3):
 		#Global.inventory_items.append([])
 		#for j in range(5):
@@ -48,14 +50,14 @@ func _on_dont_trade_button_down() -> void:
 
 func _on_trade_button_down() -> void:
 	print("Panel path :",panel.get_path())
-	
+	real_panel = real_inv.find_child(panel.name,true,false)
 	if Global.ItemPriceList.has(str(panel.item_name)):
-		if panel.score==0:
-			panel.score = 1
-		var price = Global.ItemPriceList[panel.item_name]*(panel.score)*0.1
+		if real_panel.score==0:
+			real_panel.score = 1
+		var price = Global.ItemPriceList[real_panel.item_name]*(real_panel.score)*0.1
 		Global.trade_money+=price
-		panel.remove_item()
-		print("Panel item :",str(panel.item_name))
+		real_panel.remove_item()
+		print("Panel item :",str(real_panel.item_name))
 		
 	get_node("NinePatchRect2").visible=false
 

@@ -18,9 +18,9 @@
 size = Vector2(190, 81.6667)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uiqe6"]
-vertices = PackedVector2Array(90.0625, 633, 57.2969, 675.844, 33.9219, 634.102, 181.063, 237.031, -84.0234, 632.031, -161, 275.633, -161, 242.828, -194.969, 588.203, -194.008, 295.641, 259.938, 577.453, 195.289, 633, 256.078, 268.656)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 3, 2), PackedInt32Array(4, 7, 8, 5), PackedInt32Array(9, 10, 0, 3, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-171, 233, -171, 270, -204, 290, -205, 595, -86, 642, 28, 644, 56, 694, 95, 643, 199, 643, 270, 582, 266, 262, 183, 227)])
+vertices = PackedVector2Array(62.3672, 569, -176.039, 569, -176.961, 314.156, 407.688, 323.828, 400.281, 567.273, 161.82, 574.258, 66.3672, 630.078, 156.844, 630.906)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 4, 5), PackedInt32Array(6, 0, 5, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-187, 304, -186, 579, 53, 579, 57, 640, 166, 641, 171, 584, 410, 577, 418, 314)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qp4eq"]
 texture = ExtResource("10_7tjkx")
@@ -14823,7 +14823,7 @@ z_index = 1
 position = Vector2(-35, -10)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
+position = Vector2(263, -115)
 navigation_polygon = SubResource("NavigationPolygon_uiqe6")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
