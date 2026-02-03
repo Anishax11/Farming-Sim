@@ -22,7 +22,7 @@ func _ready() -> void:
 	var inventory = get_tree().current_scene.find_child("Inventory",true,false)
 	var leaderboard =  get_tree().current_scene.find_child("LeaderBoard",true,false)
 	leaderboard.allot_points()
-	inventory.add_to_inventory("potato",Global.pumpkin_image)
+	#inventory.add_to_inventory("potato",Global.pumpkin_image)
 	#inventory.add_to_inventory("potato_seeds",Global.potato_image)
 	
 	time_manager = get_tree().get_current_scene().find_child("TimeManager",true,false)

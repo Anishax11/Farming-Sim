@@ -271,12 +271,11 @@ func _on_panel_child_exiting_tree(node : Node) :
 	stylebox.expand_margin_bottom = 0
 	#var trade_panel = 	get_node("/root/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
 	var trade_panel = get_tree().current_scene.get_node("TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
-	if trade_panel==null:
-		trade_panel = 	get_node("/root/Game/frontyard_scene/TradeBox/TradeInventory/NinePatchRect/GridContainer/"+self.name)
+	
 	
 	if trade_panel!=null:
 		trade_panel.remove_item(node.name)
-		#trade_panel.item_name=null
+		trade_panel.item_name=null
 	else:
 		print("Trade panel null")
 

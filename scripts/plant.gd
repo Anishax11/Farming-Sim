@@ -9,6 +9,9 @@ var farm
 var farmer
 var score # score = quality x difficulty
 var inv
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+
 # plant quality will increment on last day but not after that even if its not harvested
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
@@ -154,13 +157,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				Dialogic.start("GeneralMessages")
 				return
 				
+				
+			audio_stream_player_2d.play()
 			
-				
-				
-			print("PlNT harvested")
-			
-				
-					
 			if TaskManager.tasks["Task4"]["completed"] == true:
 					print("Cashier task complete, boosting plant quality")
 					quality+=100

@@ -332,6 +332,7 @@ animations = [{
 
 [node name="Noa" type="CharacterBody2D"]
 z_index = 2
+y_sort_enabled = true
 script = ExtResource("1_ixfpn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

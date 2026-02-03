@@ -16,4 +16,4 @@ if {water_tut} == true:
 	if {harvest_tut} == false:
 		Narrator: That’s enough for now
 		Narrator: With a little water each day, the plant will continue to grow.
-		Narrator: You can now continue to keep growing or head back home to pass the day
+		Narrator: You can now continue to keep growing or head back home to pass the day.

@@ -8,8 +8,8 @@ if {cashier_intro} == false:
 	Rhea: Yeah, I heard. Sera will not shut up about you.
 	Rhea: That sounds about right.
 	Rhea: I’m Rhea. Strawbeery seeds, Pumpkin seeds, questionable advice. If it grows, or might grow, I sell it.
-	Rhea: So! First time buying seeds here?
-	Player: No.
+	Rhea: So! First time participating in this festival?
+	Player: Yes.
 	Rhea: Great! Then I should probably explain how these little nightmares behave.
 	Rhea: See, not all plants freak out the same way when the temperature goes weird.
 	Rhea: Potatoes are easy, they don’t care. You could sneeze on the thermostat and they’d still grow.

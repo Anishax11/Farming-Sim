@@ -6,18 +6,25 @@ elif {complete_registration} == true:
 	I should complete registration
 elif {seeds_bought} == true:
 	I should buy seeds first
+	set {seeds_bought} = false
 elif {seed_shop_closed} == true:
 	The shop is closed, I should come back between 8 am to 9 pm
+	set {seed_shop_closed} = false
 elif {library_closed} == true:
 	The library is closed, I should come back between 8 am to 9 pm
+	set 
 elif {go_to_fest} == true:
 	The fest is about to start, I should get going
+	set {go_to_fest} = false
 elif {fest_centre_closed} == true:
 	I don't need to go here right now
+	set {fest_centre_closed} = false
 elif {inv_full} == true:
 	Inventory is full!
+	set {inv_full} = false
 elif {regulator_broken} == true:
 	The temperature regulator seems to be broken
+	set {regulator_broken} = false
 elif {opening_scene_dialogue} == true:
 	The house still smells faintly of oil and damp wood.
 	Player: I could stand here longer.
@@ -27,17 +34,28 @@ elif {opening_scene_dialogue} == true:
 	I should probably start by leaving the house.
 	set {opening_scene_dialogue} = false
 elif {StormDialogue} == true:
-	There was a storm last night
+	Player: The storm must’ve passed while I was asleep. Everything feels different this morning… better take a look around.
+	set {StormDialogue} = false
 elif {last_day_dialogue} == true:
-	It's the day of the festival
+	Player: It's the day of the festival.
+	set {last_day_dialogue} = false
 elif {sera_talk} == true:
-	Player: I should talk to Sera
+	Player: I should talk to Sera.
+	set {sera_talk} = false
 elif {task_tut} == true:
-	You have received your first task. Click T to open and close the task manager
+	You have received your first task. Click T to open and close the task manager.
+	set {task_tut} = false
 elif {enter_name} == true:
 	[text_input text="Please enter your name" var="Charname"]
+	set {enter_name} = false
 elif {leaderboard_broken} == true:
 	The leaderboard isn’t working.
+	set {leaderboard_broken} = false
 elif {church_task_complete} == true:
 	Player: The dials seem to be aligned now. I should tell Ilyra.
+	set {measured_faith_complete} = true
+	set {church_task_complete} = false
+elif {sleep_tut} == true:
+	Left-click the bed when you’re ready to end the day.
+	set {sleep_tut} = false
 [end_timeline]

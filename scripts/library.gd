@@ -22,7 +22,7 @@ func _on_door_body_entered(body: Node2D) -> void:
 		Dialogic.start("GeneralMessages")
 		return
 	
-	if (Global.day_count == 7 and time_manager.current_time>=6)	:
+	if (Global.day_count == 7 and time_manager.current_time>=10)	:
 		print("Head to fest centre")
 		Dialogic.VAR.set("go_to_fest",true)
 		Dialogic.start("GeneralMessages")

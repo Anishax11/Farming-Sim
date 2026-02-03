@@ -332,6 +332,7 @@ animations = [{
 
 [node name="Maya" type="CharacterBody2D"]
 z_index = 2
+y_sort_enabled = true
 script = ExtResource("1_bqc2q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

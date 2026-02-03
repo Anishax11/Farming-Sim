@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://b8qdmnhp66qlj" path="res://scenes/aira_home.tscn" id="32_xabx6"]
 [ext_resource type="PackedScene" uid="uid://bs8muem2spgnl" path="res://scenes/greenhouse.tscn" id="33_b3ttf"]
 [ext_resource type="Texture2D" uid="uid://dkwkcqyo8povv" path="res://16x16/Sprites/Gemini_Generated_Image_2r1n5e2r1n5e2r1n.png" id="33_pglsu"]
-[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://scenes/label_canvas.tscn" id="35_y56ua"]
+[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="35_y56ua"]
 [ext_resource type="PackedScene" uid="uid://cwwvxkgt01rx2" path="res://scenes/leader_board.tscn" id="41_gqh32"]
 [ext_resource type="PackedScene" uid="uid://dumpth2eqq4jq" path="res://scenes/npc_manager.tscn" id="41_nt07v"]
 
@@ -37092,7 +37092,7 @@ script = ExtResource("1_3rtkc")
 
 [node name="Farmer" parent="." instance=ExtResource("12_7uvrb")]
 y_sort_enabled = true
-position = Vector2(-968, 618)
+position = Vector2(213, 760)
 scale = Vector2(2.5, 2.5)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Farmer"]

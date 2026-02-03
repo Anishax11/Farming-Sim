@@ -1,0 +1,192 @@
+[gd_scene load_steps=12 format=3 uid="uid://bqqqqqciwa4m4"]
+
+[ext_resource type="Script" path="res://scripts/label_canvas.gd" id="1_l4epm"]
+[ext_resource type="Texture2D" uid="uid://dgkbbkp5yf8t6" path="res://16x16/Sprites/LabelDisplay.png" id="2_jle8y"]
+[ext_resource type="PackedScene" uid="uid://cxgldqae4p20u" path="res://scenes/date_label.tscn" id="3_e7jr4"]
+[ext_resource type="PackedScene" uid="uid://bpe35aaomljef" path="res://scenes/time_manager.tscn" id="4_rejxd"]
+[ext_resource type="PackedScene" uid="uid://475fb1fcmkgf" path="res://scenes/coin_label.tscn" id="5_78brk"]
+[ext_resource type="PackedScene" uid="uid://but8qwaakhn1n" path="res://scenes/pause_menu.tscn" id="6_pnbsm"]
+[ext_resource type="Texture2D" uid="uid://d4n3ujfsd65w4" path="res://16x16/Sprites/field_notes_book_closed.png" id="7_2wp3t"]
+[ext_resource type="PackedScene" uid="uid://bccv3j8afdqpw" path="res://scenes/plant_book.tscn" id="8_14roj"]
+[ext_resource type="PackedScene" uid="uid://bqsiasjsqopbn" path="res://scenes/inventory.tscn" id="9_821er"]
+[ext_resource type="PackedScene" uid="uid://dtsl7koixwult" path="res://scenes/task_manager.tscn" id="10_4hxh0"]
+[ext_resource type="PackedScene" uid="uid://daxuwb0xs68u6" path="res://scenes/leader_board_display.tscn" id="11_a0wr0"]
+
+[node name="LabelCanvas" type="CanvasLayer"]
+script = ExtResource("1_l4epm")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -480.0
+offset_top = -150.0
+offset_right = 160.0
+offset_bottom = 350.0
+grow_horizontal = 0
+texture = ExtResource("2_jle8y")
+expand_mode = 1
+
+[node name="DateLabel" parent="Control/TextureRect" instance=ExtResource("3_e7jr4")]
+z_index = 5
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -443.0
+offset_top = 178.0
+offset_right = -400.0
+offset_bottom = 201.0
+grow_horizontal = 0
+scale = Vector2(4, 2)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="TimeManager" parent="Control/TextureRect" instance=ExtResource("4_rejxd")]
+z_index = 5
+position = Vector2(197, 223)
+
+[node name="CoinLabel" parent="Control/TextureRect" instance=ExtResource("5_78brk")]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 272.0
+offset_right = 290.0
+offset_bottom = 295.0
+scale = Vector2(2.5, 2.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Coins :"
+
+[node name="PauseControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PauseMenu" parent="PauseControl" instance=ExtResource("6_pnbsm")]
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -259.0
+offset_right = 321.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+
+[node name="PointsLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(3, 3)
+text = "Points : "
+
+[node name="PlantBookControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1737.0
+offset_bottom = 785.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+mouse_filter = 2
+
+[node name="PlantBookButton" type="TextureButton" parent="PlantBookControl"]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -43.3333
+offset_top = -353.333
+offset_right = 980.667
+offset_bottom = 494.667
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("7_2wp3t")
+
+[node name="PlantBook" parent="PlantBookControl" instance=ExtResource("8_14roj")]
+visible = false
+position = Vector2(1818.33, 763.333)
+scale = Vector2(8, 8)
+
+[node name="ClickBlocker" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" parent="ClickBlocker" instance=ExtResource("9_821er")]
+visible = false
+z_index = 6
+position = Vector2(1023, 491)
+scale = Vector2(3, 3)
+
+[node name="TaskManager" parent="ClickBlocker" instance=ExtResource("10_4hxh0")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeaderBoardDisplay" parent="." instance=ExtResource("11_a0wr0")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -205.0
+offset_right = 13.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_pnbsm")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -84.0
+offset_right = 426.0
+offset_bottom = 431.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_down" from="PlantBookControl/PlantBookButton" to="." method="_on_plant_book_button_button_down"]

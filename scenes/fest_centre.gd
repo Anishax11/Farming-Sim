@@ -43,6 +43,7 @@ func _ready() -> void:
 		judge.visible = true
 		leader_board.visible = true
 		Global.freeze_time = false
+		print("STrat time flow")
 		leader_board.get_node("AnimatedSprite2D").play("FestLeaderBoard")
 		Dialogic.signal_event.connect(_on_dialogic_signal)
 		Dialogic.VAR.set("last_scene_start",true)

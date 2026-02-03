@@ -12,7 +12,8 @@ var MAIN_MENU = load("res://scenes/main_menu.tscn")
 		#print("Resume COmplete")
 		
 func _on_resume_button_down() -> void:
-	
+	get_tree().current_scene.find_child("ClickBlocker",true,false).visible = get_tree().current_scene.find_child("Inventory",true,false).visible or get_tree().current_scene.find_child("TaskManager",true,false).visible 
+
 	print("ReSume")
 	visible=false
 	get_tree().paused=false

@@ -331,6 +331,7 @@ animations = [{
 }]
 
 [node name="Sera" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_ig4th")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

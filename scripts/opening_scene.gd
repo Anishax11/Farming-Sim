@@ -161,11 +161,23 @@ func _on_timer2_timeout():
 		return
 	print("Timer 2 timeout")
 	#label.visible_characters = 0
-	Dim_bg.dim_bg(HOUSE_INTERIOR)
-	Global.music_fade_out()
+	
+	var tween=create_tween()
+	tween.tween_property(opening_scene_audio,"volume_db",-40,7.0)
+	
+	var tween2 = create_tween()
+	tween2.tween_property(Dim_bg, "color", Color(0, 0, 0, 1), 7.0)
+
+	
+
+	
 	
 func _on_timer3_timeout():
 	print("Timer 3 timeout")
 	#label.visible_characters = 0
-	Dim_bg.dim_bg(MAIN_MENU)
-	Global.music_fade_out()
+
+	var tween=create_tween()
+	tween.tween_property(opening_scene_audio,"volume_db",-40,7.0)
+	
+	var tween2 = create_tween()
+	tween2.tween_property(Dim_bg, "color", Color(0, 0, 0, 1), 7.0)

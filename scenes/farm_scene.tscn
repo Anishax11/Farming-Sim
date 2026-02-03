@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c2mcmgemp6342" path="res://audio/Minuet (Slower).wav" id="5_c5tuh"]
 [ext_resource type="PackedScene" uid="uid://s84nx63byva3" path="res://scenes/soil_manager.tscn" id="5_p20ei"]
 [ext_resource type="PackedScene" uid="uid://potiq7c4dk36" path="res://scenes/watercan.tscn" id="6_osxcg"]
-[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://scenes/label_canvas.tscn" id="8_gkvs8"]
+[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="8_gkvs8"]
 [ext_resource type="Texture2D" uid="uid://ciese8bleml21" path="res://16x16/Sprites/greenshouse_interior.png" id="9_i1pkv"]
 [ext_resource type="PackedScene" uid="uid://c3ta5gt8628rt" path="res://scenes/temperature_regulator.tscn" id="9_jxt41"]
 [ext_resource type="Texture2D" uid="uid://us5khbnoryw1" path="res://16x16/Sprites/soil_partition.png" id="10_7tjkx"]
@@ -14834,10 +14834,11 @@ tile_set = SubResource("TileSet_ahtf8")
 
 [node name="tilling_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_jkuw3")
-volume_db = -9.289
+volume_db = -0.375
 pitch_scale = 0.95
 
 [node name="plant_seeds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_nbans")
+volume_db = 8.914
 
 [connection signal="body_entered" from="EXIT" to="." method="_on_exit_body_entered"]

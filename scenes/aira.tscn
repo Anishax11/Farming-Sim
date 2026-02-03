@@ -303,6 +303,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hllum"]
 
 [node name="Aira" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_npqhb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

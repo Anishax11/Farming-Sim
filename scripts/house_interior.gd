@@ -20,6 +20,11 @@ func _ready() -> void:
 		Dialogic.start("GeneralMessages")
 		Tutorials.interactions["opening_scene_dialogue"] = true
 		
+	elif !Tutorials.tutorials["sleep_tut"]:
+		Tutorials.tutorials["sleep_tut"] = true
+		Dialogic.VAR.set("sleep_tut",true)
+		Dialogic.start("GeneralMessages")
+		
 	elif Global.day_count == 7 and !Tutorials.interactions["last_day_dialogue"]:
 		Dialogic.VAR.set("last_day_dialogue",true)
 		Dialogic.start("GeneralMessages")
@@ -81,3 +86,4 @@ func _on_timeline_ended():
 	Dialogic.VAR.set("opening_scene_dialogue",false)
 	Dialogic.VAR.set("StormDialogue",false)
 	Dialogic.VAR.set("last_day_dialogue",false)
+	Dialogic.VAR.set("sleep_tut",false)

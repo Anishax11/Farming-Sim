@@ -69,12 +69,12 @@ func _on_panel_1_child_entered_tree(node: Node) -> void:
 	
 		
 		
-	if node is TextureRect and node.name=="watercan":
-		
-		node.position.y+=2
-		node.position.x+=1
-		node.scale.x=1
-		node.scale.y=1.5
+	#if node is TextureRect and node.name=="watercan":
+		#
+		#node.position.y+=2
+		#node.position.x+=1
+		#node.scale.x=1
+		#node.scale.y=1.5
 		#node.position=Vector2(position.x+2,position.y+2)
 		
 		

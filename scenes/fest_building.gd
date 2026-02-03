@@ -9,7 +9,7 @@ func _ready() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is StaticBody2D or body.name != "Farmer":
 			return
-	if TaskManager.tasks["Task3"]["completed"] and !Global.day_count==7 and !time_manager.current_time == 6:
+	if TaskManager.tasks["Task3"]["completed"] and !Global.day_count==7 and !time_manager.current_time == 10:
 		Dialogic.timeline_ended.connect(_on_dialogic_ended)
 		Dialogic.VAR.set("fest_centre_closed",true)
 		Dialogic.start("GeneralMessages")

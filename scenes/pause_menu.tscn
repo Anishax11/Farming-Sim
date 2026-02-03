@@ -9,7 +9,7 @@ subpixel_positioning = 0
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
-z_index = 6
+z_index = 7
 layout_mode = 3
 anchors_preset = 0
 offset_left = -4.0

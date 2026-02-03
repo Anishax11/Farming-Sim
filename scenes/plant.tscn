@@ -11,15 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://dsqr75jeojn2f" path="res://16x16/Sprites/StrawberryStage2.png" id="6_iibpp"]
 [ext_resource type="Texture2D" uid="uid://baa1yywkg5bqb" path="res://16x16/Sprites/pumpkin_stage_2.png" id="7_ic5p7"]
 [ext_resource type="Texture2D" uid="uid://b1kepcug51obc" path="res://16x16/Sprites/StrawberryStage3.png" id="7_wxgvi"]
-[ext_resource type="Texture2D" uid="uid://daeamlnxvcks" path="res://16x16/Sprites/Potato.png" id="9_xosme"]
+[ext_resource type="Texture2D" uid="uid://du4ore3cll08g" path="res://16x16/Sprites/mutated_plant.png" id="9_2kek1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dyuw"]
 size = Vector2(54, 30)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ulggq"]
 shader = ExtResource("2_a3q8v")
-shader_parameter/glow_strength = 1.5
-shader_parameter/glow_color = Color(1, 1, 0.5, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_irfcy"]
 atlas = ExtResource("2_nntyp")
@@ -45,9 +43,9 @@ region = Rect2(0, 0, 88, 88)
 atlas = ExtResource("7_ic5p7")
 region = Rect2(0, 0, 115, 88)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lox82"]
-atlas = ExtResource("9_xosme")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4v6k"]
+atlas = ExtResource("9_2kek1")
+region = Rect2(0, 0, 200, 108)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n74op"]
 atlas = ExtResource("5_qfcgy")
@@ -113,7 +111,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lox82")
+"texture": SubResource("AtlasTexture_x4v6k")
 }],
 "loop": true,
 "name": &"special_stage_1",
@@ -158,6 +156,9 @@ position = Vector2(6, -2)
 scale = Vector2(0.812, 0.8)
 sprite_frames = SubResource("SpriteFrames_dxjdq")
 animation = &"special_stage_1"
+frame_progress = 0.58731
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

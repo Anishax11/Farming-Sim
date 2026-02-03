@@ -26,7 +26,7 @@ func _ready() -> void:
 		sera.z_index = 2
 		sera.position = Vector2(250,250)
 		sera.delay_schedule = true
-		sera.get_node("NavigationAgent2D").target_position = Vector2(55,650)
+		sera.get_node("NavigationAgent2D").target_position = Vector2(375,500)
 		sera.free_later = true
 		add_child(sera)
 		#Dialogic.VAR.set("registration_done",true)
@@ -45,7 +45,7 @@ func _ready() -> void:
 	cam.limit_top=0
 	cam.limit_bottom=500
 	var inventory = get_tree().current_scene.find_child("Inventory",true,false)
-	inventory.add_to_inventory("potato",Global.pumpkin_image)
+	#inventory.add_to_inventory("potato",Global.pumpkin_image)
 	#inventory.add_to_inventory("potato_seeds",Global.potato_image)
 	#inventory.add_to_inventory("special_seeds",Global.strawberry_image)
 	#Global.get_empty_panel().seed_count=6
@@ -71,7 +71,7 @@ func _ready() -> void:
 		aria = ARIA.instantiate()
 		aria.position = Vector2(250,250)
 		aria.delay_schedule = true
-		aria.get_node("NavigationAgent2D").target_position = Vector2(55,650)
+		aria.get_node("NavigationAgent2D").target_position = Vector2(375,500)
 		aria.free_later = true
 		aria.prev_state = aria.State.MOVE_TO_TARGET
 		add_child(aria)
@@ -98,9 +98,12 @@ func _on_exit_body_entered(body: Node2D) -> void:
 	Global.music_fade_out()
 	get_node("Farmer/CanvasLayer2/DimBG").dim_bg(FRONTYARD_SCENE)
 
+var done =false
 func _timeline_ended():
+	
 	Dialogic.VAR.set("sera_talk",false)
-	if aria!=null:
+	if aria!=null and !done:
+		done=true
 		Dialogic.start("TempRegulatorTutorial")	
 		aria.move_to()
 	if sera!=null:

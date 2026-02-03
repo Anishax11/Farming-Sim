@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bulruc5in76aq" path="res://scenes/farmer.tscn" id="6_p8x7y"]
 [ext_resource type="Texture2D" uid="uid://cbjpjcdm0m8h2" path="res://16x16/Sprites/SleepConfirmation.png" id="7_qx5y7"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="9_o6apw"]
-[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://scenes/label_canvas.tscn" id="12_lfyp4"]
+[ext_resource type="PackedScene" uid="uid://bqqqqqciwa4m4" path="res://label_canvas.tscn" id="12_lfyp4"]
 [ext_resource type="Texture2D" uid="uid://bpoqlswt8f5g0" path="res://16x16/Sprites/House_Interior.png" id="12_opef0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ij2w6"]
@@ -7041,7 +7041,6 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("4_uq3q3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 visible = false

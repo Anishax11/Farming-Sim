@@ -28,7 +28,13 @@ func _on_body_entered(body: Node2D) -> void:
 					Dialogic.VAR.set("complete_registration",true)
 					Dialogic.start("GeneralMessages")
 					return
-			
+					
+		if (Global.day_count == 7 and time_manager.current_time>=10)	:
+				print("Head to fest centre")
+				Dialogic.VAR.set("go_to_fest",true)
+				Dialogic.start("GeneralMessages")
+				return		
+				
 		Global.player_pos = Vector2(475, 600)
 		Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
 		Global.music_fade_out()
@@ -37,3 +43,4 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_dialogic_ended():
 	Dialogic.VAR.set("aria_talk",false)
 	Dialogic.VAR.set("complete_registration",false)
+	Dialogic.VAR.set("go_to_fest",false)

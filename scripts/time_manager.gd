@@ -80,8 +80,9 @@ func _physics_process(delta: float) -> void:
 		Dialogic.start("NightWarning")
 		Tutorials.tutorials["night_warning"] = true
 		
-	if Global.day_count == 7 and current_time == 6 and !freeze_set:
+	if Global.day_count == 7 and current_time == 10 and !freeze_set:
 		Global.freeze_time = true
+		print("Stop time flow")
 		freeze_set = true
 
 	

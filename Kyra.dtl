@@ -58,7 +58,7 @@ if {talk_to_bullies_given} == true:
 							Kyra: I don't remember when I stopped telling her things. It just... happened.
 							[signal arg="increment"]
 						- "No. I just thought someone should tell you before it got worse.
-							Kyra: <Empty Text Event>
+							Kyra: Thanks..I mean it. I'm too close to notice.
 							[signal arg="increment"]
 						- Would it matter if she had?
 							Kyra: What? Of course it would. What kind of—

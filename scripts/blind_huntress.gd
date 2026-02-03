@@ -37,5 +37,6 @@ func _on_dialogic_signal(argument : String):
 	if argument == "measured_faith_complete":
 		inventory.add_to_inventory("special_seeds",Global.strawberry_image)
 		var empty_panel = Global.get_empty_panel()
-		PlantTracker.panel_info[empty_panel.name]["seed_count"]
+		empty_panel.seed_count = 6
+		PlantTracker.panel_info[empty_panel.name]["seed_count"] = 6
 		

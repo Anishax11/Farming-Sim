@@ -54,7 +54,7 @@ elif {day} >= 2:
 			Aria: When it picks a value, the greenhouse obeys
 		- At random?
 			Aria: No pattern I can see. Every day it assigns a new target temperature.\
-			Aria\: Sometimes survivable. Sometimes not.
+			Aria: Sometimes survivable. Sometimes not.
 		- The buttons don’t work?
 			Aria: No, not anymore
 		Aria: The regulator was never meant to decide on its own. This was supposed to be a manual system.
@@ -67,7 +67,7 @@ elif {day} >= 2:
 		- What’s it doing to the plants?
 			Aria: Stress. Cell damage. Growth confusion.
 			Aria: Some crops can adapt. Some can’t.
-		Aria: We give it a reference it can’t ignore.
+		Aria: We need to give it a reference it can’t ignore.
 		Aria: Not through the system but through observation.
 		- Observation of what?
 			Aria: Physical stress markers. Things the regulator doesn’t account for.
@@ -106,7 +106,7 @@ elif {day} >= 2:
 				- Give potato
 					[signal arg="aria_strawberry_task_complete"]
 					Player: This one’s ready.
-					Aria: “I know. I’ve been watching it,since the sprouts broke soil.
+					Aria: I know. I’ve been watching it,since the sprouts broke soil.
 					- You’ve been checking on it?
 						Aria: Every day.
 						Aria: Leaf curl. Stem stiffness. Growth rate.
@@ -171,7 +171,7 @@ elif {day} >= 2:
 			Narrator: Aria is waiting for you
 			Aria: The regulator isn't  perfect but it’ll hold a temperature again.
 			Aria: You can stop watching it like it’s going to bite.
-			Aria:  It won’t spike anymore. Or freeze.
+			Aria: It won’t spike anymore. Or freeze.
 			Aria: It’ll obey the set value now, like it was meant to.
 			Aria: You kept the plants alive longer than most people manage. Even with the regulator breaking itself every few hours.
 			Aria: You knew how to compensate. How to predict the swings before they happened.

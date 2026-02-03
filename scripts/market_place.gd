@@ -21,7 +21,7 @@ func _ready():
 		player.global_position = Global.player_pos
 	print("PLayer Pos :",player.global_position)
 	camera.limit_bottom = 425
-	camera.limit_top = -350
+	camera.limit_top = -320
 	camera.limit_left = -1150
 	camera.limit_right = 380
 
