@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://2d8wujcsyrya"]
+[gd_scene load_steps=27 format=3 uid="uid://2d8wujcsyrya"]
 
 [ext_resource type="Script" path="res://scripts/plant.gd" id="1_0ykwo"]
 [ext_resource type="Shader" path="res://scripts/plant.gdshader" id="2_a3q8v"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://baa1yywkg5bqb" path="res://16x16/Sprites/pumpkin_stage_2.png" id="7_ic5p7"]
 [ext_resource type="Texture2D" uid="uid://b1kepcug51obc" path="res://16x16/Sprites/StrawberryStage3.png" id="7_wxgvi"]
 [ext_resource type="Texture2D" uid="uid://du4ore3cll08g" path="res://16x16/Sprites/mutated_plant.png" id="9_2kek1"]
+[ext_resource type="AudioStream" uid="uid://dxy0egq1gjrtm" path="res://audio/PlantHarvest.wav" id="13_w54ue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dyuw"]
 size = Vector2(54, 30)
@@ -156,9 +157,11 @@ position = Vector2(6, -2)
 scale = Vector2(0.812, 0.8)
 sprite_frames = SubResource("SpriteFrames_dxjdq")
 animation = &"special_stage_1"
-frame_progress = 0.58731
+frame_progress = 0.75335
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_w54ue")
+volume_db = 6.933
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
