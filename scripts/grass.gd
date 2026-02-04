@@ -2,8 +2,17 @@ extends Area2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var clicked=false
-#
-#func _ready() -> void:
+var distance
+var player
+
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+func _ready() -> void:
+	player = get_tree().current_scene.find_child("Farmer",true,false)
+	if PlantTracker.cut_grass.has(self.name):
+		queue_free()
+	
+	
 	#
 	#print(get_path())
 #func _process(delta: float) -> void:
@@ -11,6 +20,12 @@ var clicked=false
 	
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_RIGHT:
+		distance=position.distance_to(player.position)
+		if distance>100:
+			print("Return, player dist greater than `100")
+			return
+		audio_stream_player_2d.play()
+		PlantTracker.cut_grass[self.name] = ""
 		
 		if event.pressed:
 			#print("grass pressed")
@@ -23,6 +38,15 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			Global.grass_clicked=false
 			#Global.grass_held=false
 			queue_free()
+			
+	elif  event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
+		
+		if event.pressed:
+			print("grass pressed")
+			Dialogic.VAR.set("cut_grass",true)
+			Dialogic.start("GeneralMessages")
+		
+			
 			
 	#if event is InputEventMouseMotion:
 		#

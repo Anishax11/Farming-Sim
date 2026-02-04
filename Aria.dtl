@@ -53,7 +53,7 @@ elif {day} >= 2:
 			Aria: Vents. Heaters. Cooling lines.
 			Aria: When it picks a value, the greenhouse obeys
 		- At random?
-			Aria: No pattern I can see. Every day it assigns a new target temperature.\
+			Aria: No pattern I can see. Every day it assigns a new target temperature.
 			Aria: Sometimes survivable. Sometimes not.
 		- The buttons don’t work?
 			Aria: No, not anymore

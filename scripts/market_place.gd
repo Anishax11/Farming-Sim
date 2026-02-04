@@ -7,10 +7,10 @@ var FRONTYARD_SCENE = load("res://scenes/frontyard_scene.tscn")
 var camera
 
 func _ready():
+	Dialogic.end_timeline()
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	Global.music_fade_in()
-	Dialogic.end_timeline()
-	print("MARKET Place")
+
 	player=get_node("Farmer")
 	camera = player.get_node("Camera2D")
 	time_manager=get_tree().get_current_scene().find_child("TimeManager",true,false)

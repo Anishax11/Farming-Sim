@@ -161,27 +161,30 @@ script = ExtResource("1_bd801")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4jh8x")
-animation = &"middle_page_front"
+animation = &"first_page_front"
 autoplay = "default"
+frame = 1
+frame_progress = 1.0
 
 [node name="RightPage" type="Control" parent="."]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1.0
-offset_top = -49.0
-offset_right = 142.0
-offset_bottom = 162.0
+offset_left = 3.55
+offset_top = -48.2667
+offset_right = 144.55
+offset_bottom = 162.733
 scale = Vector2(0.51, 0.5)
 
 [node name="Right" type="RichTextLabel" parent="RightPage"]
 layout_mode = 0
-offset_left = 3.92157
-offset_right = 288.922
-offset_bottom = 729.0
+offset_left = 4.11765
+offset_top = 3.33333
+offset_right = 289.118
+offset_bottom = 732.333
 scale = Vector2(0.5, 0.3)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 43
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
@@ -203,7 +206,7 @@ offset_right = 278.0
 offset_bottom = 1080.0
 scale = Vector2(0.5, 0.2)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 43
 fit_content = true
 scroll_active = false
 
@@ -233,7 +236,7 @@ texture_normal = ExtResource("5_hbj6e")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0.950001, 3.8)
 stream = ExtResource("7_2474b")
-volume_db = 17.91
+volume_db = 24.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="button_down" from="Next" to="." method="_on_next_button_down"]

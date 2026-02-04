@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqf55ab0jubbx"]
+[gd_scene load_steps=12 format=3 uid="uid://bqf55ab0jubbx"]
 
 [ext_resource type="Script" path="res://scripts/grass.gd" id="1_38byu"]
 [ext_resource type="Texture2D" uid="uid://c104vils7mhj5" path="res://16x16/Sprites/free_sample_tileset.png" id="2_twytt"]
 [ext_resource type="Texture2D" uid="uid://omiiof77xhhd" path="res://16x16/Sprites/create soil tile.png" id="3_xbvfr"]
 [ext_resource type="Texture2D" uid="uid://da4gaksqh4jto" path="res://16x16/Sprites/ChatGPT Image Jun 14, 2025, 05_14_44 PM.png" id="4_8vbsn"]
+[ext_resource type="AudioStream" uid="uid://7buwuvs7ppbr" path="res://audio/209758__folkaharrie__20131202_plucking-grass_zoomh2nxy.wav" id="5_amreu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct7le"]
 atlas = ExtResource("2_twytt")
@@ -45,21 +46,34 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvy8g"]
-size = Vector2(16, 16)
+size = Vector2(29, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjilp"]
+size = Vector2(58, 54)
 
 [node name="Grass" type="Area2D"]
-z_index = 1
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_38byu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_maq8k")
-animation = &"untilled soil"
+animation = &"Green grass"
 autoplay = "Green grass"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 1)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_dvy8g")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_xjilp")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_amreu")
+volume_db = 20.001
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

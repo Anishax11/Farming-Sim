@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dba1gtffrvamm"]
+[gd_scene load_steps=15 format=4 uid="uid://dba1gtffrvamm"]
 
 [ext_resource type="Script" path="res://scripts/bed.gd" id="1_5hssx"]
 [ext_resource type="Script" path="res://scripts/house_interior.gd" id="1_mmlya"]
@@ -12,6 +12,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ij2w6"]
 size = Vector2(99.2856, 103.2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l78y6"]
+size = Vector2(117.694, 125.028)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_koxhe"]
 texture = ExtResource("12_opef0")
@@ -7023,8 +7026,8 @@ scale = Vector2(2.8, 2.5)
 script = ExtResource("1_mmlya")
 
 [node name="Farmer" parent="." instance=ExtResource("6_p8x7y")]
-position = Vector2(23.5714, 264.8)
-scale = Vector2(2.5, 2.5)
+position = Vector2(145, 4)
+scale = Vector2(4, 4)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Farmer"]
 layer = 2
@@ -7043,11 +7046,10 @@ script = ExtResource("4_uq3q3")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-offset_left = 766.0
-offset_top = 88.0
-offset_right = 890.0
-offset_bottom = 208.0
+offset_left = 804.0
+offset_top = -469.0
+offset_right = 928.0
+offset_bottom = -349.0
 script = ExtResource("9_o6apw")
 
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
@@ -7112,6 +7114,13 @@ scale = Vector2(0.3, 0.3)
 theme_override_font_sizes/font_size = 50
 text = "
 "
+
+[node name="StaticBody2D" type="StaticBody2D" parent="bed"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bed/StaticBody2D"]
+position = Vector2(-1080.78, 478.464)
+skew = -0.23911
+shape = SubResource("RectangleShape2D_l78y6")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-183.571, -113.6)

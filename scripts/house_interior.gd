@@ -12,13 +12,16 @@ var sleep_confirmation
 
 
 func _ready() -> void:
-	print("house running")
+	print("opening_scene_dialogue :",Tutorials.interactions["opening_scene_dialogue"] )
+	
+	
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	if !Tutorials.interactions["opening_scene_dialogue"]:
-		print("Opening scene dialogue")
+		Tutorials.interactions["opening_scene_dialogue"] = true
+		print("Opening scene dialogue chaged to :",Tutorials.interactions["opening_scene_dialogue"])
 		Dialogic.VAR.set("opening_scene_dialogue",true)
 		Dialogic.start("GeneralMessages")
-		Tutorials.interactions["opening_scene_dialogue"] = true
+		
 		
 	elif !Tutorials.tutorials["sleep_tut"]:
 		Tutorials.tutorials["sleep_tut"] = true
@@ -35,6 +38,8 @@ func _ready() -> void:
 	Global.music_fade_in()
 	Dialogic.end_timeline()
 	farmer=get_node("Farmer")
+	if Global.player_pos!=null:
+		farmer.global_position = Global.player_pos
 	var camera_2d = farmer.get_node("Camera2D")
 	camera_2d.limit_bottom = 1250
 	camera_2d.limit_top = -45
@@ -74,7 +79,7 @@ func _on_exit_body_entered(body: Node2D) -> void:
 		return
 	print("Exit House")
 	Global.track_time(time_manager.current_time,time_manager.time_to_change_tint,time_manager.color_rect.i,time_manager.minutes)
-	Global.player_pos = Vector2(-900,600)
+	Global.player_pos = Vector2(-965,650)
 	Global.music_fade_out()
 	await get_tree().change_scene_to_packed(FRONTYARD_SCENE)
 

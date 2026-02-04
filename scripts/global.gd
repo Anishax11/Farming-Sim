@@ -4,7 +4,7 @@ const HOUSE_INTERIOR = preload("res://scenes/house_interior.tscn")
 #PLAYER ABILITIES:
 var coherence = 3  #reset to 3 everyday
 var entropy = 3    #reset to 3 everyday
-##
+var Charname = ""
 var freeze_time = false
 var day_count=1
 var day_passed=false
@@ -46,7 +46,7 @@ const INVENTORY_SLOT = preload("res://16x16/Sprites/inventorySlot.png")
 var equipped_item
 var last_plant_number
 var load_frontyard=false
-var coins_count=50
+var coins_count=200
 var color_rect_i=0
 var soil_data={
 	
@@ -269,7 +269,7 @@ func update_day_count():
 	#Global.watered_plants.clear()
 	PlantTracker.locked_growth.clear() # plants in this array have been watered once(used to ensure plant stage is incremented only once per day )
 	day_passed=true
-	
+	player_pos = Vector2(1400,450)
 	if trade_money>0:
 		print("Increment coins")
 		get_node("/root/house_interior/Farmer").update_coins(trade_money)

@@ -22,5 +22,6 @@ func _on_exit_button_down() -> void:
 	get_tree().quit()
 
 func _on_timeline_ended():
+	Global.Charname = Dialogic.VAR.Charname
 	Global.music_fade_out()
 	get_node("CanvasLayer2/DimBG").dim_bg(OPENING_SCENE)

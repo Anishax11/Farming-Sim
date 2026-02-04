@@ -32,3 +32,4 @@ position = Vector2(2, 51)
 shape = SubResource("RectangleShape2D_5jf3s")
 
 [node name="Church" parent="." instance=ExtResource("1_waue5")]
+position = Vector2(0, 12)

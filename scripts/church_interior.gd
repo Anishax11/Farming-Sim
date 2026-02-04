@@ -16,11 +16,13 @@ var doubt = 0
 var time_manager
 func _ready() -> void:
 	#timer.timeout.connect("")
+	Dialogic.end_timeline()
 	time_manager = get_tree().current_scene.find_child("TimeManager",true,false)
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	var player = get_node("Farmer")
 	var cam=player.get_node("Camera2D")
 	player.animated_sprite_2d.play("backward")
+	
 	cam.zoom.x+=2
 	cam.limit_left=-200
 	cam.limit_right=210
@@ -97,7 +99,7 @@ func check_alignment():
 		print("Task COmplete")
 		TaskManager.tasks["Task6"]["completed"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task6")
-		Dialogic.VAR.set("church_task_complete",false)
+		Dialogic.VAR.set("church_task_complete",true)
 		Dialogic.start("GeneralMessages")
 	#print("check control Rotation : ",control_dial_display.rotation )
 

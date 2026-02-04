@@ -11,10 +11,11 @@ var date_label
 var game
 var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
 var npc_manager
-var freeze_set =false
 var fest_time = 10.0
+var curr_scene
 
 func _ready() -> void:
+	curr_scene = get_tree().current_scene.name
 	if Global.day_count == 1 and !TaskManager.tasks["Task3"]["completed"]  :
 		Global.freeze_time = true
 	print("Time Manager Loaded")
@@ -36,6 +37,7 @@ func _ready() -> void:
 	
 	if Global.freeze_time:
 		return
+		
 	if current_time == time_to_change_tint:
 			color_rect.adjust_tint()
 	
@@ -48,7 +50,7 @@ func _physics_process(delta: float) -> void:
 
 	if current_time!=null and current_time<24:
 		time_passed+=delta
-		if time_passed-initial_time > 2:
+		if time_passed-initial_time > 5.55:
 			initial_time=time_passed
 			#print("Initial Time :",initial_time)	
 			#print("Time passed:",time_passed)
@@ -80,9 +82,9 @@ func _physics_process(delta: float) -> void:
 		Dialogic.start("NightWarning")
 		Tutorials.tutorials["night_warning"] = true
 		
-	if Global.day_count == 7 and current_time == 10 and !freeze_set:
+	if Global.day_count == 7 and current_time == 10.00 and minutes ==00 and !curr_scene=="FestCentre":
 		Global.freeze_time = true
 		print("Stop time flow")
-		freeze_set = true
+		
 
 	

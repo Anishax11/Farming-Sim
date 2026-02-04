@@ -27,10 +27,10 @@ func _ready() -> void:
 				#print(id)s
 				add_child(soil)
 				
-				if randi_range(0,90)==1:
-				#if id%45==0:
-					var grass=GRASS.instantiate()	
-					get_node(soil.get_path()).add_child(grass)
+				#if randi_range(0,90)==1:
+				##if id%45==0:
+					#var grass=GRASS.instantiate()	
+					#get_node(soil.get_path()).add_child(grass)
 					#print(grass.get_path())		
 				id+=1
 				

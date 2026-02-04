@@ -13,14 +13,17 @@ func _ready() -> void:
 	var label=get_parent().get_node("NinePatchRect2/Label")
 	if seed_type=="strawberry":
 		label.text="Strawberry Seeds  : 
-Bright and sweet, these berries are a farm favorite! Takes 3 days to grow, plant them in moderate temperature for the juiciest results — they love the  sun and a bit of daily care. "
+Bright and sweet, these berries are a farm favorite! Takes 3 days to grow, plant them in moderate temperature for the juiciest results — they love the  sun and a bit of daily care. One seed packet yields up to 6 plants.
+Difficulty : Medium "
 	elif seed_type=="potato":
 		label.text = "Potato Seeds :
-A hearty root crop perfect for any new farmer. Grows in 3 days, best planted in cool weather. These dependable crops bring solid profits and full bellies."
+A hearty root crop perfect for any new farmer. Grows in 3 days, best planted in cool weather. These dependable crops bring solid profits and full bellies. One seed packet yields up to 6 plants
+Difficulty : Easy"
 				
 	elif seed_type=="pumpkin":
 		label.text = "Pumpkin Seeds :
-A vibrant autumn classic loved by farmers and festivals alike. Takes 3 days to grow, producing big, cheerful pumpkins! Resilient and steady, these crops thrive best in warm weather. Perfect for crafting pies, decorations, or just brightening your fields."
+A vibrant autumn classic loved by farmers and festivals alike. Takes 3 days to grow, producing big, cheerful pumpkins! Resilient and steady, these crops thrive best in warm weather. Perfect for crafting pies, decorations, or just brightening your fields. One seed packet yields up to 6 plants
+Difficulty : Hard"
 	#
 		
 func fake_input():

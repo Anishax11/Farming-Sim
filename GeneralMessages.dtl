@@ -1,18 +1,21 @@
 if {interact_tut} == true:
-	Narrator: Left click on character to talk with them
+	Narrator: Left Click to talk to characters .
+	set {interact_tut} = false
 elif {aria_talk} == true:
 	I should talk to Aria first
+	set {aria_talk} = false
 elif {complete_registration} == true:
 	I should complete registration
+	set {complete_registration} = false
 elif {seeds_bought} == true:
 	I should buy seeds first
 	set {seeds_bought} = false
 elif {seed_shop_closed} == true:
-	The shop is closed, I should come back between 8 am to 9 pm
+	The shop is closed, I should come back between 6 am - 9 pm.
 	set {seed_shop_closed} = false
 elif {library_closed} == true:
-	The library is closed, I should come back between 8 am to 9 pm
-	set 
+	The library is closed, I should come back between 10 am - 9 pm
+	set {library_closed} = false
 elif {go_to_fest} == true:
 	The fest is about to start, I should get going
 	set {go_to_fest} = false
@@ -58,4 +61,7 @@ elif {church_task_complete} == true:
 elif {sleep_tut} == true:
 	Left-click the bed when you’re ready to end the day.
 	set {sleep_tut} = false
+elif {cut_grass} == true:
+	Right-click to cut the grass before tilling.
+	set {cut_grass} = false
 [end_timeline]

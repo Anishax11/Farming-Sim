@@ -31,3 +31,11 @@ func _on_dialogic_signal(arg : String):
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task10")
 		Tutorials.interactions["talked_to_bully"] = true
 		animated_sprite_2d.play("idle")
+
+
+func _on_interact_mouse_entered() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+
+func _on_interact_mouse_exited() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)

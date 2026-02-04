@@ -51,7 +51,7 @@ else:
 			Lyra: No
 			Lyra: The counts are related to the town's history.
 			Lyra: There’s a green haired kid named Maya, studies local history obsessively.
-			Lyra: She’ll know how the dials are supposed to be set.
+			Lyra: She’ll know how the dials are supposed to be set. Please talk to her for me.
 			[signal arg="talk_to_maya_given"]
 	if {measured_faith_given} == false:
 		if {talk_to_maya_task_done} == true:
@@ -120,7 +120,8 @@ else:
 			set {measured_faith_given} = true
 			[signal arg="measured_faith_given"]
 	if {measured_faith_complete} == false:
-		Lyra: The dials don't seem to be aligned.
+		if {measured_faith_given} == true:
+			Lyra: The dials don't seem to be aligned.
 	else:
 		Lyra: …There it is.
 		Lyra: Good. The flow’s back

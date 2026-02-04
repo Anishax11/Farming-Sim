@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var HOUSE_INTERIOR = load("res://scenes/house_interior.tscn")
 @onready var Dim_bg: ColorRect = $CanvasLayer2/DimBG
+
 @onready var timer: Timer = $Timer
 @onready var opening_scene_audio: AudioStreamPlayer2D = $OpeningSceneAudio
 @onready var good_ending: AudioStreamPlayer2D = $GoodEnding
@@ -175,9 +176,17 @@ func _on_timer2_timeout():
 func _on_timer3_timeout():
 	print("Timer 3 timeout")
 	#label.visible_characters = 0
-
-	var tween=create_tween()
-	tween.tween_property(opening_scene_audio,"volume_db",-40,7.0)
+	if page ==3:
+		var tween=create_tween()
+		tween.tween_property(bad_ending,"volume_db",-40,7.0)
+	else:
+		var tween=create_tween()
+		tween.tween_property(good_ending,"volume_db",-40,7.0)
 	
 	var tween2 = create_tween()
 	tween2.tween_property(Dim_bg, "color", Color(0, 0, 0, 1), 7.0)
+	
+	while(Dim_bg.color!=Color(0, 0, 0, 1)):
+		await get_tree().process_frame
+	
+	get_tree().change_scene_to_packed(MAIN_MENU)

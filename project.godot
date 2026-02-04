@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Farm sim"
-run/main_scene="res://scenes/frontyard_scene.tscn"
+run/main_scene="res://scenes/seed_shop_interior.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -68,7 +68,7 @@ layout/style_directory={}
 layout/style_list=[]
 layout/default_style="Default"
 variables={
-"Charname": "",
+"Charname": "Player",
 "StormDialogue": false,
 "aira_intro": false,
 "aria_intro": false,
@@ -81,6 +81,7 @@ variables={
 "cashier_intro": false,
 "church_task_complete": false,
 "complete_registration": false,
+"cut_grass": false,
 "day": 1,
 "eiden_intro": false,
 "enter_name": false,

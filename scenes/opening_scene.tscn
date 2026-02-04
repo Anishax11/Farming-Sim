@@ -76,7 +76,6 @@ color = Color(0.0288333, 0.00589752, 3.00817e-09, 1)
 layer = 2
 
 [node name="DimBG" type="ColorRect" parent="CanvasLayer2"]
-visible = false
 visibility_layer = 2
 offset_left = -2.0
 offset_top = -36.0

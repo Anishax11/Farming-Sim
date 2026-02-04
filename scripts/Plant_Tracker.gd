@@ -11,6 +11,8 @@ var plant_stage_limits={
 	"carrot" : 3,
 	"special" : 1
 }
+
+var cut_grass ={}
 var locked_growth={}#used to store soil {with plant} which has already been watered once in the day to prevent multiple updates in stage on the same day
 # keeps track of panel's seed_count to load back on another day
 var panel_info={
@@ -86,17 +88,17 @@ var prices={
 var plant_info = {
 	"strawberry" : {
 		"difficulty" : 1.3,# moderate
-		"ideal_temp" : 21 ,
+		"ideal_temp" : 25,
 		"type" : "stable"
 	},
 	"potato" : {
 		"difficulty" : 1,# easy
-		"ideal_temp" : 25,
+		"ideal_temp" : 17,
 		"type" : "volatile" 
 	},
 	"pumpkin" :{
 		"difficulty" : 1.6,# difficult
-		"ideal_temp" : 30 ,
+		"ideal_temp" : 22 ,
 		"type" : "stable"
 	},
 	"carrot" :{

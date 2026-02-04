@@ -127,7 +127,7 @@ texture_normal = ExtResource("7_2wp3t")
 
 [node name="PlantBook" parent="PlantBookControl" instance=ExtResource("8_14roj")]
 visible = false
-position = Vector2(1818.33, 763.333)
+position = Vector2(1733.33, 713.333)
 scale = Vector2(8, 8)
 
 [node name="ClickBlocker" type="Control" parent="."]

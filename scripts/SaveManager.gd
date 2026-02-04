@@ -1,7 +1,16 @@
 extends Node
 
 var game = load("res://scenes/game.tscn")
-var saved_data = {
+
+var save_path="user://savegame.json"
+var player
+var saved_data 
+
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+		
+	saved_data = {
 	"player_position": Vector2.ZERO,
 	"coins": 1000,
 	"current_area": "",
@@ -22,15 +31,10 @@ var saved_data = {
 	"tasks" : null,
 	"full" : null, #inv full
 	"PointTracker" : null,
-	"task_status" : null
+	"task_status" : null,
+	"player_name" : Global.Charname
 }
 
-var save_path="user://savegame.json"
-var player
-
-func _ready():
-	process_mode = Node.PROCESS_MODE_ALWAYS
-	
 	#print("current scene",get_tree().get_current_scene().name)
 	#if player == null:
 		#print("player null")
@@ -66,13 +70,14 @@ func save_data():
 	saved_data["plant_names" ]= PlantTracker["plant_names"]
 	saved_data["locked_growth" ]= PlantTracker["locked_growth" ]
 	saved_data["panel_info"]= PlantTracker["panel_info"]
-	saved_data["soil_data"]= PlantTracker["soil_data"]
+	saved_data["soil_data"]= Global["soil_data"]
 	saved_data["tasks"] = TaskManager["tasks"]
 	saved_data["seeds_bought"]= TaskManager["seeds_bought"]
 	saved_data["keys_array"]= TaskManager["keys_array"]
 	saved_data["full"] = Inventory.full
 	saved_data["PointTracker"] = Tutorials.PointTracker
 	saved_data["task_status"] = TaskManager.task_status
+	saved_data["player_name"] = Global.Charname
 	
 	
 	
@@ -139,6 +144,8 @@ func load_game():
 		Inventory.full = data["full"] 
 		Tutorials.PointTracker = data["PointTracker"]
 		TaskManager.task_status = data["task_status"]  
+		Global.charname = data["player_name"] 
+		
 		
 		if packed_scene:
 			await get_tree().change_scene_to_packed(packed_scene)

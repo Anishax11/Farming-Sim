@@ -13,39 +13,59 @@ var direction # next/back button click tracker
 
 var content = {
 	page1 ="
-Excerpt from “On Cultivated Flora and Their Comforts”
+Excerpts from “On Cultivated Flora and Their Comforts”
 
   ~Unknown
 	   Author ",
 
 	page2 ="Strawberry
 
-Ideal Temperatu-re: ~21°C
+Ideal Temperature: ~25°C
+
 Difficulty: Moderate
 
-Strawberries demand consistency.Temperature fluctuations quickly dull",
+Strawberries demand consistency. Exposure to Myrion alters sugar structure,",
 
-	page3 ="sweetness, though careful control is generously rewarded. 
+	page3 ="sharpening sweetness while narrowing tolerance.
 
-It is a plant that teaches restraint.",
+A rewarding crop—if the environment is respected.",
 
 	page4 ="Pumpkin
 
-Ideal Temperature: ~24°C
+Ideal Temperature: ~22°C
+
 Difficulty: High
 
-Pumpkins hunger for heat and stability.
-When warmth is precise,growth",
+Pumpkins react violently to Myrion-rich soil. When conditions align, growth
 
-	page5 ="accelerates dramaticall-y. When mismanaged, quality collapses just as fast.
-Powerful yields favor discipline.",
+",
+
+	page5 ="accelerates unnaturally. Instability causes rapid collapse.
+
+Power favors discipline—and exact control.",
 	page6 ="Potato
 
 Ideal Temperature: ~17°C
+
 Difficulty: Low
 
-Hardy and forgiving, potatoes tolerate neglect better than most.",
-	page7 ="They endure cooler air and uneven conditions with little complaint.Reliable, but unambitiou-s",
+Potatoes absorb Myrion without visible mutation, stabilizing soil ",
+
+	page7 ="conditions around them. Yield remains consistent despite interference.
+
+Reliable. Quietly essential.",
+
+page8 ="Experimental Hybrid
+
+Ideal Temperature: ~25°C
+Difficulty: Unknown
+
+Grown with purified Myrion alone. Cyan pigment observed across",
+
+page9 = "all growth stages. Responds as if alive to regulation itself.
+
+Further study discouraged.
+"
 	}
 func flip_to_next():
 	direction = "next"

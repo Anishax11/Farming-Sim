@@ -133,6 +133,10 @@ region = Rect2(96, 528, 48, 48)
 atlas = ExtResource("2_hk0tk")
 region = Rect2(144, 528, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_avqhy"]
+atlas = ExtResource("2_hk0tk")
+region = Rect2(0, 48, 48, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wt5qn"]
 atlas = ExtResource("2_hk0tk")
 region = Rect2(192, 528, 48, 48)
@@ -148,6 +152,10 @@ region = Rect2(288, 528, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_l86vs"]
 atlas = ExtResource("2_hk0tk")
 region = Rect2(336, 528, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsfut"]
+atlas = ExtResource("2_hk0tk")
+region = Rect2(336, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yx4p4"]
 atlas = ExtResource("2_hk0tk")
@@ -168,10 +176,6 @@ region = Rect2(336, 144, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ae0gf"]
 atlas = ExtResource("2_hk0tk")
 region = Rect2(0, 192, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_avqhy"]
-atlas = ExtResource("2_hk0tk")
-region = Rect2(0, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6d56l"]
 atlas = ExtResource("2_hk0tk")
@@ -220,10 +224,6 @@ region = Rect2(240, 48, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5k8w"]
 atlas = ExtResource("2_hk0tk")
 region = Rect2(288, 48, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fsfut"]
-atlas = ExtResource("2_hk0tk")
-region = Rect2(336, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4jf4t"]
 atlas = ExtResource("2_hk0tk")
@@ -355,8 +355,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gjkpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dclwx")
 }],
-"loop": true,
+"loop": false,
 "name": &"hoe_back",
 "speed": 5.0
 }, {
@@ -372,6 +375,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tqqet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl0e4")
 }],
 "loop": false,
 "name": &"hoe_front",
@@ -389,6 +395,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ig2cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avqhy")
 }],
 "loop": false,
 "name": &"hoe_left",
@@ -406,6 +415,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l86vs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsfut")
 }],
 "loop": false,
 "name": &"hoe_right",
@@ -546,7 +558,7 @@ script = ExtResource("1_kssk7")
 position = Vector2(0, -9)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_yhg64")
-animation = &"right_idle"
+animation = &"forward_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)

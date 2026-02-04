@@ -9,8 +9,8 @@ var tasks={
 	},
 	
 	"Task2"={
-		"title" : "Fresh Strawberries for Aria",
-		"Desc" : "Grow and harvest fresh strawberries, then deliver them to Aria so she can install a temperature regulator in your greenhouse.",
+		"title" : "Roots for Repairs",
+		"Desc" : "Grow and harvest a potato, then deliver them to Aria so she can fix the temperature regulator in your greenhouse.",
 		"completed" : false,
 		"acquired" : false
 	},
@@ -46,7 +46,7 @@ var tasks={
 },
 "Task8" = {
 	"title" : "Buy Seeds",
-	"Desc" : "Visit the seed shop in market place and buy seeds .",
+	"Desc" : "Visit the seed shop near the festival hall and buy seeds.",
 	"completed" : false,
 	"acquired" : false
 },

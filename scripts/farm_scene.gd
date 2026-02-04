@@ -9,10 +9,13 @@ var SERA = load("res://scenes/sera.tscn")
 var aria
 var sera
 @onready var farmer: Player = $Farmer
+@onready var watercan: Area2D = $watercan
 
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_timeline_ended)
 	print("FARMMMMMM")
+	if Tutorials.tutorials["farm_tutorial"]:
+		watercan.queue_free()
 	#if PlantTracker.curr_farm_temp!=null:
 		#farm_temp = PlantTracker.curr_farm_temp
 		#print("FArm temp ;",farm_temp)
@@ -51,8 +54,9 @@ func _ready() -> void:
 	#Global.get_empty_panel().seed_count=6
 	#inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
 	#Global.get_empty_panel().seed_count=6
-	#inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
+	#inventory.add_to_inventory("special_seeds",Global.strawberry_image)
 	#Global.get_empty_panel().seed_count=6
+	
 	
 	#if Global.player_pos!=null:
 		#player.global_position=Global.player_pos

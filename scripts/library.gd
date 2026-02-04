@@ -1,7 +1,7 @@
 extends StaticBody2D
 var LIBRARY_INTERIOR = load("res://scenes/library_interior.tscn")
 var time_manager
-var opening_time = 8
+var opening_time = 10
 var closing_time = 21
 func _ready() -> void:
 	time_manager = get_tree().get_current_scene().find_child("TimeManager",true,false)

@@ -199,7 +199,8 @@ func _on_dialogic_signal(argument : String):
 	
 	elif argument == "last_convo":
 		Tutorials.interactions["aria_last_convo_done"] = true
-		get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task7")
+		if !TaskManager.tasks["Task7"]["completed"]:
+			get_tree().get_current_scene().find_child("TaskManager",true,false).add_task("Task7")
 
 
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

@@ -51,7 +51,7 @@ func _gui_input(event: InputEvent) -> void:
 
 func _on_panel_1_child_entered_tree(node: Node) -> void:
 	var first_letter = node.name.substr(0, 1)
-	if first_letter =="@":
+	if first_letter =="@" or  get_child_count()>0:
 		remove_item(node.name)
 		return
 	item_name=node.name #set in trade inv while addinf texture

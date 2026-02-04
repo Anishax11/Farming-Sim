@@ -4313,13 +4313,13 @@ physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_fihcc")
 
 [node name="SeedShopInterior" type="Area2D"]
-position = Vector2(-1208, 638)
-scale = Vector2(3, 1.769)
+position = Vector2(-769, 440)
+scale = Vector2(2, 1.769)
 script = ExtResource("1_j0vwb")
 
 [node name="Farmer" parent="." instance=ExtResource("7_4qsky")]
-position = Vector2(781.667, 617.863)
-scale = Vector2(10, 10)
+position = Vector2(779.667, 604.862)
+scale = Vector2(9, 10)
 
 [node name="Exit" type="Area2D" parent="."]
 z_index = 1
@@ -4331,7 +4331,6 @@ shape = SubResource("RectangleShape2D_tifw4")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
 [node name="DimBG" type="ColorRect" parent="CanvasLayer2"]
 visibility_layer = 2

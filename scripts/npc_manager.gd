@@ -13,24 +13,29 @@ var maya_schedule={
 	"6" : "maya_home",
 	"9" : "Church",
 	"16" : "market_entrance",
-	"20" : "maya_home"
+	"17" : "SeedShop",
+	"20" :"market_exit",
+	"20.5" : "market_entrance",
+	"21" : "maya_home"
 }
 
 
 var aria_schedule={
 	"6" : "aria_home",
 	"10" : "market_entrance",
-	"8" : "MechanicShop",
-	"12" : "MechanicShop",
+	"11": "market_exit",
+	"12.5" : "MechanicShop",
 	"16" : "MechanicShop",
-	"20" : "MechanicShop",
-	"22" :"market_exit"
+	"19" : "market_exit",
+	"20" :"market_entrance",
+	"21" : "aria_home"
 }
 
 
 var aira_schedule={
 	"7" : "aira_home",
 	"9" : "library",
+	"9.2":"library_entrance",
 	"9.5" : "librarian_desk",
 	"12" : "library_entrance",
 	"17.5" : "library",
@@ -39,18 +44,22 @@ var aira_schedule={
 
 
 var eiden_schedule={
-	"6" : "Church",
-	"9" : "library",
-	"9.2" : "library_entrance",
-	"15" : "library_entrance",
-	"15.5" : "library",
-	"20" : "aira_home"
+	"6" : "aira_home",
+	"11" : "library",
+	"11.2" : "library_entrance",
+	"20" : "library_entrance",
+	"20.5" : "library",
+	"22" : "aira_home"
 }
 
 var sera_schedule={
-	"6" : "Church",
-	"8" : "cafe",
-	"9" : "library"
+	"10" : "sera_home",
+	"11" : "Church",
+	"13" : "library",
+	"13.5": "library_entrance",
+	"18" : "library_entrance",
+	"18.5": "library",
+	"22" : "sera_home"
 	
 }
 
@@ -70,24 +79,24 @@ var scene_wise_locations ={
 		
 	},
 	"frontyard_scene" = {
-		"Church" :Vector2(-250,700),
+		"Church" :Vector2(475,600),
 		"Home" : Vector2(-250,700),
 		"Greenhouse": Vector2(-650,700),
 		"FestCentre" :Vector2(-650,700),
-		"aira_home":Vector2(450,700),
+		"aira_home":Vector2(0,750),
 		"aria_home": Vector2(1050,550),
 		"market_entrance" :Vector2(300,900),
-		"library" : Vector2(125,750),
-		"cafe" : Vector2(500,750),
+		"library" : Vector2(90,580),
+		"sera_home" : Vector2(1390,665),
 		"maya_home" : Vector2(600,850),
 		"noa_home" : Vector2(-200,850)
 		
 	},
 	"MarketPlace" = {
-		"SeedShop" : Vector2(125,-150),
-		"MechanicShop" : Vector2(300,300),
+		"SeedShop" : Vector2(125,-50),
+		"MechanicShop" : Vector2(300,350),
 		"market_exit" : Vector2(-150,-150),
-		"market_entrance" : Vector2(-200,-300)
+		"market_entrance" : Vector2(-200,-250)
 		},
 	
 	"LibraryInterior" = {
@@ -160,7 +169,7 @@ func hour_elapsed():
 						#print("Char schedule :",get(children +"_schedule")[str(curr_time)])
 						#print("Location :",location)
 						if (get(children +"_schedule")[str(curr_time)]==location):
-							if location == "library" or location == "market_exit" or location =="library_entrance" :
+							if location == "library" or location == "market_exit" or location =="library_entrance" or "aria_home" or "aira_home" or "maya_home" or "noa_home":
 								#print("scheduled to free later")
 								char.free_later = true
 							#print("Move char to location :",scene_wise_locations[curr_scene][location])

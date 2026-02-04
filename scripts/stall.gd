@@ -3,7 +3,7 @@ const SEEDS = preload("res://scenes/seeds.tscn")
 var camera
 var player
 var time_manager
-var opening_time = 8
+var opening_time = 6
 var closing_time = 21
 const SEED_SHOP_INTERIOR = preload("res://scenes/seed_shop_interior.tscn")
 
