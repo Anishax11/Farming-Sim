@@ -53,7 +53,7 @@ else:
 				Player: That obvious?
 				Rhea: I check it every morning. With tea and judgment.
 				Rhea: Top five already, huh? Nice. Very nice. Suspiciously nice.
-				Rhea: Good,  that saves me a speech. From now on, you get premium stock.
+				Rhea: Good. That saves me a speech. From now on, you’ll get premium-grade seeds. I’ll also treat your fields with a special fertilizer, it should give your crops a noticeable quality boost.
 				Player: Just like that?
 				Rhea: Not “just like that.”
 				Rhea: Like that plus proof you don’t murder plants.
@@ -63,8 +63,7 @@ else:
 			else:
 				Rhea: Hmm.
 				Player: …What?
-				Rhea: You look like someone who wants better seeds\
-				but hasn’t earned them yet.
+				Rhea: You look like someone who wants better seeds but hasn’t earned them yet.
 				- Earned?
 				- I can grow fine
 				- What are you talking about?
@@ -79,7 +78,7 @@ else:
 		else:
 			if {cashier_gives_better_seeds} == false:
 				if {proof_of_worth_done} == true:
-					Rhea: Congratulations on completing the task! I'll sell the premium seeds to you like I promised.
+					Rhea: Congratulations on completing the task! I’ll sell you premium seeds like I promised. I’ll also spread some high-quality fertilizer on your fields to boost your plant quality.
 					[signal arg="proof_of_worth_done"]
 			else:
 				if {random} == 1:
