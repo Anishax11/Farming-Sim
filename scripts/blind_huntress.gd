@@ -1,7 +1,9 @@
 extends CharacterBody2D
-
+var farmer
 var inventory
 func _ready() -> void:
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	farmer =  get_tree().current_scene.find_child("Farmer",true,false)
 	if TaskManager.tasks["Task6"]["completed"]:
 		queue_free()
 	Dialogic.VAR.set("talk_to_maya_task_given",TaskManager.tasks["Task9"]["acquired"])
@@ -11,6 +13,7 @@ func _ready() -> void:
 func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			farmer.input_disabled = true
 			Dialogic.signal_event.connect(_on_dialogic_signal)
 			if TaskManager.tasks["Task6"]["acquired"]:
 				Dialogic.VAR.set("measured_faith_given",true)
@@ -48,3 +51,6 @@ func _on_interact_mouse_entered() -> void:
 
 func _on_interact_mouse_exited() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+func _on_timeline_ended():
+	farmer.input_disabled = false

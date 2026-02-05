@@ -157,6 +157,7 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 			return
 		prev_state = state
 		state = State.TALK
+		farmer.input_disabled = true
 		Dialogic.signal_event.connect(_on_dialogic_signal)
 		Dialogic.VAR.set("registration_done",Tutorials.interactions["registration_done"])
 		Dialogic.VAR.set("fest_scene",get_tree().current_scene.name == "FestCentre")
@@ -168,8 +169,8 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 		Dialogic.start("Sera")
 
 func _on_dialogue_ended():
-	if curr_scene!="farm_scene":
-		farmer.input_disabled = false
+	
+	farmer.input_disabled = false
 	if prev_state == State.MOVE_TO_TARGET:
 		state = State.MOVE_TO_TARGET
 		return

@@ -36,23 +36,25 @@ func _physics_process(delta: float) -> void:
 			idle_behaviour()
 			
 		State.MOVE_TO_TARGET :
+			print("Calling move to")
 			update_animation()
 			move_to()
 	move_and_slide()
 
 func move_to():
-	#print("Judge move to called")
+	Global.freeze_time = true
+	print("Judge move to called")
 	var next_pos = navigation_agent_2d.get_next_path_position()
 	direction  = (next_pos - global_position).normalized()
 	velocity = direction * speed
-	if get_slide_collision_count() > 0:
-		var collision = get_slide_collision(0)
-		state = State.IDLE
+	#if get_slide_collision_count() > 0:
+		#var collision = get_slide_collision(0)
+		#state = State.IDLE
 		
 	move_and_slide()
 	if navigation_agent_2d.is_navigation_finished():
 		state = State.IDLE
-		#print("LOCK NPC MOVEMENT")
+		print("LOCK NPC MOVEMENT")
 		Dialogic.VAR.set("last_scene_start",false)
 		for character in characters.get_children()  :
 			character.lock_in_idle = true

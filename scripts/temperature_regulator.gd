@@ -14,7 +14,7 @@ func _ready() -> void:
 		print("Farm temp is set")
 	else:
 		farm.farm_temp=PlantTracker.curr_farm_temp 
-	get_node("Control/TextureRect/TempLabel").text="Temp : " + str(farm.farm_temp)
+	get_node("Control/TextureRect/TempLabel").text="Temp : " + str(farm.farm_temp) +"°C"
 	
 
 func _on_increase_button_down() -> void:
@@ -26,7 +26,7 @@ func _on_increase_button_down() -> void:
 	farm = get_node("/root/farm_scene")
 	farm.farm_temp+=1
 	PlantTracker.curr_farm_temp = farm.farm_temp
-	get_node("Control/TextureRect/TempLabel").text="Temp : "+str(get_node("/root/farm_scene").farm_temp)
+	get_node("Control/TextureRect/TempLabel").text="Temp : "+str(get_node("/root/farm_scene").farm_temp)+"°C"
 
 
 func _on_decrease_button_down() -> void:
@@ -37,7 +37,7 @@ func _on_decrease_button_down() -> void:
 	
 	farm.farm_temp-=1
 	PlantTracker.curr_farm_temp = farm.farm_temp
-	get_node("Control/TextureRect/TempLabel").text="Temp : "+str(get_node("/root/farm_scene").farm_temp)
+	get_node("Control/TextureRect/TempLabel").text="Temp : "+str(get_node("/root/farm_scene").farm_temp)+"°C"
 	
 	
 func _on_timeline_ended():

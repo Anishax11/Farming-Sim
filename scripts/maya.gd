@@ -148,10 +148,9 @@ func update_animation():
 		else:
 			animated_sprite_2d.play("walk_back" if (state == State.WALK or state == State.MOVE_TO_TARGET) else "back")
 				
-	#print("Animation :", animated_sprite_2d.animation)
+	
 
-#func _on_dialogue_ended():
-	#state = State.IDLE
+
 	
 
 
@@ -159,6 +158,7 @@ func _on_interact_mouse_entered() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 func _on_dialogue_ended():
+	farmer.input_disabled = false
 	if prev_state == State.MOVE_TO_TARGET:
 		
 		delay_schedule = false
@@ -174,7 +174,7 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			Dialogic.signal_event.connect(_on_dialogic_signal)
-			
+			farmer.input_disabled = true
 			delay_schedule = true
 			prev_state = state
 			state = State.TALK

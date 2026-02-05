@@ -39,7 +39,7 @@ scale = Vector2(0.7, 0.9)
 theme_override_colors/font_selected_color = Color(0.795047, 0.826697, 0.90783, 1)
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "											The greenhouse was abandoned. Before that, it wasn’t a farm. 
+text = "											  The greenhouse was abandoned. Before that, it wasn’t a farm. 
 																			   It was a research site.
 
 	 She worked here alone. Long hours. No interest in visitors. Every result chased until it broke or she did.

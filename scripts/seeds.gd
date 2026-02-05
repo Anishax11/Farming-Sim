@@ -24,6 +24,11 @@ Difficulty : Easy"
 		label.text = "Pumpkin Seeds :
 A vibrant autumn classic loved by farmers and festivals alike. Takes 3 days to grow, producing big, cheerful pumpkins! Resilient and steady, these crops thrive best in warm weather. Perfect for crafting pies, decorations, or just brightening your fields. One seed packet yields up to 6 plants
 Difficulty : Hard"
+	else:
+		label.text = "Unavailable"
+
+ 	
+ 
 	#
 		
 func fake_input():

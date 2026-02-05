@@ -258,10 +258,7 @@ func update_day_count():
 	current_time=6.00
 	minutes = 00
 	TaskManager.task_status["lock_counter"]=false
-	#time_passed=0.0
-	#initial_time=0.0
-	coherence = 3
-	entropy = 3	
+	player_pos = Vector2(1400,450)
 	await get_tree().change_scene_to_packed(HOUSE_INTERIOR)	
 	while(get_node("/root/house_interior/Farmer")==null):
 		await get_tree().process_frame  # wait for the scene to finish loading
@@ -269,7 +266,7 @@ func update_day_count():
 	#Global.watered_plants.clear()
 	PlantTracker.locked_growth.clear() # plants in this array have been watered once(used to ensure plant stage is incremented only once per day )
 	day_passed=true
-	player_pos = Vector2(1400,450)
+	
 	if trade_money>0:
 		print("Increment coins")
 		get_node("/root/house_interior/Farmer").update_coins(trade_money)

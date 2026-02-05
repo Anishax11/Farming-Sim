@@ -14,8 +14,12 @@ var trust = 0
 var compliance = 0
 var doubt = 0
 var time_manager
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 func _ready() -> void:
 	#timer.timeout.connect("")
+	var tween=create_tween()
+	tween.tween_property(audio_stream_player_2d,"volume_db",10,3)
 	Dialogic.end_timeline()
 	time_manager = get_tree().current_scene.find_child("TimeManager",true,false)
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
@@ -51,7 +55,7 @@ func _on_dial_display_gui_input(event: InputEvent) -> void:
 func _on_trust_dial_display_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
-			print("Trust Rotation  ")
+			
 			if trust_dial_display.rotation_degrees>=360:
 				trust_dial_display.rotation_degrees = 0
 			trust_dial_display.rotation_degrees+=90
@@ -66,7 +70,7 @@ func _on_trust_dial_display_gui_input(event: InputEvent) -> void:
 func _on_compliance_dial_display_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
-			print("Compliance Rotation ")
+			
 			if compliance_dial_display.rotation_degrees>=360:
 				compliance_dial_display.rotation_degrees = 0
 			compliance_dial_display.rotation_degrees+=90
@@ -80,7 +84,7 @@ func _on_compliance_dial_display_gui_input(event: InputEvent) -> void:
 func _on_dout_dial_display_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and  event.button_index == MOUSE_BUTTON_LEFT :   
 		if event.pressed:
-			print("Doubt Rotation : ")
+			
 			if doubt_dial_display.rotation_degrees>=360:
 				doubt_dial_display.rotation_degrees = 0
 			doubt_dial_display.rotation_degrees+=90
@@ -96,7 +100,7 @@ func check_alignment():
 	if control > compliance and trust>doubt and doubt > compliance and trust > control:
 		water_flow.play()
 		water_flow_fade_in()
-		print("Task COmplete")
+		
 		TaskManager.tasks["Task6"]["completed"]=true
 		get_tree().get_current_scene().find_child("TaskManager",true,false).remove_task("Task6")
 		Dialogic.VAR.set("church_task_complete",true)

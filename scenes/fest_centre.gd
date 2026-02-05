@@ -56,7 +56,7 @@ func _ready() -> void:
 			var char = npc_list[character].instantiate()
 			char.name = character
 			char.scale = Vector2(0.7,0.7)
-			char.global_position = Vector2(randi_range(-100,100),randi_range(-50,0))
+			char.global_position = Vector2(randi_range(-100,100),randi_range(-50,10))
 			characters.add_child(char)
 			#print("time_manager.current_time :",time_manager.current_time)
 	else:
@@ -65,6 +65,7 @@ func _ready() -> void:
 		
 func _process(delta: float) -> void:
 	if Global.day_count==7 and time_manager.current_time>=11 and !done:
+		print("Move judge")
 		done = true
 		leader_board.disable_display = false
 		judge.get_node("NavigationAgent2D").target_position = Vector2(50,-400)

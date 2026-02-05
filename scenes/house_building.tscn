@@ -32,5 +32,3 @@ sprite_frames = SubResource("SpriteFrames_25cs4")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-147, 51, -146, 165, -81, 167, -81, 106, -11, 107, -11, 165, 45, 167, 60, 159, 77, 159, 93, 148, 118, 148, 191, 149, 190, 103, 193, 71, 179, 46)
-
-[connection signal="input_event" from="House" to="House" method="_on_input_event"]

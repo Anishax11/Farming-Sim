@@ -54,8 +54,8 @@ func _ready() -> void:
 	#Global.get_empty_panel().seed_count=6
 	#inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
 	#Global.get_empty_panel().seed_count=6
-	#inventory.add_to_inventory("special_seeds",Global.strawberry_image)
-	#Global.get_empty_panel().seed_count=6
+	inventory.add_to_inventory("strawberry_seeds",Global.strawberry_image)
+	Global.get_empty_panel().seed_count=6
 	
 	
 	#if Global.player_pos!=null:

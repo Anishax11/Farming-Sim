@@ -1,12 +1,12 @@
 if {talk_to_bullies_given} == true:
-	Are u sure u want to attempt the task now? Once attempted you won't be given another chance
+	Are you sure you want to attempt the task now? Once attempted you won't be given another chance.
 	- Talk to her
 		Kyra: If this is about the shipment schedules, I already told Vi the hydraulics are shot. It's going out tomorrow or it's not going out.
 		set {kyra_stage_counter} = 1
 		- Not about work. Can we talk for a second?
 			Kyra: Yeah. Okay. What's going on?
 			[signal arg="increment"]
-		- It's about Leah.
+		- It's about Maya.
 			Kyra: What about her? Is she okay?
 			[signal arg="increment"]
 		- You need to make time for your actual friends, you know.
@@ -14,13 +14,13 @@ if {talk_to_bullies_given} == true:
 			[signal arg="decrement"]
 		if {kyra_stage_counter} == 1:
 			set {kyra_stage_counter} = 3
-			- When's the last time you two actually hung out? Not texted. Hung out.
+			- When's the last time you  actually hung out with Maya? Not texted. Hung out.
 				Kyra: Uh. Three weeks? No, longer. A month, maybe.
 				Kyra: We were supposed to grab drinks after shift a couple weeks back, but I had to cancel. And then... yeah. It's been a while.
 				[signal arg="increment"]
-			- How much time have you been spending with her lately?
+			- How much time have you been spending with Maya lately?
 				Kyra: I mean... not a lot. I've been drowning here. Why? What's this about?
-			- You got the supervisor job and basically ditched her.
+			- You got the supervisor job and basically ditched Maya.
 				Kyra: I didn't ditch anyone. I've been working eighty-hour weeks. What is this, an intervention?
 				[signal arg="decrement"]
 			if {kyra_stage_counter} == 3:
@@ -36,7 +36,7 @@ if {talk_to_bullies_given} == true:
 					[signal arg="decrement"]
 				if {kyra_stage_counter} == 4:
 					set {kyra_stage_counter} = 5
-					- You know Leah. She doesn't say things like that.
+					- You know Maya. She doesn't say things like that.
 						Kyra: Yeah. No, you're right. She keeps everything inside until it eats her alive.
 						Kyra: I used to be the one who noticed. Before.
 						[signal arg="increment"]
@@ -57,7 +57,7 @@ if {talk_to_bullies_given} == true:
 							Kyra: When I got this internship, she was the first person I told. She brought over a bottle of that garbage elven wine she sneaked out of her place. We stayed up until four in the morning talking about what it would mean.
 							Kyra: I don't remember when I stopped telling her things. It just... happened.
 							[signal arg="increment"]
-						- "No. I just thought someone should tell you before it got worse.
+						- No. I just thought someone should tell you before it got worse.
 							Kyra: Thanks..I mean it. I'm too close to notice.
 							[signal arg="increment"]
 						- Would it matter if she had?
@@ -75,7 +75,7 @@ if {talk_to_bullies_given} == true:
 							Kyra: I won’t shut the door
 							Narrator: Kyra seems conflicted, but not closed off.
 						else:
-							Kyra: I'm going to talk to her. Tonight. I can't promise I'll say the right things, but I'll try. And I'll—I'll figure something out. Even if it's just one night a week. Something.
+							Kyra: I'm going to talk to her. Tonight. I can't promise I'll say the right things, but I'll try. And I'll...I'll figure something out. Even if it's just one night a week. Something.
 							Kyra: Thanks for doing this. I mean it. I wouldn't have seen it on my own.
 						[signal arg="talked_to_bully"]
 	- Leave

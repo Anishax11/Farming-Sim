@@ -159,6 +159,7 @@ func update_animation():
 				
 
 func _on_dialogue_ended():
+	farmer.input_disabled = false
 	#if curr_scene!="farm_scene":
 		#farmer.input_disabled = false
 	Dialogic.VAR.set("task_tut",false)
@@ -208,6 +209,7 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 		if event.pressed:
 			if Tutorials.interactions["aria_last_convo_done"]:
 				return
+			farmer.input_disabled = true
 			if state == State.MOVE_TO_TARGET:
 				prev_state = State.MOVE_TO_TARGET
 			delay_schedule = true
@@ -237,6 +239,7 @@ func _on_interact_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 
 
 func _on_interact_mouse_entered() -> void:
+	
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 

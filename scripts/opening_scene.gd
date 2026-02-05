@@ -169,7 +169,10 @@ func _on_timer2_timeout():
 	var tween2 = create_tween()
 	tween2.tween_property(Dim_bg, "color", Color(0, 0, 0, 1), 7.0)
 
-	
+	while(Dim_bg.color!=Color(0, 0, 0, 1)):
+		await get_tree().process_frame
+		
+	get_tree().change_scene_to_packed(HOUSE_INTERIOR)
 
 	
 	
